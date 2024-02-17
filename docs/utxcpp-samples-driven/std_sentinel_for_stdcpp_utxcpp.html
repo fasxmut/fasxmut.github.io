@@ -1,0 +1,212 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>std::sentinel_for - stdcpp Utxcpp</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Utxcpp Samples Driven">
+<link rel="up" href="stdcpp_utxcpp.html" title="stdcpp Utxcpp">
+<link rel="prev" href="std_input_iterator_stdcpp_utxcpp.html" title="std::input_iterator - stdcpp Utxcpp">
+<link rel="next" href="sycl_utxcpp.html" title="SYCL Utxcpp">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="std_input_iterator_stdcpp_utxcpp.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="stdcpp_utxcpp.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="sycl_utxcpp.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="std_sentinel_for_stdcpp_utxcpp"></a>std::sentinel_for - stdcpp Utxcpp</h2></div></div>
+<hr>
+</div>
+<h2>
+<a name="std_sentinel_for_stdcpp_utxcpp.h0"></a>
+        <span class="phrase"><a name="std_sentinel_for_stdcpp_utxcpp.role_cyan_std_sentinel_for_role_"></a></span><a class="link" href="std_sentinel_for_stdcpp_utxcpp.html#std_sentinel_for_stdcpp_utxcpp.role_cyan_std_sentinel_for_role_"><span class="cyan">std::sentinel_for</span> <span class="yellow">- What the hell
+        is it?</span></a>
+      </h2>
+<p>
+        <span class="bold"><strong><span class="green">std::sentinel_for concept: What
+        the hell is it?</span></strong></span>
+      </p>
+<h3>
+<a name="std_sentinel_for_stdcpp_utxcpp.h1"></a>
+        <span class="phrase"><a name="std_sentinel_for_stdcpp_utxcpp.according_to_cppreference"></a></span><a class="link" href="std_sentinel_for_stdcpp_utxcpp.html#std_sentinel_for_stdcpp_utxcpp.according_to_cppreference">According
+        to cppreference:</a>
+      </h3>
+<p>
+        The sentinel_for concept specifies the relationship between an input_or_output_iterator
+        type and a semiregular type whose values denote a range. The exposition-only
+        concept __WeaklyEqualityComparableWith is described in equality_comparable.
+        (<a href="https://en.cppreference.com/w/cpp/iterator/sentinel_for" target="_top">cppreference</a>)
+      </p>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span> <span class="keyword">class</span> <span class="identifier">S</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">I</span> <span class="special">&gt;</span>
+	<span class="identifier">concept</span> <span class="identifier">sentinel_for</span> <span class="special">=</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">semiregular</span><span class="special">&lt;</span><span class="identifier">S</span><span class="special">&gt;</span> <span class="special">&amp;&amp;</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">input_or_output_iterator</span><span class="special">&lt;</span><span class="identifier">I</span><span class="special">&gt;</span> <span class="special">&amp;&amp;</span>
+		<span class="identifier">__WeaklyEqualityComparableWith</span><span class="special">&lt;</span><span class="identifier">S</span><span class="special">,</span> <span class="identifier">I</span><span class="special">&gt;;</span>
+</pre>
+<h3>
+<a name="std_sentinel_for_stdcpp_utxcpp.h2"></a>
+        <span class="phrase"><a name="std_sentinel_for_stdcpp_utxcpp.two_parameters"></a></span><a class="link" href="std_sentinel_for_stdcpp_utxcpp.html#std_sentinel_for_stdcpp_utxcpp.two_parameters">Two
+        Parameters</a>
+      </h3>
+<p>
+        std::sentinel_for concept has two parameters: <span class="bold"><strong>S</strong></span>
+        and <span class="bold"><strong>I</strong></span> .
+      </p>
+<h3>
+<a name="std_sentinel_for_stdcpp_utxcpp.h3"></a>
+        <span class="phrase"><a name="std_sentinel_for_stdcpp_utxcpp.constraints"></a></span><a class="link" href="std_sentinel_for_stdcpp_utxcpp.html#std_sentinel_for_stdcpp_utxcpp.constraints">Constraints</a>
+      </h3>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+            <span class="bold"><strong>S constraints</strong></span>: <span class="red">std::semiregular</span>
+          </li></ul></div>
+<p>
+        Aka. It is just very basic object type concept, that requires basically copyable
+        (support by default) and default initializable (default constructor).
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+            <span class="bold"><strong>I constraints</strong></span>: <span class="red">std::input_or_output_iterator</span>
+          </li></ul></div>
+<p>
+        Aka. It is just very basic iterator type concept, that requires basically
+        supporting difference_type, ++i, i++, *i .
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+            <span class="bold"><strong>S and I contraints</strong></span>: <span class="red">Weakly
+            Equality Comparable</span>
+          </li></ul></div>
+<p>
+        Oh, that's the point. It requires S and I are basically comparable.
+      </p>
+<h2>
+<a name="std_sentinel_for_stdcpp_utxcpp.h4"></a>
+        <span class="phrase"><a name="std_sentinel_for_stdcpp_utxcpp.role_cyan_simply_overview_role_y"></a></span><a class="link" href="std_sentinel_for_stdcpp_utxcpp.html#std_sentinel_for_stdcpp_utxcpp.role_cyan_simply_overview_role_y"><span class="cyan">Simply Overview</span> <span class="yellow">- the Point :</span></a>
+      </h2>
+<p>
+        <span class="bold"><strong><span class="green">std::sentinel_for requires a type
+        S can be compared with an iterator I, but it does not require S has to be
+        an iterator.</span></strong></span>
+      </p>
+<h2>
+<a name="std_sentinel_for_stdcpp_utxcpp.h5"></a>
+        <span class="phrase"><a name="std_sentinel_for_stdcpp_utxcpp.role_cyan_c_example"></a></span><a class="link" href="std_sentinel_for_stdcpp_utxcpp.html#std_sentinel_for_stdcpp_utxcpp.role_cyan_c_example"><span class="cyan">c++ example</span></a>
+      </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iterator</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+</pre>
+<h3>
+<a name="std_sentinel_for_stdcpp_utxcpp.h6"></a>
+        <span class="phrase"><a name="std_sentinel_for_stdcpp_utxcpp.i_the_iterator"></a></span><a class="link" href="std_sentinel_for_stdcpp_utxcpp.html#std_sentinel_for_stdcpp_utxcpp.i_the_iterator">I:
+        the iterator</a>
+      </h3>
+<p>
+        First, let's write a simple basic iterator that minimally satisfies std::input_or_ouput_iterator.
+      </p>
+<pre class="programlisting"><span class="keyword">class</span> <span class="identifier">fizz_iterator</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">using</span> <span class="identifier">difference_type</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">i64</span><span class="special">;</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">fizz_iterator</span> <span class="special">&amp;</span> <span class="keyword">operator</span><span class="special">++()</span>	<span class="comment">// ++i</span>
+	<span class="special">{</span>
+		<span class="keyword">return</span> <span class="special">*</span><span class="keyword">this</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="identifier">fizz_iterator</span> <span class="keyword">operator</span><span class="special">++(</span><span class="keyword">int</span><span class="special">)</span>	<span class="comment">// i++</span>
+	<span class="special">{</span>
+		<span class="keyword">return</span> <span class="special">*</span><span class="keyword">this</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="keyword">int</span> <span class="keyword">operator</span><span class="special">*()</span>	<span class="comment">// *i	(minimally)</span>
+	<span class="special">{</span>
+		<span class="keyword">return</span> <span class="number">123</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="comment">// std::input_or_output_iterator concept test.</span>
+<span class="keyword">static_assert</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">input_or_output_iterator</span><span class="special">&lt;</span><span class="identifier">fizz_iterator</span><span class="special">&gt;);</span>
+</pre>
+<h3>
+<a name="std_sentinel_for_stdcpp_utxcpp.h7"></a>
+        <span class="phrase"><a name="std_sentinel_for_stdcpp_utxcpp.s_the_sentinel_target_type"></a></span><a class="link" href="std_sentinel_for_stdcpp_utxcpp.html#std_sentinel_for_stdcpp_utxcpp.s_the_sentinel_target_type">S: the
+        sentinel (target type)</a>
+      </h3>
+<p>
+        Then, let's write a basic type. basically copyable and default initializable
+        are supported by default.
+      </p>
+<p>
+        However, we have to let it comaprable with previous iterator above.
+      </p>
+<pre class="programlisting"><span class="keyword">class</span> <span class="identifier">target_type</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">==(</span><span class="keyword">const</span> <span class="identifier">fizz_iterator</span> <span class="special">&amp;)</span> <span class="keyword">const</span>	<span class="comment">// comparable	(require)</span>
+	<span class="special">{</span>
+		<span class="keyword">return</span> <span class="keyword">true</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="comment">// operator!= is auto deduced from operator== by default.</span>
+<span class="special">};</span>
+
+<span class="comment">// std::semiregular concept test</span>
+<span class="keyword">static_assert</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">semiregular</span><span class="special">&lt;</span><span class="identifier">target_type</span><span class="special">&gt;);</span>
+
+<span class="comment">// std::sentinel_for concept test</span>
+<span class="keyword">static_assert</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">sentinel_for</span><span class="special">&lt;</span><span class="identifier">target_type</span><span class="special">,</span> <span class="identifier">fizz_iterator</span><span class="special">&gt;);</span>
+</pre>
+<p>
+        That's it!
+      </p>
+<h3>
+<a name="std_sentinel_for_stdcpp_utxcpp.h8"></a>
+        <span class="phrase"><a name="std_sentinel_for_stdcpp_utxcpp.usage"></a></span><a class="link" href="std_sentinel_for_stdcpp_utxcpp.html#std_sentinel_for_stdcpp_utxcpp.usage">Usage</a>
+      </h3>
+<p>
+        At last, let's use it.
+      </p>
+<pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">begin_type</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">sentinel_for</span><span class="special">&lt;</span><span class="identifier">begin_type</span><span class="special">&gt;</span> <span class="identifier">end_type</span><span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">buzz_apply</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">constexpr</span> <span class="identifier">buzz_apply</span><span class="special">(</span><span class="identifier">begin_type</span> <span class="identifier">begin</span><span class="special">,</span> <span class="identifier">end_type</span> <span class="identifier">end</span><span class="special">)</span>	<span class="comment">// constexpr constructor</span>
+	<span class="special">{</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="special">[[</span><span class="identifier">maybe_unused</span><span class="special">]]</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">apply</span> <span class="special">=</span> <span class="identifier">buzz_apply</span><span class="special">{</span><span class="identifier">fizz_iterator</span><span class="special">{},</span> <span class="identifier">target_type</span><span class="special">{}};</span>
+</pre>
+<h3>
+<a name="std_sentinel_for_stdcpp_utxcpp.h9"></a>
+        <span class="phrase"><a name="std_sentinel_for_stdcpp_utxcpp.main"></a></span><a class="link" href="std_sentinel_for_stdcpp_utxcpp.html#std_sentinel_for_stdcpp_utxcpp.main">main</a>
+      </h3>
+<pre class="programlisting"><span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="std_sentinel_for_stdcpp_utxcpp.h10"></a>
+        <span class="phrase"><a name="std_sentinel_for_stdcpp_utxcpp.role_cyan_see_also"></a></span><a class="link" href="std_sentinel_for_stdcpp_utxcpp.html#std_sentinel_for_stdcpp_utxcpp.role_cyan_see_also"><span class="cyan">See Also</span></a>
+      </h2>
+<p>
+        <a href="https://en.cppreference.com/w/cpp/iterator/sentinel_for" target="_top">cppreference
+        std::sentinel_for</a>
+      </p>
+<p>
+        <a href="https://cppfx.xyz/utxcpp" target="_top">Utxcpp</a>
+      </p>
+<p>
+        <a href="https://cppfx.xyz/utxcpp/utx_ix64.html" target="_top">utx::ix64</a>
+      </p>
+</div>
+<div class="copyright-footer">Copyright © 2022, 2023 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="std_input_iterator_stdcpp_utxcpp.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="stdcpp_utxcpp.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="sycl_utxcpp.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,274 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Upcast, Downcast, Sidecast - stdcpp Utxcpp</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Utxcpp Samples Driven">
+<link rel="up" href="stdcpp_utxcpp.html" title="stdcpp Utxcpp">
+<link rel="prev" href="std_bit_floor_std_bit_ceil_stdcp.html" title="std::bit_floor, std::bit_ceil - stdcpp Utxcpp">
+<link rel="next" href="std_barrier_stdcpp_utxcpp.html" title="std::barrier - stdcpp Utxcpp">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="std_bit_floor_std_bit_ceil_stdcp.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="stdcpp_utxcpp.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="std_barrier_stdcpp_utxcpp.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="upcast_downcast_sidecast_stdcpp_"></a>Upcast, Downcast, Sidecast - stdcpp Utxcpp</h2></div></div>
+<hr>
+</div>
+<h2>
+<a name="upcast_downcast_sidecast_stdcpp_.h0"></a>
+        <span class="phrase"><a name="upcast_downcast_sidecast_stdcpp_.role_cyan_upcast_downcast_and_si"></a></span><a class="link" href="upcast_downcast_sidecast_stdcpp_.html#upcast_downcast_sidecast_stdcpp_.role_cyan_upcast_downcast_and_si"><span class="cyan">upcast, downcast, and sidecast</span></a>
+      </h2>
+<p>
+        c++ polymorphism dynamic_cast can be used in upcast, downcast, and sidecast.
+      </p>
+<h2>
+<a name="upcast_downcast_sidecast_stdcpp_.h1"></a>
+        <span class="phrase"><a name="upcast_downcast_sidecast_stdcpp_.role_cyan_dynamic_cast_in_upcast"></a></span><a class="link" href="upcast_downcast_sidecast_stdcpp_.html#upcast_downcast_sidecast_stdcpp_.role_cyan_dynamic_cast_in_upcast"><span class="cyan">dynamic_cast in upcast</span></a>
+      </h2>
+<p>
+        Upcast: cast a derived class object reference or pointer to its base class
+        type.
+      </p>
+<p>
+        c++ dynamic_cast can be used to upcast directly.
+      </p>
+<pre class="programlisting"><span class="keyword">class</span> <span class="identifier">base_class</span> <span class="special">{};</span>
+<span class="keyword">class</span> <span class="identifier">derived_class</span><span class="special">:</span> <span class="keyword">public</span> <span class="identifier">base_class</span> <span class="special">{};</span>
+
+<span class="identifier">derived_class</span> <span class="identifier">derived</span><span class="special">;</span>
+<span class="identifier">base_class</span> <span class="special">&amp;</span> <span class="identifier">base1</span> <span class="special">=</span> <span class="keyword">dynamic_cast</span><span class="special">&lt;</span><span class="identifier">base_class</span> <span class="special">&amp;&gt;(</span><span class="identifier">derived</span><span class="special">);</span> <span class="comment">// OK, upcast</span>
+<span class="identifier">base_class</span> <span class="special">*</span> <span class="identifier">base2</span> <span class="special">=</span> <span class="keyword">dynamic_cast</span><span class="special">&lt;</span><span class="identifier">base_class</span> <span class="special">*&gt;(&amp;</span><span class="identifier">derived</span><span class="special">);</span> <span class="comment">// OK, upcast</span>
+</pre>
+<p>
+        <span class="red">The actually created object is just the derived class
+        object.</span>
+      </p>
+<h2>
+<a name="upcast_downcast_sidecast_stdcpp_.h2"></a>
+        <span class="phrase"><a name="upcast_downcast_sidecast_stdcpp_.role_cyan_dynamic_cast_in_downca"></a></span><a class="link" href="upcast_downcast_sidecast_stdcpp_.html#upcast_downcast_sidecast_stdcpp_.role_cyan_dynamic_cast_in_downca"><span class="cyan">dynamic_cast in downcast</span></a>
+      </h2>
+<p>
+        Downcast: cast an object reference or pointer from base type to derived type.
+      </p>
+<p>
+        If you want to use dynamic_cast to downcast, a virtual member function or
+        virtual destructor must be declared in base class, or declared in base class
+        of base class, or declared in any ancestor of base class.
+      </p>
+<p>
+        If you want to use dynamic_cast to downcast successful, the actually created
+        object "by new" which the base object reference or pointer holds
+        must be the derived class object.
+      </p>
+<pre class="programlisting"><span class="keyword">class</span> <span class="identifier">base_class</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">virtual</span> <span class="special">~</span><span class="identifier">base</span><span class="special">()</span> <span class="special">{}</span>
+<span class="special">};</span>
+<span class="keyword">class</span> <span class="identifier">derived_class</span><span class="special">:</span> <span class="keyword">public</span> <span class="identifier">base</span>
+<span class="special">{</span>
+<span class="special">};</span>
+<span class="identifier">base_class</span> <span class="identifier">base</span><span class="special">;</span>
+<span class="identifier">derived_class</span> <span class="special">&amp;</span> <span class="identifier">d1</span> <span class="special">=</span> <span class="keyword">dynamic_cast</span><span class="special">&lt;</span><span class="identifier">derived_class</span> <span class="special">&amp;&gt;(</span><span class="identifier">base</span><span class="special">);</span> <span class="comment">// OK, downcast</span>
+<span class="identifier">derived_class</span> <span class="special">*</span> <span class="identifier">d2</span> <span class="special">=</span> <span class="keyword">dynamic_cast</span><span class="special">&lt;</span><span class="identifier">derived_class</span> <span class="special">*&gt;(&amp;</span><span class="identifier">base</span><span class="special">);</span> <span class="comment">// OK, downcast</span>
+</pre>
+<p>
+        <span class="red">The actually created object must be the derived class
+        object.</span>
+      </p>
+<h2>
+<a name="upcast_downcast_sidecast_stdcpp_.h3"></a>
+        <span class="phrase"><a name="upcast_downcast_sidecast_stdcpp_.role_cyan_dynamic_cast_in_sideca"></a></span><a class="link" href="upcast_downcast_sidecast_stdcpp_.html#upcast_downcast_sidecast_stdcpp_.role_cyan_dynamic_cast_in_sideca"><span class="cyan">dynamic_cast in sidecast</span></a>
+      </h2>
+<p>
+        Sidecast: cast an object reference or pointer from one base class type of
+        derived class to another base class type of the same derived class.
+      </p>
+<p>
+        Same as downcast, to use dynamic_cast to sidecast also requires a virtual
+        member function or virtual destructor is declared in base class that to be
+        casted, or declared in any ancestor of that base class.
+      </p>
+<p>
+        Same as downcast, if you want to use dynamic_cast to sidecast successful,
+        the actually created object "by new" which the base object reference
+        or pointer holds must be the derived class object.
+      </p>
+<pre class="programlisting"><span class="keyword">class</span> <span class="identifier">a_base_class</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">virtual</span> <span class="special">~</span><span class="identifier">a_base_class</span><span class="special">()</span>
+	<span class="special">{</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+<span class="keyword">class</span> <span class="identifier">b_base_class</span> <span class="special">{};</span>
+<span class="keyword">class</span> <span class="identifier">derived_class</span><span class="special">:</span> <span class="keyword">virtual</span> <span class="keyword">public</span> <span class="identifier">a_base_class</span><span class="special">,</span> <span class="keyword">virtual</span> <span class="keyword">public</span> <span class="identifier">b_base_class</span>
+<span class="special">{</span>
+<span class="special">};</span>
+<span class="identifier">a_base_class</span> <span class="identifier">a_base</span><span class="special">;</span>
+<span class="identifier">b_base_class</span> <span class="special">&amp;</span> <span class="identifier">b_base1</span> <span class="special">=</span> <span class="keyword">dynamic_cast</span><span class="special">&lt;</span><span class="identifier">b_base_class</span> <span class="special">&amp;&gt;(</span><span class="identifier">a_base</span><span class="special">);</span>
+<span class="identifier">b_base_class</span> <span class="special">*</span> <span class="identifier">b_base2</span> <span class="special">=</span> <span class="keyword">dynamic_cast</span><span class="special">&lt;</span><span class="identifier">b_base_class</span> <span class="special">*&gt;(&amp;</span><span class="identifier">a_base</span><span class="special">);</span>
+</pre>
+<p>
+        <span class="red">The actually created object must be the derived class
+        object.</span>
+      </p>
+<p>
+        (<a href="https://cppfx.xyz/utxcpp/utx_print.html" target="_top">utx::print</a>)
+      </p>
+<h2>
+<a name="upcast_downcast_sidecast_stdcpp_.h4"></a>
+        <span class="phrase"><a name="upcast_downcast_sidecast_stdcpp_.role_cyan_note"></a></span><a class="link" href="upcast_downcast_sidecast_stdcpp_.html#upcast_downcast_sidecast_stdcpp_.role_cyan_note"><span class="cyan">Note</span></a>
+      </h2>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            <span class="bold"><strong>Now we have a conclusion, using dynamic_cast in
+            all of upcast, downcast, and sidecast, the actually created object is
+            the derived class object.</strong></span>
+          </li>
+<li class="listitem">
+            <span class="bold"><strong>Virtual derived does not affect dynamic_cast, but
+            virtual member function or virtual destructor affects it.</strong></span>
+          </li>
+</ul></div>
+<h2>
+<a name="upcast_downcast_sidecast_stdcpp_.h5"></a>
+        <span class="phrase"><a name="upcast_downcast_sidecast_stdcpp_.role_cyan_c_example"></a></span><a class="link" href="upcast_downcast_sidecast_stdcpp_.html#upcast_downcast_sidecast_stdcpp_.role_cyan_c_example"><span class="cyan">c++
+        example</span></a>
+      </h2>
+<div class="note"><table border="0" summary="Note">
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td>
+<th align="left">Note</th>
+</tr>
+<tr><td align="left" valign="top">
+<p>
+          Copyright (c) 2023 Fas Xmut (fasxmut at protonmail dot com)
+        </p>
+<p>
+          Distributed under the Boost Software License, Version 1.0. (See accompanying
+          file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+        </p>
+</td></tr>
+</table></div>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="comment">// The actually created object is just the derived class object.</span>
+<span class="keyword">auto</span> <span class="identifier">upcast</span> <span class="special">=</span> <span class="special">[]</span>
+<span class="special">{</span>
+	<span class="keyword">class</span> <span class="identifier">base_class</span> <span class="special">{};</span>
+	<span class="keyword">class</span> <span class="identifier">derived_class</span><span class="special">:</span> <span class="keyword">virtual</span> <span class="keyword">public</span> <span class="identifier">base_class</span> <span class="special">{};</span>
+	<span class="identifier">derived_class</span> <span class="identifier">derived</span><span class="special">;</span>
+	<span class="special">[[</span><span class="identifier">maybe_unused</span><span class="special">]]</span> <span class="identifier">base_class</span> <span class="special">&amp;</span> <span class="identifier">b1</span> <span class="special">=</span> <span class="keyword">dynamic_cast</span><span class="special">&lt;</span><span class="identifier">base_class</span> <span class="special">&amp;&gt;(</span><span class="identifier">derived</span><span class="special">);</span> <span class="comment">// OK, upcast</span>
+	<span class="special">[[</span><span class="identifier">maybe_unused</span><span class="special">]]</span> <span class="identifier">base_class</span> <span class="special">*</span> <span class="identifier">b2</span> <span class="special">=</span> <span class="keyword">dynamic_cast</span><span class="special">&lt;</span><span class="identifier">base_class</span> <span class="special">*&gt;(&amp;</span><span class="identifier">derived</span><span class="special">);</span> <span class="comment">// OK, upcast</span>
+<span class="special">};</span>
+
+<span class="comment">// The actually create object must be the derived class object.</span>
+<span class="keyword">auto</span> <span class="identifier">downcast</span> <span class="special">=</span> <span class="special">[]</span>
+<span class="special">{</span>
+	<span class="keyword">class</span> <span class="identifier">base_class</span>
+	<span class="special">{</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">base_class</span><span class="special">()</span> <span class="special">{</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"base_class"</span><span class="special">);}</span>
+		<span class="keyword">virtual</span> <span class="special">~</span><span class="identifier">base_class</span><span class="special">()</span> <span class="special">{</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"~base_class"</span><span class="special">);}</span> <span class="comment">// a "virtual" must be declared</span>
+	<span class="special">};</span>
+	<span class="keyword">class</span> <span class="identifier">derived_class</span><span class="special">:</span> <span class="keyword">virtual</span> <span class="keyword">public</span> <span class="identifier">base_class</span>
+	<span class="special">{</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">derived_class</span><span class="special">()</span> <span class="special">{</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"derived_class"</span><span class="special">);}</span>
+		<span class="special">~</span><span class="identifier">derived_class</span><span class="special">()</span> <span class="special">{</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"~derived_class"</span><span class="special">);}</span>
+	<span class="special">};</span>
+	<span class="special">{</span>
+		<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"---- ref 1 (downcast) ----"</span><span class="special">);</span>
+		<span class="identifier">base_class</span> <span class="special">&amp;</span> <span class="identifier">base</span> <span class="special">=</span> <span class="special">*</span><span class="keyword">new</span> <span class="identifier">derived_class</span><span class="special">;</span>
+		<span class="special">[[</span><span class="identifier">maybe_unused</span><span class="special">]]</span> <span class="identifier">derived_class</span> <span class="special">&amp;</span> <span class="identifier">d1</span> <span class="special">=</span> <span class="keyword">dynamic_cast</span><span class="special">&lt;</span><span class="identifier">derived_class</span> <span class="special">&amp;&gt;(</span><span class="identifier">base</span><span class="special">);</span> <span class="comment">// OK, downcast</span>
+		<span class="special">[[</span><span class="identifier">maybe_unused</span><span class="special">]]</span> <span class="identifier">derived_class</span> <span class="special">*</span> <span class="identifier">d2</span> <span class="special">=</span> <span class="keyword">dynamic_cast</span><span class="special">&lt;</span><span class="identifier">derived_class</span> <span class="special">*&gt;(&amp;</span><span class="identifier">base</span><span class="special">);</span> <span class="comment">// OK, downcast</span>
+		<span class="keyword">delete</span> <span class="special">&amp;</span><span class="identifier">base</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="special">{</span>
+		<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"---- ref 2 (downcast) ----"</span><span class="special">);</span>
+		<span class="identifier">derived_class</span> <span class="identifier">derived</span><span class="special">;</span>
+		<span class="identifier">base_class</span> <span class="special">&amp;</span> <span class="identifier">base</span> <span class="special">=</span> <span class="identifier">derived</span><span class="special">;</span>
+		<span class="special">[[</span><span class="identifier">maybe_unused</span><span class="special">]]</span> <span class="identifier">derived_class</span> <span class="special">&amp;</span> <span class="identifier">d1</span> <span class="special">=</span> <span class="keyword">dynamic_cast</span><span class="special">&lt;</span><span class="identifier">derived_class</span> <span class="special">&amp;&gt;(</span><span class="identifier">base</span><span class="special">);</span> <span class="comment">// OK, downcast</span>
+		<span class="special">[[</span><span class="identifier">maybe_unused</span><span class="special">]]</span> <span class="identifier">derived_class</span> <span class="special">*</span> <span class="identifier">d2</span> <span class="special">=</span> <span class="keyword">dynamic_cast</span><span class="special">&lt;</span><span class="identifier">derived_class</span> <span class="special">*&gt;(&amp;</span><span class="identifier">base</span><span class="special">);</span> <span class="comment">// OK, downcast</span>
+	<span class="special">}</span>
+	<span class="special">{</span>
+		<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"---- ptr (downcast) ----"</span><span class="special">);</span>
+		<span class="identifier">base_class</span> <span class="special">*</span> <span class="identifier">base</span> <span class="special">=</span> <span class="keyword">new</span> <span class="identifier">derived_class</span><span class="special">;</span>
+		<span class="special">[[</span><span class="identifier">maybe_unused</span><span class="special">]]</span> <span class="identifier">derived_class</span> <span class="special">&amp;</span> <span class="identifier">d1</span> <span class="special">=</span> <span class="keyword">dynamic_cast</span><span class="special">&lt;</span><span class="identifier">derived_class</span> <span class="special">&amp;&gt;(*</span><span class="identifier">base</span><span class="special">);</span> <span class="comment">// OK, downcast</span>
+		<span class="special">[[</span><span class="identifier">maybe_unused</span><span class="special">]]</span> <span class="identifier">derived_class</span> <span class="special">*</span> <span class="identifier">d2</span> <span class="special">=</span> <span class="keyword">dynamic_cast</span><span class="special">&lt;</span><span class="identifier">derived_class</span> <span class="special">*&gt;(</span><span class="identifier">base</span><span class="special">);</span> <span class="comment">// OK, downcast</span>
+		<span class="keyword">delete</span> <span class="identifier">base</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="comment">// The actually create object must be the derived class object.</span>
+<span class="keyword">auto</span> <span class="identifier">sidecast</span> <span class="special">=</span> <span class="special">[]</span>
+<span class="special">{</span>
+	<span class="keyword">class</span> <span class="identifier">a_base_class</span>
+	<span class="special">{</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">a_base_class</span><span class="special">()</span> <span class="special">{</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"a_base_class"</span><span class="special">);}</span>
+			<span class="comment">// "virtual" is necessary for a_base_class, but unnecessary for b_base_class.</span>
+		<span class="keyword">virtual</span> <span class="special">~</span><span class="identifier">a_base_class</span><span class="special">()</span> <span class="special">{</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"~a_base_class"</span><span class="special">);}</span>
+	<span class="special">};</span>
+	<span class="keyword">class</span> <span class="identifier">b_base_class</span>
+	<span class="special">{</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">b_base_class</span><span class="special">()</span> <span class="special">{</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"b_base_class"</span><span class="special">);}</span>
+		<span class="special">~</span><span class="identifier">b_base_class</span><span class="special">()</span> <span class="special">{</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"~b_base_class"</span><span class="special">);}</span>
+	<span class="special">};</span>
+	<span class="keyword">class</span> <span class="identifier">derived_class</span><span class="special">:</span> <span class="keyword">virtual</span> <span class="keyword">public</span> <span class="identifier">a_base_class</span><span class="special">,</span> <span class="keyword">virtual</span> <span class="keyword">public</span> <span class="identifier">b_base_class</span>
+	<span class="special">{</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">derived_class</span><span class="special">()</span> <span class="special">{</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"derived_class"</span><span class="special">);}</span>
+		<span class="special">~</span><span class="identifier">derived_class</span><span class="special">()</span> <span class="special">{</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"~derived_class"</span><span class="special">);}</span>
+	<span class="special">};</span>
+	<span class="special">{</span>
+		<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"---- ref 1 (sidecast) ---"</span><span class="special">);</span>
+		<span class="identifier">a_base_class</span> <span class="special">&amp;</span> <span class="identifier">base</span> <span class="special">=</span> <span class="special">*</span><span class="keyword">new</span> <span class="identifier">derived_class</span><span class="special">;</span>
+		<span class="special">[[</span><span class="identifier">maybe_unused</span><span class="special">]]</span> <span class="identifier">b_base_class</span> <span class="special">&amp;</span> <span class="identifier">b1</span> <span class="special">=</span> <span class="keyword">dynamic_cast</span><span class="special">&lt;</span><span class="identifier">b_base_class</span> <span class="special">&amp;&gt;(</span><span class="identifier">base</span><span class="special">);</span>
+		<span class="special">[[</span><span class="identifier">maybe_unused</span><span class="special">]]</span> <span class="identifier">b_base_class</span> <span class="special">*</span> <span class="identifier">b2</span> <span class="special">=</span> <span class="keyword">dynamic_cast</span><span class="special">&lt;</span><span class="identifier">b_base_class</span> <span class="special">*&gt;(&amp;</span><span class="identifier">base</span><span class="special">);</span>
+		<span class="keyword">delete</span> <span class="special">&amp;</span><span class="identifier">base</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="special">{</span>
+		<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"---- ref 2 (sidecast) ----"</span><span class="special">);</span>
+		<span class="identifier">derived_class</span> <span class="identifier">derived</span><span class="special">;</span>
+		<span class="identifier">a_base_class</span> <span class="special">&amp;</span> <span class="identifier">base</span> <span class="special">=</span> <span class="identifier">derived</span><span class="special">;</span>
+		<span class="special">[[</span><span class="identifier">maybe_unused</span><span class="special">]]</span> <span class="identifier">b_base_class</span> <span class="special">&amp;</span> <span class="identifier">b1</span> <span class="special">=</span> <span class="keyword">dynamic_cast</span><span class="special">&lt;</span><span class="identifier">b_base_class</span> <span class="special">&amp;&gt;(</span><span class="identifier">base</span><span class="special">);</span>
+		<span class="special">[[</span><span class="identifier">maybe_unused</span><span class="special">]]</span> <span class="identifier">b_base_class</span> <span class="special">*</span> <span class="identifier">b2</span> <span class="special">=</span> <span class="keyword">dynamic_cast</span><span class="special">&lt;</span><span class="identifier">b_base_class</span> <span class="special">*&gt;(&amp;</span><span class="identifier">base</span><span class="special">);</span>
+	<span class="special">}</span>
+	<span class="special">{</span>
+		<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"---- ptr (sidecast) ----"</span><span class="special">);</span>
+		<span class="identifier">a_base_class</span> <span class="special">*</span> <span class="identifier">base</span> <span class="special">=</span> <span class="keyword">new</span> <span class="identifier">derived_class</span><span class="special">;</span>
+		<span class="special">[[</span><span class="identifier">maybe_unused</span><span class="special">]]</span> <span class="identifier">b_base_class</span> <span class="special">&amp;</span> <span class="identifier">b1</span> <span class="special">=</span> <span class="keyword">dynamic_cast</span><span class="special">&lt;</span><span class="identifier">b_base_class</span> <span class="special">&amp;&gt;(*</span><span class="identifier">base</span><span class="special">);</span>
+		<span class="special">[[</span><span class="identifier">maybe_unused</span><span class="special">]]</span> <span class="identifier">b_base_class</span> <span class="special">*</span> <span class="identifier">b2</span> <span class="special">=</span> <span class="keyword">dynamic_cast</span><span class="special">&lt;</span><span class="identifier">b_base_class</span> <span class="special">*&gt;(</span><span class="identifier">base</span><span class="special">);</span>
+		<span class="keyword">delete</span> <span class="identifier">base</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">upcast</span><span class="special">();</span>
+	<span class="identifier">downcast</span><span class="special">();</span>
+	<span class="identifier">sidecast</span><span class="special">();</span>
+<span class="special">}</span>
+</pre>
+</div>
+<div class="copyright-footer">Copyright © 2022, 2023 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="std_bit_floor_std_bit_ceil_stdcp.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="stdcpp_utxcpp.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="std_barrier_stdcpp_utxcpp.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>utfs::copy_file</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Utxcpp Docs - Utxcpp Official Docs">
+<link rel="up" href="utfs_copy_paths.html" title="utfs copy paths">
+<link rel="prev" href="utfs_copy.html" title="utfs::copy">
+<link rel="next" href="utfs_copy_options_objects.html" title="utfs::copy_options objects">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="utfs_copy.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="utfs_copy_paths.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="utfs_copy_options_objects.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="utfs_copy_file"></a>utfs::copy_file</h2></div></div>
+<hr>
+</div>
+<h2>
+<a name="utfs_copy_file.h0"></a>
+          <span class="phrase"><a name="utfs_copy_file.role_cyan_utfs_copy_file"></a></span><a class="link" href="utfs_copy_file.html#utfs_copy_file.role_cyan_utfs_copy_file"><span class="cyan">utfs::copy_file</span></a>
+        </h2>
+<p>
+          utfs::copy_file() copies a file from "from" to "to".
+        </p>
+<p>
+          Return true if copied, otherwise return false.
+        </p>
+<h3>
+<a name="utfs_copy_file.h1"></a>
+          <span class="phrase"><a name="utfs_copy_file.default_copy_options"></a></span><a class="link" href="utfs_copy_file.html#utfs_copy_file.default_copy_options">default
+          copy options</a>
+        </h3>
+<p>
+          Try to use the best copy options: utfs::cpopt_best by default.
+        </p>
+<pre class="programlisting"><span class="keyword">namespace</span> <span class="identifier">utfs</span>
+<span class="special">{</span>
+
+<span class="keyword">bool</span> <span class="identifier">copy_file</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">utfs</span><span class="special">::</span><span class="identifier">path</span> <span class="special">&amp;</span> <span class="identifier">from</span><span class="special">,</span> <span class="keyword">const</span> <span class="identifier">utfs</span><span class="special">::</span><span class="identifier">path</span> <span class="special">&amp;</span> <span class="identifier">to</span><span class="special">)</span>
+<span class="special">{</span>
+	<span class="special">...</span>
+<span class="special">}</span>
+
+<span class="special">}</span>
+</pre>
+<p>
+          The default copy options value is bitwise-OR of the following values:
+        </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+              <span class="bold"><strong>utfs::cpopt_update_existing</strong></span>
+            </li>
+<li class="listitem">
+              <span class="bold"><strong>utfs::cpopt_recursive</strong></span> --------------
+              Useful for utfs::copy(??), might be ingored by utfs::copy_file(??).
+            </li>
+<li class="listitem">
+              <span class="bold"><strong>utfs::cpopt_copy_symlinks</strong></span> ----------
+              Copy symlinks as symlinks, not as the files they point to.
+            </li>
+<li class="listitem">
+              <span class="bold"><strong>utfs::cpopt_create_hard_links</strong></span> ------
+              Instead of creating copies of files, create hardlinks that resolve
+              to the same files as the originals.
+            </li>
+</ul></div>
+<h3>
+<a name="utfs_copy_file.h2"></a>
+          <span class="phrase"><a name="utfs_copy_file.set_copy_options"></a></span><a class="link" href="utfs_copy_file.html#utfs_copy_file.set_copy_options">set
+          copy options</a>
+        </h3>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+              Copy options cpot can be used to set the copy options.
+            </li></ul></div>
+<pre class="programlisting"><span class="keyword">namespace</span> <span class="identifier">utfs</span>
+<span class="special">{</span>
+
+<span class="keyword">bool</span> <span class="identifier">copy_file</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">utfs</span><span class="special">::</span><span class="identifier">path</span> <span class="special">&amp;</span> <span class="identifier">from</span><span class="special">,</span> <span class="keyword">const</span> <span class="identifier">utfs</span><span class="special">::</span><span class="identifier">path</span> <span class="special">&amp;</span> <span class="identifier">to</span><span class="special">,</span> <span class="keyword">const</span> <span class="identifier">utfs</span><span class="special">::</span><span class="identifier">copy_options</span> <span class="special">&amp;</span> <span class="identifier">cpopt</span><span class="special">)</span>
+<span class="special">{</span>
+	<span class="special">...</span>
+<span class="special">}</span>
+
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="utfs_copy_file.h3"></a>
+          <span class="phrase"><a name="utfs_copy_file.role_cyan_utfs_copy_file_c_examp"></a></span><a class="link" href="utfs_copy_file.html#utfs_copy_file.role_cyan_utfs_copy_file_c_examp"><span class="cyan">utfs::copy_file c++ example</span></a>
+        </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">utfs</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">fstream</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">utfs</span><span class="special">::</span><span class="identifier">chdir</span><span class="special">(</span><span class="identifier">utfs</span><span class="special">::</span><span class="identifier">tmpdir</span><span class="special">());</span>
+	<span class="special">{</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">ofstream</span><span class="special">{</span><span class="string">"cpp.txt"</span><span class="special">}</span> <span class="special">&lt;&lt;</span> <span class="string">"Hello, c++!"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;}</span>
+	<span class="identifier">utfs</span><span class="special">::</span><span class="identifier">copy_file</span><span class="special">(</span><span class="string">"cpp.txt"</span><span class="special">,</span> <span class="string">"cpp.log"</span><span class="special">);</span>
+<span class="special">}</span>
+</pre>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="utfs_copy.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="utfs_copy_paths.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="utfs_copy_options_objects.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

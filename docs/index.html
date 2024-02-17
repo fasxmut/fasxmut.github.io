@@ -1,0 +1,188 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>cppfx - cpp/c++, b2 build</title>
+<style>
+body {border:1px solid #ccc;background:#eee;font-size:15px;color:darkgreen}
+
+a {color:darkcyan}
+
+#body {border:1px solid #ccc;width:1400px;margin-top:10px;margin-left:auto;margin-right:auto;background:#ddd}
+
+/* #body #root */
+#root {border:1px solid #ccc;width:1300px;margin-top:20px;margin-bottom:200px;margin-left:auto;margin-right:auto;background:#bbb}
+
+/* #body #root #foot */
+#foot {text-align:center}
+
+/* #body #root #somebody */
+#somebody {width:100%;float:left;min-height:2000px;background:#ddd;}
+
+/* #body #root #somebody #head */
+#head {background:#eee;float:left;width:100%}
+
+/* #body #root #somebody #insomebody */
+#insomebody {float:left;margin-left:10px;margin-right:10px;margin-top:5px;margin-bottom:50px;border:1px solid #fff;padding-left:25px;padding-right:25px;padding-top:5px;padding-bottom:50px}
+
+/* #body #root #somebody #head h1 */
+h1 {text-align:center;font-size:70px;color:darkred}
+
+/* #body #root #somebody #head #selfhome */
+#selfhome {text-align:right;margin-right:100px;color:darkred}
+
+#body #root #somebody #insomebody .box {margin-right:15px;padding-left:20px;padding-right:20px;float:left;height:240px;background:#eee;border:1px solid #fff;margin-bottom:50px;max-width:250px}
+
+a:hover {background:#fff}
+
+#cpp-code-show #description {float:right;width:300px;}
+#cpp-code-show #description ul {background:#ccc;border-radius:5px;}
+#cpp-code-show pre {border:1px solid #0c0;color:darkred;width:900px;padding:10px;border-radius:5px;float:left;background:#bbb}
+#cpp-code-show #output {float:left}
+#cpp-code-show #output pre {color:darkcyan;background:#fff}
+
+</style>
+
+</head>
+<body>
+<div id="body">
+
+<div id="root">
+
+<div id="somebody">
+
+<div id="head">
+
+<h1>cppfx - cpp/c++, b2 build</h1>
+<p id="selfhome">https://cppfx.xyz</p>
+<hr />
+
+</div> <!-- id="head" -->
+<div style="clear:both"></div>
+
+<div id="insomebody">
+
+<div id="cpp-code-show">
+
+<h3>c++ now: cpp/c++ code using utxcpp</h3>
+
+<p>This program uses dynamic_cast for bidirectional conversion: cast from base_class to derived_class, and cast from derived_class to base_class.</p>
+
+<div id="description">
+<h4>API Used:</h4>
+<ul>
+<li>utx::print (<a href="https://cppfx.xyz/utxcpp/utx_print.html">See</a>)</li>
+<li>c++ dynamic_cast (<a href="https://en.cppreference.com/w/cpp/language/dynamic_cast">See</a>)</li>
+</ul>
+
+<p><a href="https://cppfx.xyz/utxcpp">Utxcpp</a></p>
+</div> <!-- id="description" -->
+
+<pre>
+#include &lt;utxcpp/core.hpp&gt;
+
+template &lt;typename derived_class&gt;
+class base_class
+{
+public:
+	virtual ~base_class() = default;
+public:
+	void fn() const
+	{
+		dynamic_cast&lt;const derived_class &&gt;(*this).func();
+	}
+public:
+	void fizz() const
+	{
+		utx::print("base_class::fizz");
+	}
+};
+
+class derived_class: public base_class&lt;derived_class&gt;
+{
+public:
+	void func() const
+	{
+		utx::print("derived_class::func");
+	}
+public:
+	void buzz() const
+	{
+		dynamic_cast&lt;const derived_class &&gt;(*this).fizz();
+	}
+};
+
+int main()
+{
+	derived_class dc1;
+	dc1.fn();
+	base_class&lt;derived_class&gt; && bc1 = derived_class{};
+	dynamic_cast&lt;derived_class &&gt;(bc1).buzz();
+}
+</pre>
+
+<div id="output">
+<h4>Output:</h4>
+<pre>
+derived_class::func
+base_class::fizz
+</pre>
+</div>
+
+</div> <!-- id="cpp-code-show" -->
+
+<div style="clear:both"></div>
+
+<div class="box">
+<h3>Utxcpp</h3>
+<p>Utxcpp is an easy and simple to use c++ library that makes simple things simple. Utxcpp has some classes, templates and functions that can be used in sycl kernel.</p>
+<p><a href="https://cppfx.xyz/utxcpp">Enter</a></p>
+</div>
+
+<div class="box">
+<h3>Utxcpp Samples Driven</h3>
+<p>Utxcpp Samples Driven Docs</p>
+<p><a href="https://cppfx.xyz/utxcpp-samples-driven">Enter</a></p>
+</div>
+
+<div class="box">
+<h3>Nirtcpp</h3>
+<p>Nirtcpp is a graphics and game <br />engine forked irrlicht.</p>
+<p><a href="https://cppfx.xyz/nirtcpp">Enter</a></p>
+</div>
+
+<div class="box">
+<h3>B2 Build</h3>
+<p>B2 is an easy to use and very <br />powerful cpp/c++ project <br />build system.</p>
+<p><a href="https://bfgroup.xyz/b2">Enter</a></p>
+</div>
+
+<div class="box">
+<h3>Utxcpp Install</h3>
+<p>Install b2 build, Install boostbook,<br />Install quickbook, Install Utxcpp</p>
+<p><a href="https://cppfx.xyz/utxcpp/install">Enter</a></p>
+</div>
+
+</div> <!-- id="insomebody" -->
+</div> <!-- id="somebody" -->
+<div style="clear:both"></div>
+
+<div id="foot">
+
+<p>
+<a href="https://cppfx.xyz">cppfx</a>
+&nbsp;/&nbsp;
+<a href="https://cppfx.xyz/utxcpp">Utxcpp</a>
+&nbsp;/&nbsp;
+<a href="https://cppfx.xyz/nirtcpp">Nirtcpp</a>
+</p>
+
+<p>@<a href="https://cppfx.xyz">cppfx</a></p>
+
+</div> <!-- id="foot" -->
+
+</div> <!-- id="root" -->
+
+</div> <!-- id="body" -->
+</body>
+</html>
+

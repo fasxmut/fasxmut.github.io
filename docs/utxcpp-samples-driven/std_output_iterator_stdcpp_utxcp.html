@@ -1,0 +1,277 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>std::output_iterator - stdcpp Utxcpp</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Utxcpp Samples Driven">
+<link rel="up" href="stdcpp_utxcpp.html" title="stdcpp Utxcpp">
+<link rel="prev" href="std_input_or_output_iterator_std.html" title="std::input_or_output_iterator - stdcpp Utxcpp">
+<link rel="next" href="std_input_iterator_stdcpp_utxcpp.html" title="std::input_iterator - stdcpp Utxcpp">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="std_input_or_output_iterator_std.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="stdcpp_utxcpp.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="std_input_iterator_stdcpp_utxcpp.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="std_output_iterator_stdcpp_utxcp"></a>std::output_iterator - stdcpp Utxcpp</h2></div></div>
+<hr>
+</div>
+<p>
+        std::output_iterator example: Write an output iterator.
+      </p>
+<h2>
+<a name="std_output_iterator_stdcpp_utxcp.h0"></a>
+        <span class="phrase"><a name="std_output_iterator_stdcpp_utxcp.role_cyan_std_output_iterator"></a></span><a class="link" href="std_output_iterator_stdcpp_utxcp.html#std_output_iterator_stdcpp_utxcp.role_cyan_std_output_iterator"><span class="cyan">std::output_iterator</span></a>
+      </h2>
+<p>
+        std::output_iterator concept is a refinement of std::input_or_output_iterator
+        that requires value writable.
+      </p>
+<p>
+        std::output_iterator concept is a refinement of input_or_output_iterator,
+        adding the requirement that it can be used to write values of type and value
+        category encoded by T (via indirectly_writable). equality_comparable is not
+        required. (<a href="https://en.cppreference.com/w/cpp/iterator/output_iterator" target="_top">cppreference</a>)
+      </p>
+<h3>
+<a name="std_output_iterator_stdcpp_utxcp.h1"></a>
+        <span class="phrase"><a name="std_output_iterator_stdcpp_utxcp.requirement_list"></a></span><a class="link" href="std_output_iterator_stdcpp_utxcp.html#std_output_iterator_stdcpp_utxcp.requirement_list">Requirement
+        List:</a>
+      </h3>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            <span class="bold"><strong>rule-a1</strong></span>. std::input_or_output_iterator
+          </li>
+<li class="listitem">
+            <span class="bold"><strong>rule-a2</strong></span>. std::indirectly_writable
+          </li>
+<li class="listitem">
+            <span class="bold"><strong>rule-a3</strong></span>. *i++ = std::forward&lt;T&gt;(t)
+          </li>
+</ul></div>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span> <span class="keyword">class</span> <span class="identifier">I</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">T</span> <span class="special">&gt;</span>
+<span class="identifier">concept</span> <span class="identifier">output_iterator</span> <span class="special">=</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">input_or_output_iterator</span><span class="special">&lt;</span><span class="identifier">I</span><span class="special">&gt;</span> <span class="special">&amp;&amp;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">indirectly_writable</span><span class="special">&lt;</span><span class="identifier">I</span><span class="special">,</span> <span class="identifier">T</span><span class="special">&gt;</span> <span class="special">&amp;&amp;</span>
+	<span class="identifier">requires</span><span class="special">(</span><span class="identifier">I</span> <span class="identifier">i</span><span class="special">,</span> <span class="identifier">T</span><span class="special">&amp;&amp;</span> <span class="identifier">t</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="special">*</span><span class="identifier">i</span><span class="special">++</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">forward</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;(</span><span class="identifier">t</span><span class="special">);</span> <span class="comment">// not required to be equality-preserving </span>
+	<span class="special">};</span>
+</pre>
+<h2>
+<a name="std_output_iterator_stdcpp_utxcp.h2"></a>
+        <span class="phrase"><a name="std_output_iterator_stdcpp_utxcp.role_cyan_c_example_write_an_out"></a></span><a class="link" href="std_output_iterator_stdcpp_utxcp.html#std_output_iterator_stdcpp_utxcp.role_cyan_c_example_write_an_out"><span class="cyan">c++ example: Write an output iterator</span></a>
+      </h2>
+<div class="note"><table border="0" summary="Note">
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td>
+<th align="left">Note</th>
+</tr>
+<tr><td align="left" valign="top">
+<p>
+          Copyright (c) 2023 Fas Xmut (fasxmut at protonmail dot com)
+        </p>
+<p>
+          Distributed under the Boost Software License, Version 1.0. (See accompanying
+          file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+        </p>
+</td></tr>
+</table></div>
+<h3>
+<a name="std_output_iterator_stdcpp_utxcp.h3"></a>
+        <span class="phrase"><a name="std_output_iterator_stdcpp_utxcp.headers"></a></span><a class="link" href="std_output_iterator_stdcpp_utxcp.html#std_output_iterator_stdcpp_utxcp.headers">Headers</a>
+      </h3>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iterator</span><span class="special">&gt;</span>	<span class="comment">// std::output_iterator</span>
+</pre>
+<h3>
+<a name="std_output_iterator_stdcpp_utxcp.h4"></a>
+        <span class="phrase"><a name="std_output_iterator_stdcpp_utxcp.std_input_or_output_iterator_req"></a></span><a class="link" href="std_output_iterator_stdcpp_utxcp.html#std_output_iterator_stdcpp_utxcp.std_input_or_output_iterator_req">std::input_or_output_iterator
+        requirements</a>
+      </h3>
+<p>
+        First, the class type must satisfy std::input_or_output_iterator.
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            A basical std::input_or_output_iterator must have <span class="bold"><strong>difference_type</strong></span>,
+            and support <span class="bold"><strong>++i</strong></span>, <span class="bold"><strong>i++</strong></span>,
+            <span class="bold"><strong>*i</strong></span>.
+          </li>
+<li class="listitem">
+            To satisfy <span class="bold"><strong>std::movable</strong></span>, implicit or
+            user-defined copy/move constructors and operator= must be valid, this
+            example uses user-defined.
+          </li>
+</ul></div>
+<h4>
+<a name="std_output_iterator_stdcpp_utxcp.h5"></a>
+        <span class="phrase"><a name="std_output_iterator_stdcpp_utxcp.role_red_rule_a1_std_input_or_ou"></a></span><a class="link" href="std_output_iterator_stdcpp_utxcp.html#std_output_iterator_stdcpp_utxcp.role_red_rule_a1_std_input_or_ou"><span class="bold"><strong><span class="red">rule-a1:</span></strong></span> (std::input_or_output_iterator)</a>
+      </h4>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            has <span class="bold"><strong>difference_type</strong></span>, and it must be
+            <span class="bold"><strong>std::signed_integral</strong></span>
+          </li>
+<li class="listitem">
+            has <span class="bold"><strong>i++</strong></span>
+          </li>
+<li class="listitem">
+            has <span class="bold"><strong>++i</strong></span>
+          </li>
+<li class="listitem">
+            has <span class="bold"><strong>*i</strong></span>
+          </li>
+<li class="listitem">
+            <span class="bold"><strong>user-defined or implicit copy/move constructors
+            and operator=</strong></span>
+          </li>
+</ul></div>
+<div class="note"><table border="0" summary="Note">
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td>
+<th align="left">Note</th>
+</tr>
+<tr><td align="left" valign="top">
+<h4>
+<a name="std_output_iterator_stdcpp_utxcp.h6"></a>
+          <span class="phrase"><a name="std_output_iterator_stdcpp_utxcp.difference_type"></a></span><a class="link" href="std_output_iterator_stdcpp_utxcp.html#std_output_iterator_stdcpp_utxcp.difference_type">Difference
+          Type:</a>
+        </h4>
+<p>
+          It is required from std::weakly_incrementable&lt;I&gt;:
+        </p>
+<p>
+          <span class="bold"><strong>(1)</strong></span> If I is iterator type, it requires
+          I has difference_type, and its difference_type satisfies std::signed_integral.
+        </p>
+<p>
+          <span class="bold"><strong>(2)</strong></span> If I is not iterator type, it requires
+          i1 - i2 type satisfies std::signed_integral, or I satsifes <span class="bold"><strong>(1)</strong></span>.
+        </p>
+</td></tr>
+</table></div>
+<pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">some_type</span><span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">fizz_iterator</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">using</span> <span class="identifier">difference_type</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">i64</span><span class="special">;</span>
+<span class="keyword">private</span><span class="special">:</span>
+	<span class="identifier">some_type</span> <span class="special">*</span> <span class="identifier">ptr</span> <span class="special">=</span> <span class="keyword">nullptr</span><span class="special">;</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">fizz_iterator</span><span class="special">(</span><span class="identifier">some_type</span> <span class="special">&amp;</span> <span class="identifier">some</span><span class="special">):</span>
+		<span class="identifier">ptr</span><span class="special">{&amp;</span><span class="identifier">some</span><span class="special">}</span>
+	<span class="special">{</span>
+	<span class="special">}</span>
+<span class="keyword">public</span><span class="special">:</span>
+<span class="comment">// User-defined copy and move constructors</span>
+	<span class="identifier">fizz_iterator</span><span class="special">(</span><span class="identifier">fizz_iterator</span><span class="special">&lt;</span><span class="identifier">some_type</span><span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">itr</span><span class="special">):</span>
+		<span class="identifier">ptr</span><span class="special">{</span><span class="identifier">itr</span><span class="special">.</span><span class="identifier">ptr</span><span class="special">}</span>
+	<span class="special">{</span>
+	<span class="special">}</span>
+	<span class="identifier">fizz_iterator</span><span class="special">(</span><span class="identifier">fizz_iterator</span><span class="special">&lt;</span><span class="identifier">some_type</span><span class="special">&gt;</span> <span class="special">&amp;&amp;</span> <span class="identifier">itr</span><span class="special">):</span>
+		<span class="identifier">ptr</span><span class="special">{</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">move</span><span class="special">(</span><span class="identifier">itr</span><span class="special">).</span><span class="identifier">ptr</span><span class="special">}</span>
+	<span class="special">{</span>
+	<span class="special">}</span>
+<span class="keyword">public</span><span class="special">:</span>
+<span class="comment">// User-defined copy and move operator=</span>
+	<span class="identifier">fizz_iterator</span><span class="special">&lt;</span><span class="identifier">some_type</span><span class="special">&gt;</span> <span class="special">&amp;</span> <span class="keyword">operator</span><span class="special">=(</span><span class="identifier">fizz_iterator</span><span class="special">&lt;</span><span class="identifier">some_type</span><span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">itr</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">ptr</span> <span class="special">=</span> <span class="identifier">itr</span><span class="special">.</span><span class="identifier">ptr</span><span class="special">;</span>
+		<span class="keyword">return</span> <span class="special">*</span><span class="keyword">this</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="identifier">fizz_iterator</span><span class="special">&lt;</span><span class="identifier">some_type</span><span class="special">&gt;</span> <span class="special">&amp;</span> <span class="keyword">operator</span><span class="special">=(</span><span class="identifier">fizz_iterator</span><span class="special">&lt;</span><span class="identifier">some_type</span><span class="special">&gt;</span> <span class="special">&amp;&amp;</span> <span class="identifier">itr</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">ptr</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">move</span><span class="special">(</span><span class="identifier">itr</span><span class="special">).</span><span class="identifier">ptr</span><span class="special">;</span>
+		<span class="keyword">return</span> <span class="special">*</span><span class="keyword">this</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="keyword">public</span><span class="special">:</span>
+<span class="comment">// Let i++, ++i work.</span>
+	<span class="identifier">fizz_iterator</span><span class="special">&lt;</span><span class="identifier">some_type</span><span class="special">&gt;</span> <span class="special">&amp;</span> <span class="keyword">operator</span><span class="special">++()</span>
+	<span class="special">{</span>
+		<span class="comment">// We do not actually execute ++i for this simple test, to avoid memory violation.</span>
+		<span class="keyword">return</span> <span class="special">*</span><span class="keyword">this</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="identifier">fizz_iterator</span><span class="special">&lt;</span><span class="identifier">some_type</span><span class="special">&gt;</span> <span class="keyword">operator</span><span class="special">++(</span><span class="keyword">int</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="comment">// We do not actually execute i++ for this simple test, to avoid memory violation.</span>
+		<span class="keyword">return</span> <span class="special">*</span><span class="keyword">this</span><span class="special">;</span>
+	<span class="special">}</span>
+</pre>
+<h2>
+<a name="std_output_iterator_stdcpp_utxcp.h7"></a>
+        <span class="phrase"><a name="std_output_iterator_stdcpp_utxcp.role_cyan_std_output_iterator_re"></a></span><a class="link" href="std_output_iterator_stdcpp_utxcp.html#std_output_iterator_stdcpp_utxcp.role_cyan_std_output_iterator_re"><span class="cyan">std::output_iterator requirements</span></a>
+      </h2>
+<p>
+        To support <span class="red">rule-a1</span>, <span class="bold"><strong>operator*</strong></span>
+        is enough; however, to support <span class="red">rule-a2</span> and <span class="red">rule-a3</span>, *i must be writable, so <span class="bold"><strong>operator*</strong></span>
+        must return a reference.
+      </p>
+<h4>
+<a name="std_output_iterator_stdcpp_utxcp.h8"></a>
+        <span class="phrase"><a name="std_output_iterator_stdcpp_utxcp.role_red_rule_a2_std_indirectly_"></a></span><a class="link" href="std_output_iterator_stdcpp_utxcp.html#std_output_iterator_stdcpp_utxcp.role_red_rule_a2_std_indirectly_"><span class="bold"><strong><span class="red">rule-a2:</span></strong></span> (std::indirectly_writable)</a>
+      </h4>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+            <span class="bold"><strong>operator* returns a reference</strong></span>, to let
+            it std::indirectly_writable
+          </li></ul></div>
+<h4>
+<a name="std_output_iterator_stdcpp_utxcp.h9"></a>
+        <span class="phrase"><a name="std_output_iterator_stdcpp_utxcp.role_red_rule_a3_i_std_forward_t"></a></span><a class="link" href="std_output_iterator_stdcpp_utxcp.html#std_output_iterator_stdcpp_utxcp.role_red_rule_a3_i_std_forward_t"><span class="bold"><strong><span class="red">rule-a3:</span></strong></span> (*i++ = std::forward&lt;T&gt;(t))</a>
+      </h4>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+            <span class="bold"><strong>*i++ = std::forward&lt;T&gt;(t);</strong></span>
+          </li></ul></div>
+<p>
+        <span class="red">*i</span> is already required by <span class="red">rule-a1</span>
+        and <span class="red">rule-a2</span>, <span class="red">i++</span>
+        is already required by <span class="red">rule-a1</span>. Then <span class="red">rule-a3</span> requires <span class="red">*i++</span> accepts
+        both Lvalue reference and Rvalue reference.
+      </p>
+<pre class="programlisting"><span class="keyword">public</span><span class="special">:</span>
+<span class="comment">// Let *i work, and writable.</span>
+	<span class="identifier">some_type</span> <span class="special">&amp;</span> <span class="keyword">operator</span><span class="special">*()</span>
+	<span class="special">{</span>
+		<span class="keyword">return</span> <span class="special">*</span><span class="identifier">ptr</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">static_assert</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">input_or_output_iterator</span><span class="special">&lt;</span><span class="identifier">fizz_iterator</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">fx64</span><span class="special">&gt;&gt;);</span>
+<span class="keyword">static_assert</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">output_iterator</span><span class="special">&lt;</span><span class="identifier">fizz_iterator</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">fx64</span><span class="special">&gt;,</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">fx64</span><span class="special">&gt;);</span>
+</pre>
+<h3>
+<a name="std_output_iterator_stdcpp_utxcp.h10"></a>
+        <span class="phrase"><a name="std_output_iterator_stdcpp_utxcp.main"></a></span><a class="link" href="std_output_iterator_stdcpp_utxcp.html#std_output_iterator_stdcpp_utxcp.main">main</a>
+      </h3>
+<pre class="programlisting"><span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="std_output_iterator_stdcpp_utxcp.h11"></a>
+        <span class="phrase"><a name="std_output_iterator_stdcpp_utxcp.role_cyan_see_also"></a></span><a class="link" href="std_output_iterator_stdcpp_utxcp.html#std_output_iterator_stdcpp_utxcp.role_cyan_see_also"><span class="cyan">See Also</span></a>
+      </h2>
+<p>
+        <a href="https://en.cppreference.com/w/cpp/iterator/output_iterator" target="_top">cppreference
+        std::output_iterator</a>
+      </p>
+<p>
+        <a href="https://cppfx.xyz/utxcpp/utx_ix64.html" target="_top">utx::ix64</a>
+      </p>
+</div>
+<div class="copyright-footer">Copyright © 2022, 2023 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="std_input_or_output_iterator_std.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="stdcpp_utxcpp.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="std_input_iterator_stdcpp_utxcpp.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

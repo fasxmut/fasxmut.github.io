@@ -1,0 +1,5 @@
+<map id="nirt::gui::IGUIFont" name="nirt::gui::IGUIFont">
+<area shape="rect" id="node1" title="Font interface." alt="" coords="29,80,165,107"/>
+<area shape="rect" id="node3" href="$classnirt_1_1gui_1_1IGUIFontBitmap.html" title="Font interface." alt="" coords="5,155,188,181"/>
+<area shape="rect" id="node2" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="9,5,185,32"/>
+</map>

@@ -1,0 +1,235 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Build Install Utxcpp</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Install - Utxcpp Official Docs">
+<link rel="up" href="index.html" title="Install - Utxcpp Official Docs">
+<link rel="prev" href="install_boost_doc_toolchain.html" title="Install Boost Doc Toolchain">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="install_boost_doc_toolchain.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="build_install_utxcpp"></a>Build Install Utxcpp</h1></div></div>
+<hr>
+</div>
+<h2>
+<a name="build_install_utxcpp.h0"></a>
+      <span class="phrase"><a name="build_install_utxcpp.role_cyan_build_install_utxcpp_u"></a></span><a class="link" href="build_install_utxcpp.html#build_install_utxcpp.role_cyan_build_install_utxcpp_u"><span class="cyan">Build Install Utxcpp - Utxcpp Official Docs</span></a>
+    </h2>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          Requirements
+        </li>
+<li class="listitem">
+          Build and Install Utxcpp
+        </li>
+<li class="listitem">
+          Build Utxcpp Docs
+        </li>
+</ul></div>
+<h2>
+<a name="build_install_utxcpp.h1"></a>
+      <span class="phrase"><a name="build_install_utxcpp.role_cyan_requirements"></a></span><a class="link" href="build_install_utxcpp.html#build_install_utxcpp.role_cyan_requirements"><span class="cyan">Requirements</span></a>
+    </h2>
+<h3>
+<a name="build_install_utxcpp.h2"></a>
+      <span class="phrase"><a name="build_install_utxcpp.build_toolchain_requirements"></a></span><a class="link" href="build_install_utxcpp.html#build_install_utxcpp.build_toolchain_requirements">Build
+      Toolchain Requirements</a>
+    </h3>
+<h4>
+<a name="build_install_utxcpp.h3"></a>
+      <span class="phrase"><a name="build_install_utxcpp.b2_build"></a></span><a class="link" href="build_install_utxcpp.html#build_install_utxcpp.b2_build">B2
+      Build</a>
+    </h4>
+<p>
+      To build and install utxcpp, you need to install b2 build toolchain:
+    </p>
+<p>
+      <a class="link" href="install_b2_build_toolchain.html" title="Install B2 Build Toolchain">Install B2 Build Toolchain</a>
+    </p>
+<h4>
+<a name="build_install_utxcpp.h4"></a>
+      <span class="phrase"><a name="build_install_utxcpp.boost_doc_toolchain"></a></span><a class="link" href="build_install_utxcpp.html#build_install_utxcpp.boost_doc_toolchain">Boost
+      Doc Toolchain</a>
+    </h4>
+<p>
+      To build utxcpp docs, you need to install boost doc toolchain (including boostbook
+      and quickbook):
+    </p>
+<p>
+      <a class="link" href="install_boost_doc_toolchain.html" title="Install Boost Doc Toolchain">Install Boost Doc Toolchain</a>
+    </p>
+<h3>
+<a name="build_install_utxcpp.h5"></a>
+      <span class="phrase"><a name="build_install_utxcpp.c_compilers_and_operating_system"></a></span><a class="link" href="build_install_utxcpp.html#build_install_utxcpp.c_compilers_and_operating_system">c++
+      compilers and operating systems Requirements</a>
+    </h3>
+<p>
+      Utxcpp can be built and installed on Linux, FreeBSD, Windows, this doc can
+      be applied to all of those operating systems.
+    </p>
+<p>
+      <span class="bold"><strong>However, it is well tested on these c++ compilers:</strong></span>
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          Linux
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; ">
+<li class="listitem">
+                gcc
+              </li>
+<li class="listitem">
+                dpcpp (Intel)
+              </li>
+<li class="listitem">
+                acpp (adaptivecpp)
+              </li>
+<li class="listitem">
+                clang
+              </li>
+</ul></div>
+        </li>
+<li class="listitem">
+          FreeBSD
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
+                clang (Requires upgrading libc++ to at least 17.0, or installing
+                freebsd current snapshot)
+              </li></ul></div>
+        </li>
+<li class="listitem">
+          Windws
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
+                msys2-mingw64 gcc
+              </li></ul></div>
+        </li>
+</ul></div>
+<h3>
+<a name="build_install_utxcpp.h6"></a>
+      <span class="phrase"><a name="build_install_utxcpp.c_language_standard_requirements"></a></span><a class="link" href="build_install_utxcpp.html#build_install_utxcpp.c_language_standard_requirements">c++
+      language standard Requirements</a>
+    </h3>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          <span class="bold"><strong>Language Features: <span class="blue">At least c++23</span></strong></span>
+        </li>
+<li class="listitem">
+          <span class="bold"><strong>Library Features: <span class="blue">At least c++23</span></strong></span>
+        </li>
+</ul></div>
+<h2>
+<a name="build_install_utxcpp.h7"></a>
+      <span class="phrase"><a name="build_install_utxcpp.role_cyan_build_and_install_utxc"></a></span><a class="link" href="build_install_utxcpp.html#build_install_utxcpp.role_cyan_build_and_install_utxc"><span class="cyan">Build and Install Utxcpp</span></a>
+    </h2>
+<p>
+      To build and install utxcpp, you need a modern c++ compiler, and b2 build.
+    </p>
+<h3>
+<a name="build_install_utxcpp.h8"></a>
+      <span class="phrase"><a name="build_install_utxcpp.get_utxcpp_source_code"></a></span><a class="link" href="build_install_utxcpp.html#build_install_utxcpp.get_utxcpp_source_code">Get
+      utxcpp source code</a>
+    </h3>
+<pre class="programlisting">$ fossil clone https://cppfx.xyz/code/utxcpp
+</pre>
+<h3>
+<a name="build_install_utxcpp.h9"></a>
+      <span class="phrase"><a name="build_install_utxcpp.configure"></a></span><a class="link" href="build_install_utxcpp.html#build_install_utxcpp.configure">Configure</a>
+    </h3>
+<pre class="programlisting">$ cd utxcpp
+$ b2 help		# Show project help, provided by utxcpp.
+$ b2 --help		# Show b2 program help, provided by b2 build.
+$ b2 config --prefix=/sand		# config, this is not build.
+</pre>
+<h3>
+<a name="build_install_utxcpp.h10"></a>
+      <span class="phrase"><a name="build_install_utxcpp.minimized_build_utxcpp_tests"></a></span><a class="link" href="build_install_utxcpp.html#build_install_utxcpp.minimized_build_utxcpp_tests">Minimized
+      Build Utxcpp Tests</a>
+    </h3>
+<pre class="programlisting">$ b2 -q -j7		# Start build.
+</pre>
+<p>
+      The default build will choose minimized build, which can be applied to all
+      supported compilers on all operating systems listed in the beginning of this
+      doc.
+    </p>
+<h3>
+<a name="build_install_utxcpp.h11"></a>
+      <span class="phrase"><a name="build_install_utxcpp.full_build_utxcpp_tests"></a></span><a class="link" href="build_install_utxcpp.html#build_install_utxcpp.full_build_utxcpp_tests">Full
+      Build Utxcpp Tests</a>
+    </h3>
+<pre class="programlisting">$ b2 -q -j7 all
+</pre>
+<p>
+      Full build is done by target <span class="bold"><strong>all</strong></span>, which is
+      only applied to specific compiler on specific operating system, that it is
+      useful for utxcpp library developer(s), and the utxcpp library users do not
+      have to care it.
+    </p>
+<div class="note"><table border="0" summary="Note">
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td>
+<th align="left">Note</th>
+</tr>
+<tr><td align="left" valign="top"><p>
+        Please note that when I said the utxcpp library users, I did not mean the
+        library users are rabble. Just they do not need to full build utxcpp tests
+        really, which can save lots of time and avoid unrelated verifications. The
+        library developer(s) treat themself as library users sometimes, because they
+        need it. In that case I wrote library for myself, then I use my library,
+        so I am library user now.
+      </p></td></tr>
+</table></div>
+<h3>
+<a name="build_install_utxcpp.h12"></a>
+      <span class="phrase"><a name="build_install_utxcpp.install_utxcpp"></a></span><a class="link" href="build_install_utxcpp.html#build_install_utxcpp.install_utxcpp">Install
+      Utxcpp</a>
+    </h3>
+<pre class="programlisting">$ su
+# b2 install
+</pre>
+<h2>
+<a name="build_install_utxcpp.h13"></a>
+      <span class="phrase"><a name="build_install_utxcpp.role_cyan_build_utxcpp_docs"></a></span><a class="link" href="build_install_utxcpp.html#build_install_utxcpp.role_cyan_build_utxcpp_docs"><span class="cyan">Build Utxcpp Docs</span></a>
+    </h2>
+<p>
+      To build utxcpp docs, you need b2 build and boost doc toolchain, including
+      boostbook and quickbook.
+    </p>
+<p>
+      Utxcpp docs are written with boost quickbook, they are lots of qbk files.
+    </p>
+<pre class="programlisting">$ cd &lt;UTXCPP-SOURCE-ROOT&gt;/docs
+$ b2 -q -j7
+</pre>
+<p>
+      The html docs will be generated to <span class="bold"><strong>&lt;UTXCPP-SOURCE-ROOT&gt;/docs/html/</strong></span>
+      from qbk files .
+    </p>
+<h2>
+<a name="build_install_utxcpp.h14"></a>
+      <span class="phrase"><a name="build_install_utxcpp.role_cyan_see_also"></a></span><a class="link" href="build_install_utxcpp.html#build_install_utxcpp.role_cyan_see_also"><span class="cyan">See Also</span></a>
+    </h2>
+<p>
+      <a class="link" href="install_b2_build_toolchain.html" title="Install B2 Build Toolchain">Install B2 Build Toolchain</a>
+    </p>
+<p>
+      <a class="link" href="install_boost_doc_toolchain.html" title="Install Boost Doc Toolchain">Install Boost Doc Toolchain</a>
+    </p>
+</div>
+<div class="copyright-footer">Copyright © 2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="install_boost_doc_toolchain.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+</body>
+</html>

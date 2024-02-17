@@ -1,0 +1,9 @@
+<map id="nirt::scene::IMeshBuffer" name="nirt::scene::IMeshBuffer">
+<area shape="rect" id="node1" title="Struct for holding a mesh with a single material." alt="" coords="229,97,405,124"/>
+<area shape="rect" id="node3" href="$classnirt_1_1scene_1_1CMeshBuffer.html" title="Template implementation of the IMeshBuffer interface for 16&#45;bit buffers." alt="" coords="453,5,672,32"/>
+<area shape="rect" id="node4" href="$classnirt_1_1scene_1_1IDynamicMeshBuffer.html" title=" " alt="" coords="465,57,660,98"/>
+<area shape="rect" id="node6" href="$structnirt_1_1scene_1_1SSharedMeshBuffer.html" title="Implementation of the IMeshBuffer interface with shared vertex list." alt="" coords="469,122,656,163"/>
+<area shape="rect" id="node7" href="$structnirt_1_1scene_1_1SSkinMeshBuffer.html" title="A mesh buffer able to choose between S3DVertex2TCoords, S3DVertex and S3DVertexTangents at runtime." alt="" coords="459,188,667,215"/>
+<area shape="rect" id="node2" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="5,97,181,124"/>
+<area shape="rect" id="node5" href="$classnirt_1_1scene_1_1CDynamicMeshBuffer.html" title="Implementation of the IMeshBuffer interface for which can work with 16 and 32 bit indices as well as ..." alt="" coords="720,57,920,98"/>
+</map>

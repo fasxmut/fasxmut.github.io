@@ -1,0 +1,4 @@
+<map id="nirt::scene::IMeshManipulator" name="nirt::scene::IMeshManipulator">
+<area shape="rect" id="node1" title="An interface for easy manipulation of meshes." alt="" coords="5,80,220,107"/>
+<area shape="rect" id="node2" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="25,5,201,32"/>
+</map>

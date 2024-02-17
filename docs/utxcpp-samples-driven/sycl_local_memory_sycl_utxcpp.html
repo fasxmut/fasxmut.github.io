@@ -1,0 +1,127 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>SYCL Local Memory - SYCL Utxcpp</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Utxcpp Samples Driven">
+<link rel="up" href="sycl_utxcpp.html" title="SYCL Utxcpp">
+<link rel="prev" href="smart_pointer_sycl_utxcpp.html" title="Smart Pointer - SYCL Utxcpp">
+<link rel="next" href="uflat_vector_sycl_utxcpp.html" title="uflat::vector - SYCL Utxcpp">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="smart_pointer_sycl_utxcpp.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="sycl_utxcpp.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="uflat_vector_sycl_utxcpp.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="sycl_local_memory_sycl_utxcpp"></a>SYCL Local Memory - SYCL Utxcpp</h2></div></div>
+<hr>
+</div>
+<h2>
+<a name="sycl_local_memory_sycl_utxcpp.h0"></a>
+        <span class="phrase"><a name="sycl_local_memory_sycl_utxcpp.role_cyan_sycl_local_memory_lm"></a></span><a class="link" href="sycl_local_memory_sycl_utxcpp.html#sycl_local_memory_sycl_utxcpp.role_cyan_sycl_local_memory_lm"><span class="cyan">SYCL Local Memory - LM</span></a>
+      </h2>
+<p>
+        (<a href="https://cppfx.xyz/utxcpp/utx_fx32.html" target="_top">utx::fx32</a>) (<a href="https://cppfx.xyz/utxcpp/utx_print.html" target="_top">utx::print</a>)
+      </p>
+<pre class="programlisting"><span class="comment">//</span>
+<span class="comment">// Copyright (c) 2023 Fas Xmut (fasxmut at protonmail dot com)</span>
+<span class="comment">//</span>
+<span class="comment">// Distributed under the Boost Software License, Version 1.0. (See accompanying</span>
+<span class="comment">// file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)</span>
+<span class="comment">//</span>
+
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">sycl</span><span class="special">/</span><span class="identifier">sycl</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">math</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">algorithm</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">sycl</span><span class="special">::</span><span class="identifier">device</span> <span class="identifier">device</span><span class="special">{</span><span class="identifier">sycl</span><span class="special">::</span><span class="identifier">gpu_selector_v</span><span class="special">};</span>
+	<span class="keyword">auto</span> <span class="identifier">lmsize</span> <span class="special">=</span> <span class="identifier">device</span><span class="special">.</span><span class="identifier">get_info</span><span class="special">&lt;</span><span class="identifier">sycl</span><span class="special">::</span><span class="identifier">info</span><span class="special">::</span><span class="identifier">device</span><span class="special">::</span><span class="identifier">local_mem_size</span><span class="special">&gt;();</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"max local memory size:"</span><span class="special">,</span> <span class="identifier">lmsize</span><span class="special">);</span>
+	<span class="identifier">sycl</span><span class="special">::</span><span class="identifier">queue</span> <span class="identifier">queue</span><span class="special">{</span><span class="identifier">device</span><span class="special">};</span>
+	
+	<span class="keyword">constexpr</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">ux32</span> <span class="identifier">gsize</span> <span class="special">=</span> <span class="number">8</span><span class="special">;</span> <span class="comment">// global range will be 8x8</span>
+	<span class="keyword">constexpr</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">ux32</span> <span class="identifier">lsize</span> <span class="special">=</span> <span class="number">2</span><span class="special">;</span> <span class="comment">// local range will be 2x2</span>
+
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">fx32</span><span class="special">&gt;</span> <span class="identifier">vector</span><span class="special">(</span><span class="identifier">gsize</span><span class="special">*</span><span class="identifier">gsize</span><span class="special">);</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">iota</span><span class="special">(</span><span class="identifier">vector</span><span class="special">,</span> <span class="number">1.0f</span><span class="special">);</span>
+
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"vector:"</span><span class="special">);</span>
+	<span class="keyword">for</span> <span class="special">(</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">ux32</span> <span class="identifier">j</span><span class="special">=</span><span class="number">0</span><span class="special">;</span> <span class="identifier">j</span><span class="special">&lt;</span><span class="identifier">gsize</span><span class="special">;</span> <span class="identifier">j</span><span class="special">++)</span>
+	<span class="special">{</span>
+		<span class="keyword">for</span> <span class="special">(</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">ux32</span> <span class="identifier">i</span><span class="special">=</span><span class="number">0</span><span class="special">;</span> <span class="identifier">i</span><span class="special">&lt;</span><span class="identifier">gsize</span><span class="special">;</span> <span class="identifier">i</span><span class="special">++)</span>
+		<span class="special">{</span>
+			<span class="identifier">utx</span><span class="special">::</span><span class="identifier">printnl</span><span class="special">(</span><span class="identifier">vector</span><span class="special">[</span><span class="identifier">j</span><span class="special">*</span><span class="identifier">gsize</span><span class="special">+</span><span class="identifier">i</span><span class="special">],</span> <span class="string">""</span><span class="special">);</span>
+		<span class="special">}</span>
+		<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">();</span>
+	<span class="special">}</span>
+
+	<span class="keyword">auto</span> <span class="identifier">buffer</span> <span class="special">=</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">buffer</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">fx32</span><span class="special">,</span> <span class="number">2</span><span class="special">&gt;{</span><span class="identifier">vector</span><span class="special">.</span><span class="identifier">data</span><span class="special">(),</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">range</span><span class="special">&lt;</span><span class="number">2</span><span class="special">&gt;{</span><span class="identifier">gsize</span><span class="special">,</span> <span class="identifier">gsize</span><span class="special">}};</span>
+
+	<span class="identifier">queue</span><span class="special">.</span><span class="identifier">submit</span><span class="special">(</span>
+		<span class="special">[&amp;]</span> <span class="special">(</span><span class="identifier">sycl</span><span class="special">::</span><span class="identifier">handler</span> <span class="special">&amp;</span> <span class="identifier">handler</span><span class="special">)</span>
+		<span class="special">{</span>
+			<span class="keyword">auto</span> <span class="identifier">acc</span> <span class="special">=</span> <span class="identifier">buffer</span><span class="special">.</span><span class="identifier">get_access</span><span class="special">&lt;</span><span class="identifier">sycl</span><span class="special">::</span><span class="identifier">access_mode</span><span class="special">::</span><span class="identifier">read_write</span><span class="special">&gt;(</span><span class="identifier">handler</span><span class="special">);</span>
+			<span class="keyword">auto</span> <span class="identifier">lm</span> <span class="special">=</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">local_accessor</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">fx32</span><span class="special">,</span> <span class="number">2</span><span class="special">&gt;{</span><span class="identifier">sycl</span><span class="special">::</span><span class="identifier">range</span><span class="special">&lt;</span><span class="number">2</span><span class="special">&gt;{</span><span class="identifier">lsize</span><span class="special">*</span><span class="number">1</span><span class="special">,</span> <span class="identifier">lsize</span><span class="special">*</span><span class="number">1</span><span class="special">},</span> <span class="identifier">handler</span><span class="special">};</span>
+			<span class="identifier">handler</span><span class="special">.</span><span class="identifier">parallel_for</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">lm_kernel</span><span class="special">&gt;(</span>
+				<span class="identifier">sycl</span><span class="special">::</span><span class="identifier">nd_range</span><span class="special">&lt;</span><span class="number">2</span><span class="special">&gt;{</span>
+					<span class="identifier">sycl</span><span class="special">::</span><span class="identifier">range</span><span class="special">&lt;</span><span class="number">2</span><span class="special">&gt;{</span><span class="identifier">gsize</span><span class="special">,</span> <span class="identifier">gsize</span><span class="special">},</span>
+					<span class="identifier">sycl</span><span class="special">::</span><span class="identifier">range</span><span class="special">&lt;</span><span class="number">2</span><span class="special">&gt;{</span><span class="identifier">lsize</span><span class="special">,</span> <span class="identifier">lsize</span><span class="special">}</span>
+				<span class="special">},</span>
+				<span class="special">[=]</span> <span class="special">(</span><span class="identifier">sycl</span><span class="special">::</span><span class="identifier">nd_item</span><span class="special">&lt;</span><span class="number">2</span><span class="special">&gt;</span> <span class="identifier">item</span><span class="special">)</span>
+				<span class="special">{</span>
+					<span class="identifier">utx</span><span class="special">::</span><span class="identifier">ux32</span> <span class="identifier">gid0</span> <span class="special">=</span> <span class="identifier">item</span><span class="special">.</span><span class="identifier">get_global_id</span><span class="special">(</span><span class="number">0</span><span class="special">);</span>
+					<span class="identifier">utx</span><span class="special">::</span><span class="identifier">ux32</span> <span class="identifier">gid1</span> <span class="special">=</span> <span class="identifier">item</span><span class="special">.</span><span class="identifier">get_global_id</span><span class="special">(</span><span class="number">1</span><span class="special">);</span>
+					<span class="identifier">utx</span><span class="special">::</span><span class="identifier">ux32</span> <span class="identifier">lid0</span> <span class="special">=</span> <span class="identifier">item</span><span class="special">.</span><span class="identifier">get_local_id</span><span class="special">(</span><span class="number">0</span><span class="special">);</span>
+					<span class="identifier">utx</span><span class="special">::</span><span class="identifier">ux32</span> <span class="identifier">lid1</span> <span class="special">=</span> <span class="identifier">item</span><span class="special">.</span><span class="identifier">get_local_id</span><span class="special">(</span><span class="number">1</span><span class="special">);</span>
+					
+					<span class="comment">// name shorter alias</span>
+					<span class="identifier">utx</span><span class="special">::</span><span class="identifier">fx32</span> <span class="special">&amp;</span> <span class="identifier">lm0</span> <span class="special">=</span> <span class="identifier">lm</span><span class="special">[</span><span class="identifier">lid0</span><span class="special">][</span><span class="identifier">lid1</span><span class="special">];</span>
+					<span class="identifier">utx</span><span class="special">::</span><span class="identifier">fx32</span> <span class="special">&amp;</span> <span class="identifier">gm</span> <span class="special">=</span> <span class="identifier">acc</span><span class="special">[</span><span class="identifier">gid0</span><span class="special">][</span><span class="identifier">gid1</span><span class="special">];</span>
+
+					<span class="comment">// copy to sycl local memory</span>
+					<span class="identifier">lm0</span> <span class="special">=</span> <span class="identifier">gm</span><span class="special">;</span>
+					<span class="identifier">sycl</span><span class="special">::</span><span class="identifier">group_barrier</span><span class="special">(</span><span class="identifier">item</span><span class="special">.</span><span class="identifier">get_group</span><span class="special">());</span>
+
+					<span class="comment">// computing on local memory</span>
+					<span class="identifier">lm0</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">sqrt</span><span class="special">(</span><span class="identifier">lm0</span><span class="special">);</span>
+					<span class="identifier">sycl</span><span class="special">::</span><span class="identifier">group_barrier</span><span class="special">(</span><span class="identifier">item</span><span class="special">.</span><span class="identifier">get_group</span><span class="special">());</span>
+
+					<span class="comment">// copy from local memory to global memory</span>
+					<span class="identifier">gm</span> <span class="special">=</span> <span class="identifier">lm0</span><span class="special">;</span>
+				<span class="special">}</span>
+			<span class="special">);</span>
+		<span class="special">}</span>
+	<span class="special">);</span>
+	<span class="keyword">auto</span> <span class="identifier">acc</span> <span class="special">=</span> <span class="identifier">buffer</span><span class="special">.</span><span class="identifier">get_host_access</span><span class="special">();</span>
+
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"after utx::sqrt:"</span><span class="special">);</span>
+	<span class="keyword">for</span> <span class="special">(</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">ux32</span> <span class="identifier">j</span><span class="special">=</span><span class="number">0</span><span class="special">;</span> <span class="identifier">j</span><span class="special">&lt;</span><span class="identifier">gsize</span><span class="special">;</span> <span class="identifier">j</span><span class="special">++)</span>
+	<span class="special">{</span>
+		<span class="keyword">for</span> <span class="special">(</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">ux32</span> <span class="identifier">i</span><span class="special">=</span><span class="number">0</span><span class="special">;</span> <span class="identifier">i</span><span class="special">&lt;</span><span class="identifier">gsize</span><span class="special">;</span> <span class="identifier">i</span><span class="special">++)</span>
+		<span class="special">{</span>
+			<span class="identifier">utx</span><span class="special">::</span><span class="identifier">printnl</span><span class="special">(</span><span class="identifier">acc</span><span class="special">[</span><span class="identifier">j</span><span class="special">][</span><span class="identifier">i</span><span class="special">],</span> <span class="string">""</span><span class="special">);</span>
+		<span class="special">}</span>
+		<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">();</span>
+	<span class="special">}</span>
+<span class="special">}</span>
+</pre>
+</div>
+<div class="copyright-footer">Copyright © 2022, 2023 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="smart_pointer_sycl_utxcpp.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="sycl_utxcpp.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="uflat_vector_sycl_utxcpp.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

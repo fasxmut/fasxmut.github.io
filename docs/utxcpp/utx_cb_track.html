@@ -1,0 +1,290 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>utx::cb_track</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Utxcpp Docs - Utxcpp Official Docs">
+<link rel="up" href="track.html" title="Track">
+<link rel="prev" href="track.html" title="Track">
+<link rel="next" href="literals_list.html" title="Literals List">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="track.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="track.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="literals_list.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="utx_cb_track"></a>utx::cb_track</h2></div></div>
+<hr>
+</div>
+<p>
+        utx::cb_track is the callback tracker, to track how one api is calling back
+        another.
+      </p>
+<p>
+        It will display information with color highlighting.
+      </p>
+<p>
+        Utxcpp track and utxcpp core doesn't depend on each other.
+      </p>
+<h2>
+<a name="utx_cb_track.h0"></a>
+        <span class="phrase"><a name="utx_cb_track.role_cyan_class_track"></a></span><a class="link" href="utx_cb_track.html#utx_cb_track.role_cyan_class_track"><span class="cyan">class track</span></a>
+      </h2>
+<pre class="programlisting"><span class="keyword">class</span> <span class="identifier">cb_track</span> <span class="special">{</span>
+</pre>
+<pre class="programlisting"><span class="keyword">class</span> <span class="identifier">cb_track</span> <span class="special">{</span>
+<span class="keyword">private</span><span class="special">:</span>
+	<span class="keyword">class</span> <span class="identifier">Printer</span><span class="special">;</span>
+</pre>
+<h2>
+<a name="utx_cb_track.h1"></a>
+        <span class="phrase"><a name="utx_cb_track.role_cyan_constructors_and_metho"></a></span><a class="link" href="utx_cb_track.html#utx_cb_track.role_cyan_constructors_and_metho"><span class="cyan">Constructors and Methods</span></a>
+      </h2>
+<h3>
+<a name="utx_cb_track.h2"></a>
+        <span class="phrase"><a name="utx_cb_track.removed_constructors_and_methods"></a></span><a class="link" href="utx_cb_track.html#utx_cb_track.removed_constructors_and_methods">Removed
+        Constructors and methods</a>
+      </h3>
+<pre class="programlisting"><span class="identifier">cb_track</span><span class="special">()</span> <span class="special">=</span> <span class="keyword">delete</span><span class="special">;</span>
+<span class="identifier">cb_track</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">cb_track</span> <span class="special">&amp;)</span> <span class="special">=</span> <span class="keyword">delete</span><span class="special">;</span>
+<span class="identifier">cb_track</span> <span class="special">&amp;</span> <span class="keyword">operator</span><span class="special">=(</span><span class="keyword">const</span> <span class="identifier">cb_track</span> <span class="special">&amp;)</span> <span class="special">=</span> <span class="keyword">delete</span><span class="special">;</span>
+</pre>
+<h3>
+<a name="utx_cb_track.h3"></a>
+        <span class="phrase"><a name="utx_cb_track.constructors"></a></span><a class="link" href="utx_cb_track.html#utx_cb_track.constructors">Constructors</a>
+      </h3>
+<p>
+        Create an <span class="bold"><strong>utx::cb_track</strong></span> object and reset
+        the underlying <span class="bold"><strong>track_target</strong></span> and <span class="bold"><strong>optional_string</strong></span> value.
+      </p>
+<pre class="programlisting"><span class="identifier">cb_track</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="special">&amp;</span> <span class="identifier">target</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span>				<span class="comment">// (1)</span>
+
+<span class="identifier">cb_track</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="special">&amp;</span> <span class="identifier">target</span><span class="special">,</span> <span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="special">&amp;</span> <span class="identifier">optional</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span>	<span class="comment">// (2)</span>
+
+<span class="identifier">cb_track</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="special">&amp;</span> <span class="identifier">target</span><span class="special">,</span> <span class="keyword">const</span> <span class="identifier">T</span> <span class="special">&amp;</span> <span class="identifier">optional</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span>		<span class="comment">// (3)</span>
+</pre>
+<div class="note"><table border="0" summary="Note">
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td>
+<th align="left">Note</th>
+</tr>
+<tr><td align="left" valign="top"><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+              <span class="bold"><strong>track_target</strong></span>
+              <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
+                    All the underlying value <span class="bold"><strong>track_target</strong></span>
+                    will be reset to <span class="bold"><strong>target</strong></span>.
+                  </li></ul></div>
+            </li>
+<li class="listitem">
+              <span class="bold"><strong>optional_string</strong></span>
+              <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; ">
+<li class="listitem">
+                    <span class="bold"><strong>(1)</strong></span>. The underlying value <span class="bold"><strong>optional_string</strong></span> will be reset to <span class="bold"><strong>empty</strong></span>.
+                  </li>
+<li class="listitem">
+                    <span class="bold"><strong>(2) (3)</strong></span>. The underlying value
+                    <span class="bold"><strong>optional_string</strong></span> will be reset
+                    to <span class="bold"><strong>optional</strong></span>.
+                  </li>
+</ul></div>
+            </li>
+</ul></div></td></tr>
+</table></div>
+<h3>
+<a name="utx_cb_track.h4"></a>
+        <span class="phrase"><a name="utx_cb_track.method_reset"></a></span><a class="link" href="utx_cb_track.html#utx_cb_track.method_reset">Method
+        reset</a>
+      </h3>
+<p>
+        Reset the underlying <span class="bold"><strong>track_target</strong></span> and <span class="bold"><strong>optional_string</strong></span> value.
+      </p>
+<pre class="programlisting"><span class="keyword">void</span> <span class="identifier">reset</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="special">&amp;</span> <span class="identifier">target</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span>			<span class="comment">// (1)</span>
+
+<span class="keyword">void</span> <span class="identifier">reset</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="special">&amp;</span> <span class="identifier">target</span><span class="special">,</span> <span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="special">&amp;</span> <span class="identifier">optional</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span>	<span class="comment">// (2)</span>
+
+<span class="keyword">void</span> <span class="identifier">reset</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="special">&amp;</span> <span class="identifier">target</span><span class="special">,</span> <span class="keyword">const</span> <span class="identifier">T</span> <span class="special">&amp;</span> <span class="identifier">optional</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span>		<span class="comment">// (3)</span>
+</pre>
+<div class="note"><table border="0" summary="Note">
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td>
+<th align="left">Note</th>
+</tr>
+<tr><td align="left" valign="top"><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+              <span class="bold"><strong>track_target</strong></span>
+              <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
+                    All the underlying value <span class="bold"><strong>track_target</strong></span>
+                    will be reset to <span class="bold"><strong>target</strong></span>.
+                  </li></ul></div>
+            </li>
+<li class="listitem">
+              <span class="bold"><strong>optional_string</strong></span>
+              <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; ">
+<li class="listitem">
+                    <span class="bold"><strong>(1)</strong></span>. The underlying value <span class="bold"><strong>optional_string</strong></span> will be reset to <span class="bold"><strong>empty</strong></span>.
+                  </li>
+<li class="listitem">
+                    <span class="bold"><strong>(2) (3)</strong></span>. The underlying value
+                    <span class="bold"><strong>optional_string</strong></span> will be reset
+                    to <span class="bold"><strong>optional</strong></span>.
+                  </li>
+</ul></div>
+            </li>
+</ul></div></td></tr>
+</table></div>
+<h3>
+<a name="utx_cb_track.h5"></a>
+        <span class="phrase"><a name="utx_cb_track.method_operator"></a></span><a class="link" href="utx_cb_track.html#utx_cb_track.method_operator">Method
+        operator()</a>
+      </h3>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            Step 1. <span class="bold"><strong>(Only for (2), (3), (4))</strong></span> Reset
+            the underlying <span class="bold"><strong>track_target</strong></span> and <span class="bold"><strong>optional_string</strong></span> value; then
+          </li>
+<li class="listitem">
+            Step 2. Print the header to log object <span class="bold"><strong>cb_out</strong></span>;
+            then
+          </li>
+<li class="listitem">
+            Step 3. Return the underlying Printer object to receive new output streaming.
+          </li>
+</ul></div>
+<pre class="programlisting"><span class="identifier">Printer</span> <span class="special">&amp;</span> <span class="keyword">operator</span><span class="special">()();</span>									<span class="comment">// (1)</span>
+
+<span class="identifier">Printer</span> <span class="special">&amp;</span> <span class="keyword">operator</span><span class="special">()(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="special">&amp;</span> <span class="identifier">target</span><span class="special">);</span>				<span class="comment">// (2)</span>
+
+<span class="identifier">Printer</span> <span class="special">&amp;</span> <span class="keyword">operator</span><span class="special">()(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="special">&amp;</span> <span class="identifier">target</span><span class="special">,</span> <span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="special">&amp;</span> <span class="identifier">optional</span><span class="special">);</span>		<span class="comment">// (3)</span>
+
+<span class="identifier">Printer</span> <span class="special">&amp;</span> <span class="keyword">operator</span><span class="special">()(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="special">&amp;</span> <span class="identifier">target</span><span class="special">,</span> <span class="keyword">const</span> <span class="identifier">T</span> <span class="special">&amp;</span> <span class="identifier">optional</span><span class="special">);</span>			<span class="comment">// (4)</span>
+</pre>
+<div class="note"><table border="0" summary="Note">
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td>
+<th align="left">Note</th>
+</tr>
+<tr><td align="left" valign="top"><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+              <span class="bold"><strong>(1)</strong></span>
+              <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
+                    There is <span class="bold"><strong>no reset calling</strong></span>, so
+                    the underlying <span class="bold"><strong>track_target</strong></span>
+                    and <span class="bold"><strong>optional_string</strong></span> will keep
+                    <span class="bold"><strong>untouched</strong></span>.
+                  </li></ul></div>
+            </li>
+<li class="listitem">
+              <span class="bold"><strong>(2) (3) (4)</strong></span>:
+              <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
+                    All the underlying value <span class="bold"><strong>track_target</strong></span>
+                    will be reset to <span class="bold"><strong>target</strong></span>.
+                  </li></ul></div>
+            </li>
+<li class="listitem">
+              <span class="bold"><strong>optional_string</strong></span>
+              <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; ">
+<li class="listitem">
+                    <span class="bold"><strong>(2)</strong></span>. The underlying value <span class="bold"><strong>optional_string</strong></span> will be reset to <span class="bold"><strong>empty</strong></span>.
+                  </li>
+<li class="listitem">
+                    <span class="bold"><strong>(3) (4)</strong></span>. The underlying value
+                    <span class="bold"><strong>optional_string</strong></span> will be reset
+                    to <span class="bold"><strong>optional</strong></span>.
+                  </li>
+</ul></div>
+            </li>
+</ul></div></td></tr>
+</table></div>
+<h2>
+<a name="utx_cb_track.h6"></a>
+        <span class="phrase"><a name="utx_cb_track.role_cyan_example"></a></span><a class="link" href="utx_cb_track.html#utx_cb_track.role_cyan_example"><span class="cyan">Example</span></a>
+      </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">track</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">class</span> <span class="identifier">Hello</span> <span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">Hello</span><span class="special">()</span> <span class="special">{</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">cb_track</span><span class="special">{</span><span class="string">"Hello"</span><span class="special">}()</span> <span class="special">&lt;&lt;</span> <span class="char">'\n'</span><span class="special">;}</span>
+	<span class="special">~</span><span class="identifier">Hello</span><span class="special">()</span> <span class="special">{</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">cb_track</span><span class="special">{</span><span class="string">"~Hello"</span><span class="special">,</span> <span class="char">'\n'</span><span class="special">}();}</span>
+	<span class="keyword">void</span> <span class="identifier">fn</span><span class="special">()</span> <span class="special">{</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">cb_track</span><span class="special">{</span><span class="string">"fn"</span><span class="special">,</span> <span class="string">"\n"</span><span class="special">}();}</span>
+<span class="special">};</span>
+
+<span class="keyword">class</span> <span class="identifier">World</span> <span class="special">{</span>
+<span class="keyword">private</span><span class="special">:</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">cb_track</span> <span class="identifier">track</span><span class="special">{</span><span class="string">"World"</span><span class="special">,</span> <span class="string">"\n"</span><span class="special">};</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">World</span><span class="special">()</span> <span class="special">{</span><span class="identifier">track</span><span class="special">();}</span>
+	<span class="special">~</span><span class="identifier">World</span><span class="special">()</span> <span class="special">{</span><span class="identifier">track</span><span class="special">.</span><span class="identifier">reset</span><span class="special">(</span><span class="string">"~World"</span><span class="special">,</span> <span class="char">'\n'</span><span class="special">);</span> <span class="identifier">track</span><span class="special">();}</span>
+	<span class="keyword">void</span> <span class="identifier">fn</span><span class="special">()</span> <span class="special">{</span><span class="identifier">track</span><span class="special">.</span><span class="identifier">reset</span><span class="special">(</span><span class="string">"fn"</span><span class="special">,</span> <span class="string">"\n"</span><span class="special">);</span> <span class="identifier">track</span><span class="special">();}</span>
+<span class="special">};</span>
+
+<span class="keyword">class</span> <span class="identifier">Fizz</span> <span class="special">{</span>
+<span class="keyword">private</span><span class="special">:</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">cb_track</span> <span class="identifier">track</span><span class="special">{</span><span class="string">"class-Fizz"</span><span class="special">};</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">Fizz</span><span class="special">()</span> <span class="special">{</span>
+		<span class="identifier">track</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="string">"Constructor.\n"</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="special">~</span><span class="identifier">Fizz</span><span class="special">()</span> <span class="special">{</span>
+		<span class="identifier">track</span><span class="special">.</span><span class="identifier">reset</span><span class="special">(</span><span class="string">"~Fizz"</span><span class="special">);</span>
+		<span class="identifier">track</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="string">"Destructor.\n"</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="keyword">void</span> <span class="identifier">fn</span><span class="special">()</span> <span class="special">{</span>
+		<span class="identifier">track</span><span class="special">.</span><span class="identifier">reset</span><span class="special">(</span><span class="string">"Fizz::fn()"</span><span class="special">,</span> <span class="string">"Fizz::fn() is a useful method.\n"</span><span class="special">);</span>
+		<span class="identifier">track</span><span class="special">();</span>
+	<span class="special">}</span>
+	<span class="keyword">void</span> <span class="identifier">func</span><span class="special">()</span> <span class="special">{</span>
+		<span class="identifier">track</span><span class="special">(</span><span class="string">"Fizz::func()"</span><span class="special">,</span> <span class="string">"another method.\n"</span><span class="special">);</span>
+		<span class="identifier">track</span><span class="special">.</span><span class="identifier">reset</span><span class="special">(</span><span class="string">"Fizz::func"</span><span class="special">);</span>
+		<span class="identifier">track</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="string">"--------\n"</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span> <span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">clog</span> <span class="special">&lt;&lt;</span> <span class="string">"------------------------------------------------------------------------\n"</span><span class="special">;</span>
+	<span class="special">{</span><span class="identifier">Hello</span><span class="special">{}.</span><span class="identifier">fn</span><span class="special">();}</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">clog</span> <span class="special">&lt;&lt;</span> <span class="string">"------------------------------------------------------------------------\n"</span><span class="special">;</span>
+	<span class="special">{</span><span class="identifier">World</span><span class="special">{}.</span><span class="identifier">fn</span><span class="special">();}</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">clog</span> <span class="special">&lt;&lt;</span> <span class="string">"------------------------------------------------------------------------\n"</span><span class="special">;</span>
+	<span class="special">{</span><span class="identifier">Fizz</span><span class="special">().</span><span class="identifier">fn</span><span class="special">();}</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">clog</span> <span class="special">&lt;&lt;</span> <span class="string">"------------------------------------------------------------------------\n"</span><span class="special">;</span>
+	<span class="special">{</span><span class="identifier">Fizz</span><span class="special">().</span><span class="identifier">func</span><span class="special">();}</span>
+<span class="special">}</span>
+</pre>
+<p>
+        Output Result:
+      </p>
+<pre class="programlisting">------------------------------------------------------------------------
+[utx::cb_track *** Hello]
+[utx::cb_track *** fn]
+[utx::cb_track *** ~Hello]
+------------------------------------------------------------------------
+[utx::cb_track *** World]
+[utx::cb_track *** fn]
+[utx::cb_track *** ~World]
+------------------------------------------------------------------------
+[utx::cb_track *** class-Fizz] Constructor.
+[utx::cb_track *** Fizz::fn()] Fizz::fn() is a useful method.
+[utx::cb_track *** ~Fizz] Destructor.
+------------------------------------------------------------------------
+[utx::cb_track *** class-Fizz] Constructor.
+[utx::cb_track *** Fizz::func()] another method.
+[utx::cb_track *** Fizz::func] --------
+[utx::cb_track *** ~Fizz] Destructor.
+</pre>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="track.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="track.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="literals_list.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

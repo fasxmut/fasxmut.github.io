@@ -1,0 +1,7 @@
+<map id="nirt::video::SExposedVideoData" name="nirt::video::SExposedVideoData">
+<area shape="rect" id="node1" title="structure for holding data describing a driver and operating system specific data." alt="" coords="345,111,572,138"/>
+<area shape="rect" id="node2" href="$structnirt_1_1video_1_1SExposedVideoData_1_1SD3D9.html" title=" " alt="" coords="5,5,201,47"/>
+<area shape="rect" id="node3" href="$structnirt_1_1video_1_1SExposedVideoData_1_1SOpenGLWin32.html" title=" " alt="" coords="5,71,201,112"/>
+<area shape="rect" id="node4" href="$structnirt_1_1video_1_1SExposedVideoData_1_1SOpenGLLinux.html" title=" " alt="" coords="5,136,201,177"/>
+<area shape="rect" id="node5" href="$structnirt_1_1video_1_1SExposedVideoData_1_1SOpenGLOSX.html" title=" " alt="" coords="5,201,201,243"/>
+</map>

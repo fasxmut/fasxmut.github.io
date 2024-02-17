@@ -1,0 +1,121 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>std::transform utx::exp - stdcpp Utxcpp</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Utxcpp Samples Driven">
+<link rel="up" href="stdcpp_utxcpp.html" title="stdcpp Utxcpp">
+<link rel="prev" href="std_barrier_stdcpp_utxcpp.html" title="std::barrier - stdcpp Utxcpp">
+<link rel="next" href="indirectly_readable_writable_std.html" title="Indirectly Readable Writable - stdcpp Utxcpp">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="std_barrier_stdcpp_utxcpp.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="stdcpp_utxcpp.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="indirectly_readable_writable_std.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="std_transform_utx_exp_stdcpp_utx"></a>std::transform utx::exp - stdcpp Utxcpp</h2></div></div>
+<hr>
+</div>
+<h2>
+<a name="std_transform_utx_exp_stdcpp_utx.h0"></a>
+        <span class="phrase"><a name="std_transform_utx_exp_stdcpp_utx.role_cyan_std_transform_and_utx_"></a></span><a class="link" href="std_transform_utx_exp_stdcpp_utx.html#std_transform_utx_exp_stdcpp_utx.role_cyan_std_transform_and_utx_"><span class="cyan">std::transform and utx::exp, utx::cos, utx::sin</span></a>
+      </h2>
+<p>
+        std::transform is a c++ STL algorithm to transform a range with given algorithm,
+        every element of the range is transformed with the same algorithm.
+      </p>
+<p>
+        std::ranges::transform, the c++20 ranges of std::transform.
+      </p>
+<p>
+        utx::exp, utx::cos, utx::sin are provided by utxcpp library.
+      </p>
+<p>
+        (<a href="https://cppfx.xyz/utxcpp/utx_exp.html" target="_top">utx::exp</a>) (<a href="https://cppfx.xyz/utxcpp/utx_cos.html" target="_top">utx::cos</a>) (<a href="https://cppfx.xyz/utxcpp/utx_sin.html" target="_top">utx::sin</a>)
+        (<a href="https://cppfx.xyz/utxcpp/utx_fx32.html" target="_top">utx::fx32</a>) (<a href="https://cppfx.xyz/utxcpp/utx_print.html" target="_top">utx::print</a>)
+      </p>
+<h2>
+<a name="std_transform_utx_exp_stdcpp_utx.h1"></a>
+        <span class="phrase"><a name="std_transform_utx_exp_stdcpp_utx.role_cyan_c_example"></a></span><a class="link" href="std_transform_utx_exp_stdcpp_utx.html#std_transform_utx_exp_stdcpp_utx.role_cyan_c_example"><span class="cyan">c++
+        example</span></a>
+      </h2>
+<div class="note"><table border="0" summary="Note">
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td>
+<th align="left">Note</th>
+</tr>
+<tr><td align="left" valign="top">
+<p>
+          Copyright (c) 2023 Fas Xmut (fasxmut at protonmail dot com)
+        </p>
+<p>
+          Distributed under the Boost Software License, Version 1.0. (See accompanying
+          file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+        </p>
+</td></tr>
+</table></div>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">algorithm</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">vector</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">numeric</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">math</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">fx32</span><span class="special">&gt;</span> <span class="identifier">vector</span><span class="special">(</span><span class="number">13</span><span class="special">);</span> <span class="comment">// floating vector</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">iota</span><span class="special">(</span><span class="identifier">vector</span><span class="special">.</span><span class="identifier">begin</span><span class="special">(),</span> <span class="identifier">vector</span><span class="special">.</span><span class="identifier">end</span><span class="special">(),</span> <span class="number">1.0f</span><span class="special">);</span>
+
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">fx32</span><span class="special">&gt;</span> <span class="identifier">output</span><span class="special">(</span><span class="identifier">vector</span><span class="special">.</span><span class="identifier">size</span><span class="special">());</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">transform</span><span class="special">(</span>
+		<span class="identifier">vector</span><span class="special">.</span><span class="identifier">begin</span><span class="special">(),</span>
+		<span class="identifier">vector</span><span class="special">.</span><span class="identifier">end</span><span class="special">(),</span>
+		<span class="identifier">output</span><span class="special">.</span><span class="identifier">begin</span><span class="special">(),</span>
+		<span class="special">[]</span> <span class="special">(</span><span class="keyword">const</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">fx32</span> <span class="special">&amp;</span> <span class="identifier">value</span><span class="special">)</span>
+		<span class="special">{</span>
+			<span class="identifier">utx</span><span class="special">::</span><span class="identifier">fx32</span> <span class="identifier">tmp</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">exp</span><span class="special">(</span><span class="identifier">value</span><span class="special">);</span>
+			<span class="identifier">tmp</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">cos</span><span class="special">(</span><span class="identifier">tmp</span><span class="special">);</span>
+			<span class="keyword">return</span> <span class="identifier">tmp</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="special">);</span>
+
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">fx32</span><span class="special">&gt;</span> <span class="identifier">output2</span><span class="special">(</span><span class="identifier">output</span><span class="special">.</span><span class="identifier">size</span><span class="special">());</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">ranges</span><span class="special">::</span><span class="identifier">transform</span><span class="special">(</span>
+		<span class="identifier">output</span><span class="special">,</span>
+		<span class="identifier">output2</span><span class="special">.</span><span class="identifier">begin</span><span class="special">(),</span>
+		<span class="special">[]</span> <span class="special">(</span><span class="keyword">const</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">fx32</span> <span class="special">&amp;</span> <span class="identifier">value</span><span class="special">)</span>
+		<span class="special">{</span>
+			<span class="identifier">utx</span><span class="special">::</span><span class="identifier">fx32</span> <span class="identifier">tmp</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">exp</span><span class="special">(</span><span class="identifier">value</span><span class="special">);</span>
+			<span class="identifier">tmp</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">sin</span><span class="special">(</span><span class="identifier">tmp</span><span class="special">);</span>
+			<span class="keyword">return</span> <span class="identifier">tmp</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="special">);</span>
+
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">setprecision</span><span class="special">(</span><span class="number">6</span><span class="special">),</span> <span class="identifier">vector</span><span class="special">,</span> <span class="identifier">output</span><span class="special">,</span> <span class="identifier">output2</span><span class="special">);</span>
+<span class="special">}</span>
+</pre>
+<h3>
+<a name="std_transform_utx_exp_stdcpp_utx.h2"></a>
+        <span class="phrase"><a name="std_transform_utx_exp_stdcpp_utx.output_result"></a></span><a class="link" href="std_transform_utx_exp_stdcpp_utx.html#std_transform_utx_exp_stdcpp_utx.output_result">output
+        result:</a>
+      </h3>
+<pre class="programlisting">1.000000 2.000000 3.000000 4.000000 5.000000 6.000000 7.000000 8.000000 9.000000 10.000000 11.000000 12.000000 13.000000
+-0.911736 0.448368 0.328606 -0.370665 -0.726021 0.262520 -0.976736 -0.913107 -0.611265 -0.725522 -0.091782 0.168666 -0.047316
+0.391088 0.999987 0.983526 0.636749 0.465176 0.963613 0.367700 0.390601 0.516425 0.465388 0.790917 0.926019 0.815610
+</pre>
+</div>
+<div class="copyright-footer">Copyright © 2022, 2023 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="std_barrier_stdcpp_utxcpp.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="stdcpp_utxcpp.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="indirectly_readable_writable_std.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

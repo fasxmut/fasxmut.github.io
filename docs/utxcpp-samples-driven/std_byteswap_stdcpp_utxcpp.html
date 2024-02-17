@@ -1,0 +1,109 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>std::byteswap - stdcpp Utxcpp</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Utxcpp Samples Driven">
+<link rel="up" href="stdcpp_utxcpp.html" title="stdcpp Utxcpp">
+<link rel="prev" href="stdcpp_utxcpp.html" title="stdcpp Utxcpp">
+<link rel="next" href="std_bit_floor_std_bit_ceil_stdcp.html" title="std::bit_floor, std::bit_ceil - stdcpp Utxcpp">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="stdcpp_utxcpp.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="stdcpp_utxcpp.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="std_bit_floor_std_bit_ceil_stdcp.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="std_byteswap_stdcpp_utxcpp"></a>std::byteswap - stdcpp Utxcpp</h2></div></div>
+<hr>
+</div>
+<h2>
+<a name="std_byteswap_stdcpp_utxcpp.h0"></a>
+        <span class="phrase"><a name="std_byteswap_stdcpp_utxcpp.role_cyan_std_byteswap"></a></span><a class="link" href="std_byteswap_stdcpp_utxcpp.html#std_byteswap_stdcpp_utxcpp.role_cyan_std_byteswap"><span class="cyan">std::byteswap</span></a>
+      </h2>
+<p>
+        std::byteswap: Reverses the bytes in the given integer value n . It is c++23
+        library feature.
+      </p>
+<p>
+        (<a href="https://en.cppreference.com/w/cpp/numeric/byteswap" target="_top">std::byteswap</a>)
+        (<a href="https://cppfx.xyz/utxcpp/utx_ux32.html" target="_top">utx::ux32</a>) (<a href="https://cppfx.xyz/utxcpp/utx_ux16.html" target="_top">utx::ux16</a>) (<a href="https://cppfx.xyz/utxcpp/utx_print.html" target="_top">utx::print</a>)
+      </p>
+<h2>
+<a name="std_byteswap_stdcpp_utxcpp.h1"></a>
+        <span class="phrase"><a name="std_byteswap_stdcpp_utxcpp.role_cyan_c_example"></a></span><a class="link" href="std_byteswap_stdcpp_utxcpp.html#std_byteswap_stdcpp_utxcpp.role_cyan_c_example"><span class="cyan">c++ example</span></a>
+      </h2>
+<div class="note"><table border="0" summary="Note">
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td>
+<th align="left">Note</th>
+</tr>
+<tr><td align="left" valign="top">
+<p>
+          Copyright (c) 2023 Fas Xmut (fasxmut at protonmail dot com)
+        </p>
+<p>
+          Distributed under the Boost Software License, Version 1.0. (See accompanying
+          file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+        </p>
+</td></tr>
+</table></div>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">bit</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="special">{</span>
+		<span class="keyword">constexpr</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">u32</span> <span class="identifier">x1</span> <span class="special">=</span> <span class="number">0x12345678</span><span class="special">;</span>
+		<span class="keyword">constexpr</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">u16</span> <span class="identifier">x2</span> <span class="special">=</span> <span class="number">0x1234</span><span class="special">;</span>
+		<span class="keyword">constexpr</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">u32</span> <span class="identifier">y1</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">byteswap</span><span class="special">(</span><span class="identifier">x1</span><span class="special">);</span> <span class="comment">// OK</span>
+		<span class="keyword">constexpr</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">u32</span> <span class="identifier">y2</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">byteswap</span><span class="special">(</span><span class="identifier">x2</span><span class="special">);</span> <span class="comment">// OK</span>
+		<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">hex</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">showbase</span><span class="special">,</span> <span class="identifier">y1</span><span class="special">,</span> <span class="identifier">y2</span><span class="special">);</span> <span class="comment">// 0x78563412 0x3412</span>
+	<span class="special">}</span>
+	<span class="special">{</span>
+		<span class="keyword">constexpr</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">ux32</span> <span class="identifier">x1</span> <span class="special">=</span> <span class="number">0x12345678</span><span class="special">;</span>
+		<span class="keyword">constexpr</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">ux16</span> <span class="identifier">x2</span> <span class="special">=</span> <span class="number">0x1234</span><span class="special">;</span>
+		
+		<span class="comment">//constexpr utx::ux32 y1 = std::byteswap(x1); // error, because utx::ux32 is a class.</span>
+		<span class="comment">//constexpr utx::ux16 y2 = std::byteswap(x2); // error, because utx::ux16 is a class.</span>
+
+		<span class="keyword">constexpr</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">ux32</span> <span class="identifier">y1</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">byteswap</span><span class="special">(</span><span class="identifier">x1</span><span class="special">());</span> <span class="comment">// OK, call "operator()()"</span>
+		<span class="keyword">constexpr</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">ux16</span> <span class="identifier">y2</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">byteswap</span><span class="special">(</span><span class="identifier">x2</span><span class="special">());</span> <span class="comment">// OK, call "operator()()"</span>
+
+		<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">hex</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">showbase</span><span class="special">,</span> <span class="identifier">y1</span><span class="special">,</span> <span class="identifier">y2</span><span class="special">);</span> <span class="comment">// 0x78563412 0x3412</span>
+
+		<span class="comment">/*
+		These usage are OK too, have the same result:
+
+		constexpr utx::ux32 y1 = std::byteswap((utx::u32)x1); // call "operator basic_type ()"
+		constexpr utx::ux32 y2 = std::byteswap((utx::u16)x2); // call "operator basic_type ()"
+
+		constexpr utx::ux32 y1 = std::byteswap(x1.value());
+		constexpr utx::ux32 y2 = std::byteswap(x2.value());
+		*/</span>
+	<span class="special">}</span>
+	<span class="special">{</span>
+		<span class="keyword">constexpr</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">ux32</span> <span class="identifier">x1</span> <span class="special">=</span> <span class="number">0x12345678</span><span class="special">;</span>
+		<span class="keyword">constexpr</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">ux16</span> <span class="identifier">x2</span> <span class="special">=</span> <span class="number">0x1234</span><span class="special">;</span>
+		<span class="keyword">constexpr</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">ux32</span> <span class="identifier">y1</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">byteswap</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">u32</span><span class="special">&gt;(</span><span class="identifier">x1</span><span class="special">);</span> <span class="comment">// OK</span>
+		<span class="keyword">constexpr</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">ux16</span> <span class="identifier">y2</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">byteswap</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">u16</span><span class="special">&gt;(</span><span class="identifier">x2</span><span class="special">);</span>
+		<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">hex</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">showbase</span><span class="special">,</span> <span class="identifier">y1</span><span class="special">,</span> <span class="identifier">y2</span><span class="special">);</span> <span class="comment">// 0x78563412 0x3412</span>
+	<span class="special">}</span>
+<span class="special">}</span>
+</pre>
+</div>
+<div class="copyright-footer">Copyright © 2022, 2023 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="stdcpp_utxcpp.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="stdcpp_utxcpp.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="std_bit_floor_std_bit_ceil_stdcp.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

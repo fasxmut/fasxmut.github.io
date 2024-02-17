@@ -1,0 +1,5 @@
+<map id="nirt::scene::SMesh" name="nirt::scene::SMesh">
+<area shape="rect" id="node1" title="Simple implementation of the IMesh interface." alt="" coords="23,155,164,181"/>
+<area shape="rect" id="node2" href="$classnirt_1_1scene_1_1IMesh.html" title="Class which holds the geometry of an object." alt="" coords="25,80,162,107"/>
+<area shape="rect" id="node3" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="5,5,181,32"/>
+</map>

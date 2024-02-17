@@ -1,0 +1,135 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>utx::same_assert, utx::same_strip_assert</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Utxcpp Docs - Utxcpp Official Docs">
+<link rel="up" href="test.html" title="Test">
+<link rel="prev" href="utx_rt_assert.html" title="utx::rt_assert">
+<link rel="next" href="track.html" title="Track">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="utx_rt_assert.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="test.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="track.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="utx_same_assert_utx_same_strip_a"></a>utx::same_assert, utx::same_strip_assert</h2></div></div>
+<hr>
+</div>
+<h2>
+<a name="utx_same_assert_utx_same_strip_a.h0"></a>
+        <span class="phrase"><a name="utx_same_assert_utx_same_strip_a.role_cyan_utx_same_assert_utx_sa"></a></span><a class="link" href="utx_same_assert_utx_same_strip_a.html#utx_same_assert_utx_same_strip_a.role_cyan_utx_same_assert_utx_sa"><span class="cyan">utx::same_assert, utx::same_strip_assert</span></a>
+      </h2>
+<p>
+        utx::same_assert and utx::same_strip_assert are used to test if two types
+        are the same or not the same. They are alias template, being useful in compile-time.
+      </p>
+<h3>
+<a name="utx_same_assert_utx_same_strip_a.h1"></a>
+        <span class="phrase"><a name="utx_same_assert_utx_same_strip_a.utx_same_assert"></a></span><a class="link" href="utx_same_assert_utx_same_strip_a.html#utx_same_assert_utx_same_strip_a.utx_same_assert">utx::same_assert</a>
+      </h3>
+<pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">type_xt</span><span class="special">,</span> <span class="keyword">typename</span> <span class="identifier">type_yt</span><span class="special">,</span> <span class="keyword">bool</span> <span class="identifier">same</span><span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">same_assert_class</span><span class="special">;</span>
+</pre>
+<h4>
+<a name="utx_same_assert_utx_same_strip_a.h2"></a>
+        <span class="phrase"><a name="utx_same_assert_utx_same_strip_a.static_assert_is_evaluated_by_co"></a></span><a class="link" href="utx_same_assert_utx_same_strip_a.html#utx_same_assert_utx_same_strip_a.static_assert_is_evaluated_by_co">static_assert
+        is evaluated by constructor:</a>
+      </h4>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+            If same is true:
+          </li></ul></div>
+<pre class="programlisting"><span class="keyword">static_assert</span><span class="special">(</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">same_as</span><span class="special">&lt;</span><span class="identifier">type_xt</span><span class="special">,</span> <span class="identifier">type_yt</span><span class="special">&gt;);</span>
+</pre>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+            If same is false:
+          </li></ul></div>
+<pre class="programlisting"><span class="keyword">static_assert</span><span class="special">(!</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">same_as</span><span class="special">&lt;</span><span class="identifier">type_xt</span><span class="special">,</span> <span class="identifier">type_yt</span><span class="special">&gt;);</span>
+</pre>
+<p>
+        The <span class="bold"><strong>constructor</strong></span> of utx::same_assert_class
+        is <span class="bold"><strong>consteval</strong></span> .
+      </p>
+<p>
+        <span class="bold"><strong>utx::same_assert</strong></span> is alias template:
+      </p>
+<pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">type_xt</span><span class="special">,</span> <span class="keyword">typename</span> <span class="identifier">type_yt</span><span class="special">,</span> <span class="keyword">bool</span> <span class="identifier">same</span> <span class="special">=</span> <span class="keyword">true</span><span class="special">&gt;</span>
+<span class="keyword">using</span> <span class="identifier">same_assert</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">same_assert_class</span><span class="special">&lt;</span><span class="identifier">type_xt</span><span class="special">,</span> <span class="identifier">type_yt</span><span class="special">,</span> <span class="identifier">same</span><span class="special">&gt;;</span>
+</pre>
+<p>
+        <span class="bold"><strong>utx::same_assert</strong></span> does not strip anything.
+      </p>
+<h3>
+<a name="utx_same_assert_utx_same_strip_a.h3"></a>
+        <span class="phrase"><a name="utx_same_assert_utx_same_strip_a.utx_same_strip_assert"></a></span><a class="link" href="utx_same_assert_utx_same_strip_a.html#utx_same_assert_utx_same_strip_a.utx_same_strip_assert">utx::same_strip_assert</a>
+      </h3>
+<pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">type_xt</span><span class="special">,</span> <span class="keyword">typename</span> <span class="identifier">type_yt</span><span class="special">,</span> <span class="keyword">bool</span> <span class="identifier">same</span><span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">same_strip_assert_class</span><span class="special">:</span>
+	<span class="keyword">public</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">same_assert_class</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">remove_cvref_t</span><span class="special">&lt;</span><span class="identifier">type_xt</span><span class="special">&gt;,</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">remove_cvref_t</span><span class="special">&lt;</span><span class="identifier">type_yt</span><span class="special">&gt;,</span> <span class="identifier">same</span><span class="special">&gt;;</span>
+</pre>
+<p>
+        The <span class="bold"><strong>constructor</strong></span> of same_strip_assert_class
+        is <span class="bold"><strong>consteval</strong></span> .
+      </p>
+<p>
+        <span class="bold"><strong>std::remove_cvref_t</strong></span> will be applied to type_xt
+        and type_yt of <span class="bold"><strong>utx::same_strip_assert</strong></span>, so
+        you do not have to strip them any more.
+      </p>
+<p>
+        <span class="bold"><strong>utx::same_strip_assert</strong></span> is alias template:
+      </p>
+<pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">type_xt</span><span class="special">,</span> <span class="keyword">typename</span> <span class="identifier">type_yt</span><span class="special">,</span> <span class="keyword">bool</span> <span class="identifier">same</span> <span class="special">=</span> <span class="keyword">true</span><span class="special">&gt;</span>
+<span class="keyword">using</span> <span class="identifier">same_strip_assert</span> <span class="special">=</span> <span class="identifier">same_strip_assert_class</span><span class="special">&lt;</span><span class="identifier">type_xt</span><span class="special">,</span> <span class="identifier">type_yt</span><span class="special">,</span> <span class="identifier">same</span><span class="special">&gt;;</span>
+</pre>
+<h2>
+<a name="utx_same_assert_utx_same_strip_a.h4"></a>
+        <span class="phrase"><a name="utx_same_assert_utx_same_strip_a.role_cyan_c_example"></a></span><a class="link" href="utx_same_assert_utx_same_strip_a.html#utx_same_assert_utx_same_strip_a.role_cyan_c_example"><span class="cyan">c++
+        example</span></a>
+      </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">const</span> <span class="keyword">int</span> <span class="special">&amp;</span> <span class="identifier">x</span> <span class="special">=</span> <span class="number">123</span><span class="special">;</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">same_assert</span><span class="special">&lt;</span><span class="keyword">decltype</span><span class="special">(</span><span class="identifier">x</span><span class="special">),</span> <span class="keyword">int</span><span class="special">,</span> <span class="keyword">false</span><span class="special">&gt;();</span>
+
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">same_assert</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">i32</span><span class="special">,</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">i32</span><span class="special">&gt;();</span>
+
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">same_strip_assert</span><span class="special">&lt;</span><span class="keyword">decltype</span><span class="special">(</span><span class="identifier">x</span><span class="special">),</span> <span class="keyword">int</span><span class="special">,</span> <span class="keyword">true</span><span class="special">&gt;();</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">same_strip_assert</span><span class="special">&lt;</span><span class="keyword">decltype</span><span class="special">(</span><span class="identifier">x</span><span class="special">),</span> <span class="keyword">int</span><span class="special">&gt;();</span>
+
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"pass\n"</span><span class="special">;</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"pass"</span><span class="special">);</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="utx_same_assert_utx_same_strip_a.h5"></a>
+        <span class="phrase"><a name="utx_same_assert_utx_same_strip_a.role_cyan_see_also"></a></span><a class="link" href="utx_same_assert_utx_same_strip_a.html#utx_same_assert_utx_same_strip_a.role_cyan_see_also"><span class="cyan">See Also</span></a>
+      </h2>
+<p>
+        <a class="link" href="utx_same_as.html" title="utx::same_as">utx::same_as</a>
+      </p>
+<p>
+        <a class="link" href="utx_remove_cvref_t.html" title="utx::remove_cvref_t">utx::remove_cvref_t</a>
+      </p>
+<p>
+        <a class="link" href="utx_mean_t.html" title="utx::mean_t">utx::mean_t</a>
+      </p>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="utx_rt_assert.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="test.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="track.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

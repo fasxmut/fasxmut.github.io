@@ -1,0 +1,4 @@
+<map id="nirt::io::IFileList" name="nirt::io::IFileList">
+<area shape="rect" id="node1" title="Provides a list of files and folders." alt="" coords="32,80,155,107"/>
+<area shape="rect" id="node2" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="5,5,181,32"/>
+</map>

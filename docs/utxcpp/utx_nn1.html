@@ -1,0 +1,275 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>utx::nn1</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Utxcpp Docs - Utxcpp Official Docs">
+<link rel="up" href="nn_types.html" title="NN Types">
+<link rel="prev" href="nn_types.html" title="NN Types">
+<link rel="next" href="utx_nn2.html" title="utx::nn2">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="nn_types.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="nn_types.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="utx_nn2.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="utx_nn1"></a>utx::nn1</h2></div></div>
+<hr>
+</div>
+<h2>
+<a name="utx_nn1.h0"></a>
+        <span class="phrase"><a name="utx_nn1.role_cyan_utx_nn1_utx_nn_class"></a></span><a class="link" href="utx_nn1.html#utx_nn1.role_cyan_utx_nn1_utx_nn_class"><span class="cyan">utx::nn1 - utx::nn_class</span></a>
+      </h2>
+<p>
+        utx::nn1 is the one byte NN type template class alias. It uses one character
+        from NN set to encode an integral value. The sizeof test for it exactly gives
+        1.
+      </p>
+<p>
+        utx::nn1 can make single byte and single character encoding features for
+        some cases, etc. And many more features can be made by it.
+      </p>
+<h2>
+<a name="utx_nn1.h1"></a>
+        <span class="phrase"><a name="utx_nn1.role_cyan_member_functions"></a></span><a class="link" href="utx_nn1.html#utx_nn1.role_cyan_member_functions"><span class="cyan">Member Functions</span></a>
+      </h2>
+<p>
+        Provided Methods:
+      </p>
+<h3>
+<a name="utx_nn1.h2"></a>
+        <span class="phrase"><a name="utx_nn1.constructors_assignment"></a></span><a class="link" href="utx_nn1.html#utx_nn1.constructors_assignment">Constructors,
+        Assignment</a>
+      </h3>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            constructors
+          </li>
+<li class="listitem">
+            .operator=
+          </li>
+</ul></div>
+<h3>
+<a name="utx_nn1.h3"></a>
+        <span class="phrase"><a name="utx_nn1.overflow"></a></span><a class="link" href="utx_nn1.html#utx_nn1.overflow">Overflow</a>
+      </h3>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            .is_overflow
+          </li>
+<li class="listitem">
+            .fill_overflow
+          </li>
+</ul></div>
+<h3>
+<a name="utx_nn1.h4"></a>
+        <span class="phrase"><a name="utx_nn1.fill"></a></span><a class="link" href="utx_nn1.html#utx_nn1.fill">Fill</a>
+      </h3>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            .fill
+          </li>
+<li class="listitem">
+            .fill_zero
+          </li>
+<li class="listitem">
+            .fill_max
+          </li>
+</ul></div>
+<h3>
+<a name="utx_nn1.h5"></a>
+        <span class="phrase"><a name="utx_nn1.get"></a></span><a class="link" href="utx_nn1.html#utx_nn1.get">Get</a>
+      </h3>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            .front_position
+          </li>
+<li class="listitem">
+            .back_position
+          </li>
+<li class="listitem">
+            .size
+          </li>
+<li class="listitem">
+            .ptr
+          </li>
+<li class="listitem">
+            .operator[]
+          </li>
+</ul></div>
+<h3>
+<a name="utx_nn1.h6"></a>
+        <span class="phrase"><a name="utx_nn1.encode_decode"></a></span><a class="link" href="utx_nn1.html#utx_nn1.encode_decode">Encode,
+        Decode</a>
+      </h3>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            .decode
+          </li>
+<li class="listitem">
+            .encode
+          </li>
+<li class="listitem">
+            .value
+          </li>
+<li class="listitem">
+            .operator()
+          </li>
+</ul></div>
+<h3>
+<a name="utx_nn1.h7"></a>
+        <span class="phrase"><a name="utx_nn1.comparators"></a></span><a class="link" href="utx_nn1.html#utx_nn1.comparators">Comparators</a>
+      </h3>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            .operator==
+          </li>
+<li class="listitem">
+            .operator!=
+          </li>
+<li class="listitem">
+            .operator&lt;
+          </li>
+<li class="listitem">
+            .operator&lt;=
+          </li>
+<li class="listitem">
+            .operator&gt;
+          </li>
+<li class="listitem">
+            .operator&gt;=
+          </li>
+</ul></div>
+<h3>
+<a name="utx_nn1.h8"></a>
+        <span class="phrase"><a name="utx_nn1.bitwise_operators"></a></span><a class="link" href="utx_nn1.html#utx_nn1.bitwise_operators">Bitwise
+        Operators</a>
+      </h3>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            .operator&lt;&lt;
+          </li>
+<li class="listitem">
+            .operator&lt;&lt;=
+          </li>
+<li class="listitem">
+            .operator&gt;&gt;
+          </li>
+<li class="listitem">
+            .operator&gt;&gt;=
+          </li>
+</ul></div>
+<h3>
+<a name="utx_nn1.h9"></a>
+        <span class="phrase"><a name="utx_nn1.arithmetic_operators"></a></span><a class="link" href="utx_nn1.html#utx_nn1.arithmetic_operators">Arithmetic
+        Operators</a>
+      </h3>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            .operator+
+          </li>
+<li class="listitem">
+            .operator+=
+          </li>
+<li class="listitem">
+            .operator-
+          </li>
+<li class="listitem">
+            .operator-=
+          </li>
+<li class="listitem">
+            .operator*
+          </li>
+<li class="listitem">
+            .operator*=
+          </li>
+<li class="listitem">
+            .operator/
+          </li>
+<li class="listitem">
+            .operator/=
+          </li>
+<li class="listitem">
+            .operator++
+          </li>
+<li class="listitem">
+            .operator--
+          </li>
+</ul></div>
+<h2>
+<a name="utx_nn1.h10"></a>
+        <span class="phrase"><a name="utx_nn1.role_cyan_c_example"></a></span><a class="link" href="utx_nn1.html#utx_nn1.role_cyan_c_example"><span class="cyan">c++ example</span></a>
+      </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">constexpr</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">nn1</span> <span class="identifier">a</span> <span class="special">=</span> <span class="string">"H"</span><span class="special">;</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="identifier">a</span><span class="special">,</span> <span class="identifier">a</span><span class="special">.</span><span class="identifier">value</span><span class="special">());</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="utx_nn1.h11"></a>
+        <span class="phrase"><a name="utx_nn1.role_cyan_see_also"></a></span><a class="link" href="utx_nn1.html#utx_nn1.role_cyan_see_also"><span class="cyan">See Also</span></a>
+      </h2>
+<p>
+        <a class="link" href="utx_nn2.html" title="utx::nn2">utx::nn2</a>
+      </p>
+<p>
+        <a class="link" href="utx_nn3.html" title="utx::nn3">utx::nn3</a>
+      </p>
+<p>
+        <a class="link" href="utx_nn4.html" title="utx::nn4">utx::nn4</a>
+      </p>
+<p>
+        <a class="link" href="utx_nn5.html" title="utx::nn5">utx::nn5</a>
+      </p>
+<p>
+        <a class="link" href="utx_nn6.html" title="utx::nn6">utx::nn6</a>
+      </p>
+<p>
+        <a class="link" href="utx_nn7.html" title="utx::nn7">utx::nn7</a>
+      </p>
+<p>
+        <a class="link" href="utx_nn8.html" title="utx::nn8">utx::nn8</a>
+      </p>
+<p>
+        <a class="link" href="utx_nn9.html" title="utx::nn9">utx::nn9</a>
+      </p>
+<p>
+        <a class="link" href="utx_nn10.html" title="utx::nn10">utx::nn10</a>
+      </p>
+<p>
+        <a class="link" href="utx_nn11.html" title="utx::nn11">utx::nn11</a>
+      </p>
+<p>
+        <a class="link" href="utx_nn12.html" title="utx::nn12">utx::nn12</a>
+      </p>
+<p>
+        <a class="link" href="utx_nn13.html" title="utx::nn13">utx::nn13</a>
+      </p>
+<p>
+        <a class="link" href="utx_nn14.html" title="utx::nn14">utx::nn14</a>
+      </p>
+<p>
+        <a class="link" href="utx_nn15.html" title="utx::nn15">utx::nn15</a>
+      </p>
+<p>
+        <a class="link" href="utx_nn16.html" title="utx::nn16">utx::nn16</a>
+      </p>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="nn_types.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="nn_types.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="utx_nn2.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<map id="nirt::scene::SMD3MeshBuffer" name="nirt::scene::SMD3MeshBuffer">
+<area shape="rect" id="node1" title="Holding Frame Data for a Mesh." alt="" coords="359,115,569,141"/>
+<area shape="rect" id="node2" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="27,5,203,32"/>
+<area shape="rect" id="node3" href="$structnirt_1_1scene_1_1SMD3MeshHeader.html" title="this holds the header info of an MD3 mesh section" alt="" coords="5,56,224,83"/>
+<area shape="rect" id="node4" href="$classnirt_1_1core_1_1array.html" title=" " alt="" coords="48,107,181,149"/>
+<area shape="rect" id="node5" href="$classnirt_1_1core_1_1array.html" title=" " alt="" coords="16,173,213,214"/>
+<area shape="rect" id="node6" href="$classnirt_1_1core_1_1array.html" title=" " alt="" coords="7,238,222,279"/>
+</map>

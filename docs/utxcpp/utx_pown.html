@@ -1,0 +1,109 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>utx::pown</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Utxcpp Docs - Utxcpp Official Docs">
+<link rel="up" href="math.html" title="Math">
+<link rel="prev" href="utx_cbrt.html" title="utx::cbrt">
+<link rel="next" href="utx_cos.html" title="utx::cos">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="utx_cbrt.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="math.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="utx_cos.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="utx_pown"></a>utx::pown</h2></div></div>
+<hr>
+</div>
+<h2>
+<a name="utx_pown.h0"></a>
+        <span class="phrase"><a name="utx_pown.role_cyan_utx_pown"></a></span><a class="link" href="utx_pown.html#utx_pown.role_cyan_utx_pown"><span class="cyan">utx::pown</span></a>
+      </h2>
+<p>
+        <span class="bold"><strong>utx::pown</strong></span> calculates the result of exp to
+        the power of base.
+      </p>
+<pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">real_meric</span> <span class="identifier">base_type</span><span class="special">,</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">integral_meric</span> <span class="identifier">exp_type</span><span class="special">&gt;</span>
+<span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">pown</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">base_type</span> <span class="special">&amp;</span> <span class="identifier">base_value</span><span class="special">,</span> <span class="keyword">const</span> <span class="identifier">exp_type</span> <span class="special">&amp;</span> <span class="identifier">exp_value</span><span class="special">)</span>
+<span class="special">{</span>
+	<span class="keyword">using</span> <span class="identifier">return_float_type</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">make_float_t</span><span class="special">&lt;</span><span class="identifier">base_type</span><span class="special">&gt;;</span>
+	<span class="special">...</span>
+<span class="special">}</span>
+</pre>
+<p>
+        <span class="bold"><strong><span class="indigo">utx::pown</span></strong></span>
+        :
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            It always returns floating vlaue: return_float_type .
+          </li>
+<li class="listitem">
+            If the result is overflow of the returned result type, it returns utx::nan_v&lt;return_float_type&gt;.
+          </li>
+<li class="listitem">
+            To check if a value is nan, please use utx::is_nan(value) .
+          </li>
+<li class="listitem">
+            utx::pown means <em class="replaceable"><code>pow n</code></em>, <span class="bold"><strong>exp_type</strong></span>
+            must be <span class="bold"><strong>std::integral</strong></span>. <span class="bold"><strong><span class="indigo">constexpr</span></strong></span> support.
+          </li>
+</ul></div>
+<h2>
+<a name="utx_pown.h1"></a>
+        <span class="phrase"><a name="utx_pown.role_cyan_utx_pow2_utx_pow3_utx_"></a></span><a class="link" href="utx_pown.html#utx_pown.role_cyan_utx_pow2_utx_pow3_utx_"><span class="cyan">utx::pow2, utx::pow3, utx::pow5, utx::pow7</span></a>
+      </h2>
+<p>
+        Calculate the result of 2,3,5,7 to the power of base.
+      </p>
+<p>
+        The result type is the same as base type.
+      </p>
+<p>
+        constexpr support.
+      </p>
+<pre class="programlisting"><span class="keyword">auto</span> <span class="identifier">result1</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">pow2</span><span class="special">(</span><span class="identifier">base_value</span><span class="special">);</span>
+
+<span class="keyword">auto</span> <span class="identifier">result2</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">pow3</span><span class="special">(</span><span class="identifier">base_value</span><span class="special">);</span>
+
+<span class="keyword">auto</span> <span class="identifier">result3</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">pow5</span><span class="special">(</span><span class="identifier">base_value</span><span class="special">);</span>
+
+<span class="keyword">auto</span> <span class="identifier">result4</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">pow7</span><span class="special">(</span><span class="identifier">base_value</span><span class="special">);</span>
+</pre>
+<h2>
+<a name="utx_pown.h2"></a>
+        <span class="phrase"><a name="utx_pown.role_cyan_header"></a></span><a class="link" href="utx_pown.html#utx_pown.role_cyan_header"><span class="cyan">Header</span></a>
+      </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">math</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+</pre>
+<h2>
+<a name="utx_pown.h3"></a>
+        <span class="phrase"><a name="utx_pown.role_cyan_example"></a></span><a class="link" href="utx_pown.html#utx_pown.role_cyan_example"><span class="cyan">Example</span></a>
+      </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">math</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">x</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">pown</span><span class="special">(</span><span class="number">10</span><span class="special">,</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">u32</span><span class="special">{</span><span class="number">3</span><span class="special">});</span> <span class="comment">// 1000</span>
+	<span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">y</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">pown</span><span class="special">(</span><span class="number">10</span><span class="special">,</span> <span class="number">3</span><span class="special">);</span> <span class="comment">// 1000.0f</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="identifier">x</span><span class="special">,</span> <span class="identifier">y</span><span class="special">);</span>
+<span class="special">}</span>
+</pre>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="utx_cbrt.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="math.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="utx_cos.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

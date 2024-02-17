@@ -1,0 +1,100 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>utfs::path</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Utxcpp Docs - Utxcpp Official Docs">
+<link rel="up" href="utfs.html" title="utfs">
+<link rel="prev" href="utfs_perms_std_perms.html" title="utfs::perms::std_perms">
+<link rel="next" href="utfs_path_perms.html" title="utfs::path::perms">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="utfs_perms_std_perms.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="utfs.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="utfs_path_perms.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="utfs_path"></a>utfs::path</h2></div></div>
+<hr>
+</div>
+<div class="toc">
+<p><b>Table of Contents</b></p>
+<dl class="toc">
+<dt><span class="article"><a href="utfs_path_perms.html">utfs::path::perms</a></span></dt>
+<dt><span class="article"><a href="utfs_path_has_perms.html">utfs::path::has_perms</a></span></dt>
+<dt><span class="article"><a href="utfs_path_set_perms.html">utfs::path::set_perms</a></span></dt>
+<dt><span class="article"><a href="utfs_path_add_perms.html">utfs::path::add_perms</a></span></dt>
+<dt><span class="article"><a href="utfs_path_remove_perms.html">utfs::path::remove_perms</a></span></dt>
+<dt><span class="article"><a href="utfs_path_exists.html">utfs::path::exists</a></span></dt>
+<dt><span class="article"><a href="utfs_path_root.html">utfs::path::root</a></span></dt>
+<dt><span class="article"><a href="utfs_path_relative.html">utfs::path::relative</a></span></dt>
+<dt><span class="article"><a href="utfs_path_parent.html">utfs::path::parent</a></span></dt>
+<dt><span class="article"><a href="utfs_path_filename.html">utfs::path::filename</a></span></dt>
+<dt><span class="article"><a href="utfs_path_stem.html">utfs::path::stem</a></span></dt>
+<dt><span class="article"><a href="utfs_path_extension.html">utfs::path::extension</a></span></dt>
+<dt><span class="article"><a href="utfs_path_data.html">utfs::path::data</a></span></dt>
+<dt><span class="article"><a href="utfs_path_literals.html">utfs::path_literals</a></span></dt>
+</dl>
+</div>
+<p>
+        class utfs::path
+      </p>
+<p>
+        utxcpp utfs::path
+      </p>
+<h2>
+<a name="utfs_path.h0"></a>
+        <span class="phrase"><a name="utfs_path.role_cyan_utfs_path"></a></span><a class="link" href="utfs_path.html#utfs_path.role_cyan_utfs_path"><span class="cyan">utfs::path</span></a>
+      </h2>
+<p>
+        utfs::path provides a more simple to use interface, compared to std::filesystem::path.
+        utfs::path is implemented with std::filesystem::path.
+      </p>
+<pre class="programlisting"><span class="keyword">namespace</span> <span class="identifier">utfs</span>
+<span class="special">{</span>
+
+<span class="keyword">class</span> <span class="identifier">path</span>
+<span class="special">{</span>
+	<span class="special">...</span>
+<span class="special">};</span>
+
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="utfs_path.h1"></a>
+        <span class="phrase"><a name="utfs_path.role_cyan_utfs_path_constructors"></a></span><a class="link" href="utfs_path.html#utfs_path.role_cyan_utfs_path_constructors"><span class="cyan">utfs::path constructors</span></a>
+      </h2>
+<p>
+        There are many constructors of utfs::path, but they are just used to let
+        it accept many different string types, and let the syntax checking pass,
+        all of which share the same interface when it just has one parameter:
+      </p>
+<pre class="programlisting"><span class="identifier">utfs</span><span class="special">::</span><span class="identifier">path</span><span class="special">{</span><span class="identifier">path</span><span class="special">-</span><span class="identifier">to</span><span class="special">-</span><span class="identifier">be</span><span class="special">-</span><span class="identifier">sourced</span><span class="special">};</span>
+</pre>
+<h2>
+<a name="utfs_path.h2"></a>
+        <span class="phrase"><a name="utfs_path.role_cyan_utfs_path_c_example"></a></span><a class="link" href="utfs_path.html#utfs_path.role_cyan_utfs_path_c_example"><span class="cyan">utfs::path c++ example</span></a>
+      </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">utfs</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">utfs</span><span class="special">::</span><span class="identifier">path</span> <span class="identifier">path</span><span class="special">{</span><span class="identifier">__FILE__</span><span class="special">};</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="identifier">path</span><span class="special">);</span>
+<span class="special">}</span>
+</pre>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="utfs_perms_std_perms.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="utfs.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="utfs_path_perms.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

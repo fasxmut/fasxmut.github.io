@@ -1,0 +1,120 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>utx::str_size</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Utxcpp Docs - Utxcpp Official Docs">
+<link rel="up" href="utx_str_size_class.html" title="utx::str_size_class">
+<link rel="prev" href="utx_str_size_class.html" title="utx::str_size_class">
+<link rel="next" href="utx_wstr_size.html" title="utx::wstr_size">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="utx_str_size_class.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="utx_str_size_class.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="utx_wstr_size.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="utx_str_size"></a>utx::str_size</h2></div></div>
+<hr>
+</div>
+<h2>
+<a name="utx_str_size.h0"></a>
+            <span class="phrase"><a name="utx_str_size.role_cyan_utx_str_size_utxcpp"></a></span><a class="link" href="utx_str_size.html#utx_str_size.role_cyan_utx_str_size_utxcpp"><span class="cyan">utx::str_size - Utxcpp</span></a>
+          </h2>
+<p>
+            utx::str_size - A function object to get the length of a string: get
+            the character counter.
+          </p>
+<h2>
+<a name="utx_str_size.h1"></a>
+            <span class="phrase"><a name="utx_str_size.role_cyan_utx_str_size_class"></a></span><a class="link" href="utx_str_size.html#utx_str_size.role_cyan_utx_str_size_class"><span class="cyan">utx::str_size_class</span></a>
+          </h2>
+<p>
+            The function object is the object of instantiated template class utx::str_size_class
+            .
+          </p>
+<h2>
+<a name="utx_str_size.h2"></a>
+            <span class="phrase"><a name="utx_str_size.role_cyan_get_string_size_how"></a></span><a class="link" href="utx_str_size.html#utx_str_size.role_cyan_get_string_size_how"><span class="cyan">Get String Size - How</span></a>
+          </h2>
+<h3>
+<a name="utx_str_size.h3"></a>
+            <span class="phrase"><a name="utx_str_size.get_array_string_size"></a></span><a class="link" href="utx_str_size.html#utx_str_size.get_array_string_size">Get
+            Array String Size</a>
+          </h3>
+<p>
+            It gets string size by template type traits.
+          </p>
+<h3>
+<a name="utx_str_size.h4"></a>
+            <span class="phrase"><a name="utx_str_size.get_const_type_xt_or_type_xt_str"></a></span><a class="link" href="utx_str_size.html#utx_str_size.get_const_type_xt_or_type_xt_str">Get
+            <span class="underline">const type_xt *</span> or <span class="underline">type_xt
+            *</span> String Size</a>
+          </h3>
+<p>
+            It gets string size by searching until '\0' is found.
+          </p>
+<p>
+            It works on both string literal or string made by new.
+          </p>
+<p>
+            For utx::str_size, <span class="blue">type_xt</span> is <span class="red">char</span>;
+            for utx::wstr_size, <span class="blue">type_xt</span> is <span class="red">wchar_t</span>,
+            ..., etc.
+          </p>
+<h2>
+<a name="utx_str_size.h5"></a>
+            <span class="phrase"><a name="utx_str_size.role_cyan_c_example"></a></span><a class="link" href="utx_str_size.html#utx_str_size.role_cyan_c_example"><span class="cyan">c++ example</span></a>
+          </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">numeric</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>	<span class="comment">// utx::iota</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">char</span> <span class="identifier">s1</span><span class="special">[]</span> <span class="special">=</span> <span class="string">"Hell c++!"</span><span class="special">;</span>
+	<span class="keyword">constexpr</span> <span class="keyword">const</span> <span class="keyword">char</span> <span class="special">*</span> <span class="identifier">s2</span> <span class="special">=</span> <span class="string">"Hell c++!!"</span><span class="special">;</span>
+	<span class="keyword">char</span> <span class="special">*</span> <span class="identifier">s3</span> <span class="special">=</span> <span class="keyword">new</span> <span class="keyword">char</span><span class="special">[</span><span class="number">23</span><span class="special">];</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">iota</span><span class="special">(</span><span class="identifier">s3</span><span class="special">,</span> <span class="char">'0'</span><span class="special">);</span>
+	<span class="identifier">s3</span><span class="special">[</span><span class="number">11</span><span class="special">]</span> <span class="special">=</span> <span class="char">'\0'</span><span class="special">);</span>
+
+	<span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">sz1</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">str_size</span><span class="special">(</span><span class="identifier">s1</span><span class="special">);</span>
+	<span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">sz2</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">str_size</span><span class="special">(</span><span class="identifier">s2</span><span class="special">);</span>
+	<span class="keyword">auto</span> <span class="identifier">sz3</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">str_size</span><span class="special">(</span><span class="identifier">s3</span><span class="special">);</span>
+
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="identifier">sz1</span><span class="special">,</span> <span class="identifier">sz2</span><span class="special">,</span> <span class="identifier">sz3</span><span class="special">);</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="utx_str_size.h6"></a>
+            <span class="phrase"><a name="utx_str_size.role_cyan_see_also"></a></span><a class="link" href="utx_str_size.html#utx_str_size.role_cyan_see_also"><span class="cyan">See Also</span></a>
+          </h2>
+<p>
+            <a class="link" href="utx_wstr_size.html" title="utx::wstr_size">utx::wstr_size</a>
+          </p>
+<p>
+            <a class="link" href="utx_u8str_size.html" title="utx::u8str_size">utx::u8str_size</a>
+          </p>
+<p>
+            <a class="link" href="utx_u16str_size.html" title="utx::u16str_size">utx::u16str_size</a>
+          </p>
+<p>
+            <a class="link" href="utx_u32str_size.html" title="utx::u32str_size">utx::u32str_size</a>
+          </p>
+<p>
+            <a class="link" href="utx_print.html" title="utx::print">utx::print</a>
+          </p>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="utx_str_size_class.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="utx_str_size_class.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="utx_wstr_size.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

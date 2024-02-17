@@ -1,0 +1,7 @@
+<map id="nirt::scene::SMD3Mesh" name="nirt::scene::SMD3Mesh">
+<area shape="rect" id="node1" title="Holding Frames Buffers and Tag Infos." alt="" coords="375,97,545,124"/>
+<area shape="rect" id="node2" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="37,5,213,32"/>
+<area shape="rect" id="node3" href="$classnirt_1_1core_1_1array.html" title=" " alt="" coords="5,57,245,98"/>
+<area shape="rect" id="node4" href="$structnirt_1_1scene_1_1SMD3QuaternionTagList.html" title="holds a associative list of named quaternions" alt="" coords="21,122,229,163"/>
+<area shape="rect" id="node5" href="$structnirt_1_1scene_1_1SMD3Header.html" title="this holds the header info of the MD3 file" alt="" coords="34,188,217,215"/>
+</map>

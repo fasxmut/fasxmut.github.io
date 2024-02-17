@@ -1,0 +1,139 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Indirectly Readable Writable - stdcpp Utxcpp</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Utxcpp Samples Driven">
+<link rel="up" href="stdcpp_utxcpp.html" title="stdcpp Utxcpp">
+<link rel="prev" href="std_transform_utx_exp_stdcpp_utx.html" title="std::transform utx::exp - stdcpp Utxcpp">
+<link rel="next" href="std_incrementable_stdcpp_utxcpp.html" title="std::incrementable - stdcpp Utxcpp">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="std_transform_utx_exp_stdcpp_utx.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="stdcpp_utxcpp.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="std_incrementable_stdcpp_utxcpp.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="indirectly_readable_writable_std"></a>Indirectly Readable Writable - stdcpp Utxcpp</h2></div></div>
+<hr>
+</div>
+<h2>
+<a name="indirectly_readable_writable_std.h0"></a>
+        <span class="phrase"><a name="indirectly_readable_writable_std.role_cyan_std_indirectly_readabl"></a></span><a class="link" href="indirectly_readable_writable_std.html#indirectly_readable_writable_std.role_cyan_std_indirectly_readabl"><span class="cyan">std::indirectly_readable, std::indirectly_writable</span></a>
+      </h2>
+<p>
+        std::indirectly_readable - requires the type is an iterator type or pointer
+        type and so on, and what it points to is readable.
+      </p>
+<p>
+        std::indirectly_writable - requires the type is an iterator type or pointer
+        type and so on, and what it points to is writable.
+      </p>
+<h3>
+<a name="indirectly_readable_writable_std.h1"></a>
+        <span class="phrase"><a name="indirectly_readable_writable_std.according_to_cppreference"></a></span><a class="link" href="indirectly_readable_writable_std.html#indirectly_readable_writable_std.according_to_cppreference">According
+        to cppreference:</a>
+      </h3>
+<p>
+        std::indirectly_readable - The concept indirectly_readable is modeled by
+        types that are readable by applying operator*, such as pointers, smart pointers,
+        and input iterators. (<a href="https://en.cppreference.com/w/cpp/iterator/indirectly_readable" target="_top">cppreference</a>)
+      </p>
+<p>
+        std::indirectly_writable - The concept indirectly_writable&lt;Out, T&gt;
+        specifies the requirements for writing a value whose type and value category
+        are encoded by T into an iterator Out's referenced object. (<a href="https://en.cppreference.com/w/cpp/iterator/indirectly_writable" target="_top">cppreference</a>)
+      </p>
+<h2>
+<a name="indirectly_readable_writable_std.h2"></a>
+        <span class="phrase"><a name="indirectly_readable_writable_std.role_cyan_c_example"></a></span><a class="link" href="indirectly_readable_writable_std.html#indirectly_readable_writable_std.role_cyan_c_example"><span class="cyan">c++
+        example</span></a>
+      </h2>
+<div class="note"><table border="0" summary="Note">
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td>
+<th align="left">Note</th>
+</tr>
+<tr><td align="left" valign="top">
+<p>
+          Copyright (c) 2023 Fas Xmut (fasxmut at protonmail dot com)
+        </p>
+<p>
+          Distributed under the Boost Software License, Version 1.0. (See accompanying
+          file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+        </p>
+</td></tr>
+</table></div>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iterator</span><span class="special">&gt;</span>
+
+<span class="keyword">template</span> <span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">indirectly_readable</span> <span class="identifier">type1</span><span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">get</span>
+<span class="special">{</span>
+<span class="keyword">private</span><span class="special">:</span>
+	<span class="identifier">type1</span> <span class="identifier">info</span><span class="special">;</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">get</span><span class="special">(</span><span class="identifier">type1</span> <span class="identifier">info</span><span class="special">):</span>
+		<span class="identifier">info</span><span class="special">{</span><span class="identifier">info</span><span class="special">}</span>
+	<span class="special">{</span>
+	<span class="special">}</span>
+	<span class="keyword">auto</span> <span class="keyword">operator</span><span class="special">()()</span> <span class="keyword">const</span>
+	<span class="special">{</span>
+		<span class="keyword">return</span> <span class="special">*</span><span class="identifier">info</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">type1</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">indirectly_writable</span><span class="special">&lt;</span><span class="identifier">type1</span><span class="special">&gt;</span> <span class="identifier">type2</span><span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">set</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">set</span><span class="special">(</span><span class="identifier">type2</span> <span class="identifier">info</span><span class="special">,</span> <span class="identifier">type1</span> <span class="identifier">value</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="special">*</span><span class="identifier">info</span> <span class="special">=</span> <span class="identifier">value</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">ix32</span><span class="special">&gt;</span> <span class="identifier">v</span><span class="special">{</span><span class="number">123</span><span class="special">,</span> <span class="number">321</span><span class="special">,</span> <span class="number">132</span><span class="special">};</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">fx32</span> <span class="identifier">a</span> <span class="special">=</span> <span class="number">123.321f</span><span class="special">;</span>
+
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="identifier">get</span><span class="special">{</span><span class="identifier">v</span><span class="special">.</span><span class="identifier">begin</span><span class="special">()}(),</span> <span class="identifier">get</span><span class="special">{&amp;</span><span class="identifier">a</span><span class="special">}());</span> <span class="comment">// 123 123.321</span>
+
+	<span class="identifier">set</span><span class="special">{</span><span class="identifier">v</span><span class="special">.</span><span class="identifier">begin</span><span class="special">(),</span> <span class="number">987</span><span class="special">};</span>
+	<span class="identifier">set</span><span class="special">{&amp;</span><span class="identifier">a</span><span class="special">,</span> <span class="number">321.123f</span><span class="special">};</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="identifier">v</span><span class="special">[</span><span class="number">0</span><span class="special">],</span> <span class="identifier">a</span><span class="special">);</span> <span class="comment">// 987 321.123</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="indirectly_readable_writable_std.h3"></a>
+        <span class="phrase"><a name="indirectly_readable_writable_std.role_cyan_see_also"></a></span><a class="link" href="indirectly_readable_writable_std.html#indirectly_readable_writable_std.role_cyan_see_also"><span class="cyan">See Also</span></a>
+      </h2>
+<p>
+        <a href="https://cppfx.xyz/utxcpp" target="_top">Utxcpp</a>
+      </p>
+<p>
+        <a href="https://cppfx.xyz/utxcpp/utx_print.html" target="_top">utx::print</a>
+      </p>
+<p>
+        <a href="https://cppfx.xyz/utxcpp/utx_ix32.html" target="_top">utx::ix32</a>
+      </p>
+<p>
+        <a href="https://cppfx.xyz/utxcpp/utx_fx32.html" target="_top">utx::fx32</a>
+      </p>
+</div>
+<div class="copyright-footer">Copyright © 2022, 2023 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="std_transform_utx_exp_stdcpp_utx.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="stdcpp_utxcpp.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="std_incrementable_stdcpp_utxcpp.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

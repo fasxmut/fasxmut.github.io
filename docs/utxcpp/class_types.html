@@ -1,0 +1,371 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Class Types</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Utxcpp Docs - Utxcpp Official Docs">
+<link rel="up" href="types.html" title="Types">
+<link rel="prev" href="basic_types.html" title="Basic Types">
+<link rel="next" href="utx_mbx.html" title="utx::mbx">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="basic_types.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="types.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="utx_mbx.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="class_types"></a>Class Types</h2></div></div>
+<hr>
+</div>
+<div class="toc">
+<p><b>Table of Contents</b></p>
+<dl class="toc">
+<dt><span class="article"><a href="utx_mbx.html">utx::mbx</a></span></dt>
+<dt><span class="article"><a href="utx_mtx.html">utx::mtx</a></span></dt>
+<dt><span class="article"><a href="utx_ux8.html">utx::ux8</a></span></dt>
+<dt><span class="article"><a href="utx_ux16.html">utx::ux16</a></span></dt>
+<dt><span class="article"><a href="utx_ux32.html">utx::ux32</a></span></dt>
+<dt><span class="article"><a href="utx_ux64.html">utx::ux64</a></span></dt>
+<dt><span class="article"><a href="utx_uxlast.html">utx::uxlast</a></span></dt>
+<dt><span class="article"><a href="utx_uxmax.html">utx::uxmax</a></span></dt>
+<dt><span class="article"><a href="utx_uxlost.html">utx::uxlost</a></span></dt>
+<dt><span class="article"><a href="utx_ix8.html">utx::ix8</a></span></dt>
+<dt><span class="article"><a href="utx_ix16.html">utx::ix16</a></span></dt>
+<dt><span class="article"><a href="utx_ix32.html">utx::ix32</a></span></dt>
+<dt><span class="article"><a href="utx_ix64.html">utx::ix64</a></span></dt>
+<dt><span class="article"><a href="utx_ixlast.html">utx::ixlast</a></span></dt>
+<dt><span class="article"><a href="utx_ixmax.html">utx::ixmax</a></span></dt>
+<dt><span class="article"><a href="utx_ixlost.html">utx::ixlost</a></span></dt>
+<dt><span class="article"><a href="utx_fx32.html">utx::fx32</a></span></dt>
+<dt><span class="article"><a href="utx_fx64.html">utx::fx64</a></span></dt>
+<dt><span class="article"><a href="utx_fx128.html">utx::fx128</a></span></dt>
+<dt><span class="article"><a href="utx_fxmax.html">utx::fxmax</a></span></dt>
+<dt><span class="article"><a href="is_nan_method.html">.is_nan method</a></span></dt>
+<dt><span class="article"><a href="is_inf_method.html">.is_inf method</a></span></dt>
+<dt><span class="article"><a href="abs_method.html">.abs method</a></span></dt>
+<dt><span class="article"><a href="floor_fpp_method.html">.floor_fpp method</a></span></dt>
+<dt><span class="article"><a href="floor_method.html">.floor method</a></span></dt>
+<dt><span class="article"><a href="fpp_method.html">.fpp method</a></span></dt>
+<dt><span class="article"><a href="ceil_method.html">.ceil method</a></span></dt>
+<dt><span class="article"><a href="quo_mod_method.html">.quo_mod method</a></span></dt>
+<dt><span class="article"><a href="quo_method.html">.quo method</a></span></dt>
+<dt><span class="article"><a href="mod_method.html">.mod method</a></span></dt>
+<dt><span class="article"><a href="cast_method.html">.cast method</a></span></dt>
+</dl>
+</div>
+<p>
+        utxcpp class types
+      </p>
+<h2>
+<a name="class_types.h0"></a>
+        <span class="phrase"><a name="class_types.role_cyan_utx_class_type"></a></span><a class="link" href="class_types.html#class_types.role_cyan_utx_class_type"><span class="cyan">utx::class_type</span></a>
+      </h2>
+<p>
+        utx::class_type is used to define basic integral and floating point types,
+        but it is class. So the data types defined by utx::class_type have both the
+        basic data type features and object-oriented features.
+      </p>
+<p>
+        operators defined in <span class="bold"><strong>utx::class_type</strong></span> :
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            operator=
+          </li>
+<li class="listitem">
+            operator==
+          </li>
+<li class="listitem">
+            operator!=
+          </li>
+<li class="listitem">
+            operator&lt;
+          </li>
+<li class="listitem">
+            operator&lt;=
+          </li>
+<li class="listitem">
+            operator&gt;
+          </li>
+<li class="listitem">
+            operator&gt;=
+          </li>
+<li class="listitem">
+            operator basic_type
+          </li>
+<li class="listitem">
+            operator++
+          </li>
+<li class="listitem">
+            operator--
+          </li>
+<li class="listitem">
+            operator+
+          </li>
+<li class="listitem">
+            operator-
+          </li>
+<li class="listitem">
+            operator*
+          </li>
+<li class="listitem">
+            operator/
+          </li>
+<li class="listitem">
+            operator%
+          </li>
+<li class="listitem">
+            operator+=
+          </li>
+<li class="listitem">
+            operator-=
+          </li>
+<li class="listitem">
+            operator*=
+          </li>
+<li class="listitem">
+            operator/=
+          </li>
+<li class="listitem">
+            operator%=
+          </li>
+<li class="listitem">
+            operator&lt;&lt;
+          </li>
+<li class="listitem">
+            operator&gt;&gt;
+          </li>
+<li class="listitem">
+            operator&amp;
+          </li>
+<li class="listitem">
+            operator|
+          </li>
+<li class="listitem">
+            operator^
+          </li>
+<li class="listitem">
+            operator~
+          </li>
+<li class="listitem">
+            operator&lt;&lt;=
+          </li>
+<li class="listitem">
+            operator&gt;&gt;=
+          </li>
+<li class="listitem">
+            operator&amp;=
+          </li>
+<li class="listitem">
+            operator|=
+          </li>
+<li class="listitem">
+            operator^=
+          </li>
+</ul></div>
+<h2>
+<a name="class_types.h1"></a>
+        <span class="phrase"><a name="class_types.role_cyan_utx_mbx"></a></span><a class="link" href="class_types.html#class_types.role_cyan_utx_mbx"><span class="cyan">utx::mbx</span></a>
+      </h2>
+<p>
+        bool class
+      </p>
+<pre class="programlisting"><span class="keyword">using</span> <span class="identifier">mbx</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">class_type</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">mb</span><span class="special">&gt;;</span>
+</pre>
+<h2>
+<a name="class_types.h2"></a>
+        <span class="phrase"><a name="class_types.role_cyan_utx_ux8_utx_ux16_utx_u"></a></span><a class="link" href="class_types.html#class_types.role_cyan_utx_ux8_utx_ux16_utx_u"><span class="cyan">utx::ux8 utx::ux16 utx::ux32 utx::ux64 utx::uxmax </span></a>
+      </h2>
+<p>
+        unsigned integral class
+      </p>
+<pre class="programlisting"><span class="keyword">using</span> <span class="identifier">ux8</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">class_type</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">u8</span><span class="special">&gt;;</span>
+<span class="keyword">using</span> <span class="identifier">ux16</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">class_type</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">u16</span><span class="special">&gt;;</span>
+<span class="keyword">using</span> <span class="identifier">ux32</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">class_type</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">u32</span><span class="special">&gt;;</span>
+<span class="keyword">using</span> <span class="identifier">ux64</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">class_type</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">u64</span><span class="special">&gt;;</span>
+<span class="keyword">using</span> <span class="identifier">uxmax</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">class_type</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">umax</span><span class="special">&gt;;</span>
+</pre>
+<h2>
+<a name="class_types.h3"></a>
+        <span class="phrase"><a name="class_types.role_cyan_utx_ix8_utx_ix16_utx_i"></a></span><a class="link" href="class_types.html#class_types.role_cyan_utx_ix8_utx_ix16_utx_i"><span class="cyan">utx::ix8 utx::ix16 utx::ix32 utx::ix64 utx::ixmax </span></a>
+      </h2>
+<p>
+        signed integral class
+      </p>
+<pre class="programlisting"><span class="keyword">using</span> <span class="identifier">ix8</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">class_type</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">i8</span><span class="special">&gt;;</span>
+<span class="keyword">using</span> <span class="identifier">ix16</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">class_type</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">i16</span><span class="special">&gt;;</span>
+<span class="keyword">using</span> <span class="identifier">ix32</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">class_type</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">i32</span><span class="special">&gt;;</span>
+<span class="keyword">using</span> <span class="identifier">ix64</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">class_type</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">i64</span><span class="special">&gt;;</span>
+<span class="keyword">using</span> <span class="identifier">ixmax</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">class_type</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">imax</span><span class="special">&gt;;</span>
+</pre>
+<h2>
+<a name="class_types.h4"></a>
+        <span class="phrase"><a name="class_types.role_cyan_utx_fx32_utx_fx64_utx_"></a></span><a class="link" href="class_types.html#class_types.role_cyan_utx_fx32_utx_fx64_utx_"><span class="cyan">utx::fx32 utx::fx64 utx::fx128 utx::fxmax </span></a>
+      </h2>
+<p>
+        floating point class
+      </p>
+<pre class="programlisting"><span class="keyword">using</span> <span class="identifier">fx32</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">class_type</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">f32</span><span class="special">&gt;;</span>
+<span class="keyword">using</span> <span class="identifier">fx64</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">class_type</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">f64</span><span class="special">&gt;;</span>
+<span class="keyword">using</span> <span class="identifier">fx128</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">class_type</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">f128</span><span class="special">&gt;;</span>
+<span class="keyword">using</span> <span class="identifier">fxmax</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">class_type</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">fmax</span><span class="special">&gt;;</span>
+</pre>
+<h2>
+<a name="class_types.h5"></a>
+        <span class="phrase"><a name="class_types.role_cyan_value_operator_operato"></a></span><a class="link" href="class_types.html#class_types.role_cyan_value_operator_operato"><span class="cyan">.value(), operator(), operator basic_type</span></a>
+      </h2>
+<p>
+        These three member functions return __value by value.
+      </p>
+<h2>
+<a name="class_types.h6"></a>
+        <span class="phrase"><a name="class_types.role_cyan_value_ref"></a></span><a class="link" href="class_types.html#class_types.role_cyan_value_ref"><span class="cyan">.value_ref()</span></a>
+      </h2>
+<p>
+        Member function .value_ref() returns __value by ref.
+      </p>
+<p>
+        utx::class_type does not overload .value() to support both by-value and by-ref,
+        but uses .value_ref() to get by ref.
+      </p>
+<h2>
+<a name="class_types.h7"></a>
+        <span class="phrase"><a name="class_types.role_cyan_include"></a></span><a class="link" href="class_types.html#class_types.role_cyan_include"><span class="cyan">include</span></a>
+      </h2>
+<p>
+        <span class="bold"><strong>utxcpp/types.hpp</strong></span> :
+      </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">types</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+</pre>
+<p>
+        <span class="bold"><strong>utxcpp/types.hpp</strong></span> is included by the whole
+        system, so using <span class="bold"><strong>utxcpp/core.hpp</strong></span> works too:
+      </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+</pre>
+<h2>
+<a name="class_types.h8"></a>
+        <span class="phrase"><a name="class_types.role_cyan_examples"></a></span><a class="link" href="class_types.html#class_types.role_cyan_examples"><span class="cyan">examples</span></a>
+      </h2>
+<h3>
+<a name="class_types.h9"></a>
+        <span class="phrase"><a name="class_types.example_using_utx_class_type_and"></a></span><a class="link" href="class_types.html#class_types.example_using_utx_class_type_and">example:
+        Using utx::class_type, and constexpr support</a>
+      </h3>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">constexpr</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">ux64</span> <span class="identifier">a</span> <span class="special">=</span> <span class="number">123</span><span class="special">;</span>
+	<span class="keyword">constexpr</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">ix64</span> <span class="identifier">b</span> <span class="special">=</span> <span class="number">321</span><span class="special">;</span>
+	<span class="keyword">constexpr</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">fx64</span> <span class="identifier">c</span> <span class="special">=</span> <span class="number">321.123</span><span class="special">;</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="identifier">a</span><span class="special">,</span> <span class="identifier">b</span><span class="special">,</span> <span class="identifier">c</span><span class="special">);</span>
+<span class="special">}</span>
+</pre>
+<p>
+        <span class="bold"><strong>output:</strong></span>
+      </p>
+<pre class="programlisting">123 321 321.123000
+</pre>
+<h3>
+<a name="class_types.h10"></a>
+        <span class="phrase"><a name="class_types.example_utx_class_type_value_as_"></a></span><a class="link" href="class_types.html#class_types.example_utx_class_type_value_as_">example:
+        utx::class_type value as template parameter</a>
+      </h3>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">auto</span> <span class="identifier">__value</span><span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">power</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="keyword">operator</span><span class="special">()()</span> <span class="keyword">const</span>
+	<span class="special">{</span>
+		<span class="keyword">return</span> <span class="identifier">__value</span><span class="special">*</span><span class="identifier">__value</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">constexpr</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">fx32</span> <span class="identifier">value</span> <span class="special">=</span> <span class="number">123.456f</span><span class="special">;</span>
+	<span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">p2</span> <span class="special">=</span> <span class="identifier">power</span><span class="special">&lt;</span><span class="identifier">value</span><span class="special">&gt;{}();</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="identifier">p2</span><span class="special">);</span>
+<span class="special">}</span>
+</pre>
+<p>
+        <span class="bold"><strong>output:</strong></span>
+      </p>
+<pre class="programlisting">15241.383789
+</pre>
+<h3>
+<a name="class_types.h11"></a>
+        <span class="phrase"><a name="class_types.example_utx_class_type_inheriten"></a></span><a class="link" href="class_types.html#class_types.example_utx_class_type_inheriten">example:
+        utx::class_type inheritence, polymorphism, pointer</a>
+      </h3>
+<p>
+        utx::class_type does not support polymorphism itself, but it can be used
+        as the base class of another polymorphism base class.
+      </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">memory</span><span class="special">&gt;</span>
+
+<span class="keyword">class</span> <span class="identifier">base</span><span class="special">:</span> <span class="keyword">public</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">ix64</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">base</span><span class="special">(</span><span class="keyword">const</span> <span class="keyword">auto</span> <span class="special">&amp;</span> <span class="identifier">value</span><span class="special">):</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">ix64</span><span class="special">{</span><span class="identifier">value</span><span class="special">}</span>
+	<span class="special">{</span>
+	<span class="special">}</span>
+	<span class="keyword">virtual</span> <span class="special">~</span><span class="identifier">base</span><span class="special">()</span>
+	<span class="special">{</span>
+		<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"~base"</span><span class="special">);</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">class</span> <span class="identifier">derived</span><span class="special">:</span> <span class="keyword">virtual</span> <span class="keyword">public</span> <span class="identifier">base</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">derived</span><span class="special">(</span><span class="keyword">const</span> <span class="keyword">auto</span> <span class="special">&amp;</span> <span class="identifier">value</span><span class="special">):</span> <span class="identifier">base</span><span class="special">{</span><span class="identifier">value</span><span class="special">}</span>
+	<span class="special">{</span>
+	<span class="special">}</span>
+	<span class="special">~</span><span class="identifier">derived</span><span class="special">()</span>
+	<span class="special">{</span>
+		<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"~derived"</span><span class="special">);</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">base</span> <span class="special">*</span> <span class="identifier">ptr</span> <span class="special">=</span> <span class="keyword">new</span> <span class="identifier">derived</span><span class="special">{</span><span class="number">123</span><span class="special">};</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(*</span><span class="identifier">ptr</span><span class="special">);</span>
+	<span class="keyword">delete</span> <span class="identifier">ptr</span><span class="special">;</span>
+
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">unique_ptr</span><span class="special">&lt;</span><span class="identifier">base</span><span class="special">&gt;</span> <span class="identifier">ptr</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">make_unique</span><span class="special">&lt;</span><span class="identifier">derived</span><span class="special">&gt;(</span><span class="number">32</span><span class="special">);</span>
+		<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(*</span><span class="identifier">ptr</span><span class="special">);</span>
+	<span class="special">}</span>
+<span class="special">}</span>
+</pre>
+<p>
+        <span class="bold"><strong>output:</strong></span>
+      </p>
+<pre class="programlisting">123
+~derived
+~base
+32
+~derived
+~base
+</pre>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="basic_types.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="types.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="utx_mbx.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

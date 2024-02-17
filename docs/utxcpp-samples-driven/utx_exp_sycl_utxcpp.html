@@ -1,0 +1,151 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>utx::exp - SYCL Utxcpp</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Utxcpp Samples Driven">
+<link rel="up" href="sycl_utxcpp.html" title="SYCL Utxcpp">
+<link rel="prev" href="utx_cos_sycl_utxcpp.html" title="utx::cos - SYCL Utxcpp">
+<link rel="next" href="utx_sqrt_sycl_utxcpp.html" title="utx::sqrt - SYCL Utxcpp">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="utx_cos_sycl_utxcpp.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="sycl_utxcpp.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="utx_sqrt_sycl_utxcpp.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="utx_exp_sycl_utxcpp"></a>utx::exp - SYCL Utxcpp</h2></div></div>
+<hr>
+</div>
+<h2>
+<a name="utx_exp_sycl_utxcpp.h0"></a>
+        <span class="phrase"><a name="utx_exp_sycl_utxcpp.role_cyan_utx_exp"></a></span><a class="link" href="utx_exp_sycl_utxcpp.html#utx_exp_sycl_utxcpp.role_cyan_utx_exp"><span class="cyan">utx::exp</span></a>
+      </h2>
+<p>
+        (<a href="https://cppfx.xyz/utxcpp/utx_exp.html" target="_top">utx::exp</a>) ([https://cppfx.xyz/utxcpp/utx_print.html
+        utx::print])
+      </p>
+<pre class="programlisting"><span class="comment">//</span>
+<span class="comment">// Copyright (c) 2023 Fas Xmut (fasxmut at protonmail dot com)</span>
+<span class="comment">//</span>
+<span class="comment">// Distributed under the Boost Software License, Version 1.0. (See accompanying</span>
+<span class="comment">// file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)</span>
+<span class="comment">//</span>
+
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">math</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">algorithm</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">sycl</span><span class="special">/</span><span class="identifier">sycl</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">template</span> <span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">real_meric</span> <span class="identifier">type</span><span class="special">,</span> <span class="keyword">typename</span> <span class="identifier">kernel_name</span><span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">test_case</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">using</span> <span class="identifier">basic_type</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">make_float_t</span><span class="special">&lt;</span><span class="identifier">type</span><span class="special">&gt;;</span>
+<span class="keyword">private</span><span class="special">:</span>
+	<span class="identifier">sycl</span><span class="special">::</span><span class="identifier">queue</span> <span class="special">&amp;</span> <span class="identifier">queue</span><span class="special">;</span>
+	<span class="keyword">const</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">ux32</span> <span class="identifier">gdw</span> <span class="special">=</span> <span class="number">4</span><span class="special">;</span>
+	<span class="keyword">const</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">ux32</span> <span class="identifier">gdh</span> <span class="special">=</span> <span class="number">12</span><span class="special">;</span>
+	<span class="keyword">const</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">ux32</span> <span class="identifier">ldw</span> <span class="special">=</span> <span class="number">2</span><span class="special">;</span>
+	<span class="keyword">const</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">ux32</span> <span class="identifier">ldh</span> <span class="special">=</span> <span class="number">4</span><span class="special">;</span>
+	<span class="keyword">const</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">ux32</span> <span class="identifier">lmes</span> <span class="special">=</span> <span class="number">5</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="identifier">basic_type</span><span class="special">&gt;</span> <span class="identifier">vector</span><span class="special">;</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">test_case</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">type</span> <span class="special">&amp;</span> <span class="identifier">init_value</span><span class="special">,</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">queue</span> <span class="special">&amp;</span> <span class="identifier">queue</span><span class="special">):</span>
+		<span class="identifier">queue</span><span class="special">{</span><span class="identifier">queue</span><span class="special">},</span>
+		<span class="identifier">vector</span><span class="special">(</span><span class="identifier">gdw</span><span class="special">*</span><span class="identifier">gdh</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="identifier">utx</span><span class="special">::</span><span class="identifier">iota</span><span class="special">(</span><span class="identifier">vector</span><span class="special">,</span> <span class="identifier">init_value</span><span class="special">);</span>
+	<span class="special">}</span>
+	<span class="keyword">void</span> <span class="identifier">print</span><span class="special">()</span> <span class="keyword">const</span>
+	<span class="special">{</span>
+		<span class="keyword">for</span> <span class="special">(</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">ux32</span> <span class="identifier">j</span><span class="special">=</span><span class="number">0</span><span class="special">;</span> <span class="identifier">j</span><span class="special">&lt;</span><span class="identifier">gdh</span><span class="special">;</span> <span class="special">++</span><span class="identifier">j</span><span class="special">)</span>
+		<span class="special">{</span>
+			<span class="keyword">for</span> <span class="special">(</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">ux32</span> <span class="identifier">i</span><span class="special">=</span><span class="number">0</span><span class="special">;</span> <span class="identifier">i</span><span class="special">&lt;</span><span class="identifier">gdw</span><span class="special">;</span> <span class="special">++</span><span class="identifier">i</span><span class="special">)</span>
+			<span class="special">{</span>
+				<span class="identifier">utx</span><span class="special">::</span><span class="identifier">printnl</span><span class="special">(</span><span class="identifier">vector</span><span class="special">[</span><span class="identifier">j</span><span class="special">*</span><span class="identifier">gdw</span><span class="special">+</span><span class="identifier">i</span><span class="special">],</span> <span class="string">""</span><span class="special">);</span>
+			<span class="special">}</span>
+			<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">();</span>
+		<span class="special">}</span>
+		<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">();</span>
+	<span class="special">}</span>
+	<span class="keyword">void</span> <span class="identifier">run</span><span class="special">()</span>
+	<span class="special">{</span>
+		<span class="identifier">sycl</span><span class="special">::</span><span class="identifier">buffer</span><span class="special">&lt;</span><span class="identifier">basic_type</span><span class="special">,</span> <span class="number">2</span><span class="special">&gt;</span> <span class="identifier">buffer</span><span class="special">{</span><span class="identifier">vector</span><span class="special">.</span><span class="identifier">data</span><span class="special">(),</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">range</span><span class="special">&lt;</span><span class="number">2</span><span class="special">&gt;{</span><span class="identifier">gdh</span><span class="special">,</span> <span class="identifier">gdw</span><span class="special">}};</span>
+		<span class="identifier">queue</span><span class="special">.</span><span class="identifier">submit</span><span class="special">(</span>
+			<span class="special">[&amp;]</span> <span class="special">(</span><span class="identifier">sycl</span><span class="special">::</span><span class="identifier">handler</span> <span class="special">&amp;</span> <span class="identifier">handler</span><span class="special">)</span>
+			<span class="special">{</span>
+				<span class="keyword">auto</span> <span class="identifier">acc</span> <span class="special">=</span> <span class="identifier">buffer</span><span class="special">.</span><span class="keyword">template</span> <span class="identifier">get_access</span><span class="special">&lt;</span><span class="identifier">sycl</span><span class="special">::</span><span class="identifier">access_mode</span><span class="special">::</span><span class="identifier">read_write</span><span class="special">&gt;(</span><span class="identifier">handler</span><span class="special">);</span>
+				<span class="keyword">auto</span> <span class="identifier">lm</span> <span class="special">=</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">local_accessor</span><span class="special">&lt;</span><span class="identifier">basic_type</span><span class="special">,</span> <span class="number">2</span><span class="special">&gt;{</span><span class="identifier">sycl</span><span class="special">::</span><span class="identifier">range</span><span class="special">&lt;</span><span class="number">2</span><span class="special">&gt;{</span><span class="identifier">ldh</span><span class="special">,</span> <span class="identifier">ldw</span><span class="special">*</span><span class="identifier">lmes</span><span class="special">},</span> <span class="identifier">handler</span><span class="special">};</span>
+				<span class="identifier">handler</span><span class="special">.</span><span class="identifier">parallel_for</span><span class="special">&lt;</span><span class="identifier">kernel_name</span><span class="special">&gt;(</span>
+					<span class="identifier">sycl</span><span class="special">::</span><span class="identifier">nd_range</span><span class="special">&lt;</span><span class="number">2</span><span class="special">&gt;{</span>
+						<span class="identifier">sycl</span><span class="special">::</span><span class="identifier">range</span><span class="special">&lt;</span><span class="number">2</span><span class="special">&gt;{</span><span class="identifier">gdh</span><span class="special">,</span> <span class="identifier">gdw</span><span class="special">},</span>
+						<span class="identifier">sycl</span><span class="special">::</span><span class="identifier">range</span><span class="special">&lt;</span><span class="number">2</span><span class="special">&gt;{</span><span class="identifier">ldh</span><span class="special">,</span> <span class="identifier">ldw</span><span class="special">}</span>
+					<span class="special">},</span>
+					<span class="special">[=,</span> <span class="identifier">lmes</span><span class="special">=</span><span class="identifier">lmes</span><span class="special">()]</span> <span class="special">(</span><span class="identifier">sycl</span><span class="special">::</span><span class="identifier">nd_item</span><span class="special">&lt;</span><span class="number">2</span><span class="special">&gt;</span> <span class="identifier">item</span><span class="special">)</span>
+					<span class="special">{</span>
+						<span class="identifier">utx</span><span class="special">::</span><span class="identifier">ux32</span> <span class="identifier">gid0</span> <span class="special">=</span> <span class="identifier">item</span><span class="special">.</span><span class="identifier">get_global_id</span><span class="special">(</span><span class="number">0</span><span class="special">);</span>
+						<span class="identifier">utx</span><span class="special">::</span><span class="identifier">ux32</span> <span class="identifier">gid1</span> <span class="special">=</span> <span class="identifier">item</span><span class="special">.</span><span class="identifier">get_global_id</span><span class="special">(</span><span class="number">1</span><span class="special">);</span>
+						<span class="identifier">utx</span><span class="special">::</span><span class="identifier">ux32</span> <span class="identifier">lid0</span> <span class="special">=</span> <span class="identifier">item</span><span class="special">.</span><span class="identifier">get_local_id</span><span class="special">(</span><span class="number">0</span><span class="special">);</span>
+						<span class="identifier">utx</span><span class="special">::</span><span class="identifier">ux32</span> <span class="identifier">lid1</span> <span class="special">=</span> <span class="identifier">item</span><span class="special">.</span><span class="identifier">get_local_id</span><span class="special">(</span><span class="number">1</span><span class="special">);</span>
+						<span class="identifier">basic_type</span> <span class="special">&amp;</span> <span class="identifier">io</span> <span class="special">=</span> <span class="identifier">acc</span><span class="special">[</span><span class="identifier">gid0</span><span class="special">][</span><span class="identifier">gid1</span><span class="special">];</span>
+						<span class="identifier">basic_type</span> <span class="special">&amp;</span> <span class="identifier">lm0</span> <span class="special">=</span> <span class="identifier">lm</span><span class="special">[</span><span class="identifier">lid0</span><span class="special">][</span><span class="identifier">lid1</span><span class="special">*</span><span class="identifier">lmes</span><span class="special">];</span>
+						<span class="identifier">basic_type</span> <span class="special">&amp;</span> <span class="identifier">lm1</span> <span class="special">=</span> <span class="identifier">lm</span><span class="special">[</span><span class="identifier">lid0</span><span class="special">][</span><span class="identifier">lid1</span><span class="special">*</span><span class="identifier">lmes</span><span class="special">+</span><span class="number">1</span><span class="special">];</span>
+						<span class="identifier">lm0</span> <span class="special">=</span> <span class="number">0</span><span class="special">;</span>
+						<span class="identifier">lm1</span> <span class="special">=</span> <span class="number">0</span><span class="special">;</span>
+						<span class="identifier">sycl</span><span class="special">::</span><span class="identifier">group_barrier</span><span class="special">(</span><span class="identifier">item</span><span class="special">.</span><span class="identifier">get_group</span><span class="special">(),</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">memory_scope</span><span class="special">::</span><span class="identifier">work_group</span><span class="special">);</span>
+						<span class="identifier">lm0</span> <span class="special">=</span> <span class="identifier">io</span><span class="special">;</span>
+						<span class="identifier">lm1</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">exp</span><span class="special">(</span><span class="identifier">lm0</span><span class="special">);</span>
+						<span class="identifier">sycl</span><span class="special">::</span><span class="identifier">group_barrier</span><span class="special">(</span><span class="identifier">item</span><span class="special">.</span><span class="identifier">get_group</span><span class="special">(),</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">memory_scope</span><span class="special">::</span><span class="identifier">work_group</span><span class="special">);</span>
+						<span class="identifier">io</span> <span class="special">=</span> <span class="identifier">lm1</span><span class="special">;</span>
+					<span class="special">}</span>
+				<span class="special">);</span>
+			<span class="special">}</span>
+		<span class="special">);</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"--------------------------------------------------------------------------------"</span><span class="special">);</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"---- test_case_utx_exp_sycl ----"</span><span class="special">);</span>
+
+	<span class="identifier">sycl</span><span class="special">::</span><span class="identifier">queue</span> <span class="identifier">queue</span><span class="special">;</span>
+	<span class="keyword">try</span>
+	<span class="special">{</span>
+		<span class="identifier">queue</span> <span class="special">=</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">queue</span><span class="special">{</span><span class="identifier">sycl</span><span class="special">::</span><span class="identifier">default_selector_v</span><span class="special">};</span>
+	<span class="special">}</span>
+	<span class="keyword">catch</span> <span class="special">(</span><span class="keyword">const</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">exception</span> <span class="special">&amp;</span> <span class="identifier">err</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"sycl::exception:"</span><span class="special">,</span> <span class="identifier">err</span><span class="special">.</span><span class="identifier">what</span><span class="special">());</span>
+	<span class="special">}</span>
+
+	<span class="identifier">test_case</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">fx64</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">utx_fx64_01</span><span class="special">&gt;</span> <span class="identifier">test1</span><span class="special">{-</span><span class="number">15</span><span class="special">,</span> <span class="identifier">queue</span><span class="special">};</span>
+	<span class="identifier">test1</span><span class="special">.</span><span class="identifier">print</span><span class="special">();</span>
+	<span class="identifier">test1</span><span class="special">.</span><span class="identifier">run</span><span class="special">();</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"After utx::exp (sycl kernel):"</span><span class="special">);</span>
+	<span class="identifier">test1</span><span class="special">.</span><span class="identifier">print</span><span class="special">();</span>
+
+	<span class="identifier">test_case</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">fx32</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">utx_fx32_01</span><span class="special">&gt;</span> <span class="identifier">test2</span><span class="special">{</span><span class="number">0</span><span class="special">,</span> <span class="identifier">queue</span><span class="special">};</span>
+	<span class="identifier">test2</span><span class="special">.</span><span class="identifier">print</span><span class="special">();</span>
+	<span class="identifier">test2</span><span class="special">.</span><span class="identifier">run</span><span class="special">();</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"After utx::exp (sycl kernel):"</span><span class="special">);</span>
+	<span class="identifier">test2</span><span class="special">.</span><span class="identifier">print</span><span class="special">();</span>
+<span class="special">}</span>
+</pre>
+</div>
+<div class="copyright-footer">Copyright © 2022, 2023 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="utx_cos_sycl_utxcpp.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="sycl_utxcpp.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="utx_sqrt_sycl_utxcpp.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

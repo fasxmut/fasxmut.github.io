@@ -1,0 +1,84 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>.operator std_type</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Utxcpp Docs - Utxcpp Official Docs">
+<link rel="up" href="utx_xchar_string.html" title="utx::xchar_string">
+<link rel="prev" href="cpp_str.html" title=".cpp_str">
+<link rel="next" href="empty_utx_xchar_string.html" title=".empty() utx::xchar_string">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="cpp_str.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="utx_xchar_string.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="empty_utx_xchar_string.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="operator_std_type"></a>.operator std_type</h2></div></div>
+<hr>
+</div>
+<p>
+          .operator std_type member function
+        </p>
+<h2>
+<a name="operator_std_type.h0"></a>
+          <span class="phrase"><a name="operator_std_type.role_cyan_operator_std_type_memb"></a></span><a class="link" href="operator_std_type.html#operator_std_type.role_cyan_operator_std_type_memb"><span class="cyan">.operator
+          std_type member function of utx::xchar_string</span></a>
+        </h2>
+<p>
+          .operator std_type is a type operator of c++ class, used to convert utx::string,
+          utx::u8string, or utx::wstring to std::string, std::u8string, or std::wstring
+          etc. Calling .operator std_type is equal to calling .cpp_str, they have
+          the same implementation.
+        </p>
+<p>
+          .operator std_type member function is available in:
+        </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+              utx::string
+            </li>
+<li class="listitem">
+              utx::u8string
+            </li>
+<li class="listitem">
+              utx::u16string
+            </li>
+<li class="listitem">
+              utx::u32string
+            </li>
+<li class="listitem">
+              utx::wstring
+            </li>
+<li class="listitem">
+              utx::xchar_string
+            </li>
+</ul></div>
+<h2>
+<a name="operator_std_type.h1"></a>
+          <span class="phrase"><a name="operator_std_type.role_cyan_c_example"></a></span><a class="link" href="operator_std_type.html#operator_std_type.role_cyan_c_example"><span class="cyan">c++ example</span></a>
+        </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">str</span> <span class="special">=</span> <span class="string">"Hello c++!"</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">str2</span> <span class="special">=</span> <span class="identifier">str</span><span class="special">;</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="identifier">str</span><span class="special">,</span> <span class="identifier">str2</span><span class="special">);</span>
+<span class="special">}</span>
+</pre>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="cpp_str.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="utx_xchar_string.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="empty_utx_xchar_string.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

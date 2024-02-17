@@ -1,0 +1,4 @@
+<map id="nirt::gui::ICursorControl" name="nirt::gui::ICursorControl">
+<area shape="rect" id="node1" title="Interface to manipulate the mouse cursor." alt="" coords="7,80,180,107"/>
+<area shape="rect" id="node2" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="5,5,181,32"/>
+</map>

@@ -1,0 +1,215 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>constexpr Taking Address, cpp</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Utxcpp Docs - Utxcpp Official Docs">
+<link rel="up" href="hint_articles.html" title="Hint Articles">
+<link rel="prev" href="hint_articles.html" title="Hint Articles">
+<link rel="next" href="utx_print_thread_safe_cpp.html" title="utx::print Thread-Safe, cpp">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="hint_articles.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="hint_articles.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="utx_print_thread_safe_cpp.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="constexpr_taking_address_cpp"></a>constexpr Taking Address, cpp</h2></div></div>
+<hr>
+</div>
+<h2>
+<a name="constexpr_taking_address_cpp.h0"></a>
+        <span class="phrase"><a name="constexpr_taking_address_cpp.role_cyan_constexpr_taking_addre"></a></span><a class="link" href="constexpr_taking_address_cpp.html#constexpr_taking_address_cpp.role_cyan_constexpr_taking_addre"><span class="cyan">constexpr Taking Address, cpp: c++</span></a>
+      </h2>
+<p>
+        <span class="bold"><strong><span class="red">Your compiler might not fulfil these
+        rules, and the c++ standard might be changed in the future.</span></strong></span>
+      </p>
+<h2>
+<a name="constexpr_taking_address_cpp.h1"></a>
+        <span class="phrase"><a name="constexpr_taking_address_cpp.role_cyan_constexpr_memory_addre"></a></span><a class="link" href="constexpr_taking_address_cpp.html#constexpr_taking_address_cpp.role_cyan_constexpr_memory_addre"><span class="cyan">constexpr memory address</span></a>
+      </h2>
+<h3>
+<a name="constexpr_taking_address_cpp.h2"></a>
+        <span class="phrase"><a name="constexpr_taking_address_cpp.the_problem"></a></span><a class="link" href="constexpr_taking_address_cpp.html#constexpr_taking_address_cpp.the_problem">The
+        problem:</a>
+      </h3>
+<pre class="programlisting"><span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">constexpr</span> <span class="keyword">int</span> <span class="identifier">x</span> <span class="special">=</span> <span class="number">3</span><span class="special">;</span>
+	<span class="keyword">constexpr</span> <span class="keyword">int</span> <span class="special">*</span> <span class="identifier">addr</span> <span class="special">=</span> <span class="special">&amp;</span><span class="identifier">x</span><span class="special">;</span> <span class="comment">// error.</span>
+		<span class="comment">/* gcc:
+		error: invalid conversion from ‘const int*’ to ‘int*’
+		error: ‘(int*)(&amp; x)’ is not a constant expression
+		*/</span>
+		<span class="comment">/* clang:
+		error: cannot initialize a variable of type 'int *const'
+		with an rvalue of type 'const int *'
+		*/</span>
+<span class="special">}</span>
+</pre>
+<pre class="programlisting"><span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">constexpr</span> <span class="keyword">int</span> <span class="identifier">x</span> <span class="special">=</span> <span class="number">3</span><span class="special">;</span>
+	<span class="keyword">constexpr</span> <span class="keyword">const</span> <span class="keyword">int</span> <span class="special">*</span> <span class="identifier">addr</span> <span class="special">=</span> <span class="special">&amp;</span><span class="identifier">x</span><span class="special">;</span> <span class="comment">// error.</span>
+		<span class="comment">/* gcc:
+		error: ‘&amp; x’ is not a constant expression
+		*/</span>
+		<span class="comment">/* clang:
+		error: constexpr variable 'addr' must be initialized by a constant expression
+		note: address of non-static constexpr variable 'x' may differ
+		on each invocation of the enclosing function; add 'static' to
+		give it a constant address
+		*/</span>
+<span class="special">}</span>
+</pre>
+<h3>
+<a name="constexpr_taking_address_cpp.h3"></a>
+        <span class="phrase"><a name="constexpr_taking_address_cpp.solution_1_use_static_constexpr"></a></span><a class="link" href="constexpr_taking_address_cpp.html#constexpr_taking_address_cpp.solution_1_use_static_constexpr">Solution
+        1: Use static constexpr</a>
+      </h3>
+<pre class="programlisting"><span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keyword">int</span> <span class="identifier">x</span> <span class="special">=</span> <span class="number">3</span><span class="special">;</span>
+	<span class="comment">//constexpr int * addr = &amp;x; // error.</span>
+		<span class="comment">/*
+		error: invalid conversion from ‘const int*’ to ‘int*’
+		*/</span>
+	
+	<span class="keyword">constexpr</span> <span class="keyword">const</span> <span class="keyword">int</span> <span class="special">*</span> <span class="identifier">addr2</span> <span class="special">=</span> <span class="special">&amp;</span><span class="identifier">x</span><span class="special">;</span> <span class="comment">// OK</span>
+<span class="special">}</span>
+</pre>
+<h3>
+<a name="constexpr_taking_address_cpp.h4"></a>
+        <span class="phrase"><a name="constexpr_taking_address_cpp.solution_2_use_it_in_c_constexpr"></a></span><a class="link" href="constexpr_taking_address_cpp.html#constexpr_taking_address_cpp.solution_2_use_it_in_c_constexpr">Solution
+        2: Use it in c++ constexpr function</a>
+      </h3>
+<pre class="programlisting"><span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">fn</span> <span class="special">=</span> <span class="special">[]</span>
+<span class="special">{</span>
+	<span class="keyword">int</span> <span class="identifier">x</span> <span class="special">=</span> <span class="number">3</span><span class="special">;</span>
+	<span class="keyword">int</span> <span class="special">*</span> <span class="identifier">addr</span> <span class="special">=</span> <span class="special">&amp;</span><span class="identifier">x</span><span class="special">;</span>
+	<span class="keyword">return</span> <span class="special">*</span><span class="identifier">addr</span><span class="special">;</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">constexpr</span> <span class="keyword">int</span> <span class="identifier">get</span> <span class="special">=</span> <span class="identifier">fn</span><span class="special">();</span>
+	<span class="keyword">static_assert</span><span class="special">(</span><span class="identifier">get</span> <span class="special">==</span> <span class="number">3</span><span class="special">);</span> <span class="comment">// OK</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="constexpr_taking_address_cpp.h5"></a>
+        <span class="phrase"><a name="constexpr_taking_address_cpp.role_cyan_constexpr_taking_addr0"></a></span><a class="link" href="constexpr_taking_address_cpp.html#constexpr_taking_address_cpp.role_cyan_constexpr_taking_addr0"><span class="cyan">constexpr taking address: why it matters; where it exists</span></a>
+      </h2>
+<h3>
+<a name="constexpr_taking_address_cpp.h6"></a>
+        <span class="phrase"><a name="constexpr_taking_address_cpp.in_this_library_utxcpp_uflat_vec"></a></span><a class="link" href="constexpr_taking_address_cpp.html#constexpr_taking_address_cpp.in_this_library_utxcpp_uflat_vec">In
+        this library, utxcpp, uflat::vector, .data(), and also the std::array</a>
+      </h3>
+<p>
+        If you declare a constexpr container range, then take the .data() as constexpr,
+        the error occurs:
+      </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">flat</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">array</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">constexpr</span> <span class="identifier">uflat</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="number">3</span><span class="special">,</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">i32</span><span class="special">&gt;</span> <span class="identifier">v1</span><span class="special">{</span><span class="number">5</span><span class="special">,</span><span class="number">4</span><span class="special">,</span><span class="number">3</span><span class="special">};</span>
+	<span class="keyword">constexpr</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">array</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">i32</span><span class="special">,</span> <span class="number">3</span><span class="special">&gt;</span> <span class="identifier">v2</span><span class="special">{</span><span class="number">5</span><span class="special">,</span><span class="number">4</span><span class="special">,</span><span class="number">3</span><span class="special">};</span>
+
+	<span class="keyword">constexpr</span> <span class="keyword">const</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">i32</span> <span class="special">*</span> <span class="identifier">d1</span> <span class="special">=</span> <span class="identifier">v1</span><span class="special">.</span><span class="identifier">data</span><span class="special">();</span> <span class="comment">// error.</span>
+		<span class="comment">/*
+		error: ‘&amp; v1.utx::flat::vector&lt;3, int&gt;::__data[0]’ is not a constant expression
+		*/</span>
+
+	<span class="keyword">constexpr</span> <span class="keyword">const</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">i32</span> <span class="special">*</span> <span class="identifier">d2</span> <span class="special">=</span> <span class="identifier">v2</span><span class="special">.</span><span class="identifier">data</span><span class="special">();</span> <span class="comment">// error.</span>
+		<span class="comment">/*
+		error: ‘(std::array&lt;int, 3&gt;::const_pointer)(&amp; v2.std::array&lt;int, 3&gt;::_M_elems)’
+		is not a constant expression
+		*/</span>
+<span class="special">}</span>
+</pre>
+<h3>
+<a name="constexpr_taking_address_cpp.h7"></a>
+        <span class="phrase"><a name="constexpr_taking_address_cpp.use_c_constexpr_function_to_solv"></a></span><a class="link" href="constexpr_taking_address_cpp.html#constexpr_taking_address_cpp.use_c_constexpr_function_to_solv">Use
+        c++ constexpr function to solve it</a>
+      </h3>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">flat</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">fn</span> <span class="special">=</span> <span class="special">[]</span>
+<span class="special">{</span>
+	<span class="identifier">uflat</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="number">3</span><span class="special">,</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">i32</span><span class="special">&gt;</span> <span class="identifier">vec</span><span class="special">{</span><span class="number">3</span><span class="special">,</span><span class="number">4</span><span class="special">,</span><span class="number">5</span><span class="special">};</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">i32</span> <span class="special">*</span> <span class="identifier">data</span> <span class="special">=</span> <span class="identifier">vec</span><span class="special">.</span><span class="identifier">data</span><span class="special">();</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">i32</span> <span class="identifier">sum</span> <span class="special">=</span> <span class="number">0</span><span class="special">;</span>
+	<span class="keyword">for</span> <span class="special">(</span><span class="keyword">int</span> <span class="identifier">i</span><span class="special">=</span><span class="number">0</span><span class="special">;</span> <span class="identifier">i</span><span class="special">&lt;</span><span class="number">3</span><span class="special">;</span> <span class="identifier">i</span><span class="special">++)</span>
+	<span class="special">{</span>
+		<span class="identifier">sum</span> <span class="special">+=</span> <span class="identifier">data</span><span class="special">[</span><span class="identifier">i</span><span class="special">];</span>
+	<span class="special">}</span>
+	<span class="keyword">return</span> <span class="identifier">sum</span><span class="special">;</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">constexpr</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">i32</span> <span class="identifier">sum</span> <span class="special">=</span> <span class="identifier">fn</span><span class="special">();</span>
+	<span class="keyword">static_assert</span><span class="special">(</span><span class="identifier">sum</span> <span class="special">==</span> <span class="number">12</span><span class="special">);</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="constexpr_taking_address_cpp.h8"></a>
+        <span class="phrase"><a name="constexpr_taking_address_cpp.role_cyan_another_related_proble"></a></span><a class="link" href="constexpr_taking_address_cpp.html#constexpr_taking_address_cpp.role_cyan_another_related_proble"><span class="cyan">Another Related Problem: return const when constexpr</span></a>
+      </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">flat</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">array</span><span class="special">&gt;</span>
+
+<span class="keyword">auto</span> <span class="identifier">fn1</span> <span class="special">=</span> <span class="special">[]</span>
+<span class="special">{</span>
+	<span class="identifier">uflat</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="number">3</span><span class="special">,</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">i32</span><span class="special">&gt;</span> <span class="identifier">v1</span><span class="special">{</span><span class="number">2</span><span class="special">,</span><span class="number">3</span><span class="special">,</span><span class="number">4</span><span class="special">};</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">i32</span> <span class="special">*</span> <span class="identifier">d11</span> <span class="special">=</span> <span class="identifier">v1</span><span class="special">.</span><span class="identifier">data</span><span class="special">();</span> <span class="comment">// this is ok</span>
+	<span class="keyword">const</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">i32</span> <span class="special">*</span> <span class="identifier">d12</span> <span class="special">=</span> <span class="identifier">v1</span><span class="special">.</span><span class="identifier">data</span><span class="special">();</span> <span class="comment">// this is ok</span>
+
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">array</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">i32</span><span class="special">,</span> <span class="number">3</span><span class="special">&gt;</span> <span class="identifier">a1</span><span class="special">{</span><span class="number">2</span><span class="special">,</span><span class="number">3</span><span class="special">,</span><span class="number">4</span><span class="special">};</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">i32</span> <span class="special">*</span> <span class="identifier">d21</span> <span class="special">=</span> <span class="identifier">a1</span><span class="special">.</span><span class="identifier">data</span><span class="special">();</span> <span class="comment">// this is ok</span>
+	<span class="keyword">const</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">i32</span> <span class="special">*</span> <span class="identifier">d22</span> <span class="special">=</span> <span class="identifier">a1</span><span class="special">.</span><span class="identifier">data</span><span class="special">();</span> <span class="comment">// this is ok</span>
+<span class="special">};</span>
+
+<span class="keyword">auto</span> <span class="identifier">fn2</span> <span class="special">=</span> <span class="special">[]</span>
+<span class="special">{</span>
+	<span class="keyword">constexpr</span> <span class="identifier">uflat</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="number">3</span><span class="special">,</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">i32</span><span class="special">&gt;</span> <span class="identifier">v1</span><span class="special">{</span><span class="number">2</span><span class="special">,</span><span class="number">3</span><span class="special">,</span><span class="number">4</span><span class="special">};</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">i32</span> <span class="special">*</span> <span class="identifier">d11</span> <span class="special">=</span> <span class="identifier">v1</span><span class="special">.</span><span class="identifier">data</span><span class="special">();</span> <span class="comment">// error.</span>
+		<span class="comment">/*
+		error: invalid conversion from ‘const utx::flat::vector&lt;3, int&gt;::value_type*’
+		{aka ‘const int*’} to ‘utx::i32*’ {aka ‘int*’}
+		*/</span>
+	<span class="keyword">const</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">i32</span> <span class="special">*</span> <span class="identifier">d12</span> <span class="special">=</span> <span class="identifier">v1</span><span class="special">.</span><span class="identifier">data</span><span class="special">();</span> <span class="comment">// this is ok</span>
+
+	<span class="keyword">constexpr</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">array</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">i32</span><span class="special">,</span> <span class="number">3</span><span class="special">&gt;</span> <span class="identifier">a1</span><span class="special">{</span><span class="number">2</span><span class="special">,</span><span class="number">3</span><span class="special">,</span><span class="number">4</span><span class="special">};</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">i32</span> <span class="special">*</span> <span class="identifier">d21</span> <span class="special">=</span> <span class="identifier">a1</span><span class="special">.</span><span class="identifier">data</span><span class="special">();</span> <span class="comment">// error.</span>
+	<span class="keyword">const</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">i32</span> <span class="special">*</span> <span class="identifier">d22</span> <span class="special">=</span> <span class="identifier">a1</span><span class="special">.</span><span class="identifier">data</span><span class="special">();</span> <span class="comment">// this is ok</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">fn1</span><span class="special">();</span>
+	<span class="identifier">fn2</span><span class="special">();</span>
+<span class="special">}</span>
+</pre>
+<p>
+        The question is that v1 and a1 are constexprs, which imply const. So add
+        const to solve it.
+      </p>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="hint_articles.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="hint_articles.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="utx_print_thread_safe_cpp.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

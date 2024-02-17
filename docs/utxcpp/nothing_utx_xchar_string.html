@@ -1,0 +1,103 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>.nothing() utx::xchar_string</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Utxcpp Docs - Utxcpp Official Docs">
+<link rel="up" href="utx_xchar_string.html" title="utx::xchar_string">
+<link rel="prev" href="empty_utx_xchar_string.html" title=".empty() utx::xchar_string">
+<link rel="next" href="operator_comparisons.html" title=".operator&lt;=&gt;, comparisons">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="empty_utx_xchar_string.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="utx_xchar_string.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="operator_comparisons.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="nothing_utx_xchar_string"></a>.nothing() utx::xchar_string</h2></div></div>
+<hr>
+</div>
+<h2>
+<a name="nothing_utx_xchar_string.h0"></a>
+          <span class="phrase"><a name="nothing_utx_xchar_string.role_cyan_nothing_utx_xchar_stri"></a></span><a class="link" href="nothing_utx_xchar_string.html#nothing_utx_xchar_string.role_cyan_nothing_utx_xchar_stri"><span class="cyan">.nothing() utx::xchar_string</span></a>
+        </h2>
+<p>
+          .nothing() is a member function of utx::xchar_string, used to check if
+          a string is empty or holds blank characters.
+        </p>
+<p>
+          A string is .nothing(), if:
+        </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+              the size is zero.
+            </li>
+<li class="listitem">
+              the size is not zero, but only holds characters ' ', '\t', '\r', '\n',
+              '\v', '\f' .
+            </li>
+</ul></div>
+<p>
+          (Two backslash are used to escape one backslash here, by boost quickbook,
+          such as two backslash following n in qbk doc, means one backslash following
+          n in html output.) (<a href="https://www.boost.org/tools/quickbook" target="_top">Boost
+          QuickBook</a>)
+        </p>
+<p>
+          .nothing() member function is available for:
+        </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+              utx::string
+            </li>
+<li class="listitem">
+              utx::u8string
+            </li>
+<li class="listitem">
+              utx::u16string
+            </li>
+<li class="listitem">
+              utx::u32string
+            </li>
+<li class="listitem">
+              utx::wstring
+            </li>
+<li class="listitem">
+              utx::xchar_string
+            </li>
+</ul></div>
+<h2>
+<a name="nothing_utx_xchar_string.h1"></a>
+          <span class="phrase"><a name="nothing_utx_xchar_string.role_cyan_c_example"></a></span><a class="link" href="nothing_utx_xchar_string.html#nothing_utx_xchar_string.role_cyan_c_example"><span class="cyan">c++ example</span></a>
+        </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">s1</span><span class="special">;</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">s2</span> <span class="special">=</span> <span class="string">" \n\n\t\n\0\n\n"</span><span class="special">;</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">s3</span> <span class="special">=</span> <span class="string">"c++"</span><span class="special">;</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span>
+		<span class="identifier">s1</span><span class="special">.</span><span class="identifier">nothing</span><span class="special">(),</span>		<span class="comment">// true</span>
+		<span class="identifier">s2</span><span class="special">.</span><span class="identifier">nothing</span><span class="special">(),</span>		<span class="comment">// true</span>
+		<span class="identifier">s2</span><span class="special">.</span><span class="identifier">empty</span><span class="special">(),</span>		<span class="comment">// false</span>
+		<span class="identifier">s2</span><span class="special">.</span><span class="identifier">size</span><span class="special">(),</span>		<span class="comment">// 5</span>
+		<span class="identifier">s3</span><span class="special">.</span><span class="identifier">nothing</span><span class="special">()</span>		<span class="comment">// false</span>
+	<span class="special">);</span>
+<span class="special">}</span>
+</pre>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="empty_utx_xchar_string.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="utx_xchar_string.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="operator_comparisons.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

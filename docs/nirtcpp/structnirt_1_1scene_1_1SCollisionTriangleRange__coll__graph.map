@@ -1,0 +1,12 @@
+<map id="nirt::scene::SCollisionTriangleRange" name="nirt::scene::SCollisionTriangleRange">
+<area shape="rect" id="node1" title="Additional information about the triangle arrays returned by ITriangleSelector::getTriangles." alt="" coords="993,58,1207,99"/>
+<area shape="rect" id="node2" href="$classnirt_1_1scene_1_1ITriangleSelector.html" title="Interface to return triangles with specific properties." alt="" coords="247,65,453,92"/>
+<area shape="rect" id="node4" href="$classnirt_1_1scene_1_1ISceneNode.html" title="Scene node interface." alt="" coords="693,189,868,216"/>
+<area shape="rect" id="node3" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="5,112,181,139"/>
+<area shape="rect" id="node5" href="$classnirt_1_1io_1_1IAttributeExchangingObject.html" title="An object which is able to serialize and deserialize its attributes into an attributes object." alt="" coords="246,182,454,223"/>
+<area shape="rect" id="node9" href="$classnirt_1_1scene_1_1ISceneManager.html" title="The Scene Manager manages scene nodes, mesh resources, cameras and all the other stuff." alt="" coords="251,248,449,275"/>
+<area shape="rect" id="node10" href="$classnirt_1_1scene_1_1IMeshBuffer.html" title="Struct for holding a mesh with a single material." alt="" coords="493,5,669,32"/>
+<area shape="rect" id="node6" href="$classnirt_1_1core_1_1vector3d.html" title=" " alt="" coords="277,369,423,410"/>
+<area shape="rect" id="node7" href="$classnirt_1_1core_1_1list.html" title=" " alt="" coords="261,117,439,158"/>
+<area shape="rect" id="node8" href="$classnirt_1_1core_1_1list.html" title=" " alt="" coords="231,299,469,341"/>
+</map>

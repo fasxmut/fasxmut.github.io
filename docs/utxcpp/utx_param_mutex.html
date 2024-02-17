@@ -1,0 +1,82 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>utx::param_mutex</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Utxcpp Docs - Utxcpp Official Docs">
+<link rel="up" href="basic_concepts.html" title="Basic Concepts">
+<link rel="prev" href="utx_end_with_star.html" title="utx::end_with_star">
+<link rel="next" href="utx_static_convertible.html" title="utx::static_convertible">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="utx_end_with_star.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="basic_concepts.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="utx_static_convertible.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="utx_param_mutex"></a>utx::param_mutex</h2></div></div>
+<hr>
+</div>
+<h2>
+<a name="utx_param_mutex.h0"></a>
+          <span class="phrase"><a name="utx_param_mutex.role_cyan_utx_param_mutex_concep"></a></span><a class="link" href="utx_param_mutex.html#utx_param_mutex.role_cyan_utx_param_mutex_concep"><span class="cyan">utx::param_mutex concept</span></a>
+        </h2>
+<p>
+          The concept utx::param_mutex is used to constrain and match a lockable
+          mutex, to require a type of a mutex satisfy basic standard Mutex requirements.
+          These types satisfy utx::param_mutex concept: std::mutex, std::recursive_mutex,
+          std::timed_mutex, std::shared_mutex, std::shared_timed_mutex, etc., and
+          many more. utx::param_mutex is not exactly the same as the description
+          of standard Mutex requirements, but it works for utx::print.
+        </p>
+<p>
+          utx::param_mutex is designed for utx::print at first, but it can be used
+          for other multithread programming too.
+        </p>
+<p>
+          By passing a mutex object to utx::print, that mutex will be locked and
+          unlocked inside utx::print, so make sure the mutex status is unlock when
+          calling utx::print with the mutex, unless it is a Recursive-Mutex, otherwise
+          it's deadlock.
+        </p>
+<h2>
+<a name="utx_param_mutex.h1"></a>
+          <span class="phrase"><a name="utx_param_mutex.role_cyan_c_example"></a></span><a class="link" href="utx_param_mutex.html#utx_param_mutex.role_cyan_c_example"><span class="cyan">c++ example</span></a>
+        </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">thread</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">mutex</span> <span class="identifier">mutex</span><span class="special">;</span>
+	<span class="keyword">auto</span> <span class="identifier">f1</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">async</span><span class="special">(</span>
+		<span class="special">[&amp;</span><span class="identifier">mutex</span><span class="special">]</span>
+		<span class="special">{</span>
+			<span class="comment">// mutex type is constrained by utx::param_mutex of operator() of utx::print.</span>
+			<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="identifier">mutex</span><span class="special">,</span> <span class="string">"Hell"</span><span class="special">,</span> <span class="string">"World!"</span><span class="special">,</span> <span class="number">3.3</span><span class="special">);</span>
+		<span class="special">}</span>
+	<span class="special">);</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="utx_param_mutex.h2"></a>
+          <span class="phrase"><a name="utx_param_mutex.role_cyan_see_also"></a></span><a class="link" href="utx_param_mutex.html#utx_param_mutex.role_cyan_see_also"><span class="cyan">See Also</span></a>
+        </h2>
+<p>
+          <a class="link" href="utx_print.html" title="utx::print">utx::print</a>
+        </p>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="utx_end_with_star.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="basic_concepts.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="utx_static_convertible.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

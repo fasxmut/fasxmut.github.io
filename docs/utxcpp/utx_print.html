@@ -1,0 +1,344 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>utx::print</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Utxcpp Docs - Utxcpp Official Docs">
+<link rel="up" href="print.html" title="Print">
+<link rel="prev" href="utx_delim_base.html" title="utx::delim_base">
+<link rel="next" href="utx_printe.html" title="utx::printe">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="utx_delim_base.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="print.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="utx_printe.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="utx_print"></a>utx::print</h2></div></div>
+<hr>
+</div>
+<h2>
+<a name="utx_print.h0"></a>
+        <span class="phrase"><a name="utx_print.role_cyan_utx_print_utx_print_cl"></a></span><a class="link" href="utx_print.html#utx_print.role_cyan_utx_print_utx_print_cl"><span class="cyan">utx::print - utx::print_class</span></a>
+      </h2>
+<p>
+        utx::print is the object of template print class utx::print_class to print
+        many different values without worrying about their types. It is used to output
+        any printable information to char based standard stream, aka std::cout, std::wcout,
+        etc. However the ouput stream can be changed. utx::print is the main print
+        utility of utxcpp. It can print many different types of values by one call.
+        utx::print has a variadic template member function to do the printing, by
+        one call, it is pre-defined format printer, every items are splitted by a
+        space, std::endl or '\n' character will be added at the end. Almost every
+        printable value can be printed by utx::print, and other values can be printed
+        by utx::print after overloading operator&lt;&lt;. utx::print is the most
+        important api of utxcpp.
+      </p>
+<p>
+        utx::print has been updated.
+      </p>
+<p>
+        utx::print or utx::print_class has been updated since Nov. 17, 2023. From
+        now on, utx::print and old print-all have been merged to one utx::print,
+        that means utx::print can not only print many different types of single printable
+        values, but also can print many different types of printable containers,
+        ranges, and tuples.
+      </p>
+<p>
+        In addition, utx::print can print nested ranges, tuples, ranges of tuples,
+        and or tuples of ranges.
+      </p>
+<h2>
+<a name="utx_print.h1"></a>
+        <span class="phrase"><a name="utx_print.role_cyan_utx_print_class"></a></span><a class="link" href="utx_print.html#utx_print.role_cyan_utx_print_class"><span class="cyan">utx::print_class</span></a>
+      </h2>
+<p>
+        utx::print_class is a template class
+      </p>
+<pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">chara</span> <span class="identifier">char_xt</span><span class="special">&gt;</span>
+	<span class="identifier">requires</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">same_as</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">remove_cvref_t</span><span class="special">&lt;</span><span class="identifier">char_xt</span><span class="special">&gt;,</span> <span class="identifier">char_xt</span><span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">print_class</span><span class="special">;</span>
+</pre>
+<p>
+        The utx::chara concept requires the type char_xt must be one of char, char8_t,
+        char16_t, char32_t, wchar_t.
+      </p>
+<p>
+        The "requires" concept constrains that the type char_xt must not
+        have const and reference.
+      </p>
+<p>
+        So char or wchar_t is accepted by utx::print_class template, but const char,
+        char &amp;, or const char &amp;, etc. are not accepted by utx::print_class
+        template.
+      </p>
+<p>
+        Currently, only char and wchar_t are implemented by c++ standard ostream,
+        so char8_t, char16_t, char32_t are not available for utx::print_class now.
+      </p>
+<h2>
+<a name="utx_print.h2"></a>
+        <span class="phrase"><a name="utx_print.role_cyan_polymorphism_friendly"></a></span><a class="link" href="utx_print.html#utx_print.role_cyan_polymorphism_friendly"><span class="cyan">Polymorphism Friendly</span></a>
+      </h2>
+<p>
+        utx::print_class is inheritence and polymorphism friendly. It has virtual
+        destructor. Its member data or member functions are protected or public.
+      </p>
+<h2>
+<a name="utx_print.h3"></a>
+        <span class="phrase"><a name="utx_print.role_cyan_constructors"></a></span><a class="link" href="utx_print.html#utx_print.role_cyan_constructors"><span class="cyan">Constructors</span></a>
+      </h2>
+<h3>
+<a name="utx_print.h4"></a>
+        <span class="phrase"><a name="utx_print.utx_print_class_constructors"></a></span><a class="link" href="utx_print.html#utx_print.utx_print_class_constructors">utx::print_class
+        constructors</a>
+      </h3>
+<p>
+        A constructor must at least set to initialize __sout to attach an external
+        ostream, such as std::cout, or std::wcout.
+      </p>
+<p>
+        4x2 constructors
+      </p>
+<pre class="programlisting"><span class="comment">////////////////////////////////////////////////////////////////////////////////</span>
+<span class="comment">// These two constructors init to attach external ostream</span>
+
+<span class="identifier">print_class</span><span class="special">(</span><span class="identifier">ostream_type</span> <span class="special">&amp;</span> <span class="identifier">__external_ostream__</span><span class="special">);</span>
+<span class="identifier">print_class</span><span class="special">(</span><span class="identifier">ofstream_type</span> <span class="special">&amp;</span> <span class="identifier">__external_ofstream__</span><span class="special">);</span>
+
+<span class="comment">////////////////////////////////////////////////////////////////////////////////</span>
+<span class="comment">// These two constructors init to attach external ostream,</span>
+<span class="comment">// and init the three delimiters.</span>
+
+<span class="identifier">print_class</span><span class="special">(</span>
+	<span class="identifier">ostream_type</span> <span class="special">&amp;</span> <span class="identifier">__external_ostream__</span><span class="special">,</span>
+	<span class="keyword">const</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">delim_base</span><span class="special">&lt;</span><span class="identifier">string_type</span><span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">__init_nested_range_delim__</span><span class="special">,</span>
+	<span class="keyword">const</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">delim_base</span><span class="special">&lt;</span><span class="identifier">string_type</span><span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">__init_range_delim__</span><span class="special">,</span>
+	<span class="keyword">const</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">delim_base</span><span class="special">&lt;</span><span class="identifier">string_type</span><span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">__init_value_delim__</span>
+<span class="special">);</span>
+<span class="identifier">print_class</span><span class="special">(</span>
+	<span class="identifier">ofstream_type</span> <span class="special">&amp;</span> <span class="identifier">__external_ofstream__</span><span class="special">,</span>
+	<span class="keyword">const</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">delim_base</span><span class="special">&lt;</span><span class="identifier">string_type</span><span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">__init_nested_range_delim__</span><span class="special">,</span>
+	<span class="keyword">const</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">delim_base</span><span class="special">&lt;</span><span class="identifier">string_type</span><span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">__init_range_delim__</span><span class="special">,</span>
+	<span class="keyword">const</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">delim_base</span><span class="special">&lt;</span><span class="identifier">string_type</span><span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">__init_value_delim__</span>
+<span class="special">);</span>
+
+<span class="comment">////////////////////////////////////////////////////////////////////////////////</span>
+<span class="comment">// These two constructors init to attach external ostream,</span>
+<span class="comment">// and init if it prints \n at the end, </span>
+<span class="comment">// and if it aligns left for next line printed.</span>
+
+
+<span class="identifier">print_class</span><span class="special">(</span>
+	<span class="identifier">ostream_type</span> <span class="special">&amp;</span> <span class="identifier">__external_ostream__</span><span class="special">,</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">mb</span> <span class="identifier">__newline__</span><span class="special">,</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">mb</span> <span class="identifier">__align_left__</span>
+	<span class="special">);</span>
+<span class="identifier">print_class</span><span class="special">(</span>
+	<span class="identifier">ofstream_type</span> <span class="special">&amp;</span> <span class="identifier">__external_ofstream__</span><span class="special">,</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">mb</span> <span class="identifier">__newline__</span><span class="special">,</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">mb</span> <span class="identifier">__align_left__</span>
+<span class="special">);</span>
+
+<span class="comment">////////////////////////////////////////////////////////////////////////////////</span>
+<span class="comment">// These two constructors init what all above constructors can init.</span>
+
+<span class="identifier">print_class</span><span class="special">(</span>
+	<span class="identifier">ostream_type</span> <span class="special">&amp;</span> <span class="identifier">__external_ostream__</span><span class="special">,</span>
+	<span class="keyword">const</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">delim_base</span><span class="special">&lt;</span><span class="identifier">string_type</span><span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">__init_nested_range_delim__</span><span class="special">,</span>
+	<span class="keyword">const</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">delim_base</span><span class="special">&lt;</span><span class="identifier">string_type</span><span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">__init_range_delim__</span><span class="special">,</span>
+	<span class="keyword">const</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">delim_base</span><span class="special">&lt;</span><span class="identifier">string_type</span><span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">__init_value_delim__</span><span class="special">,</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">mb</span> <span class="identifier">__newline__</span><span class="special">,</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">mb</span> <span class="identifier">__align_left__</span>
+<span class="special">);</span>
+<span class="identifier">print_class</span><span class="special">(</span>
+	<span class="identifier">ofstream_type</span> <span class="special">&amp;</span> <span class="identifier">__external_ofstream__</span><span class="special">,</span>
+	<span class="keyword">const</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">delim_base</span><span class="special">&lt;</span><span class="identifier">string_type</span><span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">__init_nested_range_delim__</span><span class="special">,</span>
+	<span class="keyword">const</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">delim_base</span><span class="special">&lt;</span><span class="identifier">string_type</span><span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">__init_range_delim__</span><span class="special">,</span>
+	<span class="keyword">const</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">delim_base</span><span class="special">&lt;</span><span class="identifier">string_type</span><span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">__init_value_delim__</span><span class="special">,</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">mb</span> <span class="identifier">__newline__</span><span class="special">,</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">mb</span> <span class="identifier">__align_left__</span>
+<span class="special">);</span>
+</pre>
+<h2>
+<a name="utx_print.h5"></a>
+        <span class="phrase"><a name="utx_print.role_cyan_public_member_function"></a></span><a class="link" href="utx_print.html#utx_print.role_cyan_public_member_function"><span class="cyan">Public Member Functions</span></a>
+      </h2>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            .operator()
+          </li>
+<li class="listitem">
+            .operator bool
+          </li>
+<li class="listitem">
+            .operator !
+          </li>
+<li class="listitem">
+            .set_nested_delim(delim)
+          </li>
+<li class="listitem">
+            .set_range_delim(delim)
+          </li>
+<li class="listitem">
+            .set_value_delim(delim)
+          </li>
+<li class="listitem">
+            .set_delim(delim)
+          </li>
+<li class="listitem">
+            .set_delim(nested_delim, range_delim, value_delim)
+          </li>
+<li class="listitem">
+            .set_align_left(bool)
+          </li>
+<li class="listitem">
+            .set_newline(bool)
+          </li>
+<li class="listitem">
+            .restore_format
+          </li>
+<li class="listitem">
+            .set_ostream
+          </li>
+<li class="listitem">
+            .restore_ostram
+          </li>
+<li class="listitem">
+            .is_ofstream
+          </li>
+<li class="listitem">
+            .restore_all
+          </li>
+</ul></div>
+<h2>
+<a name="utx_print.h6"></a>
+        <span class="phrase"><a name="utx_print.role_cyan_lock_and_mutex_support"></a></span><a class="link" href="utx_print.html#utx_print.role_cyan_lock_and_mutex_support"><span class="cyan">Lock and Mutex Support</span></a>
+      </h2>
+<p>
+        utx::print_class such as utx::print does not include any threading and mutex
+        header, however, you can pass a mutex to utx::print, that mutex will be constrained
+        and matched by utx::param_mutex, then the mutex will be locked and unlocked
+        inside the utx::print calling stack.
+      </p>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">mutex</span> <span class="identifier">mutex</span><span class="special">;</span>
+
+<span class="identifier">start_a_thread</span><span class="special">;</span>
+<span class="comment">// then use mutex ...</span>
+<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="identifier">mutex</span><span class="special">,</span> <span class="string">"Hell"</span><span class="special">,</span> <span class="string">"World!"</span><span class="special">);</span>	<span class="comment">// mutex will be locked and unlocked inside utx::print .</span>
+</pre>
+<p>
+        See <a class="link" href="utx_param_mutex.html" title="utx::param_mutex">utx::param_mutex</a>
+      </p>
+<h2>
+<a name="utx_print.h7"></a>
+        <span class="phrase"><a name="utx_print.role_cyan_std_fmtflags_rules"></a></span><a class="link" href="utx_print.html#utx_print.role_cyan_std_fmtflags_rules"><span class="cyan">std::fmtflags rules</span></a>
+      </h2>
+<p>
+        Every call of utx::print, utx::wprint, etc., the std::boolalpha, std::fixed,
+        and std::setprecision(10) will be set. The user-defined flags can change
+        them, but keep in the current call session, and will be lost after ending
+        current print call, never existed in next print call. No matter how many
+        times of calling utx::print, utx::wprint, etc., and no matter how the user
+        set fmt-flags to utx::print, utx::wprint, etc., the standard output std::cout,
+        std::cerr, std::wcout etc. will be not affected.
+      </p>
+<h2>
+<a name="utx_print.h8"></a>
+        <span class="phrase"><a name="utx_print.role_cyan_public_header"></a></span><a class="link" href="utx_print.html#utx_print.role_cyan_public_header"><span class="cyan">Public Header</span></a>
+      </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+</pre>
+<h2>
+<a name="utx_print.h9"></a>
+        <span class="phrase"><a name="utx_print.role_cyan_notice"></a></span><a class="link" href="utx_print.html#utx_print.role_cyan_notice"><span class="cyan">Notice</span></a>
+      </h2>
+<div class="note"><table border="0" summary="Note">
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td>
+<th align="left">Note</th>
+</tr>
+<tr><td align="left" valign="top"><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+              It prints a newline character at the end, but can be changed with .set_newline
+              member function.
+            </li>
+<li class="listitem">
+              It separates each single value by a space, each range or tuple by \n,
+              each two-dim range or tuple by \n\n, but can be changed by .set_delim
+              member function.
+            </li>
+<li class="listitem">
+              It can print nested ranges and nested tuples, nested ranges of tuples,
+              and nested tuples of ranges.
+            </li>
+<li class="listitem">
+              concept requirements:
+              <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; ">
+<li class="listitem">
+                    Every single value must satisfy <span class="underline">utx::kspt::printable</span>
+                    or <span class="underline">utx::kspt::printable_adapter&lt;char_type&gt;</span>,
+                    char_type is a related char-type, such as char or wchar_t .
+                  </li>
+<li class="listitem">
+                    All single values stored in the range or tuple must satisfy printable
+                    too.
+                  </li>
+<li class="listitem">
+                    Basic printable types satisfy <span class="underline">utx::kspt::printable</span>
+                    .
+                  </li>
+<li class="listitem">
+                    Non-basic types must implement <span class="underline">operator&lt;&lt;</span>
+                    to satisfy <span class="underline">utx::kspt::printable</span>
+                    .
+                  </li>
+</ul></div>
+            </li>
+</ul></div></td></tr>
+</table></div>
+<h2>
+<a name="utx_print.h10"></a>
+        <span class="phrase"><a name="utx_print.role_cyan_c_example"></a></span><a class="link" href="utx_print.html#utx_print.role_cyan_c_example"><span class="cyan">c++ Example</span></a>
+      </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="keyword">true</span><span class="special">,</span> <span class="char">':'</span><span class="special">,</span> <span class="number">3.14</span><span class="special">,</span> <span class="string">"kg"</span><span class="special">,</span> <span class="string">"waters"</span><span class="special">);</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="utx_print.h11"></a>
+        <span class="phrase"><a name="utx_print.role_cyan_see_also"></a></span><a class="link" href="utx_print.html#utx_print.role_cyan_see_also"><span class="cyan">See Also</span></a>
+      </h2>
+<p>
+        <a class="link" href="utx_printe.html" title="utx::printe">utx::printe</a>
+      </p>
+<p>
+        <a class="link" href="utx_printnl.html" title="utx::printnl">utx::printnl</a>
+      </p>
+<p>
+        <a class="link" href="utx_wprint.html" title="utx::wprint">utx::wprint</a>
+      </p>
+<p>
+        <a class="link" href="utx_wprinte.html" title="utx::wprinte">utx::wprinte</a>
+      </p>
+<p>
+        <a class="link" href="utx_wprintnl.html" title="utx::wprintnl">utx::wprintnl</a>
+      </p>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="utx_delim_base.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="print.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="utx_printe.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

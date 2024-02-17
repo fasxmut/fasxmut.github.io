@@ -1,0 +1,64 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>utfs::path::extension</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Utxcpp Docs - Utxcpp Official Docs">
+<link rel="up" href="utfs_path.html" title="utfs::path">
+<link rel="prev" href="utfs_path_stem.html" title="utfs::path::stem">
+<link rel="next" href="utfs_path_data.html" title="utfs::path::data">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="utfs_path_stem.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="utfs_path.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="utfs_path_data.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="utfs_path_extension"></a>utfs::path::extension</h2></div></div>
+<hr>
+</div>
+<h2>
+<a name="utfs_path_extension.h0"></a>
+          <span class="phrase"><a name="utfs_path_extension.role_cyan_utfs_path_extension"></a></span><a class="link" href="utfs_path_extension.html#utfs_path_extension.role_cyan_utfs_path_extension"><span class="cyan">utfs::path::extension</span></a>
+        </h2>
+<p>
+          utfs::path::extension is a member function of class utfs::path, used to
+          get the filename extension from the filename of a file path.
+        </p>
+<p>
+          class: <a class="link" href="utfs_path.html" title="utfs::path">utfs::path</a>
+        </p>
+<pre class="programlisting"><span class="identifier">utfs</span><span class="special">::</span><span class="identifier">path</span> <span class="identifier">extension</span><span class="special">()</span> <span class="keyword">const</span>
+<span class="special">{</span>
+	<span class="special">...</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="utfs_path_extension.h1"></a>
+          <span class="phrase"><a name="utfs_path_extension.role_cyan_utfs_path_extension_c_"></a></span><a class="link" href="utfs_path_extension.html#utfs_path_extension.role_cyan_utfs_path_extension_c_"><span class="cyan">utfs::path::extension c++ example</span></a>
+        </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">utfs</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">utfs</span><span class="special">::</span><span class="identifier">path</span> <span class="identifier">p1</span><span class="special">{</span><span class="identifier">__FILE__</span><span class="special">};</span>
+
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="identifier">p1</span><span class="special">,</span> <span class="identifier">p1</span><span class="special">.</span><span class="identifier">extension</span><span class="special">());</span> <span class="comment">// .cpp</span>
+<span class="special">}</span>
+</pre>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="utfs_path_stem.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="utfs_path.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="utfs_path_data.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

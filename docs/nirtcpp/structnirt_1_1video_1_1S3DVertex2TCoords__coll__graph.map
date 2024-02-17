@@ -1,0 +1,7 @@
+<map id="nirt::video::S3DVertex2TCoords" name="nirt::video::S3DVertex2TCoords">
+<area shape="rect" id="node1" title="Vertex with two texture coordinates." alt="" coords="221,200,445,227"/>
+<area shape="rect" id="node2" href="$structnirt_1_1video_1_1S3DVertex.html" title="standard vertex used by the Nirtcpp engine." alt="" coords="179,124,343,151"/>
+<area shape="rect" id="node3" href="$classnirt_1_1core_1_1vector3d.html" title=" " alt="" coords="5,5,151,47"/>
+<area shape="rect" id="node4" href="$classnirt_1_1video_1_1SColor.html" title="Class representing a 32 bit ARGB color." alt="" coords="175,13,314,39"/>
+<area shape="rect" id="node5" href="$classnirt_1_1core_1_1vector2d.html" title=" " alt="" coords="339,5,484,47"/>
+</map>
