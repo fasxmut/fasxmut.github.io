@@ -1,4 +1,0 @@
-<map id="nirt::scene::ITriangleSelector" name="nirt::scene::ITriangleSelector">
-<area shape="rect" id="node1" title="Interface to return triangles with specific properties." alt="" coords="5,80,212,107"/>
-<area shape="rect" id="node2" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="21,5,197,32"/>
-</map>

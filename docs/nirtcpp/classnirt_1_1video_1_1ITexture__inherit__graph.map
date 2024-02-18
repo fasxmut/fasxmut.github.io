@@ -1,4 +1,0 @@
-<map id="nirt::video::ITexture" name="nirt::video::ITexture">
-<area shape="rect" id="node1" title="Interface of a Video Driver dependent Texture." alt="" coords="19,80,167,107"/>
-<area shape="rect" id="node2" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="5,5,181,32"/>
-</map>

@@ -1,0 +1,13 @@
+digraph "nirt::scene::quake3::IShader"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="nirt::scene::quake3\l::IShader",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="A Parsed Shader Holding Variables ordered in Groups."];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" VarGroup" ,fontname="Helvetica"];
+  Node2 [label="nirt::scene::quake3\l::SVarGroupList",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structnirt_1_1scene_1_1quake3_1_1SVarGroupList.html",tooltip="holding a group a variable"];
+  Node3 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="nirt::IReferenceCounted",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classnirt_1_1IReferenceCounted.html",tooltip="Base class of most objects of the Nirtcpp Engine."];
+  Node4 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" VariableGroup" ,fontname="Helvetica"];
+  Node4 [label="nirt::core::array\<\l nirt::scene::quake3\l::SVarGroup \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classnirt_1_1core_1_1array.html",tooltip=" "];
+}

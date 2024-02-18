@@ -1,0 +1,27 @@
+digraph "nirt::scene::IShadowVolumeSceneNode"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="nirt::scene::IShadowVolume\lSceneNode",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Scene node for rendering a shadow volume into a stencil buffer."];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="nirt::scene::ISceneNode",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classnirt_1_1scene_1_1ISceneNode.html",tooltip="Scene node interface."];
+  Node3 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="nirt::io::IAttributeExchanging\lObject",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classnirt_1_1io_1_1IAttributeExchangingObject.html",tooltip="An object which is able to serialize and deserialize its attributes into an attributes object."];
+  Node4 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="nirt::IReferenceCounted",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classnirt_1_1IReferenceCounted.html",tooltip="Base class of most objects of the Nirtcpp Engine."];
+  Node5 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" RelativeRotation\nRelativeScale\nRelativeTranslation" ,fontname="Helvetica"];
+  Node5 [label="nirt::core::vector3d\l\< f32 \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classnirt_1_1core_1_1vector3d.html",tooltip=" "];
+  Node2 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" Parent" ,fontname="Helvetica"];
+  Node6 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" Children" ,fontname="Helvetica"];
+  Node6 [label="nirt::core::list\< nirt\l::scene::ISceneNode * \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classnirt_1_1core_1_1list.html",tooltip=" "];
+  Node7 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" Animators" ,fontname="Helvetica"];
+  Node7 [label="nirt::core::list\< nirt\l::scene::ISceneNodeAnimator * \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classnirt_1_1core_1_1list.html",tooltip=" "];
+  Node8 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" SceneManager" ,fontname="Helvetica"];
+  Node8 [label="nirt::scene::ISceneManager",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classnirt_1_1scene_1_1ISceneManager.html",tooltip="The Scene Manager manages scene nodes, mesh resources, cameras and all the other stuff."];
+  Node4 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" TriangleSelector" ,fontname="Helvetica"];
+  Node9 [label="nirt::scene::ITriangleSelector",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classnirt_1_1scene_1_1ITriangleSelector.html",tooltip="Interface to return triangles with specific properties."];
+  Node4 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

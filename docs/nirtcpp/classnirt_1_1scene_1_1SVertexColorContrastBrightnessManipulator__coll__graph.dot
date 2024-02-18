@@ -1,0 +1,9 @@
+digraph "nirt::scene::SVertexColorContrastBrightnessManipulator"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="nirt::scene::SVertexColor\lContrastBrightnessManipulator",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Vertex manipulator which adjusts the contrast by the given factor and brightness by a signed amount."];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="nirt::scene::IVertexManipulator",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structnirt_1_1scene_1_1IVertexManipulator.html",tooltip="Interface for vertex manipulators."];
+}

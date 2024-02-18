@@ -1,5 +1,0 @@
-<map id="nirt::scene::IColladaMeshWriter" name="nirt::scene::IColladaMeshWriter">
-<area shape="rect" id="node1" title="Interface for writing meshes." alt="" coords="5,155,192,196"/>
-<area shape="rect" id="node2" href="$classnirt_1_1scene_1_1IMeshWriter.html" title="Interface for writing meshes." alt="" coords="10,80,187,107"/>
-<area shape="rect" id="node3" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="11,5,187,32"/>
-</map>

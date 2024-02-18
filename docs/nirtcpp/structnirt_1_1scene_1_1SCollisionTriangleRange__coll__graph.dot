@@ -1,0 +1,31 @@
+digraph "nirt::scene::SCollisionTriangleRange"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="nirt::scene::SCollisionTriangle\lRange",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Additional information about the triangle arrays returned by ITriangleSelector::getTriangles."];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" Selector" ,fontname="Helvetica"];
+  Node2 [label="nirt::scene::ITriangleSelector",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classnirt_1_1scene_1_1ITriangleSelector.html",tooltip="Interface to return triangles with specific properties."];
+  Node3 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="nirt::IReferenceCounted",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classnirt_1_1IReferenceCounted.html",tooltip="Base class of most objects of the Nirtcpp Engine."];
+  Node4 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" SceneNode" ,fontname="Helvetica"];
+  Node4 [label="nirt::scene::ISceneNode",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classnirt_1_1scene_1_1ISceneNode.html",tooltip="Scene node interface."];
+  Node5 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="nirt::io::IAttributeExchanging\lObject",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classnirt_1_1io_1_1IAttributeExchangingObject.html",tooltip="An object which is able to serialize and deserialize its attributes into an attributes object."];
+  Node3 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" RelativeRotation\nRelativeScale\nRelativeTranslation" ,fontname="Helvetica"];
+  Node6 [label="nirt::core::vector3d\l\< f32 \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classnirt_1_1core_1_1vector3d.html",tooltip=" "];
+  Node4 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" Parent" ,fontname="Helvetica"];
+  Node7 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" Children" ,fontname="Helvetica"];
+  Node7 [label="nirt::core::list\< nirt\l::scene::ISceneNode * \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classnirt_1_1core_1_1list.html",tooltip=" "];
+  Node8 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" Animators" ,fontname="Helvetica"];
+  Node8 [label="nirt::core::list\< nirt\l::scene::ISceneNodeAnimator * \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classnirt_1_1core_1_1list.html",tooltip=" "];
+  Node9 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" SceneManager" ,fontname="Helvetica"];
+  Node9 [label="nirt::scene::ISceneManager",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classnirt_1_1scene_1_1ISceneManager.html",tooltip="The Scene Manager manages scene nodes, mesh resources, cameras and all the other stuff."];
+  Node3 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" TriangleSelector" ,fontname="Helvetica"];
+  Node10 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" MeshBuffer" ,fontname="Helvetica"];
+  Node10 [label="nirt::scene::IMeshBuffer",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classnirt_1_1scene_1_1IMeshBuffer.html",tooltip="Struct for holding a mesh with a single material."];
+  Node3 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

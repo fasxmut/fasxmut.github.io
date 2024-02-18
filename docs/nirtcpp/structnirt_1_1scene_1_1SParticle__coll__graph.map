@@ -1,5 +1,0 @@
-<map id="nirt::scene::SParticle" name="nirt::scene::SParticle">
-<area shape="rect" id="node1" title="Struct for holding particle data." alt="" coords="83,139,238,165"/>
-<area shape="rect" id="node2" href="$classnirt_1_1core_1_1vector3d.html" title=" " alt="" coords="5,5,151,47"/>
-<area shape="rect" id="node3" href="$classnirt_1_1video_1_1SColor.html" title="Class representing a 32 bit ARGB color." alt="" coords="175,13,314,39"/>
-</map>

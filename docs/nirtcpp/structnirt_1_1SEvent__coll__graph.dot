@@ -1,0 +1,42 @@
+digraph "nirt::SEvent"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="nirt::SEvent",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="SEvents hold information about an event. See nirt::IEventReceiver for details on event handling."];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" GUIEvent" ,fontname="Helvetica"];
+  Node2 [label="nirt::SEvent::SGUIEvent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structnirt_1_1SEvent_1_1SGUIEvent.html",tooltip="Any kind of GUI event."];
+  Node3 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" Caller\nElement" ,fontname="Helvetica"];
+  Node3 [label="nirt::gui::IGUIElement",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classnirt_1_1gui_1_1IGUIElement.html",tooltip="Base class of all GUI elements."];
+  Node4 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="nirt::io::IAttributeExchanging\lObject",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classnirt_1_1io_1_1IAttributeExchangingObject.html",tooltip="An object which is able to serialize and deserialize its attributes into an attributes object."];
+  Node5 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="nirt::IReferenceCounted",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classnirt_1_1IReferenceCounted.html",tooltip="Base class of most objects of the Nirtcpp Engine."];
+  Node6 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="nirt::IEventReceiver",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classnirt_1_1IEventReceiver.html",tooltip="Interface of an object which can receive events."];
+  Node7 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" Children" ,fontname="Helvetica"];
+  Node7 [label="nirt::core::list\< nirt\l::gui::IGUIElement * \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classnirt_1_1core_1_1list.html",tooltip=" "];
+  Node3 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" Parent" ,fontname="Helvetica"];
+  Node8 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" AbsoluteClippingRect\nAbsoluteRect\nDesiredRect\nLastParentRect\nRelativeRect" ,fontname="Helvetica"];
+  Node8 [label="nirt::core::rect\< s32 \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classnirt_1_1core_1_1rect.html",tooltip=" "];
+  Node9 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" ScaleRect" ,fontname="Helvetica"];
+  Node9 [label="nirt::core::rect\< f32 \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classnirt_1_1core_1_1rect.html",tooltip=" "];
+  Node10 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" MaxSize\nMinSize" ,fontname="Helvetica"];
+  Node10 [label="nirt::core::dimension2d\l\< u32 \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classnirt_1_1core_1_1dimension2d.html",tooltip=" "];
+  Node11 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" Environment" ,fontname="Helvetica"];
+  Node11 [label="nirt::gui::IGUIEnvironment",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classnirt_1_1gui_1_1IGUIEnvironment.html",tooltip="GUI Environment. Used as factory and manager of all other GUI elements."];
+  Node5 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" MouseInput" ,fontname="Helvetica"];
+  Node12 [label="nirt::SEvent::SMouseInput",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structnirt_1_1SEvent_1_1SMouseInput.html",tooltip="Any kind of mouse event."];
+  Node13 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" KeyInput" ,fontname="Helvetica"];
+  Node13 [label="nirt::SEvent::SKeyInput",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structnirt_1_1SEvent_1_1SKeyInput.html",tooltip="Any kind of keyboard event."];
+  Node14 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" TouchInput" ,fontname="Helvetica"];
+  Node14 [label="nirt::SEvent::STouchInput",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structnirt_1_1SEvent_1_1STouchInput.html",tooltip="Any kind of touch event."];
+  Node15 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" JoystickEvent" ,fontname="Helvetica"];
+  Node15 [label="nirt::SEvent::SJoystickEvent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structnirt_1_1SEvent_1_1SJoystickEvent.html",tooltip="A joystick event."];
+  Node16 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" LogEvent" ,fontname="Helvetica"];
+  Node16 [label="nirt::SEvent::SLogEvent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structnirt_1_1SEvent_1_1SLogEvent.html",tooltip="Any kind of log event."];
+  Node17 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" UserEvent" ,fontname="Helvetica"];
+  Node17 [label="nirt::SEvent::SUserEvent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structnirt_1_1SEvent_1_1SUserEvent.html",tooltip="Any kind of user event."];
+}

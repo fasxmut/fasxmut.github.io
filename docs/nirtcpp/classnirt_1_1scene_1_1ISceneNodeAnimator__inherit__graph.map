@@ -1,9 +1,0 @@
-<map id="nirt::scene::ISceneNodeAnimator" name="nirt::scene::ISceneNodeAnimator">
-<area shape="rect" id="node1" title="Animates a scene node. Can animate position, rotation, material, and so on." alt="" coords="485,78,720,105"/>
-<area shape="rect" id="node5" href="$classnirt_1_1scene_1_1ISceneNodeAnimatorCameraFPS.html" title="Special scene node animator for FPS cameras." alt="" coords="768,5,1003,47"/>
-<area shape="rect" id="node6" href="$classnirt_1_1scene_1_1ISceneNodeAnimatorCameraMaya.html" title="Special scene node animator for Maya&#45;style cameras." alt="" coords="768,71,1003,112"/>
-<area shape="rect" id="node7" href="$classnirt_1_1scene_1_1ISceneNodeAnimatorCollisionResponse.html" title="Special scene node animator for doing automatic collision detection and response." alt="" coords="768,136,1003,177"/>
-<area shape="rect" id="node2" href="$classnirt_1_1io_1_1IAttributeExchangingObject.html" title="An object which is able to serialize and deserialize its attributes into an attributes object." alt="" coords="229,41,437,83"/>
-<area shape="rect" id="node3" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="5,49,181,75"/>
-<area shape="rect" id="node4" href="$classnirt_1_1IEventReceiver.html" title="Interface of an object which can receive events." alt="" coords="258,107,409,134"/>
-</map>

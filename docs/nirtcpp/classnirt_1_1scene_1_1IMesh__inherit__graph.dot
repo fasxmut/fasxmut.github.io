@@ -1,0 +1,24 @@
+digraph "nirt::scene::IMesh"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="nirt::scene::IMesh",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Class which holds the geometry of an object."];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="nirt::IReferenceCounted",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classnirt_1_1IReferenceCounted.html",tooltip="Base class of most objects of the Nirtcpp Engine."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="nirt::scene::IAnimatedMesh",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classnirt_1_1scene_1_1IAnimatedMesh.html",tooltip="Interface for an animated mesh."];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="nirt::scene::IAnimatedMeshMD2",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classnirt_1_1scene_1_1IAnimatedMeshMD2.html",tooltip="Interface for using some special functions of MD2 meshes."];
+  Node3 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="nirt::scene::IAnimatedMeshMD3",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classnirt_1_1scene_1_1IAnimatedMeshMD3.html",tooltip="Interface for using some special functions of MD3 meshes."];
+  Node3 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="nirt::scene::IQ3LevelMesh",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classnirt_1_1scene_1_1IQ3LevelMesh.html",tooltip="Interface for a Mesh which can be loaded directly from a Quake3 .bsp-file."];
+  Node3 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="nirt::scene::ISkinnedMesh",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classnirt_1_1scene_1_1ISkinnedMesh.html",tooltip="Interface for using some special functions of Skinned meshes."];
+  Node3 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="nirt::scene::SAnimatedMesh",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structnirt_1_1scene_1_1SAnimatedMesh.html",tooltip="Simple implementation of the IAnimatedMesh interface."];
+  Node1 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="nirt::scene::SMesh",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structnirt_1_1scene_1_1SMesh.html",tooltip="Simple implementation of the IMesh interface."];
+}

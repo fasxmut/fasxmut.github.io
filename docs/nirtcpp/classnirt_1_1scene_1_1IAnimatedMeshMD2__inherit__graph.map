@@ -1,6 +1,0 @@
-<map id="nirt::scene::IAnimatedMeshMD2" name="nirt::scene::IAnimatedMeshMD2">
-<area shape="rect" id="node1" title="Interface for using some special functions of MD2 meshes." alt="" coords="5,229,236,256"/>
-<area shape="rect" id="node2" href="$classnirt_1_1scene_1_1IAnimatedMesh.html" title="Interface for an animated mesh." alt="" coords="21,155,221,181"/>
-<area shape="rect" id="node3" href="$classnirt_1_1scene_1_1IMesh.html" title="Class which holds the geometry of an object." alt="" coords="52,80,189,107"/>
-<area shape="rect" id="node4" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="33,5,209,32"/>
-</map>

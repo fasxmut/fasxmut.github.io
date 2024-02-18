@@ -1,4 +1,0 @@
-<map id="nirt::io::IAttributes" name="nirt::io::IAttributes">
-<area shape="rect" id="node1" title="Provides a generic interface for attributes and their values and the possibility to serialize them." alt="" coords="23,80,163,107"/>
-<area shape="rect" id="node2" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="5,5,181,32"/>
-</map>
