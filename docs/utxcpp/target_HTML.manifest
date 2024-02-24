@@ -181,7 +181,8 @@ utx_floor.html
 utx_ceil.html
 utx_sqrt.html
 utx_cbrt.html
-utx_pown.html
+utx_pow2_3_5_7.html
+utx_npow.html
 utx_cos.html
 utx_sin.html
 utx_exp.html
