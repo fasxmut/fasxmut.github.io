@@ -1,0 +1,261 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>std::predicate and std::relation</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="logs - Blogs or News">
+<link rel="up" href="index.html" title="logs - Blogs or News">
+<link rel="prev" href="std_views_zip_to_transpose_matri.html" title="std::views::zip to transpose matrix">
+<link rel="next" href="intel_dpcpp_cpp_2024_published.html" title="Intel dpcpp/cpp 2024 published">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="std_views_zip_to_transpose_matri.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="intel_dpcpp_cpp_2024_published.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="std_predicate_and_std_relation"></a>std::predicate and std::relation</h1></div></div>
+<hr>
+</div>
+<p>
+      std::predicate and std::relation - Posted on Dec 13, 2023 - See <a href="https://en.cppreference.com/w/cpp/concepts/relation" target="_top">std::relation</a>
+      - <a href="https://cppfx.xyz/logs" target="_top">Logs Home</a> - d0003
+    </p>
+<h2>
+<a name="std_predicate_and_std_relation.h0"></a>
+      <span class="phrase"><a name="std_predicate_and_std_relation.role_cyan_std_predicate_and_std_"></a></span><a class="link" href="std_predicate_and_std_relation.html#std_predicate_and_std_relation.role_cyan_std_predicate_and_std_"><span class="cyan">std::predicate and std::relation</span></a>
+    </h2>
+<p>
+      cpp/c++ standard concepts: std::predicate and std::relation
+    </p>
+<h2>
+<a name="std_predicate_and_std_relation.h1"></a>
+      <span class="phrase"><a name="std_predicate_and_std_relation.role_cyan_headers"></a></span><a class="link" href="std_predicate_and_std_relation.html#std_predicate_and_std_relation.role_cyan_headers"><span class="cyan">Headers</span></a>
+    </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">numeric</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>	<span class="comment">// utx::iota</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">concepts</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">algorithm</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">vector</span><span class="special">&gt;</span>
+</pre>
+<h2>
+<a name="std_predicate_and_std_relation.h2"></a>
+      <span class="phrase"><a name="std_predicate_and_std_relation.role_cyan_std_predicate"></a></span><a class="link" href="std_predicate_and_std_relation.html#std_predicate_and_std_relation.role_cyan_std_predicate"><span class="cyan">std::predicate</span></a>
+    </h2>
+<p>
+      std::predicate
+    </p>
+<pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">fn_xt</span><span class="special">,</span> <span class="keyword">typename</span> <span class="special">...</span> <span class="identifier">args_list</span><span class="special">&gt;</span>
+<span class="identifier">concept</span> <span class="identifier">predicate</span> <span class="special">=</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">regular_invocable</span><span class="special">&lt;</span><span class="identifier">fn_xt</span><span class="special">,</span> <span class="identifier">args_list</span> <span class="special">...&gt;</span>
+		<span class="special">&amp;&amp;</span>
+	<span class="identifier">boolean</span><span class="special">-</span><span class="identifier">testable</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">invoke_result_t</span><span class="special">&lt;</span><span class="identifier">fn_xt</span><span class="special">,</span> <span class="identifier">args_list</span> <span class="special">...&gt;&gt;</span>
+<span class="special">;</span>
+</pre>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          1. It requires fn_xt fn is callable with args ... .
+        </li>
+<li class="listitem">
+          2. It requires the calling result is boolean-testable, aka., returns true
+          or false.
+        </li>
+</ul></div>
+<h3>
+<a name="std_predicate_and_std_relation.h3"></a>
+      <span class="phrase"><a name="std_predicate_and_std_relation.code"></a></span><a class="link" href="std_predicate_and_std_relation.html#std_predicate_and_std_relation.code">code</a>
+    </h3>
+<p>
+      std::predicate c++ example
+    </p>
+<pre class="programlisting"><span class="keyword">class</span> <span class="identifier">is_even_class</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">template</span> <span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">integral_uct</span> <span class="identifier">type_xtt</span><span class="special">&gt;</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">mbx</span> <span class="keyword">operator</span><span class="special">()(</span><span class="keyword">const</span> <span class="identifier">type_xtt</span> <span class="special">&amp;</span> <span class="identifier">value_xvv</span><span class="special">)</span> <span class="keyword">const</span>
+	<span class="special">{</span>
+		<span class="keyword">return</span> <span class="identifier">value_xvv</span> <span class="special">%</span> <span class="identifier">type_xtt</span><span class="special">{</span><span class="number">2</span><span class="special">}</span> <span class="special">==</span> <span class="number">0</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">static_assert</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">predicate</span><span class="special">&lt;</span><span class="identifier">is_even_class</span><span class="special">,</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">ux32</span><span class="special">&gt;);</span>
+<span class="keyword">static_assert</span><span class="special">(!</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">predicate</span><span class="special">&lt;</span><span class="identifier">is_even_class</span><span class="special">,</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">fx64</span><span class="special">&gt;);</span>
+
+<span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">type_xt</span><span class="special">,</span> <span class="keyword">typename</span> <span class="identifier">type_yt</span><span class="special">&gt;</span>
+<span class="identifier">concept</span> <span class="identifier">transform_fn</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">predicate</span><span class="special">&lt;</span><span class="identifier">type_xt</span><span class="special">,</span> <span class="identifier">type_yt</span><span class="special">&gt;</span> <span class="special">&amp;&amp;</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">integral_uct</span><span class="special">&lt;</span><span class="identifier">type_yt</span><span class="special">&gt;;</span>
+
+<span class="keyword">template</span> <span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">integral_uct</span> <span class="identifier">type_xt</span><span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">transform_class</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">template</span> <span class="special">&lt;</span><span class="identifier">transform_fn</span><span class="special">&lt;</span><span class="identifier">type_xt</span><span class="special">&gt;</span> <span class="identifier">type_xtt</span><span class="special">&gt;</span>
+	<span class="keyword">void</span> <span class="keyword">operator</span><span class="special">()(</span><span class="keyword">const</span> <span class="keyword">auto</span> <span class="special">&amp;</span> <span class="identifier">input</span><span class="special">,</span> <span class="keyword">auto</span> <span class="special">&amp;</span> <span class="identifier">output</span><span class="special">,</span> <span class="keyword">const</span> <span class="identifier">type_xtt</span> <span class="special">&amp;</span> <span class="identifier">fn</span><span class="special">)</span> <span class="keyword">const</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">ranges</span><span class="special">::</span><span class="identifier">transform</span><span class="special">(</span>
+			<span class="identifier">input</span><span class="special">,</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">back_inserter</span><span class="special">(</span><span class="identifier">output</span><span class="special">),</span>
+			<span class="identifier">fn</span>
+		<span class="special">);</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">class</span> <span class="identifier">run_op1</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">void</span> <span class="keyword">operator</span><span class="special">()()</span> <span class="keyword">const</span>
+	<span class="special">{</span>
+		<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"std::transform and std::predicate, is-even-test:"</span><span class="special">);</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">ix64</span><span class="special">&gt;</span> <span class="identifier">input</span><span class="special">(</span><span class="number">7</span><span class="special">);</span>
+		<span class="identifier">utx</span><span class="special">::</span><span class="identifier">iota</span><span class="special">(</span><span class="identifier">input</span><span class="special">,</span> <span class="number">11</span><span class="special">);</span>
+		<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"input:"</span><span class="special">,</span> <span class="identifier">input</span><span class="special">);</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">mbx</span><span class="special">&gt;</span> <span class="identifier">output</span><span class="special">;</span>
+		<span class="identifier">transform_class</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">ix64</span><span class="special">&gt;{}(</span><span class="identifier">input</span><span class="special">,</span> <span class="identifier">output</span><span class="special">,</span> <span class="identifier">is_even_class</span><span class="special">{});</span>
+		<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"output:"</span><span class="special">,</span> <span class="identifier">output</span><span class="special">);</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+</pre>
+<h2>
+<a name="std_predicate_and_std_relation.h4"></a>
+      <span class="phrase"><a name="std_predicate_and_std_relation.role_cyan_std_relation"></a></span><a class="link" href="std_predicate_and_std_relation.html#std_predicate_and_std_relation.role_cyan_std_relation"><span class="cyan">std::relation</span></a>
+    </h2>
+<p>
+      std::relation
+    </p>
+<pre class="programlisting">template &lt;typename r_xt, typename t_xt, typename u_xt&gt;
+concept relation =
+	std::predicate&lt;r_xt, t_xt, t_xt&gt;
+		&amp;&amp;
+	std::predicate&lt;r_xt, u_xt, u_xt&gt;
+		&amp;&amp;
+	std::predicate&lt;r_xt, t_xt, u_xt&gt;
+		&amp;&amp;
+	std::predicate&lt;r_xt, u_xt, t_xt&gt;
+;
+</pre>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          std::relation specifies that r_xt defines a binary relation over the set
+          of expressions whose type and value category are those encoded by either
+          t_xt or u_xt.
+        </li>
+<li class="listitem">
+          Returns boolean-testable result.
+        </li>
+</ul></div>
+<h3>
+<a name="std_predicate_and_std_relation.h5"></a>
+      <span class="phrase"><a name="std_predicate_and_std_relation.code0"></a></span><a class="link" href="std_predicate_and_std_relation.html#std_predicate_and_std_relation.code0">code</a>
+    </h3>
+<p>
+      std::relation c++ example
+    </p>
+<pre class="programlisting"><span class="keyword">class</span> <span class="identifier">fizz_box</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">ix32</span> <span class="identifier">value</span><span class="special">;</span>
+<span class="special">};</span>
+<span class="keyword">class</span> <span class="identifier">buzz_box</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">ix32</span> <span class="identifier">value</span><span class="special">;</span>
+<span class="special">};</span>
+
+<span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">type_xt</span><span class="special">&gt;</span>
+<span class="identifier">concept</span> <span class="identifier">fizz_buzz</span> <span class="special">=</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">same_as</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">remove_cvref_t</span><span class="special">&lt;</span><span class="identifier">type_xt</span><span class="special">&gt;,</span> <span class="identifier">fizz_box</span><span class="special">&gt;</span>
+		<span class="special">||</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">same_as</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">remove_cvref_t</span><span class="special">&lt;</span><span class="identifier">type_xt</span><span class="special">&gt;,</span> <span class="identifier">buzz_box</span><span class="special">&gt;</span>
+<span class="special">;</span>
+
+<span class="keyword">class</span> <span class="identifier">rlt_class</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">template</span> <span class="special">&lt;</span><span class="identifier">fizz_buzz</span> <span class="identifier">fb_xtt</span><span class="special">,</span> <span class="identifier">fizz_buzz</span> <span class="identifier">fb_ytt</span><span class="special">&gt;</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">mbx</span> <span class="keyword">operator</span><span class="special">()(</span><span class="keyword">const</span> <span class="identifier">fb_xtt</span> <span class="special">&amp;</span> <span class="identifier">x</span><span class="special">,</span> <span class="keyword">const</span> <span class="identifier">fb_ytt</span> <span class="special">&amp;</span> <span class="identifier">y</span><span class="special">)</span> <span class="keyword">const</span>
+	<span class="special">{</span>
+		<span class="keyword">return</span> <span class="identifier">x</span><span class="special">.</span><span class="identifier">value</span> <span class="special">==</span> <span class="identifier">y</span><span class="special">.</span><span class="identifier">value</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">static_assert</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">relation</span><span class="special">&lt;</span><span class="identifier">rlt_class</span><span class="special">,</span> <span class="identifier">fizz_box</span><span class="special">,</span> <span class="identifier">buzz_box</span><span class="special">&gt;);</span>
+<span class="keyword">static_assert</span><span class="special">(!</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">relation</span><span class="special">&lt;</span><span class="identifier">is_even_class</span><span class="special">,</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">ix32</span><span class="special">,</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">ix64</span><span class="special">&gt;);</span>
+
+<span class="keyword">class</span> <span class="identifier">rlt_u_class</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">template</span> <span class="special">&lt;</span><span class="identifier">fizz_buzz</span> <span class="identifier">fb_xtt</span><span class="special">,</span> <span class="identifier">fizz_buzz</span> <span class="identifier">fb_ytt</span><span class="special">&gt;</span>
+	<span class="keyword">void</span> <span class="keyword">operator</span><span class="special">()(</span><span class="keyword">const</span> <span class="identifier">fb_xtt</span> <span class="special">&amp;</span> <span class="identifier">x</span><span class="special">,</span> <span class="keyword">const</span> <span class="identifier">fb_ytt</span> <span class="special">&amp;</span> <span class="identifier">y</span><span class="special">,</span> <span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">relation</span><span class="special">&lt;</span><span class="identifier">fb_xtt</span><span class="special">,</span> <span class="identifier">fb_ytt</span><span class="special">&gt;</span> <span class="keyword">auto</span> <span class="identifier">fn</span><span class="special">)</span> <span class="keyword">const</span>
+	<span class="special">{</span>
+		<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"result:"</span><span class="special">,</span> <span class="identifier">fn</span><span class="special">(</span><span class="identifier">x</span><span class="special">,</span> <span class="identifier">y</span><span class="special">));</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">class</span> <span class="identifier">run_op2</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">void</span> <span class="keyword">operator</span><span class="special">()()</span> <span class="keyword">const</span>
+	<span class="special">{</span>
+		<span class="keyword">auto</span> <span class="identifier">rlt_u</span> <span class="special">=</span> <span class="identifier">rlt_u_class</span><span class="special">{};</span>
+		<span class="keyword">auto</span> <span class="identifier">rlt</span> <span class="special">=</span> <span class="identifier">rlt_class</span><span class="special">{};</span>
+		<span class="identifier">rlt_u</span><span class="special">(</span><span class="identifier">fizz_box</span><span class="special">{</span><span class="number">7</span><span class="special">},</span> <span class="identifier">buzz_box</span><span class="special">{</span><span class="number">7</span><span class="special">},</span> <span class="identifier">rlt</span><span class="special">);</span>
+		<span class="identifier">rlt_u</span><span class="special">(</span><span class="identifier">fizz_box</span><span class="special">{-</span><span class="number">7</span><span class="special">},</span> <span class="identifier">fizz_box</span><span class="special">{</span><span class="number">7</span><span class="special">},</span> <span class="identifier">rlt</span><span class="special">);</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+</pre>
+<h2>
+<a name="std_predicate_and_std_relation.h6"></a>
+      <span class="phrase"><a name="std_predicate_and_std_relation.role_cyan_main"></a></span><a class="link" href="std_predicate_and_std_relation.html#std_predicate_and_std_relation.role_cyan_main"><span class="cyan">main</span></a>
+    </h2>
+<pre class="programlisting"><span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">run_op1</span><span class="special">{}();</span>
+	<span class="identifier">run_op2</span><span class="special">{}();</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="std_predicate_and_std_relation.h7"></a>
+      <span class="phrase"><a name="std_predicate_and_std_relation.role_cyan_see_also"></a></span><a class="link" href="std_predicate_and_std_relation.html#std_predicate_and_std_relation.role_cyan_see_also"><span class="cyan">See Also</span></a>
+    </h2>
+<p>
+      <a href="https://cppfx.xyz/utxcpp/basic_concepts.html" target="_top">utxcpp basic concepts</a>
+    </p>
+<p>
+      <a href="https://cppfx.xyz/utxcpp/utx_remove_cvref_t.html" target="_top">utx::remove_cvref_t</a>
+    </p>
+<p>
+      <a href="https://cppfx.xyz/utxcpp/utx_mbx.html" target="_top">utx::mbx</a>
+    </p>
+<p>
+      <a href="https://cppfx.xyz/utxcpp/class_types.html" target="_top">utxcpp class types</a>
+    </p>
+<p>
+      <a href="https://cppfx.xyz/utxcpp/utx_ux32.html" target="_top">utx::ux32</a>
+    </p>
+<p>
+      <a href="https://cppfx.xyz/utxcpp/utx_fx64.html" target="_top">utx::fx64</a>
+    </p>
+<p>
+      <a href="https://cppfx.xyz/utxcpp/utx_ix64.html" target="_top">utx::ix64</a>
+    </p>
+<p>
+      <a href="https://cppfx.xyz/utxcpp/utx_iota.html" target="_top">utx::iota</a>
+    </p>
+<p>
+      <a href="https://cppfx.xyz/utxcpp/utx_ix32.html" target="_top">utx::ix32</a>
+    </p>
+<p>
+      <a href="https://cppfx.xyz/utxcpp/utx_print.html" target="_top">utx::print</a>
+    </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"><p><small>Last revised: February 25, 2024 at 03:39:16 GMT</small></p></td>
+<td align="right"><div class="copyright-footer"></div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="std_views_zip_to_transpose_matri.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="intel_dpcpp_cpp_2024_published.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

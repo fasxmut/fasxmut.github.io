@@ -1,0 +1,135 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>cpp uses swift</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="logs - Blogs or News">
+<link rel="up" href="index.html" title="logs - Blogs or News">
+<link rel="prev" href="cpp_integral_type.html" title="cpp integral type">
+<link rel="next" href="std_views_zip_to_transpose_matri.html" title="std::views::zip to transpose matrix">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="cpp_integral_type.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="std_views_zip_to_transpose_matri.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="cpp_uses_swift"></a>cpp uses swift</h1></div></div>
+<hr>
+</div>
+<p>
+      cpp: c++ uses swift - Posted on Jan 30, 2024 - See <a href="https://www.swift.org/documentation/cxx-interop" target="_top">https://www.swift.org/documentation/cxx-interop</a>
+      - <a href="https://cppfx.xyz/logs" target="_top">Logs Home</a> - d0005
+    </p>
+<h2>
+<a name="cpp_uses_swift.h0"></a>
+      <span class="phrase"><a name="cpp_uses_swift.role_cyan_cpp_c_uses_swift_langu"></a></span><a class="link" href="cpp_uses_swift.html#cpp_uses_swift.role_cyan_cpp_c_uses_swift_langu"><span class="cyan">cpp: c++ uses swift language</span></a>
+    </h2>
+<p>
+      cpp: c++ uses swift language
+    </p>
+<h2>
+<a name="cpp_uses_swift.h1"></a>
+      <span class="phrase"><a name="cpp_uses_swift.role_cyan_install_swift_on_kaos_"></a></span><a class="link" href="cpp_uses_swift.html#cpp_uses_swift.role_cyan_install_swift_on_kaos_"><span class="cyan">Install swift on KaOS Linux/kubuntu</span></a>
+    </h2>
+<div class="orderedlist"><ol class="orderedlist" type="1">
+<li class="listitem">
+          Download swift: <a href="https://www.swift.org" target="_top">https://www.swift.org</a>
+        </li>
+<li class="listitem">
+          Extract swift to /swift/swift
+        </li>
+<li class="listitem">
+          mkdir /swift/bin
+        </li>
+<li class="listitem">
+          Add /swift/bin to environment variable PATH
+        </li>
+<li class="listitem">
+          I don't want to expose swift shipped clang c++ compiler to mix with my
+          own c++ compiler, so I add swift and swiftc to <code class="computeroutput"><span class="special">/</span><span class="identifier">swift</span><span class="special">/</span><span class="identifier">bin</span><span class="special">/</span></code>:
+        </li>
+</ol></div>
+<p>
+      <code class="computeroutput"><span class="special">/</span><span class="identifier">swift</span><span class="special">/</span><span class="identifier">bin</span><span class="special">/</span><span class="identifier">swift</span></code>:
+    </p>
+<pre class="programlisting">exec /swift/swift/bin/swift $@
+</pre>
+<p>
+      <code class="computeroutput"><span class="special">/</span><span class="identifier">swift</span><span class="special">/</span><span class="identifier">bin</span><span class="special">/</span><span class="identifier">swiftc</span></code>:
+    </p>
+<pre class="programlisting">exec /swift/swift/bin/swiftc $@
+</pre>
+<h2>
+<a name="cpp_uses_swift.h2"></a>
+      <span class="phrase"><a name="cpp_uses_swift.role_cyan_generate_cpp_header_wi"></a></span><a class="link" href="cpp_uses_swift.html#cpp_uses_swift.role_cyan_generate_cpp_header_wi"><span class="cyan">Generate cpp header with exposed swift APIs</span></a>
+    </h2>
+<p>
+      <span class="bold"><strong>Generate c++ header</strong></span>
+    </p>
+<pre class="programlisting">swiftc \
+	-frontend -typecheck \
+	swift-code.swift \
+	-module-name code_box \
+	-cxx-interoperability-mode=default \
+	-emit-clang-header-path code_box.hpp
+</pre>
+<p>
+      <span class="bold"><strong>Use c++ header in c++</strong></span>
+    </p>
+<pre class="programlisting"><span class="comment">// code_box.cpp</span>
+<span class="preprocessor">#include</span> <span class="string">"code_box.hpp"</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+<span class="special">}</span>
+</pre>
+<p>
+      <span class="bold"><strong>Compile c++ code</strong></span>
+    </p>
+<pre class="programlisting">clang++ code_box.cpp -std=c++23 \
+	-I /swift/swift/include \
+	-I /swift/swift/lib/swift \
+	-o code_box
+</pre>
+<h2>
+<a name="cpp_uses_swift.h3"></a>
+      <span class="phrase"><a name="cpp_uses_swift.role_cyan_c_example"></a></span><a class="link" href="cpp_uses_swift.html#cpp_uses_swift.role_cyan_c_example"><span class="cyan">c++ example</span></a>
+    </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+<span class="comment">//#include "code_box.hpp"</span>
+
+<span class="keyword">class</span> <span class="identifier">swift_cpp_class</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">swift_cpp_class</span><span class="special">()</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Hello c++!"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">swift_cpp_class</span> <span class="identifier">swift_cpp</span><span class="special">{};</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="cpp_uses_swift.h4"></a>
+      <span class="phrase"><a name="cpp_uses_swift.role_cyan_see_also"></a></span><a class="link" href="cpp_uses_swift.html#cpp_uses_swift.role_cyan_see_also"><span class="cyan">See Also</span></a>
+    </h2>
+<p>
+      <a href="https://cppfx.xyz/utxcpp" target="_top">Utxcpp</a>
+    </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"><p><small>Last revised: February 25, 2024 at 03:39:16 GMT</small></p></td>
+<td align="right"><div class="copyright-footer"></div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="cpp_integral_type.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="std_views_zip_to_transpose_matri.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

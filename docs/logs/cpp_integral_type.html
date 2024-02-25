@@ -1,0 +1,75 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>cpp integral type</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="logs - Blogs or News">
+<link rel="up" href="index.html" title="logs - Blogs or News">
+<link rel="prev" href="index.html" title="logs - Blogs or News">
+<link rel="next" href="cpp_uses_swift.html" title="cpp uses swift">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp_uses_swift.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="cpp_integral_type"></a>cpp integral type</h1></div></div>
+<hr>
+</div>
+<p>
+      cpp: c++ integral type - Posted on Jan 31, 2024 - See <a href="https://en.cppreference.com/w/cpp/concepts/integral" target="_top">https://en.cppreference.com/w/cpp/concepts/integral</a>
+      - <a href="https://cppfx.xyz/logs" target="_top">Logs Home</a> - d0006
+    </p>
+<h2>
+<a name="cpp_integral_type.h0"></a>
+      <span class="phrase"><a name="cpp_integral_type.role_cyan_cpp_integral_type_std_"></a></span><a class="link" href="cpp_integral_type.html#cpp_integral_type.role_cyan_cpp_integral_type_std_"><span class="cyan">cpp integral type: std::integral</span></a>
+    </h2>
+<p>
+      <span class="bold"><strong>c++ integral type:</strong></span>
+    </p>
+<p>
+      bool, char, char8_t, char16_t, char32_t, wchar_t, short, int, long, long long
+    </p>
+<p>
+      signed
+    </p>
+<p>
+      unsigned
+    </p>
+<p>
+      <span class="bold"><strong>std::integral:</strong></span>
+    </p>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span> <span class="keyword">class</span> <span class="identifier">T</span> <span class="special">&gt;</span>
+<span class="identifier">concept</span> <span class="identifier">integral</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">is_integral_v</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;;</span> <span class="comment">// (since C++20)</span>
+</pre>
+<p>
+      The concept integral&lt;T&gt; is satisfied if and only if T is an integral
+      type.
+    </p>
+<h2>
+<a name="cpp_integral_type.h1"></a>
+      <span class="phrase"><a name="cpp_integral_type.role_cyan_c_example"></a></span><a class="link" href="cpp_integral_type.html#cpp_integral_type.role_cyan_c_example"><span class="cyan">c++ example</span></a>
+    </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">concepts</span><span class="special">&gt;</span>	<span class="comment">// std::integral</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">integral</span> <span class="keyword">auto</span> <span class="identifier">x</span> <span class="special">=</span> <span class="number">9</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">x</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"><p><small>Last revised: February 25, 2024 at 03:39:16 GMT</small></p></td>
+<td align="right"><div class="copyright-footer"></div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp_uses_swift.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
