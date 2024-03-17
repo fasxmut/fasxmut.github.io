@@ -1,0 +1,4 @@
+<map id="nirt::gui::SGUISprite" name="nirt::gui::SGUISprite">
+<area shape="rect" id="node1" title="A sprite composed of several frames." alt="" coords="35,109,186,136"/>
+<area shape="rect" id="node2" href="$classnirt_1_1core_1_1array.html" title=" " alt="" coords="5,5,216,47"/>
+</map>

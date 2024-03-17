@@ -1,0 +1,19 @@
+<map id="nirt::SEvent" name="nirt::SEvent">
+<area shape="rect" id="node1" title="SEvents hold information about an event. See nirt::IEventReceiver for details on event handling." alt="" coords="1239,309,1336,335"/>
+<area shape="rect" id="node2" href="$structnirt_1_1SEvent_1_1SGUIEvent.html" title="Any kind of GUI event." alt="" coords="909,157,1084,183"/>
+<area shape="rect" id="node3" href="$classnirt_1_1gui_1_1IGUIElement.html" title="Base class of all GUI elements." alt="" coords="631,157,793,183"/>
+<area shape="rect" id="node4" href="$classnirt_1_1io_1_1IAttributeExchangingObject.html" title="An object which is able to serialize and deserialize its attributes into an attributes object." alt="" coords="231,5,439,47"/>
+<area shape="rect" id="node5" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="5,43,181,70"/>
+<area shape="rect" id="node11" href="$classnirt_1_1gui_1_1IGUIEnvironment.html" title="GUI Environment. Used as factory and manager of all other GUI elements." alt="" coords="239,71,430,98"/>
+<area shape="rect" id="node6" href="$classnirt_1_1IEventReceiver.html" title="Interface of an object which can receive events." alt="" coords="259,122,410,149"/>
+<area shape="rect" id="node7" href="$classnirt_1_1core_1_1list.html" title=" " alt="" coords="251,173,418,215"/>
+<area shape="rect" id="node8" href="$classnirt_1_1core_1_1rect.html" title=" " alt="" coords="251,258,418,285"/>
+<area shape="rect" id="node9" href="$classnirt_1_1core_1_1rect.html" title=" " alt="" coords="253,309,417,335"/>
+<area shape="rect" id="node10" href="$classnirt_1_1core_1_1dimension2d.html" title=" " alt="" coords="249,361,421,403"/>
+<area shape="rect" id="node12" href="$structnirt_1_1SEvent_1_1SMouseInput.html" title="Any kind of mouse event." alt="" coords="902,207,1091,234"/>
+<area shape="rect" id="node13" href="$structnirt_1_1SEvent_1_1SKeyInput.html" title="Any kind of keyboard event." alt="" coords="911,258,1082,285"/>
+<area shape="rect" id="node14" href="$structnirt_1_1SEvent_1_1STouchInput.html" title="Any kind of touch event." alt="" coords="905,309,1088,335"/>
+<area shape="rect" id="node15" href="$structnirt_1_1SEvent_1_1SJoystickEvent.html" title="A joystick event." alt="" coords="896,359,1097,386"/>
+<area shape="rect" id="node16" href="$structnirt_1_1SEvent_1_1SLogEvent.html" title="Any kind of log event." alt="" coords="910,410,1083,437"/>
+<area shape="rect" id="node17" href="$structnirt_1_1SEvent_1_1SUserEvent.html" title="Any kind of user event." alt="" coords="907,461,1087,487"/>
+</map>

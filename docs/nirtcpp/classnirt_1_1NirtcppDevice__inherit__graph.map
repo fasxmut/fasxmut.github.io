@@ -1,0 +1,4 @@
+<map id="nirt::NirtcppDevice" name="nirt::NirtcppDevice">
+<area shape="rect" id="node1" title="The Nirtcpp device. You can create it with createDevice() or createDeviceEx()." alt="" coords="21,80,165,107"/>
+<area shape="rect" id="node2" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="5,5,181,32"/>
+</map>

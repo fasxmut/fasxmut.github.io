@@ -1,0 +1,6 @@
+<map id="nirt::scene::SViewFrustum" name="nirt::scene::SViewFrustum">
+<area shape="rect" id="node1" title="Defines the view frustum. That&#39;s the space visible by the camera." alt="" coords="107,228,298,255"/>
+<area shape="rect" id="node2" href="$classnirt_1_1core_1_1vector3d.html" title=" " alt="" coords="130,5,275,47"/>
+<area shape="rect" id="node3" href="$classnirt_1_1core_1_1plane3d.html" title=" " alt="" coords="133,124,273,165"/>
+<area shape="rect" id="node4" href="$classnirt_1_1core_1_1aabbox3d.html" title=" " alt="" coords="297,124,449,165"/>
+</map>

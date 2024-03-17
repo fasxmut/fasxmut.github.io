@@ -1,0 +1,7 @@
+<map id="nirt::video::SMaterialLayer" name="nirt::video::SMaterialLayer">
+<area shape="rect" id="node1" title="Struct for holding material parameters which exist per texture layer." alt="" coords="185,213,380,240"/>
+<area shape="rect" id="node2" href="$classnirt_1_1video_1_1ITexture.html" title="Interface of a Video Driver dependent Texture." alt="" coords="209,124,357,151"/>
+<area shape="rect" id="node3" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="5,13,181,39"/>
+<area shape="rect" id="node4" href="$structnirt_1_1io_1_1SNamedPath.html" title="Used in places where we identify objects by a filename, but don&#39;t actually work with the real filenam..." alt="" coords="205,13,360,39"/>
+<area shape="rect" id="node5" href="$classnirt_1_1core_1_1dimension2d.html" title=" " alt="" coords="385,5,557,47"/>
+</map>

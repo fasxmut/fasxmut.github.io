@@ -1,0 +1,9 @@
+<map id="nirt::video::IRenderTarget" name="nirt::video::IRenderTarget">
+<area shape="rect" id="node1" title="Interface of a Render Target." alt="" coords="632,84,819,111"/>
+<area shape="rect" id="node2" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="5,5,181,32"/>
+<area shape="rect" id="node4" href="$classnirt_1_1video_1_1ITexture.html" title="Interface of a Video Driver dependent Texture." alt="" coords="327,55,475,81"/>
+<area shape="rect" id="node3" href="$classnirt_1_1core_1_1array.html" title=" " alt="" coords="312,106,491,147"/>
+<area shape="rect" id="node5" href="$structnirt_1_1io_1_1SNamedPath.html" title="Used in places where we identify objects by a filename, but don&#39;t actually work with the real filenam..." alt="" coords="16,64,171,91"/>
+<area shape="rect" id="node6" href="$classnirt_1_1core_1_1dimension2d.html" title=" " alt="" coords="7,117,179,158"/>
+<area shape="rect" id="node7" href="$classnirt_1_1core_1_1array.html" title=" " alt="" coords="322,171,481,213"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="nirt::scene::IShadowVolumeSceneNode" name="nirt::scene::IShadowVolumeSceneNode">
+<area shape="rect" id="node1" title="Scene node for rendering a shadow volume into a stencil buffer." alt="" coords="8,244,211,285"/>
+<area shape="rect" id="node2" href="$classnirt_1_1scene_1_1ISceneNode.html" title="Scene node interface." alt="" coords="22,169,197,196"/>
+<area shape="rect" id="node3" href="$classnirt_1_1io_1_1IAttributeExchangingObject.html" title="An object which is able to serialize and deserialize its attributes into an attributes object." alt="" coords="5,80,213,121"/>
+<area shape="rect" id="node4" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="21,5,197,32"/>
+</map>

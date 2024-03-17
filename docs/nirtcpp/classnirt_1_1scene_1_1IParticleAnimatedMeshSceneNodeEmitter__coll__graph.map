@@ -1,0 +1,6 @@
+<map id="nirt::scene::IParticleAnimatedMeshSceneNodeEmitter" name="nirt::scene::IParticleAnimatedMeshSceneNodeEmitter">
+<area shape="rect" id="node1" title="A particle emitter which emits particles from mesh vertices." alt="" coords="5,244,219,285"/>
+<area shape="rect" id="node2" href="$classnirt_1_1scene_1_1IParticleEmitter.html" title="A particle emitter for using with particle systems." alt="" coords="13,169,211,196"/>
+<area shape="rect" id="node3" href="$classnirt_1_1io_1_1IAttributeExchangingObject.html" title="An object which is able to serialize and deserialize its attributes into an attributes object." alt="" coords="8,80,216,121"/>
+<area shape="rect" id="node4" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="24,5,200,32"/>
+</map>

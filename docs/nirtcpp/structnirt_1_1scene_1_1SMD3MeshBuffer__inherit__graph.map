@@ -1,0 +1,4 @@
+<map id="nirt::scene::SMD3MeshBuffer" name="nirt::scene::SMD3MeshBuffer">
+<area shape="rect" id="node1" title="Holding Frame Data for a Mesh." alt="" coords="5,80,216,107"/>
+<area shape="rect" id="node2" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="23,5,199,32"/>
+</map>
