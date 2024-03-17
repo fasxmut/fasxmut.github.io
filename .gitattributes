@@ -1,0 +1,8 @@
+*.cpp cpp
+*.hpp cpp
+*.qbk quickbook boost
+jamroot B2 jamfile
+jamfile B2 jamfile
+*.html linguist-detectable=false
+
+
