@@ -1,0 +1,32 @@
+import testing ;
+
+lib utxcpp
+	:
+	:
+		<name>utxcpp
+	:
+	:
+;
+
+project
+	: default-build
+		<library>utxcpp
+		<cxxstd>23
+;
+
+progs =
+	d0001-utx-print-nested-print
+	#d0002-dpcpp-cpp-2024-published		# needs dpcpp compiler
+	d0003-std-predicate-std-relation
+	d0004-std-views-zip-transpose-matrix
+	d0005-cpp-uses-swift
+	d0006-cpp-integral
+;
+
+for prog in $(progs)
+{
+	exe $(prog) : $(prog).cpp ;
+}
+
+
+

@@ -1,0 +1,93 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>chaiscript cpp</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="logs - Blogs or News">
+<link rel="up" href="index.html" title="logs - Blogs or News">
+<link rel="prev" href="index.html" title="logs - Blogs or News">
+<link rel="next" href="cpp_integral_type.html" title="cpp integral type">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp_integral_type.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="chaiscript_cpp"></a>chaiscript cpp</h1></div></div>
+<hr>
+</div>
+<p>
+      chaiscript cpp - Posted on Mar 27, 2024 - See <a href="https://chaiscript.com" target="_top">https://chaiscript.com</a>
+      - <a href="https://cppfx.xyz/logs" target="_top">- Logs Home</a> - d0009
+    </p>
+<h2>
+<a name="chaiscript_cpp.h0"></a>
+      <span class="phrase"><a name="chaiscript_cpp.role_cyan_chaiscript_cpp"></a></span><a class="link" href="chaiscript_cpp.html#chaiscript_cpp.role_cyan_chaiscript_cpp"><span class="cyan">chaiscript cpp</span></a>
+    </h2>
+<p>
+      chaiscript c++
+    </p>
+<p>
+      chaiscript is a scripting language for c++.
+    </p>
+<h2>
+<a name="chaiscript_cpp.h1"></a>
+      <span class="phrase"><a name="chaiscript_cpp.role_cyan_chaiscript_class"></a></span><a class="link" href="chaiscript_cpp.html#chaiscript_cpp.role_cyan_chaiscript_class"><span class="cyan">chaiscript class</span></a>
+    </h2>
+<p>
+      Using chaiscript class
+    </p>
+<p>
+      <span class="underline"><em class="replaceable"><code><span class="bold"><strong>chai-class.chai</strong></span></code></em></span>
+    </p>
+<pre class="programlisting">class fizz_box
+{
+	auto value
+	
+	def fizz_box(val)
+	{
+		this.value = val
+	}
+	def get()
+	{
+		return this.value
+	}
+}
+
+class buzz_box
+{
+	auto value
+	
+	def buzz_box(val)
+	{
+		this.value = fizz_box(val)
+	}
+	
+	def get()
+	{
+		return this.value.get()
+	}
+	
+	def print()
+	{
+		print("value is " + to_string(this.get()))
+	}
+}
+
+auto box = buzz_box(123)
+box.print()
+</pre>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"><p><small>Last revised: March 17, 2024 at 09:07:49 GMT</small></p></td>
+<td align="right"><div class="copyright-footer"></div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp_integral_type.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

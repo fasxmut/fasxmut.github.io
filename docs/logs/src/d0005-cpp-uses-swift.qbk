@@ -1,0 +1,7 @@
+[article cpp uses swift
+	[quickbook 1.7]
+]
+
+[import cpp-code/d0005-cpp-uses-swift.cpp]
+[d0005_cpp_uses_swift_cpp]
+

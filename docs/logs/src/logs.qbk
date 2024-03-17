@@ -1,0 +1,34 @@
+[book logs - Blogs or News
+	[quickbook 1.7]
+]
+
+[include d0009-chaiscript-cpp.qbk]
+[include d0006-cpp-integral.qbk]
+[include d0005-cpp-uses-swift.qbk]
+[include d0004-std-views-zip-transpose-matrix.qbk]
+[include d0003-std-predicate-std-relation.qbk]
+[include d0002-dpcpp-cpp-2024-published.qbk]
+[include d0001-utx-print-nested-print.qbk]
+
+Powered by [@https://cppfx.xyz cppfx.xyz]
+
+Logs - blogs or News .
+
+Trying to write blogs or news with c++ boost documentation tool - [@https://www.boost.org/tools/quickbook quickbook] .
+
+Blogs are written by me - publishing what I write useful programming skills, informations for you.
+
+News are written by me - publishing what I found useful programming news, informations for you.
+
+[h1 [role cyan Links]]
+
+[@https://cppfx.xyz cppfx.xyz]
+
+[@https://cppfx.xyz/logs Logs Home - Here]
+
+[@https://cppfx.xyz/utxcpp Utxcpp]
+
+[@https://www.boost.org/tools/quickbook quickbook]
+
+
+

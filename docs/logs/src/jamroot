@@ -1,0 +1,71 @@
+path-constant utxcpp-src-root : ../../utxcpp ;
+path-constant qbk-media-root : $(utxcpp-src-root)/docs/fx-quickbook-media/qbk-media ;
+path-constant logs-src-root : . ;
+path-constant logs-web-root : .. ;
+
+argv = [ modules.peek : ARGV ] ;
+
+if [ MATCH ^(clean)$ : $(argv) ]
+{
+	echo "rm -rf `find $(logs-web-root) -name bin`" ;
+	SHELL "rm -rf `find $(logs-web-root) -name bin`" ;
+
+	echo "rm -rf `find $(logs-src-root) -name html`" ;
+	SHELL "rm -rf `find $(logs-src-root) -name html`" ;
+
+	exit ;
+}
+
+if [ MATCH ^(cleanall)$ : $(argv) ]
+{
+	echo "rm -rf `find $(logs-web-root) -name bin`" ;
+	SHELL "rm -rf `find $(logs-web-root) -name bin`" ;
+
+	echo "rm -rf `find $(logs-web-root) -name *html`" ;
+	SHELL "rm -rf `find $(logs-web-root) -name *html`" ;
+
+	echo "rm -rf `find $(logs-web-root) -name *css`" ;
+	SHELL "rm -rf `find $(logs-web-root) -name *css`" ;
+
+	echo "rm -rf `find $(logs-web-root) -name images`" ;
+	SHELL "rm -rf `find $(logs-web-root) -name images`" ;
+
+	echo "rm -rf `find $(logs-web-root) -name *manifest`" ;
+	SHELL "rm -rf `find $(logs-web-root) -name *manifest`" ;
+
+	exit ;
+}
+
+xml xml-index : logs.qbk ;
+
+boostbook html-index : xml-index
+	:
+	<xsl:param>"chunk.first.sections=1"
+	<dependency>media
+	;
+
+install html
+	:
+		[ glob
+			$(logs-src-root)/html/*.html
+			$(logs-src-root)/html/*.manifest
+		]
+	:
+		<location>$(logs-web-root)
+		<install-source-root>$(logs-src-root)/html
+;
+
+install media :
+	[ glob
+		$(qbk-media-root)/*.css
+		$(qbk-media-root)/images/*.png
+	]
+	:
+	<location>$(logs-web-root)
+	<install-source-root>$(qbk-media-root)
+	;
+
+build-project cpp-code ;
+
+
+

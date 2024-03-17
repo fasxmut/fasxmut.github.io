@@ -1,0 +1,7 @@
+[article std::predicate and std::relation
+	[quickbook 1.7]
+]
+
+[import cpp-code/d0003-std-predicate-std-relation.cpp]
+[d0003_std_predicate_std_relation_cpp]
+

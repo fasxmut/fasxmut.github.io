@@ -1,0 +1,7 @@
+[article std::views::zip to transpose matrix
+	[quickbook 1.7]
+]
+
+[import cpp-code/d0004-std-views-zip-transpose-matrix.cpp]
+[d0004_std_views_zip_transpose_matrix_cpp]
+

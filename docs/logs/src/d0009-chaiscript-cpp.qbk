@@ -1,0 +1,7 @@
+[article chaiscript cpp
+	[quickbook 1.7]
+]
+
+[import cpp-code/d0009-chaiscript-cpp.cpp]
+[d0009_chaiscript_cpp]
+
