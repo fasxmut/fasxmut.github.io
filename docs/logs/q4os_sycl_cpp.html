@@ -1,0 +1,170 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>q4os sycl cpp</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="logs - Blogs or News">
+<link rel="up" href="index.html" title="logs - Blogs or News">
+<link rel="prev" href="index.html" title="logs - Blogs or News">
+<link rel="next" href="chaiscript_cpp.html" title="chaiscript cpp">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="chaiscript_cpp.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="q4os_sycl_cpp"></a>q4os sycl cpp</h1></div></div>
+<hr>
+</div>
+<p>
+      q4os install sycl - Posted on Mar 31, 2024 - See <a href="https://software.intel.com/dpcpp" target="_top">https://software.intel.com/dpcpp</a>
+      - <a href="https://cppfx.xyz/logs" target="_top">Logs Home</a> - d0010
+    </p>
+<h2>
+<a name="q4os_sycl_cpp.h0"></a>
+      <span class="phrase"><a name="q4os_sycl_cpp.role_cyan_q4os_kde_linux_install"></a></span><a class="link" href="q4os_sycl_cpp.html#q4os_sycl_cpp.role_cyan_q4os_kde_linux_install"><span class="cyan">q4os kde linux install sycl cpp (dpcpp)</span></a>
+    </h2>
+<p>
+      I will show you how to install dpcpp/cpp sycl c++ compiler on q4os kde linux.
+    </p>
+<h2>
+<a name="q4os_sycl_cpp.h1"></a>
+      <span class="phrase"><a name="q4os_sycl_cpp.role_cyan_find_the_dpcpp_apt_rep"></a></span><a class="link" href="q4os_sycl_cpp.html#q4os_sycl_cpp.role_cyan_find_the_dpcpp_apt_rep"><span class="cyan">Find the dpcpp apt repo</span></a>
+    </h2>
+<h3>
+<a name="q4os_sycl_cpp.h2"></a>
+      <span class="phrase"><a name="q4os_sycl_cpp.browse_this_url_to_find_the_link"></a></span><a class="link" href="q4os_sycl_cpp.html#q4os_sycl_cpp.browse_this_url_to_find_the_link">Browse
+      this url to find the link to get sycl:</a>
+    </h3>
+<p>
+      <a href="https://software.intel.com/dpcpp" target="_top">https://software.intel.com/dpcpp</a>
+    </p>
+<p>
+      (click <span class="underline"><span class="bold"><strong>Get It Now</strong></span></span>
+      at that page)
+    </p>
+<h3>
+<a name="q4os_sycl_cpp.h3"></a>
+      <span class="phrase"><a name="q4os_sycl_cpp.select_repo"></a></span><a class="link" href="q4os_sycl_cpp.html#q4os_sycl_cpp.select_repo">Select
+      repo</a>
+    </h3>
+<p>
+      Select operating system: <span class="bold"><strong>Linux</strong></span>
+    </p>
+<p>
+      Select distribution: <span class="bold"><strong>APT Package Manager</strong></span>
+    </p>
+<p>
+      Then you will see how to add the intel software repo to your q4os linux. I
+      am using q4os kde.
+    </p>
+<p>
+      Jut follow them and add the repo.
+    </p>
+<h2>
+<a name="q4os_sycl_cpp.h4"></a>
+      <span class="phrase"><a name="q4os_sycl_cpp.role_cyan_install_dpcpp_cpp"></a></span><a class="link" href="q4os_sycl_cpp.html#q4os_sycl_cpp.role_cyan_install_dpcpp_cpp"><span class="cyan">Install dpcpp/cpp</span></a>
+    </h2>
+<p>
+      Install sycl c++ dpcpp/cpp.
+    </p>
+<h3>
+<a name="q4os_sycl_cpp.h5"></a>
+      <span class="phrase"><a name="q4os_sycl_cpp.update"></a></span><a class="link" href="q4os_sycl_cpp.html#q4os_sycl_cpp.update">Update</a>
+    </h3>
+<pre class="programlisting"><span class="identifier">apt</span> <span class="identifier">update</span>
+</pre>
+<h3>
+<a name="q4os_sycl_cpp.h6"></a>
+      <span class="phrase"><a name="q4os_sycl_cpp.install"></a></span><a class="link" href="q4os_sycl_cpp.html#q4os_sycl_cpp.install">Install</a>
+    </h3>
+<pre class="programlisting"><span class="identifier">apt</span> <span class="identifier">install</span> <span class="identifier">intel</span><span class="special">-</span><span class="identifier">oneapi</span><span class="special">-</span><span class="identifier">compiler</span><span class="special">-</span><span class="identifier">dpcpp</span><span class="special">-</span><span class="identifier">cpp</span>
+</pre>
+<p>
+      Before installing it, you can search it:
+    </p>
+<pre class="programlisting"><span class="identifier">apt</span> <span class="identifier">search</span> <span class="identifier">intel</span><span class="special">-</span><span class="identifier">oneapi</span><span class="special">-</span><span class="identifier">compiler</span><span class="special">-</span><span class="identifier">dpcpp</span><span class="special">-</span><span class="identifier">cpp</span>
+</pre>
+<h2>
+<a name="q4os_sycl_cpp.h7"></a>
+      <span class="phrase"><a name="q4os_sycl_cpp.role_cyan_write_sycl_cpp_program"></a></span><a class="link" href="q4os_sycl_cpp.html#q4os_sycl_cpp.role_cyan_write_sycl_cpp_program"><span class="cyan">Write sycl cpp program</span></a>
+    </h2>
+<p>
+      Write sycl c++ pogram, using dpcpp/cpp
+    </p>
+<h3>
+<a name="q4os_sycl_cpp.h8"></a>
+      <span class="phrase"><a name="q4os_sycl_cpp.sycl_prog_cpp"></a></span><a class="link" href="q4os_sycl_cpp.html#q4os_sycl_cpp.sycl_prog_cpp">sycl-prog.cpp</a>
+    </h3>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">sycl</span><span class="special">/</span><span class="identifier">sycl</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">sycl</span><span class="special">::</span><span class="identifier">queue</span> <span class="identifier">q</span><span class="special">{</span><span class="identifier">sycl</span><span class="special">::</span><span class="identifier">gpu_selector_v</span><span class="special">};</span>
+	
+	<span class="keyword">float</span> <span class="special">*</span> <span class="identifier">data</span> <span class="special">=</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">malloc_shared</span><span class="special">&lt;</span><span class="keyword">float</span><span class="special">&gt;(</span><span class="number">37</span><span class="special">,</span> <span class="identifier">q</span><span class="special">);</span>
+	
+	<span class="identifier">q</span><span class="special">.</span><span class="identifier">parallel_for</span><span class="special">(</span>
+		<span class="number">37</span><span class="special">,</span>
+		<span class="special">[=]</span> <span class="special">(</span><span class="identifier">sycl</span><span class="special">::</span><span class="identifier">item</span><span class="special">&lt;</span><span class="number">1</span><span class="special">&gt;</span> <span class="identifier">item</span><span class="special">)</span>
+		<span class="special">{</span>
+			<span class="identifier">sycl</span><span class="special">::</span><span class="identifier">id</span> <span class="identifier">id</span> <span class="special">=</span> <span class="identifier">item</span><span class="special">.</span><span class="identifier">get_id</span><span class="special">();</span>
+			<span class="identifier">data</span><span class="special">[</span><span class="identifier">id</span><span class="special">]</span> <span class="special">=</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">sqrt</span><span class="special">&lt;</span><span class="keyword">float</span><span class="special">&gt;(</span><span class="identifier">id</span><span class="special">);</span>
+		<span class="special">}</span>
+	<span class="special">);</span>
+	<span class="identifier">q</span><span class="special">.</span><span class="identifier">wait</span><span class="special">();</span>
+	<span class="keyword">for</span> <span class="special">(</span><span class="keyword">int</span> <span class="identifier">i</span><span class="special">=</span><span class="number">0</span><span class="special">;</span> <span class="identifier">i</span><span class="special">&lt;</span><span class="number">37</span><span class="special">;</span> <span class="special">++</span><span class="identifier">i</span><span class="special">)</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">data</span><span class="special">[</span><span class="identifier">i</span><span class="special">]</span> <span class="special">&lt;&lt;</span> <span class="char">' '</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<h3>
+<a name="q4os_sycl_cpp.h9"></a>
+      <span class="phrase"><a name="q4os_sycl_cpp.then_you_can_compile_and_run_syc"></a></span><a class="link" href="q4os_sycl_cpp.html#q4os_sycl_cpp.then_you_can_compile_and_run_syc">Then
+      you can compile and run sycl code</a>
+    </h3>
+<p>
+      You can use both dpcpp or icpx to compile the code:
+    </p>
+<h4>
+<a name="q4os_sycl_cpp.h10"></a>
+      <span class="phrase"><a name="q4os_sycl_cpp.compile_with_dpcpp"></a></span><a class="link" href="q4os_sycl_cpp.html#q4os_sycl_cpp.compile_with_dpcpp">Compile
+      with dpcpp :</a>
+    </h4>
+<pre class="programlisting"><span class="identifier">dpcpp</span> <span class="identifier">sycl</span><span class="special">-</span><span class="identifier">prog</span><span class="special">.</span><span class="identifier">cpp</span> <span class="special">-</span><span class="identifier">std</span><span class="special">=</span><span class="identifier">c</span><span class="special">++</span><span class="number">23</span> <span class="special">-</span><span class="identifier">o</span> <span class="identifier">sycl</span><span class="special">-</span><span class="identifier">prog</span>
+</pre>
+<h4>
+<a name="q4os_sycl_cpp.h11"></a>
+      <span class="phrase"><a name="q4os_sycl_cpp.compile_with_icpx"></a></span><a class="link" href="q4os_sycl_cpp.html#q4os_sycl_cpp.compile_with_icpx">Compile
+      with icpx :</a>
+    </h4>
+<pre class="programlisting"><span class="identifier">icpx</span> <span class="special">-</span><span class="identifier">fsycl</span> <span class="identifier">sycl</span><span class="special">-</span><span class="identifier">prog</span><span class="special">.</span><span class="identifier">cpp</span> <span class="special">-</span><span class="identifier">std</span><span class="special">=</span><span class="identifier">c</span><span class="special">++</span><span class="number">23</span> <span class="special">-</span><span class="identifier">o</span> <span class="identifier">sycl</span><span class="special">-</span><span class="identifier">prog</span>
+</pre>
+<h2>
+<a name="q4os_sycl_cpp.h12"></a>
+      <span class="phrase"><a name="q4os_sycl_cpp.role_cyan_see_also"></a></span><a class="link" href="q4os_sycl_cpp.html#q4os_sycl_cpp.role_cyan_see_also"><span class="cyan">See Also</span></a>
+    </h2>
+<p>
+      <a href="https://sycl.tech" target="_top">https://sycl.tech</a>
+    </p>
+<p>
+      <a href="https://software.intel.com/dpcpp" target="_top">https://software.intel.com/dpcpp</a>
+    </p>
+<p>
+      <a href="https://registry.khronos.org/SYCL" target="_top">sycl specification</a>
+    </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"><p><small>Last revised: March 31, 2024 at 23:48:56 GMT</small></p></td>
+<td align="right"><div class="copyright-footer"></div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="chaiscript_cpp.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
