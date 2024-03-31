@@ -21,6 +21,7 @@ progs =
 	d0004-std-views-zip-transpose-matrix
 	d0005-cpp-uses-swift
 	d0006-cpp-integral
+	#d0010_q4os_sycl_cpp		# needs dpcpp compiler
 ;
 
 for prog in $(progs)

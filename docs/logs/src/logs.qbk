@@ -2,6 +2,7 @@
 	[quickbook 1.7]
 ]
 
+[include d0010_q4os_sycl_cpp.qbk]
 [include d0009-chaiscript-cpp.qbk]
 [include d0006-cpp-integral.qbk]
 [include d0005-cpp-uses-swift.qbk]
