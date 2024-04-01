@@ -85,6 +85,8 @@ int main()
 	for (int i=0; i<37; ++i)
 		std::cout << data[i] << ' ';
 	std::cout << std::endl;
+	
+	sycl::free(data, q);
 }
 
 /*`

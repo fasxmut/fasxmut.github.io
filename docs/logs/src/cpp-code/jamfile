@@ -22,6 +22,7 @@ progs =
 	d0005-cpp-uses-swift
 	d0006-cpp-integral
 	#d0010_q4os_sycl_cpp		# needs dpcpp compiler
+	#d0011_sycl_copy_method		# needs dpcpp compiler
 ;
 
 for prog in $(progs)
