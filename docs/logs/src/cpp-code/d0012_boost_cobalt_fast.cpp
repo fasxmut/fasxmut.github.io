@@ -129,9 +129,9 @@ public:
 cobalt::main co_main(int argc, char * argv[])
 {
 	auto g = generator_box{}();
-	BOOST_COBALT_FOR(auto x, g)
+	while (true)
 	{
-		std::cout << "x => " << (int)x << std::endl;
+		std::cout << "=> " << co_await g << std::endl;
 		std::this_thread::sleep_for(std::chrono::milliseconds(500));
 	}
 	co_return 0;
