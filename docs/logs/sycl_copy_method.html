@@ -6,12 +6,13 @@
 <meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
 <link rel="home" href="index.html" title="logs - Blogs or News">
 <link rel="up" href="index.html" title="logs - Blogs or News">
-<link rel="prev" href="index.html" title="logs - Blogs or News">
+<link rel="prev" href="boost_cobalt_fast.html" title="boost::cobalt Fast">
 <link rel="next" href="q4os_sycl_cpp.html" title="q4os sycl cpp">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <div class="spirit-nav">
-<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="q4os_sycl_cpp.html"><img src="images/next.png" alt="Next"></a>
+<a accesskey="p" href="boost_cobalt_fast.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="q4os_sycl_cpp.html"><img src="images/next.png" alt="Next"></a>
 </div>
 <div class="article">
 <div class="titlepage">
@@ -42,7 +43,7 @@
 <span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
 <span class="special">{</span>
 	<span class="keyword">constexpr</span> <span class="keyword">int</span> <span class="identifier">data_size</span> <span class="special">=</span> <span class="number">11</span><span class="special">;</span>
-	<span class="identifier">sycl</span><span class="special">::</span><span class="identifier">queue</span> <span class="identifier">q</span><span class="special">{</span><span class="identifier">sycl</span><span class="special">::</span><span class="identifier">cpu_selector_v</span><span class="special">};</span>
+	<span class="identifier">sycl</span><span class="special">::</span><span class="identifier">queue</span> <span class="identifier">q</span><span class="special">{</span><span class="identifier">sycl</span><span class="special">::</span><span class="identifier">gpu_selector_v</span><span class="special">};</span>
 	<span class="keyword">float</span> <span class="special">*</span> <span class="identifier">data</span> <span class="special">=</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">malloc_shared</span><span class="special">&lt;</span><span class="keyword">float</span><span class="special">&gt;(</span><span class="identifier">data_size</span><span class="special">,</span> <span class="identifier">q</span><span class="special">);</span>
 	<span class="identifier">q</span><span class="special">.</span><span class="identifier">parallel_for</span><span class="special">(</span>
 		<span class="identifier">data_size</span><span class="special">,</span>
@@ -65,13 +66,10 @@
 <span class="special">}</span>
 </pre>
 </div>
-<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
-<td align="left"><p><small>Last revised: April 01, 2024 at 00:29:09 GMT</small></p></td>
-<td align="right"><div class="copyright-footer"></div></td>
-</tr></table>
+<div class="copyright-footer"></div>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="q4os_sycl_cpp.html"><img src="images/next.png" alt="Next"></a>
+<a accesskey="p" href="boost_cobalt_fast.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="q4os_sycl_cpp.html"><img src="images/next.png" alt="Next"></a>
 </div>
 </body>
 </html>

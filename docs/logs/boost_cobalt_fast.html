@@ -1,0 +1,170 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>boost::cobalt Fast</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="logs - Blogs or News">
+<link rel="up" href="index.html" title="logs - Blogs or News">
+<link rel="prev" href="index.html" title="logs - Blogs or News">
+<link rel="next" href="sycl_copy_method.html" title="sycl copy method">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="sycl_copy_method.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="boost_cobalt_fast"></a>boost::cobalt Fast</h1></div></div>
+<hr>
+</div>
+<p>
+      boost::cobalt Fast - Posted on Apr 07, 2024 - See <a href="https://www.boost.org/libs/cobalt" target="_top">https://www.boost.org/libs/cobalt</a>
+      - <a href="https://cppfx.xyz/logs" target="_top">Logs Home</a> - d0012
+    </p>
+<h2>
+<a name="boost_cobalt_fast.h0"></a>
+      <span class="phrase"><a name="boost_cobalt_fast.role_cyan_boost_cobalt_fast"></a></span><a class="link" href="boost_cobalt_fast.html#boost_cobalt_fast.role_cyan_boost_cobalt_fast"><span class="cyan">boost::cobalt Fast</span></a>
+    </h2>
+<p>
+      boost::cobalt Fast (c++)
+    </p>
+<h2>
+<a name="boost_cobalt_fast.h1"></a>
+      <span class="phrase"><a name="boost_cobalt_fast.role_cyan_install_boost_at_least"></a></span><a class="link" href="boost_cobalt_fast.html#boost_cobalt_fast.role_cyan_install_boost_at_least"><span class="cyan">Install boost (at least 1.84)</span></a>
+    </h2>
+<h3>
+<a name="boost_cobalt_fast.h2"></a>
+      <span class="phrase"><a name="boost_cobalt_fast.build_and_install_b2_build"></a></span><a class="link" href="boost_cobalt_fast.html#boost_cobalt_fast.build_and_install_b2_build">Build
+      and install b2 build</a>
+    </h3>
+<p>
+      <a href="https://www.bfgroup.xyz/b2" target="_top">https://www.bfgroup.xyz/b2</a>
+    </p>
+<h3>
+<a name="boost_cobalt_fast.h3"></a>
+      <span class="phrase"><a name="boost_cobalt_fast.build_and_install_boost"></a></span><a class="link" href="boost_cobalt_fast.html#boost_cobalt_fast.build_and_install_boost">Build
+      and install boost</a>
+    </h3>
+<p>
+      <a href="https://www.boost.org" target="_top">https://www.boost.org</a>
+    </p>
+<h2>
+<a name="boost_cobalt_fast.h4"></a>
+      <span class="phrase"><a name="boost_cobalt_fast.role_cyan_boost_cobalt_hello_wor"></a></span><a class="link" href="boost_cobalt_fast.html#boost_cobalt_fast.role_cyan_boost_cobalt_hello_wor"><span class="cyan">boost::cobalt Hello World</span></a>
+    </h2>
+<p>
+      co_return
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">cobalt</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">cobalt</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">cobalt</span><span class="special">;</span>
+
+<span class="identifier">cobalt</span><span class="special">::</span><span class="identifier">main</span> <span class="identifier">co_main</span><span class="special">(</span><span class="keyword">int</span> <span class="identifier">argc</span><span class="special">,</span> <span class="keyword">char</span> <span class="special">*</span> <span class="identifier">argv</span><span class="special">[])</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Hello c++ cobalt!"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="identifier">co_return</span> <span class="number">0</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<h3>
+<a name="boost_cobalt_fast.h5"></a>
+      <span class="phrase"><a name="boost_cobalt_fast.compile_the_code"></a></span><a class="link" href="boost_cobalt_fast.html#boost_cobalt_fast.compile_the_code">Compile
+      the code:</a>
+    </h3>
+<pre class="programlisting">g++ hello-world.cpp -std=c++23 -lboost_cobalt -o hello_world
+</pre>
+<h3>
+<a name="boost_cobalt_fast.h6"></a>
+      <span class="phrase"><a name="boost_cobalt_fast.build_with_b2_build"></a></span><a class="link" href="boost_cobalt_fast.html#boost_cobalt_fast.build_with_b2_build">Build
+      with b2 build</a>
+    </h3>
+<pre class="programlisting"><span class="identifier">lib</span> <span class="identifier">boost</span><span class="special">-</span><span class="identifier">cobalt</span> <span class="special">:</span> <span class="special">:</span> <span class="special">&lt;</span><span class="identifier">name</span><span class="special">&gt;</span><span class="identifier">boost_cobalt</span> <span class="special">;</span>
+<span class="identifier">exe</span> <span class="identifier">hello</span><span class="special">-</span><span class="identifier">world</span>
+	<span class="special">:</span>
+		<span class="identifier">hello</span><span class="special">-</span><span class="identifier">world</span><span class="special">.</span><span class="identifier">cpp</span>
+	<span class="special">:</span>
+		<span class="special">&lt;</span><span class="identifier">library</span><span class="special">&gt;</span><span class="identifier">boost</span><span class="special">-</span><span class="identifier">cobalt</span>
+<span class="special">;</span>
+</pre>
+<h2>
+<a name="boost_cobalt_fast.h7"></a>
+      <span class="phrase"><a name="boost_cobalt_fast.role_cyan_delay_with_timer"></a></span><a class="link" href="boost_cobalt_fast.html#boost_cobalt_fast.role_cyan_delay_with_timer"><span class="cyan">delay with timer</span></a>
+    </h2>
+<p>
+      co_await
+    </p>
+<p>
+      co_return
+    </p>
+<p>
+      The co_main function defines an implicit main when used and is the easiest
+      way to set up an environment to run asynchronous code.
+    </p>
+<pre class="programlisting">#include &lt;boost/cobalt.hpp&gt;
+#include &lt;boost/cobalt/op.hpp&gt;
+#include &lt;boost/asio/steady_timer.hpp&gt;
+#include &lt;iostream&gt;
+
+namespace cobalt = boost::cobalt;
+namespace asio = boost::asio;
+
+cobalt::main co_main(int argc, char * argv[])
+{
+	std::cout &lt;&lt; "begin" &lt;&lt; std::endl;
+	asio::steady_timer timer{
+		co_await asio::this_coro::executor,
+		std::chrono::seconds(2)
+	};
+	co_await timer.async_wait(cobalt::use_op);
+	std::cout &lt;&lt; "end\n";
+	co_return 0;
+}
+</pre>
+<h2>
+<a name="boost_cobalt_fast.h8"></a>
+      <span class="phrase"><a name="boost_cobalt_fast.role_cyan_generator"></a></span><a class="link" href="boost_cobalt_fast.html#boost_cobalt_fast.role_cyan_generator"><span class="cyan">generator</span></a>
+    </h2>
+<p>
+      co_yield
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">cobalt</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">cobalt</span><span class="special">/</span><span class="identifier">op</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">thread</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">chrono</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">cobalt</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">cobalt</span><span class="special">;</span>
+
+<span class="keyword">class</span> <span class="identifier">generator_box</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">cobalt</span><span class="special">::</span><span class="identifier">generator</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;</span> <span class="keyword">operator</span><span class="special">()()</span> <span class="keyword">const</span>
+	<span class="special">{</span>
+		<span class="keyword">int</span> <span class="identifier">i</span> <span class="special">=</span> <span class="number">0</span><span class="special">;</span>
+		<span class="keyword">while</span> <span class="special">(</span><span class="keyword">true</span><span class="special">)</span>
+			<span class="identifier">co_yield</span> <span class="identifier">i</span><span class="special">++;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="identifier">cobalt</span><span class="special">::</span><span class="identifier">main</span> <span class="identifier">co_main</span><span class="special">(</span><span class="keyword">int</span> <span class="identifier">argc</span><span class="special">,</span> <span class="keyword">char</span> <span class="special">*</span> <span class="identifier">argv</span><span class="special">[])</span>
+<span class="special">{</span>
+	<span class="keyword">auto</span> <span class="identifier">g</span> <span class="special">=</span> <span class="identifier">generator_box</span><span class="special">{}();</span>
+	<span class="identifier">BOOST_COBALT_FOR</span><span class="special">(</span><span class="keyword">auto</span> <span class="identifier">x</span><span class="special">,</span> <span class="identifier">g</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"x =&gt; "</span> <span class="special">&lt;&lt;</span> <span class="special">(</span><span class="keyword">int</span><span class="special">)</span><span class="identifier">x</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">this_thread</span><span class="special">::</span><span class="identifier">sleep_for</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">chrono</span><span class="special">::</span><span class="identifier">milliseconds</span><span class="special">(</span><span class="number">500</span><span class="special">));</span>
+	<span class="special">}</span>
+	<span class="identifier">co_return</span> <span class="number">0</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="sycl_copy_method.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

@@ -8,10 +8,21 @@ lib utxcpp
 	:
 ;
 
+lib boost-cobalt
+	:
+	:
+		<name>boost_cobalt
+;
+
 project
 	: default-build
 		<library>utxcpp
 		<cxxstd>23
+;
+
+project
+	: requirements
+		<library>boost-cobalt
 ;
 
 progs =
@@ -23,6 +34,7 @@ progs =
 	d0006-cpp-integral
 	#d0010_q4os_sycl_cpp		# needs dpcpp compiler
 	#d0011_sycl_copy_method		# needs dpcpp compiler
+	d0012_boost_cobalt_fast
 ;
 
 for prog in $(progs)

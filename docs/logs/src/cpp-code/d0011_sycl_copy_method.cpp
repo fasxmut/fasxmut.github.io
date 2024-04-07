@@ -30,7 +30,7 @@ q.copy(src, dst, size);
 int main()
 {
 	constexpr int data_size = 11;
-	sycl::queue q{sycl::cpu_selector_v};
+	sycl::queue q{sycl::gpu_selector_v};
 	float * data = sycl::malloc_shared<float>(data_size, q);
 	q.parallel_for(
 		data_size,
