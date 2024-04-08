@@ -1,0 +1,210 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>cobalt::race boost cpp</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="logs - Blogs or News">
+<link rel="up" href="index.html" title="logs - Blogs or News">
+<link rel="prev" href="index.html" title="logs - Blogs or News">
+<link rel="next" href="boost_cobalt_fast.html" title="boost::cobalt Fast">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="boost_cobalt_fast.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="cobalt_race_boost_cpp"></a>cobalt::race boost cpp</h1></div></div>
+<hr>
+</div>
+<p>
+      cobalt::race boost c++ - Posted on Apr 08, 2024 - See <a href="https://www.boost.org/libs/cobalt" target="_top">https://www.boost.org/libs/cobalt</a>
+      - <a href="https://cppfx.xyz/logs" target="_top">- Logs Home</a> - d0013
+    </p>
+<h2>
+<a name="cobalt_race_boost_cpp.h0"></a>
+      <span class="phrase"><a name="cobalt_race_boost_cpp.role_cyan_cobalt_race_boost_cpp"></a></span><a class="link" href="cobalt_race_boost_cpp.html#cobalt_race_boost_cpp.role_cyan_cobalt_race_boost_cpp"><span class="cyan">cobalt::race boost cpp</span></a>
+    </h2>
+<p>
+      boost::cobalt::race c++
+    </p>
+<p>
+      cobalt::race is a function that waits for one coroutine out of a set that is
+      ready in a pseudo-random way, to avoid starvation.
+    </p>
+<p>
+      The race function can be used to co_await one awaitable out of a set of them.
+    </p>
+<p>
+      It can be called as a variadic function with multiple awaitable or as on a
+      range of awaitables.
+    </p>
+<h2>
+<a name="cobalt_race_boost_cpp.h1"></a>
+      <span class="phrase"><a name="cobalt_race_boost_cpp.role_cyan_return_an_integral_ind"></a></span><a class="link" href="cobalt_race_boost_cpp.html#cobalt_race_boost_cpp.role_cyan_return_an_integral_ind"><span class="cyan">Return
+      an integral index</span></a>
+    </h2>
+<p>
+      If all awaitables return void, the cobalt::race returns an integral index.
+    </p>
+<h2>
+<a name="cobalt_race_boost_cpp.h2"></a>
+      <span class="phrase"><a name="cobalt_race_boost_cpp.role_cyan_return_a_variant"></a></span><a class="link" href="cobalt_race_boost_cpp.html#cobalt_race_boost_cpp.role_cyan_return_a_variant"><span class="cyan">Return a variant</span></a>
+    </h2>
+<p>
+      If not all awaitables return void, the cobalt::race returns a variant: boost::variant2::variant.
+    </p>
+<h2>
+<a name="cobalt_race_boost_cpp.h3"></a>
+      <span class="phrase"><a name="cobalt_race_boost_cpp.role_cyan_std_vector"></a></span><a class="link" href="cobalt_race_boost_cpp.html#cobalt_race_boost_cpp.role_cyan_std_vector"><span class="cyan">std::vector</span></a>
+    </h2>
+<p>
+      All awaitables can be pushed into std::vector, accepted by cobalt::race.
+    </p>
+<h2>
+<a name="cobalt_race_boost_cpp.h4"></a>
+      <span class="phrase"><a name="cobalt_race_boost_cpp.role_cyan_main_program"></a></span><a class="link" href="cobalt_race_boost_cpp.html#cobalt_race_boost_cpp.role_cyan_main_program"><span class="cyan">Main Program</span></a>
+    </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">cobalt</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">vector</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">cobalt</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">cobalt</span><span class="special">;</span>
+
+<span class="keyword">class</span> <span class="identifier">devil_cat</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">cobalt</span><span class="special">::</span><span class="identifier">promise</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">&gt;</span> <span class="identifier">fizz</span><span class="special">()</span> <span class="keyword">const</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"fizz"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+		<span class="identifier">co_return</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="identifier">cobalt</span><span class="special">::</span><span class="identifier">promise</span><span class="special">&lt;</span><span class="keyword">float</span><span class="special">&gt;</span> <span class="identifier">buzz</span><span class="special">()</span> <span class="keyword">const</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"buzz"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+		<span class="identifier">co_return</span> <span class="number">2.345f</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="identifier">cobalt</span><span class="special">::</span><span class="identifier">promise</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">&gt;</span> <span class="identifier">bray</span><span class="special">()</span> <span class="keyword">const</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"bray"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+		<span class="identifier">co_await</span> <span class="special">[]</span> <span class="special">()</span> <span class="special">-&gt;</span> <span class="identifier">cobalt</span><span class="special">::</span><span class="identifier">promise</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">&gt;</span>
+		<span class="special">{</span>
+			<span class="identifier">co_return</span><span class="special">;</span>
+		<span class="special">}();</span>
+	<span class="special">}</span>
+	<span class="identifier">cobalt</span><span class="special">::</span><span class="identifier">promise</span><span class="special">&lt;</span><span class="keyword">float</span><span class="special">&gt;</span> <span class="identifier">roar</span><span class="special">()</span> <span class="keyword">const</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"roar"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+		<span class="identifier">co_await</span> <span class="special">[]</span> <span class="special">()</span> <span class="special">-&gt;</span> <span class="identifier">cobalt</span><span class="special">::</span><span class="identifier">promise</span><span class="special">&lt;</span><span class="keyword">float</span><span class="special">&gt;</span>
+		<span class="special">{</span>
+			<span class="identifier">co_return</span> <span class="number">7.29f</span><span class="special">;</span>
+		<span class="special">}();</span>
+		<span class="identifier">co_return</span> <span class="number">1.7</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="identifier">cobalt</span><span class="special">::</span><span class="identifier">main</span> <span class="identifier">co_main</span><span class="special">(</span><span class="keyword">int</span> <span class="identifier">argc</span><span class="special">,</span> <span class="keyword">char</span> <span class="special">*</span> <span class="identifier">argv</span><span class="special">[])</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"------------------------------------------------------------\n"</span><span class="special">;</span>
+	<span class="special">{</span>
+		<span class="keyword">auto</span> <span class="identifier">cat</span> <span class="special">=</span> <span class="identifier">devil_cat</span><span class="special">{};</span>
+		<span class="keyword">for</span> <span class="special">(</span><span class="keyword">int</span> <span class="identifier">i</span><span class="special">=</span><span class="number">0</span><span class="special">;</span> <span class="identifier">i</span><span class="special">&lt;</span><span class="number">3</span><span class="special">;</span> <span class="special">++</span><span class="identifier">i</span><span class="special">)</span>
+		<span class="special">{</span>
+			<span class="comment">// rr is variant, because not all awaitables co_return void.</span>
+			<span class="keyword">switch</span><span class="special">(</span>
+				<span class="keyword">auto</span> <span class="identifier">rr</span> <span class="special">=</span> <span class="identifier">co_await</span> <span class="identifier">cobalt</span><span class="special">::</span><span class="identifier">race</span><span class="special">(</span><span class="identifier">cat</span><span class="special">.</span><span class="identifier">fizz</span><span class="special">(),</span> <span class="identifier">cat</span><span class="special">.</span><span class="identifier">buzz</span><span class="special">(),</span> <span class="identifier">cat</span><span class="special">.</span><span class="identifier">bray</span><span class="special">(),</span> <span class="identifier">cat</span><span class="special">.</span><span class="identifier">roar</span><span class="special">());</span>
+				<span class="identifier">rr</span><span class="special">.</span><span class="identifier">index</span><span class="special">()</span>
+			<span class="special">)</span>
+			<span class="special">{</span>
+			<span class="keyword">case</span> <span class="number">0</span><span class="special">:</span>
+				<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">".fizz() is called\n"</span><span class="special">;</span>
+				<span class="keyword">break</span><span class="special">;</span>
+			<span class="keyword">case</span> <span class="number">1</span><span class="special">:</span>
+				<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">".buzz() is called, value: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">variant2</span><span class="special">::</span><span class="identifier">get</span><span class="special">&lt;</span><span class="number">1</span><span class="special">&gt;(</span><span class="identifier">rr</span><span class="special">)</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+				<span class="keyword">break</span><span class="special">;</span>
+			<span class="keyword">case</span> <span class="number">2</span><span class="special">:</span>
+				<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">".bray() is called."</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+				<span class="keyword">break</span><span class="special">;</span>
+			<span class="keyword">case</span> <span class="number">3</span><span class="special">:</span>
+				<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">".roar() is called, value: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">variant2</span><span class="special">::</span><span class="identifier">get</span><span class="special">&lt;</span><span class="number">3</span><span class="special">&gt;(</span><span class="identifier">rr</span><span class="special">)</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+			<span class="special">}</span>
+		<span class="special">}</span>
+	<span class="special">}</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"------------------------------------------------------------\n"</span><span class="special">;</span>
+	<span class="special">{</span>
+		<span class="keyword">auto</span> <span class="identifier">cat</span> <span class="special">=</span> <span class="identifier">devil_cat</span><span class="special">{};</span>
+		<span class="keyword">for</span> <span class="special">(</span><span class="keyword">int</span> <span class="identifier">i</span><span class="special">=</span><span class="number">0</span><span class="special">;</span> <span class="identifier">i</span><span class="special">&lt;</span><span class="number">3</span><span class="special">;</span> <span class="special">++</span><span class="identifier">i</span><span class="special">)</span>
+		<span class="special">{</span>
+			<span class="comment">// rr is integral index, because all awaitables co_return void.</span>
+			<span class="keyword">switch</span> <span class="special">(</span><span class="keyword">auto</span> <span class="identifier">rr</span> <span class="special">=</span> <span class="identifier">co_await</span> <span class="identifier">cobalt</span><span class="special">::</span><span class="identifier">race</span><span class="special">(</span><span class="identifier">cat</span><span class="special">.</span><span class="identifier">fizz</span><span class="special">(),</span> <span class="identifier">cat</span><span class="special">.</span><span class="identifier">bray</span><span class="special">()))</span>
+			<span class="special">{</span>
+			<span class="keyword">case</span> <span class="number">0</span><span class="special">:</span>
+				<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">".fizz() is called"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+				<span class="keyword">break</span><span class="special">;</span>
+			<span class="keyword">case</span> <span class="number">1</span><span class="special">:</span>
+				<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">".bray() is called"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+				<span class="keyword">break</span><span class="special">;</span>
+			<span class="special">}</span>
+		<span class="special">}</span>
+	<span class="special">}</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"------------------------------------------------------------\n"</span><span class="special">;</span>
+	<span class="special">{</span>
+		<span class="keyword">auto</span> <span class="identifier">cat</span> <span class="special">=</span> <span class="identifier">devil_cat</span><span class="special">{};</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="identifier">cobalt</span><span class="special">::</span><span class="identifier">promise</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">&gt;&gt;</span> <span class="identifier">vector</span><span class="special">;</span>
+		<span class="identifier">vector</span><span class="special">.</span><span class="identifier">push_back</span><span class="special">(</span><span class="identifier">cat</span><span class="special">.</span><span class="identifier">fizz</span><span class="special">());</span>
+		<span class="identifier">vector</span><span class="special">.</span><span class="identifier">push_back</span><span class="special">(</span><span class="identifier">cat</span><span class="special">.</span><span class="identifier">bray</span><span class="special">());</span>
+		<span class="comment">// std::vector is accepted</span>
+		<span class="keyword">int</span> <span class="identifier">rr</span> <span class="special">=</span> <span class="identifier">co_await</span> <span class="identifier">cobalt</span><span class="special">::</span><span class="identifier">race</span><span class="special">(</span><span class="identifier">vector</span><span class="special">);</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"index: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">rr</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"------------------------------------------------------------\n"</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<h3>
+<a name="cobalt_race_boost_cpp.h5"></a>
+      <span class="phrase"><a name="cobalt_race_boost_cpp.one_possible_output"></a></span><a class="link" href="cobalt_race_boost_cpp.html#cobalt_race_boost_cpp.one_possible_output">One
+      possible output</a>
+    </h3>
+<pre class="programlisting">------------------------------------------------------------
+fizz
+buzz
+bray
+roar
+.fizz() is called
+fizz
+buzz
+bray
+roar
+.roar() is called, value: 1.7
+fizz
+buzz
+bray
+roar
+.roar() is called, value: 1.7
+------------------------------------------------------------
+fizz
+bray
+.fizz() is called
+fizz
+bray
+.bray() is called
+fizz
+bray
+.bray() is called
+------------------------------------------------------------
+fizz
+bray
+index: 0
+------------------------------------------------------------
+</pre>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="boost_cobalt_fast.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

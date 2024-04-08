@@ -1,0 +1,9 @@
+[article cobalt::race boost cpp
+	[quickbook 1.7]
+]
+
+[import cpp-code/d0013_cobalt_race_boost_cpp.cpp]
+[d0013_cobalt_race_boost_cpp_cpp]
+
+
+
