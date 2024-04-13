@@ -91,7 +91,7 @@ cobalt::main co_main(int argc, char * argv[]) // <1>
                                
 ```
 
-The [_cobalt::op] is passed, I did not quite care it at first time. But after I learned more, I found I had to understand it before using boost::asio networking with boost::cobalt.
+The [_cobalt::use_op] is passed, I did not quite care it at first time. But after I learned more, I found I had to understand it before using boost::asio networking with boost::cobalt.
 
 [h3 [role blue *-:) -------------------------------------------------------------------------------- (:-]]
 
@@ -203,7 +203,7 @@ cobalt::main co_main(int argc, char * argv[])
 	//co_await socket.async_read_some(asio::buffer(buff, 80));	// ERROR!
 	auto value = co_await socket2.async_read_some(asio::buffer(buff, 80));	// OK!
 	static_assert(std::integral<decltype(value)>);
-	delete buff;
+	delete [] buff;
 	co_return 0;
 }
 ```
