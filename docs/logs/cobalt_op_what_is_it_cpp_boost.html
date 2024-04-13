@@ -1,0 +1,377 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>cobalt op, what is it ? - cpp boost</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="logs - Blogs or News">
+<link rel="up" href="index.html" title="logs - Blogs or News">
+<link rel="prev" href="index.html" title="logs - Blogs or News">
+<link rel="next" href="cobalt_race_boost_cpp.html" title="cobalt::race boost cpp">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cobalt_race_boost_cpp.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="cobalt_op_what_is_it_cpp_boost"></a>cobalt op, what is it ? - cpp boost</h1></div></div>
+<hr>
+</div>
+<p>
+      cobalt op c++ boost - Posted on Apr 13, 2024 - See <a href="https://www.boost.org/libs/cobalt" target="_top">https://www.boost.org/libs/cobalt</a>
+      - <a href="https://cppfx.xyz/logs" target="_top">- Logs Home</a> - d0014
+    </p>
+<h2>
+<a name="cobalt_op_what_is_it_cpp_boost.h0"></a>
+      <span class="phrase"><a name="cobalt_op_what_is_it_cpp_boost.role_cyan_cobalt_op_cpp_boost"></a></span><a class="link" href="cobalt_op_what_is_it_cpp_boost.html#cobalt_op_what_is_it_cpp_boost.role_cyan_cobalt_op_cpp_boost"><span class="cyan">cobalt op - cpp boost</span></a>
+    </h2>
+<h3>
+<a name="cobalt_op_what_is_it_cpp_boost.h1"></a>
+      <span class="phrase"><a name="cobalt_op_what_is_it_cpp_boost.cobalt_use_op_t_as_default_on_t"></a></span><a class="link" href="cobalt_op_what_is_it_cpp_boost.html#cobalt_op_what_is_it_cpp_boost.cobalt_use_op_t_as_default_on_t">cobalt::use_op_t::as_default_on_t</a>
+    </h3>
+<h4>
+<a name="cobalt_op_what_is_it_cpp_boost.h2"></a>
+      <span class="phrase"><a name="cobalt_op_what_is_it_cpp_boost.cobalt_example_echo_server_cpp"></a></span><a class="link" href="cobalt_op_what_is_it_cpp_boost.html#cobalt_op_what_is_it_cpp_boost.cobalt_example_echo_server_cpp">cobalt/example/echo_server.cpp</a>
+    </h4>
+<pre class="programlisting"><span class="keyword">using</span> <span class="identifier">tcp_acceptor</span> <span class="special">=</span> <span class="identifier">cobalt</span><span class="special">::</span><span class="identifier">use_op_t</span><span class="special">::</span><span class="identifier">as_default_on_t</span><span class="special">&lt;</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">acceptor</span><span class="special">&gt;;</span>
+<span class="keyword">using</span> <span class="identifier">tcp_socket</span> <span class="special">=</span> <span class="identifier">cobalt</span><span class="special">::</span><span class="identifier">use_op_t</span><span class="special">::</span><span class="identifier">as_default_on_t</span><span class="special">&lt;</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">socket</span><span class="special">&gt;;</span>
+</pre>
+<p>
+      ====&gt;
+    </p>
+<h4>
+<a name="cobalt_op_what_is_it_cpp_boost.h3"></a>
+      <span class="phrase"><a name="cobalt_op_what_is_it_cpp_boost.cobalt_include_boost_cobalt_op_h"></a></span><a class="link" href="cobalt_op_what_is_it_cpp_boost.html#cobalt_op_what_is_it_cpp_boost.cobalt_include_boost_cobalt_op_h">cobalt/include/boost/cobalt/op.hpp</a>
+    </h4>
+<pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">T</span><span class="special">&gt;</span>
+<span class="keyword">using</span> <span class="identifier">as_default_on_t</span> <span class="special">=</span>
+	<span class="keyword">typename</span> <span class="identifier">T</span><span class="special">::</span><span class="keyword">template</span> <span class="identifier">rebind_executor</span><span class="special">&lt;</span>
+		<span class="identifier">executor_with_default</span><span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">T</span><span class="special">::</span><span class="identifier">executor_type</span><span class="special">&gt;</span>
+	<span class="special">&gt;::</span><span class="identifier">other</span><span class="special">;</span>
+</pre>
+<p>
+      <em class="replaceable"><code>(rebind_executor is used to replace existed executor with another
+      executor of a type.)</code></em>
+    </p>
+<p>
+      ====&gt;
+    </p>
+<h4>
+<a name="cobalt_op_what_is_it_cpp_boost.h4"></a>
+      <span class="phrase"><a name="cobalt_op_what_is_it_cpp_boost.cobalt_include_boost_cobalt_op_0"></a></span><a class="link" href="cobalt_op_what_is_it_cpp_boost.html#cobalt_op_what_is_it_cpp_boost.cobalt_include_boost_cobalt_op_0">cobalt/include/boost/cobalt/op.hpp</a>
+    </h4>
+<pre class="programlisting"><span class="comment">// Adapts an executor to add the @c use_op_t completion token as the default.</span>
+<span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">InnerExecutor</span><span class="special">&gt;</span>
+<span class="keyword">struct</span> <span class="identifier">executor_with_default</span> <span class="special">:</span> <span class="identifier">InnerExecutor</span>
+<span class="special">{</span>
+	<span class="comment">// Specify @c use_op_t as the default completion token type.</span>
+	<span class="keyword">typedef</span> <span class="identifier">use_op_t</span> <span class="identifier">default_completion_token_type</span><span class="special">;</span>
+	<span class="special">...</span>
+<span class="special">};</span>
+</pre>
+<p>
+      So I think <span class="bold"><strong><em class="replaceable"><code>boost::cobalt::use_op_t::as_default_on_t</code></em></strong></span>
+      is used to replace executor in a type with another executor, to let that type
+      supports boost::cobalt coroutine, by adding <span class="bold"><strong>cobalt::op</strong></span>
+      to the type; but I am not sure my inference.
+    </p>
+<h3>
+<a name="cobalt_op_what_is_it_cpp_boost.h5"></a>
+      <span class="phrase"><a name="cobalt_op_what_is_it_cpp_boost.cobalt_op_what_is_it"></a></span><a class="link" href="cobalt_op_what_is_it_cpp_boost.html#cobalt_op_what_is_it_cpp_boost.cobalt_op_what_is_it">cobalt
+      op - What is it?</a>
+    </h3>
+<p>
+      So after all, then, the key issue is, what is cobalt op?
+    </p>
+<h3>
+<a name="cobalt_op_what_is_it_cpp_boost.h6"></a>
+      <span class="phrase"><a name="cobalt_op_what_is_it_cpp_boost.the_tiny_example_example_delay_c"></a></span><a class="link" href="cobalt_op_what_is_it_cpp_boost.html#cobalt_op_what_is_it_cpp_boost.the_tiny_example_example_delay_c">the
+      tiny example example/delay.cpp used cobalt op, Don't ignore it</a>
+    </h3>
+<h4>
+<a name="cobalt_op_what_is_it_cpp_boost.h7"></a>
+      <span class="phrase"><a name="cobalt_op_what_is_it_cpp_boost.role_blue"></a></span><a class="link" href="cobalt_op_what_is_it_cpp_boost.html#cobalt_op_what_is_it_cpp_boost.role_blue"><span class="blue">*-:) --------------------------------------------------------------------------------
+      (:-</span></a>
+    </h4>
+<p>
+      I didn't quite understand what cobalt op is. I read the boost::cobalt example
+      <span class="bold"><strong><em class="replaceable"><code>example/delay.cpp</code></em></strong></span>
+      when I learned cobalt at the first time, because that example is very short
+      and simple.
+    </p>
+<pre class="programlisting"><span class="comment">// Copyright (c) 2023 Klemens D. Morgenstern</span>
+<span class="comment">//</span>
+<span class="comment">// Distributed under the Boost Software License, Version 1.0. (See accompanying</span>
+<span class="comment">// file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)</span>
+
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">cobalt</span><span class="special">/</span><span class="identifier">main</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">cobalt</span><span class="special">/</span><span class="identifier">op</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">asio</span><span class="special">/</span><span class="identifier">steady_timer</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="identifier">boost</span><span class="special">;</span>
+
+<span class="identifier">cobalt</span><span class="special">::</span><span class="identifier">main</span> <span class="identifier">co_main</span><span class="special">(</span><span class="keyword">int</span> <span class="identifier">argc</span><span class="special">,</span> <span class="keyword">char</span> <span class="special">*</span> <span class="identifier">argv</span><span class="special">[])</span> <span class="comment">// &lt;1&gt;</span>
+<span class="special">{</span>
+	<span class="identifier">asio</span><span class="special">::</span><span class="identifier">steady_timer</span> <span class="identifier">tim</span><span class="special">{</span><span class="identifier">co_await</span> <span class="identifier">asio</span><span class="special">::</span><span class="identifier">this_coro</span><span class="special">::</span><span class="identifier">executor</span><span class="special">,</span> <span class="comment">// &lt;2&gt;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">chrono</span><span class="special">::</span><span class="identifier">milliseconds</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">stoi</span><span class="special">(</span><span class="identifier">argv</span><span class="special">[</span><span class="number">1</span><span class="special">]))};</span> <span class="comment">// &lt;3&gt;</span>
+	<span class="identifier">co_await</span> <span class="identifier">tim</span><span class="special">.</span><span class="identifier">async_wait</span><span class="special">(</span><span class="identifier">cobalt</span><span class="special">::</span><span class="identifier">use_op</span><span class="special">);</span> <span class="comment">// &lt;4&gt;</span>
+	<span class="identifier">co_return</span> <span class="number">0</span><span class="special">;</span> <span class="comment">// &lt;5&gt;</span>
+<span class="special">}</span>
+</pre>
+<p>
+      The <span class="underline">cobalt::op</span> is passed, I did not quite
+      care it at first time. But after I learned more, I found I had to understand
+      it before using boost::asio networking with boost::cobalt.
+    </p>
+<h4>
+<a name="cobalt_op_what_is_it_cpp_boost.h8"></a>
+      <span class="phrase"><a name="cobalt_op_what_is_it_cpp_boost.role_blue0"></a></span><a class="link" href="cobalt_op_what_is_it_cpp_boost.html#cobalt_op_what_is_it_cpp_boost.role_blue0"><span class="blue">*-:) --------------------------------------------------------------------------------
+      (:-</span></a>
+    </h4>
+<p>
+      But the documentation of cobalt op I found is only helpful for me with one
+      sentence:
+    </p>
+<p>
+      <span class="underline">An operation in cobalt is an awaitable wrapping
+      an asio operation.</span>
+    </p>
+<p>
+      (<a href="https://www.boost.org/doc/libs/master/libs/cobalt/doc/html/index.html#cobalt_operation" target="_top">https://www.boost.org/doc/libs/master/libs/cobalt/doc/html/index.html#cobalt_operation</a>)
+    </p>
+<h4>
+<a name="cobalt_op_what_is_it_cpp_boost.h9"></a>
+      <span class="phrase"><a name="cobalt_op_what_is_it_cpp_boost.role_blue1"></a></span><a class="link" href="cobalt_op_what_is_it_cpp_boost.html#cobalt_op_what_is_it_cpp_boost.role_blue1"><span class="blue">*-:) --------------------------------------------------------------------------------
+      (:-</span></a>
+    </h4>
+<p>
+      Then I opened the source code <span class="bold"><strong><span class="underline">boost/cobalt/op.hpp</span></strong></span>,
+      gets <em class="replaceable"><code>boost::cobalt::op</code></em>, <em class="replaceable"><code>boost::cobalt::use_op_t</code></em>,
+      <em class="replaceable"><code>boost::cobalt::use_op</code></em> .
+    </p>
+<h4>
+<a name="cobalt_op_what_is_it_cpp_boost.h10"></a>
+      <span class="phrase"><a name="cobalt_op_what_is_it_cpp_boost.role_blue_in_retrospect_and_comp"></a></span><a class="link" href="cobalt_op_what_is_it_cpp_boost.html#cobalt_op_what_is_it_cpp_boost.role_blue_in_retrospect_and_comp"><span class="blue">-:) --------------------------------------------------------------------------------
+      (:- In retrospect, and comparison</span></a>
+    </h4>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+          <span class="green"><span class="bold"><strong>asio::steady_timer async_wait
+          -&gt;</strong></span></span>
+        </li></ul></div>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
+<span class="keyword">typename</span> <span class="identifier">WaitToken</span> <span class="special">=</span> <span class="identifier">default_completion_token_t</span><span class="special">&lt;</span><span class="identifier">executor_type</span><span class="special">&gt;&gt;</span>
+<span class="keyword">auto</span> <span class="identifier">async_wait</span><span class="special">(</span>
+	<span class="identifier">WaitToken</span> <span class="special">&amp;&amp;</span> <span class="identifier">token</span> <span class="special">=</span> <span class="identifier">default_completion_token_t</span><span class="special">&lt;</span> <span class="identifier">executor_type</span> <span class="special">&gt;()</span>
+<span class="special">);</span>
+</pre>
+<p>
+      (<a href="https://www.boost.org/doc/libs/1_84_0/doc/html/boost_asio/reference/basic_waitable_timer/async_wait.html" target="_top">https://www.boost.org/doc/libs/1_84_0/doc/html/boost_asio/reference/basic_waitable_timer/async_wait.html</a>)
+    </p>
+<h5>
+<a name="cobalt_op_what_is_it_cpp_boost.h11"></a>
+      <span class="phrase"><a name="cobalt_op_what_is_it_cpp_boost.token"></a></span><a class="link" href="cobalt_op_what_is_it_cpp_boost.html#cobalt_op_what_is_it_cpp_boost.token">token</a>
+    </h5>
+<p>
+      The completion token that will be used to produce a completion handler, which
+      will be called when the timer expires. Potential completion tokens include
+      <em class="replaceable"><code>use_future</code></em>, <em class="replaceable"><code>use_awaitable</code></em>,
+      <em class="replaceable"><code>yield_context</code></em>, or a function object with the correct
+      completion signature.
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+          <span class="green"><span class="bold"><strong>use_future -&gt;</strong></span></span>
+        </li></ul></div>
+<p>
+      A completion token object that causes an asynchronous operation to return a
+      future.
+    </p>
+<pre class="programlisting"><span class="keyword">constexpr</span> <span class="identifier">use_future_t</span> <span class="identifier">use_future</span><span class="special">;</span>
+</pre>
+<p>
+      (<a href="https://www.boost.org/doc/libs/1_84_0/doc/html/boost_asio/reference/use_future.html" target="_top">https://www.boost.org/doc/libs/1_84_0/doc/html/boost_asio/reference/use_future.html</a>)
+    </p>
+<p>
+      eg.
+    </p>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">future</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span><span class="special">&gt;</span> <span class="identifier">my_future</span> <span class="special">=</span> <span class="identifier">my_socket</span><span class="special">.</span><span class="identifier">async_read_some</span><span class="special">(</span><span class="identifier">my_buffer</span><span class="special">,</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">use_future</span><span class="special">);</span>
+</pre>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+          <span class="green"><span class="bold"><strong>use_awaitable -&gt;</strong></span></span>
+        </li></ul></div>
+<p>
+      A completion token object that represents the currently executing coroutine.
+    </p>
+<pre class="programlisting"><span class="keyword">constexpr</span> <span class="identifier">use_awaitable_t</span> <span class="identifier">use_awaitable</span><span class="special">;</span>
+</pre>
+<p>
+      (<a href="https://www.boost.org/doc/libs/1_84_0/doc/html/boost_asio/reference/use_awaitable.html" target="_top">https://www.boost.org/doc/libs/1_84_0/doc/html/boost_asio/reference/use_awaitable.html</a>)
+    </p>
+<p>
+      eg.
+    </p>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">n</span> <span class="special">=</span> <span class="identifier">co_await</span> <span class="identifier">my_socket</span><span class="special">.</span><span class="identifier">async_read_some</span><span class="special">(</span><span class="identifier">buffer</span><span class="special">,</span> <span class="identifier">use_awaitable</span><span class="special">);</span>
+</pre>
+<p>
+      ??? = co_await ???(???, use_awaitable);
+    </p>
+<p>
+      nice, -:)
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+          <span class="green"><span class="bold"><strong>use_op -&gt;</strong></span></span>
+        </li></ul></div>
+<p>
+      If the completion <span class="bold"><strong>token</strong></span> is cobalt::use_op,
+      what do you think what it is?
+    </p>
+<h2>
+<a name="cobalt_op_what_is_it_cpp_boost.h12"></a>
+      <span class="phrase"><a name="cobalt_op_what_is_it_cpp_boost.role_cyan_wait_op_example"></a></span><a class="link" href="cobalt_op_what_is_it_cpp_boost.html#cobalt_op_what_is_it_cpp_boost.role_cyan_wait_op_example"><span class="cyan">wait_op example</span></a>
+    </h2>
+<p>
+      <a href="https://www.boost.org/doc/libs/1_84_0/libs/cobalt/doc/html/index.html#delay_op" target="_top">https://www.boost.org/doc/libs/1_84_0/libs/cobalt/doc/html/index.html#delay_op</a>
+    </p>
+<h2>
+<a name="cobalt_op_what_is_it_cpp_boost.h13"></a>
+      <span class="phrase"><a name="cobalt_op_what_is_it_cpp_boost.role_cyan_cobalt_op_examples"></a></span><a class="link" href="cobalt_op_what_is_it_cpp_boost.html#cobalt_op_what_is_it_cpp_boost.role_cyan_cobalt_op_examples"><span class="cyan">cobalt op examples</span></a>
+    </h2>
+<p>
+      At last I write some cobalt op c++ small crappy examples.
+    </p>
+<h3>
+<a name="cobalt_op_what_is_it_cpp_boost.h14"></a>
+      <span class="phrase"><a name="cobalt_op_what_is_it_cpp_boost.asio_socket"></a></span><a class="link" href="cobalt_op_what_is_it_cpp_boost.html#cobalt_op_what_is_it_cpp_boost.asio_socket">asio
+      socket</a>
+    </h3>
+<p>
+      boost::asio::ip::tcp::socket
+    </p>
+<p>
+      (<a href="https://www.boost.org/libs/beast" target="_top">https://www.boost.org/libs/beast</a>)
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">cobalt</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">asio</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">cobalt</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">cobalt</span><span class="special">;</span>
+<span class="keyword">namespace</span> <span class="identifier">asio</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">;</span>
+
+<span class="keyword">using</span> <span class="identifier">asio_socket</span> <span class="special">=</span> <span class="identifier">asio</span><span class="special">::</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">socket</span><span class="special">;</span>
+<span class="keyword">using</span> <span class="identifier">cobalt_asio_socket</span> <span class="special">=</span> <span class="identifier">cobalt</span><span class="special">::</span><span class="identifier">use_op_t</span><span class="special">::</span><span class="identifier">as_default_on_t</span><span class="special">&lt;</span><span class="identifier">asio_socket</span><span class="special">&gt;;</span>
+
+<span class="identifier">cobalt</span><span class="special">::</span><span class="identifier">main</span> <span class="identifier">co_main</span><span class="special">(</span><span class="keyword">int</span> <span class="identifier">argc</span><span class="special">,</span> <span class="keyword">char</span> <span class="special">*</span> <span class="identifier">argv</span><span class="special">[])</span>
+<span class="special">{</span>
+	<span class="identifier">asio</span><span class="special">::</span><span class="identifier">io_context</span> <span class="identifier">io_context</span><span class="special">;</span>
+	<span class="identifier">asio_socket</span> <span class="identifier">socket</span><span class="special">{</span><span class="identifier">io_context</span><span class="special">};</span>
+	<span class="identifier">cobalt_asio_socket</span> <span class="identifier">socket2</span><span class="special">{</span><span class="identifier">io_context</span><span class="special">};</span>
+	<span class="keyword">auto</span> <span class="special">*</span> <span class="identifier">buff</span> <span class="special">=</span> <span class="keyword">new</span> <span class="keyword">char</span><span class="special">[</span><span class="number">80</span><span class="special">];</span>
+	<span class="comment">//co_await socket.async_read_some(asio::buffer(buff, 80));	// ERROR!</span>
+	<span class="keyword">auto</span> <span class="identifier">value</span> <span class="special">=</span> <span class="identifier">co_await</span> <span class="identifier">socket2</span><span class="special">.</span><span class="identifier">async_read_some</span><span class="special">(</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">buffer</span><span class="special">(</span><span class="identifier">buff</span><span class="special">,</span> <span class="number">80</span><span class="special">));</span>	<span class="comment">// OK!</span>
+	<span class="keyword">static_assert</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">integral</span><span class="special">&lt;</span><span class="keyword">decltype</span><span class="special">(</span><span class="identifier">value</span><span class="special">)&gt;);</span>
+	<span class="keyword">delete</span> <span class="identifier">buff</span><span class="special">;</span>
+	<span class="identifier">co_return</span> <span class="number">0</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<p>
+      Returned <span class="bold"><strong>value</strong></span> is the data read in bytes.
+    </p>
+<h3>
+<a name="cobalt_op_what_is_it_cpp_boost.h15"></a>
+      <span class="phrase"><a name="cobalt_op_what_is_it_cpp_boost.asio_acceptor"></a></span><a class="link" href="cobalt_op_what_is_it_cpp_boost.html#cobalt_op_what_is_it_cpp_boost.asio_acceptor">asio
+      acceptor</a>
+    </h3>
+<p>
+      boost::asio::ip::tcp::acceptor
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">cobalt</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">asio</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">cobalt</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">cobalt</span><span class="special">;</span>
+<span class="keyword">namespace</span> <span class="identifier">asio</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">;</span>
+
+<span class="keyword">using</span> <span class="identifier">asio_socket</span> <span class="special">=</span> <span class="identifier">asio</span><span class="special">::</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">socket</span><span class="special">;</span>
+<span class="keyword">using</span> <span class="identifier">co_socket</span> <span class="special">=</span> <span class="identifier">cobalt</span><span class="special">::</span><span class="identifier">use_op_t</span><span class="special">::</span><span class="identifier">as_default_on_t</span><span class="special">&lt;</span><span class="identifier">asio_socket</span><span class="special">&gt;;</span>
+
+<span class="keyword">using</span> <span class="identifier">asio_acceptor</span> <span class="special">=</span> <span class="identifier">asio</span><span class="special">::</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">acceptor</span><span class="special">;</span>
+<span class="keyword">using</span> <span class="identifier">co_acceptor</span> <span class="special">=</span> <span class="identifier">cobalt</span><span class="special">::</span><span class="identifier">use_op_t</span><span class="special">::</span><span class="identifier">as_default_on_t</span><span class="special">&lt;</span><span class="identifier">asio_acceptor</span><span class="special">&gt;;</span>
+
+<span class="identifier">cobalt</span><span class="special">::</span><span class="identifier">main</span> <span class="identifier">co_main</span><span class="special">(</span><span class="keyword">int</span> <span class="identifier">argc</span><span class="special">,</span> <span class="keyword">char</span> <span class="special">*</span> <span class="identifier">argv</span><span class="special">[])</span>
+<span class="special">{</span>
+	<span class="identifier">asio</span><span class="special">::</span><span class="identifier">io_context</span> <span class="identifier">io_context</span><span class="special">;</span>
+	<span class="identifier">asio_acceptor</span> <span class="identifier">acceptor1</span><span class="special">{</span><span class="identifier">io_context</span><span class="special">};</span>
+	<span class="identifier">co_acceptor</span> <span class="identifier">acceptor2</span><span class="special">{</span><span class="identifier">io_context</span><span class="special">};</span>
+	
+	<span class="identifier">asio_socket</span> <span class="identifier">socket1</span><span class="special">{</span><span class="identifier">io_context</span><span class="special">};</span>
+	<span class="identifier">co_socket</span> <span class="identifier">socket2</span><span class="special">{</span><span class="identifier">io_context</span><span class="special">};</span>
+	
+	<span class="comment">//acceptor1.async_accept(socket1);	// ERROR</span>
+	<span class="identifier">acceptor1</span><span class="special">.</span><span class="identifier">async_accept</span><span class="special">(</span><span class="identifier">socket2</span><span class="special">,</span> <span class="special">[]</span> <span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">system</span><span class="special">::</span><span class="identifier">error_code</span> <span class="identifier">ec</span><span class="special">)</span> <span class="special">{});</span>	<span class="comment">// OK</span>
+	<span class="comment">//co_await acceptor1.async_accept(socket2, [] (boost::system::error_code ec) {});	// ERROR (.async_accept returns void)</span>
+	
+	<span class="identifier">co_await</span> <span class="identifier">acceptor2</span><span class="special">.</span><span class="identifier">async_accept</span><span class="special">(</span><span class="identifier">socket2</span><span class="special">);</span>	<span class="comment">// OK, co_await returns void</span>
+	<span class="identifier">co_await</span> <span class="identifier">acceptor2</span><span class="special">.</span><span class="identifier">async_accept</span><span class="special">(</span><span class="identifier">socket1</span><span class="special">);</span>	<span class="comment">// OK, co_await returns void</span>
+	
+	<span class="identifier">co_return</span> <span class="number">0</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<h3>
+<a name="cobalt_op_what_is_it_cpp_boost.h16"></a>
+      <span class="phrase"><a name="cobalt_op_what_is_it_cpp_boost.beast_tcp_stream"></a></span><a class="link" href="cobalt_op_what_is_it_cpp_boost.html#cobalt_op_what_is_it_cpp_boost.beast_tcp_stream">beast::tcp_stream</a>
+    </h3>
+<p>
+      boost::beast::tcp_stream
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">cobalt</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">asio</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">beast</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">cobalt</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">cobalt</span><span class="special">;</span>
+<span class="keyword">namespace</span> <span class="identifier">asio</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">;</span>
+<span class="keyword">namespace</span> <span class="identifier">beast</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">beast</span><span class="special">;</span>
+
+<span class="keyword">using</span> <span class="identifier">tcp_stream</span> <span class="special">=</span> <span class="identifier">beast</span><span class="special">::</span><span class="identifier">tcp_stream</span><span class="special">;</span>
+<span class="keyword">using</span> <span class="identifier">co_tcp_stream</span> <span class="special">=</span> <span class="identifier">cobalt</span><span class="special">::</span><span class="identifier">use_op_t</span><span class="special">::</span><span class="identifier">as_default_on_t</span><span class="special">&lt;</span><span class="identifier">tcp_stream</span><span class="special">&gt;;</span>
+
+<span class="identifier">cobalt</span><span class="special">::</span><span class="identifier">main</span> <span class="identifier">co_main</span><span class="special">(</span><span class="keyword">int</span> <span class="identifier">argc</span><span class="special">,</span> <span class="keyword">char</span> <span class="special">*</span> <span class="identifier">argv</span><span class="special">[])</span>
+<span class="special">{</span>
+	<span class="identifier">asio</span><span class="special">::</span><span class="identifier">io_context</span> <span class="identifier">io_context</span><span class="special">;</span>
+
+	<span class="identifier">tcp_stream</span> <span class="identifier">stream1</span><span class="special">{</span><span class="identifier">io_context</span><span class="special">};</span>
+	<span class="identifier">co_tcp_stream</span> <span class="identifier">stream2</span><span class="special">{</span><span class="identifier">io_context</span><span class="special">};</span>
+	
+	<span class="identifier">asio</span><span class="special">::</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">endpoint</span> <span class="identifier">endpoint</span><span class="special">;</span>
+	
+	<span class="identifier">stream1</span><span class="special">.</span><span class="identifier">async_connect</span><span class="special">(</span><span class="identifier">endpoint</span><span class="special">,</span> <span class="special">[]</span> <span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">system</span><span class="special">::</span><span class="identifier">error_code</span> <span class="identifier">ec</span><span class="special">)</span> <span class="special">{});</span>	<span class="comment">// OK</span>
+	<span class="comment">//co_await stream1.async_connect(endpoint, [] (boost::system::error_code ec) {}); // ERROR (.async_connect returns void)</span>
+	<span class="comment">//stream1.async_connect(endpoint);	// ERROR</span>
+	
+	<span class="identifier">co_await</span> <span class="identifier">stream2</span><span class="special">.</span><span class="identifier">async_connect</span><span class="special">(</span><span class="identifier">endpoint</span><span class="special">);</span>	<span class="comment">// OK, co_await returns void</span>
+
+	<span class="identifier">co_return</span> <span class="number">0</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="cobalt_op_what_is_it_cpp_boost.h17"></a>
+      <span class="phrase"><a name="cobalt_op_what_is_it_cpp_boost.role_cyan_end"></a></span><a class="link" href="cobalt_op_what_is_it_cpp_boost.html#cobalt_op_what_is_it_cpp_boost.role_cyan_end"><span class="cyan">End</span></a>
+    </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">cobalt</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">cobalt</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">cobalt</span><span class="special">;</span>
+
+<span class="identifier">cobalt</span><span class="special">::</span><span class="identifier">main</span> <span class="identifier">co_main</span><span class="special">(</span><span class="keyword">int</span> <span class="identifier">argc</span><span class="special">,</span> <span class="keyword">char</span> <span class="special">*</span> <span class="identifier">argv</span><span class="special">[])</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Hello c++!"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="identifier">co_return</span> <span class="number">0</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cobalt_race_boost_cpp.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

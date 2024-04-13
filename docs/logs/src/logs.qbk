@@ -2,6 +2,7 @@
 	[quickbook 1.7]
 ]
 
+[include d0014_cobalt_op_cpp_boost.qbk]
 [include d0013_cobalt_race_boost_cpp.qbk]
 [include d0012_boost_cobalt_fast.qbk]
 [include d0011_sycl_copy_method.qbk]

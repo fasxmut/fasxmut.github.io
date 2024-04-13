@@ -36,6 +36,7 @@ progs =
 	#d0011_sycl_copy_method		# needs dpcpp compiler
 	d0012_boost_cobalt_fast
 	d0013_cobalt_race_boost_cpp
+	d0014_cobalt_op_cpp_boost
 ;
 
 for prog in $(progs)
