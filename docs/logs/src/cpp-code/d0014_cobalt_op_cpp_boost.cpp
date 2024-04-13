@@ -6,7 +6,7 @@ Posted on Apr 13, 2024
 -
 See [@https://www.boost.org/libs/cobalt]
 -
-[@https://cppfx.xyz/logs - Logs Home]
+[@https://cppfx.xyz/logs Logs Home]
 -
 d0014
 */
@@ -53,7 +53,7 @@ struct executor_with_default : InnerExecutor
 };
 ```
 
-So I think [*[~boost::cobalt::use_op_t::as_default_on_t]] is used to replace executor in a type with another executor, to let that type supports boost::cobalt coroutine, by adding [*cobalt::op] to the type; but I am not sure my inference.
+So I think [*[~boost::cobalt::use_op_t::as_default_on_t]] is used to replace executor in a type with another executor, to let that type support boost::cobalt coroutine, by adding [*cobalt::op] to the type; but I am not sure my inference.
 
 */
 
@@ -84,14 +84,14 @@ using namespace boost;
 cobalt::main co_main(int argc, char * argv[]) // <1>
 {
 	asio::steady_timer tim{co_await asio::this_coro::executor, // <2>
-	std::chrono::milliseconds(std::stoi(argv[1]))}; // <3>
+		std::chrono::milliseconds(std::stoi(argv[1]))}; // <3>
 	co_await tim.async_wait(cobalt::use_op); // <4>
 	co_return 0; // <5>
 }
                                
 ```
 
-The [_cobalt::use_op] is passed, I did not quite care it at first time. But after I learned more, I found I had to understand it before using boost::asio networking with boost::cobalt.
+The [_cobalt::use_op] is passed, I did not quite care it at first time. But after I learned more, I found I have to understand it before using boost::asio networking with boost::cobalt.
 
 [h3 [role blue *-:) -------------------------------------------------------------------------------- (:-]]
 
@@ -103,7 +103,7 @@ But the documentation of cobalt op I found is only helpful for me with one sente
 
 [h3 [role blue *-:) -------------------------------------------------------------------------------- (:-]]
 
-Then I opened the source code [*[_boost/cobalt/op.hpp]], gets [~boost::cobalt::op], [~boost::cobalt::use_op_t], [~boost::cobalt::use_op] .
+Then I opened the source code [*[_boost/cobalt/op.hpp]], got [~boost::cobalt::op], [~boost::cobalt::use_op_t], [~boost::cobalt::use_op] .
 
 [h3 [role blue -:) -------------------------------------------------------------------------------- (:- In retrospect, and comparison]]
 
@@ -181,8 +181,6 @@ At last I write some cobalt op c++ small crappy examples.
 
 boost::asio::ip::tcp::socket
 
-([@https://www.boost.org/libs/beast])
-
 [!c++]
 ```
 #include <boost/cobalt.hpp>
@@ -200,8 +198,8 @@ cobalt::main co_main(int argc, char * argv[])
 	asio_socket socket{io_context};
 	cobalt_asio_socket socket2{io_context};
 	auto * buff = new char[80];
-	//co_await socket.async_read_some(asio::buffer(buff, 80));	// ERROR!
-	auto value = co_await socket2.async_read_some(asio::buffer(buff, 80));	// OK!
+	//co_await socket.async_read_some(asio::buffer(buff, 80)); // ERROR!
+	auto value = co_await socket2.async_read_some(asio::buffer(buff, 80)); // OK!
 	static_assert(std::integral<decltype(value)>);
 	delete [] buff;
 	co_return 0;
@@ -237,12 +235,12 @@ cobalt::main co_main(int argc, char * argv[])
 	asio_socket socket1{io_context};
 	co_socket socket2{io_context};
 	
-	//acceptor1.async_accept(socket1);	// ERROR
-	acceptor1.async_accept(socket2, [] (boost::system::error_code ec) {});	// OK
-	//co_await acceptor1.async_accept(socket2, [] (boost::system::error_code ec) {});	// ERROR (.async_accept returns void)
+	//acceptor1.async_accept(socket1); // ERROR
+	acceptor1.async_accept(socket2, [] (boost::system::error_code ec) {}); // OK
+	//co_await acceptor1.async_accept(socket2, [] (boost::system::error_code ec) {}); // ERROR (.async_accept returns void)
 	
-	co_await acceptor2.async_accept(socket2);	// OK, co_await returns void
-	co_await acceptor2.async_accept(socket1);	// OK, co_await returns void
+	co_await acceptor2.async_accept(socket2); // OK, co_await returns void
+	co_await acceptor2.async_accept(socket1); // OK, co_await returns void
 	
 	co_return 0;
 }
@@ -253,6 +251,8 @@ cobalt::main co_main(int argc, char * argv[])
 [h2 beast::tcp_stream]
 
 boost::beast::tcp_stream
+
+([@https://www.boost.org/libs/beast])
 
 ```
 #include <boost/cobalt.hpp>
@@ -275,11 +275,11 @@ cobalt::main co_main(int argc, char * argv[])
 	
 	asio::ip::tcp::endpoint endpoint;
 	
-	stream1.async_connect(endpoint, [] (boost::system::error_code ec) {});	// OK
+	stream1.async_connect(endpoint, [] (boost::system::error_code ec) {}); // OK
 	//co_await stream1.async_connect(endpoint, [] (boost::system::error_code ec) {}); // ERROR (.async_connect returns void)
-	//stream1.async_connect(endpoint);	// ERROR
+	//stream1.async_connect(endpoint); // ERROR
 	
-	co_await stream2.async_connect(endpoint);	// OK, co_await returns void
+	co_await stream2.async_connect(endpoint); // OK, co_await returns void
 
 	co_return 0;
 }

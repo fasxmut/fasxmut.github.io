@@ -6,7 +6,7 @@ Posted on Mar 27, 2024
 -
 See [@https://chaiscript.com]
 -
-[@https://cppfx.xyz/logs - Logs Home]
+[@https://cppfx.xyz/logs Logs Home]
 -
 d0009
 */

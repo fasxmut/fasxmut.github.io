@@ -3,7 +3,7 @@
 Intel dpcpp/cpp c++ sycl compiler 2024.0.0 (2024.0.0.20231017) published
 - Posted on Nov 20, 2023
 - See [@https://sycl.tech SYCL.tech]
-- [@https://cppfx.xyz/logs - Logs Home]
+- [@https://cppfx.xyz/logs Logs Home]
 - d0002
 */
 

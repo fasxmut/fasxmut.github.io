@@ -6,7 +6,7 @@ Posted on Apr 08, 2024
 -
 See [@https://www.boost.org/libs/cobalt]
 -
-[@https://cppfx.xyz/logs - Logs Home]
+[@https://cppfx.xyz/logs Logs Home]
 -
 d0013
 */
