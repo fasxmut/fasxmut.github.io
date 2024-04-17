@@ -63,16 +63,17 @@ a:hover {background:#fff}
 
 <div id="cpp-code-show">
 
-<h3>c++ now: cpp/c++ code using utxcpp</h3>
+<h3>c++ now: c++ coroutines with boost::cobalt</h3>
 
-<p>This program uses dynamic_cast for bidirectional conversion: cast from base_class to derived_class, and cast from derived_class to base_class.</p>
-
+<p>This program uses boost::cobalt to manage c++ coroutines.</p>
 <div id="description">
 
 <h4>API Used:</h4>
 <ul>
-<li>utx::print (<a href="https://cppfx.xyz/utxcpp/utx_print.html">See</a>)</li>
-<li>c++ dynamic_cast (<a href="https://en.cppreference.com/w/cpp/language/dynamic_cast">See</a>)</li>
+<li>boost::cobalt (<a href="https://www.boost.org/libs/cobalt">See</a>)</li>
+<li>cobalt::promise</li>
+<li>cobalt::generator</li>
+<li>cobalt co_main</li>
 </ul>
 
 <p><a href="https://cppfx.xyz/utxcpp">Utxcpp</a></p>
@@ -91,53 +92,53 @@ a:hover {background:#fff}
 </div> <!-- id="description" -->
 
 <pre>
-#include &lt;utxcpp/core.hpp&gt;
+#include &lt;boost/cobalt.hpp&gt;
+#include &lt;iostream&gt;
+#include &lt;chrono&gt;
 
-template &lt;typename derived_class&gt;
-class base_class
+namespace cobalt = boost::cobalt;
+using std::chrono_literals::operator""s;
+
+class bob_box
 {
 public:
-	virtual ~base_class() = default;
+	virtual ~bob_box() = default;
 public:
-	void fn() const
+	cobalt::promise&lt;float&gt; fn(float x) const
 	{
-		dynamic_cast&lt;const derived_class &&gt;(*this).func();
+		co_return x*x;
 	}
-public:
-	void fizz() const
+	cobalt::generator&lt;float&gt; func(float x) const
 	{
-		utx::print("base_class::fizz");
+		float i = 1.5f;
+		while (true)
+			co_yield x*i++;
 	}
 };
 
-class derived_class: public base_class&lt;derived_class&gt;
+cobalt::main co_main(int argc, char * argv[])
 {
-public:
-	void func() const
+	auto bob = bob_box{};
+	std::cout &lt;&lt; co_await bob.fn(2.5f) &lt;&lt; std::endl;	// 6.25
+	auto start = std::chrono::system_clock::now();
+	auto rco = bob.func(1.5f);
+	while (auto now = std::chrono::system_clock::now() &lt; start + 2.7s && rco)
 	{
-		utx::print("derived_class::func");
+		std::cout &lt;&lt; "=&gt; " &lt;&lt; co_await rco &lt;&lt; std::endl;
+		std::this_thread::sleep_for(0.8s);
 	}
-public:
-	void buzz() const
-	{
-		dynamic_cast&lt;const derived_class &&gt;(*this).fizz();
-	}
-};
-
-int main()
-{
-	derived_class dc1;
-	dc1.fn();
-	base_class&lt;derived_class&gt; && bc1 = derived_class{};
-	dynamic_cast&lt;derived_class &&gt;(bc1).buzz();
+	co_return 0;
 }
 </pre>
 
 <div id="output">
 <h4>Output:</h4>
 <pre>
-derived_class::func
-base_class::fizz
+6.25
+=&gt; 2.25
+=&gt; 3.75
+=&gt; 5.25
+=&gt; 6.75
 </pre>
 </div>
 
