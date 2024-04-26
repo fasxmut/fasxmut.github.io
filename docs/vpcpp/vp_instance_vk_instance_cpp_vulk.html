@@ -7,11 +7,12 @@
 <link rel="home" href="index.html" title="Vpcpp official docs">
 <link rel="up" href="layer1_api.html" title="Layer1 API">
 <link rel="prev" href="vp_surface_vk_surfacekhr_cpp_vul.html" title="vp::surface vk::SurfaceKHR - cpp vulkan">
+<link rel="next" href="vp_access_layer_cpp_vulkan.html" title="vp::access_layer - cpp vulkan">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <div class="spirit-nav">
-<a accesskey="p" href="vp_surface_vk_surfacekhr_cpp_vul.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="layer1_api.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+<a accesskey="p" href="vp_surface_vk_surfacekhr_cpp_vul.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="layer1_api.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="vp_access_layer_cpp_vulkan.html"><img src="images/next.png" alt="Next"></a>
 </div>
 <div class="article">
 <div class="titlepage">
@@ -32,7 +33,7 @@
         methods and features are available in vp::instance, and vp::instance can
         create platform windows, macos, linux x11, xcb, wayland related instance
         directly. vp::instance's object can be referenced by native type vk::Instance.
-        constexpr and virtual are supported by vp::instance.
+        virtual is supported by vp::instance.
       </p>
 <h3>
 <a name="vp_instance_vk_instance_cpp_vulk.h2"></a>
@@ -56,11 +57,13 @@
           </li></ul></div>
 <p>
         vp::instance is derived from vk::Instance, all methods and features in vk::Instance
-        are available in vp::instance . * constexpr and virtual
+        are available in vp::instance .
       </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+            virtual
+          </li></ul></div>
 <p>
-        constexpr constructors, constexpr destructors, constexpr methods, virtual
-        destructors
+        virtual destructor, virtual inheritance
       </p>
 <h3>
 <a name="vp_instance_vk_instance_cpp_vulk.h3"></a>
@@ -136,13 +139,8 @@
 </pre>
 <h2>
 <a name="vp_instance_vk_instance_cpp_vulk.h11"></a>
-        <span class="phrase"><a name="vp_instance_vk_instance_cpp_vulk.role_cyan_constexpr_and_virtual"></a></span><a class="link" href="vp_instance_vk_instance_cpp_vulk.html#vp_instance_vk_instance_cpp_vulk.role_cyan_constexpr_and_virtual"><span class="cyan">constexpr and virtual</span></a>
+        <span class="phrase"><a name="vp_instance_vk_instance_cpp_vulk.role_cyan_virtual"></a></span><a class="link" href="vp_instance_vk_instance_cpp_vulk.html#vp_instance_vk_instance_cpp_vulk.role_cyan_virtual"><span class="cyan">virtual</span></a>
       </h2>
-<p>
-        constructors, destructor, and some methods are constexpr, vp::instance objects
-        can be created at compile-time, but not everything should be proccessed at
-        compile-time.
-      </p>
 <p>
         destructor is virtual, polymorphism is supported.
       </p>
@@ -177,7 +175,7 @@
 </div>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="vp_surface_vk_surfacekhr_cpp_vul.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="layer1_api.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+<a accesskey="p" href="vp_surface_vk_surfacekhr_cpp_vul.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="layer1_api.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="vp_access_layer_cpp_vulkan.html"><img src="images/next.png" alt="Next"></a>
 </div>
 </body>
 </html>
