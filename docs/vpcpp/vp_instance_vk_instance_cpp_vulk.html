@@ -90,35 +90,35 @@
 </pre>
 <h2>
 <a name="vp_instance_vk_instance_cpp_vulk.h5"></a>
-        <span class="phrase"><a name="vp_instance_vk_instance_cpp_vulk.role_cyan_instance_create_win32"></a></span><a class="link" href="vp_instance_vk_instance_cpp_vulk.html#vp_instance_vk_instance_cpp_vulk.role_cyan_instance_create_win32"><span class="cyan">instance.create_win32();</span></a>
+        <span class="phrase"><a name="vp_instance_vk_instance_cpp_vulk.role_cyan_instance_construct_win"></a></span><a class="link" href="vp_instance_vk_instance_cpp_vulk.html#vp_instance_vk_instance_cpp_vulk.role_cyan_instance_construct_win"><span class="cyan">instance.construct_win32();</span></a>
       </h2>
 <p>
         vp::instance object can create windows vk::Instance directly.
       </p>
 <h2>
 <a name="vp_instance_vk_instance_cpp_vulk.h6"></a>
-        <span class="phrase"><a name="vp_instance_vk_instance_cpp_vulk.role_cyan_instance_create_macos"></a></span><a class="link" href="vp_instance_vk_instance_cpp_vulk.html#vp_instance_vk_instance_cpp_vulk.role_cyan_instance_create_macos"><span class="cyan">instance.create_macos();</span></a>
+        <span class="phrase"><a name="vp_instance_vk_instance_cpp_vulk.role_cyan_instance_construct_mac"></a></span><a class="link" href="vp_instance_vk_instance_cpp_vulk.html#vp_instance_vk_instance_cpp_vulk.role_cyan_instance_construct_mac"><span class="cyan">instance.construct_macos();</span></a>
       </h2>
 <p>
         vp::instance object can create mac os x vk::Instance directly.
       </p>
 <h2>
 <a name="vp_instance_vk_instance_cpp_vulk.h7"></a>
-        <span class="phrase"><a name="vp_instance_vk_instance_cpp_vulk.role_cyan_instance_create_x11"></a></span><a class="link" href="vp_instance_vk_instance_cpp_vulk.html#vp_instance_vk_instance_cpp_vulk.role_cyan_instance_create_x11"><span class="cyan">instance.create_x11();</span></a>
+        <span class="phrase"><a name="vp_instance_vk_instance_cpp_vulk.role_cyan_instance_construct_x11"></a></span><a class="link" href="vp_instance_vk_instance_cpp_vulk.html#vp_instance_vk_instance_cpp_vulk.role_cyan_instance_construct_x11"><span class="cyan">instance.construct_x11();</span></a>
       </h2>
 <p>
         vp::instance object can create linux x11 vk::Instance directly.
       </p>
 <h2>
 <a name="vp_instance_vk_instance_cpp_vulk.h8"></a>
-        <span class="phrase"><a name="vp_instance_vk_instance_cpp_vulk.role_cyan_instance_create_xcb"></a></span><a class="link" href="vp_instance_vk_instance_cpp_vulk.html#vp_instance_vk_instance_cpp_vulk.role_cyan_instance_create_xcb"><span class="cyan">instance.create_xcb();</span></a>
+        <span class="phrase"><a name="vp_instance_vk_instance_cpp_vulk.role_cyan_instance_construct_xcb"></a></span><a class="link" href="vp_instance_vk_instance_cpp_vulk.html#vp_instance_vk_instance_cpp_vulk.role_cyan_instance_construct_xcb"><span class="cyan">instance.construct_xcb();</span></a>
       </h2>
 <p>
         vp::instance object can create linux xcb vk::Instance directly.
       </p>
 <h2>
 <a name="vp_instance_vk_instance_cpp_vulk.h9"></a>
-        <span class="phrase"><a name="vp_instance_vk_instance_cpp_vulk.role_cyan_instance_create_waylan"></a></span><a class="link" href="vp_instance_vk_instance_cpp_vulk.html#vp_instance_vk_instance_cpp_vulk.role_cyan_instance_create_waylan"><span class="cyan">instance.create_wayland();</span></a>
+        <span class="phrase"><a name="vp_instance_vk_instance_cpp_vulk.role_cyan_instance_construct_way"></a></span><a class="link" href="vp_instance_vk_instance_cpp_vulk.html#vp_instance_vk_instance_cpp_vulk.role_cyan_instance_construct_way"><span class="cyan">instance.construct_wayland();</span></a>
       </h2>
 <p>
         vp::instance object can create linux wayland vk::Instance directly.
@@ -158,7 +158,7 @@
 <span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
 <span class="special">{</span>
 	<span class="identifier">vp</span><span class="special">::</span><span class="identifier">instance</span> <span class="identifier">instance</span><span class="special">;</span>
-	<span class="identifier">instance</span><span class="special">.</span><span class="identifier">create_win32</span><span class="special">();</span>
+	<span class="identifier">instance</span><span class="special">.</span><span class="identifier">construct_win32</span><span class="special">();</span>
 	<span class="identifier">vk</span><span class="special">::</span><span class="identifier">Instance</span> <span class="special">&amp;</span> <span class="identifier">native_ref</span> <span class="special">=</span> <span class="identifier">instance</span><span class="special">;</span>
 <span class="special">}</span>
 </pre>
