@@ -222,6 +222,7 @@ utfs_copy_options.html
 thread.html
 utx_async.html
 utx_deferred.html
+utx_sleep.html
 utx_ydzs.html
 utx_mutex0_9.html
 flat.html
