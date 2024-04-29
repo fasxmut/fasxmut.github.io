@@ -1,0 +1,105 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>cobalt main entry points - cpp boost</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="logs - Blogs or News">
+<link rel="up" href="index.html" title="logs - Blogs or News">
+<link rel="prev" href="index.html" title="logs - Blogs or News">
+<link rel="next" href="cobalt_beast_http_cpp_boost.html" title="cobalt beast http - cpp boost">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cobalt_beast_http_cpp_boost.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="cobalt_main_entry_points_cpp_boo"></a>cobalt main entry points - cpp boost</h1></div></div>
+<hr>
+</div>
+<p>
+      c++ boost::cobalt main entry points - Posted on Apr 29, 2024 - See <a href="https://www.boost.org/libs/cobalt" target="_top">https://www.boost.org/libs/cobalt</a>
+      - <a href="https://cppfx.xyz/logs" target="_top">Logs Home</a> - d0016
+    </p>
+<h2>
+<a name="cobalt_main_entry_points_cpp_boo.h0"></a>
+      <span class="phrase"><a name="cobalt_main_entry_points_cpp_boo.role_cyan_cpp_boost_cobalt_main_"></a></span><a class="link" href="cobalt_main_entry_points_cpp_boo.html#cobalt_main_entry_points_cpp_boo.role_cyan_cpp_boost_cobalt_main_"><span class="cyan">cpp boost::cobalt main entry points</span></a>
+    </h2>
+<p>
+      c++ boost::cobalt main entry points, co_main or cobalt::run
+    </p>
+<h2>
+<a name="cobalt_main_entry_points_cpp_boo.h1"></a>
+      <span class="phrase"><a name="cobalt_main_entry_points_cpp_boo.role_cyan_co_main"></a></span><a class="link" href="cobalt_main_entry_points_cpp_boo.html#cobalt_main_entry_points_cpp_boo.role_cyan_co_main"><span class="cyan">co_main</span></a>
+    </h2>
+<pre class="programlisting"><span class="identifier">cobalt</span><span class="special">::</span><span class="identifier">main</span> <span class="identifier">co_main</span><span class="special">(</span><span class="keyword">int</span> <span class="identifier">argc</span><span class="special">,</span> <span class="keyword">char</span> <span class="special">*</span> <span class="identifier">argv</span><span class="special">[])</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Hello boost::cobalt!"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="identifier">co_return</span> <span class="number">0</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="cobalt_main_entry_points_cpp_boo.h2"></a>
+      <span class="phrase"><a name="cobalt_main_entry_points_cpp_boo.role_cyan_cobalt_run"></a></span><a class="link" href="cobalt_main_entry_points_cpp_boo.html#cobalt_main_entry_points_cpp_boo.role_cyan_cobalt_run"><span class="cyan">cobalt::run</span></a>
+    </h2>
+<p>
+      main can not have coroutines;
+    </p>
+<p>
+      The entry called by cobalt::run can have coroutines;
+    </p>
+<p>
+      The co_main can have coroutines;
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">cobalt</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">cobalt</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">cobalt</span><span class="special">;</span>
+
+<span class="keyword">class</span> <span class="identifier">main_class</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">virtual</span> <span class="special">~</span><span class="identifier">main_class</span><span class="special">()</span> <span class="special">=</span> <span class="keyword">default</span><span class="special">;</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">cobalt</span><span class="special">::</span><span class="identifier">task</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;</span> <span class="identifier">start</span><span class="special">()</span>
+	<span class="special">{</span>
+		<span class="identifier">co_await</span> <span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">func</span><span class="special">();</span>
+		<span class="identifier">co_await</span> <span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">fn</span><span class="special">();</span>
+		<span class="identifier">co_return</span> <span class="number">0</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">void</span> <span class="identifier">speak</span><span class="special">()</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Hello!"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">cobalt</span><span class="special">::</span><span class="identifier">promise</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">&gt;</span> <span class="identifier">func</span><span class="special">()</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"1\n"</span><span class="special">;</span>
+		<span class="identifier">co_return</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="identifier">cobalt</span><span class="special">::</span><span class="identifier">task</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">&gt;</span> <span class="identifier">fn</span><span class="special">()</span>	<span class="comment">// cobalt::task is the lazy version of cobalt::promise</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"2\n"</span><span class="special">;</span>
+		<span class="identifier">co_return</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>	<span class="comment">// This main is global symbol.</span>
+<span class="special">{</span>
+	<span class="identifier">main_class</span> <span class="identifier">main</span><span class="special">;</span>	<span class="comment">// This main is local symbol.</span>
+	<span class="identifier">main</span><span class="special">.</span><span class="identifier">speak</span><span class="special">();</span>	<span class="comment">// main: call global symbol; ::main: call local symbol;</span>
+	<span class="keyword">return</span> <span class="identifier">cobalt</span><span class="special">::</span><span class="identifier">run</span><span class="special">(</span><span class="identifier">main</span><span class="special">.</span><span class="identifier">start</span><span class="special">());</span>
+<span class="special">}</span>
+</pre>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cobalt_beast_http_cpp_boost.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

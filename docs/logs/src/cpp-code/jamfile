@@ -38,6 +38,7 @@ progs =
 	d0013_cobalt_race_boost_cpp
 	d0014_cobalt_op_cpp_boost
 	d0015_cobalt_beast_http_cs
+	d0016_cobalt_main_entry_points
 ;
 
 for prog in $(progs)
