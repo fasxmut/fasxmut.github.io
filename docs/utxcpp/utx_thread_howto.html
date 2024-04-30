@@ -1,0 +1,169 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>utx::thread HowTo</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Utxcpp Docs - Utxcpp Official Docs">
+<link rel="up" href="thread.html" title="thread">
+<link rel="prev" href="utx_runnable_base.html" title="utx::runnable_base">
+<link rel="next" href="utx_async.html" title="utx::async">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="utx_runnable_base.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="thread.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="utx_async.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="utx_thread_howto"></a>utx::thread HowTo</h2></div></div>
+<hr>
+</div>
+<h2>
+<a name="utx_thread_howto.h0"></a>
+        <span class="phrase"><a name="utx_thread_howto.role_cyan_utx_thread_utx_jthread"></a></span><a class="link" href="utx_thread_howto.html#utx_thread_howto.role_cyan_utx_thread_utx_jthread"><span class="cyan">utx::thread utx::jthread HowTo</span></a>
+      </h2>
+<p>
+        Utxcpp utx::thread utx::jthread How-To, c++.
+      </p>
+<h2>
+<a name="utx_thread_howto.h1"></a>
+        <span class="phrase"><a name="utx_thread_howto.role_cyan_inheritance"></a></span><a class="link" href="utx_thread_howto.html#utx_thread_howto.role_cyan_inheritance"><span class="cyan">Inheritance</span></a>
+      </h2>
+<p>
+        First step, it's to be derived from utx::runnable/utx::jrunnable or utx::thread/utx::jthread,
+      </p>
+<p>
+        The first template parameter is the final derivation thread class.
+      </p>
+<p>
+        For example:
+      </p>
+<pre class="programlisting"><span class="keyword">class</span> <span class="identifier">my_thread</span><span class="special">:</span> <span class="keyword">virtual</span> <span class="keyword">public</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">thread</span><span class="special">&lt;</span><span class="identifier">my_thread</span><span class="special">&gt;;</span>
+</pre>
+<h2>
+<a name="utx_thread_howto.h2"></a>
+        <span class="phrase"><a name="utx_thread_howto.role_cyan_override_pure_virtual_"></a></span><a class="link" href="utx_thread_howto.html#utx_thread_howto.role_cyan_override_pure_virtual_"><span class="cyan">override pure virtual method</span></a>
+      </h2>
+<p>
+        The only method you have to override is the .run() method, which is used
+        to run real threading code.
+      </p>
+<pre class="programlisting"><span class="special">{</span>
+	<span class="special">...</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">void</span> <span class="identifier">run</span><span class="special">()</span> <span class="identifier">override</span>
+	<span class="special">{</span>
+		<span class="comment">// do real things.</span>
+	<span class="special">}</span>
+	<span class="special">...</span>
+<span class="special">};</span>
+</pre>
+<p>
+        Although the .run method should not be called by user code, it should be
+        still public, because it will be called by utxcpp thread api method, which
+        is not in the same hierarchical object as the object which declares it.
+      </p>
+<p>
+        Calling .run() from user code is not an error, but it makes little sense.
+      </p>
+<h2>
+<a name="utx_thread_howto.h3"></a>
+        <span class="phrase"><a name="utx_thread_howto.role_cyan_declare_object_with_yo"></a></span><a class="link" href="utx_thread_howto.html#utx_thread_howto.role_cyan_declare_object_with_yo"><span class="cyan">declare object with your class</span></a>
+      </h2>
+<p>
+        Now the thread class is functional, everything is OK. You can declare object
+        with it now.
+      </p>
+<pre class="programlisting"><span class="identifier">my_thread</span> <span class="identifier">thrd</span><span class="special">;</span>
+</pre>
+<h2>
+<a name="utx_thread_howto.h4"></a>
+        <span class="phrase"><a name="utx_thread_howto.role_cyan_start_the_thread"></a></span><a class="link" href="utx_thread_howto.html#utx_thread_howto.role_cyan_start_the_thread"><span class="cyan">start the thread</span></a>
+      </h2>
+<p>
+        The thread will be not started, if you do not start it by calling .start()
+        from user code.
+      </p>
+<pre class="programlisting"><span class="identifier">thrd</span><span class="special">.</span><span class="identifier">start</span><span class="special">();</span>
+</pre>
+<p>
+        .start() can not be called from utxcpp thread api, it must be called from
+        user code. And it is final, can not be overrided.
+      </p>
+<h2>
+<a name="utx_thread_howto.h5"></a>
+        <span class="phrase"><a name="utx_thread_howto.role_cyan_join_method"></a></span><a class="link" href="utx_thread_howto.html#utx_thread_howto.role_cyan_join_method"><span class="cyan">.join() method</span></a>
+      </h2>
+<p>
+        .join() is to let the parent wait and let the sub-thread to join the main
+        thread.
+      </p>
+<p>
+        .join() method will be called automatically by destructor, you do not have
+        to call it again, but you can call it too to let .join() to be called ahead
+        of end.
+      </p>
+<p>
+        .join() will first check status by calling .joinable(), then call native
+        thread (std::thread or std::jthread) .join(), so you do not have to check
+        thread status.
+      </p>
+<h2>
+<a name="utx_thread_howto.h6"></a>
+        <span class="phrase"><a name="utx_thread_howto.role_cyan_complete_cpp_code_exam"></a></span><a class="link" href="utx_thread_howto.html#utx_thread_howto.role_cyan_complete_cpp_code_exam"><span class="cyan">Complete cpp code example</span></a>
+      </h2>
+<p>
+        Complete c++ code example
+      </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">thread</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">class</span> <span class="identifier">loop_i_thread</span><span class="special">:</span> <span class="keyword">virtual</span> <span class="keyword">public</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">thread</span><span class="special">&lt;</span><span class="identifier">loop_i_thread</span><span class="special">&gt;</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">void</span> <span class="identifier">run</span><span class="special">()</span> <span class="identifier">override</span>
+	<span class="special">{</span>
+		<span class="keyword">for</span> <span class="special">(</span><span class="keyword">int</span> <span class="identifier">i</span><span class="special">=</span><span class="number">0</span><span class="special">;</span> <span class="identifier">i</span><span class="special">&lt;</span><span class="number">20</span><span class="special">;</span> <span class="special">++</span><span class="identifier">i</span><span class="special">)</span>
+			<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"i=&gt;"</span><span class="special">,</span> <span class="identifier">i</span><span class="special">);</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">loop_i_thread</span> <span class="identifier">thread</span><span class="special">;</span>
+	<span class="identifier">thread</span><span class="special">.</span><span class="identifier">start</span><span class="special">();</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="utx_thread_howto.h7"></a>
+        <span class="phrase"><a name="utx_thread_howto.role_cyan_see_also"></a></span><a class="link" href="utx_thread_howto.html#utx_thread_howto.role_cyan_see_also"><span class="cyan">See Also</span></a>
+      </h2>
+<p>
+        <a class="link" href="utx_thread.html" title="utx::thread">utx::thread</a>
+      </p>
+<p>
+        <a class="link" href="utx_jthread.html" title="utx::jthread">utx::jthread</a>
+      </p>
+<p>
+        <a class="link" href="utx_runnable.html" title="utx::runnable">utx::runnable</a>
+      </p>
+<p>
+        <a class="link" href="utx_jrunnable.html" title="utx::jrunnable">utx::jrunnable</a>
+      </p>
+<p>
+        <a class="link" href="utx_print.html" title="utx::print">utx::print</a>
+      </p>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="utx_runnable_base.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="thread.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="utx_async.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
