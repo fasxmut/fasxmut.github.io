@@ -132,6 +132,40 @@
 </pre>
 <h2>
 <a name="utxcpp_main.h5"></a>
+        <span class="phrase"><a name="utxcpp_main.role_cyan_argc_argv"></a></span><a class="link" href="utxcpp_main.html#utxcpp_main.role_cyan_argc_argv"><span class="cyan">argc argv</span></a>
+      </h2>
+<p>
+        argc and argv are stored in args, that its type is std::vector&lt;std::string&gt;,
+      </p>
+<p>
+        argc is the vector size, each argv is std::string type.
+      </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">main</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">void</span> <span class="identifier">utxcpp</span><span class="special">::</span><span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"argc-&gt; "</span> <span class="special">&lt;&lt;</span> <span class="identifier">args</span><span class="special">.</span><span class="identifier">size</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"argv:\n"</span><span class="special">;</span>
+	<span class="keyword">for</span> <span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string_view</span> <span class="identifier">arg</span><span class="special">:</span> <span class="identifier">args</span><span class="special">)</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"\t"</span> <span class="special">&lt;&lt;</span> <span class="identifier">arg</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<p>
+        ./main5 ls pwd whoami
+      </p>
+<p>
+        <span class="bold"><strong>output:</strong></span>
+      </p>
+<pre class="programlisting"><span class="identifier">argc</span><span class="special">-&gt;</span> <span class="number">4</span>
+<span class="identifier">argv</span><span class="special">:</span>
+	<span class="special">./</span><span class="identifier">main5</span>
+	<span class="identifier">ls</span>
+	<span class="identifier">pwd</span>
+	<span class="identifier">whoami</span>
+</pre>
+<h2>
+<a name="utxcpp_main.h6"></a>
         <span class="phrase"><a name="utxcpp_main.role_cyan_see_also"></a></span><a class="link" href="utxcpp_main.html#utxcpp_main.role_cyan_see_also"><span class="cyan">See Also</span></a>
       </h2>
 <p>
