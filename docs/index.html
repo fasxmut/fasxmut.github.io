@@ -63,17 +63,15 @@ a:hover {background:#fff}
 
 <div id="cpp-code-show">
 
-<h3>c++ now: c++ coroutines with boost::cobalt</h3>
+<h3>c++ now: c++ class and std::cout</h3>
 
-<p>This program uses boost::cobalt to manage c++ coroutines.</p>
+<p>c++ class and std::cout</p>
 <div id="description">
 
 <h4>API Used:</h4>
 <ul>
-<li>boost::cobalt (<a href="https://www.boost.org/libs/cobalt">See</a>)</li>
-<li>cobalt::promise</li>
-<li>cobalt::generator</li>
-<li>cobalt co_main</li>
+<li>std::cout (<a href="https://en.cppreference.com/w/cpp/io/cout">See</a>)</li>
+<li>c++ class</li>
 </ul>
 
 <p><a href="https://cppfx.xyz/utxcpp">Utxcpp</a></p>
@@ -92,53 +90,30 @@ a:hover {background:#fff}
 </div> <!-- id="description" -->
 
 <pre>
-#include &lt;boost/cobalt.hpp&gt;
 #include &lt;iostream&gt;
-#include &lt;chrono&gt;
 
-namespace cobalt = boost::cobalt;
-using std::chrono_literals::operator""s;
-
-class bob_box
+class like_box
 {
 public:
-	virtual ~bob_box() = default;
+	virtual ~like_box() = default;
 public:
-	cobalt::promise&lt;float&gt; fn(float x) const
+	void speek() const
 	{
-		co_return x*x;
-	}
-	cobalt::generator&lt;float&gt; func(float x) const
-	{
-		float i = 1.5f;
-		while (true)
-			co_yield x*i++;
+		std::cout &lt;&lt; "Hello c++!" &lt;&lt; std::endl;
 	}
 };
 
-cobalt::main co_main(int argc, char * argv[])
+int main()
 {
-	auto bob = bob_box{};
-	std::cout &lt;&lt; co_await bob.fn(2.5f) &lt;&lt; std::endl;	// 6.25
-	auto start = std::chrono::system_clock::now();
-	auto rco = bob.func(1.5f);
-	while (auto now = std::chrono::system_clock::now() &lt; start + 2.7s && rco)
-	{
-		std::cout &lt;&lt; "=&gt; " &lt;&lt; co_await rco &lt;&lt; std::endl;
-		std::this_thread::sleep_for(0.8s);
-	}
-	co_return 0;
+	like_box box;
+	box.speek();
 }
 </pre>
 
 <div id="output">
 <h4>Output:</h4>
 <pre>
-6.25
-=&gt; 2.25
-=&gt; 3.75
-=&gt; 5.25
-=&gt; 6.75
+Hello c++!
 </pre>
 </div>
 
@@ -250,4 +225,5 @@ cobalt::main co_main(int argc, char * argv[])
 </div> <!-- id="body" -->
 </body>
 </html>
+
 
