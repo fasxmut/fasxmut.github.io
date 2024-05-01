@@ -222,11 +222,12 @@ utfs_copy_file.html
 utfs_copy_options_objects.html
 utfs_copy_options.html
 thread.html
+utx_task.html
+utx_task_base.html
 utx_thread.html
 utx_jthread.html
-utx_runnable.html
-utx_jrunnable.html
-utx_runnable_base.html
+utx_fthread.html
+utx_thread_base.html
 utx_thread_howto.html
 utx_async.html
 utx_deferred.html
