@@ -32,7 +32,8 @@
           default. However,
         </p>
 <p>
-          the thread will be automatically only if the following conditions are met:
+          the thread will be automatically started only if the following conditions
+          are met:
         </p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
@@ -53,9 +54,6 @@
         </p>
 <pre class="programlisting"><span class="identifier">utx</span><span class="special">::</span><span class="identifier">jthread</span> <span class="identifier">thread</span><span class="special">{</span><span class="identifier">a_task</span><span class="special">};</span>
 </pre>
-<p>
-          May 02, 2024
-        </p>
 <h2>
 <a name="cpp_02_control_when_it_is_starte.h1"></a>
           <span class="phrase"><a name="cpp_02_control_when_it_is_starte.role_cyan_how_to_create_a_thread"></a></span><a class="link" href="cpp_02_control_when_it_is_starte.html#cpp_02_control_when_it_is_starte.role_cyan_how_to_create_a_thread"><span class="cyan">How to create a thread without auto start?</span></a>
@@ -82,14 +80,14 @@
           Create an empty task thread</a>
         </h3>
 <p>
-          Create a thread without task will be not started.
+          Create a thread without task, the thread will be not started.
         </p>
 <pre class="programlisting"><span class="identifier">utx</span><span class="special">::</span><span class="identifier">thread</span> <span class="identifier">thread</span><span class="special">;</span>	<span class="comment">// the thread will be not started.</span>
 </pre>
 <p>
-          Call .start() then will start the empty thread in current api version,
-          but I am not sure if I will disable empty task thread to be running in
-          the future.
+          Call .start() then it will start the empty thread in current api version,
+          but I am not sure if I will disable the running of an empty task thread
+          in the future.
         </p>
 <pre class="programlisting"><span class="identifier">thread</span><span class="special">.</span><span class="identifier">run</span><span class="special">();</span>
 </pre>
