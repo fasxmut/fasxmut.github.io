@@ -1,0 +1,207 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>cpp 04. Lvalue task, Rvalue task, thread callback args</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Utxcpp Docs - Utxcpp Official Docs">
+<link rel="up" href="utxcpp_thread_tutorial.html" title="Utxcpp Thread Tutorial">
+<link rel="prev" href="cpp_03_control_join_or_wait.html" title="cpp 03. Control join (or wait)">
+<link rel="next" href="cpp_05_life_time_parent_child_cu.html" title="cpp 05. Life time, parent/child currency">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="cpp_03_control_join_or_wait.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="utxcpp_thread_tutorial.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp_05_life_time_parent_child_cu.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="cpp_04_lvalue_task_rvalue_task_t"></a>cpp 04. Lvalue task, Rvalue task, thread callback args</h2></div></div>
+<hr>
+</div>
+<h2>
+<a name="cpp_04_lvalue_task_rvalue_task_t.h0"></a>
+          <span class="phrase"><a name="cpp_04_lvalue_task_rvalue_task_t.role_cyan_cpp_04_lvalue_task_rva"></a></span><a class="link" href="cpp_04_lvalue_task_rvalue_task_t.html#cpp_04_lvalue_task_rvalue_task_t.role_cyan_cpp_04_lvalue_task_rva"><span class="cyan">cpp 04. Lvalue task, Rvalue task, thread callback args</span></a>
+        </h2>
+<p>
+          utxcpp thread can accept both Lvalue task and Rvalue task, thse two ways
+          have different behaviors. Before understanding Lvalue task and Rvalue task,
+          let's discuss thread callback args.
+        </p>
+<h3>
+<a name="cpp_04_lvalue_task_rvalue_task_t.h1"></a>
+          <span class="phrase"><a name="cpp_04_lvalue_task_rvalue_task_t.object_oriented_data_members_thr"></a></span><a class="link" href="cpp_04_lvalue_task_rvalue_task_t.html#cpp_04_lvalue_task_rvalue_task_t.object_oriented_data_members_thr">object-oriented
+          data members: thread callback args</a>
+        </h3>
+<p>
+          Unlike native thread std::thread, std::jthread, and std::future, that the
+          thread function callback args are passed by function argument list, the
+          utxcpp thread api utx::thread, utx::jthread, and utx::fthread pass argument
+          by set and get the data members of the task class object. That's the object-oriented
+          thread api principle of utxcpp thread api.
+        </p>
+<p>
+          The goal of utxcpp thread api is <span class="bold"><strong><span class="indigo">to
+          create an object-oriented principle thread api</span></strong></span>, based
+          on native thread std::thread, std::jthread, and std::future&lt;void&gt;
+          .
+        </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+              utx::thread
+            </li>
+<li class="listitem">
+              utx::jthread
+            </li>
+<li class="listitem">
+              utx::fthread
+            </li>
+</ul></div>
+<p>
+          You may have noticed that I have mentioned std::future&lt;void&gt; for
+          many times, <span class="bold"><strong>why void ?</strong></span> Because the std::future&lt;void&gt;
+          is always in the api, native thread args are never used, instead, the data
+          members of the task class object are used.
+        </p>
+<pre class="programlisting"><span class="keyword">class</span> <span class="identifier">some_task</span><span class="special">:</span> <span class="keyword">public</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">task</span>
+<span class="special">{</span>
+<span class="keyword">protected</span><span class="special">:</span>
+	<span class="comment">// object-oriented principle:</span>
+	<span class="comment">//	use object data members instead of function callback arguments</span>
+	<span class="keyword">float</span> <span class="identifier">__x</span><span class="special">;</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">some_task</span><span class="special">(</span><span class="keyword">float</span> <span class="identifier">x__</span><span class="special">):</span>
+		<span class="identifier">__x</span><span class="special">{</span><span class="identifier">x__</span><span class="special">}</span>
+	<span class="special">{</span>
+	<span class="special">}</span>
+	<span class="keyword">void</span> <span class="identifier">run</span><span class="special">()</span> <span class="identifier">override</span>
+	<span class="special">{</span>
+		<span class="identifier">__x</span> <span class="special">=</span> <span class="identifier">__x</span> <span class="special">*</span> <span class="identifier">__x</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="keyword">auto</span> <span class="identifier">get</span><span class="special">()</span> <span class="keyword">const</span>
+	<span class="special">{</span>
+		<span class="keyword">return</span> <span class="identifier">__x</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+</pre>
+<h2>
+<a name="cpp_04_lvalue_task_rvalue_task_t.h2"></a>
+          <span class="phrase"><a name="cpp_04_lvalue_task_rvalue_task_t.role_cyan_rvalue_task"></a></span><a class="link" href="cpp_04_lvalue_task_rvalue_task_t.html#cpp_04_lvalue_task_rvalue_task_t.role_cyan_rvalue_task"><span class="cyan">Rvalue task</span></a>
+        </h2>
+<p>
+          In the previous tutorials, we have used Lvalue task frequently, but in
+          fact, the thread can accept Rvalue task too:
+        </p>
+<pre class="programlisting"><span class="identifier">utx</span><span class="special">::</span><span class="identifier">thread</span> <span class="identifier">thread</span><span class="special">{</span><span class="identifier">some_task</span><span class="special">{}};</span>
+</pre>
+<p>
+          In such a case, an Rvalue task is created and passed to the thread object,
+          then you have no idea how to fetch the data from the task, but don't worry,
+          the thread is not unsafe.
+        </p>
+<h2>
+<a name="cpp_04_lvalue_task_rvalue_task_t.h3"></a>
+          <span class="phrase"><a name="cpp_04_lvalue_task_rvalue_task_t.role_cyan_lvalue_task"></a></span><a class="link" href="cpp_04_lvalue_task_rvalue_task_t.html#cpp_04_lvalue_task_rvalue_task_t.role_cyan_lvalue_task"><span class="cyan">Lvalue task</span></a>
+        </h2>
+<p>
+          When you create an Lvalue task, and pass it to the thread object, you can
+          fetch data from the Lvalue task, and the thread executor will update the
+          data members of the Lvalue task, that's its jobs you want it to do, so
+          Lvalue task data is changeable by the thread.
+        </p>
+<pre class="programlisting"><span class="identifier">some_task</span> <span class="identifier">a_task</span><span class="special">{</span><span class="number">1.2</span><span class="special">};</span>
+
+<span class="identifier">utx</span><span class="special">::</span><span class="identifier">thread</span> <span class="identifier">thread</span><span class="special">{</span><span class="identifier">a_task</span><span class="special">};</span>
+<span class="identifier">thread</span><span class="special">.</span><span class="identifier">join</span><span class="special">();</span>
+
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">a_task</span><span class="special">.</span><span class="identifier">get</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>	<span class="comment">// 1.44</span>
+</pre>
+<p>
+          However, that's not mean Rvalue task is useless. If we don't want the result
+          of output, Rvalue task is much more helpful.
+        </p>
+<h2>
+<a name="cpp_04_lvalue_task_rvalue_task_t.h4"></a>
+          <span class="phrase"><a name="cpp_04_lvalue_task_rvalue_task_t.role_cyan_final_cpp_complete_exa"></a></span><a class="link" href="cpp_04_lvalue_task_rvalue_task_t.html#cpp_04_lvalue_task_rvalue_task_t.role_cyan_final_cpp_complete_exa"><span class="cyan">Final cpp complete example</span></a>
+        </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">thread</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">class</span> <span class="identifier">some_task</span><span class="special">:</span> <span class="keyword">public</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">task</span>
+<span class="special">{</span>
+<span class="keyword">protected</span><span class="special">:</span>
+	<span class="keyword">float</span> <span class="identifier">__x</span><span class="special">;</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">some_task</span><span class="special">(</span><span class="keyword">float</span> <span class="identifier">x__</span><span class="special">):</span>
+		<span class="identifier">__x</span><span class="special">{</span><span class="identifier">x__</span><span class="special">}</span>
+	<span class="special">{</span>
+	<span class="special">}</span>
+
+	<span class="keyword">void</span> <span class="identifier">run</span><span class="special">()</span> <span class="identifier">overide</span>
+	<span class="special">{</span>
+		<span class="identifier">__x</span> <span class="special">=</span> <span class="identifier">__x</span><span class="special">*</span><span class="identifier">__x</span><span class="special">;</span>
+	<span class="special">}</span>
+	
+	<span class="keyword">auto</span> <span class="identifier">get</span><span class="special">()</span> <span class="keyword">const</span>
+	<span class="special">{</span>
+		<span class="keyword">return</span> <span class="identifier">__x</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="comment">// Rvalue task, we have no idea how to fetch the task data.</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">thread</span> <span class="identifier">thread1</span><span class="special">{</span><span class="identifier">some_task</span><span class="special">{}};</span>
+	
+	<span class="identifier">some_task</span> <span class="identifier">task</span><span class="special">{</span><span class="number">1.2</span><span class="special">};</span>
+
+	<span class="comment">// Lvalue task, we can fetch the data,</span>
+	<span class="comment">// the thread's job is to calculate and update the data.</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">thread</span> <span class="identifier">thread2</span><span class="special">{</span><span class="identifier">task</span><span class="special">};</span>
+
+	<span class="identifier">thread1</span><span class="special">.</span><span class="identifier">join</span><span class="special">();</span>
+	<span class="identifier">thread2</span><span class="special">.</span><span class="identifier">join</span><span class="special">();</span>
+
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">thread2</span><span class="special">.</span><span class="identifier">get</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>	<span class="comment">// 1.44</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="cpp_04_lvalue_task_rvalue_task_t.h5"></a>
+          <span class="phrase"><a name="cpp_04_lvalue_task_rvalue_task_t.role_cyan"></a></span><a class="link" href="cpp_04_lvalue_task_rvalue_task_t.html#cpp_04_lvalue_task_rvalue_task_t.role_cyan"><span class="cyan"></span></a>
+        </h2>
+<p>
+          May 02, 2024
+        </p>
+<h2>
+<a name="cpp_04_lvalue_task_rvalue_task_t.h6"></a>
+          <span class="phrase"><a name="cpp_04_lvalue_task_rvalue_task_t.role_cyan_see_also"></a></span><a class="link" href="cpp_04_lvalue_task_rvalue_task_t.html#cpp_04_lvalue_task_rvalue_task_t.role_cyan_see_also"><span class="cyan">See
+          Also</span></a>
+        </h2>
+<p>
+          <a class="link" href="utx_task.html" title="utx::task">utx::task</a>
+        </p>
+<p>
+          <a class="link" href="utx_thread.html" title="utx::thread">utx::thread</a>
+        </p>
+<p>
+          <a class="link" href="utx_jthread.html" title="utx::jthread">utx::jthread</a>
+        </p>
+<p>
+          <a class="link" href="utx_fthread.html" title="utx::fthread">utx::fthread</a>
+        </p>
+<p>
+          Index: <a class="link" href="utxcpp_thread_tutorial.html" title="Utxcpp Thread Tutorial">Utxcpp Thread Tutorial</a>
+        </p>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="cpp_03_control_join_or_wait.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="utxcpp_thread_tutorial.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp_05_life_time_parent_child_cu.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

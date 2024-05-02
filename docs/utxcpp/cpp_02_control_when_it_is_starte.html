@@ -1,0 +1,174 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>cpp 02. Control when it is started</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Utxcpp Docs - Utxcpp Official Docs">
+<link rel="up" href="utxcpp_thread_tutorial.html" title="Utxcpp Thread Tutorial">
+<link rel="prev" href="cpp_01_how_to_create_a_thread.html" title="cpp 01. How to create a thread">
+<link rel="next" href="cpp_03_control_join_or_wait.html" title="cpp 03. Control join (or wait)">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="cpp_01_how_to_create_a_thread.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="utxcpp_thread_tutorial.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp_03_control_join_or_wait.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="cpp_02_control_when_it_is_starte"></a>cpp 02. Control when it is started</h2></div></div>
+<hr>
+</div>
+<h2>
+<a name="cpp_02_control_when_it_is_starte.h0"></a>
+          <span class="phrase"><a name="cpp_02_control_when_it_is_starte.role_cyan_cpp_02_control_when_it"></a></span><a class="link" href="cpp_02_control_when_it_is_starte.html#cpp_02_control_when_it_is_starte.role_cyan_cpp_02_control_when_it"><span class="cyan">cpp 02. Control when it is started</span></a>
+        </h2>
+<p>
+          Control when the thread is started.
+        </p>
+<p>
+          The thread will be automatically started and launched on constructing by
+          default. However,
+        </p>
+<p>
+          the thread will be automatically only if the following conditions are met:
+        </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+              <span class="blue">You passed a task to the constructor of the thread
+              - requires task is not empty</span>
+            </li>
+<li class="listitem">
+              <span class="indigo">The flag auto_start__ passed to the thread constructor
+              is true - it is true by default</span>
+            </li>
+<li class="listitem">
+              <span class="green">No weird crash - crash is unknown</span>
+            </li>
+</ul></div>
+<p>
+          For example, the thread will be automatically started and launched like
+          this: (suppose no weird crash here)
+        </p>
+<pre class="programlisting"><span class="identifier">utx</span><span class="special">::</span><span class="identifier">jthread</span> <span class="identifier">thread</span><span class="special">{</span><span class="identifier">a_task</span><span class="special">};</span>
+</pre>
+<p>
+          May 02, 2024
+        </p>
+<h2>
+<a name="cpp_02_control_when_it_is_starte.h1"></a>
+          <span class="phrase"><a name="cpp_02_control_when_it_is_starte.role_cyan_how_to_create_a_thread"></a></span><a class="link" href="cpp_02_control_when_it_is_starte.html#cpp_02_control_when_it_is_starte.role_cyan_how_to_create_a_thread"><span class="cyan">How to create a thread without auto start?</span></a>
+        </h2>
+<h3>
+<a name="cpp_02_control_when_it_is_starte.h2"></a>
+          <span class="phrase"><a name="cpp_02_control_when_it_is_starte.method_1_pass_false_to_auto_star"></a></span><a class="link" href="cpp_02_control_when_it_is_starte.html#cpp_02_control_when_it_is_starte.method_1_pass_false_to_auto_star">Method-1:
+          Pass false to auto_start__</a>
+        </h3>
+<p>
+          Pass false as the second parameter of the thread constructor, to set auto_start__
+          to false:
+        </p>
+<pre class="programlisting"><span class="identifier">utx</span><span class="special">::</span><span class="identifier">thread</span> <span class="identifier">thread</span><span class="special">{</span><span class="identifier">a_task</span><span class="special">,</span> <span class="keyword">false</span><span class="special">};</span>	<span class="comment">// set auto_start__ to false</span>
+</pre>
+<p>
+          Then you must call method .start() to start the thread:
+        </p>
+<pre class="programlisting"><span class="identifier">thread</span><span class="special">.</span><span class="identifier">start</span><span class="special">();</span>
+</pre>
+<h3>
+<a name="cpp_02_control_when_it_is_starte.h3"></a>
+          <span class="phrase"><a name="cpp_02_control_when_it_is_starte.method_2_create_an_empty_task_th"></a></span><a class="link" href="cpp_02_control_when_it_is_starte.html#cpp_02_control_when_it_is_starte.method_2_create_an_empty_task_th">Method-2:
+          Create an empty task thread</a>
+        </h3>
+<p>
+          Create a thread without task will be not started.
+        </p>
+<pre class="programlisting"><span class="identifier">utx</span><span class="special">::</span><span class="identifier">thread</span> <span class="identifier">thread</span><span class="special">;</span>	<span class="comment">// the thread will be not started.</span>
+</pre>
+<p>
+          Call .start() then will start the empty thread in current api version,
+          but I am not sure if I will disable empty task thread to be running in
+          the future.
+        </p>
+<pre class="programlisting"><span class="identifier">thread</span><span class="special">.</span><span class="identifier">run</span><span class="special">();</span>
+</pre>
+<p>
+          Notice, you can not pass true or false to flag auto_start__ without a task
+          passed:
+        </p>
+<pre class="programlisting"><span class="identifier">utx</span><span class="special">::</span><span class="identifier">thread</span> <span class="identifier">thread</span><span class="special">{</span><span class="keyword">true</span><span class="special">};</span>	<span class="comment">// syntax error</span>
+<span class="identifier">utx</span><span class="special">::</span><span class="identifier">thread</span> <span class="identifier">thread2</span><span class="special">{</span><span class="keyword">false</span><span class="special">};</span>	<span class="comment">// syntax error</span>
+</pre>
+<h2>
+<a name="cpp_02_control_when_it_is_starte.h4"></a>
+          <span class="phrase"><a name="cpp_02_control_when_it_is_starte.role_cyan_final_cpp_complete_exa"></a></span><a class="link" href="cpp_02_control_when_it_is_starte.html#cpp_02_control_when_it_is_starte.role_cyan_final_cpp_complete_exa"><span class="cyan">Final cpp complete example</span></a>
+        </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">thread</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">class</span> <span class="identifier">simple_task</span><span class="special">:</span> <span class="keyword">public</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">thread</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">void</span> <span class="identifier">run</span><span class="special">()</span> <span class="identifier">override</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"A simple task."</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="special">{</span>
+		<span class="identifier">simple_task</span> <span class="identifier">s1</span><span class="special">;</span>
+		<span class="identifier">utx</span><span class="special">::</span><span class="identifier">thread</span> <span class="identifier">t1</span><span class="special">{</span><span class="identifier">s1</span><span class="special">,</span> <span class="keyword">false</span><span class="special">};</span>	<span class="comment">// t1 is not auto started.</span>
+		<span class="identifier">t1</span><span class="special">.</span><span class="identifier">start</span><span class="special">();</span>	<span class="comment">// start t1 now</span>
+	<span class="special">}</span>
+	<span class="special">{</span>
+		<span class="identifier">simple_task</span> <span class="identifier">s1</span><span class="special">;</span>
+		<span class="identifier">utx</span><span class="special">::</span><span class="identifier">thread</span> <span class="identifier">t1</span><span class="special">{</span><span class="identifier">s1</span><span class="special">,</span> <span class="keyword">true</span><span class="special">};</span>	<span class="comment">// t1 is auto started.</span>
+	<span class="special">}</span>
+	<span class="special">{</span>
+		<span class="identifier">simple_task</span> <span class="identifier">s1</span><span class="special">;</span>
+		<span class="identifier">utx</span><span class="special">::</span><span class="identifier">thread</span> <span class="identifier">t1</span><span class="special">{</span><span class="identifier">s1</span><span class="special">};</span>	<span class="comment">// t1 is auto started by default.</span>
+	<span class="special">}</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="cpp_02_control_when_it_is_starte.h5"></a>
+          <span class="phrase"><a name="cpp_02_control_when_it_is_starte.role_cyan"></a></span><a class="link" href="cpp_02_control_when_it_is_starte.html#cpp_02_control_when_it_is_starte.role_cyan"><span class="cyan"></span></a>
+        </h2>
+<p>
+          May 02, 2024
+        </p>
+<h2>
+<a name="cpp_02_control_when_it_is_starte.h6"></a>
+          <span class="phrase"><a name="cpp_02_control_when_it_is_starte.role_cyan_see_also"></a></span><a class="link" href="cpp_02_control_when_it_is_starte.html#cpp_02_control_when_it_is_starte.role_cyan_see_also"><span class="cyan">See
+          Also</span></a>
+        </h2>
+<p>
+          <a class="link" href="utx_task.html" title="utx::task">utx::task</a>
+        </p>
+<p>
+          <a class="link" href="utx_thread.html" title="utx::thread">utx::thread</a>
+        </p>
+<p>
+          <a class="link" href="utx_jthread.html" title="utx::jthread">utx::jthread</a>
+        </p>
+<p>
+          <a class="link" href="utx_fthread.html" title="utx::fthread">utx::fthread</a>
+        </p>
+<p>
+          Index: <a class="link" href="utxcpp_thread_tutorial.html" title="Utxcpp Thread Tutorial">Utxcpp Thread Tutorial</a>
+        </p>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="cpp_01_how_to_create_a_thread.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="utxcpp_thread_tutorial.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp_03_control_join_or_wait.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

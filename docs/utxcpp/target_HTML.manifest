@@ -228,6 +228,15 @@ utx_thread.html
 utx_jthread.html
 utx_fthread.html
 utx_thread_base.html
+utxcpp_thread_tutorial.html
+cpp_01_how_to_create_a_thread.html
+cpp_02_control_when_it_is_starte.html
+cpp_03_control_join_or_wait.html
+cpp_04_lvalue_task_rvalue_task_t.html
+cpp_05_life_time_parent_child_cu.html
+cpp_06_all_copy_ops_are_removed.html
+cpp_07_virtual_destructor_and_vi.html
+cpp_08_auto_catch_exception.html
 utx_thread_howto.html
 utx_async.html
 utx_deferred.html

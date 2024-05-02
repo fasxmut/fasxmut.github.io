@@ -1,0 +1,113 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>cpp 03. Control join (or wait)</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Utxcpp Docs - Utxcpp Official Docs">
+<link rel="up" href="utxcpp_thread_tutorial.html" title="Utxcpp Thread Tutorial">
+<link rel="prev" href="cpp_02_control_when_it_is_starte.html" title="cpp 02. Control when it is started">
+<link rel="next" href="cpp_04_lvalue_task_rvalue_task_t.html" title="cpp 04. Lvalue task, Rvalue task, thread callback args">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="cpp_02_control_when_it_is_starte.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="utxcpp_thread_tutorial.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp_04_lvalue_task_rvalue_task_t.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="cpp_03_control_join_or_wait"></a>cpp 03. Control join (or wait)</h2></div></div>
+<hr>
+</div>
+<h2>
+<a name="cpp_03_control_join_or_wait.h0"></a>
+          <span class="phrase"><a name="cpp_03_control_join_or_wait.role_cyan_cpp_03_control_join_or"></a></span><a class="link" href="cpp_03_control_join_or_wait.html#cpp_03_control_join_or_wait.role_cyan_cpp_03_control_join_or"><span class="cyan">cpp 03. Control join (or wait)</span></a>
+        </h2>
+<p>
+          Control thread join or wait of utxcpp thread, c++.
+        </p>
+<p>
+          Method .join() of the thread will be automatically called on destructing,
+          however, you can call it by hand to let the thread to join parent thread
+          ahead of end.
+        </p>
+<p>
+          Method .join() of utxcpp thread will call and check .joinable(), then call
+          method .join() of native thread.
+        </p>
+<p>
+          native thread includes std::thread, std::jthread, std::future&lt;void&gt;
+          .
+        </p>
+<pre class="programlisting"><span class="special">{</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">thread</span> <span class="identifier">thread</span><span class="special">{</span><span class="identifier">a_task</span><span class="special">};</span>
+<span class="special">}</span> <span class="comment">// thread.join() will be auto called on destructing.</span>
+</pre>
+<pre class="programlisting"><span class="special">{</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">thread</span> <span class="identifier">thread</span><span class="special">{</span><span class="identifier">a_task</span><span class="special">};</span>
+	<span class="identifier">thread</span><span class="special">.</span><span class="identifier">join</span><span class="special">();</span>	<span class="comment">// call thread.join() explicitly ahead of end.</span>
+	<span class="comment">// After .join(), status becomes not .joinable,</span>
+	<span class="comment">// then destructor will not call native method .join().</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="cpp_03_control_join_or_wait.h1"></a>
+          <span class="phrase"><a name="cpp_03_control_join_or_wait.role_cyan_final_cpp_complete_exa"></a></span><a class="link" href="cpp_03_control_join_or_wait.html#cpp_03_control_join_or_wait.role_cyan_final_cpp_complete_exa"><span class="cyan">Final cpp complete example</span></a>
+        </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">thread</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">class</span> <span class="identifier">simple_task</span><span class="special">:</span> <span class="keyword">public</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">task</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">void</span> <span class="identifier">run</span><span class="special">()</span> <span class="identifier">override</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"a simple task\n"</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">jthread</span> <span class="identifier">thread</span><span class="special">{</span><span class="identifier">simple_task</span><span class="special">{}};</span>
+	<span class="identifier">thread</span><span class="special">.</span><span class="identifier">join</span><span class="special">();</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="cpp_03_control_join_or_wait.h2"></a>
+          <span class="phrase"><a name="cpp_03_control_join_or_wait.role_cyan"></a></span><a class="link" href="cpp_03_control_join_or_wait.html#cpp_03_control_join_or_wait.role_cyan"><span class="cyan"></span></a>
+        </h2>
+<p>
+          May 02, 2024
+        </p>
+<h2>
+<a name="cpp_03_control_join_or_wait.h3"></a>
+          <span class="phrase"><a name="cpp_03_control_join_or_wait.role_cyan_see_also"></a></span><a class="link" href="cpp_03_control_join_or_wait.html#cpp_03_control_join_or_wait.role_cyan_see_also"><span class="cyan">See Also</span></a>
+        </h2>
+<p>
+          <a class="link" href="utx_task.html" title="utx::task">utx::task</a>
+        </p>
+<p>
+          <a class="link" href="utx_thread.html" title="utx::thread">utx::thread</a>
+        </p>
+<p>
+          <a class="link" href="utx_jthread.html" title="utx::jthread">utx::jthread</a>
+        </p>
+<p>
+          <a class="link" href="utx_fthread.html" title="utx::fthread">utx::fthread</a>
+        </p>
+<p>
+          Index: <a class="link" href="utxcpp_thread_tutorial.html" title="Utxcpp Thread Tutorial">Utxcpp Thread Tutorial</a>
+        </p>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="cpp_02_control_when_it_is_starte.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="utxcpp_thread_tutorial.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp_04_lvalue_task_rvalue_task_t.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

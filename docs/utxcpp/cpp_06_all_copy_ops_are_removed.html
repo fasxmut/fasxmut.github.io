@@ -1,0 +1,149 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>cpp 06. All copy OPs are removed</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Utxcpp Docs - Utxcpp Official Docs">
+<link rel="up" href="utxcpp_thread_tutorial.html" title="Utxcpp Thread Tutorial">
+<link rel="prev" href="cpp_05_life_time_parent_child_cu.html" title="cpp 05. Life time, parent/child currency">
+<link rel="next" href="cpp_07_virtual_destructor_and_vi.html" title="cpp 07. virtual destructor and virtual inheritance">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="cpp_05_life_time_parent_child_cu.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="utxcpp_thread_tutorial.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp_07_virtual_destructor_and_vi.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="cpp_06_all_copy_ops_are_removed"></a>cpp 06. All copy OPs are removed</h2></div></div>
+<hr>
+</div>
+<h2>
+<a name="cpp_06_all_copy_ops_are_removed.h0"></a>
+          <span class="phrase"><a name="cpp_06_all_copy_ops_are_removed.role_cyan_cpp_06_all_copy_ops_ar"></a></span><a class="link" href="cpp_06_all_copy_ops_are_removed.html#cpp_06_all_copy_ops_are_removed.role_cyan_cpp_06_all_copy_ops_ar"><span class="cyan">cpp 06. All copy OPs are removed</span></a>
+        </h2>
+<p>
+          All copy OPs of the utxcpp c++ thread api are removed: they are marked
+          as "=delete;", so you can not use methods such as .push_back
+          and .emplace_back to push utxcpp thread to a STL container.
+        </p>
+<p>
+          The copy OPs mentioned here include:
+        </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+              All copy constructors
+            </li>
+<li class="listitem">
+              All assignment operators
+            </li>
+</ul></div>
+<p>
+          They are <span class="blue"><span class="bold"><strong>= delete;</strong></span></span>
+        </p>
+<h2>
+<a name="cpp_06_all_copy_ops_are_removed.h1"></a>
+          <span class="phrase"><a name="cpp_06_all_copy_ops_are_removed.role_cyan_std_vector_s_push_back"></a></span><a class="link" href="cpp_06_all_copy_ops_are_removed.html#cpp_06_all_copy_ops_are_removed.role_cyan_std_vector_s_push_back"><span class="cyan">std::vector's .push_back, .emplace_back is not available for
+          the utxcpp threads</span></a>
+        </h2>
+<p>
+          Because the copy OPs must be called when the std::vector and other stl
+          containers' .push_back, .emplace_back etc. are called. But utxcpp threads'
+          copy OPs are removed.
+        </p>
+<pre class="programlisting"><span class="identifier">utx</span><span class="special">::</span><span class="identifier">thread</span> <span class="identifier">thread</span><span class="special">{</span><span class="identifier">a_task</span><span class="special">};</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">thread</span><span class="special">&gt;</span> <span class="identifier">v1</span><span class="special">;</span>
+<span class="identifier">v1</span><span class="special">.</span><span class="identifier">push_back</span><span class="special">(</span><span class="identifier">thread</span><span class="special">);</span>	<span class="comment">// error</span>
+<span class="identifier">v1</span><span class="special">.</span><span class="identifier">emplace_back</span><span class="special">(</span><span class="identifier">a_task</span><span class="special">);</span>	<span class="comment">// error</span>
+</pre>
+<h2>
+<a name="cpp_06_all_copy_ops_are_removed.h2"></a>
+          <span class="phrase"><a name="cpp_06_all_copy_ops_are_removed.role_cyan_how_to_store_utxcpp_th"></a></span><a class="link" href="cpp_06_all_copy_ops_are_removed.html#cpp_06_all_copy_ops_are_removed.role_cyan_how_to_store_utxcpp_th"><span class="cyan">How to store utxcpp threads to an STL container</span></a>
+        </h2>
+<h3>
+<a name="cpp_06_all_copy_ops_are_removed.h3"></a>
+          <span class="phrase"><a name="cpp_06_all_copy_ops_are_removed.method_1"></a></span><a class="link" href="cpp_06_all_copy_ops_are_removed.html#cpp_06_all_copy_ops_are_removed.method_1">method
+          1</a>
+        </h3>
+<p>
+          Pre-allocate the vector on constructing.
+        </p>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">thread</span><span class="special">&gt;</span> <span class="identifier">vector</span><span class="special">(</span><span class="number">10</span><span class="special">);</span>
+</pre>
+<pre class="programlisting"><span class="special">[</span><span class="identifier">h2</span> <span class="identifier">method</span> <span class="number">2</span><span class="special">]</span>
+
+<span class="identifier">Push</span> <span class="identifier">pointers</span>
+</pre>
+<h2>
+<a name="cpp_06_all_copy_ops_are_removed.h4"></a>
+          <span class="phrase"><a name="cpp_06_all_copy_ops_are_removed.role_cyan_final_cpp_complete_exa"></a></span><a class="link" href="cpp_06_all_copy_ops_are_removed.html#cpp_06_all_copy_ops_are_removed.role_cyan_final_cpp_complete_exa"><span class="cyan">Final cpp complete example</span></a>
+        </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">thread</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">vector</span><span class="special">&gt;</span>
+
+<span class="keyword">class</span> <span class="identifier">some_task</span><span class="special">:</span> <span class="keyword">public</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">task</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">void</span> <span class="identifier">run</span><span class="special">()</span> <span class="identifier">override</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"a simple task"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">thread</span><span class="special">&gt;</span> <span class="identifier">vector</span><span class="special">(</span><span class="number">10</span><span class="special">);</span>
+
+	<span class="comment">//vector.push_back(utx::thread{some_task{}});	// error</span>
+	<span class="comment">//vector.emplace_back(some_task{});	// error</span>
+
+	<span class="comment">/* //error:
+	std::vector&lt;utx::thread&gt; vector2{
+		utx::thread{some_task{}},
+		utx::thread{some_task{}},
+		utx::thread{some_task{}}
+	};
+	*/</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="cpp_06_all_copy_ops_are_removed.h5"></a>
+          <span class="phrase"><a name="cpp_06_all_copy_ops_are_removed.role_cyan"></a></span><a class="link" href="cpp_06_all_copy_ops_are_removed.html#cpp_06_all_copy_ops_are_removed.role_cyan"><span class="cyan"></span></a>
+        </h2>
+<p>
+          May 02, 2024
+        </p>
+<h2>
+<a name="cpp_06_all_copy_ops_are_removed.h6"></a>
+          <span class="phrase"><a name="cpp_06_all_copy_ops_are_removed.role_cyan_see_also"></a></span><a class="link" href="cpp_06_all_copy_ops_are_removed.html#cpp_06_all_copy_ops_are_removed.role_cyan_see_also"><span class="cyan">See
+          Also</span></a>
+        </h2>
+<p>
+          <a class="link" href="utx_task.html" title="utx::task">utx::task</a>
+        </p>
+<p>
+          <a class="link" href="utx_thread.html" title="utx::thread">utx::thread</a>
+        </p>
+<p>
+          <a class="link" href="utx_jthread.html" title="utx::jthread">utx::jthread</a>
+        </p>
+<p>
+          <a class="link" href="utx_fthread.html" title="utx::fthread">utx::fthread</a>
+        </p>
+<p>
+          Index: <a class="link" href="utxcpp_thread_tutorial.html" title="Utxcpp Thread Tutorial">Utxcpp Thread Tutorial</a>
+        </p>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="cpp_05_life_time_parent_child_cu.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="utxcpp_thread_tutorial.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp_07_virtual_destructor_and_vi.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

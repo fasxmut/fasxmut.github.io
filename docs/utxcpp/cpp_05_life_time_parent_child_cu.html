@@ -1,0 +1,176 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>cpp 05. Life time, parent/child currency</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Utxcpp Docs - Utxcpp Official Docs">
+<link rel="up" href="utxcpp_thread_tutorial.html" title="Utxcpp Thread Tutorial">
+<link rel="prev" href="cpp_04_lvalue_task_rvalue_task_t.html" title="cpp 04. Lvalue task, Rvalue task, thread callback args">
+<link rel="next" href="cpp_06_all_copy_ops_are_removed.html" title="cpp 06. All copy OPs are removed">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="cpp_04_lvalue_task_rvalue_task_t.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="utxcpp_thread_tutorial.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp_06_all_copy_ops_are_removed.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="cpp_05_life_time_parent_child_cu"></a>cpp 05. Life time, parent/child currency</h2></div></div>
+<hr>
+</div>
+<h2>
+<a name="cpp_05_life_time_parent_child_cu.h0"></a>
+          <span class="phrase"><a name="cpp_05_life_time_parent_child_cu.role_cyan_cpp_05_life_time_paren"></a></span><a class="link" href="cpp_05_life_time_parent_child_cu.html#cpp_05_life_time_parent_child_cu.role_cyan_cpp_05_life_time_paren"><span class="cyan">cpp 05. Life time, parent/child currency</span></a>
+        </h2>
+<p>
+          utxcpp thread api, c++
+        </p>
+<p>
+          The current executing that the thread exists might be created by another
+          thread, but in this article context, we call it the parent thread, and
+          call the executing that the task it creates the child thread.
+        </p>
+<pre class="programlisting"><span class="identifier">utx</span><span class="special">::</span><span class="identifier">thread</span> <span class="identifier">a_thread</span><span class="special">{</span><span class="identifier">a_task</span><span class="special">};</span>
+</pre>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+              The thread that creates <span class="bold"><strong>a_thread</strong></span> is
+              called parent thread in this article context.
+            </li>
+<li class="listitem">
+              The thread that the <span class="bold"><strong>a_task</strong></span> is executed
+              is called child thread in this article context.
+            </li>
+</ul></div>
+<h2>
+<a name="cpp_05_life_time_parent_child_cu.h1"></a>
+          <span class="phrase"><a name="cpp_05_life_time_parent_child_cu.role_cyan_thread_task_lifetime"></a></span><a class="link" href="cpp_05_life_time_parent_child_cu.html#cpp_05_life_time_parent_child_cu.role_cyan_thread_task_lifetime"><span class="cyan">thread/task Lifetime</span></a>
+        </h2>
+<pre class="programlisting"><span class="special">{</span>
+	<span class="special">{</span>
+		<span class="identifier">some_task</span> <span class="identifier">a_task</span><span class="special">{};</span>
+		<span class="special">{</span>
+			<span class="identifier">utx</span><span class="special">::</span><span class="identifier">thread</span> <span class="identifier">a_thread</span><span class="special">{</span><span class="identifier">a_task</span><span class="special">};</span>
+
+
+		<span class="special">}</span> <span class="comment">// a_thread lifetime is ended, a_task life time is not ended.</span>
+
+
+	<span class="special">}</span> <span class="comment">// a_task life time is ended.</span>
+<span class="special">}</span>
+</pre>
+<p>
+          The lifetime of the thread is commonly <span class="bold"><strong>longer</strong></span>
+          than the task's if the task is Lvalue task;
+        </p>
+<p>
+          The lifetime of the thread is commonly <span class="bold"><strong>approximate
+          equal</strong></span> to the task's if the task is Rvalue task;
+        </p>
+<p>
+          When the thread lifetime is ended, the thread is already joined, so the
+          task that the thread want to do is already finished, although the task
+          lifetime might be not ended.
+        </p>
+<h2>
+<a name="cpp_05_life_time_parent_child_cu.h2"></a>
+          <span class="phrase"><a name="cpp_05_life_time_parent_child_cu.role_cyan_parent_child_role_yell"></a></span><a class="link" href="cpp_05_life_time_parent_child_cu.html#cpp_05_life_time_parent_child_cu.role_cyan_parent_child_role_yell"><span class="cyan">Parent/Child <span class="yellow">Currency!!</span></span></a>
+        </h2>
+<p>
+          When the child thread is started and launched, it does not occupy the following
+          code executing of your code, so a_thread.call_some_awesome_method() and
+          a_task.call_some_awesome_method() are running on the parent thread and
+          running in parallel with the child thread.
+        </p>
+<pre class="programlisting"><span class="identifier">some_task</span> <span class="identifier">a_task</span><span class="special">{};</span>
+
+<span class="identifier">utx</span><span class="special">::</span><span class="identifier">thread</span> <span class="identifier">a_thread</span><span class="special">{</span><span class="identifier">a_task</span><span class="special">};</span>
+
+<span class="identifier">a_thread</span><span class="special">.</span><span class="identifier">call_some_awesome_method</span><span class="special">();</span>
+
+<span class="identifier">a_task</span><span class="special">.</span><span class="identifier">call_some_awesome_method</span><span class="special">();</span>
+</pre>
+<p>
+          <span class="blue">a_thread.call_some_awesome_method(); a_task.call_some_awesome_method();</span>
+          and <span class="green">child thread</span> are running in parallel
+          !
+        </p>
+<h2>
+<a name="cpp_05_life_time_parent_child_cu.h3"></a>
+          <span class="phrase"><a name="cpp_05_life_time_parent_child_cu.role_cyan_final_cpp_complete_exa"></a></span><a class="link" href="cpp_05_life_time_parent_child_cu.html#cpp_05_life_time_parent_child_cu.role_cyan_final_cpp_complete_exa"><span class="cyan">Final cpp complete example</span></a>
+        </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">thread</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">class</span> <span class="identifier">simple_task</span><span class="special">:</span> <span class="keyword">public</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">task</span>
+<span class="special">{</span>
+<span class="keyword">protected</span><span class="special">:</span>
+	<span class="keyword">float</span> <span class="identifier">__x</span> <span class="special">=</span> <span class="number">2.1</span><span class="special">;</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">void</span> <span class="identifier">run</span><span class="special">()</span> <span class="identifier">override</span>
+	<span class="special">{</span>
+		<span class="identifier">__x</span> <span class="special">*=</span> <span class="identifier">__x</span><span class="special">;</span>
+		<span class="identifier">utx</span><span class="special">::</span><span class="identifier">sleep</span><span class="special">(</span><span class="number">1</span><span class="special">);</span>
+	<span class="special">}</span>
+	<span class="keyword">float</span> <span class="identifier">get</span><span class="special">()</span> <span class="keyword">const</span>
+	<span class="special">{</span>
+		<span class="keyword">return</span> <span class="identifier">__x</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">simple_task</span> <span class="identifier">task</span><span class="special">;</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">thread</span> <span class="identifier">thread</span><span class="special">{</span><span class="identifier">task</span><span class="special">};</span>
+	
+<span class="comment">// All of the following code are running in parallel with child thread</span>
+<span class="comment">// that the task executing (that's the method .run() code).</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">sleep</span><span class="special">(</span><span class="number">0.2</span><span class="special">);</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"child thread id: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">thread</span><span class="special">.</span><span class="identifier">get_id</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+
+	<span class="keyword">while</span> <span class="special">(</span><span class="identifier">thread</span><span class="special">.</span><span class="identifier">status</span><span class="special">()</span> <span class="special">!=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">thread_status</span><span class="special">::</span><span class="identifier">task_finished</span><span class="special">);</span>
+
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">task</span><span class="special">.</span><span class="identifier">get</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="cpp_05_life_time_parent_child_cu.h4"></a>
+          <span class="phrase"><a name="cpp_05_life_time_parent_child_cu.role_cyan"></a></span><a class="link" href="cpp_05_life_time_parent_child_cu.html#cpp_05_life_time_parent_child_cu.role_cyan"><span class="cyan"></span></a>
+        </h2>
+<p>
+          May 02, 2024
+        </p>
+<h2>
+<a name="cpp_05_life_time_parent_child_cu.h5"></a>
+          <span class="phrase"><a name="cpp_05_life_time_parent_child_cu.role_cyan_see_also"></a></span><a class="link" href="cpp_05_life_time_parent_child_cu.html#cpp_05_life_time_parent_child_cu.role_cyan_see_also"><span class="cyan">See
+          Also</span></a>
+        </h2>
+<p>
+          <a class="link" href="utx_task.html" title="utx::task">utx::task</a>
+        </p>
+<p>
+          <a class="link" href="utx_thread.html" title="utx::thread">utx::thread</a>
+        </p>
+<p>
+          <a class="link" href="utx_jthread.html" title="utx::jthread">utx::jthread</a>
+        </p>
+<p>
+          <a class="link" href="utx_fthread.html" title="utx::fthread">utx::fthread</a>
+        </p>
+<p>
+          Index: <a class="link" href="utxcpp_thread_tutorial.html" title="Utxcpp Thread Tutorial">Utxcpp Thread Tutorial</a>
+        </p>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="cpp_04_lvalue_task_rvalue_task_t.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="utxcpp_thread_tutorial.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp_06_all_copy_ops_are_removed.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

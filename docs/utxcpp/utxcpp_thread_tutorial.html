@@ -1,0 +1,72 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Utxcpp Thread Tutorial</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Utxcpp Docs - Utxcpp Official Docs">
+<link rel="up" href="thread.html" title="thread">
+<link rel="prev" href="utx_thread_base.html" title="utx::thread_base">
+<link rel="next" href="cpp_01_how_to_create_a_thread.html" title="cpp 01. How to create a thread">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="utx_thread_base.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="thread.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp_01_how_to_create_a_thread.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="utxcpp_thread_tutorial"></a>Utxcpp Thread Tutorial</h2></div></div>
+<hr>
+</div>
+<div class="toc">
+<p><b>Table of Contents</b></p>
+<dl class="toc">
+<dt><span class="article"><a href="cpp_01_how_to_create_a_thread.html">cpp 01. How to create a thread</a></span></dt>
+<dt><span class="article"><a href="cpp_02_control_when_it_is_starte.html">cpp 02. Control when it is started</a></span></dt>
+<dt><span class="article"><a href="cpp_03_control_join_or_wait.html">cpp 03. Control join (or wait)</a></span></dt>
+<dt><span class="article"><a href="cpp_04_lvalue_task_rvalue_task_t.html">cpp 04. Lvalue task, Rvalue task, thread callback args</a></span></dt>
+<dt><span class="article"><a href="cpp_05_life_time_parent_child_cu.html">cpp 05. Life time, parent/child currency</a></span></dt>
+<dt><span class="article"><a href="cpp_06_all_copy_ops_are_removed.html">cpp 06. All copy OPs are removed</a></span></dt>
+<dt><span class="article"><a href="cpp_07_virtual_destructor_and_vi.html">cpp 07. virtual destructor and virtual inheritance</a></span></dt>
+<dt><span class="article"><a href="cpp_08_auto_catch_exception.html">cpp 08. auto catch exception</a></span></dt>
+</dl>
+</div>
+<p>
+        To avoid utxcpp thread api acting like a black box for users, I write this
+        utxcpp thread tutorial. Without this tutorial, the behavior and characteristics
+        of the thread are very strange. What is the meaning of "users"?
+        "users" does not mean inferior citizen, the api developers might
+        be their own users in future too, developers and users exchange role play.
+        I may forget the usage of the thread api in the future, then I need this
+        tutorial for myself.
+      </p>
+<p>
+        The goal of utxcpp thread api is <span class="bold"><strong><span class="indigo">to
+        create an object-oriented principle thread api</span></strong></span>, based
+        on native thread std::thread, std::jthread, and std::future&lt;void&gt; .
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            utx::thread
+          </li>
+<li class="listitem">
+            utx::jthread
+          </li>
+<li class="listitem">
+            utx::fthread
+          </li>
+</ul></div>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="utx_thread_base.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="thread.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp_01_how_to_create_a_thread.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
