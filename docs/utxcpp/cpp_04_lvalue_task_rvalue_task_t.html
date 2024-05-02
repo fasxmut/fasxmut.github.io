@@ -126,7 +126,7 @@
           <span class="phrase"><a name="cpp_04_lvalue_task_rvalue_task_t.role_cyan_final_cpp_complete_exa"></a></span><a class="link" href="cpp_04_lvalue_task_rvalue_task_t.html#cpp_04_lvalue_task_rvalue_task_t.role_cyan_final_cpp_complete_exa"><span class="cyan">Final cpp complete example</span></a>
         </h2>
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">thread</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
-<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 
 <span class="keyword">class</span> <span class="identifier">some_task</span><span class="special">:</span> <span class="keyword">public</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">task</span>
 <span class="special">{</span>
@@ -138,7 +138,7 @@
 	<span class="special">{</span>
 	<span class="special">}</span>
 
-	<span class="keyword">void</span> <span class="identifier">run</span><span class="special">()</span> <span class="identifier">overide</span>
+	<span class="keyword">void</span> <span class="identifier">run</span><span class="special">()</span> <span class="identifier">override</span>
 	<span class="special">{</span>
 		<span class="identifier">__x</span> <span class="special">=</span> <span class="identifier">__x</span><span class="special">*</span><span class="identifier">__x</span><span class="special">;</span>
 	<span class="special">}</span>
@@ -152,7 +152,7 @@
 <span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
 <span class="special">{</span>
 	<span class="comment">// Rvalue task, we have no idea how to fetch the task data.</span>
-	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">thread</span> <span class="identifier">thread1</span><span class="special">{</span><span class="identifier">some_task</span><span class="special">{}};</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">thread</span> <span class="identifier">thread1</span><span class="special">{</span><span class="identifier">some_task</span><span class="special">{</span><span class="number">1.3f</span><span class="special">}};</span>
 	
 	<span class="identifier">some_task</span> <span class="identifier">task</span><span class="special">{</span><span class="number">1.2</span><span class="special">};</span>
 
@@ -163,7 +163,7 @@
 	<span class="identifier">thread1</span><span class="special">.</span><span class="identifier">join</span><span class="special">();</span>
 	<span class="identifier">thread2</span><span class="special">.</span><span class="identifier">join</span><span class="special">();</span>
 
-	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">thread2</span><span class="special">.</span><span class="identifier">get</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>	<span class="comment">// 1.44</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">task</span><span class="special">.</span><span class="identifier">get</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>	<span class="comment">// 1.44</span>
 <span class="special">}</span>
 </pre>
 <h2>

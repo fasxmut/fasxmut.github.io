@@ -102,7 +102,7 @@
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">thread</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 
-<span class="keyword">class</span> <span class="identifier">some_task</span>
+<span class="keyword">class</span> <span class="identifier">some_task</span><span class="special">:</span> <span class="keyword">public</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">task</span>
 <span class="special">{</span>
 <span class="keyword">public</span><span class="special">:</span>
 	<span class="keyword">void</span> <span class="identifier">run</span><span class="special">()</span> <span class="identifier">override</span>
