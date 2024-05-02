@@ -80,7 +80,7 @@
       </h2>
 <p>
         .run is method of utx::thread_base, used as the callback function of native-thread-type
-        std::thread or std::jthread. .run will call .run_thread method.
+        std::thread or std::jthread. .run will call .run_task method.
       </p>
 <p>
         .run is final, can not be overrrided.
@@ -90,20 +90,34 @@
       </p>
 <h2>
 <a name="utx_thread_base.h4"></a>
-        <span class="phrase"><a name="utx_thread_base.role_cyan_run_thread"></a></span><a class="link" href="utx_thread_base.html#utx_thread_base.role_cyan_run_thread"><span class="cyan">.run_thread</span></a>
+        <span class="phrase"><a name="utx_thread_base.role_cyan_run_task"></a></span><a class="link" href="utx_thread_base.html#utx_thread_base.role_cyan_run_task"><span class="cyan">.run_task</span></a>
       </h2>
 <p>
-        .run_thread method is called by method .run, .run_thread is the sub-routine
-        of the thread callback.
+        .run_task method is called by method .run, .run_task is the sub-routine of
+        the thread callback.
       </p>
 <p>
-        .run_thread is final, can not be overrided.
+        .run_task is final, can not be overrided.
       </p>
 <p>
-        .run_thread should not be called by user code.
+        .run_task should not be called by user code.
       </p>
 <h2>
 <a name="utx_thread_base.h5"></a>
+        <span class="phrase"><a name="utx_thread_base.role_cyan_difference_of_run_and_"></a></span><a class="link" href="utx_thread_base.html#utx_thread_base.role_cyan_difference_of_run_and_"><span class="cyan">difference of .run and .run_task, and why separate</span></a>
+      </h2>
+<p>
+        .run is the sub-callback of the callback of native thread (std::thread, std::jthread,
+        std::future&lt;void&gt;).
+      </p>
+<p>
+        .run will do the task selection from the std::variant object;
+      </p>
+<p>
+        .run_task will run the selected task of the utx::task_base based object.
+      </p>
+<h2>
+<a name="utx_thread_base.h6"></a>
         <span class="phrase"><a name="utx_thread_base.role_cyan_join"></a></span><a class="link" href="utx_thread_base.html#utx_thread_base.role_cyan_join"><span class="cyan">.join</span></a>
       </h2>
 <p>
@@ -124,7 +138,7 @@
         .join can be called by both user code and utxcpp thread api.
       </p>
 <h2>
-<a name="utx_thread_base.h6"></a>
+<a name="utx_thread_base.h7"></a>
         <span class="phrase"><a name="utx_thread_base.role_cyan_get_id"></a></span><a class="link" href="utx_thread_base.html#utx_thread_base.role_cyan_get_id"><span class="cyan">.get_id</span></a>
       </h2>
 <p>
@@ -140,7 +154,7 @@
         .get_id can be called by both user code and utxcpp thread api.
       </p>
 <h2>
-<a name="utx_thread_base.h7"></a>
+<a name="utx_thread_base.h8"></a>
         <span class="phrase"><a name="utx_thread_base.role_cyan_enable_tcrash"></a></span><a class="link" href="utx_thread_base.html#utx_thread_base.role_cyan_enable_tcrash"><span class="cyan">.enable_tcrash</span></a>
       </h2>
 <p>
@@ -155,7 +169,7 @@
         .enable_tcrash can be called by both user code and utxcpp thread api.
       </p>
 <h2>
-<a name="utx_thread_base.h8"></a>
+<a name="utx_thread_base.h9"></a>
         <span class="phrase"><a name="utx_thread_base.role_cyan_see_also"></a></span><a class="link" href="utx_thread_base.html#utx_thread_base.role_cyan_see_also"><span class="cyan">See Also</span></a>
       </h2>
 <p>
