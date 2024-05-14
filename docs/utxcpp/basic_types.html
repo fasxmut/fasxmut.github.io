@@ -7,12 +7,12 @@
 <link rel="home" href="index.html" title="Utxcpp Docs - Utxcpp Official Docs">
 <link rel="up" href="types.html" title="Types">
 <link rel="prev" href="utx_overflow_type.html" title="utx::overflow_type">
-<link rel="next" href="class_types.html" title="Class Types">
+<link rel="next" href="utx_i8.html" title="utx::i8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <div class="spirit-nav">
-<a accesskey="p" href="utx_overflow_type.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="types.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="class_types.html"><img src="images/next.png" alt="Next"></a>
+<a accesskey="p" href="utx_overflow_type.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="types.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="utx_i8.html"><img src="images/next.png" alt="Next"></a>
 </div>
 <div class="article">
 <div class="titlepage">
@@ -20,352 +20,50 @@
 <a name="basic_types"></a>Basic Types</h2></div></div>
 <hr>
 </div>
-<p>
-        Utxcpp Basic Types
-      </p>
+<div class="toc">
+<p><b>Table of Contents</b></p>
+<dl class="toc">
+<dt><span class="article"><a href="utx_i8.html">utx::i8</a></span></dt>
+<dt><span class="article"><a href="utx_i16.html">utx::i16</a></span></dt>
+<dt><span class="article"><a href="utx_i32.html">utx::i32</a></span></dt>
+<dt><span class="article"><a href="utx_i64.html">utx::i64</a></span></dt>
+<dt><span class="article"><a href="utx_imax.html">utx::imax</a></span></dt>
+<dt><span class="article"><a href="utx_u8.html">utx::u8</a></span></dt>
+<dt><span class="article"><a href="utx_u16.html">utx::u16</a></span></dt>
+<dt><span class="article"><a href="utx_u32.html">utx::u32</a></span></dt>
+<dt><span class="article"><a href="utx_u64.html">utx::u64</a></span></dt>
+<dt><span class="article"><a href="utx_umax.html">utx::umax</a></span></dt>
+<dt><span class="article"><a href="utx_f32.html">utx::f32</a></span></dt>
+<dt><span class="article"><a href="utx_f64.html">utx::f64</a></span></dt>
+<dt><span class="article"><a href="utx_f128.html">utx::f128</a></span></dt>
+<dt><span class="article"><a href="utx_fmax.html">utx::fmax</a></span></dt>
+<dt><span class="article"><a href="utx_ilast.html">utx::ilast</a></span></dt>
+<dt><span class="article"><a href="utx_ilost.html">utx::ilost</a></span></dt>
+<dt><span class="article"><a href="utx_ulast.html">utx::ulast</a></span></dt>
+<dt><span class="article"><a href="utx_ulost.html">utx::ulost</a></span></dt>
+<dt><span class="article"><a href="utx_flast.html">utx::flast</a></span></dt>
+<dt><span class="article"><a href="utx_mb.html">utx::mb</a></span></dt>
+<dt><span class="article"><a href="utx_mt.html">utx::mt</a></span></dt>
+<dt><span class="article"><a href="utx_mt8.html">utx::mt8</a></span></dt>
+<dt><span class="article"><a href="utx_mt16.html">utx::mt16</a></span></dt>
+<dt><span class="article"><a href="utx_mt32.html">utx::mt32</a></span></dt>
+<dt><span class="article"><a href="utx_wmt.html">utx::wmt</a></span></dt>
+</dl>
+</div>
 <h2>
 <a name="basic_types.h0"></a>
-        <span class="phrase"><a name="basic_types.role_cyan_utx_mb"></a></span><a class="link" href="basic_types.html#basic_types.role_cyan_utx_mb"><span class="cyan">utx::mb</span></a>
+        <span class="phrase"><a name="basic_types.role_cyan_basic_types"></a></span><a class="link" href="basic_types.html#basic_types.role_cyan_basic_types"><span class="cyan">Basic Types</span></a>
       </h2>
 <p>
-        bool type
+        Utxcpp c++ basic types.
       </p>
-<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
-            <span class="bold"><strong>utx::mb</strong></span>
-          </li></ul></div>
 <h2>
 <a name="basic_types.h1"></a>
-        <span class="phrase"><a name="basic_types.role_cyan_utx_u8_utx_u16_utx_u32"></a></span><a class="link" href="basic_types.html#basic_types.role_cyan_utx_u8_utx_u16_utx_u32"><span class="cyan">utx::u8, utx::u16, utx::u32, utx::u64, utx::umax</span></a>
+        <span class="phrase"><a name="basic_types.role_cyan_see_also"></a></span><a class="link" href="basic_types.html#basic_types.role_cyan_see_also"><span class="cyan">See Also</span></a>
       </h2>
 <p>
-        N bits of unsigned integral types
+        <a class="link" href="class_types.html" title="Class Types">class types</a>
       </p>
-<h3>
-<a name="basic_types.h2"></a>
-        <span class="phrase"><a name="basic_types.types"></a></span><a class="link" href="basic_types.html#basic_types.types"><span class="underline">Types:</span></a>
-      </h3>
-<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
-<li class="listitem">
-            <span class="bold"><strong>utx::u8</strong></span>
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>utx::u16</strong></span>
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>utx::u32</strong></span>
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>utx::u64</strong></span>
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>utx::umax</strong></span>
-          </li>
-</ul></div>
-<h6>
-<a name="basic_types.h3"></a>
-        <span class="phrase"><a name="basic_types.can_be_constexpr_true"></a></span><a class="link" href="basic_types.html#basic_types.can_be_constexpr_true"><span class="bold"><strong>can be constexpr</strong></span>: <span class="underline">true</span></a>
-      </h6>
-<pre class="programlisting"><span class="keyword">constexpr</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">u8</span> <span class="identifier">a</span> <span class="special">=</span> <span class="number">0</span><span class="special">;</span>
-<span class="keyword">constexpr</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">u16</span> <span class="identifier">b</span> <span class="special">=</span> <span class="number">1</span><span class="special">;</span>
-<span class="keyword">constexpr</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">u32</span> <span class="identifier">c</span> <span class="special">=</span> <span class="number">2</span><span class="special">;</span>
-<span class="keyword">constexpr</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">u64</span> <span class="identifier">d</span> <span class="special">=</span> <span class="number">3</span><span class="special">;</span>
-<span class="keyword">constexpr</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">umax</span> <span class="identifier">e</span> <span class="special">=</span> <span class="number">4</span><span class="special">;</span>
-</pre>
-<h3>
-<a name="basic_types.h4"></a>
-        <span class="phrase"><a name="basic_types.max_values"></a></span><a class="link" href="basic_types.html#basic_types.max_values"><span class="underline">Max Values:</span></a>
-      </h3>
-<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
-<li class="listitem">
-            <span class="bold"><strong>utx::u8_max</strong></span>
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>utx::u16_max</strong></span>
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>utx::u32_max</strong></span>
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>utx::u64_max</strong></span>
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>utx::umax_max</strong></span>
-          </li>
-</ul></div>
-<pre class="programlisting"><span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span>
-	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">u8_max</span><span class="special">,</span>
-	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">u16_max</span><span class="special">,</span>
-	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">u32_max</span><span class="special">,</span>
-	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">u64_max</span><span class="special">,</span>
-	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">umax_max</span>
-<span class="special">);</span>
-</pre>
-<h3>
-<a name="basic_types.h5"></a>
-        <span class="phrase"><a name="basic_types.min_values"></a></span><a class="link" href="basic_types.html#basic_types.min_values"><span class="underline">Min Values:</span></a>
-      </h3>
-<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
-            <span class="bold"><strong>All Zero - 0 :</strong></span>
-            <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; ">
-<li class="listitem">
-                  <span class="bold"><strong>utx::u8_min</strong></span>
-                </li>
-<li class="listitem">
-                  <span class="bold"><strong>utx::u16_min</strong></span>
-                </li>
-<li class="listitem">
-                  <span class="bold"><strong>utx::u32_min</strong></span>
-                </li>
-<li class="listitem">
-                  <span class="bold"><strong>utx::u64_min</strong></span>
-                </li>
-<li class="listitem">
-                  <span class="bold"><strong>utx::umax_min</strong></span>
-                </li>
-</ul></div>
-          </li></ul></div>
-<h2>
-<a name="basic_types.h6"></a>
-        <span class="phrase"><a name="basic_types.role_cyan_utx_i8_utx_i16_utx_i32"></a></span><a class="link" href="basic_types.html#basic_types.role_cyan_utx_i8_utx_i16_utx_i32"><span class="cyan">utx::i8, utx::i16, utx::i32, utx::i64, utx::imax</span></a>
-      </h2>
-<p>
-        N bits of signed integral types
-      </p>
-<h3>
-<a name="basic_types.h7"></a>
-        <span class="phrase"><a name="basic_types.types0"></a></span><a class="link" href="basic_types.html#basic_types.types0"><span class="underline">Types:</span></a>
-      </h3>
-<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
-<li class="listitem">
-            <span class="bold"><strong>utx::i8</strong></span>
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>utx::i16</strong></span>
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>utx::i32</strong></span>
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>utx::i64</strong></span>
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>utx::imax</strong></span>
-          </li>
-</ul></div>
-<h6>
-<a name="basic_types.h8"></a>
-        <span class="phrase"><a name="basic_types.can_be_constexpr_true0"></a></span><a class="link" href="basic_types.html#basic_types.can_be_constexpr_true0"><span class="bold"><strong>can be constexpr</strong></span>: <span class="underline">true</span></a>
-      </h6>
-<pre class="programlisting"><span class="keyword">constexpr</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">i8</span> <span class="identifier">a</span> <span class="special">=</span> <span class="special">-</span><span class="number">2</span><span class="special">;</span>
-<span class="keyword">constexpr</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">i16</span> <span class="identifier">b</span> <span class="special">=</span> <span class="special">-</span><span class="number">1</span><span class="special">;</span>
-<span class="keyword">constexpr</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">i32</span> <span class="identifier">c</span> <span class="special">=</span> <span class="number">0</span><span class="special">;</span>
-<span class="keyword">constexpr</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">i64</span> <span class="identifier">d</span> <span class="special">=</span> <span class="number">1</span><span class="special">;</span>
-<span class="keyword">constexpr</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">imax</span> <span class="identifier">e</span> <span class="special">=</span> <span class="number">2</span><span class="special">;</span>
-</pre>
-<h3>
-<a name="basic_types.h9"></a>
-        <span class="phrase"><a name="basic_types.max_values0"></a></span><a class="link" href="basic_types.html#basic_types.max_values0"><span class="underline">Max Values:</span></a>
-      </h3>
-<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
-<li class="listitem">
-            <span class="bold"><strong>utx::i8_max</strong></span>
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>utx::i16_max</strong></span>
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>utx::i32_max</strong></span>
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>utx::i64_max</strong></span>
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>utx::imax_max</strong></span>
-          </li>
-</ul></div>
-<pre class="programlisting"><span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span>
-	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">i8_max</span><span class="special">,</span>
-	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">i16_max</span><span class="special">,</span>
-	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">i32_max</span><span class="special">,</span>
-	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">i64_max</span><span class="special">,</span>
-	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">imax_max</span>
-<span class="special">);</span>
-</pre>
-<h3>
-<a name="basic_types.h10"></a>
-        <span class="phrase"><a name="basic_types.min_values0"></a></span><a class="link" href="basic_types.html#basic_types.min_values0"><span class="underline">Min Values:</span></a>
-      </h3>
-<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
-<li class="listitem">
-            <span class="bold"><strong>utx::i8_min</strong></span>
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>utx::i16_min</strong></span>
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>utx::i32_min</strong></span>
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>utx::i64_min</strong></span>
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>utx::imax_min</strong></span>
-          </li>
-</ul></div>
-<pre class="programlisting"><span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span>
-	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">i8_min</span><span class="special">,</span>
-	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">i16_min</span><span class="special">,</span>
-	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">i32_min</span><span class="special">,</span>
-	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">i64_min</span><span class="special">,</span>
-	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">imax_min</span>
-<span class="special">);</span>
-</pre>
-<h2>
-<a name="basic_types.h11"></a>
-        <span class="phrase"><a name="basic_types.role_cyan_utx_f32_utx_f64_utx_f1"></a></span><a class="link" href="basic_types.html#basic_types.role_cyan_utx_f32_utx_f64_utx_f1"><span class="cyan">utx::f32, utx::f64, utx::f128, utx::fmax</span></a>
-      </h2>
-<p>
-        N bits of floating point types
-      </p>
-<h3>
-<a name="basic_types.h12"></a>
-        <span class="phrase"><a name="basic_types.types1"></a></span><a class="link" href="basic_types.html#basic_types.types1"><span class="underline">Types:</span></a>
-      </h3>
-<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
-<li class="listitem">
-            <span class="bold"><strong>utx::f32</strong></span>
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>utx::f64</strong></span>
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>utx::f128</strong></span>
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>utx::fmax</strong></span>
-          </li>
-</ul></div>
-<h6>
-<a name="basic_types.h13"></a>
-        <span class="phrase"><a name="basic_types.can_be_constexpr_true1"></a></span><a class="link" href="basic_types.html#basic_types.can_be_constexpr_true1"><span class="bold"><strong>can be constexpr</strong></span>: <span class="underline">true</span></a>
-      </h6>
-<h3>
-<a name="basic_types.h14"></a>
-        <span class="phrase"><a name="basic_types.max_values1"></a></span><a class="link" href="basic_types.html#basic_types.max_values1"><span class="underline">Max Values:</span></a>
-      </h3>
-<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
-<li class="listitem">
-            <span class="bold"><strong>utx::f32_max</strong></span>
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>utx::f64_max</strong></span>
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>utx::f128_max</strong></span>
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>utx::fmax_max</strong></span>
-          </li>
-</ul></div>
-<h3>
-<a name="basic_types.h15"></a>
-        <span class="phrase"><a name="basic_types.min_values1"></a></span><a class="link" href="basic_types.html#basic_types.min_values1"><span class="underline">Min Values:</span></a>
-      </h3>
-<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
-<li class="listitem">
-            <span class="bold"><strong>utx::f32_min</strong></span>
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>utx::f64_min</strong></span>
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>utx::f128_min</strong></span>
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>utx::fmax_min</strong></span>
-          </li>
-</ul></div>
-<h3>
-<a name="basic_types.h16"></a>
-        <span class="phrase"><a name="basic_types.infinity_values"></a></span><a class="link" href="basic_types.html#basic_types.infinity_values"><span class="underline">Infinity Values:</span></a>
-      </h3>
-<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
-<li class="listitem">
-            <span class="bold"><strong>utx::f32_inf</strong></span>
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>utx::f64_inf</strong></span>
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>utx::f128_inf</strong></span>
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>utx::fmax_inf</strong></span>
-          </li>
-</ul></div>
-<h3>
-<a name="basic_types.h17"></a>
-        <span class="phrase"><a name="basic_types.notice"></a></span><a class="link" href="basic_types.html#basic_types.notice"><span class="underline">Notice:</span></a>
-      </h3>
-<div class="note"><table border="0" summary="Note">
-<tr>
-<td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td>
-<th align="left">Note</th>
-</tr>
-<tr><td align="left" valign="top"><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
-<li class="listitem">
-              The number of bits are not guaranteed, it depends on operating system
-              or toolchain environments.
-            </li>
-<li class="listitem">
-              utx::f32 must be guaranteed 32 bits by environment, otherwise using
-              utx::f32 will cause it to refuse compiling.
-            </li>
-<li class="listitem">
-              utx::f64 is not guaranteed 64 bits, but must be greater or equal to
-              utx::f32 bits.
-            </li>
-<li class="listitem">
-              utx::f128 is not guaranteed 128 bits, but must be greater or equal
-              to utx::f64 bits.
-            </li>
-<li class="listitem">
-              utx::fmax must be greater or equal to utx::f128 bits.
-            </li>
-</ul></div></td></tr>
-</table></div>
-<pre class="programlisting"><span class="keyword">constexpr</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">f32</span> <span class="identifier">f1</span> <span class="special">=</span> <span class="special">-</span><span class="number">2.5</span><span class="special">;</span>
-<span class="keyword">constexpr</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">f32</span> <span class="identifier">f2</span> <span class="special">=</span> <span class="number">2.5</span><span class="special">;</span>
-<span class="keyword">constexpr</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">f64</span> <span class="identifier">f3</span> <span class="special">=</span> <span class="special">-</span><span class="number">3.5</span><span class="special">;</span>
-<span class="keyword">constexpr</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">f128</span> <span class="identifier">f4</span> <span class="special">=</span> <span class="number">3.5</span><span class="special">;</span>
-<span class="keyword">constexpr</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">fmax</span> <span class="identifier">f5</span> <span class="special">=</span> <span class="special">-</span><span class="number">4.5</span><span class="special">;</span>
-</pre>
-<h2>
-<a name="basic_types.h18"></a>
-        <span class="phrase"><a name="basic_types.role_cyan_utx_note"></a></span><a class="link" href="basic_types.html#basic_types.role_cyan_utx_note"><span class="cyan">utx::note</span></a>
-      </h2>
-<p>
-        utx::note is type alias of const char *.
-      </p>
-<pre class="programlisting"><span class="keyword">using</span> <span class="identifier">note</span> <span class="special">=</span> <span class="keyword">const</span> <span class="keyword">char</span> <span class="special">*;</span>
-</pre>
-<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
-<li class="listitem">
-            <span class="bold"><strong>const utx::note</strong></span> is deduced to <span class="bold"><strong>const char * const</strong></span>
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>utx::note const</strong></span> is deduced to <span class="bold"><strong>const char * const</strong></span>
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>utx::remove_cvref_t&lt;utx::note&gt;</strong></span>
-            is still <span class="bold"><strong>utx::note</strong></span>
-          </li>
-</ul></div>
-<p>
-        <span class="bold"><strong>constexpr</strong></span> support:
-      </p>
-<pre class="programlisting"><span class="keyword">constexpr</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">note</span> <span class="identifier">str</span> <span class="special">=</span> <span class="string">"Hello c++!"</span><span class="special">;</span>
-</pre>
 </div>
 <div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
@@ -374,7 +72,7 @@
 </div>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="utx_overflow_type.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="types.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="class_types.html"><img src="images/next.png" alt="Next"></a>
+<a accesskey="p" href="utx_overflow_type.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="types.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="utx_i8.html"><img src="images/next.png" alt="Next"></a>
 </div>
 </body>
 </html>
