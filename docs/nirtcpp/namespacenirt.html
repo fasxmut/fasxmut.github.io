@@ -26,7 +26,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="nirtcpp-logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Nirtcpp<span id="projectnumber">&#160;2.0.0</span>
+   <div id="projectname">Nirtcpp<span id="projectnumber">&#160;2.1.0</span>
    </div>
    <div id="projectbrief">Nirtcpp is a high-performance c++ graphics engine.</div>
   </td>
@@ -169,6 +169,14 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
+<tr class="memitem:abf7e72a83ef81ef43b4304fe71eb7c9a" id="r_abf7e72a83ef81ef43b4304fe71eb7c9a"><td class="memItemLeft" align="right" valign="top"><a id="abf7e72a83ef81ef43b4304fe71eb7c9a" name="abf7e72a83ef81ef43b4304fe71eb7c9a"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>funcptr_createDevice</b> = <a class="el" href="classnirt_1_1NirtcppDevice.html">NirtcppDevice</a> *(IRRCALLCONV *)(<a class="el" href="namespacenirt_1_1video.html#a882c3460edbdb08da5405644c65b4bda">video::E_DRIVER_TYPE</a> driverType, const <a class="el" href="classnirt_1_1core_1_1dimension2d.html">core::dimension2d</a>&lt; <a class="el" href="namespacenirt.html#a8c28ed55db7db8de2673f030b11c6814">u32</a> &gt; &amp;windowSize, <a class="el" href="namespacenirt.html#a8c28ed55db7db8de2673f030b11c6814">u32</a> bits, bool fullscreen, bool stencilbuffer, bool vsync, <a class="el" href="classnirt_1_1IEventReceiver.html">IEventReceiver</a> *receiver)</td></tr>
+<tr class="memdesc:abf7e72a83ef81ef43b4304fe71eb7c9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">using type alias for Function Pointer <br /></td></tr>
+<tr class="separator:abf7e72a83ef81ef43b4304fe71eb7c9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cc976a40ee5b0d8d29c41a08a61ff22" id="r_a5cc976a40ee5b0d8d29c41a08a61ff22"><td class="memItemLeft" align="right" valign="top"><a id="a5cc976a40ee5b0d8d29c41a08a61ff22" name="a5cc976a40ee5b0d8d29c41a08a61ff22"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>funcptr_createDeviceEx</b> = <a class="el" href="classnirt_1_1NirtcppDevice.html">NirtcppDevice</a> *(IRRCALLCONV *)(const <a class="el" href="classnirt_1_1SNirtcppCreationParameters.html">SNirtcppCreationParameters</a> &amp;parameters)</td></tr>
+<tr class="memdesc:a5cc976a40ee5b0d8d29c41a08a61ff22"><td class="mdescLeft">&#160;</td><td class="mdescRight">using type alias for Function Pointer <br /></td></tr>
+<tr class="separator:a5cc976a40ee5b0d8d29c41a08a61ff22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a01218e82d3817cc289e87e6cb1b4f9" id="r_a7a01218e82d3817cc289e87e6cb1b4f9"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenirt.html#a7a01218e82d3817cc289e87e6cb1b4f9">u8</a> = unsigned char</td></tr>
 <tr class="memdesc:a7a01218e82d3817cc289e87e6cb1b4f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">8 bit unsigned variable.  <br /></td></tr>
 <tr class="separator:a7a01218e82d3817cc289e87e6cb1b4f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -199,14 +207,6 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a47e6cbae5ff776c008a2aa8b05516d91" id="r_a47e6cbae5ff776c008a2aa8b05516d91"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenirt.html#a47e6cbae5ff776c008a2aa8b05516d91">fschar_t</a> = char</td></tr>
 <tr class="memdesc:a47e6cbae5ff776c008a2aa8b05516d91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type name for character type used by the filesystem.  <br /></td></tr>
 <tr class="separator:a47e6cbae5ff776c008a2aa8b05516d91"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf7e72a83ef81ef43b4304fe71eb7c9a" id="r_abf7e72a83ef81ef43b4304fe71eb7c9a"><td class="memItemLeft" align="right" valign="top"><a id="abf7e72a83ef81ef43b4304fe71eb7c9a" name="abf7e72a83ef81ef43b4304fe71eb7c9a"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>funcptr_createDevice</b> = <a class="el" href="classnirt_1_1NirtcppDevice.html">NirtcppDevice</a> *(IRRCALLCONV *)(<a class="el" href="namespacenirt_1_1video.html#a882c3460edbdb08da5405644c65b4bda">video::E_DRIVER_TYPE</a> driverType, const <a class="el" href="classnirt_1_1core_1_1dimension2d.html">core::dimension2d</a>&lt; <a class="el" href="namespacenirt.html#a8c28ed55db7db8de2673f030b11c6814">u32</a> &gt; &amp;windowSize, <a class="el" href="namespacenirt.html#a8c28ed55db7db8de2673f030b11c6814">u32</a> bits, bool fullscreen, bool stencilbuffer, bool vsync, <a class="el" href="classnirt_1_1IEventReceiver.html">IEventReceiver</a> *receiver)</td></tr>
-<tr class="memdesc:abf7e72a83ef81ef43b4304fe71eb7c9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">using type alias for Function Pointer <br /></td></tr>
-<tr class="separator:abf7e72a83ef81ef43b4304fe71eb7c9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5cc976a40ee5b0d8d29c41a08a61ff22" id="r_a5cc976a40ee5b0d8d29c41a08a61ff22"><td class="memItemLeft" align="right" valign="top"><a id="a5cc976a40ee5b0d8d29c41a08a61ff22" name="a5cc976a40ee5b0d8d29c41a08a61ff22"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>funcptr_createDeviceEx</b> = <a class="el" href="classnirt_1_1NirtcppDevice.html">NirtcppDevice</a> *(IRRCALLCONV *)(const <a class="el" href="classnirt_1_1SNirtcppCreationParameters.html">SNirtcppCreationParameters</a> &amp;parameters)</td></tr>
-<tr class="memdesc:a5cc976a40ee5b0d8d29c41a08a61ff22"><td class="mdescLeft">&#160;</td><td class="mdescRight">using type alias for Function Pointer <br /></td></tr>
-<tr class="separator:a5cc976a40ee5b0d8d29c41a08a61ff22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>

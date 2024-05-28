@@ -18,8 +18,8 @@ var searchData=
   ['height_15',['Height',['../classnirt_1_1core_1_1dimension2d.html#a437bc1ead41015e933dc38482a6d1454',1,'nirt::core::dimension2d']]],
   ['heightmapoptimizemesh_16',['heightmapoptimizemesh',['../classnirt_1_1scene_1_1IMeshManipulator.html#ae28f91d8a9ce7dcfe3c76186de1d381b',1,'nirt::scene::IMeshManipulator::heightmapOptimizeMesh(IMeshBuffer *const mb, const f32 tolerance=core::ROUNDING_ERROR_f32) const =0'],['../classnirt_1_1scene_1_1IMeshManipulator.html#a3e9032f313c708c2d44d94df5cd12b41',1,'nirt::scene::IMeshManipulator::heightmapOptimizeMesh(IMesh *const mesh, const f32 tolerance=core::ROUNDING_ERROR_f32) const =0']]],
   ['highprecisionfpu_17',['HighPrecisionFPU',['../classnirt_1_1SNirtcppCreationParameters.html#a82a13885b17777ec211b1850b6237538',1,'nirt::SNirtcppCreationParameters']]],
-  ['history_18',['History',['..//home/u/my-projects/nirtcpp/include/nirtcpp/irrXML.hpp#history',1,'']]],
-  ['how_20to_20use_19',['How to use',['..//home/u/my-projects/nirtcpp/include/nirtcpp/irrXML.hpp#howto',1,'']]],
+  ['history_18',['History',['..//home/u/my-projects/nirtcpp/include/nirtcpp/core/engine/irrXML.hpp#history',1,'']]],
+  ['how_20to_20use_19',['How to use',['..//home/u/my-projects/nirtcpp/include/nirtcpp/core/engine/irrXML.hpp#howto',1,'']]],
   ['hrc_20',['HRc',['../classnirt_1_1video_1_1SExposedVideoData_1_1SOpenGLWin32.html#afd8fe9203be44d8b655ecfee7983f401',1,'nirt::video::SExposedVideoData::SOpenGLWin32']]],
   ['hwnd_21',['hwnd',['../classnirt_1_1video_1_1SExposedVideoData_1_1SD3D9.html#a97aed04b56dcfb6602f70ebe7448be75',1,'nirt::video::SExposedVideoData::SD3D9::HWnd'],['../classnirt_1_1video_1_1SExposedVideoData_1_1SOpenGLWin32.html#ad689945b454ca86c5168de3d5539b93e',1,'nirt::video::SExposedVideoData::SOpenGLWin32::HWnd']]]
 ];

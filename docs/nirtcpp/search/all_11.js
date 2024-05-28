@@ -4,7 +4,7 @@ var searchData=
   ['r5g6b5toa1r5g5b5_1',['R5G6B5toA1R5G5B5',['../namespacenirt_1_1video.html#a6242b5e143e66ee7c1bc105a3272ac8b',1,'nirt::video']]],
   ['r5g6b5toa8r8g8b8_2',['R5G6B5toA8R8G8B8',['../namespacenirt_1_1video.html#ab621279d67be6d1dafa4fd749f4bb877',1,'nirt::video']]],
   ['radius_3',['Radius',['../classnirt_1_1video_1_1SLight.html#af8feae57cb2d022e9361aab35481bf4c',1,'nirt::video::SLight']]],
-  ['radtodeg_4',['radtodeg',['../namespacenirt_1_1core.html#a6d55733bcdcab59a80be8a50425c3d5f',1,'nirt::core::radToDeg(f64 radians)'],['../namespacenirt_1_1core.html#adde5b9c08ff04e2d6799ec76c7b1441f',1,'nirt::core::RADTODEG'],['../namespacenirt_1_1core.html#a8b646e5714a5e5b618d0eac58a74ed02',1,'nirt::core::radToDeg(f32 radians)']]],
+  ['radtodeg_4',['radtodeg',['../namespacenirt_1_1core.html#a8b646e5714a5e5b618d0eac58a74ed02',1,'nirt::core::radToDeg(f32 radians)'],['../namespacenirt_1_1core.html#a6d55733bcdcab59a80be8a50425c3d5f',1,'nirt::core::radToDeg(f64 radians)'],['../namespacenirt_1_1core.html#adde5b9c08ff04e2d6799ec76c7b1441f',1,'nirt::core::RADTODEG']]],
   ['radtodeg64_5',['RADTODEG64',['../namespacenirt_1_1core.html#a903fad87ae11426d979c045cfc8928a8',1,'nirt::core']]],
   ['rand_6',['rand',['../classnirt_1_1IRandomizer.html#afa84509542d8fdafb0b5d668bed07b49',1,'nirt::IRandomizer']]],
   ['randmax_7',['randMax',['../classnirt_1_1IRandomizer.html#a08d96cf69860dcedebea8d05b30c88fc',1,'nirt::IRandomizer']]],

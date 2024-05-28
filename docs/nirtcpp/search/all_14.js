@@ -16,7 +16,7 @@ var searchData=
   ['updateshadowvolumes_13',['updateShadowVolumes',['../classnirt_1_1scene_1_1IShadowVolumeSceneNode.html#a66e4cb9fea2685ce0c5aee2fe49916fd',1,'nirt::scene::IShadowVolumeSceneNode']]],
   ['updatesource_14',['updateSource',['../classnirt_1_1video_1_1ITexture.html#a44ddd84efff3e412e8c05d7abecbb4da',1,'nirt::video::ITexture']]],
   ['upperleftcorner_15',['UpperLeftCorner',['../classnirt_1_1core_1_1rect.html#ad94aa47d87397b4f41f8d03abe4c6b48',1,'nirt::core::rect']]],
-  ['use_16',['How to use',['..//home/u/my-projects/nirtcpp/include/nirtcpp/irrXML.hpp#howto',1,'']]],
+  ['use_16',['How to use',['..//home/u/my-projects/nirtcpp/include/nirtcpp/core/engine/irrXML.hpp#howto',1,'']]],
   ['useanimationfrom_17',['useAnimationFrom',['../classnirt_1_1scene_1_1ISkinnedMesh.html#a76d7239d008ff8e0ce8251f663826398',1,'nirt::scene::ISkinnedMesh']]],
   ['usemipmaps_18',['UseMipMaps',['../classnirt_1_1video_1_1SMaterial.html#a0060d3b96003c8fdee7528d0acde0244',1,'nirt::video::SMaterial']]],
   ['usenodematerial_19',['useNodeMaterial',['../classnirt_1_1scene_1_1IColladaMeshWriterProperties.html#a3ac7923f014e605d2f16f9d0fa6c4299',1,'nirt::scene::IColladaMeshWriterProperties']]],

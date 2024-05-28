@@ -8,7 +8,7 @@ var searchData=
   ['debug_5fnormal_5fcolor_5',['DEBUG_NORMAL_COLOR',['../namespacenirt_1_1scene.html#acc8505710eeeb4249e84c16c4aead28e',1,'nirt::scene']]],
   ['debug_5fnormal_5flength_6',['DEBUG_NORMAL_LENGTH',['../namespacenirt_1_1scene.html#a5e346bfadf52a698f2222a43cce042fe',1,'nirt::scene']]],
   ['debugdatavisible_7',['DebugDataVisible',['../classnirt_1_1scene_1_1ISceneNode.html#a0643f031bab5148d520d9949c82faf2d',1,'nirt::scene::ISceneNode']]],
-  ['degtorad_8',['degtorad',['../namespacenirt_1_1core.html#abb59aa217505cce486916bf09bf237b9',1,'nirt::core::DEGTORAD'],['../namespacenirt_1_1core.html#af64f32414f2183d0f002de279e47e751',1,'nirt::core::degToRad(f64 degrees)'],['../namespacenirt_1_1core.html#a1afa8ea3275ff608c7221253a99a967c',1,'nirt::core::degToRad(f32 degrees)']]],
+  ['degtorad_8',['degtorad',['../namespacenirt_1_1core.html#af64f32414f2183d0f002de279e47e751',1,'nirt::core::degToRad(f64 degrees)'],['../namespacenirt_1_1core.html#a1afa8ea3275ff608c7221253a99a967c',1,'nirt::core::degToRad(f32 degrees)'],['../namespacenirt_1_1core.html#abb59aa217505cce486916bf09bf237b9',1,'nirt::core::DEGTORAD']]],
   ['degtorad64_9',['DEGTORAD64',['../namespacenirt_1_1core.html#ad9d5a5500c629f044fca2b2df3a6d9da',1,'nirt::core']]],
   ['deletealldynamiclights_10',['deleteAllDynamicLights',['../classnirt_1_1video_1_1IVideoDriver.html#af8c6b0cd8a0543095b01380439a2b1ff',1,'nirt::video::IVideoDriver']]],
   ['deletechild_11',['deleteChild',['../classnirt_1_1gui_1_1IGUITreeViewNode.html#ad43ac50915c34987b8493b738e3e0253',1,'nirt::gui::IGUITreeViewNode']]],
