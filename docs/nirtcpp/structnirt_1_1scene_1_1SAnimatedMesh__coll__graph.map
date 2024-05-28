@@ -1,9 +1,0 @@
-<map id="nirt::scene::SAnimatedMesh" name="nirt::scene::SAnimatedMesh">
-<area shape="rect" id="node1" title="Simple implementation of the IAnimatedMesh interface." alt="" coords="792,64,997,91"/>
-<area shape="rect" id="node2" href="$classnirt_1_1scene_1_1IAnimatedMesh.html" title="Interface for an animated mesh." alt="" coords="489,5,689,32"/>
-<area shape="rect" id="node3" href="$classnirt_1_1scene_1_1IMesh.html" title="Class which holds the geometry of an object." alt="" coords="235,5,372,32"/>
-<area shape="rect" id="node4" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="5,5,181,32"/>
-<area shape="rect" id="node5" href="$classnirt_1_1core_1_1array.html" title=" " alt="" coords="506,57,673,98"/>
-<area shape="rect" id="node6" href="$classnirt_1_1core_1_1aabbox3d.html" title=" " alt="" coords="513,122,665,163"/>
-<area shape="rect" id="node7" href="$classnirt_1_1core_1_1vector3d.html" title=" " alt="" coords="231,122,376,163"/>
-</map>

@@ -1,5 +1,7 @@
 <map id="nirt::scene::ITriangleSelector" name="nirt::scene::ITriangleSelector">
-<area shape="rect" id="node1" title="Interface to return triangles with specific properties." alt="" coords="5,80,212,107"/>
-<area shape="rect" id="node3" href="$classnirt_1_1scene_1_1IMetaTriangleSelector.html" title="Interface for making multiple triangle selectors work as one big selector." alt="" coords="15,155,202,196"/>
-<area shape="rect" id="node2" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="21,5,197,32"/>
+<area shape="rect" id="Node000001" title="Interface to return triangles with specific properties." alt="" coords="5,79,212,104"/>
+<area shape="rect" id="Node000003" href="$classnirt_1_1scene_1_1IMetaTriangleSelector.html" title="Interface for making multiple triangle selectors work as one big selector." alt="" coords="15,152,202,192"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="111,118,111,152,106,152,106,118"/>
+<area shape="rect" id="Node000002" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="21,5,197,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,44,111,79,106,79,106,44"/>
 </map>

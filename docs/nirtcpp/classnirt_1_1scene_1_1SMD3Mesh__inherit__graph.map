@@ -1,0 +1,5 @@
+<map id="nirt::scene::SMD3Mesh" name="nirt::scene::SMD3Mesh">
+<area shape="rect" id="Node000001" title="Holding Frames Buffers and Tag Infos." alt="" coords="8,79,179,104"/>
+<area shape="rect" id="Node000002" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="5,5,181,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,44,96,79,91,79,91,44"/>
+</map>

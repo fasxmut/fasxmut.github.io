@@ -1,51 +1,99 @@
 <map id="nirt::io::IAttributeExchangingObject" name="nirt::io::IAttributeExchangingObject">
-<area shape="rect" id="node1" title="An object which is able to serialize and deserialize its attributes into an attributes object." alt="" coords="229,1381,437,1422"/>
-<area shape="rect" id="node3" href="$classnirt_1_1gui_1_1IGUIElement.html" title="Base class of all GUI elements." alt="" coords="521,553,684,580"/>
-<area shape="rect" id="node25" href="$classnirt_1_1gui_1_1IGUISkin.html" title="A skin modifies the look of the GUI elements." alt="" coords="535,1207,671,1233"/>
-<area shape="rect" id="node26" href="$classnirt_1_1scene_1_1IParticleAffector.html" title="A particle affector modifies particles." alt="" coords="502,1257,703,1284"/>
-<area shape="rect" id="node31" href="$classnirt_1_1scene_1_1IParticleEmitter.html" title="A particle emitter for using with particle systems." alt="" coords="503,1485,702,1512"/>
-<area shape="rect" id="node38" href="$classnirt_1_1scene_1_1ISceneNode.html" title="Scene node interface." alt="" coords="515,1936,690,1963"/>
-<area shape="rect" id="node49" href="$classnirt_1_1scene_1_1ISceneNodeAnimator.html" title="Animates a scene node. Can animate position, rotation, material, and so on." alt="" coords="485,1987,720,2013"/>
-<area shape="rect" id="node2" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="5,1388,181,1415"/>
-<area shape="rect" id="node4" href="$classnirt_1_1gui_1_1IGUIButton.html" title="GUI Button interface." alt="" coords="819,5,969,32"/>
-<area shape="rect" id="node5" href="$classnirt_1_1gui_1_1IGUICheckBox.html" title="GUI Check box interface." alt="" coords="807,56,981,83"/>
-<area shape="rect" id="node6" href="$classnirt_1_1gui_1_1IGUIColorSelectDialog.html" title="Standard color chooser dialog." alt="" coords="803,107,985,149"/>
-<area shape="rect" id="node7" href="$classnirt_1_1gui_1_1IGUIComboBox.html" title="Combobox widget." alt="" coords="805,173,983,200"/>
-<area shape="rect" id="node8" href="$classnirt_1_1gui_1_1IGUIContextMenu.html" title="GUI Context menu interface." alt="" coords="797,224,991,251"/>
-<area shape="rect" id="node9" href="$classnirt_1_1gui_1_1IGUIEditBox.html" title="Single line edit box for editing simple text." alt="" coords="815,275,973,301"/>
-<area shape="rect" id="node10" href="$classnirt_1_1gui_1_1IGUIFileOpenDialog.html" title="Standard file chooser dialog." alt="" coords="791,325,997,352"/>
-<area shape="rect" id="node11" href="$classnirt_1_1gui_1_1IGUIImage.html" title="GUI element displaying an image." alt="" coords="819,376,969,403"/>
-<area shape="rect" id="node12" href="$classnirt_1_1gui_1_1IGUIInOutFader.html" title="Element for fading out or in." alt="" coords="805,427,983,453"/>
-<area shape="rect" id="node13" href="$classnirt_1_1gui_1_1IGUIListBox.html" title="Default list box GUI element." alt="" coords="816,477,972,504"/>
-<area shape="rect" id="node14" href="$classnirt_1_1gui_1_1IGUIMeshViewer.html" title="3d mesh viewing GUI element." alt="" coords="800,528,988,555"/>
-<area shape="rect" id="node15" href="$classnirt_1_1gui_1_1IGUIProfiler.html" title="Element to display profiler information." alt="" coords="817,579,971,605"/>
-<area shape="rect" id="node16" href="$classnirt_1_1gui_1_1IGUIScrollBar.html" title="Default scroll bar GUI element." alt="" coords="811,629,977,656"/>
-<area shape="rect" id="node17" href="$classnirt_1_1gui_1_1IGUISpinBox.html" title="Single line edit box + spin buttons." alt="" coords="813,680,975,707"/>
-<area shape="rect" id="node18" href="$classnirt_1_1gui_1_1IGUIStaticText.html" title="Multi or single line text label." alt="" coords="808,731,980,757"/>
-<area shape="rect" id="node19" href="$classnirt_1_1gui_1_1IGUITab.html" title="A tab&#45;page, onto which other gui elements could be added." alt="" coords="829,781,959,808"/>
-<area shape="rect" id="node20" href="$classnirt_1_1gui_1_1IGUITabControl.html" title="A standard tab control." alt="" coords="805,832,983,859"/>
-<area shape="rect" id="node21" href="$classnirt_1_1gui_1_1IGUITable.html" title="Default list box GUI element." alt="" coords="823,883,965,909"/>
-<area shape="rect" id="node22" href="$classnirt_1_1gui_1_1IGUIToolBar.html" title="Stays at the top of its parent like the menu bar and contains tool buttons." alt="" coords="816,933,972,960"/>
-<area shape="rect" id="node23" href="$classnirt_1_1gui_1_1IGUITreeView.html" title="Default tree view GUI element." alt="" coords="811,984,977,1011"/>
-<area shape="rect" id="node24" href="$classnirt_1_1gui_1_1IGUIWindow.html" title="Default moveable window GUI element with border, caption and close icons." alt="" coords="814,1035,974,1061"/>
-<area shape="rect" id="node27" href="$classnirt_1_1scene_1_1IParticleAttractionAffector.html" title="A particle affector which attracts or detracts particles." alt="" coords="787,1086,1001,1127"/>
-<area shape="rect" id="node28" href="$classnirt_1_1scene_1_1IParticleFadeOutAffector.html" title="A particle affector which fades out the particles." alt="" coords="804,1151,984,1193"/>
-<area shape="rect" id="node29" href="$classnirt_1_1scene_1_1IParticleGravityAffector.html" title="A particle affector which applies gravity to particles." alt="" coords="795,1217,993,1258"/>
-<area shape="rect" id="node30" href="$classnirt_1_1scene_1_1IParticleRotationAffector.html" title="A particle affector which rotates the particle system." alt="" coords="791,1282,997,1323"/>
-<area shape="rect" id="node32" href="$classnirt_1_1scene_1_1IParticleAnimatedMeshSceneNodeEmitter.html" title="A particle emitter which emits particles from mesh vertices." alt="" coords="787,1347,1001,1389"/>
-<area shape="rect" id="node33" href="$classnirt_1_1scene_1_1IParticleBoxEmitter.html" title="A particle emitter which emits particles from a box shaped space." alt="" coords="807,1413,981,1454"/>
-<area shape="rect" id="node34" href="$classnirt_1_1scene_1_1IParticleCylinderEmitter.html" title="A particle emitter which emits from a cylindrically shaped space." alt="" coords="792,1478,996,1519"/>
-<area shape="rect" id="node35" href="$classnirt_1_1scene_1_1IParticleMeshEmitter.html" title="A particle emitter which emits from vertices of a mesh." alt="" coords="801,1543,987,1585"/>
-<area shape="rect" id="node36" href="$classnirt_1_1scene_1_1IParticleRingEmitter.html" title="A particle emitter which emits particles along a ring shaped area." alt="" coords="805,1609,983,1650"/>
-<area shape="rect" id="node37" href="$classnirt_1_1scene_1_1IParticleSphereEmitter.html" title="A particle emitter which emits from a spherical space." alt="" coords="797,1674,991,1715"/>
-<area shape="rect" id="node39" href="$classnirt_1_1scene_1_1IAnimatedMeshSceneNode.html" title="Scene node capable of displaying an animated mesh." alt="" coords="794,1739,994,1781"/>
-<area shape="rect" id="node40" href="$classnirt_1_1scene_1_1IBillboardSceneNode.html" title="A billboard scene node." alt="" coords="777,1805,1011,1832"/>
-<area shape="rect" id="node41" href="$classnirt_1_1scene_1_1IBoneSceneNode.html" title="Interface for bones used for skeletal animation." alt="" coords="790,1856,998,1883"/>
-<area shape="rect" id="node42" href="$classnirt_1_1scene_1_1ICameraSceneNode.html" title="Scene Node which is a (controllable) camera." alt="" coords="781,1907,1007,1933"/>
-<area shape="rect" id="node43" href="$classnirt_1_1scene_1_1IDummyTransformationSceneNode.html" title="Dummy scene node for adding additional transformations to the scene graph." alt="" coords="768,1958,1020,1999"/>
-<area shape="rect" id="node44" href="$classnirt_1_1scene_1_1ILightSceneNode.html" title="Scene node which is a dynamic light." alt="" coords="791,2024,997,2051"/>
-<area shape="rect" id="node45" href="$classnirt_1_1scene_1_1IMeshSceneNode.html" title="A scene node displaying a static mesh." alt="" coords="789,2075,999,2101"/>
-<area shape="rect" id="node46" href="$classnirt_1_1scene_1_1IParticleSystemSceneNode.html" title=" " alt="" coords="795,2126,993,2167"/>
-<area shape="rect" id="node47" href="$classnirt_1_1scene_1_1IShadowVolumeSceneNode.html" title="Scene node for rendering a shadow volume into a stencil buffer." alt="" coords="793,2191,995,2233"/>
-<area shape="rect" id="node48" href="$classnirt_1_1scene_1_1ITerrainSceneNode.html" title="A scene node for displaying terrain using the geo mip map algorithm." alt="" coords="785,2257,1003,2284"/>
+<area shape="rect" id="Node000001" title="An object which is able to serialize and deserialize its attributes into an attributes object." alt="" coords="229,1346,437,1386"/>
+<area shape="rect" id="Node000003" href="$classnirt_1_1gui_1_1IGUIElement.html" title="Base class of all GUI elements." alt="" coords="521,540,684,565"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="343,1332,595,565,600,566,348,1334"/>
+<area shape="rect" id="Node000025" href="$classnirt_1_1gui_1_1IGUISkin.html" title="A skin modifies the look of the GUI elements." alt="" coords="535,1176,671,1201"/>
+<area shape="poly" id="edge24_Node000001_Node000025" title=" " alt="" coords="354,1333,408,1270,444,1237,484,1210,508,1200,534,1193,535,1198,510,1205,487,1215,447,1242,412,1274,358,1336"/>
+<area shape="rect" id="Node000026" href="$classnirt_1_1scene_1_1IParticleAffector.html" title="A particle affector modifies particles." alt="" coords="502,1225,703,1251"/>
+<area shape="poly" id="edge25_Node000001_Node000026" title=" " alt="" coords="387,1338,574,1248,576,1253,390,1343"/>
+<area shape="rect" id="Node000031" href="$classnirt_1_1scene_1_1IParticleEmitter.html" title="A particle emitter for using with particle systems." alt="" coords="503,1449,702,1475"/>
+<area shape="poly" id="edge30_Node000001_Node000031" title=" " alt="" coords="404,1388,567,1447,565,1452,402,1393"/>
+<area shape="rect" id="Node000038" href="$classnirt_1_1scene_1_1ISceneNode.html" title="Scene node interface." alt="" coords="515,1889,690,1915"/>
+<area shape="poly" id="edge37_Node000001_Node000038" title=" " alt="" coords="353,1397,597,1888,592,1890,348,1400"/>
+<area shape="rect" id="Node000053" href="$classnirt_1_1scene_1_1ISceneNodeAnimator.html" title="Animates a scene node. Can animate position, rotation, material, and so on." alt="" coords="485,1939,720,1964"/>
+<area shape="poly" id="edge48_Node000001_Node000053" title=" " alt="" coords="342,1399,360,1518,391,1676,411,1756,434,1828,459,1887,487,1925,502,1936,499,1941,483,1929,455,1889,429,1830,406,1757,386,1677,355,1519,336,1400"/>
+<area shape="rect" id="Node000002" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="5,1353,181,1379"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="195,1363,229,1363,229,1369,195,1369"/>
+<area shape="rect" id="Node000004" href="$classnirt_1_1gui_1_1IGUIButton.html" title="GUI Button interface." alt="" coords="819,5,969,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="601,526,606,433,614,370,628,301,648,230,677,160,716,96,740,66,766,40,790,25,817,17,819,22,793,30,770,44,744,70,720,99,682,163,653,232,633,302,619,371,611,434,606,526"/>
+<area shape="rect" id="Node000005" href="$classnirt_1_1gui_1_1IGUICheckBox.html" title="GUI Check box interface." alt="" coords="807,55,981,80"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="602,526,610,441,620,385,635,323,655,260,684,198,720,140,766,91,785,78,806,70,808,75,787,83,770,95,724,143,688,200,660,262,640,325,625,386,616,442,608,527"/>
+<area shape="rect" id="Node000006" href="$classnirt_1_1gui_1_1IGUIColorSelectDialog.html" title="Standard color chooser dialog." alt="" coords="803,105,985,145"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="604,526,617,452,645,352,666,298,693,246,726,197,766,155,801,135,804,139,770,159,730,200,697,248,671,300,650,353,622,453,610,527"/>
+<area shape="rect" id="Node000007" href="$classnirt_1_1gui_1_1IGUIComboBox.html" title="Combobox widget." alt="" coords="805,169,983,195"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="606,526,620,460,650,372,671,326,697,281,729,239,766,204,784,193,803,186,805,191,786,198,770,208,733,243,702,284,676,328,655,374,626,461,611,527"/>
+<area shape="rect" id="Node000008" href="$classnirt_1_1gui_1_1IGUIContextMenu.html" title="GUI Context menu interface." alt="" coords="797,219,991,244"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="608,526,625,469,657,394,678,355,703,317,732,283,767,253,795,238,798,243,769,258,736,286,707,321,682,358,661,397,630,471,613,528"/>
+<area shape="rect" id="Node000009" href="$classnirt_1_1gui_1_1IGUIEditBox.html" title="Single line edit box for editing simple text." alt="" coords="815,268,973,293"/>
+<area shape="poly" id="edge8_Node000003_Node000009" title=" " alt="" coords="611,526,631,477,664,416,709,354,736,326,767,302,789,291,814,283,815,288,791,296,769,307,740,330,713,358,669,419,636,480,616,528"/>
+<area shape="rect" id="Node000010" href="$classnirt_1_1gui_1_1IGUIFileOpenDialog.html" title="Standard file chooser dialog." alt="" coords="791,317,997,343"/>
+<area shape="poly" id="edge9_Node000003_Node000010" title=" " alt="" coords="614,527,638,487,672,440,715,391,767,352,791,340,793,345,769,356,719,395,676,443,642,490,619,529"/>
+<area shape="rect" id="Node000011" href="$classnirt_1_1gui_1_1IGUIImage.html" title="GUI element displaying an image." alt="" coords="819,367,969,392"/>
+<area shape="poly" id="edge10_Node000003_Node000011" title=" " alt="" coords="621,527,681,463,721,429,767,401,818,384,820,389,769,406,725,433,684,467,624,531"/>
+<area shape="rect" id="Node000012" href="$classnirt_1_1gui_1_1IGUIInOutFader.html" title="Element for fading out or in." alt="" coords="805,416,983,441"/>
+<area shape="poly" id="edge11_Node000003_Node000012" title=" " alt="" coords="630,529,691,489,728,468,767,450,804,439,806,444,769,455,731,473,694,493,633,534"/>
+<area shape="rect" id="Node000013" href="$classnirt_1_1gui_1_1IGUIListBox.html" title="Default list box GUI element." alt="" coords="816,465,972,491"/>
+<area shape="poly" id="edge12_Node000003_Node000013" title=" " alt="" coords="653,533,767,499,819,488,820,493,769,505,655,538"/>
+<area shape="rect" id="Node000014" href="$classnirt_1_1gui_1_1IGUIMeshViewer.html" title="3d mesh viewing GUI element." alt="" coords="800,515,988,540"/>
+<area shape="poly" id="edge13_Node000003_Node000014" title=" " alt="" coords="697,542,799,533,800,538,698,547"/>
+<area shape="rect" id="Node000015" href="$classnirt_1_1gui_1_1IGUIProfiler.html" title="Element to display profiler information." alt="" coords="817,564,971,589"/>
+<area shape="poly" id="edge14_Node000003_Node000015" title=" " alt="" coords="698,558,817,568,816,573,697,563"/>
+<area shape="rect" id="Node000016" href="$classnirt_1_1gui_1_1IGUIScrollBar.html" title="Default scroll bar GUI element." alt="" coords="811,613,977,639"/>
+<area shape="poly" id="edge15_Node000003_Node000016" title=" " alt="" coords="658,567,769,598,825,611,824,616,767,603,657,572"/>
+<area shape="rect" id="Node000017" href="$classnirt_1_1gui_1_1IGUISpinBox.html" title="Single line edit box + spin buttons." alt="" coords="813,663,975,688"/>
+<area shape="poly" id="edge16_Node000003_Node000017" title=" " alt="" coords="634,571,694,610,769,648,814,661,812,666,767,652,691,615,631,576"/>
+<area shape="rect" id="Node000018" href="$classnirt_1_1gui_1_1IGUIStaticText.html" title="Multi or single line text label." alt="" coords="808,712,980,737"/>
+<area shape="poly" id="edge17_Node000003_Node000018" title=" " alt="" coords="625,574,685,637,725,670,769,697,808,711,807,716,767,702,722,674,681,641,621,578"/>
+<area shape="rect" id="Node000019" href="$classnirt_1_1gui_1_1IGUITab.html" title="A tab&#45;page, onto which other gui elements could be added." alt="" coords="829,761,959,787"/>
+<area shape="poly" id="edge18_Node000003_Node000019" title=" " alt="" coords="620,577,643,615,677,662,720,708,769,746,798,759,829,767,828,772,796,764,767,751,716,712,673,665,639,618,615,579"/>
+<area shape="rect" id="Node000020" href="$classnirt_1_1gui_1_1IGUITabControl.html" title="A standard tab control." alt="" coords="805,811,983,836"/>
+<area shape="poly" id="edge19_Node000003_Node000020" title=" " alt="" coords="616,577,636,625,669,685,714,745,740,773,769,796,806,812,804,817,767,800,736,777,709,749,665,687,632,627,611,579"/>
+<area shape="rect" id="Node000021" href="$classnirt_1_1gui_1_1IGUITable.html" title="Default list box GUI element." alt="" coords="823,860,965,885"/>
+<area shape="poly" id="edge20_Node000003_Node000021" title=" " alt="" coords="613,578,631,635,662,708,683,746,708,783,737,816,770,845,795,859,823,867,822,872,793,864,766,850,733,820,704,786,679,749,657,710,626,637,608,580"/>
+<area shape="rect" id="Node000022" href="$classnirt_1_1gui_1_1IGUIToolBar.html" title="Stays at the top of its parent like the menu bar and contains tool buttons." alt="" coords="816,909,972,935"/>
+<area shape="poly" id="edge21_Node000003_Node000022" title=" " alt="" coords="611,578,626,643,655,730,676,775,702,819,733,860,770,895,792,907,816,915,815,920,789,912,766,899,729,864,698,822,671,778,650,732,621,645,606,579"/>
+<area shape="rect" id="Node000023" href="$classnirt_1_1gui_1_1IGUITreeView.html" title="Default tree view GUI element." alt="" coords="811,959,977,984"/>
+<area shape="poly" id="edge22_Node000003_Node000023" title=" " alt="" coords="609,578,621,652,649,752,669,805,696,856,729,903,770,944,789,956,811,964,810,969,787,961,766,948,725,907,692,859,665,807,643,753,616,653,604,579"/>
+<area shape="rect" id="Node000024" href="$classnirt_1_1gui_1_1IGUIWindow.html" title="Default moveable window GUI element with border, caption and close icons." alt="" coords="814,1008,974,1033"/>
+<area shape="poly" id="edge23_Node000003_Node000024" title=" " alt="" coords="608,579,617,660,627,715,642,773,663,834,690,893,726,947,770,993,791,1006,815,1015,813,1020,788,1011,766,997,722,950,686,895,658,836,637,775,622,716,612,661,603,579"/>
+<area shape="rect" id="Node000027" href="$classnirt_1_1scene_1_1IParticleAttractionAffector.html" title="A particle affector which attracts or detracts particles." alt="" coords="787,1058,1001,1098"/>
+<area shape="poly" id="edge26_Node000026_Node000027" title=" " alt="" coords="710,1217,718,1211,730,1199,736,1187,742,1161,747,1134,754,1121,766,1108,785,1096,788,1100,770,1112,759,1124,752,1136,747,1162,741,1189,734,1202,722,1215,713,1221"/>
+<area shape="rect" id="Node000028" href="$classnirt_1_1scene_1_1IParticleFadeOutAffector.html" title="A particle affector which fades out the particles." alt="" coords="804,1122,984,1162"/>
+<area shape="poly" id="edge27_Node000026_Node000028" title=" " alt="" coords="698,1219,719,1210,733,1201,742,1192,752,1182,767,1172,803,1157,805,1162,769,1176,755,1186,746,1195,736,1205,721,1215,700,1224"/>
+<area shape="rect" id="Node000029" href="$classnirt_1_1scene_1_1IParticleGravityAffector.html" title="A particle affector which applies gravity to particles." alt="" coords="795,1186,993,1226"/>
+<area shape="poly" id="edge28_Node000026_Node000029" title=" " alt="" coords="716,1223,794,1214,795,1220,717,1228"/>
+<area shape="rect" id="Node000030" href="$classnirt_1_1scene_1_1IParticleRotationAffector.html" title="A particle affector which rotates the particle system." alt="" coords="791,1250,997,1290"/>
+<area shape="poly" id="edge29_Node000026_Node000030" title=" " alt="" coords="717,1248,791,1256,791,1261,717,1253"/>
+<area shape="rect" id="Node000032" href="$classnirt_1_1scene_1_1IParticleAnimatedMeshSceneNodeEmitter.html" title="A particle emitter which emits particles from mesh vertices." alt="" coords="787,1314,1001,1354"/>
+<area shape="poly" id="edge31_Node000031_Node000032" title=" " alt="" coords="631,1439,692,1401,767,1364,801,1352,803,1357,769,1368,695,1406,634,1444"/>
+<area shape="rect" id="Node000033" href="$classnirt_1_1scene_1_1IParticleBoxEmitter.html" title="A particle emitter which emits particles from a box shaped space." alt="" coords="807,1378,981,1418"/>
+<area shape="poly" id="edge32_Node000031_Node000033" title=" " alt="" coords="674,1444,806,1415,807,1420,675,1449"/>
+<area shape="rect" id="Node000034" href="$classnirt_1_1scene_1_1IParticleCylinderEmitter.html" title="A particle emitter which emits from a cylindrically shaped space." alt="" coords="792,1442,996,1482"/>
+<area shape="poly" id="edge33_Node000031_Node000034" title=" " alt="" coords="716,1459,792,1459,792,1465,716,1465"/>
+<area shape="rect" id="Node000035" href="$classnirt_1_1scene_1_1IParticleMeshEmitter.html" title="A particle emitter which emits from vertices of a mesh." alt="" coords="801,1506,987,1546"/>
+<area shape="poly" id="edge34_Node000031_Node000035" title=" " alt="" coords="675,1475,803,1503,802,1509,674,1480"/>
+<area shape="rect" id="Node000036" href="$classnirt_1_1scene_1_1IParticleRingEmitter.html" title="A particle emitter which emits particles along a ring shaped area." alt="" coords="805,1570,983,1610"/>
+<area shape="poly" id="edge35_Node000031_Node000036" title=" " alt="" coords="634,1480,695,1518,769,1556,805,1568,804,1573,767,1560,692,1523,631,1485"/>
+<area shape="rect" id="Node000037" href="$classnirt_1_1scene_1_1IParticleSphereEmitter.html" title="A particle emitter which emits from a spherical space." alt="" coords="797,1634,991,1674"/>
+<area shape="poly" id="edge36_Node000031_Node000037" title=" " alt="" coords="624,1484,683,1552,724,1589,769,1620,797,1632,795,1637,767,1624,721,1593,680,1556,620,1488"/>
+<area shape="rect" id="Node000039" href="$classnirt_1_1scene_1_1IAnimatedMeshSceneNode.html" title="Scene node capable of displaying an animated mesh." alt="" coords="794,1698,994,1738"/>
+<area shape="poly" id="edge38_Node000038_Node000039" title=" " alt="" coords="621,1877,681,1813,722,1779,767,1749,797,1736,799,1740,769,1754,725,1783,685,1817,625,1881"/>
+<area shape="rect" id="Node000040" href="$classnirt_1_1scene_1_1IBillboardSceneNode.html" title="A billboard scene node." alt="" coords="777,1763,1011,1788"/>
+<area shape="poly" id="edge39_Node000038_Node000040" title=" " alt="" coords="630,1879,690,1838,728,1816,767,1798,808,1786,810,1791,769,1803,730,1821,693,1842,633,1883"/>
+<area shape="rect" id="Node000042" href="$classnirt_1_1scene_1_1IBoneSceneNode.html" title="Interface for bones used for skeletal animation." alt="" coords="790,1812,998,1837"/>
+<area shape="poly" id="edge40_Node000038_Node000042" title=" " alt="" coords="652,1882,767,1847,823,1835,824,1840,769,1853,654,1888"/>
+<area shape="rect" id="Node000043" href="$classnirt_1_1scene_1_1ICameraSceneNode.html" title="Scene Node which is a (controllable) camera." alt="" coords="781,1861,1007,1887"/>
+<area shape="poly" id="edge41_Node000038_Node000043" title=" " alt="" coords="703,1890,780,1882,780,1888,704,1895"/>
+<area shape="rect" id="Node000044" href="$classnirt_1_1scene_1_1IDummyTransformationSceneNode.html" title="Dummy scene node for adding additional transformations to the scene graph." alt="" coords="768,1911,1020,1951"/>
+<area shape="poly" id="edge42_Node000038_Node000044" title=" " alt="" coords="704,1909,768,1916,768,1921,703,1915"/>
+<area shape="rect" id="Node000045" href="$classnirt_1_1scene_1_1ILightSceneNode.html" title="Scene node which is a dynamic light." alt="" coords="791,1976,997,2001"/>
+<area shape="poly" id="edge43_Node000038_Node000045" title=" " alt="" coords="698,1916,721,1925,736,1934,746,1943,755,1953,769,1961,805,1973,804,1978,767,1966,752,1957,742,1947,733,1938,719,1930,696,1921"/>
+<area shape="rect" id="Node000046" href="$classnirt_1_1scene_1_1IMeshSceneNode.html" title="A scene node displaying a static mesh." alt="" coords="789,2025,999,2051"/>
+<area shape="poly" id="edge44_Node000038_Node000046" title=" " alt="" coords="704,1915,722,1925,740,1947,746,1970,753,1992,770,2012,790,2023,787,2028,766,2016,748,1995,741,1972,735,1950,718,1929,701,1919"/>
+<area shape="rect" id="Node000048" href="$classnirt_1_1scene_1_1IParticleSystemSceneNode.html" title=" " alt="" coords="795,2075,993,2115"/>
+<area shape="poly" id="edge45_Node000038_Node000048" title=" " alt="" coords="704,1914,722,1925,736,1942,744,1960,747,1995,750,2029,757,2045,770,2061,796,2078,793,2083,766,2065,752,2048,745,2030,742,1995,739,1961,732,1945,718,1929,701,1918"/>
+<area shape="rect" id="Node000049" href="$classnirt_1_1scene_1_1IShadowVolumeSceneNode.html" title="Scene node for rendering a shadow volume into a stencil buffer." alt="" coords="793,2139,995,2179"/>
+<area shape="poly" id="edge46_Node000038_Node000049" title=" " alt="" coords="704,1913,722,1925,741,1950,749,1976,750,2002,747,2027,745,2052,745,2077,753,2101,770,2125,794,2142,791,2147,766,2129,748,2104,740,2078,739,2052,742,2027,744,2001,743,1977,736,1953,718,1929,701,1917"/>
+<area shape="rect" id="Node000050" href="$classnirt_1_1scene_1_1ITerrainSceneNode.html" title="A scene node for displaying terrain using the geo mip map algorithm." alt="" coords="785,2204,1003,2229"/>
+<area shape="poly" id="edge47_Node000038_Node000050" title=" " alt="" coords="705,1912,722,1925,745,1959,753,1993,752,2026,746,2060,741,2093,740,2126,748,2158,770,2189,786,2202,783,2206,766,2193,743,2160,734,2127,735,2093,741,2059,747,2026,748,1993,740,1961,718,1929,701,1917"/>
 </map>

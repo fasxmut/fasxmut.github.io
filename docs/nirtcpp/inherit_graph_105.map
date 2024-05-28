@@ -1,24 +1,45 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$structnirt_1_1scene_1_1IVertexManipulator.html" title="Interface for vertex manipulators." alt="" coords="5,666,228,693"/>
-<area shape="rect" id="node2" href="$classnirt_1_1scene_1_1SVertexColorBrightnessManipulator.html" title="Vertex manipulator which adjusts the brightness by the given amount." alt="" coords="313,5,496,47"/>
-<area shape="rect" id="node3" href="$classnirt_1_1scene_1_1SVertexColorContrastBrightnessManipulator.html" title="Vertex manipulator which adjusts the contrast by the given factor and brightness by a signed amount." alt="" coords="293,71,517,112"/>
-<area shape="rect" id="node4" href="$classnirt_1_1scene_1_1SVertexColorContrastManipulator.html" title="Vertex manipulator which adjusts the contrast by the given factor." alt="" coords="313,136,496,177"/>
-<area shape="rect" id="node5" href="$classnirt_1_1scene_1_1SVertexColorDesaturateToAverageManipulator.html" title="Vertex manipulator which desaturates the color values." alt="" coords="285,201,524,243"/>
-<area shape="rect" id="node6" href="$classnirt_1_1scene_1_1SVertexColorDesaturateToLightnessManipulator.html" title="Vertex manipulator which desaturates the color values." alt="" coords="281,267,529,308"/>
-<area shape="rect" id="node7" href="$classnirt_1_1scene_1_1SVertexColorDesaturateToLuminanceManipulator.html" title="Vertex manipulator which desaturates the color values." alt="" coords="276,332,533,373"/>
-<area shape="rect" id="node8" href="$classnirt_1_1scene_1_1SVertexColorGammaManipulator.html" title="Vertex manipulator which adjusts the brightness by a gamma operation." alt="" coords="313,397,496,439"/>
-<area shape="rect" id="node9" href="$classnirt_1_1scene_1_1SVertexColorInterpolateLinearManipulator.html" title="Vertex manipulator which interpolates the color values." alt="" coords="299,463,510,504"/>
-<area shape="rect" id="node10" href="$classnirt_1_1scene_1_1SVertexColorInterpolateQuadraticManipulator.html" title="Vertex manipulator which interpolates the color values." alt="" coords="287,528,522,569"/>
-<area shape="rect" id="node11" href="$classnirt_1_1scene_1_1SVertexColorInvertManipulator.html" title="Vertex manipulator which inverts the RGB values." alt="" coords="313,593,496,635"/>
-<area shape="rect" id="node12" href="$classnirt_1_1scene_1_1SVertexColorScaleManipulator.html" title="Vertex manipulator which scales the color values." alt="" coords="313,659,496,700"/>
-<area shape="rect" id="node13" href="$classnirt_1_1scene_1_1SVertexColorSetAlphaManipulator.html" title="Vertex manipulator to set the alpha value of the vertex color to a fixed value." alt="" coords="313,724,496,765"/>
-<area shape="rect" id="node14" href="$classnirt_1_1scene_1_1SVertexColorSetManipulator.html" title="Vertex manipulator to set color to a fixed color for all vertices." alt="" coords="313,789,496,831"/>
-<area shape="rect" id="node15" href="$classnirt_1_1scene_1_1SVertexColorThresholdManipulator.html" title="Vertex manipulator to set vertex color to one of two values depending on a given threshold." alt="" coords="313,855,496,896"/>
-<area shape="rect" id="node16" href="$classnirt_1_1scene_1_1SVertexNormalRotateScaleManipulator.html" title="Vertex manipulator which transforms the normal of the vertex with the rotate/scale part of the given ..." alt="" coords="307,920,503,961"/>
-<area shape="rect" id="node17" href="$classnirt_1_1scene_1_1SVertexNormalTransformManipulator.html" title="Vertex manipulator which transforms the normal of the vertex." alt="" coords="307,985,503,1027"/>
-<area shape="rect" id="node18" href="$classnirt_1_1scene_1_1SVertexNormalizeNormalManipulator.html" title="Vertex manipulator which normalizes the normal of the vertex." alt="" coords="297,1051,512,1092"/>
-<area shape="rect" id="node19" href="$classnirt_1_1scene_1_1SVertexPositionScaleAlongNormalsManipulator.html" title="Vertex manipulator which scales the position of the vertex along the normals." alt="" coords="291,1116,518,1157"/>
-<area shape="rect" id="node20" href="$classnirt_1_1scene_1_1SVertexPositionScaleManipulator.html" title="Vertex manipulator which scales the position of the vertex." alt="" coords="305,1181,505,1223"/>
-<area shape="rect" id="node21" href="$classnirt_1_1scene_1_1SVertexPositionTransformManipulator.html" title="Vertex manipulator which transforms the position of the vertex." alt="" coords="305,1247,505,1288"/>
-<area shape="rect" id="node22" href="$classnirt_1_1scene_1_1SVertexTCoordsScaleManipulator.html" title="Vertex manipulator which scales the TCoords of the vertex." alt="" coords="305,1312,505,1353"/>
+<area shape="rect" id="Node000000" href="$classnirt_1_1scene_1_1IVertexManipulator.html" title="Interface for vertex manipulators." alt="" coords="5,653,228,678"/>
+<area shape="rect" id="Node000001" href="$classnirt_1_1scene_1_1SVertexColorBrightnessManipulator.html" title="Vertex manipulator which adjusts the brightness by the given amount." alt="" coords="313,5,496,45"/>
+<area shape="poly" id="edge131_Node000000_Node000001" title=" " alt="" coords="119,639,136,515,169,340,190,250,215,168,243,101,258,75,274,55,292,42,312,33,314,38,294,47,278,59,262,78,248,104,220,170,196,252,174,341,142,516,124,640"/>
+<area shape="rect" id="Node000002" href="$classnirt_1_1scene_1_1SVertexColorContrastBrightnessManipulator.html" title="Vertex manipulator which adjusts the contrast by the given factor and brightness by a signed amount." alt="" coords="293,69,517,109"/>
+<area shape="poly" id="edge132_Node000000_Node000002" title=" " alt="" coords="114,639,117,541,124,475,136,402,156,325,184,251,223,181,247,149,274,119,291,107,294,111,278,123,251,152,228,183,189,253,161,327,142,403,129,475,123,542,120,639"/>
+<area shape="rect" id="Node000003" href="$classnirt_1_1scene_1_1SVertexColorContrastManipulator.html" title="Vertex manipulator which adjusts the contrast by the given factor." alt="" coords="313,133,496,173"/>
+<area shape="poly" id="edge133_Node000000_Node000003" title=" " alt="" coords="116,639,122,551,131,493,145,428,164,362,192,297,228,236,274,183,292,170,312,161,314,166,295,175,278,187,232,239,197,299,170,364,150,430,136,494,128,552,121,639"/>
+<area shape="rect" id="Node000004" href="$classnirt_1_1scene_1_1SVertexColorDesaturateToAverageManipulator.html" title="Vertex manipulator which desaturates the color values." alt="" coords="285,197,524,237"/>
+<area shape="poly" id="edge134_Node000000_Node000004" title=" " alt="" coords="117,639,127,562,153,456,173,399,199,344,233,292,274,247,291,235,294,240,278,251,237,295,204,346,178,401,158,457,133,563,122,639"/>
+<area shape="rect" id="Node000005" href="$classnirt_1_1scene_1_1SVertexColorDesaturateToLightnessManipulator.html" title="Vertex manipulator which desaturates the color values." alt="" coords="281,261,529,301"/>
+<area shape="poly" id="edge135_Node000000_Node000005" title=" " alt="" coords="119,639,133,572,161,484,182,437,207,391,238,348,274,311,292,299,295,304,278,315,242,352,211,394,186,439,166,486,138,574,124,640"/>
+<area shape="rect" id="Node000006" href="$classnirt_1_1scene_1_1SVertexColorDesaturateToLuminanceManipulator.html" title="Vertex manipulator which desaturates the color values." alt="" coords="276,325,533,365"/>
+<area shape="poly" id="edge136_Node000000_Node000006" title=" " alt="" coords="122,639,140,583,170,512,190,474,214,438,242,404,274,375,294,363,297,368,278,379,246,408,219,441,195,477,175,514,145,585,127,640"/>
+<area shape="rect" id="Node000007" href="$classnirt_1_1scene_1_1SVertexColorGammaManipulator.html" title="Vertex manipulator which adjusts the brightness by a gamma operation." alt="" coords="313,389,496,429"/>
+<area shape="poly" id="edge137_Node000000_Node000007" title=" " alt="" coords="126,638,148,595,180,541,222,486,247,461,275,439,312,421,314,426,277,444,251,465,226,489,184,544,152,597,131,641"/>
+<area shape="rect" id="Node000008" href="$classnirt_1_1scene_1_1SVertexColorInterpolateLinearManipulator.html" title="Vertex manipulator which interpolates the color values." alt="" coords="299,453,510,493"/>
+<area shape="poly" id="edge138_Node000000_Node000008" title=" " alt="" coords="133,640,190,572,230,534,275,503,300,491,302,496,277,508,233,539,194,575,137,643"/>
+<area shape="rect" id="Node000009" href="$classnirt_1_1scene_1_1SVertexColorInterpolateQuadraticManipulator.html" title="Vertex manipulator which interpolates the color values." alt="" coords="287,517,522,557"/>
+<area shape="poly" id="edge139_Node000000_Node000009" title=" " alt="" coords="145,642,203,604,275,567,309,555,311,560,277,572,206,609,148,647"/>
+<area shape="rect" id="Node000010" href="$classnirt_1_1scene_1_1SVertexColorInvertManipulator.html" title="Vertex manipulator which inverts the RGB values." alt="" coords="313,581,496,621"/>
+<area shape="poly" id="edge140_Node000000_Node000010" title=" " alt="" coords="187,647,314,619,315,624,188,652"/>
+<area shape="rect" id="Node000011" href="$classnirt_1_1scene_1_1SVertexColorScaleManipulator.html" title="Vertex manipulator which scales the color values." alt="" coords="313,645,496,685"/>
+<area shape="poly" id="edge141_Node000000_Node000011" title=" " alt="" coords="242,663,313,663,313,668,242,668"/>
+<area shape="rect" id="Node000012" href="$classnirt_1_1scene_1_1SVertexColorSetAlphaManipulator.html" title="Vertex manipulator to set the alpha value of the vertex color to a fixed value." alt="" coords="313,709,496,749"/>
+<area shape="poly" id="edge142_Node000000_Node000012" title=" " alt="" coords="188,678,315,707,314,712,187,684"/>
+<area shape="rect" id="Node000013" href="$classnirt_1_1scene_1_1SVertexColorSetManipulator.html" title="Vertex manipulator to set color to a fixed color for all vertices." alt="" coords="313,773,496,813"/>
+<area shape="poly" id="edge143_Node000000_Node000013" title=" " alt="" coords="148,684,206,722,277,759,314,772,312,777,275,764,203,726,145,688"/>
+<area shape="rect" id="Node000014" href="$classnirt_1_1scene_1_1SVertexColorThresholdManipulator.html" title="Vertex manipulator to set vertex color to one of two values depending on a given threshold." alt="" coords="313,837,496,877"/>
+<area shape="poly" id="edge144_Node000000_Node000014" title=" " alt="" coords="137,687,194,755,233,792,277,823,314,839,312,844,275,828,230,796,190,759,133,691"/>
+<area shape="rect" id="Node000015" href="$classnirt_1_1scene_1_1SVertexNormalRotateScaleManipulator.html" title="Vertex manipulator which transforms the normal of the vertex with the rotate/scale part of the given ..." alt="" coords="307,901,503,941"/>
+<area shape="poly" id="edge145_Node000000_Node000015" title=" " alt="" coords="131,690,152,734,184,787,226,842,251,866,277,887,307,902,305,907,275,892,247,870,222,845,180,790,148,736,126,692"/>
+<area shape="rect" id="Node000016" href="$classnirt_1_1scene_1_1SVertexNormalTransformManipulator.html" title="Vertex manipulator which transforms the normal of the vertex." alt="" coords="307,965,503,1005"/>
+<area shape="poly" id="edge146_Node000000_Node000016" title=" " alt="" coords="127,691,145,746,175,816,195,854,219,890,246,923,278,951,307,968,305,972,274,956,242,926,214,893,190,856,170,819,140,747,122,692"/>
+<area shape="rect" id="Node000017" href="$classnirt_1_1scene_1_1SVertexNormalizeNormalManipulator.html" title="Vertex manipulator which normalizes the normal of the vertex." alt="" coords="297,1029,512,1069"/>
+<area shape="poly" id="edge147_Node000000_Node000017" title=" " alt="" coords="124,691,138,757,166,845,186,892,211,937,242,979,278,1015,298,1028,295,1033,274,1019,238,982,207,940,182,894,161,847,133,758,119,692"/>
+<area shape="rect" id="Node000018" href="$classnirt_1_1scene_1_1SVertexPositionScaleAlongNormalsManipulator.html" title="Vertex manipulator which scales the position of the vertex along the normals." alt="" coords="291,1093,518,1133"/>
+<area shape="poly" id="edge148_Node000000_Node000018" title=" " alt="" coords="122,691,133,768,158,873,178,929,204,984,237,1035,278,1079,294,1091,291,1095,274,1083,233,1038,199,987,173,931,153,875,127,769,117,692"/>
+<area shape="rect" id="Node000019" href="$classnirt_1_1scene_1_1SVertexPositionScaleManipulator.html" title="Vertex manipulator which scales the position of the vertex." alt="" coords="305,1157,505,1197"/>
+<area shape="poly" id="edge149_Node000000_Node000019" title=" " alt="" coords="121,692,128,779,136,837,150,901,170,967,197,1031,232,1091,278,1143,306,1161,303,1166,274,1147,228,1094,192,1034,164,968,145,902,131,838,122,779,116,692"/>
+<area shape="rect" id="Node000020" href="$classnirt_1_1scene_1_1SVertexPositionTransformManipulator.html" title="Vertex manipulator which transforms the position of the vertex." alt="" coords="305,1221,505,1261"/>
+<area shape="poly" id="edge150_Node000000_Node000020" title=" " alt="" coords="120,692,123,789,129,855,142,928,161,1004,189,1078,228,1147,251,1179,278,1207,306,1226,303,1230,274,1211,247,1182,223,1150,184,1080,156,1005,136,929,124,856,117,789,114,692"/>
+<area shape="rect" id="Node000021" href="$classnirt_1_1scene_1_1SVertexTCoordsScaleManipulator.html" title="Vertex manipulator which scales the TCoords of the vertex." alt="" coords="305,1285,505,1325"/>
+<area shape="poly" id="edge151_Node000000_Node000021" title=" " alt="" coords="124,691,142,814,174,989,196,1079,220,1160,248,1227,262,1252,278,1271,306,1290,303,1294,274,1275,258,1255,243,1229,215,1162,190,1080,169,991,136,815,119,692"/>
 </map>

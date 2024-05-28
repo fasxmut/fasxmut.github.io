@@ -23,8 +23,8 @@ var searchData=
   ['_7eiscenenode_20',['~ISceneNode',['../classnirt_1_1scene_1_1ISceneNode.html#aca577f0517689667831adc81f092b86d',1,'nirt::scene::ISceneNode']]],
   ['_7eiscenenodeanimatorcollisionresponse_21',['~ISceneNodeAnimatorCollisionResponse',['../classnirt_1_1scene_1_1ISceneNodeAnimatorCollisionResponse.html#a99343eb5ffcdbfaa0fcb84a1b3a00cb5',1,'nirt::scene::ISceneNodeAnimatorCollisionResponse']]],
   ['_7elist_22',['~list',['../classnirt_1_1core_1_1list.html#adfb35d5866f266eef20771049503a715',1,'nirt::core::list']]],
-  ['_7esanimatedmesh_23',['~SAnimatedMesh',['../structnirt_1_1scene_1_1SAnimatedMesh.html#a46c012279da9cab31dcb4aeb4eaa3542',1,'nirt::scene::SAnimatedMesh']]],
+  ['_7esanimatedmesh_23',['~SAnimatedMesh',['../classnirt_1_1scene_1_1SAnimatedMesh.html#a46c012279da9cab31dcb4aeb4eaa3542',1,'nirt::scene::SAnimatedMesh']]],
   ['_7esmateriallayer_24',['~SMaterialLayer',['../classnirt_1_1video_1_1SMaterialLayer.html#ad73ecd093000008ee14920533daf9d4c',1,'nirt::video::SMaterialLayer']]],
-  ['_7esmesh_25',['~SMesh',['../structnirt_1_1scene_1_1SMesh.html#ab6db79289f7ee9d8c3f16b8b8cdfd03e',1,'nirt::scene::SMesh']]],
+  ['_7esmesh_25',['~SMesh',['../classnirt_1_1scene_1_1SMesh.html#ab6db79289f7ee9d8c3f16b8b8cdfd03e',1,'nirt::scene::SMesh']]],
   ['_7estring_26',['~string',['../classnirt_1_1core_1_1string.html#abe995818f6202ca937e13c75ab663b06',1,'nirt::core::string']]]
 ];

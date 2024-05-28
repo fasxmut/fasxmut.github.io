@@ -1,7 +1,11 @@
 <map id="nirt::CProfileScope" name="nirt::CProfileScope">
-<area shape="rect" id="node1" title="Class where the objects profile their own life&#45;time." alt="" coords="132,289,273,316"/>
-<area shape="rect" id="node2" href="$classnirt_1_1IProfiler.html" title="Code&#45;profiler. Please check the example in the Nirtcpp examples folder about how to use it." alt="" coords="151,200,254,227"/>
-<area shape="rect" id="node3" href="$classnirt_1_1ITimer.html" title="Interface for getting and manipulating the virtual time." alt="" coords="46,89,141,115"/>
-<area shape="rect" id="node4" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="5,5,181,32"/>
-<area shape="rect" id="node5" href="$classnirt_1_1core_1_1array.html" title=" " alt="" coords="165,81,315,123"/>
+<area shape="rect" id="Node000001" title="Class where the objects profile their own life&#45;time." alt="" coords="132,285,273,311"/>
+<area shape="rect" id="Node000002" href="$classnirt_1_1IProfiler.html" title="Code&#45;profiler. Please check the example in the Nirtcpp examples folder about how to use it." alt="" coords="151,197,254,223"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,237,205,285,200,285,200,237"/>
+<area shape="rect" id="Node000003" href="$classnirt_1_1ITimer.html" title="Interface for getting and manipulating the virtual time." alt="" coords="46,87,141,113"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="117,121,193,195,189,199,113,125"/>
+<area shape="rect" id="Node000004" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="5,5,181,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="96,44,96,87,91,87,91,44"/>
+<area shape="rect" id="Node000005" href="$classnirt_1_1core_1_1array.html" title=" " alt="" coords="165,80,315,120"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="231,134,209,198,204,196,226,132"/>
 </map>

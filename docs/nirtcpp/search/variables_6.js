@@ -2,7 +2,7 @@ var searchData=
 [
   ['g_0',['g',['../classnirt_1_1video_1_1SColorf.html#a7a24535fe5d7b1f04b2b43fadc7116ab',1,'nirt::video::SColorf']]],
   ['geometry_5fshader_5ftype_5fnames_1',['GEOMETRY_SHADER_TYPE_NAMES',['../namespacenirt_1_1video.html#abde2be190e7749bc7a614802daaefe2d',1,'nirt::video']]],
-  ['globalmatrix_2',['GlobalMatrix',['../structnirt_1_1scene_1_1ISkinnedMesh_1_1SJoint.html#a4c484c532a658948180cb1282ca4da98',1,'nirt::scene::ISkinnedMesh::SJoint']]],
+  ['globalmatrix_2',['GlobalMatrix',['../classnirt_1_1scene_1_1ISkinnedMesh_1_1SJoint.html#a4c484c532a658948180cb1282ca4da98',1,'nirt::scene::ISkinnedMesh::SJoint']]],
   ['gouraudshading_3',['GouraudShading',['../classnirt_1_1video_1_1SMaterial.html#a5408a0e027e6a32a5b0b990aea283a58',1,'nirt::video::SMaterial']]],
   ['guialignmentnames_4',['GUIAlignmentNames',['../namespacenirt_1_1gui.html#aecaf4931ed87439e0253ad6adc273c86',1,'nirt::gui']]],
   ['guibuttonimagestatenames_5',['GUIButtonImageStateNames',['../namespacenirt_1_1gui.html#a8f60fde6c2576cfc88c8d6652561d532',1,'nirt::gui']]],

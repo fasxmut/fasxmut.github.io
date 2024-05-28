@@ -1,6 +1,9 @@
 <map id="nirt::scene::CIndexBuffer" name="nirt::scene::CIndexBuffer">
-<area shape="rect" id="node1" title=" " alt="" coords="155,185,337,212"/>
-<area shape="rect" id="node2" href="$classnirt_1_1scene_1_1IIndexBuffer.html" title=" " alt="" coords="5,89,183,115"/>
-<area shape="rect" id="node3" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="6,5,182,32"/>
-<area shape="rect" id="node4" title=" " alt="" coords="207,81,389,123"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="155,183,337,208"/>
+<area shape="rect" id="Node000002" href="$classnirt_1_1scene_1_1IIndexBuffer.html" title=" " alt="" coords="5,87,183,113"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="126,118,229,180,226,185,123,122"/>
+<area shape="rect" id="Node000003" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="6,5,182,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="97,44,97,87,91,87,91,44"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="207,80,389,120"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="283,133,255,184,250,181,279,131"/>
 </map>

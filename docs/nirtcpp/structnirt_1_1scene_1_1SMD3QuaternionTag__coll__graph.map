@@ -1,5 +1,0 @@
-<map id="nirt::scene::SMD3QuaternionTag" name="nirt::scene::SMD3QuaternionTag">
-<area shape="rect" id="node1" title="hold a tag info for connecting meshes" alt="" coords="51,109,281,136"/>
-<area shape="rect" id="node2" href="$classnirt_1_1core_1_1vector3d.html" title=" " alt="" coords="5,5,151,47"/>
-<area shape="rect" id="node3" href="$classnirt_1_1core_1_1quaternion.html" title="Quaternion class for representing rotations." alt="" coords="175,13,333,39"/>
-</map>

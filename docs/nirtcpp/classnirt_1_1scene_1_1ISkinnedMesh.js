@@ -1,10 +1,10 @@
 var classnirt_1_1scene_1_1ISkinnedMesh =
 [
-    [ "SJoint", "structnirt_1_1scene_1_1ISkinnedMesh_1_1SJoint.html", "structnirt_1_1scene_1_1ISkinnedMesh_1_1SJoint" ],
-    [ "SPositionKey", "structnirt_1_1scene_1_1ISkinnedMesh_1_1SPositionKey.html", null ],
-    [ "SRotationKey", "structnirt_1_1scene_1_1ISkinnedMesh_1_1SRotationKey.html", null ],
-    [ "SScaleKey", "structnirt_1_1scene_1_1ISkinnedMesh_1_1SScaleKey.html", null ],
-    [ "SWeight", "structnirt_1_1scene_1_1ISkinnedMesh_1_1SWeight.html", "structnirt_1_1scene_1_1ISkinnedMesh_1_1SWeight" ],
+    [ "SJoint", "classnirt_1_1scene_1_1ISkinnedMesh_1_1SJoint.html", "classnirt_1_1scene_1_1ISkinnedMesh_1_1SJoint" ],
+    [ "SPositionKey", "classnirt_1_1scene_1_1ISkinnedMesh_1_1SPositionKey.html", null ],
+    [ "SRotationKey", "classnirt_1_1scene_1_1ISkinnedMesh_1_1SRotationKey.html", null ],
+    [ "SScaleKey", "classnirt_1_1scene_1_1ISkinnedMesh_1_1SScaleKey.html", null ],
+    [ "SWeight", "classnirt_1_1scene_1_1ISkinnedMesh_1_1SWeight.html", "classnirt_1_1scene_1_1ISkinnedMesh_1_1SWeight" ],
     [ "addJoint", "classnirt_1_1scene_1_1ISkinnedMesh.html#ab4ed14239c77629b53630bad0ef3c0a6", null ],
     [ "addMeshBuffer", "classnirt_1_1scene_1_1ISkinnedMesh.html#a408172d9666270a09da193dcc4632b06", null ],
     [ "addPositionKey", "classnirt_1_1scene_1_1ISkinnedMesh.html#aa5e62c6af5900a8f5752d0aa231e9bf9", null ],

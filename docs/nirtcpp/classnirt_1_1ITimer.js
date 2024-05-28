@@ -1,6 +1,6 @@
 var classnirt_1_1ITimer =
 [
-    [ "RealTimeDate", "structnirt_1_1ITimer_1_1RealTimeDate.html", null ],
+    [ "RealTimeDate", "classnirt_1_1ITimer_1_1RealTimeDate.html", null ],
     [ "getRealTime", "classnirt_1_1ITimer.html#ab2abddf8fcd99dbec6d347a00676e0aa", null ],
     [ "getSpeed", "classnirt_1_1ITimer.html#ac6b4e2935b4e930dd13c3780815c4ab7", null ],
     [ "getTime", "classnirt_1_1ITimer.html#aefa8211b03922d1f4e2db949e2308dc2", null ],

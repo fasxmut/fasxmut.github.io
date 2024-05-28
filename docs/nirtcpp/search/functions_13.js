@@ -3,7 +3,7 @@ var searchData=
   ['unlock_0',['unlock',['../classnirt_1_1video_1_1ITexture.html#aa6510b24e0dde5f461af5eeabdf412f5',1,'nirt::video::ITexture::unlock()'],['../classnirt_1_1video_1_1IImage.html#a4f5cf164777e38497f812c895cae01f7',1,'nirt::video::IImage::unlock()']]],
   ['unpack_5ftextureblendfunc_1',['unpack_textureBlendFunc',['../namespacenirt_1_1video.html#a3c6ecb354c3250e16757e5c127a8ac86',1,'nirt::video']]],
   ['unpack_5ftextureblendfuncseparate_2',['unpack_textureBlendFuncSeparate',['../namespacenirt_1_1video.html#a3a3e98ad120a1683ba5c923ad04ff84c',1,'nirt::video']]],
-  ['updateabsoluteposition_3',['updateAbsolutePosition',['../classnirt_1_1scene_1_1ISceneNode.html#aaf50c22308084386e8c45e260485df9b',1,'nirt::scene::ISceneNode::updateAbsolutePosition()'],['../classnirt_1_1gui_1_1IGUIElement.html#a08fa2ea8473d656d2f99bf3913bb9ead',1,'nirt::gui::IGUIElement::updateAbsolutePosition()']]],
+  ['updateabsoluteposition_3',['updateabsoluteposition',['../classnirt_1_1scene_1_1ISceneNode.html#aaf50c22308084386e8c45e260485df9b',1,'nirt::scene::ISceneNode::updateAbsolutePosition()'],['../classnirt_1_1gui_1_1IGUIElement.html#a08fa2ea8473d656d2f99bf3913bb9ead',1,'nirt::gui::IGUIElement::updateAbsolutePosition()']]],
   ['updateabsolutepositionofallchildren_4',['updateAbsolutePositionOfAllChildren',['../classnirt_1_1scene_1_1IBoneSceneNode.html#a0fbc02f4f3ede85717facb24f3c76176',1,'nirt::scene::IBoneSceneNode']]],
   ['updateallocclusionqueries_5',['updateAllOcclusionQueries',['../classnirt_1_1video_1_1IVideoDriver.html#ac23126c5722e833fb885173fd8bf927b',1,'nirt::video::IVideoDriver']]],
   ['updatematrices_6',['updateMatrices',['../classnirt_1_1scene_1_1ICameraSceneNode.html#a51c5b77d0729318835564e2bf76651f1',1,'nirt::scene::ICameraSceneNode']]],

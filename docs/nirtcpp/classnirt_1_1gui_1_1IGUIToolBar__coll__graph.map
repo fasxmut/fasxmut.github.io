@@ -1,12 +1,23 @@
 <map id="nirt::gui::IGUIToolBar" name="nirt::gui::IGUIToolBar">
-<area shape="rect" id="node1" title="Stays at the top of its parent like the menu bar and contains tool buttons." alt="" coords="843,157,999,183"/>
-<area shape="rect" id="node2" href="$classnirt_1_1gui_1_1IGUIElement.html" title="Base class of all GUI elements." alt="" coords="631,157,793,183"/>
-<area shape="rect" id="node3" href="$classnirt_1_1io_1_1IAttributeExchangingObject.html" title="An object which is able to serialize and deserialize its attributes into an attributes object." alt="" coords="231,5,439,47"/>
-<area shape="rect" id="node4" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="5,43,181,70"/>
-<area shape="rect" id="node10" href="$classnirt_1_1gui_1_1IGUIEnvironment.html" title="GUI Environment. Used as factory and manager of all other GUI elements." alt="" coords="239,71,430,98"/>
-<area shape="rect" id="node5" href="$classnirt_1_1IEventReceiver.html" title="Interface of an object which can receive events." alt="" coords="259,122,410,149"/>
-<area shape="rect" id="node6" href="$classnirt_1_1core_1_1list.html" title=" " alt="" coords="251,173,418,215"/>
-<area shape="rect" id="node7" href="$classnirt_1_1core_1_1rect.html" title=" " alt="" coords="251,258,418,285"/>
-<area shape="rect" id="node8" href="$classnirt_1_1core_1_1rect.html" title=" " alt="" coords="253,309,417,335"/>
-<area shape="rect" id="node9" href="$classnirt_1_1core_1_1dimension2d.html" title=" " alt="" coords="249,361,421,403"/>
+<area shape="rect" id="Node000001" title="Stays at the top of its parent like the menu bar and contains tool buttons." alt="" coords="843,154,999,179"/>
+<area shape="rect" id="Node000002" href="$classnirt_1_1gui_1_1IGUIElement.html" title="Base class of all GUI elements." alt="" coords="631,154,793,179"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="807,164,842,164,842,169,807,169"/>
+<area shape="poly" id="edge6_Node000002_Node000002" title=" " alt="" coords="691,139,697,131,712,127,725,130,732,136,734,146,731,155,726,153,729,145,728,139,722,135,712,133,700,135,695,142"/>
+<area shape="rect" id="Node000003" href="$classnirt_1_1io_1_1IAttributeExchangingObject.html" title="An object which is able to serialize and deserialize its attributes into an attributes object." alt="" coords="231,5,439,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="454,35,531,52,608,80,636,96,662,116,700,152,697,156,658,120,633,101,606,85,530,57,452,40"/>
+<area shape="rect" id="Node000004" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="5,42,181,67"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="195,40,230,35,231,41,195,45"/>
+<area shape="rect" id="Node000010" href="$classnirt_1_1gui_1_1IGUIEnvironment.html" title="GUI Environment. Used as factory and manager of all other GUI elements." alt="" coords="239,70,430,95"/>
+<area shape="poly" id="edge11_Node000010_Node000004" title=" " alt="" coords="195,64,240,69,239,74,195,69"/>
+<area shape="rect" id="Node000005" href="$classnirt_1_1IEventReceiver.html" title="Interface of an object which can receive events." alt="" coords="259,119,410,145"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="424,136,607,152,631,155,630,160,606,157,423,141"/>
+<area shape="rect" id="Node000006" href="$classnirt_1_1core_1_1list.html" title=" " alt="" coords="251,169,418,209"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="432,181,630,169,631,174,432,186"/>
+<area shape="rect" id="Node000007" href="$classnirt_1_1core_1_1rect.html" title=" " alt="" coords="251,257,418,282"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="432,280,518,279,563,272,606,259,636,242,662,220,700,178,704,181,666,224,639,247,608,264,564,277,519,284,432,285"/>
+<area shape="rect" id="Node000008" href="$classnirt_1_1core_1_1rect.html" title=" " alt="" coords="253,306,417,331"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="430,330,473,331,518,328,563,318,605,302,641,275,669,240,690,206,703,178,708,181,695,208,673,243,645,279,608,306,565,324,519,333,473,336,429,335"/>
+<area shape="rect" id="Node000009" href="$classnirt_1_1core_1_1dimension2d.html" title=" " alt="" coords="249,357,421,397"/>
+<area shape="poly" id="edge9_Node000002_Node000009" title=" " alt="" coords="435,394,477,397,522,394,565,384,605,366,629,347,649,324,679,270,697,218,706,179,711,180,702,219,684,272,653,327,633,351,608,370,567,389,523,399,477,402,434,400"/>
+<area shape="poly" id="edge10_Node000002_Node000010" title=" " alt="" coords="443,95,524,109,607,128,679,151,677,157,606,133,523,114,442,100"/>
 </map>

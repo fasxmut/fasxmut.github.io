@@ -1,4 +1,5 @@
 <map id="nirt::scene::IMeshBuffer" name="nirt::scene::IMeshBuffer">
-<area shape="rect" id="node1" title="Struct for holding a mesh with a single material." alt="" coords="5,80,181,107"/>
-<area shape="rect" id="node2" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="5,5,181,32"/>
+<area shape="rect" id="Node000001" title="Struct for holding a mesh with a single material." alt="" coords="5,79,181,104"/>
+<area shape="rect" id="Node000002" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="5,5,181,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,44,96,79,91,79,91,44"/>
 </map>

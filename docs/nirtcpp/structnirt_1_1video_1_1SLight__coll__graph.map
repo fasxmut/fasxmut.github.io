@@ -1,5 +1,0 @@
-<map id="nirt::video::SLight" name="nirt::video::SLight">
-<area shape="rect" id="node1" title="structure for holding data describing a dynamic point light." alt="" coords="93,139,229,165"/>
-<area shape="rect" id="node2" href="$classnirt_1_1video_1_1SColorf.html" title="Class representing a color with four floats." alt="" coords="5,13,148,39"/>
-<area shape="rect" id="node3" href="$classnirt_1_1core_1_1vector3d.html" title=" " alt="" coords="172,5,317,47"/>
-</map>

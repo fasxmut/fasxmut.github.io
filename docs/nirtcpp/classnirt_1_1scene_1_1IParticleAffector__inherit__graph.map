@@ -1,9 +1,15 @@
 <map id="nirt::scene::IParticleAffector" name="nirt::scene::IParticleAffector">
-<area shape="rect" id="node1" title="A particle affector modifies particles." alt="" coords="485,111,687,138"/>
-<area shape="rect" id="node4" href="$classnirt_1_1scene_1_1IParticleAttractionAffector.html" title="A particle affector which attracts or detracts particles." alt="" coords="735,5,949,47"/>
-<area shape="rect" id="node5" href="$classnirt_1_1scene_1_1IParticleFadeOutAffector.html" title="A particle affector which fades out the particles." alt="" coords="752,71,932,112"/>
-<area shape="rect" id="node6" href="$classnirt_1_1scene_1_1IParticleGravityAffector.html" title="A particle affector which applies gravity to particles." alt="" coords="743,136,941,177"/>
-<area shape="rect" id="node7" href="$classnirt_1_1scene_1_1IParticleRotationAffector.html" title="A particle affector which rotates the particle system." alt="" coords="739,201,945,243"/>
-<area shape="rect" id="node2" href="$classnirt_1_1io_1_1IAttributeExchangingObject.html" title="An object which is able to serialize and deserialize its attributes into an attributes object." alt="" coords="229,104,437,145"/>
-<area shape="rect" id="node3" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="5,111,181,138"/>
+<area shape="rect" id="Node000001" title="A particle affector modifies particles." alt="" coords="485,109,687,134"/>
+<area shape="rect" id="Node000004" href="$classnirt_1_1scene_1_1IParticleAttractionAffector.html" title="A particle affector which attracts or detracts particles." alt="" coords="735,5,949,45"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="625,100,734,55,769,43,771,48,736,60,627,105"/>
+<area shape="rect" id="Node000005" href="$classnirt_1_1scene_1_1IParticleFadeOutAffector.html" title="A particle affector which fades out the particles." alt="" coords="752,69,932,109"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="700,104,752,98,752,103,701,110"/>
+<area shape="rect" id="Node000006" href="$classnirt_1_1scene_1_1IParticleGravityAffector.html" title="A particle affector which applies gravity to particles." alt="" coords="743,133,941,173"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="700,133,743,138,742,144,700,138"/>
+<area shape="rect" id="Node000007" href="$classnirt_1_1scene_1_1IParticleRotationAffector.html" title="A particle affector which rotates the particle system." alt="" coords="739,197,945,237"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="627,137,736,183,771,195,769,200,734,188,625,142"/>
+<area shape="rect" id="Node000002" href="$classnirt_1_1io_1_1IAttributeExchangingObject.html" title="An object which is able to serialize and deserialize its attributes into an attributes object." alt="" coords="229,101,437,141"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="451,119,485,119,485,124,451,124"/>
+<area shape="rect" id="Node000003" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="5,109,181,134"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="195,119,229,119,229,124,195,124"/>
 </map>

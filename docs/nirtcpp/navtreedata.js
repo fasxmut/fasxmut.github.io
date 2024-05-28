@@ -25,11 +25,7 @@
 var NAVTREE =
 [
   [ "Nirtcpp", "index.html", [
-    [ "Nirtcpp c++ API documentation", "index.html", [
-      [ "Nirtcpp Engine", "index.html#description", null ],
-      [ "c++ example", "index.html#example", null ],
-      [ "Links", "index.html#links", null ]
-    ] ],
+    [ "Nirtcpp c++ API documentation", "index.html", "index" ],
     [ "Deprecated List", "deprecated.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
@@ -52,7 +48,7 @@ var NAVTREE =
         [ "Variables", "functions_vars.html", "functions_vars" ],
         [ "Enumerations", "functions_enum.html", null ],
         [ "Enumerator", "functions_eval.html", null ],
-        [ "Related Functions", "functions_rela.html", null ]
+        [ "Related Symbols", "functions_rela.html", null ]
       ] ]
     ] ]
   ] ]
@@ -61,36 +57,36 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"classnirt_1_1SNirtcppCreationParameters.html#aa5e173011fdb19cf52cceb37c773061e",
-"classnirt_1_1core_1_1aabbox3d.html#abd337e4a8e925f48b148d370191e16da",
-"classnirt_1_1core_1_1list.html#a249df2ee4d96e73e7c05055e821a4b74",
-"classnirt_1_1core_1_1string.html#a15d499d98356599624cde6450e19eb81",
-"classnirt_1_1core_1_1vector3d.html#a4de10a687063ed74db4833b9d84a60dc",
-"classnirt_1_1gui_1_1IGUIEditBox.html#a10a5027d2e74c482dada963cc8de5e2c",
-"classnirt_1_1gui_1_1IGUIEnvironment.html#a0d20bd5bb1c2347ff92fd9ba64c0bd81",
-"classnirt_1_1gui_1_1IGUIListBox.html#a5b0667cef9ef0a0c17fbbbed593bab5e",
-"classnirt_1_1gui_1_1IGUITab.html#a921270027a8cfe2fb2c0896444339a56",
-"classnirt_1_1gui_1_1IGUITreeViewNode.html#afab3ccc317ff7c64b2b17bb00781324b",
-"classnirt_1_1io_1_1IAttributes.html#acce65b1b038690904fa92aa5c4717cec",
-"classnirt_1_1io_1_1IIrrXMLWriter.html#ac819a833e49814caed94d9ae4190bc43",
-"classnirt_1_1scene_1_1IAnimatedMeshSceneNode.html#a393571fa163837d1116a1de4ac04caf2",
-"classnirt_1_1scene_1_1IColladaMeshWriterProperties.html#aea168096e014d5d8810787a742313c08",
-"classnirt_1_1scene_1_1IMeshCache.html#a46a1b7e2286b7661bb56034f9e64905e",
-"classnirt_1_1scene_1_1IParticleBoxEmitter.html",
-"classnirt_1_1scene_1_1ISceneLoader.html",
-"classnirt_1_1scene_1_1ISceneNode.html#a347150e2d713c4ab74f504a71937a6c7",
-"classnirt_1_1scene_1_1ISceneNodeAnimatorFactory.html#a7bd2b16d9a91e03a7c6a5114530c0aa6",
-"classnirt_1_1video_1_1IContextManager.html#a4c02ee1bf9e690131dc5d5220a134c66",
-"classnirt_1_1video_1_1IVideoDriver.html",
-"classnirt_1_1video_1_1IVideoDriver.html#aef54c17dfecc2f7a20ea583b1559575f",
-"functions_b.html",
-"namespacenirt_1_1core.html#a903fad87ae11426d979c045cfc8928a8",
-"namespacenirt_1_1gui.html#ae7ce16cc209f7a57cfd8a1677d1484d5ab796067cd5c625e6365e81f83fd88f71",
-"namespacenirt_1_1scene.html#a962629fcc3a07a2e6dd18e9a395de41ca131e259cbc8cc2b26b8c2280c25fe693",
-"namespacenirt_1_1video.html#a51b143deb173b016bbd54963855f0ec6a4efdf8a987892cef9d4eb49938da0876",
-"namespacenirt_1_1video.html#ae9e77577e028f978efd3589e7b58f291ae03185b332e24a0fdf2519772ce386d5",
-"structnirt_1_1scene_1_1SCollisionTriangleRange.html#a1ff793b6303906d897095a34750822f6",
-"structnirt_1_1scene_1_1SSkinMeshBuffer.html#aee259e5a0f5d2f98f136b49b2686e449"
+"classnirt_1_1SEvent_1_1SLogEvent.html",
+"classnirt_1_1core_1_1CMatrix4.html#ac5cd18a32a8d7211e6eafdc48b042380",
+"classnirt_1_1core_1_1irrAllocatorFast.html#a780605864d7e9c743814a282910ef8df",
+"classnirt_1_1core_1_1quaternion.html#a9ff055279bb18d82557c6a7961744d01",
+"classnirt_1_1core_1_1triangle3d.html#a80d1b546a7b02aac051c234c92f0e5b9",
+"classnirt_1_1gui_1_1IGUICheckBox.html#a972bd2f0a9076002e366def8e2ac4fbb",
+"classnirt_1_1gui_1_1IGUIElement.html#a95fb8f2f5fb68dba18dd93e693bf6802",
+"classnirt_1_1gui_1_1IGUIFontBitmap.html",
+"classnirt_1_1gui_1_1IGUISpinBox.html#a5a6647c88ab1135fbe1b40fd29d3e8f1",
+"classnirt_1_1gui_1_1IGUITreeView.html#a4490cfcafd4f367a5e2b33128b40318e",
+"classnirt_1_1io_1_1IAttributes.html#a7016a63f61b6340424e8e6586f21eb64",
+"classnirt_1_1io_1_1IFileSystem.html#a6dea0d75ea5ff79233ebd7b36211bbeb",
+"classnirt_1_1scene_1_1CMeshBuffer.html#a445a171b2e1d7fbb7227d3bb770fcd67",
+"classnirt_1_1scene_1_1ICameraSceneNode.html#a2e4841846fa6d6a42e8fe358527a12d1",
+"classnirt_1_1scene_1_1ILightManager.html#a5b6be50afd231f343bef688a5e11bdf0",
+"classnirt_1_1scene_1_1IMeshManipulator.html#ac567ebff5a3b99421a4760c0ea2fb548",
+"classnirt_1_1scene_1_1IParticleMeshEmitter.html#aedc40dc9a71224eb514e0a3cc47b0bd6",
+"classnirt_1_1scene_1_1ISceneManager.html#a81b156dfb002204783f9f4bacf9c3d62",
+"classnirt_1_1scene_1_1ISceneNodeAnimator.html",
+"classnirt_1_1scene_1_1ITerrainSceneNode.html",
+"classnirt_1_1scene_1_1SMesh.html#ae27c159380d8eebd0ab3ec54e0d25d9b",
+"classnirt_1_1scene_1_1SViewFrustum.html#a0ee0dc28db6e859b04cd1daa904fbdf0",
+"classnirt_1_1video_1_1IRenderTarget.html#a2288959cee4bf877bd68da246fa7bcb5",
+"classnirt_1_1video_1_1IVideoDriver.html#aba231b0e933e77830c8e4bca5258358d",
+"classnirt_1_1video_1_1SColorf.html#afc29c363f23756e2d3c9775bf7fde460",
+"functions_t.html",
+"namespacenirt_1_1gui.html#a04ab7f0775c507d0b06bd14ebc844f89afb31e3e5d274f673fa7cb12188433a0b",
+"namespacenirt_1_1gui.html#aed96991fb9b57fc2d21c86768f6f3275acdee15c1ae3605172a96bef5e8af9973",
+"namespacenirt_1_1scene.html#ac13544a39c1318a00535801c0e2d71cfa56b88692d3e1a1747ab724d94310547e",
+"namespacenirt_1_1video.html#a6ac58a2d78f9083a91de50484e466e82a2b2e4d33811351d88bf329c4a4c0df27"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

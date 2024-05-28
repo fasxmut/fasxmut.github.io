@@ -31,9 +31,9 @@ var namespacenirt_1_1gui =
     [ "IGUITreeView", "classnirt_1_1gui_1_1IGUITreeView.html", "classnirt_1_1gui_1_1IGUITreeView" ],
     [ "IGUITreeViewNode", "classnirt_1_1gui_1_1IGUITreeViewNode.html", "classnirt_1_1gui_1_1IGUITreeViewNode" ],
     [ "IGUIWindow", "classnirt_1_1gui_1_1IGUIWindow.html", "classnirt_1_1gui_1_1IGUIWindow" ],
-    [ "SCursorSprite", "structnirt_1_1gui_1_1SCursorSprite.html", null ],
-    [ "SGUISprite", "structnirt_1_1gui_1_1SGUISprite.html", null ],
-    [ "SGUISpriteFrame", "structnirt_1_1gui_1_1SGUISpriteFrame.html", "structnirt_1_1gui_1_1SGUISpriteFrame" ],
+    [ "SCursorSprite", "classnirt_1_1gui_1_1SCursorSprite.html", null ],
+    [ "SGUISprite", "classnirt_1_1gui_1_1SGUISprite.html", null ],
+    [ "SGUISpriteFrame", "classnirt_1_1gui_1_1SGUISpriteFrame.html", "classnirt_1_1gui_1_1SGUISpriteFrame" ],
     [ "ECONTEXT_MENU_CLOSE", "namespacenirt_1_1gui.html#ac150bb2a24a97988bd657d366d01ae58", [
       [ "ECMC_IGNORE", "namespacenirt_1_1gui.html#ac150bb2a24a97988bd657d366d01ae58a28571c1d8bcdb21978aaa75060425ca6", null ],
       [ "ECMC_REMOVE", "namespacenirt_1_1gui.html#ac150bb2a24a97988bd657d366d01ae58a1780fd37e6ea67c850e0edb9e5797452", null ],

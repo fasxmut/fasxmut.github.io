@@ -1,5 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$structnirt_1_1video_1_1S3DVertex.html" title="standard vertex used by the Nirtcpp engine." alt="" coords="5,31,169,57"/>
-<area shape="rect" id="node2" href="$structnirt_1_1video_1_1S3DVertex2TCoords.html" title="Vertex with two texture coordinates." alt="" coords="217,5,441,32"/>
-<area shape="rect" id="node3" href="$structnirt_1_1video_1_1S3DVertexTangents.html" title="Vertex with a tangent and binormal vector." alt="" coords="218,56,441,83"/>
+<area shape="rect" id="Node000000" href="$classnirt_1_1video_1_1S3DVertex.html" title="standard vertex used by the Nirtcpp engine." alt="" coords="5,31,169,56"/>
+<area shape="rect" id="Node000001" href="$classnirt_1_1video_1_1S3DVertex2TCoords.html" title="Vertex with two texture coordinates." alt="" coords="217,5,441,31"/>
+<area shape="poly" id="edge152_Node000000_Node000001" title=" " alt="" coords="183,31,217,27,217,32,183,36"/>
+<area shape="rect" id="Node000002" href="$classnirt_1_1video_1_1S3DVertexTangents.html" title="Vertex with a tangent and binormal vector." alt="" coords="218,55,441,80"/>
+<area shape="poly" id="edge153_Node000000_Node000002" title=" " alt="" coords="184,50,218,54,218,59,183,55"/>
 </map>

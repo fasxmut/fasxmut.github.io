@@ -1,7 +1,0 @@
-<map id="nirt::video::S3DVertexTangents" name="nirt::video::S3DVertexTangents">
-<area shape="rect" id="node1" title="Vertex with a tangent and binormal vector." alt="" coords="16,203,239,229"/>
-<area shape="rect" id="node2" href="$structnirt_1_1video_1_1S3DVertex.html" title="standard vertex used by the Nirtcpp engine." alt="" coords="165,125,329,152"/>
-<area shape="rect" id="node3" href="$classnirt_1_1core_1_1vector3d.html" title=" " alt="" coords="5,5,151,47"/>
-<area shape="rect" id="node4" href="$classnirt_1_1video_1_1SColor.html" title="Class representing a 32 bit ARGB color." alt="" coords="177,13,315,39"/>
-<area shape="rect" id="node5" href="$classnirt_1_1core_1_1vector2d.html" title=" " alt="" coords="340,5,485,47"/>
-</map>

@@ -1,19 +1,19 @@
 var searchData=
 [
   ['r_0',['r',['../classnirt_1_1video_1_1SColorf.html#aa216eb8571da386dd4a0186d2e654121',1,'nirt::video::SColorf']]],
-  ['radius_1',['Radius',['../structnirt_1_1video_1_1SLight.html#af8feae57cb2d022e9361aab35481bf4c',1,'nirt::video::SLight']]],
+  ['radius_1',['Radius',['../classnirt_1_1video_1_1SLight.html#af8feae57cb2d022e9361aab35481bf4c',1,'nirt::video::SLight']]],
   ['radtodeg_2',['RADTODEG',['../namespacenirt_1_1core.html#adde5b9c08ff04e2d6799ec76c7b1441f',1,'nirt::core']]],
   ['radtodeg64_3',['RADTODEG64',['../namespacenirt_1_1core.html#a903fad87ae11426d979c045cfc8928a8',1,'nirt::core']]],
-  ['rangesize_4',['RangeSize',['../structnirt_1_1scene_1_1SCollisionTriangleRange.html#a4e0028bbb75a60502d7dc2c4a2017da8',1,'nirt::scene::SCollisionTriangleRange']]],
-  ['rangestart_5',['RangeStart',['../structnirt_1_1scene_1_1SCollisionTriangleRange.html#a8e9ffe96f27b8039dd2d8d56722f03cf',1,'nirt::scene::SCollisionTriangleRange']]],
+  ['rangesize_4',['RangeSize',['../classnirt_1_1scene_1_1SCollisionTriangleRange.html#a4e0028bbb75a60502d7dc2c4a2017da8',1,'nirt::scene::SCollisionTriangleRange']]],
+  ['rangestart_5',['RangeStart',['../classnirt_1_1scene_1_1SCollisionTriangleRange.html#a8e9ffe96f27b8039dd2d8d56722f03cf',1,'nirt::scene::SCollisionTriangleRange']]],
   ['reciprocal_5fpi_6',['RECIPROCAL_PI',['../namespacenirt_1_1core.html#a25db88381c23ff1f306da28f3ff31bb2',1,'nirt::core']]],
   ['reciprocal_5fpi64_7',['RECIPROCAL_PI64',['../namespacenirt_1_1core.html#a10afb12f4d7a4b6a5de7748ef2eba130',1,'nirt::core']]],
-  ['rectnumber_8',['rectNumber',['../structnirt_1_1gui_1_1SGUISpriteFrame.html#a0a62bfe9316e45fe5b79d314be81ada5',1,'nirt::gui::SGUISpriteFrame']]],
+  ['rectnumber_8',['rectNumber',['../classnirt_1_1gui_1_1SGUISpriteFrame.html#a0a62bfe9316e45fe5b79d314be81ada5',1,'nirt::gui::SGUISpriteFrame']]],
   ['relativerect_9',['RelativeRect',['../classnirt_1_1gui_1_1IGUIElement.html#af57f818e74c8e521b001a4ece9d0a717',1,'nirt::gui::IGUIElement']]],
   ['relativerotation_10',['RelativeRotation',['../classnirt_1_1scene_1_1ISceneNode.html#a56d71fd38f35232a4212fd737f72a056',1,'nirt::scene::ISceneNode']]],
   ['relativescale_11',['RelativeScale',['../classnirt_1_1scene_1_1ISceneNode.html#a8b058c28af6eec5e5c5721d55f2b3239',1,'nirt::scene::ISceneNode']]],
   ['relativetranslation_12',['RelativeTranslation',['../classnirt_1_1scene_1_1ISceneNode.html#a1d47462ee552ec3257d07977c6bb8eb1',1,'nirt::scene::ISceneNode']]],
-  ['replacement_13',['Replacement',['../structnirt_1_1video_1_1SOverrideMaterial_1_1SMaterialTypeReplacement.html#aa6f3a2d3b553f1be6d05e73c80d302ad',1,'nirt::video::SOverrideMaterial::SMaterialTypeReplacement']]],
-  ['rotationkeys_14',['RotationKeys',['../structnirt_1_1scene_1_1ISkinnedMesh_1_1SJoint.html#ab2692336148fd3717aff119b168c7aa5',1,'nirt::scene::ISkinnedMesh::SJoint']]],
+  ['replacement_13',['Replacement',['../classnirt_1_1video_1_1SOverrideMaterial_1_1SMaterialTypeReplacement.html#aa6f3a2d3b553f1be6d05e73c80d302ad',1,'nirt::video::SOverrideMaterial::SMaterialTypeReplacement']]],
+  ['rotationkeys_14',['RotationKeys',['../classnirt_1_1scene_1_1ISkinnedMesh_1_1SJoint.html#ab2692336148fd3717aff119b168c7aa5',1,'nirt::scene::ISkinnedMesh::SJoint']]],
   ['rounding_5ferror_5fs32_15',['ROUNDING_ERROR_S32',['../namespacenirt_1_1core.html#aacb96acf664686d187cc26d6ca6aabac',1,'nirt::core']]]
 ];
