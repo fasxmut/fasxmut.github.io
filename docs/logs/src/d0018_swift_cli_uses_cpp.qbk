@@ -1,0 +1,281 @@
+[article swift pm cli uses cpp (cpp interop)
+	[quickbook 1.7]
+]
+
+swift pm cli uses cpp (cpp interop) - Posted on Jun 4, 2024 - See [@https://www.swift.org/documentation/cxx-interop] - [@https://cppfx.xyz/logs Logs Home] - d0018
+
+[h1 [role cyan swift pm cli uses cpp (cpp interop)]]
+
+Swift package manager cli uses c++, (swift package manager).
+
+[h1 [role cyan Swift pm cli project]]
+
+[h2 Init swift pm cli project]
+
+```
+mkdir swiftcpp
+cd swiftcpp
+swift package init --type=executable
+```
+
+Take a look at the manifest file [_Package.swift],
+
+The file can be modified, but the first line version can not be removed.
+
+Change the coding style (but code is not changed):
+
+([*Package.swift])
+
+```
+// swift-tools-version: 5.10
+import PackageDescription
+
+let package = Package(
+	name: "swiftcpp",
+	targets: [
+		.executableTarget(
+			name: "swiftcpp"
+		),
+	]
+)
+```
+
+[h2 Build and run the project for the first time.]
+
+```
+swift build
+swift run
+```
+
+[h1 [role cyan Enable cpp support in the project]]
+
+[h2 Modify Package.swift]
+
+[h3 Enable cpp interoperablity]
+
+```
+		.executableTarget(
+			name: "swfitcpp",
+			swiftSettings: [.interoperabilityMode(.Cxx)]	// Enable c++ interop
+		),
+```
+
+[h3 Set a cpp library as the dependency of the project]
+
+```
+	targets: [
+		.target(
+			name: "one_cpp_lib"	// The c++ library target name is one_cpp_lib
+		),
+		.executableTarget(
+			name: "swfitcpp",
+			dependencies: ["one_cpp_lib"],	// project swiftcpp depends one_cpp_lib
+			swiftSettings: [.interoperabilityMode(.Cxx)]
+		),
+	]
+```
+
+[h3 At last, the [~[role blue Package.swift]] will look like this:]
+
+The first line [_[role blue [~ ` // swift-tools-version: 5.10 ` ]]] should not be removed.
+
+```
+// swift-tools-version: 5.10
+import PackageDescription
+
+let package = Package(
+	name: "swiftcpp",
+	targets: [
+		.target(
+			name: "one_cpp_lib"
+		),
+		.executableTarget(
+			name: "swiftcpp",
+			dependencies: ["one_cpp_lib"],
+			swiftSettings: [.interoperabilityMode(.Cxx)]
+		),
+	]
+)
+```
+
+[h1 [role cyan Source code layout]]
+
+[h2 Source folder tree]
+
+```
+mkdir ./Sources/swiftcpp
+mkdir ./Sources/one_cpp_lib
+mkdir ./Sources/one_cpp_lib/include
+```
+
+In fact, .\/Sources\/main.swift can be moved to .\/Sources\/swiftcpp\/,
+
+or be removed and put your own swift code at .\/Sources\/swiftcpp\/ .
+
+```
+rm ./Sources/main.swift
+```
+
+Now, the project folder tree is:
+
+[!teletype]
+```
+$ cd ..
+$ tree ../swiftcpp
+
+swiftcpp/
+        |---- Package.swift
+        |---- Sources/
+                     |---- one_cpp_lib/
+                     |                |---- include/
+                     |
+                     |---- swiftcpp/
+```
+
+* [* Put [role green c++] library [role green header] files into [role green .\/Sources/one_cpp_lib/include/]]
+* [* Put [role green c++] library [role green source] files into [role green .\/Sources/one_cpp_lib/]]
+* [* Put [role green swift main] program files into [role green .\/Sources/swiftcpp/]]
+
+[h2 Add cpp library source code: cpp header]
+
+File: [role blue [~ ./Sources/one_cpp_lib/include/any_name_cpp_file.hpp]]
+
+[!c++]
+```
+// Header projection macro must be added here,
+// otherwise the swift package system might parse the same header twice
+#ifndef __any_name_cpp_file_hpp__
+#define __any_name_cpp_file_hpp__
+
+#include <iostream>
+
+class any_cpp_class_name
+{
+public:
+	void print() const
+	{
+		std::cout << "Hello, I am c++!" << std::endl;
+	}
+};
+
+#endif
+```
+
+[h2 Add swift main code]
+
+File: [role blue [~ ./Sources/swiftcpp/start_point_any_name.swift]]
+
+```
+import one_cpp_lib
+
+print("Hello I am swift!")
+var cpp_object = any_cpp_class_name()
+cpp_object.print()
+```
+
+[h2 Build project and run now!]
+
+[!teletype]
+```
+$ swift build
+
+Building for debugging...
+[8/8] Linking swiftcpp
+Build complete! (1.17s)
+
+$ swift run
+
+Building for debugging...
+[1/1] Write swift-version-32A5E7755150B194.txt
+Build complete! (0.44s)
+Hello I am swift!
+Hello, I am c++!
+```
+
+[h2 I want to add multiple cpp headers !]
+
+* [* All c++ headers files .hpp are placed at [role blue .\/Sources/one_cpp_lib/include/]]
+
+Upgrade File: [role blue [~ .\/Sources/one_cpp_lib/include/any_name_cpp_file.hpp]]
+
+[!c++]
+```
+// Header projection macro must be added here,
+// otherwise the swift package system might parse the same header twice
+#ifndef __any_name_cpp_file_hpp__
+#define __any_name_cpp_file_hpp__
+#include "any_name_another.hpp"
+#endif
+```
+
+New File: [role blue [~ .\/Sources/one_cpp_lib/include/any_name_another.hpp]]
+
+[!c++]
+```
+#ifndef __any_name_another_hpp__
+#define __any_name_another_hpp__
+
+#include <iostream>
+
+class any_name_class
+{
+public:
+	void print() const
+	{
+		std::cout << "Hello, I am c++ !!!" << std::endl;
+	}
+	int get() const
+	{
+		return 987;
+	}
+};
+
+#endif
+```
+
+Upgrade File: [role blue [~ ./Sources/swiftcpp/start_point_any_name.swift]]
+
+```
+import one_cpp_lib
+
+print("Hello, I am swift !!!")
+var cpp_object = any_name_class()
+cpp_object.print()
+let result = cpp_object.get()
+print("result:", result)
+```
+
+[h2 Build project and run again !]
+
+[!teletype]
+```
+$ swift build
+
+Building for debugging...
+[8/8] Linking swiftcpp
+Build complete! (1.28s)
+
+$ swift run
+
+Building for debugging...
+[1/1] Write swift-version-32A5E7755150B194.txt
+Build complete! (0.33s)
+Hello, I am swift !!!
+Hello, I am c++ !!!
+result: 987
+```
+
+[h2 At last: Try to separate source files .cpp into .\/swiftcpp/Sources/one_cpp_lib/]
+
+Try it youself !
+
+I practiced it, simple source file tree structure is supported, but too complicated source tree will cause swift package manager reporting errors.
+
+[h1 See Also]
+
+[@https://cppfx.xyz/logs Logs Home]
+
+[@https://cppfx.xyz/utxcpp/utx_print.html utx::print]
+
+
+
