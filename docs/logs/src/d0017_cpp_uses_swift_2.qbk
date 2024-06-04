@@ -1,0 +1,131 @@
+[article cpp uses swift (cpp interop)
+	[quickbook 1.7]
+]
+
+cpp: c++ uses swift (cpp interop)  - Posted on Jun 4, 2024 - See [@https://www.swift.org/documentation/cxx-interop] - [@https://cppfx.xyz/logs Logs Home] - d0017
+
+[h1 [role cyan cpp uses swift (cpp interop)]]
+
+c++ uses swift (cpp interop)
+
+[h1 [role cyan Install swift]]
+
+[h2 Get swift]
+
+Download swift from [@https://www.swift.org]
+
+[h2 Setup environment]
+
+Extract swift to system.
+
+```
+swift_dir=/swift
+export PATH="${swift_dir}/bin:${PATH}"
+export LD_LIBRARY_PATH="${swift_dir}/lib/swift/linux:${LD_LIBRARY_PATH}"
+export LIBRARY_PATH="${swift_dir}/lib/swift/linux:${LIBRARY_PATH}"
+```
+
+[h1 [role cyan Make swift c++ interface]]
+
+[h2 File: swift_box.swift]
+
+```
+class swift_box
+{
+	public func print()
+	{
+		Swift.print("Hello swift!")
+	}
+}
+
+var box = swift_box()
+box.print()
+```
+
+[h2 compile swift code to generate cpp interafce]
+
+```
+swiftc \
+	-frontend -typecheck \
+	swift_box.swift \
+	-module-name swift_interface \
+	-cxx-interoperability-mode=default \
+	-emit-clang-header-path \
+	swift_face.hpp
+```
+
+[h2 Uses swift interface in cpp code]
+
+File: hello_swift.cpp
+
+```
+#include "swift_face.hpp"
+
+int main()
+{
+}
+```
+
+[h2 compile cpp code]
+
+```
+clang++ hello_swift.cpp -std=c++2b -lswiftCore -o hello_swift
+```
+
+[h2 Full cpp code]
+
+File: hello_swift.cpp
+
+```
+#include "swift_face.hpp"
+#include <iostream>
+#include <string>
+
+int main()
+{
+	{
+		if constexpr (swift::isUsableInGenericContext<unsigned int>)
+		{
+			std::cout << "unsigned int : true" << std::endl;
+			auto metadata = swift::TypeMetadataTrait<unsigned int>::getTypeMetadata();
+			std::cout << "metadata: " << *std::bit_cast<unsigned int *>(metadata) << std::endl;
+		}
+		else
+		{
+			std::cout << "unsigned int : false" << std::endl;
+		}
+		std::cout << std::endl;
+	}
+	{
+		if constexpr (swift::isUsableInGenericContext<double>)
+		{
+			std::cout << "double : true" << std::endl;
+			auto metadata = swift::TypeMetadataTrait<double>::getTypeMetadata();
+			std::cout << "metadata: " << *std::bit_cast<double *>(metadata) << std::endl;
+		}
+		else
+		{
+			std::cout << "double : false" << std::endl;
+		}
+		std::cout << std::endl;
+	}
+	{
+		if constexpr (swift::isUsableInGenericContext<std::string>)
+		{
+			std::cout << "std::string : true" << std::endl;
+			auto metadata = swift::TypeMetadataTrait<std::string>::getTypeMetadata();
+			std::cout << "metadata: " << *std::bit_cast<std::string *>(metadata) << std::endl;
+		}
+		else
+		{
+			std::cout << "std::string : false" << std::endl;
+		}
+		std::cout << std::endl;
+	}
+}
+```
+
+```
+clang++ hello_swift.cpp -std=c++2b -lswiftCore -o hello_swift
+```
+

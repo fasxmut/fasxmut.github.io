@@ -2,6 +2,7 @@
 	[quickbook 1.7]
 ]
 
+[include d0017_cpp_uses_swift_2.qbk]
 [include d0016_cobalt_main_entry_points.qbk]
 [include d0015_cobalt_beast_http_cs.qbk]
 [include d0014_cobalt_op_cpp_boost.qbk]
