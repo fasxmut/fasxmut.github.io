@@ -66,6 +66,8 @@ mod_method.html
 cast_method.html
 basic_concepts.html
 utx_real_meric.html
+utx_real_uct.html
+utx_real_number.html
 utx_same_as.html
 utx_not_same_as.html
 utx_same_assert.html
