@@ -1,0 +1,314 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>cpp: boost serialization</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="logs - Blogs or News">
+<link rel="up" href="index.html" title="logs - Blogs or News">
+<link rel="prev" href="index.html" title="logs - Blogs or News">
+<link rel="next" href="swift_pm_cli_uses_cpp_cpp_intero.html" title="swift pm cli uses cpp (cpp interop)">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="swift_pm_cli_uses_cpp_cpp_intero.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="cpp_boost_serialization"></a>cpp: boost serialization</h1></div></div>
+<hr>
+</div>
+<p>
+      serialize c++ with boost serialization - Posted on Jun 8, 2024 - See <a href="https://www.boost.org/libs/serialization" target="_top">https://www.boost.org/libs/serialization</a>
+      - <a href="https://cppfx.xyz/logs" target="_top">Logs Home</a> - d0019
+    </p>
+<h2>
+<a name="cpp_boost_serialization.h0"></a>
+      <span class="phrase"><a name="cpp_boost_serialization.role_cyan_serialize_cpp_with_boo"></a></span><a class="link" href="cpp_boost_serialization.html#cpp_boost_serialization.role_cyan_serialize_cpp_with_boo"><span class="cyan">serialize cpp with boost serialization</span></a>
+    </h2>
+<p>
+      Serialize c++ class objects with boost serialization (Use <a href="https://cppfx.xyz/utxcpp" target="_top">utxcpp</a>
+      for example)
+    </p>
+<h2>
+<a name="cpp_boost_serialization.h1"></a>
+      <span class="phrase"><a name="cpp_boost_serialization.role_cyan_step_1_non_intrusive_s"></a></span><a class="link" href="cpp_boost_serialization.html#cpp_boost_serialization.role_cyan_step_1_non_intrusive_s"><span class="cyan">Step 1: non-intrusive: Serialize basic types</span></a>
+    </h2>
+<p>
+      Utxcpp basic types have related concepts: <a href="https://cppfx.xyz/utxcpp/utx_real_meric.html" target="_top">utx::real_meric</a>,
+      <a href="https://cppfx.xyz/utxcpp/utx_real_uct.html" target="_top">utx::real_uct</a>,
+      <a href="https://cppfx.xyz/utxcpp/utx_real_number.html" target="_top">utx::real_number</a>.
+    </p>
+<p>
+      As utxcpp itself does not depend on boost libs, to serialize utxcpp objects,
+      non-intrusive boost serialization is the only choice.
+    </p>
+<p>
+      Add custom data support to boost::serialization.
+    </p>
+<pre class="programlisting"><span class="keyword">namespace</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">serialization</span>
+<span class="special">{</span>
+
+<span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">archive_xtk</span><span class="special">,</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">real_uct</span> <span class="identifier">uct_xtk</span><span class="special">&gt;</span>
+<span class="keyword">void</span> <span class="identifier">serialize</span><span class="special">(</span><span class="identifier">archive_xtk</span> <span class="special">&amp;</span> <span class="identifier">ar__</span><span class="special">,</span> <span class="identifier">uct_xtk</span> <span class="special">&amp;</span> <span class="identifier">value__</span><span class="special">,</span> <span class="keyword">unsigned</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">u32</span> <span class="identifier">version__</span><span class="special">)</span>
+<span class="special">{</span>
+	<span class="identifier">ar__</span> <span class="special">&amp;</span> <span class="identifier">value__</span><span class="special">.</span><span class="identifier">value_ref</span><span class="special">();</span>
+<span class="special">}</span>
+
+<span class="special">}</span>	<span class="comment">// namespace boost::serialization</span>
+</pre>
+<p>
+      Concept utx::real_meric is a disjunction of concept utx::real_uct and concept
+      utx::real_number. The utx::real_number objects are the c++ language basic data
+      types, which are already supported by boost serialization.
+    </p>
+<p>
+      As the serialization has both read and write permissions to c++ objects data,
+      the value-ref must be used.
+    </p>
+<h2>
+<a name="cpp_boost_serialization.h2"></a>
+      <span class="phrase"><a name="cpp_boost_serialization.role_cyan_step_2_serialize_class"></a></span><a class="link" href="cpp_boost_serialization.html#cpp_boost_serialization.role_cyan_step_2_serialize_class"><span class="cyan">Step 2: serialize class object</span></a>
+    </h2>
+<p>
+      Now, create the user level classes and objects, let it serializable by boost
+      serialization.
+    </p>
+<p>
+      To make a class object serializable, overload a method "serialize"
+      .
+    </p>
+<pre class="programlisting"><span class="keyword">class</span> <span class="identifier">base_box</span>
+<span class="special">{</span>
+<span class="keyword">protected</span><span class="special">:</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">fx32</span> <span class="identifier">__x</span><span class="special">,</span> <span class="identifier">__y</span><span class="special">,</span> <span class="identifier">__z</span><span class="special">;</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">friend</span> <span class="keyword">class</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">serialization</span><span class="special">::</span><span class="identifier">access</span><span class="special">;</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">archive_xtj</span><span class="special">&gt;</span>
+	<span class="keyword">void</span> <span class="identifier">serialize</span><span class="special">(</span><span class="identifier">archive_xtj</span> <span class="special">&amp;</span> <span class="identifier">ar</span><span class="special">,</span> <span class="keyword">const</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">u32</span> <span class="identifier">version</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="identifier">ar</span> <span class="special">&amp;</span> <span class="identifier">__x</span><span class="special">;</span>
+		<span class="identifier">ar</span> <span class="special">&amp;</span> <span class="identifier">__y</span><span class="special">;</span>
+		<span class="identifier">ar</span> <span class="special">&amp;</span> <span class="identifier">__z</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+</pre>
+<h2>
+<a name="cpp_boost_serialization.h3"></a>
+      <span class="phrase"><a name="cpp_boost_serialization.role_cyan_step_3_serialize_deriv"></a></span><a class="link" href="cpp_boost_serialization.html#cpp_boost_serialization.role_cyan_step_3_serialize_deriv"><span class="cyan">Step 3: serialize derived class object</span></a>
+    </h2>
+<p>
+      To serialize a derived object, the base object have to be serializable as above.
+    </p>
+<pre class="programlisting"><span class="keyword">class</span> <span class="identifier">derived_box</span><span class="special">:</span> <span class="keyword">public</span> <span class="identifier">base_box</span>
+<span class="special">{</span>
+<span class="keyword">protected</span><span class="special">:</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">ix32</span> <span class="identifier">__id</span><span class="special">;</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">friend</span> <span class="keyword">class</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">serialization</span><span class="special">::</span><span class="identifier">access</span><span class="special">;</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">archive_xtj</span><span class="special">&gt;</span>
+	<span class="keyword">void</span> <span class="identifier">serialize</span><span class="special">(</span><span class="identifier">archive_xtj</span> <span class="special">&amp;</span> <span class="identifier">ar</span><span class="special">,</span> <span class="keyword">const</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">u32</span> <span class="identifier">version</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="comment">// notice</span>
+		<span class="identifier">ar</span> <span class="special">&amp;</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">serialization</span><span class="special">::</span><span class="identifier">base_object</span><span class="special">&lt;</span><span class="identifier">base_box</span><span class="special">&gt;(*</span><span class="keyword">this</span><span class="special">);</span>
+		<span class="identifier">ar</span> <span class="special">&amp;</span> <span class="identifier">__id</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+</pre>
+<h2>
+<a name="cpp_boost_serialization.h4"></a>
+      <span class="phrase"><a name="cpp_boost_serialization.role_cyan_step_4_how_the_objects"></a></span><a class="link" href="cpp_boost_serialization.html#cpp_boost_serialization.role_cyan_step_4_how_the_objects"><span class="cyan">Step 4: how the objects data is serialized/derialized/stored</span></a>
+    </h2>
+<p>
+      boost::archive::text_oarchive
+    </p>
+<p>
+      bosot::archive::text_iarchive
+    </p>
+<h3>
+<a name="cpp_boost_serialization.h5"></a>
+      <span class="phrase"><a name="cpp_boost_serialization.serialize_and_store_objects_data"></a></span><a class="link" href="cpp_boost_serialization.html#cpp_boost_serialization.serialize_and_store_objects_data">Serialize
+      and store objects data on disk</a>
+    </h3>
+<pre class="programlisting"><span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">ofstream</span> <span class="identifier">file</span><span class="special">{</span><span class="string">"data.txt"</span><span class="special">};</span>
+	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">archive</span><span class="special">::</span><span class="identifier">text_oarchive</span> <span class="identifier">ar</span><span class="special">{</span><span class="identifier">file</span><span class="special">};</span>
+	<span class="identifier">derived_box</span> <span class="identifier">dbox</span><span class="special">;</span>
+	<span class="identifier">ar</span> <span class="special">&lt;&lt;</span> <span class="identifier">dbox</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<h3>
+<a name="cpp_boost_serialization.h6"></a>
+      <span class="phrase"><a name="cpp_boost_serialization.restore_objects_data_from_disk_a"></a></span><a class="link" href="cpp_boost_serialization.html#cpp_boost_serialization.restore_objects_data_from_disk_a">Restore
+      objects data from disk and deserialize</a>
+    </h3>
+<pre class="programlisting"><span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">ifstream</span> <span class="identifier">file</span><span class="special">{</span><span class="string">"data.txt"</span><span class="special">};</span>
+	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">archive</span><span class="special">::</span><span class="identifier">text_iarchive</span> <span class="identifier">ar</span><span class="special">{</span><span class="identifier">file</span><span class="special">};</span>
+	<span class="identifier">derived_box</span> <span class="identifier">dbox</span><span class="special">;</span>
+	<span class="identifier">ar</span> <span class="special">&gt;&gt;</span> <span class="identifier">dbox</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="cpp_boost_serialization.h7"></a>
+      <span class="phrase"><a name="cpp_boost_serialization.role_cyan_full_example_code"></a></span><a class="link" href="cpp_boost_serialization.html#cpp_boost_serialization.role_cyan_full_example_code"><span class="cyan">Full example code</span></a>
+    </h2>
+<p>
+      Full c++ example code
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">archive</span><span class="special">/</span><span class="identifier">text_iarchive</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">archive</span><span class="special">/</span><span class="identifier">text_oarchive</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">fstream</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">filesystem</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">serialization</span>
+<span class="special">{</span>
+
+<span class="comment">// Add custom data support to boost::serialization.</span>
+<span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">archive_xtk</span><span class="special">,</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">real_uct</span> <span class="identifier">uct_xtk</span><span class="special">&gt;</span>
+<span class="keyword">void</span> <span class="identifier">serialize</span><span class="special">(</span><span class="identifier">archive_xtk</span> <span class="special">&amp;</span> <span class="identifier">ar__</span><span class="special">,</span> <span class="identifier">uct_xtk</span> <span class="special">&amp;</span> <span class="identifier">value__</span><span class="special">,</span> <span class="keyword">const</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">u32</span> <span class="identifier">version__</span><span class="special">)</span>
+<span class="special">{</span>
+	<span class="identifier">ar__</span> <span class="special">&amp;</span> <span class="identifier">value__</span><span class="special">.</span><span class="identifier">value_ref</span><span class="special">();</span>
+<span class="special">}</span>
+
+<span class="special">}</span>	<span class="comment">// namespace boost::serialization</span>
+
+<span class="keyword">class</span> <span class="identifier">base_box</span>
+<span class="special">{</span>
+<span class="keyword">protected</span><span class="special">:</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">fx32</span> <span class="identifier">__x</span><span class="special">,</span> <span class="identifier">__y</span><span class="special">,</span> <span class="identifier">__z</span><span class="special">;</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">friend</span> <span class="keyword">class</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">serialization</span><span class="special">::</span><span class="identifier">access</span><span class="special">;</span>
+
+	<span class="comment">// Serialize base</span>
+	<span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">archive_xtj</span><span class="special">&gt;</span>
+	<span class="keyword">void</span> <span class="identifier">serialize</span><span class="special">(</span><span class="identifier">archive_xtj</span> <span class="special">&amp;</span> <span class="identifier">ar__</span><span class="special">,</span> <span class="keyword">const</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">u32</span> <span class="identifier">version__</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="identifier">ar__</span> <span class="special">&amp;</span> <span class="identifier">__x</span><span class="special">;</span>
+		<span class="identifier">ar__</span> <span class="special">&amp;</span> <span class="identifier">__y</span><span class="special">;</span>
+		<span class="identifier">ar__</span> <span class="special">&amp;</span> <span class="identifier">__z</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">base_box</span><span class="special">():</span>
+		<span class="identifier">__x</span><span class="special">{},</span>
+		<span class="identifier">__y</span><span class="special">{},</span>
+		<span class="identifier">__z</span><span class="special">{}</span>
+	<span class="special">{</span>
+	<span class="special">}</span>
+	<span class="identifier">base_box</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">fx32</span> <span class="identifier">x__</span><span class="special">,</span> <span class="keyword">const</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">fx32</span> <span class="identifier">y__</span><span class="special">,</span> <span class="keyword">const</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">fx32</span> <span class="identifier">z__</span><span class="special">):</span>
+		<span class="identifier">__x</span><span class="special">{</span><span class="identifier">x__</span><span class="special">},</span>
+		<span class="identifier">__y</span><span class="special">{</span><span class="identifier">y__</span><span class="special">},</span>
+		<span class="identifier">__z</span><span class="special">{</span><span class="identifier">z__</span><span class="special">}</span>
+	<span class="special">{</span>
+	<span class="special">}</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">virtual</span> <span class="special">~</span><span class="identifier">base_box</span><span class="special">()</span> <span class="special">=</span> <span class="keyword">default</span><span class="special">;</span>
+<span class="special">};</span>
+
+<span class="keyword">class</span> <span class="identifier">derived_box</span><span class="special">:</span> <span class="keyword">virtual</span> <span class="keyword">public</span> <span class="identifier">base_box</span>
+<span class="special">{</span>
+<span class="keyword">protected</span><span class="special">:</span>
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">ix32</span> <span class="identifier">__id</span><span class="special">;</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">friend</span> <span class="keyword">class</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">serialization</span><span class="special">::</span><span class="identifier">access</span><span class="special">;</span>
+
+	<span class="comment">// Serialize derived</span>
+	<span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">archive_xtj</span><span class="special">&gt;</span>
+	<span class="keyword">void</span> <span class="identifier">serialize</span><span class="special">(</span><span class="identifier">archive_xtj</span> <span class="special">&amp;</span> <span class="identifier">ar__</span><span class="special">,</span> <span class="keyword">const</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">u32</span> <span class="identifier">version__</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="identifier">ar__</span> <span class="special">&amp;</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">serialization</span><span class="special">::</span><span class="identifier">base_object</span><span class="special">&lt;</span><span class="identifier">base_box</span><span class="special">&gt;(*</span><span class="keyword">this</span><span class="special">);</span>
+		<span class="identifier">ar__</span> <span class="special">&amp;</span> <span class="identifier">__id</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">derived_box</span><span class="special">():</span>
+		<span class="identifier">base_box</span><span class="special">{},</span>
+		<span class="identifier">__id</span><span class="special">{}</span>
+	<span class="special">{</span>
+	<span class="special">}</span>
+	<span class="identifier">derived_box</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">fx32</span> <span class="identifier">x__</span><span class="special">,</span> <span class="keyword">const</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">fx32</span> <span class="identifier">y__</span><span class="special">,</span> <span class="keyword">const</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">fx32</span> <span class="identifier">z__</span><span class="special">,</span> <span class="keyword">const</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">ix32</span> <span class="identifier">id__</span><span class="special">):</span>
+		<span class="identifier">base_box</span><span class="special">{</span><span class="identifier">x__</span><span class="special">,</span> <span class="identifier">y__</span><span class="special">,</span> <span class="identifier">z__</span><span class="special">},</span>
+		<span class="identifier">__id</span><span class="special">{</span><span class="identifier">id__</span><span class="special">}</span>
+	<span class="special">{</span>
+	<span class="special">}</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">void</span> <span class="identifier">simple_print</span><span class="special">()</span> <span class="keyword">const</span>
+	<span class="special">{</span>
+		<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"("</span><span class="special">,</span> <span class="identifier">__x</span><span class="special">,</span> <span class="identifier">__y</span><span class="special">,</span> <span class="identifier">__z</span><span class="special">,</span> <span class="identifier">__id</span><span class="special">,</span> <span class="string">")"</span><span class="special">);</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">filesystem</span><span class="special">::</span><span class="identifier">path</span> <span class="identifier">data_filename</span> <span class="special">=</span> <span class="string">"./data.txt"</span><span class="special">;</span>
+
+	<span class="comment">// serialize and store</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">ofstream</span> <span class="identifier">file</span><span class="special">{</span><span class="identifier">data_filename</span><span class="special">};</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">archive</span><span class="special">::</span><span class="identifier">text_oarchive</span> <span class="identifier">ar</span><span class="special">{</span><span class="identifier">file</span><span class="special">};</span>
+
+		<span class="identifier">derived_box</span> <span class="identifier">d_box</span><span class="special">{</span><span class="number">1.2</span><span class="special">,</span> <span class="number">2.3</span><span class="special">,</span> <span class="number">3.4</span><span class="special">,</span> <span class="number">1234</span><span class="special">};</span>
+		<span class="identifier">ar</span> <span class="special">&lt;&lt;</span> <span class="identifier">d_box</span><span class="special">;</span>
+	<span class="special">}</span> <span class="comment">// raii: file is auto destructed.</span>
+
+	<span class="comment">// restore and deserialize</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">ifstream</span> <span class="identifier">file</span><span class="special">{</span><span class="identifier">data_filename</span><span class="special">};</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">archive</span><span class="special">::</span><span class="identifier">text_iarchive</span> <span class="identifier">ar</span><span class="special">{</span><span class="identifier">file</span><span class="special">};</span>
+
+		<span class="identifier">derived_box</span> <span class="identifier">d_box</span><span class="special">;</span>
+		<span class="identifier">d_box</span><span class="special">.</span><span class="identifier">simple_print</span><span class="special">();</span>		<span class="comment">// 0 0 0 0</span>
+		<span class="identifier">ar</span> <span class="special">&gt;&gt;</span> <span class="identifier">d_box</span><span class="special">;</span>
+		<span class="identifier">d_box</span><span class="special">.</span><span class="identifier">simple_print</span><span class="special">();</span>		<span class="comment">// (1.2 2.3 3.4 1234)</span>
+	<span class="special">}</span> <span class="comment">// raii: file is auto destructed.</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="cpp_boost_serialization.h8"></a>
+      <span class="phrase"><a name="cpp_boost_serialization.role_cyan_build_it_with_b2_build"></a></span><a class="link" href="cpp_boost_serialization.html#cpp_boost_serialization.role_cyan_build_it_with_b2_build"><span class="cyan">Build it with b2 build</span></a>
+    </h2>
+<p>
+      jamfile (jamroot):
+    </p>
+<pre class="programlisting">lib boost-serialization
+	:
+	:
+		&lt;name&gt;boost_serialization
+;
+
+exe prog
+	:
+		prog.cpp
+	:
+		&lt;cxxstd&gt;23
+		&lt;library&gt;boost-serialization
+;
+</pre>
+<h2>
+<a name="cpp_boost_serialization.h9"></a>
+      <span class="phrase"><a name="cpp_boost_serialization.role_cyan_see_also"></a></span><a class="link" href="cpp_boost_serialization.html#cpp_boost_serialization.role_cyan_see_also"><span class="cyan">See Also</span></a>
+    </h2>
+<p>
+      <a href="https://cppfx.xyz/utxcpp/utx_print.html" target="_top">utx::print</a>
+    </p>
+<p>
+      <a href="https://cppfx.xyz/utxcpp/utx_u32.html" target="_top">utx::u32</a>
+    </p>
+<p>
+      <a href="https://cppfx.xyz/utxcpp/utx_fx32.html" target="_top">utx::fx32</a>
+    </p>
+<p>
+      <a href="https://cppfx.xyz/utxcpp/utx_ix32.html" target="_top">utx::ix32</a>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="swift_pm_cli_uses_cpp_cpp_intero.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

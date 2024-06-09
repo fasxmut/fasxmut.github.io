@@ -1,0 +1,263 @@
+[article cpp: boost serialization
+	[quickbook 1.7]
+]
+
+serialize c++ with boost serialization - Posted on Jun 8, 2024 - See [@https://www.boost.org/libs/serialization] - [@https://cppfx.xyz/logs Logs Home] - d0019
+
+[h1 [role cyan serialize cpp with boost serialization]]
+
+Serialize c++ class objects with boost serialization (Use [@https://cppfx.xyz/utxcpp utxcpp] for example)
+
+[h1 [role cyan Step 1: non-intrusive: Serialize basic types]]
+
+Utxcpp basic types have related concepts:
+[@https://cppfx.xyz/utxcpp/utx_real_meric.html utx::real_meric], 
+[@https://cppfx.xyz/utxcpp/utx_real_uct.html utx::real_uct],
+[@https://cppfx.xyz/utxcpp/utx_real_number.html utx::real_number].
+
+As utxcpp itself does not depend on boost libs, to serialize utxcpp objects, non-intrusive boost serialization is the only choice.
+
+Add custom data support to boost::serialization.
+
+[!c++]
+```
+namespace boost::serialization
+{
+
+template <typename archive_xtk, utx::real_uct uct_xtk>
+void serialize(archive_xtk & ar__, uct_xtk & value__, unsigned utx::u32 version__)
+{
+	ar__ & value__.value_ref();
+}
+
+}	// namespace boost::serialization
+```
+
+Concept utx::real_meric is a disjunction of concept utx::real_uct and concept utx::real_number. The utx::real_number objects are the c++ language basic data types, which are already supported by boost serialization.
+
+As the serialization has both read and write permissions to c++ objects data, the value-ref must be used.
+
+[h1 [role cyan Step 2: serialize class object]]
+
+Now, create the user level classes and objects, let it serializable by boost serialization.
+
+To make a class object serializable, overload a method "serialize" .
+
+[!c++]
+```
+class base_box
+{
+protected:
+	utx::fx32 __x, __y, __z;
+public:
+	friend class boost::serialization::access;
+public:
+	template <typename archive_xtj>
+	void serialize(archive_xtj & ar, const utx::u32 version)
+	{
+		ar & __x;
+		ar & __y;
+		ar & __z;
+	}
+};
+```
+
+[h1 [role cyan Step 3: serialize derived class object]]
+
+To serialize a derived object, the base object have to be serializable as above.
+
+[!c++]
+```
+class derived_box: public base_box
+{
+protected:
+	utx::ix32 __id;
+public:
+	friend class boost::serialization::access;
+public:
+	template <typename archive_xtj>
+	void serialize(archive_xtj & ar, const utx::u32 version)
+	{
+		// notice
+		ar & boost::serialization::base_object<base_box>(*this);
+		ar & __id;
+	}
+};
+```
+
+[h1 [role cyan Step 4: how the objects data is serialized/derialized/stored]]
+
+boost::archive::text_oarchive
+
+bosot::archive::text_iarchive
+
+[h2 Serialize and store objects data on disk]
+
+[!c++]
+```
+{
+	std::ofstream file{"data.txt"};
+	boost::archive::text_oarchive ar{file};
+	derived_box dbox;
+	ar << dbox;
+}
+```
+
+[h2 Restore objects data from disk and deserialize]
+
+[!c++]
+```
+{
+	std::ifstream file{"data.txt"};
+	boost::archive::text_iarchive ar{file};
+	derived_box dbox;
+	ar >> dbox;
+}
+```
+
+[h1 [role cyan Full example code]]
+
+Full c++ example code
+
+```
+#include <utxcpp/core.hpp>
+#include <boost/archive/text_iarchive.hpp>
+#include <boost/archive/text_oarchive.hpp>
+#include <fstream>
+#include <filesystem>
+
+namespace boost::serialization
+{
+
+// Add custom data support to boost::serialization.
+template <typename archive_xtk, utx::real_uct uct_xtk>
+void serialize(archive_xtk & ar__, uct_xtk & value__, const utx::u32 version__)
+{
+	ar__ & value__.value_ref();
+}
+
+}	// namespace boost::serialization
+
+class base_box
+{
+protected:
+	utx::fx32 __x, __y, __z;
+public:
+	friend class boost::serialization::access;
+
+	// Serialize base
+	template <typename archive_xtj>
+	void serialize(archive_xtj & ar__, const utx::u32 version__)
+	{
+		ar__ & __x;
+		ar__ & __y;
+		ar__ & __z;
+	}
+public:
+	base_box():
+		__x{},
+		__y{},
+		__z{}
+	{
+	}
+	base_box(const utx::fx32 x__, const utx::fx32 y__, const utx::fx32 z__):
+		__x{x__},
+		__y{y__},
+		__z{z__}
+	{
+	}
+public:
+	virtual ~base_box() = default;
+};
+
+class derived_box: virtual public base_box
+{
+protected:
+	utx::ix32 __id;
+public:
+	friend class boost::serialization::access;
+
+	// Serialize derived
+	template <typename archive_xtj>
+	void serialize(archive_xtj & ar__, const utx::u32 version__)
+	{
+		ar__ & boost::serialization::base_object<base_box>(*this);
+		ar__ & __id;
+	}
+public:
+	derived_box():
+		base_box{},
+		__id{}
+	{
+	}
+	derived_box(const utx::fx32 x__, const utx::fx32 y__, const utx::fx32 z__, const utx::ix32 id__):
+		base_box{x__, y__, z__},
+		__id{id__}
+	{
+	}
+public:
+	void simple_print() const
+	{
+		utx::print("(", __x, __y, __z, __id, ")");
+	}
+};
+
+int main()
+{
+	const std::filesystem::path data_filename = "./data.txt";
+
+	// serialize and store
+	{
+		std::ofstream file{data_filename};
+		boost::archive::text_oarchive ar{file};
+
+		derived_box d_box{1.2, 2.3, 3.4, 1234};
+		ar << d_box;
+	} // raii: file is auto destructed.
+
+	// restore and deserialize
+	{
+		std::ifstream file{data_filename};
+		boost::archive::text_iarchive ar{file};
+
+		derived_box d_box;
+		d_box.simple_print();		// 0 0 0 0
+		ar >> d_box;
+		d_box.simple_print();		// (1.2 2.3 3.4 1234)
+	} // raii: file is auto destructed.
+}
+```
+
+[h1 [role cyan Build it with b2 build]]
+
+jamfile (jamroot):
+
+[!teletype]
+```
+lib boost-serialization
+	:
+	:
+		<name>boost_serialization
+;
+
+exe prog
+	:
+		prog.cpp
+	:
+		<cxxstd>23
+		<library>boost-serialization
+;
+```
+
+[h1 [role cyan See Also]]
+
+[@https://cppfx.xyz/utxcpp/utx_print.html utx::print]
+
+[@https://cppfx.xyz/utxcpp/utx_u32.html utx::u32]
+
+[@https://cppfx.xyz/utxcpp/utx_fx32.html utx::fx32]
+
+[@https://cppfx.xyz/utxcpp/utx_ix32.html utx::ix32]
+
+
+
