@@ -2,6 +2,7 @@
 	[quickbook 1.7]
 ]
 
+[include d0020_cpp_dlib_dnn_cnn.qbk]
 [include d0019_cpp_boost_serialization.qbk]
 [include d0018_swift_cli_uses_cpp.qbk]
 [include d0017_cpp_uses_swift_2.qbk]
