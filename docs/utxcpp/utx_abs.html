@@ -20,31 +20,113 @@
 <a name="utx_abs"></a>utx::abs</h2></div></div>
 <hr>
 </div>
-<pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">real_meric</span> <span class="identifier">T</span><span class="special">&gt;</span>
-<span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">remove_cvref_t</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;</span> <span class="identifier">abs</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">T</span> <span class="special">&amp;</span> <span class="identifier">value</span><span class="special">)</span>
-</pre>
-<p>
-        If value &lt; 0, return -value; otherwise return value.
-      </p>
 <h2>
 <a name="utx_abs.h0"></a>
-        <span class="phrase"><a name="utx_abs.role_cyan_header"></a></span><a class="link" href="utx_abs.html#utx_abs.role_cyan_header"><span class="cyan">Header</span></a>
+        <span class="phrase"><a name="utx_abs.role_cyan_utx_abs"></a></span><a class="link" href="utx_abs.html#utx_abs.role_cyan_utx_abs"><span class="cyan">utx::abs</span></a>
       </h2>
-<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">math</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
-</pre>
-<h2>
+<p>
+        utx::abs calculates an absolute value of a mathematical real value. That
+        is, if the value &lt; 0, return -value, else return value.
+      </p>
+<h3>
 <a name="utx_abs.h1"></a>
-        <span class="phrase"><a name="utx_abs.role_cyan_example"></a></span><a class="link" href="utx_abs.html#utx_abs.role_cyan_example"><span class="cyan">Example</span></a>
+        <span class="phrase"><a name="utx_abs.calling_sig"></a></span><a class="link" href="utx_abs.html#utx_abs.calling_sig">Calling
+        Sig</a>
+      </h3>
+<p>
+        Return type is the same as the type of value.
+      </p>
+<pre class="programlisting"><span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">abs_value</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">abs</span><span class="special">(</span><span class="identifier">value</span><span class="special">);</span>
+</pre>
+<p>
+        Return type is the same as the type of value.
+      </p>
+<pre class="programlisting"><span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">abs_value</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">abs</span><span class="special">.</span><span class="identifier">fn</span><span class="special">(</span><span class="identifier">value</span><span class="special">);</span>
+</pre>
+<p>
+        Return type is always return_type .
+      </p>
+<p>
+        For example,
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            <em class="replaceable"><code><code class="computeroutput"><span class="identifier">utx</span><span class="special">::</span><span class="identifier">abs</span><span class="special">.</span><span class="identifier">fn</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">fx64</span><span class="special">&gt;(-</span><span class="number">2.55</span><span class="special">)</span></code></code></em>
+            returns 2.55 ;
+          </li>
+<li class="listitem">
+            <em class="replaceable"><code><code class="computeroutput"><span class="identifier">utx</span><span class="special">::</span><span class="identifier">abs</span><span class="special">.</span><span class="identifier">fn</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">fx64</span><span class="special">&gt;(-</span><span class="number">2</span><span class="special">)</span></code></code></em>
+            returns 2.0 ;
+          </li>
+</ul></div>
+<pre class="programlisting"><span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">abs_value</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">abs</span><span class="special">.</span><span class="identifier">fn</span><span class="special">&lt;</span><span class="identifier">return_type</span><span class="special">&gt;(</span><span class="identifier">value</span><span class="special">);</span>
+</pre>
+<p>
+        Return type is return_type, arg type is arg_type.
+      </p>
+<p>
+        For example,
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            <span class="green"><em class="replaceable"><code>utx::abs.fn&lt;utx::fx64, utx::i64&gt;(-2.55)</code></em>
+            returns 2.0 </span> ;
+          </li>
+<li class="listitem">
+            <em class="replaceable"><code><code class="computeroutput"><span class="identifier">utx</span><span class="special">::</span><span class="identifier">abs</span><span class="special">.</span><span class="identifier">fn</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">fx64</span><span class="special">&gt;(-</span><span class="number">2</span><span class="special">)</span></code></code></em>
+            returns 2.0 ;
+          </li>
+</ul></div>
+<pre class="programlisting"><span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">abs_value</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">abs</span><span class="special">.</span><span class="identifier">fn</span><span class="special">&lt;</span><span class="identifier">return_type</span><span class="special">,</span> <span class="identifier">arg_type</span><span class="special">&gt;(</span><span class="identifier">value</span><span class="special">);</span>
+</pre>
+<h3>
+<a name="utx_abs.h2"></a>
+        <span class="phrase"><a name="utx_abs.special_args_and_returns"></a></span><a class="link" href="utx_abs.html#utx_abs.special_args_and_returns">Special
+        args and returns</a>
+      </h3>
+<p>
+        arg value =&gt; return value:
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            -inf =&gt; inf
+          </li>
+<li class="listitem">
+            inf =&gt; inf
+          </li>
+<li class="listitem">
+            NaN =&gt; NaN
+          </li>
+</ul></div>
+<h2>
+<a name="utx_abs.h3"></a>
+        <span class="phrase"><a name="utx_abs.role_cyan_cpp_example"></a></span><a class="link" href="utx_abs.html#utx_abs.role_cyan_cpp_example"><span class="cyan">cpp example</span></a>
       </h2>
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">math</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 
 <span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
 <span class="special">{</span>
-	<span class="keyword">for</span> <span class="special">(</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">i32</span> <span class="identifier">i</span><span class="special">=-</span><span class="number">3</span><span class="special">;</span> <span class="identifier">i</span><span class="special">&lt;=</span><span class="number">3</span><span class="special">;</span> <span class="identifier">i</span><span class="special">++)</span>
-		<span class="identifier">utx</span><span class="special">::</span><span class="identifier">printnl</span><span class="special">(</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">abs</span><span class="special">(</span><span class="identifier">i</span><span class="special">),</span> <span class="char">' '</span><span class="special">);</span>
-	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">();</span>
+	<span class="keyword">for</span> <span class="special">(</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">ix32</span> <span class="identifier">i</span><span class="special">=-</span><span class="number">4</span><span class="special">;</span> <span class="identifier">i</span><span class="special">&lt;=</span><span class="number">4</span><span class="special">;</span> <span class="special">++</span><span class="identifier">i</span><span class="special">)</span>
+		<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">abs</span><span class="special">(</span><span class="identifier">i</span><span class="special">));</span>
 <span class="special">}</span>
 </pre>
+<h2>
+<a name="utx_abs.h4"></a>
+        <span class="phrase"><a name="utx_abs.role_cyan_see_also"></a></span><a class="link" href="utx_abs.html#utx_abs.role_cyan_see_also"><span class="cyan">See Also</span></a>
+      </h2>
+<p>
+        <a class="link" href="utx_cos.html" title="utx::cos">utx::cos</a>
+      </p>
+<p>
+        <a class="link" href="utx_sin.html" title="utx::sin">utx::sin</a>
+      </p>
+<p>
+        <a class="link" href="utx_ix32.html" title="utx::ix32">utx::ix32</a>
+      </p>
+<p>
+        <a class="link" href="utx_print.html" title="utx::print">utx::print</a>
+      </p>
 </div>
 <div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
