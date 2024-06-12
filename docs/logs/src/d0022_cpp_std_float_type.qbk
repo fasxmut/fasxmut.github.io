@@ -2,13 +2,13 @@
 	[quickbook 1.7]
 ]
 
-c++ std float type - Posted on Jun 12, 2024 - See [@https://kubuntu.org] - [@https://cppfx.xyz/logs Logs Home] - d0021
+c++ std float type - Posted on Jun 12, 2024 - See [@https://kubuntu.org] - [@https://cppfx.xyz/logs Logs Home] - d0022
 
 [h1 [role cyan cpp std float type]]
 
 std::float16_t, std::bfloat16_t, std::float32_t, std::float64_t, std::float128_t
 
-cpp/c++ code
+cpp/c++ code:
 
 [!c++]
 ```
