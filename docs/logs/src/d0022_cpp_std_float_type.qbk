@@ -1,0 +1,47 @@
+[article cpp std float type
+	[quickbook 1.7]
+]
+
+c++ std float type - Posted on Jun 12, 2024 - See [@https://kubuntu.org] - [@https://cppfx.xyz/logs Logs Home] - d0021
+
+[h1 [role cyan cpp std float type]]
+
+std::float16_t, std::bfloat16_t, std::float32_t, std::float64_t, std::float128_t
+
+cpp/c++ code
+
+[!c++]
+```
+#include <stdfloat>
+#include <iostream>
+#include <boost/assert.hpp>
+
+int main()
+{
+	static_assert(std::floating_point<std::float16_t>);
+	static_assert(std::floating_point<std::bfloat16_t>);
+	static_assert(std::floating_point<std::float32_t>);
+	static_assert(std::floating_point<std::float64_t>);
+	static_assert(std::floating_point<std::float128_t>);
+	constexpr std::float16_t a{};
+	constexpr std::bfloat16_t b{};
+	constexpr std::float32_t c{};
+	constexpr std::float64_t d{};
+	constexpr std::float128_t e{};
+	static_assert(sizeof a == 2);
+	static_assert(sizeof b == 2);
+	static_assert(sizeof c == 4);
+	static_assert(sizeof d == 8);
+	static_assert(sizeof e == 16);
+	BOOST_ASSERT(true);
+	std::cout << "Hello c++!" << std::endl;
+}
+```
+
+
+[h1 [role cyan See Also]]
+
+[@https://cppfx.xyz cppfx]
+
+
+

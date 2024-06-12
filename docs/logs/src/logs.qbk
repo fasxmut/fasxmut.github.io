@@ -2,6 +2,7 @@
 	[quickbook 1.7]
 ]
 
+[include d0022_cpp_std_float_type.qbk]
 [include d0021_kubuntu_cpp_compiler.qbk]
 [include d0020_cpp_dlib_dnn_cnn.qbk]
 [include d0019_cpp_boost_serialization.qbk]
