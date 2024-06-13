@@ -1,0 +1,52 @@
+[article windows install cpp compiler
+	[quickbook 1.7]
+]
+
+windows install cpp compiler - Posted on Jun 12, 2024 - See [@https://kubuntu.org] - [@https://cppfx.xyz/logs Logs Home] - d0023
+
+[h1 [role cyan Install Visual Studio cpp compiler]]
+
+Install visual studio c++ compiler
+
+Visual Studio Home:
+
+[@https://visualstudio.com https://visualstudio.com]
+
+[*Download] => [*Click] => [*Install] => [*Use]
+
+[h1 [role cyan Install msys2 cpp compiler]]
+
+Install msys2 c++ compiler
+
+MSYS2 Home:
+
+[@https://www.msys2.org https://www.msys2.org]
+
+[*Download] => [*Click] => [*Install] => [*Use]
+
+Then open msys2 terminal mingw64 :
+
+[!teletype]
+```
+pacman -Ss gcc		# search mingw64 gcc c++ compiler name
+pacman -Si <gcc-pack-name-here>		# Select the correct name
+```
+
+[h1 [role cyan cpp example]]
+
+[!c++]
+```
+#include <iostream>
+
+int main()
+{
+	std::cout << "Hello c++!" << std::endl;
+}
+```
+
+[h1 [role cyan See Also]]
+
+[@https://cppfx.xyz cppfx home]
+
+
+

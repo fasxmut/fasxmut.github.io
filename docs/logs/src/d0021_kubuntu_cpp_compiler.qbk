@@ -28,6 +28,18 @@ su -
 apt install clang libc++-dev libc++abi-dev
 ```
 
+[h1 [role cyan cpp example]]
+
+[!c++]
+```
+#include <iostream>
+
+int main()
+{
+	std::cout << "Hello c++!" << std::endl;
+}
+```
+
 [h1 [role cyan See Also]]
 
 [@https://cppfx.xyz cppfx]
