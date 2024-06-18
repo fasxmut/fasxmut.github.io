@@ -2,6 +2,7 @@
 	[quickbook 1.7]
 ]
 
+[include d0024_swift_cpp_20_concepts.qbk]
 [include d0023_windows_cpp_compiler.qbk]
 [include d0022_cpp_std_float_type.qbk]
 [include d0021_kubuntu_cpp_compiler.qbk]

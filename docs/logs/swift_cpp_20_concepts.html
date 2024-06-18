@@ -1,0 +1,202 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>swift cpp 20 concepts</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="logs - Blogs or News">
+<link rel="up" href="index.html" title="logs - Blogs or News">
+<link rel="prev" href="index.html" title="logs - Blogs or News">
+<link rel="next" href="windows_install_cpp_compiler.html" title="windows install cpp compiler">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="windows_install_cpp_compiler.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="swift_cpp_20_concepts"></a>swift cpp 20 concepts</h1></div></div>
+<hr>
+</div>
+<p>
+      swift uses c++20/23 concepts - Posted on Jun 18, 2024 - See <a href="https://www.swift.org/documentation/cxx-interop" target="_top">https://www.swift.org/documentation/cxx-interop</a>
+      - <a href="https://cppfx.xyz/logs" target="_top">Logs Home</a> - d0024
+    </p>
+<h2>
+<a name="swift_cpp_20_concepts.h0"></a>
+      <span class="phrase"><a name="swift_cpp_20_concepts.role_cyan_download_and_install_s"></a></span><a class="link" href="swift_cpp_20_concepts.html#swift_cpp_20_concepts.role_cyan_download_and_install_s"><span class="cyan">Download
+      and install swift latest snapshot</span></a>
+    </h2>
+<p>
+      Download and install swift latest snapshot (6.0).
+    </p>
+<h2>
+<a name="swift_cpp_20_concepts.h1"></a>
+      <span class="phrase"><a name="swift_cpp_20_concepts.role_cyan_install_libcxx"></a></span><a class="link" href="swift_cpp_20_concepts.html#swift_cpp_20_concepts.role_cyan_install_libcxx"><span class="cyan">install libcxx</span></a>
+    </h2>
+<p>
+      Install clang libc++
+    </p>
+<pre class="programlisting">apt install libc++-dev libc++abi-dev
+</pre>
+<h2>
+<a name="swift_cpp_20_concepts.h2"></a>
+      <span class="phrase"><a name="swift_cpp_20_concepts.role_cyan_create_swift_cpp_proje"></a></span><a class="link" href="swift_cpp_20_concepts.html#swift_cpp_20_concepts.role_cyan_create_swift_cpp_proje"><span class="cyan">Create
+      swift cpp project</span></a>
+    </h2>
+<p>
+      Create swift c++ project.
+    </p>
+<p>
+      Commands :
+    </p>
+<pre class="programlisting">mkdir -p hello_swift/{Sources/hello_cpp/include,Sources/hello_swift}
+cd hello_swift/
+kak Package.swift
+</pre>
+<p>
+      Package.swift :
+    </p>
+<pre class="programlisting"><span class="comment">// swift-tools-version: 6.0</span>
+
+<span class="identifier">import</span> <span class="identifier">PackageDescription</span>
+
+<span class="identifier">let</span> <span class="identifier">package</span> <span class="special">=</span> <span class="identifier">Package</span><span class="special">(</span>
+	<span class="identifier">name</span><span class="special">:</span> <span class="string">"hello_swift"</span><span class="special">,</span>
+	<span class="identifier">targets</span><span class="special">:</span> <span class="special">[</span>
+		<span class="special">.</span><span class="identifier">target</span><span class="special">(</span>
+			<span class="identifier">name</span><span class="special">:</span> <span class="string">"hello_cpp"</span>
+		<span class="special">),</span>
+		<span class="special">.</span><span class="identifier">executableTarget</span><span class="special">(</span>
+			<span class="identifier">name</span><span class="special">:</span> <span class="string">"hello_swift"</span><span class="special">,</span>
+			<span class="identifier">dependencies</span><span class="special">:</span> <span class="special">[</span><span class="string">"hello_cpp"</span><span class="special">],</span>
+			<span class="identifier">swiftSettings</span><span class="special">:</span> <span class="special">[.</span><span class="identifier">interoperabilityMode</span><span class="special">(.</span><span class="identifier">Cxx</span><span class="special">)]</span>
+		<span class="special">)</span>
+	<span class="special">]</span>
+<span class="special">)</span>
+</pre>
+<h2>
+<a name="swift_cpp_20_concepts.h3"></a>
+      <span class="phrase"><a name="swift_cpp_20_concepts.role_cyan_cpp_code"></a></span><a class="link" href="swift_cpp_20_concepts.html#swift_cpp_20_concepts.role_cyan_cpp_code"><span class="cyan">cpp code</span></a>
+    </h2>
+<p>
+      Commands :
+    </p>
+<pre class="programlisting"><span class="identifier">cd</span> <span class="identifier">Sources</span><span class="special">/</span><span class="identifier">hello_cpp</span><span class="special">/</span><span class="identifier">include</span><span class="special">/</span>
+<span class="identifier">kak</span> <span class="identifier">any_name</span><span class="special">.</span><span class="identifier">cpp</span>
+</pre>
+<p>
+      c++ code :
+    </p>
+<p>
+      any_name.cpp
+    </p>
+<pre class="programlisting"><span class="preprocessor">#pragma</span> <span class="identifier">once</span>
+
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">concepts</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">any</span>
+<span class="special">{</span>
+
+<span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">type_xtk</span><span class="special">&gt;</span>
+<span class="identifier">concept</span> <span class="identifier">number</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">integral</span><span class="special">&lt;</span><span class="identifier">type_xtk</span><span class="special">&gt;</span> <span class="special">||</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">floating_point</span><span class="special">&lt;</span><span class="identifier">type_xtk</span><span class="special">&gt;;</span>
+
+<span class="keyword">template</span> <span class="special">&lt;</span><span class="identifier">any</span><span class="special">::</span><span class="identifier">number</span> <span class="identifier">type_xti</span><span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">test</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">void</span> <span class="identifier">print</span><span class="special">()</span> <span class="keyword">const</span>
+	<span class="special">{</span>
+		<span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">value__</span> <span class="special">=</span> <span class="keyword">static_cast</span><span class="special">&lt;</span><span class="identifier">type_xti</span><span class="special">&gt;(</span><span class="number">234.432</span><span class="special">);</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"value__ : "</span> <span class="special">&lt;&lt;</span> <span class="identifier">value__</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">class</span> <span class="identifier">hello_cpp_any_name</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">void</span> <span class="identifier">print</span><span class="special">()</span> <span class="keyword">const</span>
+	<span class="special">{</span>
+		<span class="identifier">any</span><span class="special">::</span><span class="identifier">test</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;{}.</span><span class="identifier">print</span><span class="special">();</span>
+		<span class="identifier">any</span><span class="special">::</span><span class="identifier">test</span><span class="special">&lt;</span><span class="keyword">float</span><span class="special">&gt;{}.</span><span class="identifier">print</span><span class="special">();</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="special">}</span>	<span class="comment">// namespace any</span>
+</pre>
+<h2>
+<a name="swift_cpp_20_concepts.h4"></a>
+      <span class="phrase"><a name="swift_cpp_20_concepts.role_cyan_swift_code"></a></span><a class="link" href="swift_cpp_20_concepts.html#swift_cpp_20_concepts.role_cyan_swift_code"><span class="cyan">swift code</span></a>
+    </h2>
+<p>
+      Commands :
+    </p>
+<pre class="programlisting"><span class="identifier">cd</span> <span class="special">-</span>	<span class="special">#</span> <span class="identifier">cd</span> <span class="special">&lt;</span><span class="identifier">project</span> <span class="identifier">root</span> <span class="identifier">dir</span><span class="special">&gt;</span>
+<span class="identifier">cd</span> <span class="identifier">Sources</span><span class="special">/</span><span class="identifier">hello_swift</span><span class="special">/</span>
+<span class="identifier">kak</span> <span class="identifier">any_name</span><span class="special">.</span><span class="identifier">swift</span>
+</pre>
+<p>
+      swift code :
+    </p>
+<p>
+      any_name.swift
+    </p>
+<pre class="programlisting"><span class="identifier">import</span> <span class="identifier">hello_cpp</span>
+
+<span class="keyword">class</span> <span class="identifier">hello_swift</span>
+<span class="special">{</span>
+	<span class="keyword">public</span> <span class="identifier">func</span> <span class="identifier">print</span><span class="special">()</span>
+	<span class="special">{</span>
+		<span class="identifier">let</span> <span class="identifier">object</span> <span class="special">=</span> <span class="identifier">any</span><span class="special">.</span><span class="identifier">hello_cpp_any_name</span><span class="special">()</span>
+		<span class="identifier">object</span><span class="special">.</span><span class="identifier">print</span><span class="special">()</span>
+	<span class="special">}</span>
+<span class="special">}</span>
+
+<span class="identifier">var</span> <span class="identifier">hello</span> <span class="special">=</span> <span class="identifier">hello_swift</span><span class="special">()</span>
+<span class="identifier">hello</span><span class="special">.</span><span class="identifier">print</span><span class="special">()</span>
+
+<span class="identifier">var</span> <span class="identifier">ob1</span> <span class="special">=</span> <span class="identifier">any</span><span class="special">.</span><span class="identifier">hello_cpp_any_name</span><span class="special">()</span>
+<span class="identifier">ob1</span><span class="special">.</span><span class="identifier">print</span><span class="special">()</span>
+
+<span class="identifier">let</span> <span class="identifier">ob2</span> <span class="special">=</span> <span class="identifier">any</span><span class="special">.</span><span class="identifier">hello_cpp_any_name</span><span class="special">()</span>
+<span class="identifier">ob2</span><span class="special">.</span><span class="identifier">print</span><span class="special">()</span>
+</pre>
+<h2>
+<a name="swift_cpp_20_concepts.h5"></a>
+      <span class="phrase"><a name="swift_cpp_20_concepts.role_cyan_build_and_run_swift_pr"></a></span><a class="link" href="swift_cpp_20_concepts.html#swift_cpp_20_concepts.role_cyan_build_and_run_swift_pr"><span class="cyan">build
+      and run swift project</span></a>
+    </h2>
+<p>
+      c++ compiler and linker flags must be passed to both "swift build"
+      and "swift run" .
+    </p>
+<p>
+      gcc libstdc++ latest c++20/23 can not work for swift compiler in the moment.
+    </p>
+<p>
+      libc++ c++20/23 can work with swift compiler in the moment.
+    </p>
+<pre class="programlisting"><span class="identifier">swift</span> <span class="identifier">run</span> <span class="special">-</span><span class="identifier">Xcc</span> <span class="special">-</span><span class="identifier">std</span><span class="special">=</span><span class="identifier">c</span><span class="special">++</span><span class="number">23</span> <span class="special">-</span><span class="identifier">Xcc</span> <span class="special">-</span><span class="identifier">stdlib</span><span class="special">=</span><span class="identifier">libc</span><span class="special">++</span> <span class="special">-</span><span class="identifier">Xlinker</span> <span class="special">-</span><span class="identifier">lc</span><span class="special">++</span>
+</pre>
+<pre class="programlisting"><span class="error">$</span> <span class="identifier">swift</span> <span class="identifier">run</span> <span class="special">-</span><span class="identifier">Xcc</span> <span class="special">-</span><span class="identifier">std</span><span class="special">=</span><span class="identifier">c</span><span class="special">++</span><span class="number">23</span> <span class="special">-</span><span class="identifier">Xcc</span> <span class="special">-</span><span class="identifier">stdlib</span><span class="special">=</span><span class="identifier">libc</span><span class="special">++</span> <span class="special">-</span><span class="identifier">Xlinker</span> <span class="special">-</span><span class="identifier">lc</span><span class="special">++</span>
+<span class="identifier">Building</span> <span class="keyword">for</span> <span class="identifier">debugging</span><span class="special">...</span>
+<span class="special">[</span><span class="number">1</span><span class="special">/</span><span class="number">1</span><span class="special">]</span> <span class="identifier">Write</span> <span class="identifier">swift</span><span class="special">-</span><span class="identifier">version</span><span class="special">-</span><span class="number">32</span><span class="identifier">A5E7755150B194</span><span class="special">.</span><span class="identifier">txt</span>
+<span class="identifier">Build</span> <span class="identifier">of</span> <span class="identifier">product</span> <span class="char">'hello_swift'</span> <span class="identifier">complete</span><span class="special">!</span> <span class="special">(</span><span class="number">0.01</span><span class="identifier">s</span><span class="special">)</span>
+<span class="identifier">value__</span> <span class="special">:</span> <span class="number">234</span>
+<span class="identifier">value__</span> <span class="special">:</span> <span class="number">234.432</span>
+<span class="identifier">value__</span> <span class="special">:</span> <span class="number">234</span>
+<span class="identifier">value__</span> <span class="special">:</span> <span class="number">234.432</span>
+<span class="identifier">value__</span> <span class="special">:</span> <span class="number">234</span>
+<span class="identifier">value__</span> <span class="special">:</span> <span class="number">234.432</span>
+</pre>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="windows_install_cpp_compiler.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
