@@ -1,0 +1,70 @@
+path-constant qbk-media-path : ../../../../utxcpp/docs/fx-quickbook-media/qbk-media ;
+path-constant this-path : . ;
+path-constant html-install-path : .. ;
+path-constant html-cache-path : ./html ;
+
+argv = [ modules.peek : ARGV ] ;
+if [ MATCH ^(clean)$ : $(argv) ]
+{
+	echo "rm -rf `find $(this-path) -name bin`" ;
+	SHELL "rm -rf `find $(this-path) -name bin`" ;
+
+	echo "rm -rf `find $(this-path) -name html`" ;
+	SHELL "rm -rf `find $(this-path) -name html`" ;
+
+	exit ;
+}
+
+if [ MATCH ^(cleanall)$ : $(argv) ]
+{
+	echo "rm -rf `find $(html-install-path) -name bin`" ;
+	SHELL "rm -rf `find $(html-install-path) -name bin`" ;
+
+	echo "rm -rf `find $(html-install-path) -name *html`" ;
+	SHELL "rm -rf `find $(html-install-path) -name *html`" ;
+
+	echo "rm -rf `find $(html-install-path) -name *css`" ;
+	SHELL "rm -rf `find $(html-install-path) -name *css`" ;
+
+	echo "rm -rf `find $(html-install-path) -name images`" ;
+	SHELL "rm -rf `find $(html-install-path) -name images`" ;
+
+	echo "rm -rf `find $(html-install-path) -name *manifest`" ;
+	SHELL "rm -rf `find $(html-install-path) -name *manifest`" ;
+
+	exit ;
+}
+
+xml xml-index : projects.qbk ;
+
+boostbook html-index
+	:
+		xml-index
+	:
+		<xsl:param>"chunk.first.sections=1"
+;
+
+install install-media
+	:
+		[
+			glob
+				$(qbk-media-path)/*.css
+				$(qbk-media-path)/images/*.png
+		]
+	:
+		<location>$(html-install-path)
+		<install-source-root>$(qbk-media-path)
+;
+
+install install-html
+	:
+		[
+			glob
+				$(html-cache-path)/*.html
+				$(html-cache-path)/*.manifest
+		]
+	:
+		<location>$(html-install-path)
+		<install-source-root>$(html-cache-path)
+;
+

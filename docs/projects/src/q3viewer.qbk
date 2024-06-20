@@ -1,0 +1,35 @@
+[article q3viewer
+	[quickbook 1.7]
+]
+
+[h1 [role cyan q3viewer - quake 3 map scene viewer]]
+
+q3viewer is a single file viewer of quake 3 map scene. It can help c++ developers and me to quick explore the quake 3 map in advance.
+
+[h1 [role cyan source code]]
+
+[@https://github.com/fasxmut/q3viewer]
+
+[h1 [role cyan How to build]]
+
+[h2 Build and install b2 build]
+
+[@https://cppfx.xyz/utxcpp/install/install_b2_build_toolchain.html]
+
+[@https://www.bfgroup.xyz/b2]
+
+[h2 Build q3viewer]
+
+```
+cd q3viewer/
+b2 -q -j7 \
+define=api=nirt \
+define=engine_device=nirt::NirtcppDevice \
+cxxflags="-include nirtcpp/core.hpp" \
+linkflags=-lnirtcpp-core
+```
+
+[h1 [role cyan Home]]
+
+Home: [@https://cppfx.xyz]
+
