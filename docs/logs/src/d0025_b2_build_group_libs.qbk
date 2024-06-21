@@ -1,0 +1,116 @@
+[article b2 build group libs
+	[quickbook 1.7]
+]
+
+b2 build group libs - Posted on Jun 21, 2024 - See [@https://www.bfgroup.xyz/b2] - [@https://cppfx.xyz/logs Logs Home] - d0025
+
+[h1 [role cyan b2 build, how to group many libaries as a bunch]]
+
+[*Purpose:]
+
+I have many library targets, I don't want to link them by writting their names one by one, I want to make one name to all of them.
+
+For example, I want to merge sfml-graphics, sfml-window, and sfml-audio, and sfml-system into one name target.
+
+[h1 [role cyan How to define library target in b2 build jamfile]]
+
+[h2 Build library target]
+
+```
+lib the_lib_name : src1.cpp src2.cpp : <cxxstd>23 ;
+```
+
+This will build a library libthe_lib_name.so with src1.cpp and src2.cpp, and the library target name is the_lib_name .
+
+
+[h2 Prebuilt library target]
+
+```
+lib the_lib_name : : <name>the_name <search>/usr/local/lib : : <include>/usr/local/include ;
+```
+
+This will define a library [role blue target] [*the_lib_name] .
+
+Because the source code list is empty, it will use [*prebuilt library] .
+
+[*<name>the_name] , this means it will search name [*libthe_name.so]
+
+[*<search>/usr/local/lib], this means it will search path /usr/local/lib to find that libthe_name.so
+
+[*<include>/usr/local/include], this means any other targets that depend this target will add -I/usr/local/include as their include path.
+
+Many b2 jamfile rules follow parameter format like this:
+
+```
+rule_name param1 : param2 : param3 : param4 : param5 : param6 : ... : ... : ... ;
+```
+
+For example, the rule [*lib] :
+
+```
+lib lib_name : source_code_list : requirements : default-build : usage-requirements ;
+```
+
+* [*param1: lib_name]		- It must have a target name, which might be depended by other targets .
+* [*param2: source_code_list]	- c++ source code list, which are used to build the target library.
+* [*param3: requirements]	- requirement conditions, can not be overrided.
+* [*param4: default-build]	- default-build conditions, can be override at command line.
+* [*param5: usage-requirements]	- the requirements that are used by other targets that depend on this target.
+
+[h2 If the library search path is standard, ...]
+
+If the library search path is standard, the <search> can be empty.
+
+```
+lib sfml-audio : : <name>sfml-audio ;	# Omit the <search>
+```
+
+Because the search path of sfml is standard, the <search> can be omitted.
+
+[h2 More short ...]
+
+```
+lib sfml-audio ;
+```
+
+This is the same as :
+
+```
+lib sfml-audio : : <name>sfml-audio ;
+```
+
+But if you want to use different target name and library name, you can not use that short code.
+
+```
+lib audio : : <name>sfml-audio ;	# target name is audio, library name is sfml-audio, aka. libsfml-audio.so
+```
+
+To define many targets, nice:
+
+```
+lib sfml-audio sfml-window sfml-graphics ;
+```
+
+It is the same as:
+
+```
+lib sfml-audio : : <name>sfml-audio ;
+lib sfml-window : : <name>sfml-window ;
+lib sfml-graphics : : <name>sfml-graphics ;
+```
+
+[h1 [role cyan alias to many targets]]
+
+```
+alias target : target1 target2 target3 ;
+```
+
+So, I have my first solution:
+
+```
+lib sfml-graphics sfml-window sfml-audio sfml-system ;
+alias sfml : sfml-graphics sfml-window sfml-audio sfml-system ;
+
+exe my_prog : my_prog.cpp : <library>sfml <cxxstd>23 ;
+```
+

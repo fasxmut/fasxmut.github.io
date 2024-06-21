@@ -1,0 +1,181 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>b2 build group libs</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="logs - Blogs or News">
+<link rel="up" href="index.html" title="logs - Blogs or News">
+<link rel="prev" href="index.html" title="logs - Blogs or News">
+<link rel="next" href="swift_cpp_20_concepts.html" title="swift cpp 20 concepts">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="swift_cpp_20_concepts.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="b2_build_group_libs"></a>b2 build group libs</h1></div></div>
+<hr>
+</div>
+<p>
+      b2 build group libs - Posted on Jun 21, 2024 - See <a href="https://www.bfgroup.xyz/b2" target="_top">https://www.bfgroup.xyz/b2</a>
+      - <a href="https://cppfx.xyz/logs" target="_top">Logs Home</a> - d0025
+    </p>
+<h2>
+<a name="b2_build_group_libs.h0"></a>
+      <span class="phrase"><a name="b2_build_group_libs.role_cyan_b2_build_how_to_group_"></a></span><a class="link" href="b2_build_group_libs.html#b2_build_group_libs.role_cyan_b2_build_how_to_group_"><span class="cyan">b2 build, how to group many libaries as a bunch</span></a>
+    </h2>
+<p>
+      <span class="bold"><strong>Purpose:</strong></span>
+    </p>
+<p>
+      I have many library targets, I don't want to link them by writting their names
+      one by one, I want to make one name to all of them.
+    </p>
+<p>
+      For example, I want to merge sfml-graphics, sfml-window, and sfml-audio, and
+      sfml-system into one name target.
+    </p>
+<h2>
+<a name="b2_build_group_libs.h1"></a>
+      <span class="phrase"><a name="b2_build_group_libs.role_cyan_how_to_define_library_"></a></span><a class="link" href="b2_build_group_libs.html#b2_build_group_libs.role_cyan_how_to_define_library_"><span class="cyan">How to define library target in b2 build jamfile</span></a>
+    </h2>
+<h3>
+<a name="b2_build_group_libs.h2"></a>
+      <span class="phrase"><a name="b2_build_group_libs.build_library_target"></a></span><a class="link" href="b2_build_group_libs.html#b2_build_group_libs.build_library_target">Build
+      library target</a>
+    </h3>
+<pre class="programlisting"><span class="identifier">lib</span> <span class="identifier">the_lib_name</span> <span class="special">:</span> <span class="identifier">src1</span><span class="special">.</span><span class="identifier">cpp</span> <span class="identifier">src2</span><span class="special">.</span><span class="identifier">cpp</span> <span class="special">:</span> <span class="special">&lt;</span><span class="identifier">cxxstd</span><span class="special">&gt;</span><span class="number">23</span> <span class="special">;</span>
+</pre>
+<p>
+      This will build a library libthe_lib_name.so with src1.cpp and src2.cpp, and
+      the library target name is the_lib_name .
+    </p>
+<h3>
+<a name="b2_build_group_libs.h3"></a>
+      <span class="phrase"><a name="b2_build_group_libs.prebuilt_library_target"></a></span><a class="link" href="b2_build_group_libs.html#b2_build_group_libs.prebuilt_library_target">Prebuilt
+      library target</a>
+    </h3>
+<pre class="programlisting"><span class="identifier">lib</span> <span class="identifier">the_lib_name</span> <span class="special">:</span> <span class="special">:</span> <span class="special">&lt;</span><span class="identifier">name</span><span class="special">&gt;</span><span class="identifier">the_name</span> <span class="special">&lt;</span><span class="identifier">search</span><span class="special">&gt;/</span><span class="identifier">usr</span><span class="special">/</span><span class="identifier">local</span><span class="special">/</span><span class="identifier">lib</span> <span class="special">:</span> <span class="special">:</span> <span class="special">&lt;</span><span class="identifier">include</span><span class="special">&gt;/</span><span class="identifier">usr</span><span class="special">/</span><span class="identifier">local</span><span class="special">/</span><span class="identifier">include</span> <span class="special">;</span>
+</pre>
+<p>
+      This will define a library <span class="blue">target</span> <span class="bold"><strong>the_lib_name</strong></span>
+      .
+    </p>
+<p>
+      Because the source code list is empty, it will use <span class="bold"><strong>prebuilt
+      library</strong></span> .
+    </p>
+<p>
+      <span class="bold"><strong>&lt;name&gt;the_name</strong></span> , this means it will
+      search name <span class="bold"><strong>libthe_name.so</strong></span>
+    </p>
+<p>
+      <span class="bold"><strong>&lt;search&gt;/usr/local/lib</strong></span>, this means it
+      will search path /usr/local/lib to find that libthe_name.so
+    </p>
+<p>
+      <span class="bold"><strong>&lt;include&gt;/usr/local/include</strong></span>, this means
+      any other targets that depend this target will add -I/usr/local/include as
+      their include path.
+    </p>
+<p>
+      Many b2 jamfile rules follow parameter format like this:
+    </p>
+<pre class="programlisting"><span class="identifier">rule_name</span> <span class="identifier">param1</span> <span class="special">:</span> <span class="identifier">param2</span> <span class="special">:</span> <span class="identifier">param3</span> <span class="special">:</span> <span class="identifier">param4</span> <span class="special">:</span> <span class="identifier">param5</span> <span class="special">:</span> <span class="identifier">param6</span> <span class="special">:</span> <span class="special">...</span> <span class="special">:</span> <span class="special">...</span> <span class="special">:</span> <span class="special">...</span> <span class="special">;</span>
+</pre>
+<p>
+      For example, the rule <span class="bold"><strong>lib</strong></span> :
+    </p>
+<pre class="programlisting"><span class="identifier">lib</span> <span class="identifier">lib_name</span> <span class="special">:</span> <span class="identifier">source_code_list</span> <span class="special">:</span> <span class="identifier">requirements</span> <span class="special">:</span> <span class="keyword">default</span><span class="special">-</span><span class="identifier">build</span> <span class="special">:</span> <span class="identifier">usage</span><span class="special">-</span><span class="identifier">requirements</span> <span class="special">;</span>
+</pre>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          <span class="bold"><strong>param1: lib_name</strong></span> - It must have a target
+          name, which might be depended by other targets .
+        </li>
+<li class="listitem">
+          <span class="bold"><strong>param2: source_code_list</strong></span> - c++ source
+          code list, which are used to build the target library.
+        </li>
+<li class="listitem">
+          <span class="bold"><strong>param3: requirements</strong></span> - requirement conditions,
+          can not be overrided.
+        </li>
+<li class="listitem">
+          <span class="bold"><strong>param4: default-build</strong></span> - default-build
+          conditions, can be override at command line.
+        </li>
+<li class="listitem">
+          <span class="bold"><strong>param5: usage-requirements</strong></span> - the requirements
+          that are used by other targets that depend on this target.
+        </li>
+</ul></div>
+<h3>
+<a name="b2_build_group_libs.h4"></a>
+      <span class="phrase"><a name="b2_build_group_libs.if_the_library_search_path_is_st"></a></span><a class="link" href="b2_build_group_libs.html#b2_build_group_libs.if_the_library_search_path_is_st">If
+      the library search path is standard, ...</a>
+    </h3>
+<p>
+      If the library search path is standard, the &lt;search&gt; can be empty.
+    </p>
+<pre class="programlisting"><span class="identifier">lib</span> <span class="identifier">sfml</span><span class="special">-</span><span class="identifier">audio</span> <span class="special">:</span> <span class="special">:</span> <span class="special">&lt;</span><span class="identifier">name</span><span class="special">&gt;</span><span class="identifier">sfml</span><span class="special">-</span><span class="identifier">audio</span> <span class="special">;</span>	<span class="special">#</span> <span class="identifier">Omit</span> <span class="identifier">the</span> <span class="special">&lt;</span><span class="identifier">search</span><span class="special">&gt;</span>
+</pre>
+<p>
+      Because the search path of sfml is standard, the &lt;search&gt; can be omitted.
+    </p>
+<h3>
+<a name="b2_build_group_libs.h5"></a>
+      <span class="phrase"><a name="b2_build_group_libs.more_short"></a></span><a class="link" href="b2_build_group_libs.html#b2_build_group_libs.more_short">More
+      short ...</a>
+    </h3>
+<pre class="programlisting"><span class="identifier">lib</span> <span class="identifier">sfml</span><span class="special">-</span><span class="identifier">audio</span> <span class="special">;</span>
+</pre>
+<p>
+      This is the same as :
+    </p>
+<pre class="programlisting"><span class="identifier">lib</span> <span class="identifier">sfml</span><span class="special">-</span><span class="identifier">audio</span> <span class="special">:</span> <span class="special">:</span> <span class="special">&lt;</span><span class="identifier">name</span><span class="special">&gt;</span><span class="identifier">sfml</span><span class="special">-</span><span class="identifier">audio</span> <span class="special">;</span>
+</pre>
+<p>
+      But if you want to use different target name and library name, you can not
+      use that short code.
+    </p>
+<pre class="programlisting"><span class="identifier">lib</span> <span class="identifier">audio</span> <span class="special">:</span> <span class="special">:</span> <span class="special">&lt;</span><span class="identifier">name</span><span class="special">&gt;</span><span class="identifier">sfml</span><span class="special">-</span><span class="identifier">audio</span> <span class="special">;</span>	<span class="special">#</span> <span class="identifier">target</span> <span class="identifier">name</span> <span class="identifier">is</span> <span class="identifier">audio</span><span class="special">,</span> <span class="identifier">library</span> <span class="identifier">name</span> <span class="identifier">is</span> <span class="identifier">sfml</span><span class="special">-</span><span class="identifier">audio</span><span class="special">,</span> <span class="identifier">aka</span><span class="special">.</span> <span class="identifier">libsfml</span><span class="special">-</span><span class="identifier">audio</span><span class="special">.</span><span class="identifier">so</span>
+</pre>
+<p>
+      To define many targets, nice:
+    </p>
+<pre class="programlisting"><span class="identifier">lib</span> <span class="identifier">sfml</span><span class="special">-</span><span class="identifier">audio</span> <span class="identifier">sfml</span><span class="special">-</span><span class="identifier">window</span> <span class="identifier">sfml</span><span class="special">-</span><span class="identifier">graphics</span> <span class="special">;</span>
+</pre>
+<p>
+      It is the same as:
+    </p>
+<pre class="programlisting"><span class="identifier">lib</span> <span class="identifier">sfml</span><span class="special">-</span><span class="identifier">audio</span> <span class="special">:</span> <span class="special">:</span> <span class="special">&lt;</span><span class="identifier">name</span><span class="special">&gt;</span><span class="identifier">sfml</span><span class="special">-</span><span class="identifier">audio</span> <span class="special">;</span>
+<span class="identifier">lib</span> <span class="identifier">sfml</span><span class="special">-</span><span class="identifier">window</span> <span class="special">:</span> <span class="special">:</span> <span class="special">&lt;</span><span class="identifier">name</span><span class="special">&gt;</span><span class="identifier">sfml</span><span class="special">-</span><span class="identifier">window</span> <span class="special">;</span>
+<span class="identifier">lib</span> <span class="identifier">sfml</span><span class="special">-</span><span class="identifier">graphics</span> <span class="special">:</span> <span class="special">:</span> <span class="special">&lt;</span><span class="identifier">name</span><span class="special">&gt;</span><span class="identifier">sfml</span><span class="special">-</span><span class="identifier">graphics</span> <span class="special">;</span>
+</pre>
+<h2>
+<a name="b2_build_group_libs.h6"></a>
+      <span class="phrase"><a name="b2_build_group_libs.role_cyan_alias_to_many_targets"></a></span><a class="link" href="b2_build_group_libs.html#b2_build_group_libs.role_cyan_alias_to_many_targets"><span class="cyan">alias to many targets</span></a>
+    </h2>
+<pre class="programlisting"><span class="identifier">alias</span> <span class="identifier">target</span> <span class="special">:</span> <span class="identifier">target1</span> <span class="identifier">target2</span> <span class="identifier">target3</span> <span class="special">;</span>
+</pre>
+<p>
+      So, I have my first solution:
+    </p>
+<pre class="programlisting"><span class="identifier">lib</span> <span class="identifier">sfml</span><span class="special">-</span><span class="identifier">graphics</span> <span class="identifier">sfml</span><span class="special">-</span><span class="identifier">window</span> <span class="identifier">sfml</span><span class="special">-</span><span class="identifier">audio</span> <span class="identifier">sfml</span><span class="special">-</span><span class="identifier">system</span> <span class="special">;</span>
+<span class="identifier">alias</span> <span class="identifier">sfml</span> <span class="special">:</span> <span class="identifier">sfml</span><span class="special">-</span><span class="identifier">graphics</span> <span class="identifier">sfml</span><span class="special">-</span><span class="identifier">window</span> <span class="identifier">sfml</span><span class="special">-</span><span class="identifier">audio</span> <span class="identifier">sfml</span><span class="special">-</span><span class="identifier">system</span> <span class="special">;</span>
+
+<span class="identifier">exe</span> <span class="identifier">my_prog</span> <span class="special">:</span> <span class="identifier">my_prog</span><span class="special">.</span><span class="identifier">cpp</span> <span class="special">:</span> <span class="special">&lt;</span><span class="identifier">library</span><span class="special">&gt;</span><span class="identifier">sfml</span> <span class="special">&lt;</span><span class="identifier">cxxstd</span><span class="special">&gt;</span><span class="number">23</span> <span class="special">;</span>
+</pre>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="swift_cpp_20_concepts.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
