@@ -181,16 +181,16 @@ kak Package.swift
     </p>
 <pre class="programlisting"><span class="identifier">swift</span> <span class="identifier">run</span> <span class="special">-</span><span class="identifier">Xcc</span> <span class="special">-</span><span class="identifier">std</span><span class="special">=</span><span class="identifier">c</span><span class="special">++</span><span class="number">23</span> <span class="special">-</span><span class="identifier">Xcc</span> <span class="special">-</span><span class="identifier">stdlib</span><span class="special">=</span><span class="identifier">libc</span><span class="special">++</span> <span class="special">-</span><span class="identifier">Xlinker</span> <span class="special">-</span><span class="identifier">lc</span><span class="special">++</span>
 </pre>
-<pre class="programlisting"><span class="error">$</span> <span class="identifier">swift</span> <span class="identifier">run</span> <span class="special">-</span><span class="identifier">Xcc</span> <span class="special">-</span><span class="identifier">std</span><span class="special">=</span><span class="identifier">c</span><span class="special">++</span><span class="number">23</span> <span class="special">-</span><span class="identifier">Xcc</span> <span class="special">-</span><span class="identifier">stdlib</span><span class="special">=</span><span class="identifier">libc</span><span class="special">++</span> <span class="special">-</span><span class="identifier">Xlinker</span> <span class="special">-</span><span class="identifier">lc</span><span class="special">++</span>
-<span class="identifier">Building</span> <span class="keyword">for</span> <span class="identifier">debugging</span><span class="special">...</span>
-<span class="special">[</span><span class="number">1</span><span class="special">/</span><span class="number">1</span><span class="special">]</span> <span class="identifier">Write</span> <span class="identifier">swift</span><span class="special">-</span><span class="identifier">version</span><span class="special">-</span><span class="number">32</span><span class="identifier">A5E7755150B194</span><span class="special">.</span><span class="identifier">txt</span>
-<span class="identifier">Build</span> <span class="identifier">of</span> <span class="identifier">product</span> <span class="char">'hello_swift'</span> <span class="identifier">complete</span><span class="special">!</span> <span class="special">(</span><span class="number">0.01</span><span class="identifier">s</span><span class="special">)</span>
-<span class="identifier">value__</span> <span class="special">:</span> <span class="number">234</span>
-<span class="identifier">value__</span> <span class="special">:</span> <span class="number">234.432</span>
-<span class="identifier">value__</span> <span class="special">:</span> <span class="number">234</span>
-<span class="identifier">value__</span> <span class="special">:</span> <span class="number">234.432</span>
-<span class="identifier">value__</span> <span class="special">:</span> <span class="number">234</span>
-<span class="identifier">value__</span> <span class="special">:</span> <span class="number">234.432</span>
+<pre class="programlisting">$ swift run -Xcc -std=c++23 -Xcc -stdlib=libc++ -Xlinker -lc++
+Building for debugging...
+[1/1] Write swift-version-32A5E7755150B194.txt
+Build of product 'hello_swift' complete! (0.01s)
+value__ : 234
+value__ : 234.432
+value__ : 234
+value__ : 234.432
+value__ : 234
+value__ : 234.432
 </pre>
 </div>
 <div class="copyright-footer"></div>

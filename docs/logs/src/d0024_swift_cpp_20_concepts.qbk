@@ -148,6 +148,7 @@ libc++ c++20/23 can work with swift compiler in the moment.
 swift run -Xcc -std=c++23 -Xcc -stdlib=libc++ -Xlinker -lc++
 ```
 
+[!teletype]
 ```
 $ swift run -Xcc -std=c++23 -Xcc -stdlib=libc++ -Xlinker -lc++
 Building for debugging...

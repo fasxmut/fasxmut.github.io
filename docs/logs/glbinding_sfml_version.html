@@ -81,6 +81,7 @@
 		<span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span>
 		<span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span>
 	<span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">boolalpha</span> <span class="special">&lt;&lt;</span> <span class="special">(</span><span class="identifier">version</span> <span class="special">&gt;=</span> <span class="identifier">glbinding</span><span class="special">::</span><span class="identifier">Version</span><span class="special">{</span><span class="number">4</span><span class="special">,</span> <span class="number">5</span><span class="special">})</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
 <span class="special">}</span>
 </pre>
 <h3>
@@ -88,16 +89,26 @@
       <span class="phrase"><a name="glbinding_sfml_version.build_and_run"></a></span><a class="link" href="glbinding_sfml_version.html#glbinding_sfml_version.build_and_run">Build
       and Run</a>
     </h3>
-<pre class="programlisting"><span class="error">$</span> <span class="identifier">g</span><span class="special">++</span> <span class="identifier">version</span><span class="special">.</span><span class="identifier">cpp</span> <span class="special">-</span><span class="identifier">std</span><span class="special">=</span><span class="identifier">c</span><span class="special">++</span><span class="number">23</span> <span class="special">-</span><span class="identifier">lglbinding</span> <span class="special">-</span><span class="identifier">lglbinding</span><span class="special">-</span><span class="identifier">aux</span> <span class="special">-</span><span class="identifier">lsfml</span><span class="special">-</span><span class="identifier">window</span> <span class="special">-</span><span class="identifier">lsfml</span><span class="special">-</span><span class="identifier">system</span> <span class="special">-</span><span class="identifier">o</span> <span class="identifier">version</span>
-<span class="error">$</span> <span class="special">./</span><span class="identifier">version</span>
-<span class="identifier">Version</span><span class="special">:</span> <span class="special">-.-</span>
-<span class="number">0</span> <span class="number">0</span>
+<pre class="programlisting">$ g++ version.cpp -std=c++23 -lglbinding -lglbinding-aux -lsfml-window -lsfml-system -o version
+$ ./version
+Version: -.-
+0 0
 
-<span class="error">$</span> <span class="special">./</span><span class="identifier">version</span> <span class="keyword">true</span>
-<span class="identifier">Version</span><span class="special">:</span> <span class="number">4.6</span>
-<span class="number">4</span> <span class="number">6</span>
+false
+$ g++ version.cpp -std=c++23 -lglbinding -lglbinding-aux -lsfml-window -lsfml-system -o version
+$ ./version
+Version: -.-
+0 0
 
-<span class="error">$</span>
+false
+
+$ ./version true
+Version: 4.6
+4 6
+
+true
+
+$
 </pre>
 <h2>
 <a name="glbinding_sfml_version.h4"></a>

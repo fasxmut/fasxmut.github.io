@@ -17,7 +17,6 @@ cpp/c++
 [!c++]
 ```
 const glbinding::Version version = glbinding::aux::ContextInfo::version();
-
 ```
 
 [h1 [role cyan example]]
@@ -50,20 +49,32 @@ int main(int argc, char * argv[])
 		<< std::endl
 		<< std::endl
 	;
+	std::cout << std::boolalpha << (version >= glbinding::Version{4, 5}) << std::endl << std::endl;
 }
 ```
 
 [h2 Build and Run]
 
+[!teletype]
 ```
 $ g++ version.cpp -std=c++23 -lglbinding -lglbinding-aux -lsfml-window -lsfml-system -o version
 $ ./version
 Version: -.-
 0 0 
 
+false
+$ g++ version.cpp -std=c++23 -lglbinding -lglbinding-aux -lsfml-window -lsfml-system -o version
+$ ./version
+Version: -.-
+0 0 
+
+false
+
 $ ./version true
 Version: 4.6
 4 6 
+
+true
 
 $ 
 ```
