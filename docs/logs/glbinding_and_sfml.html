@@ -1,0 +1,164 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>glbinding and sfml</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="logs - Blogs or News">
+<link rel="up" href="index.html" title="logs - Blogs or News">
+<link rel="prev" href="index.html" title="logs - Blogs or News">
+<link rel="next" href="b2_build_group_libs.html" title="b2 build group libs">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="b2_build_group_libs.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="glbinding_and_sfml"></a>glbinding and sfml</h1></div></div>
+<hr>
+</div>
+<p>
+      glbinding and sfml - Posted on Jun 29, 2024 - See <a href="https://glbinding.org" target="_top">https://glbinding.org</a>
+      - <a href="https://cppfx.xyz/logs" target="_top">Logs Home</a> - d0026
+    </p>
+<h2>
+<a name="glbinding_and_sfml.h0"></a>
+      <span class="phrase"><a name="glbinding_and_sfml.role_cyan_glbinding_and_sfml"></a></span><a class="link" href="glbinding_and_sfml.html#glbinding_and_sfml.role_cyan_glbinding_and_sfml"><span class="cyan">glbinding and sfml</span></a>
+    </h2>
+<p>
+      glbinding is a c++ binding for the OpenGL API, generated using the gl.xml specification.
+    </p>
+<p>
+      glbinding leverages C++11 features like enum classes, lambdas, and variadic
+      templates, instead of relying on macros; all OpenGL symbols are real functions
+      and variables. It provides type-safe parameters, per-feature API headers, lazy
+      function resolution, multi-context and multi-thread support, global and local
+      function callbacks, meta information about the generated OpenGL binding and
+      the OpenGL runtime, as well as tools and examples for quick-starting your projects.
+      Based on the OpenGL API specification (gl.xml) glbinding is generated using
+      python scripts and templates that can be easily adapted to fit custom needs.
+    </p>
+<p>
+      Create Window using sfml, and leverages glbinding.
+    </p>
+<h2>
+<a name="glbinding_and_sfml.h1"></a>
+      <span class="phrase"><a name="glbinding_and_sfml.role_cyan_cpp_example_code"></a></span><a class="link" href="glbinding_and_sfml.html#glbinding_and_sfml.role_cyan_cpp_example_code"><span class="cyan">cpp example code</span></a>
+    </h2>
+<p>
+      c++ example code.
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">glbinding</span><span class="special">/</span><span class="identifier">gl45core</span><span class="special">/</span><span class="identifier">gl</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>	<span class="comment">// gl 4.5</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">glbinding</span><span class="special">/</span><span class="identifier">Binding</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>	<span class="comment">// glbinding::Binding</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">SFML</span><span class="special">/</span><span class="identifier">Window</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">glbinding</span><span class="special">/</span><span class="identifier">Version</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>	<span class="comment">// glbinding::Version</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">glbinding</span><span class="special">/</span><span class="identifier">Meta</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>	<span class="comment">// glbinding::Meta::versions</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">future</span><span class="special">&gt;</span>
+
+<span class="keyword">auto</span> <span class="identifier">fn</span> <span class="special">=</span> <span class="special">[]</span>
+<span class="special">{</span>
+	<span class="keyword">static</span> <span class="keyword">int</span> <span class="identifier">id_generator</span> <span class="special">=</span> <span class="special">-</span><span class="number">1</span><span class="special">;</span>
+	<span class="special">++</span><span class="identifier">id_generator</span><span class="special">;</span>
+	<span class="keyword">const</span> <span class="keyword">int</span> <span class="identifier">id</span> <span class="special">=</span> <span class="identifier">id_generator</span><span class="special">;</span>
+	<span class="identifier">glbinding</span><span class="special">::</span><span class="identifier">Binding</span><span class="special">::</span><span class="identifier">initialize</span><span class="special">(</span><span class="identifier">id</span><span class="special">,</span> <span class="identifier">glbinding</span><span class="special">::</span><span class="identifier">getProcAddress</span><span class="special">);</span>
+	<span class="identifier">gl45core</span><span class="special">::</span><span class="identifier">glClearColor</span><span class="special">((</span><span class="number">50</span><span class="special">*</span><span class="identifier">id</span><span class="special">)/</span><span class="number">255.0</span><span class="special">,</span> <span class="special">(</span><span class="number">100</span><span class="special">*</span><span class="identifier">id</span><span class="special">+</span><span class="number">50</span><span class="special">)/</span><span class="number">255.0</span><span class="special">,</span> <span class="special">(</span><span class="number">200</span><span class="special">*</span><span class="identifier">id</span><span class="special">+</span><span class="number">50</span><span class="special">)/</span><span class="number">255.0</span><span class="special">,</span> <span class="number">0.0</span><span class="special">);</span>
+
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"glbinding thread is created! id: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">id</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">sf</span><span class="special">::</span><span class="identifier">Window</span> <span class="identifier">window</span><span class="special">{</span><span class="identifier">sf</span><span class="special">::</span><span class="identifier">VideoMode</span><span class="special">{</span><span class="number">1280</span><span class="special">,</span> <span class="number">720</span><span class="special">,</span> <span class="number">32</span><span class="special">},</span> <span class="string">"glbinding"</span><span class="special">};</span>
+
+	<span class="identifier">glbinding</span><span class="special">::</span><span class="identifier">Binding</span><span class="special">::</span><span class="identifier">initialize</span><span class="special">();</span>
+
+	<span class="special">{</span> <span class="comment">// try</span>
+		<span class="identifier">gl45core</span><span class="special">::</span><span class="identifier">GLuint</span> <span class="identifier">program</span> <span class="special">=</span> <span class="identifier">gl45core</span><span class="special">::</span><span class="identifier">glCreateProgram</span><span class="special">();</span>
+		<span class="identifier">gl45core</span><span class="special">::</span><span class="identifier">GLuint</span> <span class="identifier">shader</span> <span class="special">=</span> <span class="identifier">gl45core</span><span class="special">::</span><span class="identifier">glCreateShader</span><span class="special">(</span><span class="identifier">gl45core</span><span class="special">::</span><span class="identifier">GL_COMPUTE_SHADER</span><span class="special">);</span>
+		<span class="identifier">gl45core</span><span class="special">::</span><span class="identifier">GLuint</span> <span class="identifier">shader2</span> <span class="special">=</span> <span class="identifier">gl45core</span><span class="special">::</span><span class="identifier">glCreateShader</span><span class="special">(</span><span class="identifier">gl45core</span><span class="special">::</span><span class="identifier">GL_VERTEX_SHADER</span><span class="special">);</span>
+		<span class="identifier">gl45core</span><span class="special">::</span><span class="identifier">GLuint</span> <span class="identifier">shader3</span> <span class="special">=</span> <span class="identifier">gl45core</span><span class="special">::</span><span class="identifier">glCreateShader</span><span class="special">(</span><span class="identifier">gl45core</span><span class="special">::</span><span class="identifier">GL_FRAGMENT_SHADER</span><span class="special">);</span>
+
+		<span class="identifier">gl45core</span><span class="special">::</span><span class="identifier">glBindAttribLocation</span><span class="special">(</span><span class="identifier">program</span><span class="special">,</span> <span class="number">0</span><span class="special">,</span> <span class="string">"in_vertex"</span><span class="special">);</span>
+		<span class="identifier">gl45core</span><span class="special">::</span><span class="identifier">glBindAttribLocation</span><span class="special">(</span><span class="identifier">program</span><span class="special">,</span> <span class="number">1</span><span class="special">,</span> <span class="string">"in_tex_coord"</span><span class="special">);</span>
+
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">program</span> <span class="special">&lt;&lt;</span><span class="string">" : "</span> <span class="special">&lt;&lt;</span> <span class="identifier">shader</span> <span class="special">&lt;&lt;</span> <span class="string">" : "</span> <span class="special">&lt;&lt;</span> <span class="identifier">shader2</span> <span class="special">&lt;&lt;</span> <span class="string">" : "</span> <span class="special">&lt;&lt;</span> <span class="identifier">shader3</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+	
+	<span class="special">{</span> <span class="comment">// try</span>
+		<span class="keyword">for</span> <span class="special">(</span><span class="keyword">const</span> <span class="identifier">glbinding</span><span class="special">::</span><span class="identifier">Version</span> <span class="special">&amp;</span> <span class="identifier">version</span><span class="special">:</span> <span class="identifier">glbinding</span><span class="special">::</span><span class="identifier">Meta</span><span class="special">::</span><span class="identifier">versions</span><span class="special">())</span>
+		<span class="special">{</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">version</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="special">}</span>
+	
+	<span class="special">{</span> <span class="comment">// try</span>
+		<span class="keyword">auto</span> <span class="identifier">thread1</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">async</span><span class="special">(</span><span class="identifier">fn</span><span class="special">);</span>
+		<span class="keyword">auto</span> <span class="identifier">thread2</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">async</span><span class="special">(</span><span class="identifier">fn</span><span class="special">);</span>
+	<span class="special">}</span>
+
+	<span class="identifier">gl45core</span><span class="special">::</span><span class="identifier">glClearColor</span><span class="special">(</span><span class="number">0.3f</span><span class="special">,</span> <span class="number">0.5f</span><span class="special">,</span> <span class="number">0.8f</span><span class="special">,</span> <span class="number">0.0f</span><span class="special">);</span>
+
+	<span class="keyword">while</span> <span class="special">(</span><span class="identifier">window</span><span class="special">.</span><span class="identifier">isOpen</span><span class="special">())</span>
+	<span class="special">{</span>
+		<span class="identifier">gl45core</span><span class="special">::</span><span class="identifier">glClear</span><span class="special">(</span><span class="identifier">gl45core</span><span class="special">::</span><span class="identifier">GL_COLOR_BUFFER_BIT</span> <span class="special">|</span> <span class="identifier">gl45core</span><span class="special">::</span><span class="identifier">GL_DEPTH_BUFFER_BIT</span><span class="special">);</span>
+		<span class="identifier">window</span><span class="special">.</span><span class="identifier">display</span><span class="special">();</span>
+		<span class="identifier">sf</span><span class="special">::</span><span class="identifier">Event</span> <span class="identifier">event</span><span class="special">;</span>
+		<span class="keyword">while</span> <span class="special">(</span><span class="identifier">window</span><span class="special">.</span><span class="identifier">pollEvent</span><span class="special">(</span><span class="identifier">event</span><span class="special">))</span>
+		<span class="special">{</span>
+			<span class="keyword">if</span> <span class="special">(</span><span class="identifier">event</span><span class="special">.</span><span class="identifier">type</span> <span class="special">==</span> <span class="identifier">sf</span><span class="special">::</span><span class="identifier">Event</span><span class="special">::</span><span class="identifier">Closed</span><span class="special">)</span>
+				<span class="identifier">window</span><span class="special">.</span><span class="identifier">close</span><span class="special">();</span>
+		<span class="special">}</span>
+	<span class="special">}</span>
+<span class="special">}</span>
+</pre>
+<p>
+      This program will open a blue window normally and safely, then print the following
+      information:
+    </p>
+<pre class="programlisting">1 : 2 : 3 : 4
+1.0
+1.1
+1.2
+1.3
+1.4
+1.5
+2.0
+2.1
+3.0
+3.1
+3.2
+3.3
+4.0
+4.1
+4.2
+4.3
+4.4
+4.5
+glbinding thread is created! id: 0
+glbinding thread is created! id: 1
+</pre>
+<h2>
+<a name="glbinding_and_sfml.h2"></a>
+      <span class="phrase"><a name="glbinding_and_sfml.role_cyan_see_also"></a></span><a class="link" href="glbinding_and_sfml.html#glbinding_and_sfml.role_cyan_see_also"><span class="cyan">See Also</span></a>
+    </h2>
+<p>
+      <a href="https://glbinding.org" target="_top">c++ glbinding</a>
+    </p>
+<p>
+      <a href="https://www.sfml-dev.org" target="_top">c++ sfml</a>
+    </p>
+<p>
+      <a href="https://en.cppreference.com/w/cpp/io/cout" target="_top">std::cout</a>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="b2_build_group_libs.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

@@ -2,6 +2,7 @@
 	[quickbook 1.7]
 ]
 
+[include d0026_glbinding_and_sfml.qbk]
 [include d0025_b2_build_group_libs.qbk]
 [include d0024_swift_cpp_20_concepts.qbk]
 [include d0023_windows_cpp_compiler.qbk]
