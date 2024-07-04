@@ -128,6 +128,8 @@ utx_raii_lock.html
 string.html
 utx_split_view.html
 utx_wsplit_view.html
+utx_str_rep.html
+utx_wstr_rep.html
 print.html
 output_concepts.html
 utx_kspt_printable.html
