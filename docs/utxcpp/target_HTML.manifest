@@ -125,6 +125,9 @@ utx_u8str_new.html
 utx_u16str_new.html
 utx_u32str_new.html
 utx_raii_lock.html
+string.html
+utx_split_view.html
+utx_wsplit_view.html
 print.html
 output_concepts.html
 utx_kspt_printable.html

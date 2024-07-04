@@ -1,0 +1,203 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>utx::wsplit_view</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Utxcpp Docs - Utxcpp Official Docs">
+<link rel="up" href="string.html" title="String">
+<link rel="prev" href="utx_split_view.html" title="utx::split_view">
+<link rel="next" href="print.html" title="Print">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="utx_split_view.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="string.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="print.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="utx_wsplit_view"></a>utx::wsplit_view</h2></div></div>
+<hr>
+</div>
+<h2>
+<a name="utx_wsplit_view.h0"></a>
+        <span class="phrase"><a name="utx_wsplit_view.role_cyan_utx_wsplit_view"></a></span><a class="link" href="utx_wsplit_view.html#utx_wsplit_view.role_cyan_utx_wsplit_view"><span class="cyan">utx::wsplit_view</span></a>
+      </h2>
+<p>
+        utx::wstring_view is a template class alias, used to split a wide-string
+        into several parts by a delimiter.
+      </p>
+<h2>
+<a name="utx_wsplit_view.h1"></a>
+        <span class="phrase"><a name="utx_wsplit_view.role_cyan_constructors"></a></span><a class="link" href="utx_wsplit_view.html#utx_wsplit_view.role_cyan_constructors"><span class="cyan">Constructors</span></a>
+      </h2>
+<h3>
+<a name="utx_wsplit_view.h2"></a>
+        <span class="phrase"><a name="utx_wsplit_view.construct_utx_wsplit_view_with_s"></a></span><a class="link" href="utx_wsplit_view.html#utx_wsplit_view.construct_utx_wsplit_view_with_s">Construct
+        utx::wsplit_view with string and delimiter</a>
+      </h3>
+<h4>
+<a name="utx_wsplit_view.h3"></a>
+        <span class="phrase"><a name="utx_wsplit_view.calling_sig"></a></span><a class="link" href="utx_wsplit_view.html#utx_wsplit_view.calling_sig">Calling
+        Sig:</a>
+      </h4>
+<pre class="programlisting"><span class="identifier">utx</span><span class="special">::</span><span class="identifier">wsplit_view</span> <span class="identifier">view</span><span class="special">{</span><span class="identifier">a_string</span><span class="special">,</span> <span class="identifier">a_delim</span><span class="special">};</span>
+</pre>
+<h3>
+<a name="utx_wsplit_view.h4"></a>
+        <span class="phrase"><a name="utx_wsplit_view.construct_utx_wsplit_view_with_0"></a></span><a class="link" href="utx_wsplit_view.html#utx_wsplit_view.construct_utx_wsplit_view_with_0">Construct
+        utx::wsplit_view with string and default delimiter: a space</a>
+      </h3>
+<h4>
+<a name="utx_wsplit_view.h5"></a>
+        <span class="phrase"><a name="utx_wsplit_view.calling_sig0"></a></span><a class="link" href="utx_wsplit_view.html#utx_wsplit_view.calling_sig0">Calling
+        Sig:</a>
+      </h4>
+<pre class="programlisting"><span class="identifier">utx</span><span class="special">::</span><span class="identifier">wsplit_view</span> <span class="identifier">view</span><span class="special">{</span><span class="identifier">a_string</span><span class="special">};</span>
+</pre>
+<p>
+        The holding string can be only assigned on constructor, and can not be changed
+        after constructed.
+      </p>
+<h2>
+<a name="utx_wsplit_view.h6"></a>
+        <span class="phrase"><a name="utx_wsplit_view.role_cyan_method_split"></a></span><a class="link" href="utx_wsplit_view.html#utx_wsplit_view.role_cyan_method_split"><span class="cyan">Method: .split</span></a>
+      </h2>
+<p>
+        When constructed, the string will be splitted by a delimiter, the delimitter
+        can be user-specified or default (a space).
+      </p>
+<p>
+        But the string can be splitted <span class="green">again</span> by a new
+        delimiter with this member function.
+      </p>
+<h4>
+<a name="utx_wsplit_view.h7"></a>
+        <span class="phrase"><a name="utx_wsplit_view.calling_sig1"></a></span><a class="link" href="utx_wsplit_view.html#utx_wsplit_view.calling_sig1">Calling
+        Sig:</a>
+      </h4>
+<pre class="programlisting"><span class="identifier">view</span><span class="special">.</span><span class="identifier">split</span><span class="special">(</span><span class="identifier">new_delimiter</span><span class="special">);</span>	<span class="comment">// split again</span>
+</pre>
+<h2>
+<a name="utx_wsplit_view.h8"></a>
+        <span class="phrase"><a name="utx_wsplit_view.role_cyan_metho_operator"></a></span><a class="link" href="utx_wsplit_view.html#utx_wsplit_view.role_cyan_metho_operator"><span class="cyan">Metho: .operator[]</span></a>
+      </h2>
+<p>
+        Access the specified splitted part by an index.
+      </p>
+<p>
+        If the index is out of range, an exception std::runtime_error will be thrown.
+      </p>
+<h4>
+<a name="utx_wsplit_view.h9"></a>
+        <span class="phrase"><a name="utx_wsplit_view.calling_sig2"></a></span><a class="link" href="utx_wsplit_view.html#utx_wsplit_view.calling_sig2">Calling
+        Sig:</a>
+      </h4>
+<pre class="programlisting"><span class="keyword">auto</span> <span class="identifier">sub_str</span> <span class="special">=</span> <span class="identifier">view</span><span class="special">[</span><span class="identifier">inde_value</span><span class="special">];</span>
+</pre>
+<h2>
+<a name="utx_wsplit_view.h10"></a>
+        <span class="phrase"><a name="utx_wsplit_view.role_cyan_methods_begin_end"></a></span><a class="link" href="utx_wsplit_view.html#utx_wsplit_view.role_cyan_methods_begin_end"><span class="cyan">Methods: .begin(), .end()</span></a>
+      </h2>
+<p>
+        Access the splitted parts as range.
+      </p>
+<p>
+        these two methods let it accessible by range-based for loop.
+      </p>
+<h4>
+<a name="utx_wsplit_view.h11"></a>
+        <span class="phrase"><a name="utx_wsplit_view.calling_sig3"></a></span><a class="link" href="utx_wsplit_view.html#utx_wsplit_view.calling_sig3">Calling
+        Sig:</a>
+      </h4>
+<pre class="programlisting"><span class="keyword">auto</span> <span class="identifier">part_itr</span> <span class="special">=</span> <span class="identifier">view</span><span class="special">.</span><span class="identifier">begin</span><span class="special">();</span>
+<span class="keyword">auto</span> <span class="identifier">end</span> <span class="special">=</span> <span class="identifier">view</span><span class="special">.</span><span class="identifier">end</span><span class="special">();</span>
+</pre>
+<h2>
+<a name="utx_wsplit_view.h12"></a>
+        <span class="phrase"><a name="utx_wsplit_view.role_cyan_method_split_size"></a></span><a class="link" href="utx_wsplit_view.html#utx_wsplit_view.role_cyan_method_split_size"><span class="cyan">Method: .split_size()</span></a>
+      </h2>
+<p>
+        Return the number of parts that the string is splitted into.
+      </p>
+<h4>
+<a name="utx_wsplit_view.h13"></a>
+        <span class="phrase"><a name="utx_wsplit_view.calling_sig4"></a></span><a class="link" href="utx_wsplit_view.html#utx_wsplit_view.calling_sig4">Calling
+        Sig:</a>
+      </h4>
+<pre class="programlisting"><span class="keyword">auto</span> <span class="identifier">count</span> <span class="special">=</span> <span class="identifier">view</span><span class="special">.</span><span class="identifier">split_size</span><span class="special">();</span>
+</pre>
+<h2>
+<a name="utx_wsplit_view.h14"></a>
+        <span class="phrase"><a name="utx_wsplit_view.role_cyan_method_str_size"></a></span><a class="link" href="utx_wsplit_view.html#utx_wsplit_view.role_cyan_method_str_size"><span class="cyan">Method: .str_size()</span></a>
+      </h2>
+<p>
+        Return the string size of holding string.
+      </p>
+<h4>
+<a name="utx_wsplit_view.h15"></a>
+        <span class="phrase"><a name="utx_wsplit_view.calling_sig5"></a></span><a class="link" href="utx_wsplit_view.html#utx_wsplit_view.calling_sig5">Calling
+        Sig:</a>
+      </h4>
+<pre class="programlisting"><span class="keyword">auto</span> <span class="identifier">str_length</span> <span class="special">=</span> <span class="identifier">view</span><span class="special">.</span><span class="identifier">str_size</span><span class="special">();</span>
+</pre>
+<h2>
+<a name="utx_wsplit_view.h16"></a>
+        <span class="phrase"><a name="utx_wsplit_view.role_cyan_operator"></a></span><a class="link" href="utx_wsplit_view.html#utx_wsplit_view.role_cyan_operator"><span class="cyan">.operator&lt;&lt;</span></a>
+      </h2>
+<p>
+        Print every parts of the splitted string.
+      </p>
+<h4>
+<a name="utx_wsplit_view.h17"></a>
+        <span class="phrase"><a name="utx_wsplit_view.calling_sig6"></a></span><a class="link" href="utx_wsplit_view.html#utx_wsplit_view.calling_sig6">Calling
+        Sig:</a>
+      </h4>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">view</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+</pre>
+<h2>
+<a name="utx_wsplit_view.h18"></a>
+        <span class="phrase"><a name="utx_wsplit_view.role_cyan_removed_methods"></a></span><a class="link" href="utx_wsplit_view.html#utx_wsplit_view.role_cyan_removed_methods"><span class="cyan">Removed Methods</span></a>
+      </h2>
+<p>
+        These member functions are removed:
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            default constructor
+          </li>
+<li class="listitem">
+            copy constructor
+          </li>
+<li class="listitem">
+            all operator=
+          </li>
+<li class="listitem">
+            .size()
+          </li>
+</ul></div>
+<h2>
+<a name="utx_wsplit_view.h19"></a>
+        <span class="phrase"><a name="utx_wsplit_view.role_cyan_see_also"></a></span><a class="link" href="utx_wsplit_view.html#utx_wsplit_view.role_cyan_see_also"><span class="cyan">See Also</span></a>
+      </h2>
+<p>
+        <a class="link" href="utx_split_view.html" title="utx::split_view">utx::split_view</a>
+      </p>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="utx_split_view.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="string.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="print.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div id="my_project_code" style="margin-left:auto;margin-right:auto;max-width:300px">
+<div style="float:right">
+<p><a href="https://cppfx.xyz/utxcpp/utx_print.html">utx::print</a></p>
+</div>
+</div>
+</body>
+</html>
