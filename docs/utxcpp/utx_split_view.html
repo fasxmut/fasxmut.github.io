@@ -81,6 +81,49 @@
 </pre>
 <h2>
 <a name="utx_split_view.h8"></a>
+        <span class="phrase"><a name="utx_split_view.role_cyan_method_split_camel"></a></span><a class="link" href="utx_split_view.html#utx_split_view.role_cyan_method_split_camel"><span class="cyan">Method: .split_camel</span></a>
+      </h2>
+<p>
+        This member function is used to split the string by camel case. For example,
+        It splits <span class="green">"HelloWorld"</span> to <span class="green">"Hello", "World"</span> .
+      </p>
+<h3>
+<a name="utx_split_view.h9"></a>
+        <span class="phrase"><a name="utx_split_view.default_split_split_by_camel_cas"></a></span><a class="link" href="utx_split_view.html#utx_split_view.default_split_split_by_camel_cas">Default
+        split: split by camel case</a>
+      </h3>
+<h4>
+<a name="utx_split_view.h10"></a>
+        <span class="phrase"><a name="utx_split_view.calling_sig2"></a></span><a class="link" href="utx_split_view.html#utx_split_view.calling_sig2">Calling
+        Sig:</a>
+      </h4>
+<pre class="programlisting"><span class="identifier">view</span><span class="special">.</span><span class="identifier">split_camel</span><span class="special">();</span>
+</pre>
+<h3>
+<a name="utx_split_view.h11"></a>
+        <span class="phrase"><a name="utx_split_view.split_by_camel_case_but_keep_bra"></a></span><a class="link" href="utx_split_view.html#utx_split_view.split_by_camel_case_but_keep_bra">Split
+        by camel case, but keep brand name</a>
+      </h3>
+<h4>
+<a name="utx_split_view.h12"></a>
+        <span class="phrase"><a name="utx_split_view.calling_sig3"></a></span><a class="link" href="utx_split_view.html#utx_split_view.calling_sig3">Calling
+        Sig:</a>
+      </h4>
+<pre class="programlisting"><span class="identifier">view</span><span class="special">.</span><span class="identifier">split_camel</span><span class="special">({</span><span class="identifier">brand1</span><span class="special">,</span> <span class="identifier">brand2</span><span class="special">,</span> <span class="special">...});</span>
+</pre>
+<p>
+        For example,
+      </p>
+<pre class="programlisting"><span class="identifier">utx</span><span class="special">::</span><span class="identifier">split_view</span> <span class="identifier">view</span><span class="special">{</span><span class="string">"ClassNameNVIDIANameNVLink"</span><span class="special">};</span>
+<span class="identifier">view</span><span class="special">.</span><span class="identifier">split_camel</span><span class="special">({</span><span class="string">"NVIDIA"</span><span class="special">,</span> <span class="string">"NV"</span><span class="special">});</span>	<span class="comment">// "Class", "Name", "NVIDIA", "Name", "NV", "Link"</span>
+</pre>
+<p>
+        It will split <span class="green">"ClassNameNVIDIANameNVLink"</span>
+        to <span class="green">"Class", "Name", "NVIDIA",
+        "Name", "NV", "Link"</span> .
+      </p>
+<h2>
+<a name="utx_split_view.h13"></a>
         <span class="phrase"><a name="utx_split_view.role_cyan_method_operator"></a></span><a class="link" href="utx_split_view.html#utx_split_view.role_cyan_method_operator"><span class="cyan">Method: .operator[]</span></a>
       </h2>
 <p>
@@ -90,14 +133,14 @@
         If the index is out of range, an exception std::runtime_error will be thrown.
       </p>
 <h4>
-<a name="utx_split_view.h9"></a>
-        <span class="phrase"><a name="utx_split_view.calling_sig2"></a></span><a class="link" href="utx_split_view.html#utx_split_view.calling_sig2">Calling
+<a name="utx_split_view.h14"></a>
+        <span class="phrase"><a name="utx_split_view.calling_sig4"></a></span><a class="link" href="utx_split_view.html#utx_split_view.calling_sig4">Calling
         Sig:</a>
       </h4>
 <pre class="programlisting"><span class="keyword">auto</span> <span class="identifier">sub_str</span> <span class="special">=</span> <span class="identifier">view</span><span class="special">[</span><span class="identifier">inde_value</span><span class="special">];</span>
 </pre>
 <h2>
-<a name="utx_split_view.h10"></a>
+<a name="utx_split_view.h15"></a>
         <span class="phrase"><a name="utx_split_view.role_cyan_methods_begin_end"></a></span><a class="link" href="utx_split_view.html#utx_split_view.role_cyan_methods_begin_end"><span class="cyan">Methods: .begin(), .end()</span></a>
       </h2>
 <p>
@@ -107,57 +150,57 @@
         these two methods let it accessible by range-based for loop.
       </p>
 <h4>
-<a name="utx_split_view.h11"></a>
-        <span class="phrase"><a name="utx_split_view.calling_sig3"></a></span><a class="link" href="utx_split_view.html#utx_split_view.calling_sig3">Calling
+<a name="utx_split_view.h16"></a>
+        <span class="phrase"><a name="utx_split_view.calling_sig5"></a></span><a class="link" href="utx_split_view.html#utx_split_view.calling_sig5">Calling
         Sig:</a>
       </h4>
 <pre class="programlisting"><span class="keyword">auto</span> <span class="identifier">part_itr</span> <span class="special">=</span> <span class="identifier">view</span><span class="special">.</span><span class="identifier">begin</span><span class="special">();</span>
 <span class="keyword">auto</span> <span class="identifier">end</span> <span class="special">=</span> <span class="identifier">view</span><span class="special">.</span><span class="identifier">end</span><span class="special">();</span>
 </pre>
 <h2>
-<a name="utx_split_view.h12"></a>
+<a name="utx_split_view.h17"></a>
         <span class="phrase"><a name="utx_split_view.role_cyan_method_split_size"></a></span><a class="link" href="utx_split_view.html#utx_split_view.role_cyan_method_split_size"><span class="cyan">Method: .split_size()</span></a>
       </h2>
 <p>
         Return the number of parts that the string is splitted into.
       </p>
 <h4>
-<a name="utx_split_view.h13"></a>
-        <span class="phrase"><a name="utx_split_view.calling_sig4"></a></span><a class="link" href="utx_split_view.html#utx_split_view.calling_sig4">Calling
+<a name="utx_split_view.h18"></a>
+        <span class="phrase"><a name="utx_split_view.calling_sig6"></a></span><a class="link" href="utx_split_view.html#utx_split_view.calling_sig6">Calling
         Sig:</a>
       </h4>
 <pre class="programlisting"><span class="keyword">auto</span> <span class="identifier">count</span> <span class="special">=</span> <span class="identifier">view</span><span class="special">.</span><span class="identifier">split_size</span><span class="special">();</span>
 </pre>
 <h2>
-<a name="utx_split_view.h14"></a>
+<a name="utx_split_view.h19"></a>
         <span class="phrase"><a name="utx_split_view.role_cyan_method_str_size"></a></span><a class="link" href="utx_split_view.html#utx_split_view.role_cyan_method_str_size"><span class="cyan">Method: .str_size()</span></a>
       </h2>
 <p>
         Return the string size of holding string.
       </p>
 <h4>
-<a name="utx_split_view.h15"></a>
-        <span class="phrase"><a name="utx_split_view.calling_sig5"></a></span><a class="link" href="utx_split_view.html#utx_split_view.calling_sig5">Calling
+<a name="utx_split_view.h20"></a>
+        <span class="phrase"><a name="utx_split_view.calling_sig7"></a></span><a class="link" href="utx_split_view.html#utx_split_view.calling_sig7">Calling
         Sig:</a>
       </h4>
 <pre class="programlisting"><span class="keyword">auto</span> <span class="identifier">str_length</span> <span class="special">=</span> <span class="identifier">view</span><span class="special">.</span><span class="identifier">str_size</span><span class="special">();</span>
 </pre>
 <h2>
-<a name="utx_split_view.h16"></a>
+<a name="utx_split_view.h21"></a>
         <span class="phrase"><a name="utx_split_view.role_cyan_operator"></a></span><a class="link" href="utx_split_view.html#utx_split_view.role_cyan_operator"><span class="cyan">.operator&lt;&lt;</span></a>
       </h2>
 <p>
         Print every parts of the splitted string.
       </p>
 <h4>
-<a name="utx_split_view.h17"></a>
-        <span class="phrase"><a name="utx_split_view.calling_sig6"></a></span><a class="link" href="utx_split_view.html#utx_split_view.calling_sig6">Calling
+<a name="utx_split_view.h22"></a>
+        <span class="phrase"><a name="utx_split_view.calling_sig8"></a></span><a class="link" href="utx_split_view.html#utx_split_view.calling_sig8">Calling
         Sig:</a>
       </h4>
 <pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">view</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
 </pre>
 <h2>
-<a name="utx_split_view.h18"></a>
+<a name="utx_split_view.h23"></a>
         <span class="phrase"><a name="utx_split_view.role_cyan_removed_methods"></a></span><a class="link" href="utx_split_view.html#utx_split_view.role_cyan_removed_methods"><span class="cyan">Removed Methods</span></a>
       </h2>
 <p>
@@ -178,7 +221,7 @@
           </li>
 </ul></div>
 <h2>
-<a name="utx_split_view.h19"></a>
+<a name="utx_split_view.h24"></a>
         <span class="phrase"><a name="utx_split_view.role_cyan_cpp_example"></a></span><a class="link" href="utx_split_view.html#utx_split_view.role_cyan_cpp_example"><span class="cyan">cpp example</span></a>
       </h2>
 <p>
@@ -200,7 +243,7 @@
 <span class="special">}</span>
 </pre>
 <h2>
-<a name="utx_split_view.h20"></a>
+<a name="utx_split_view.h25"></a>
         <span class="phrase"><a name="utx_split_view.role_cyan_see_also"></a></span><a class="link" href="utx_split_view.html#utx_split_view.role_cyan_see_also"><span class="cyan">See Also</span></a>
       </h2>
 <p>
