@@ -126,6 +126,7 @@ utx_u16str_new.html
 utx_u32str_new.html
 utx_raii_lock.html
 string.html
+utx_std_string_to.html
 utx_split_view.html
 utx_wsplit_view.html
 utx_str_rep.html
