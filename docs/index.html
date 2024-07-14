@@ -1,128 +1,105 @@
-<!DOCTYPE HTML>
+<!doctype html>
 <html>
 <head>
 <title>cppfx - cpp/c++, b2 build</title>
 <style>
-body {border:1px solid #ccc;background:#eee;font-size:15px;color:darkgreen}
+body {font-size:15px}
+h1 {color:darkred}
+h2 {background:#ddd;padding:2px 4px;border-radius:2px}
 
+#body {max-width:1400px;border:0px solid #f00;margin-left:auto;margin-right:auto}
 a {color:darkcyan}
+a:hover {background:#ddd}
 
-#body {border:1px solid #ccc;width:1400px;margin-top:10px;margin-left:auto;margin-right:auto;background:#ddd}
+#header {width:100%;text-align:center;border:0px solid #0f0;margin:1px}
+#header url {float:right;color:darkred}
+#page {width:100%;border:0px solid #0f0;margin:1px}
+#footer {width:100%;text-align:center;border:0px solid #0f0;margin:1px}
 
-/* #body #root */
-#root {border:1px solid #ccc;width:1300px;margin-top:20px;margin-bottom:200px;margin-left:auto;margin-right:auto;background:#bbb}
+.oneblock {width:342.7px;margin:1px;float:left;border:0px solid #00f}
+.twoblock {width:693.4px;margin:1px;float:left;border:0px solid #00f}
+.threeblock {width:1046.0142px;margin:1px;float:left;border:0px solid #00f}
+.fourblock {width:100%;margin:1px;float:left;border:0px solid #00f}
+.content {width:auto;padding:15px 25px;margin:1px;border:0px solid #297}
 
-/* #body #root #foot */
-#foot {text-align:center}
-
-/* #body #root #somebody */
-#somebody {width:100%;float:left;min-height:2000px;background:#ddd;}
-
-/* #body #root #somebody #head */
-#head {background:#eee;float:left;width:100%}
-
-/* #body #root #somebody #insomebody */
-#insomebody {float:left;margin-left:10px;margin-right:10px;margin-top:5px;margin-bottom:50px;border:1px solid #fff;padding-left:25px;padding-right:25px;padding-top:5px;padding-bottom:50px}
-
-/* #body #root #somebody #head h1 */
-h1 {text-align:center;font-size:70px;color:darkred}
-
-/* #body #root #somebody #head #selfhome */
-#selfhome {text-align:right;margin-right:100px;color:darkred}
-
-#body #root #somebody #insomebody .box {margin-right:15px;padding-left:20px;padding-right:20px;float:left;height:240px;background:#eee;border:1px solid #fff;margin-bottom:50px;max-width:250px}
-
-a:hover {background:#fff}
-
-#cpp-code-show #description {float:right;width:300px;}
-#cpp-code-show #description ul {background:#ccc;border-radius:5px;}
-#cpp-code-show pre {border:1px solid #0c0;color:darkred;width:900px;padding:10px;border-radius:5px;float:left;background:#bbb}
-#cpp-code-show #output {float:left}
-#cpp-code-show #output pre {color:darkcyan;background:#fff}
-
+.codeblock {width:auto;border:2px dashed darkcyan;padding:5px 25px;border-radius:5px;background:#eee;color:darkgreen;font-weight:bold;font-size:12px}
 </style>
-
 </head>
 <body>
 <div id="body">
 
-<div id="root">
+<div id="header">
 
-<div id="somebody">
-
-<div id="head">
-
+<div class="fourblock">
+<div class="content">
 <h1>cppfx - cpp/c++, b2 build</h1>
-<p id="selfhome">https://cppfx.xyz</p>
+<url>https://cppfx.xyz</url>
+</div>
+</div>	<!-- class="fourblock" -->
+
+<div style="clear:both"></div>
+</div>	<!-- id="header" -->
+
 <hr />
 
-</div> <!-- id="head" -->
-<div style="clear:both"></div>
+<div id="page">
 
-<div id="insomebody">
-
-<div id="cpp-code-show">
-
-<h3>c++ now: c++ class and std::cout</h3>
-
+<div class="twoblock">
+<div class="content">
+<h2>c++ now:</h2>
 <p>c++ class and std::cout</p>
-<div id="description">
-
-<h4>API Used:</h4>
-<ul>
-<li>std::cout (<a href="https://en.cppreference.com/w/cpp/io/cout">See</a>)</li>
-<li>c++ class</li>
-</ul>
-
-<p><a href="https://cppfx.xyz/utxcpp">Utxcpp</a></p>
-
-<div id="downloads">
-<h4>Download nirtcpp source code:</h4>
-
-<p>
-<a href="files/nirtcpp-2.1.0-src-snapshot-2024062502.txz">nirtcpp-2.1.0-src-snapshot-2024062502.txz</a>
-(<a href="files/nirtcpp-2.1.0-src-snapshot-2024062502.txz.md5">md5</a>)
-</p>
-
-</div>	<!-- id="downloads" -->
-
-
-</div> <!-- id="description" -->
-
+<div class="codeblock">
 <pre>
 #include &lt;iostream&gt;
 
-class like_box
+class box_world
 {
 public:
-	virtual ~like_box() = default;
-public:
-	void speek() const
+	void greeting() const
 	{
-		std::cout &lt;&lt; "Hello c++!" &lt;&lt; std::endl;
+		std::cout << "Cheers, c++ !" << std::endl;
 	}
 };
 
 int main()
 {
-	like_box box;
-	box.speek();
+	auto box = box_world{};
+	box.greeting();
 }
 </pre>
+</div>	<!-- class="codeblock" -->
+</div>	<!-- class="content" -->
+</div>	<!-- class="twoblock" -->
 
-<div id="output">
-<h4>Output:</h4>
-<pre>
-Hello c++!
-</pre>
-</div>
+<div class="oneblock">
+<div class="content">
 
-</div> <!-- id="cpp-code-show" -->
+<h2>API Used:</h2>
 
-<div style="clear:both"></div>
+<ul>
+<li>std:cout (<a href="https://en.cppreference.com/w/cpp/io/cout">See</a>)
+<li>c++ class
+</ul>
+<p><a href="https://cppfx.xyz/utxcpp">Utxcpp</a></p>
 
-<div class="box">
-<h3>Latest Update</h3>
+</div>	<!-- class="content" -->
+</div>	<!-- class="oneblock" -->
+
+<div class="oneblock">
+<div class="content">
+<h2>Download</h2>
+<p>
+Download nirtcpp source code:<br />
+<a href="files/nirtcpp-2.1.0-src-snapshot-2024062502.txz">nirtcpp-2.1.0-src-snapshot-2024062502.txz</a>
+(<a href="files/nirtcpp-2.1.0-src-snapshot-2024062502.txz.md5">md5</a>)
+</p>
+</div>	<!-- class="content" -->
+</div>	<!-- class="oneblock" -->
+
+<div class="oneblock">
+<div class="content">
+<h2>Latest Update:</h2>
+<p>
 <a href="https://cppfx.xyz/utxcpp/utx_std_string_to.html">utx::std_string_to</a><br />
 <a href="https://cppfx.xyz/utxcpp/utx_split_view.html#utx_split_view.role_cyan_method_split_camel">utx::split_view::split_camel</a><br />
 <a href="https://cppfx.xyz/utxcpp/utx_str_rep.html">utx::str_rep</a><br />
@@ -132,10 +109,14 @@ Hello c++!
 <a href="https://cppfx.xyz/utxcpp/utx_abs.html">utx::abs</a><br />
 <a href="https://cppfx.xyz/utxcpp/utx_cos.html">utx::cos</a><br />
 <a href="https://cppfx.xyz/utxcpp/utx_sin.html">utx::sin</a><br />
-</div>
+</p>
+</div>	<!-- class="content" -->
+</div>	<!-- class="oneblock" -->
 
-<div class="box">
-<h3>Latest Update</h3>
+<div class="oneblock">
+<div class="content">
+<h2>Latest Update:</h2>
+<p>
 <a href="https://cppfx.xyz/logs/cpp_dlib_dnn_cnn.html">c++ dlib dnn cnn</a><br />
 <a href="https://cppfx.xyz/utxcpp/utx_ix64.html">utx::ix64</a><br />
 <a href="https://cppfx.xyz/utxcpp/utx_i64.html">utx::i64</a><br />
@@ -145,10 +126,13 @@ Hello c++!
 <a href="https://cppfx.xyz/utxcpp/utx_f32.html">utx::f32</a><br />
 <a href="https://cppfx.xyz/utxcpp/utx_fx64.html">utx::fx64</a><br />
 <a href="https://cppfx.xyz/utxcpp/utx_f64.html">utx::f64</a><br />
-</div>
+</p>
+</div>	<!-- class="content" -->
+</div>	<!-- class="oneblock" -->
 
-<div class="box">
-<h3>Latest Update</h3>
+<div class="oneblock">
+<div class="content">
+<h2>Latest Update:</h2>
 <a href="https://cppfx.xyz/logs/cpp_boost_serialization.html">serialize c++ with boost serialization</a><br />
 <a href="https://cppfx.xyz/utxcpp/utx_real_meric.html">utx::real_meric</a><br />
 <a href="https://cppfx.xyz/utxcpp/utx_real_uct.html">utx::real_uct</a><br />
@@ -157,10 +141,12 @@ Hello c++!
 <a href="https://cppfx.xyz/utxcpp/utx_not_same_as.html">utx::not_same_as</a><br />
 <a href="https://cppfx.xyz/utxcpp/basic_types.html">utxcpp basic types</a><br />
 <a href="https://cppfx.xyz/utxcpp/class_types.html">utxcpp class types</a><br />
-</div>
+</div>	<!-- class="content" -->
+</div>	<!-- class="oneblock" -->
 
-<div class="box">
-<h3>Latest Update</h3>
+<div class="oneblock">
+<div class="content">
+<h2>Latest Update:</h2>
 <a href="https://cppfx.xyz/utxcpp/utx_i32.html">utx::i32</a><br />
 <a href="https://cppfx.xyz/utxcpp/utx_u32.html">utx::u32</a><br />
 <a href="https://cppfx.xyz/utxcpp/utx_ix32.html">utx::ix32</a><br />
@@ -170,10 +156,12 @@ Hello c++!
 <a href="https://cppfx.xyz/utxcpp/utx_print.html">utx::print</a><br />
 <a href="https://cppfx.xyz/utxcpp/utx_printnl.html">utx::printnl</a><br />
 <a href="https://cppfx.xyz/utxcpp/utx_printe.html">utx::printe</a><br />
-</div>
+</div>	<!-- class="content" -->
+</div>	<!-- class="oneblock" -->
 
-<div class="box">
-<h3>Latest Update</h3>
+<div class="oneblock">
+<div class="content">
+<h2>Latest Update:</h2>
 <a href="https://cppfx.xyz/utxcpp/utx_wprint.html">utx::wprint</a><br />
 <a href="https://cppfx.xyz/utxcpp/utx_wprintnl.html">utx::wprintnl</a><br />
 <a href="https://cppfx.xyz/utxcpp/utx_wprinte.html">utx::wprinte</a><br />
@@ -183,78 +171,136 @@ Hello c++!
 <a href="https://cppfx.xyz/utxcpp/utx_gnrk_static_cast.html">utx::gnrk_static_cast</a><br />
 <a href="https://cppfx.xyz/utxcpp/utx_raii_lock.html">utx::raii_lock</a><br />
 <a href="https://cppfx.xyz/utxcpp/utx_bare_t.html">utx::bare_t</a><br />
-</div>
+</div>	<!-- class="content" -->
+</div>	<!-- class="oneblock" -->
 
-<div class="box">
-<h3>Utxcpp</h3>
-<p>Utxcpp is an easy and simple to use c++ library that makes simple things simple. Utxcpp has some classes, templates and functions that can be used in sycl kernel.</p>
-<p><a href="https://cppfx.xyz/utxcpp">Enter</a></p>
-</div>
+<div class="oneblock">
+<div class="content">
+<h2>Utxcpp</h2>
+<p>
+Utxcpp is an easy and simple to use c++ library that makes simple things simple. Utxcpp has some classes, templates and functions that can be used in sycl kernel.
+</p>
+<p>
+<a href="https://cppfx.xyz/utxcpp">Enter</a>
+</p>
+</div>	<!-- class="content" -->
+</div>	<!-- class="oneblock" -->
 
-<div class="box">
-<h3>Nirtcpp</h3>
-<p>Nirtcpp is a graphics and game <br />engine forked irrlicht.</p>
-<p><a href="https://cppfx.xyz/nirtcpp">Enter</a></p>
-</div>
+<div class="oneblock">
+<div class="content">
+<h2>Nirtcpp</h2>
+<p>
+Nirtcpp is a graphics and game
+engine forked irrlicht.
+</p>
+<p>
+<a href="https://cppfx.xyz/nirtcpp">Enter</a>
+</p>
+</div>	<!-- class="content" -->
+</div>	<!-- class="oneblock" -->
 
-<div class="box">
-<h3>Projects</h3>
-<p>c++ projects of cppfx.xyz</p>
-<p><a href="https://cppfx.xyz/projects">Enter</a></p>
-</div>
+<div class="oneblock">
+<div class="content">
+<h2>Projects</h2>
+<p>
+c++ projects of cppfx.xyz
+</p>
+<p>
+<a href="https://cppfx.xyz/projects">Enter</a>
+</p>
+</div>	<!-- class="content" -->
+</div>	<!-- class="oneblock" -->
 
-<div class="box">
-<h3>q3viewer</h3>
-<p>Quake3 Map Scene Viewer written in c++</p>
-<p><a href="https://cppfx.xyz/projects/q3viewer.html">Enter</a></p>
-</div>
+<div class="oneblock">
+<div class="content">
+<h2>q3viewer</h2>
+<p>
+Quake3 Map Scene Viewer written in c++
+</p>
+<p>
+<a href="https://cppfx.xyz/projects/q3viewer.html">Enter</a>
+</p>
+</div>	<!-- class="content" -->
+</div>	<!-- class="oneblock" -->
 
-<div class="box">
-<h3>Vpcpp</h3>
-<p>Vpcpp makes vulkan.hpp easy to use.</p>
-<p><a href="https://cppfx.xyz/vpcpp">Enter</a></p>
-</div>
+<div class="oneblock">
+<div class="content">
+<h2>Vpcpp</h2>
+<p>
+Vpcpp makes vulkan.hpp easy to use.
+</p>
+<p>
+<a href="https://cppfx.xyz/vpcpp">Enter</a>
+</p>
+</div>	<!-- class="content" -->
+</div>	<!-- class="oneblock" -->
 
-<div class="box">
-<h3>Logs</h3>
-<p>Logs - Record my c++ explorer</p>
-<p><a href="https://cppfx.xyz/logs">Enter</a></p>
-</div>
+<div class="oneblock">
+<div class="content">
+<h2>Logs</h2>
+<p>
+Logs - Record my c++ explorer
+</p>
+<p>
+<a href="https://cppfx.xyz/logs">Enter</a>
+</p>
+</div>	<!-- class="content" -->
+</div>	<!-- class="oneblock" -->
 
-<div class="box">
-<h3>B2 Build</h3>
-<p>B2 is an easy to use and very <br />powerful cpp/c++ project <br />build system.</p>
-<p><a href="https://bfgroup.xyz/b2">Enter</a></p>
-</div>
+<div class="oneblock">
+<div class="content">
+<h2>B2 Build</h2>
+<p>
+B2 is an easy to use and very powerful cpp/c++ project build system.
+</p>
+<p>
+<a href="https://bfgroup.xyz/b2">Enter</a>
+</p>
+</div>	<!-- class="content" -->
+</div>	<!-- class="oneblock" -->
 
-<div class="box">
-<h3>Utxcpp Install</h3>
-<p>Install b2 build, Install boostbook,<br />Install quickbook, Install Utxcpp</p>
-<p><a href="https://cppfx.xyz/utxcpp/install">Enter</a></p>
-</div>
+<div class="oneblock">
+<div class="content">
+<h2>Utxcpp Install</h2>
+<p>
+Install b2 build, Install boostbook, Install quickbook, Install Utxcpp
+</p>
+<p>
+<a href="https://cppfx.xyz/utxcpp/install">Enter</a>
+</p>
+</div>	<!-- class="content" -->
+</div>	<!-- class="onelock" -->
 
-</div> <!-- id="insomebody" -->
-</div> <!-- id="somebody" -->
 <div style="clear:both"></div>
+</div>	<!-- id="page" -->
 
-<div id="foot">
+<hr />
 
+<div id="footer">
+
+<div class="fourblock">
+<div class="content">
 <p>
 <a href="https://cppfx.xyz">cppfx</a>
 &nbsp;/&nbsp;
 <a href="https://cppfx.xyz/utxcpp">Utxcpp</a>
 &nbsp;/&nbsp;
 <a href="https://cppfx.xyz/nirtcpp">Nirtcpp</a>
+&nbsp;/&nbsp;
+<a href="https://cppfx.xyz/utxcpp/utx_print.html">utx::print</a>
 </p>
 
-<p>@<a href="https://cppfx.xyz">cppfx</a></p>
+<p>
+@<a href="https://cppfx.xyz">cppfx</a>
+</p>
 
-</div> <!-- id="foot" -->
+</div>	<!-- class="content" -->
+</div>	<!-- class="fourblock" -->
 
-</div> <!-- id="root" -->
+<div style="clear:both"></div>
+</div>	<!-- id="footer" -->
 
-</div> <!-- id="body" -->
+</div>	<!-- id="body" -->
 </body>
 </html>
-
 
