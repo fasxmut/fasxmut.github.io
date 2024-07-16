@@ -30,16 +30,17 @@
         is always floating type. If the parameter is negative, it returns NaN value
         (utx::nan_v result).
       </p>
-<pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">real_meric</span> <span class="identifier">real_type</span><span class="special">&gt;</span>
-<span class="keyword">constexpr</span> <span class="keyword">inline</span> <span class="keyword">auto</span> <span class="identifier">sqrt</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">real_type</span> <span class="special">&amp;</span> <span class="identifier">value</span><span class="special">)</span>
-<span class="special">{</span>
-	<span class="keyword">using</span> <span class="identifier">return_float_type</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">make_float_t</span><span class="special">&lt;</span><span class="identifier">real_type</span><span class="special">&gt;;</span>
-	<span class="special">...</span>
-	<span class="special">...</span>
-<span class="special">}</span>
+<h4>
+<a name="utx_sqrt.h1"></a>
+        <span class="phrase"><a name="utx_sqrt.calling_sig"></a></span><a class="link" href="utx_sqrt.html#utx_sqrt.calling_sig">Calling
+        Sig :</a>
+      </h4>
+<pre class="programlisting"><span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">result</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">sqrt</span><span class="special">(</span><span class="identifier">value</span><span class="special">);</span>
+
+<span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">result</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">sqrt</span><span class="special">.</span><span class="identifier">fn</span><span class="special">&lt;</span><span class="identifier">return_type</span><span class="special">&gt;(</span><span class="identifier">value</span><span class="special">);</span>
 </pre>
 <p>
-        <span class="bold"><strong><span class="green">utx::sqrt</span></strong></span>
+        <span class="bold"><strong><span class="green">utx::sqrt(value)</span></strong></span>
         :
       </p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
@@ -63,14 +64,21 @@
             support.
           </li>
 </ul></div>
+<p>
+        <span class="bold"><strong><span class="green">utx::sqrt.fn&lt;return_type&gt;(value)</span></strong></span>
+        :
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+            The result will be converted to return_type .
+          </li></ul></div>
 <h2>
-<a name="utx_sqrt.h1"></a>
+<a name="utx_sqrt.h2"></a>
         <span class="phrase"><a name="utx_sqrt.role_cyan_header"></a></span><a class="link" href="utx_sqrt.html#utx_sqrt.role_cyan_header"><span class="cyan">Header</span></a>
       </h2>
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">math</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 </pre>
 <h2>
-<a name="utx_sqrt.h2"></a>
+<a name="utx_sqrt.h3"></a>
         <span class="phrase"><a name="utx_sqrt.role_cyan_c_example"></a></span><a class="link" href="utx_sqrt.html#utx_sqrt.role_cyan_c_example"><span class="cyan">c++ example</span></a>
       </h2>
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
