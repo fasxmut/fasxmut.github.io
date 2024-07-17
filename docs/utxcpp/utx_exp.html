@@ -28,30 +28,34 @@
         utx::exp
       </p>
 <p>
-        It always returns a floating value. If type1 is utx::real_number, it returns
-        related utx::real_number; If type1 is utx::real_uct, it returns related utx::real_uct.
+        It always calculates floating value. If arg_type is utx::real_number, it
+        returns related utx::real_number; If arg_type is utx::real_uct, it returns
+        related utx::real_uct.
       </p>
-<pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">real_meric</span> <span class="identifier">type1</span><span class="special">&gt;</span>
-<span class="keyword">constexpr</span> <span class="keyword">inline</span> <span class="keyword">auto</span> <span class="identifier">exp</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">type1</span> <span class="special">&amp;</span> <span class="identifier">value</span><span class="special">);</span>
+<h4>
+<a name="utx_exp.h1"></a>
+        <span class="phrase"><a name="utx_exp.calling_sig"></a></span><a class="link" href="utx_exp.html#utx_exp.calling_sig">Calling
+        Sig:</a>
+      </h4>
+<pre class="programlisting"><span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">result</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">exp</span><span class="special">(</span><span class="identifier">value</span><span class="special">);</span>
 </pre>
+<p>
+        return floating point result.
+      </p>
+<pre class="programlisting"><span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">result</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">exp</span><span class="special">.</span><span class="identifier">fn</span><span class="special">&lt;</span><span class="identifier">return_type</span><span class="special">&gt;(</span><span class="identifier">value</span><span class="special">);</span>
+</pre>
+<p>
+        Return resulted that is converted to return_type.
+      </p>
 <p>
         Overflow: If the result is overflow of the related type, it returns related
         NaN value, which can be checked by utx::is_nan(result) .
       </p>
-<div class="note"><table border="0" summary="Note">
-<tr>
-<td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td>
-<th align="left">Note</th>
-</tr>
-<tr><td align="left" valign="top"><p>
-          Value is more great, the computing takes more time.
-        </p></td></tr>
-</table></div>
 <pre class="programlisting"><span class="identifier">utx</span><span class="special">::</span><span class="identifier">f32</span> <span class="identifier">result</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">exp</span><span class="special">(</span><span class="number">50.0f</span><span class="special">);</span>
 <span class="keyword">bool</span> <span class="identifier">is_nan</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">is_nan</span><span class="special">(</span><span class="identifier">result</span><span class="special">);</span>
 </pre>
 <h2>
-<a name="utx_exp.h1"></a>
+<a name="utx_exp.h2"></a>
         <span class="phrase"><a name="utx_exp.role_cyan_utx_exp_c_example"></a></span><a class="link" href="utx_exp.html#utx_exp.role_cyan_utx_exp_c_example"><span class="cyan">utx::exp c++ example</span></a>
       </h2>
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">math</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
@@ -64,6 +68,19 @@
 	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="identifier">result</span><span class="special">);</span>
 <span class="special">}</span>
 </pre>
+<h2>
+<a name="utx_exp.h3"></a>
+        <span class="phrase"><a name="utx_exp.role_cyan_see_also"></a></span><a class="link" href="utx_exp.html#utx_exp.role_cyan_see_also"><span class="cyan">See Also</span></a>
+      </h2>
+<p>
+        <a class="link" href="utx_print.html" title="utx::print">utx::print</a>
+      </p>
+<p>
+        <a class="link" href="utx_f32.html" title="utx::f32">utx::f32</a>
+      </p>
+<p>
+        <a class="link" href="utx_fx32.html" title="utx::fx32">utx::fx32</a>
+      </p>
 </div>
 <div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
