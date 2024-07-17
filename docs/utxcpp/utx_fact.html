@@ -28,15 +28,14 @@
         <span class="bold"><strong>utx::fact</strong></span> calculates the factorial result
         of value.
       </p>
-<pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">unsigned_meric</span> <span class="identifier">value_type</span><span class="special">&gt;</span>
-<span class="keyword">constexpr</span> <span class="keyword">inline</span> <span class="identifier">value_type</span> <span class="identifier">fact</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">value_type</span> <span class="identifier">value</span><span class="special">)</span>
-<span class="special">{</span>
-	<span class="keyword">using</span> <span class="identifier">return_type</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">remove_cvref_t</span><span class="special">&lt;</span><span class="identifier">value_type</span><span class="special">&gt;;</span>
-	<span class="special">...</span>
-<span class="special">}</span>
+<pre class="programlisting"><span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">result</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">fact</span><span class="special">(</span><span class="identifier">unsigned_value</span><span class="special">);</span>
+</pre>
+<pre class="programlisting"><span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">result</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">fact</span><span class="special">.</span><span class="identifier">fn</span><span class="special">&lt;</span><span class="identifier">return_type</span><span class="special">&gt;(</span><span class="identifier">unsigned_value</span><span class="special">);</span>
+</pre>
+<pre class="programlisting"><span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">result</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">fact</span><span class="special">.</span><span class="identifier">fn</span><span class="special">&lt;</span><span class="identifier">return_type</span><span class="special">,</span> <span class="identifier">unsignned_arg_type</span><span class="special">&gt;(</span><span class="identifier">value</span><span class="special">);</span>
 </pre>
 <p>
-        <span class="bold"><strong><span class="indigo">utx::fact</span></strong></span>
+        <span class="bold"><strong><span class="indigo">utx::fact(???)</span></strong></span>
         :
       </p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
@@ -56,6 +55,18 @@
             support.
           </li>
 </ul></div>
+<p>
+        <span class="bold"><strong><span class="indigo">utx::fact.fn&lt;return_type&gt;(???)</span></strong></span>
+        :
+      </p>
+<p>
+        <span class="bold"><strong><span class="indigo">utx::fact.fn&lt;return_type,
+        unsigned_arg_type&gt;(???)</span></strong></span> :
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+            The argument type must be still unsigned integral type, the result is
+            converted to return_type.
+          </li></ul></div>
 <h2>
 <a name="utx_fact.h1"></a>
         <span class="phrase"><a name="utx_fact.role_cyan_header"></a></span><a class="link" href="utx_fact.html#utx_fact.role_cyan_header"><span class="cyan">Header</span></a>
@@ -71,11 +82,43 @@
 
 <span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
 <span class="special">{</span>
-	<span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">result1</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">fact</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">u32</span><span class="special">&gt;(</span><span class="number">8</span><span class="special">);</span>
-	<span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">result2</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">fact</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">ux32</span><span class="special">&gt;(</span><span class="number">8</span><span class="special">);</span>
-	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="identifier">result</span><span class="special">);</span>
+	<span class="comment">// arg_type is utx::u32</span>
+	<span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">result1</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">fact</span><span class="special">(</span><span class="number">8u</span><span class="special">);</span>
+
+	<span class="comment">// arg_type is utx::u32, result is converted to utx::f32</span>
+	<span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">result1</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">fact</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">f32</span><span class="special">&gt;(</span><span class="number">8u</span><span class="special">);</span>
+
+	<span class="comment">// arg_type is utx::ux32, result is converted to utx::ix32</span>
+	<span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">result2</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">fact</span><span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">ix32</span><span class="special">,</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">ux32</span><span class="special">&gt;(</span><span class="number">8</span><span class="special">);</span>
+
+	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="identifier">result1</span><span class="special">,</span> <span class="identifier">result2</span><span class="special">,</span> <span class="identifier">result3</span><span class="special">);</span>
 <span class="special">}</span>
 </pre>
+<h2>
+<a name="utx_fact.h3"></a>
+        <span class="phrase"><a name="utx_fact.role_cyan_see_also"></a></span><a class="link" href="utx_fact.html#utx_fact.role_cyan_see_also"><span class="cyan">See Also</span></a>
+      </h2>
+<p>
+        <a class="link" href="utx_print.html" title="utx::print">utx::print</a>
+      </p>
+<p>
+        <a class="link" href="utx_u32.html" title="utx::u32">utx::u32</a>
+      </p>
+<p>
+        <a class="link" href="utx_ux32.html" title="utx::ux32">utx::ux32</a>
+      </p>
+<p>
+        <a class="link" href="utx_f32.html" title="utx::f32">utx::f32</a>
+      </p>
+<p>
+        <a class="link" href="utx_fx32.html" title="utx::fx32">utx::fx32</a>
+      </p>
+<p>
+        <a class="link" href="utx_i32.html" title="utx::i32">utx::i32</a>
+      </p>
+<p>
+        <a class="link" href="utx_ix32.html" title="utx::ix32">utx::ix32</a>
+      </p>
 </div>
 <div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
