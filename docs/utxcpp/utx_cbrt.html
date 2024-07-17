@@ -27,16 +27,17 @@
 <p>
         Calculate the cube root of value.
       </p>
-<pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="identifier">utx</span><span class="special">::</span><span class="identifier">kspt</span><span class="special">::</span><span class="identifier">real_meric</span> <span class="identifier">value_type</span><span class="special">&gt;</span>
-<span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">cbrt</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">value_type</span> <span class="special">&amp;</span> <span class="identifier">value</span><span class="special">)</span>
-<span class="special">{</span>
-	<span class="keyword">using</span> <span class="identifier">return_float_type</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">make_float_t</span><span class="special">&lt;</span><span class="identifier">value_type</span><span class="special">&gt;;</span> <span class="comment">// return type</span>
-	<span class="special">...</span>
-	<span class="special">...</span>
-<span class="special">}</span>
+<h4>
+<a name="utx_cbrt.h1"></a>
+        <span class="phrase"><a name="utx_cbrt.calling_sig"></a></span><a class="link" href="utx_cbrt.html#utx_cbrt.calling_sig">Calling
+        Sig:</a>
+      </h4>
+<pre class="programlisting"><span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">result</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">cbrt</span><span class="special">(</span><span class="identifier">value</span><span class="special">);</span>
+</pre>
+<pre class="programlisting"><span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">result</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">cbrt</span><span class="special">.</span><span class="identifier">fn</span><span class="special">&lt;</span><span class="identifier">return_type</span><span class="special">&gt;(</span><span class="identifier">value</span><span class="special">);</span>
 </pre>
 <p>
-        <span class="bold"><strong><span class="green">utx::cbrt</span></strong></span>
+        <span class="bold"><strong><span class="green">utx::cbrt(value)</span></strong></span>
       </p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
@@ -51,14 +52,20 @@
             support.
           </li>
 </ul></div>
+<p>
+        <span class="bold"><strong><span class="green">utx::cbrt.fn&lt;return_type&gt;(value)</span></strong></span>
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+            The result is converted to return_type .
+          </li></ul></div>
 <h2>
-<a name="utx_cbrt.h1"></a>
+<a name="utx_cbrt.h2"></a>
         <span class="phrase"><a name="utx_cbrt.role_cyan_header"></a></span><a class="link" href="utx_cbrt.html#utx_cbrt.role_cyan_header"><span class="cyan">Header</span></a>
       </h2>
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">math</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 </pre>
 <h2>
-<a name="utx_cbrt.h2"></a>
+<a name="utx_cbrt.h3"></a>
         <span class="phrase"><a name="utx_cbrt.role_cyan_example"></a></span><a class="link" href="utx_cbrt.html#utx_cbrt.role_cyan_example"><span class="cyan">Example</span></a>
       </h2>
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
@@ -79,6 +86,25 @@
 	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="identifier">a</span><span class="special">);</span> <span class="comment">// 2.000000</span>
 <span class="special">}</span>
 </pre>
+<h2>
+<a name="utx_cbrt.h4"></a>
+        <span class="phrase"><a name="utx_cbrt.role_cyan_see_also"></a></span><a class="link" href="utx_cbrt.html#utx_cbrt.role_cyan_see_also"><span class="cyan">See Also</span></a>
+      </h2>
+<p>
+        <a class="link" href="utx_print.html" title="utx::print">utx::print</a>
+      </p>
+<p>
+        <a class="link" href="utx_sqrt.html" title="utx::sqrt">utx::sqrt</a>
+      </p>
+<p>
+        <a class="link" href="utx_fact.html" title="utx::fact">utx::fact</a>
+      </p>
+<p>
+        <a class="link" href="utx_i32.html" title="utx::i32">utx::i32</a>
+      </p>
+<p>
+        <a class="link" href="utx_ix32.html" title="utx::ix32">utx::ix32</a>
+      </p>
 </div>
 <div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
