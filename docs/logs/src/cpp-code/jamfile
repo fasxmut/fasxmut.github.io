@@ -27,13 +27,10 @@ project
 
 progs =
 	d0001-utx-print-nested-print
-	#d0002-dpcpp-cpp-2024-published		# needs dpcpp compiler
 	d0003-std-predicate-std-relation
 	d0004-std-views-zip-transpose-matrix
 	d0005-cpp-uses-swift
 	d0006-cpp-integral
-	#d0010_q4os_sycl_cpp		# needs dpcpp compiler
-	#d0011_sycl_copy_method		# needs dpcpp compiler
 	d0012_boost_cobalt_fast
 	d0013_cobalt_race_boost_cpp
 	d0014_cobalt_op_cpp_boost

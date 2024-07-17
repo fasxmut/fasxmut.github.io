@@ -4,6 +4,8 @@ q4os install sycl
 -
 Posted on Mar 31, 2024
 -
+Latest update on July 17, 2024
+-
 See [@https://software.intel.com/dpcpp]
 -
 [@https://cppfx.xyz/logs Logs Home]
@@ -66,27 +68,31 @@ Write sycl c++ pogram, using dpcpp/cpp
 
 #include <sycl/sycl.hpp>
 #include <iostream>
+#include <vector>
 
 int main()
 {
-	sycl::queue q{sycl::gpu_selector_v};
-	
-	float * data = sycl::malloc_shared<float>(37, q);
-	
-	q.parallel_for(
-		37,
-		[=] (sycl::item<1> item)
+	sycl::queue queue{sycl::gpu_selector_v};
+	std::vector<float> data(37);
+	auto buffer = new sycl::buffer<float, 1>{data.data(), data.size()};
+	queue.submit(
+		[&] (sycl::handler & handler)
 		{
-			sycl::id id = item.get_id();
-			data[id] = sycl::sqrt<float>(id);
+			auto in_accessor = sycl::accessor{* buffer, handler, sycl::read_write};
+			handler.parallel_for(
+				sycl::range<1>{data.size()},
+				[=] (sycl::item<1> item)
+				{
+					sycl::id<1> id = item.get_id();
+					in_accessor[id] = sycl::sqrt<float>(id);
+				}
+			);
 		}
 	);
-	q.wait();
-	for (int i=0; i<37; ++i)
-		std::cout << data[i] << ' ';
+	delete buffer;
+	for (const auto & x: data)
+		std::cout << x << ' ';
 	std::cout << std::endl;
-	
-	sycl::free(data, q);
 }
 
 /*`
