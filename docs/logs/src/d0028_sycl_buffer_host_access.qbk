@@ -1,0 +1,54 @@
+[article sycl::buffer host access
+	[quickbook 1.7]
+]
+
+sycl::buffer host access - Posted on July 18, 2024 - See [@https://www.khronos.org/sycl] - [@https://cppfx.xyz/logs Logs Home] - d0028
+
+[h1 [role cyan sycl::buffer host access]]
+
+c++ sycl
+
+The sycl::buffer class defines a shared array of one, two or three dimensions that can be used by the SYCL kernel and has to be accessed using accessor classes. Buffers are templated on both the type of their data, and the number of dimensions that the data is stored and accessed through.
+
+An accessor provides access to the data managed by a buffer or image, or to shared local memory allocated by the runtime.
+
+[h1 [role cyan cpp example]]
+
+[!c++]
+```
+#include <sycl/sycl.hpp>
+#include <iostream>
+#include <vector>
+#include <numeric>
+
+int main()
+{
+	sycl::queue queue{sycl::gpu_selector_v};
+	std::vector<float> input(11);
+	std::iota(input.begin(), input.end(), 1.0);
+	auto in_buffer = sycl::buffer<float, 1>{input.data(), sycl::range<1>{input.size()}};
+	auto out_buffer = sycl::buffer<float, 1>{sycl::range<1>{input.size()}};
+	queue.submit(
+		[&] (sycl::handler & handler)
+		{
+			auto in_accessor = sycl::accessor{in_buffer, handler, sycl::read_only};
+			auto out_accessor = sycl::accessor{out_buffer, handler, sycl::write_only};
+			handler.parallel_for<class kn1>(
+				sycl::range<1>{input.size()},
+				[=] (sycl::item<1> item)
+				{
+					sycl::id<1> id = item.get_id();
+					out_accessor[id] = sycl::sqrt<float>(in_accessor[id]);
+				}
+			);
+		}
+	);
+	auto host_accessor = out_buffer.get_host_access();
+	for (const auto & x: host_accessor)
+		std::cout << x << ' ';
+	std::cout << std::endl;
+}
+```
+
+
+
