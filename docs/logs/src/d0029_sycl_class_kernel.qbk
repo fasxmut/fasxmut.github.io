@@ -1,0 +1,76 @@
+[article sycl class kernel
+	[quickbook 1.7]
+]
+
+sycl class kernel - Posted on July 18, 2024 - See [@https://www.khronos.org/sycl] - [@https://cppfx.xyz/logs Logs Home] - d0029
+
+[h1 [role cyan sycl class kernel]]
+
+A class object function operator of c++ can be used as sycl kernel.
+
+[h1 [role cyan cpp example]]
+
+cpp/c++ example
+
+[!c++]
+```
+
+#include <sycl/sycl.hpp>
+#include <iostream>
+#include <vector>
+#include <numeric>
+
+template <std::floating_point type_xti, unsigned int dimensions>
+class kernel_class
+{
+public:
+	using input_accessor_t = sycl::accessor<type_xti, dimensions, sycl::access_mode::read>;
+	using output_accessor_t = sycl::accessor<type_xti, dimensions, sycl::access_mode::write>;
+protected:
+	input_accessor_t __input;
+	output_accessor_t __output;
+public:
+	kernel_class(input_accessor_t input__, output_accessor_t output__):
+		__input{input__},
+		__output{output__}
+	{
+	}
+public:
+	void operator()(sycl::item<dimensions> item) const
+	{
+		sycl::id<1> id = item.get_id();
+		this->__output[id] = this->__input[id] * this->__input[id];
+	}
+};
+
+int main()
+{
+	sycl::queue queue{sycl::gpu_selector_v};
+	std::vector<float> input(11);
+	std::iota(input.begin(), input.end(), 1.2f);
+	sycl::buffer<float, 1> in_buffer{input.data(), sycl::range<1>{input.size()}};
+	sycl::buffer<float, 1> out_buffer{sycl::range<1>{input.size()}};
+
+	queue.submit(
+		[&] (sycl::handler & handler)
+		{
+			auto kernel = kernel_class<float, 1>{
+				sycl::accessor{in_buffer, handler, sycl::read_only},
+				sycl::accessor{out_buffer, handler, sycl::write_only}
+			};
+			handler.parallel_for<class kn1>(
+				sycl::range<1>{input.size()},
+				kernel
+			);
+		}
+	);
+
+	auto host_accessor = out_buffer.get_host_access();
+	for (const auto & x: host_accessor)
+		std::cout << x << " ";
+	std::cout << std::endl;
+}
+```
+
+
+
