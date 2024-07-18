@@ -17,8 +17,7 @@ d0011
 sycl c++ copy method
 
 ```
-sycl::queue q;
-q.copy(src, dst, size);
+handler.copy(src, dst);
 ```
 */
 
@@ -26,31 +25,48 @@ q.copy(src, dst, size);
 
 #include <sycl/sycl.hpp>
 #include <iostream>
+#include <vector>
+#include <numeric>
+#include <span>
 
 int main()
 {
-	constexpr int data_size = 11;
-	sycl::queue q{sycl::gpu_selector_v};
-	float * data = sycl::malloc_shared<float>(data_size, q);
-	q.parallel_for(
-		data_size,
-		[=] (sycl::item<1> item)
+	sycl::queue queue{sycl::gpu_selector_v};
+	std::vector<float> io_data(17);
+	std::iota(io_data.begin(), io_data.end(), 1.0f);
+	auto io_buffer = sycl::buffer<float, 1>{io_data.data(), sycl::range<1>{io_data.size()}};
+	queue.submit(
+		[&] (sycl::handler & handler)
 		{
-			sycl::id<1> id = item.get_id();
-			data[id] = sycl::sqrt((float)id);
+			auto io_accessor = sycl::accessor{io_buffer, handler, sycl::read_write};
+			handler.parallel_for<class kn1>(
+				sycl::range<1>{io_data.size()},
+				[=] (sycl::item<1> item)
+				{
+					sycl::id<1> id = item.get_id();
+					io_accessor[id] = sycl::cos<float>(io_accessor[id]);
+				}
+			);
 		}
 	);
-	q.wait();
-	float * data_host = new float[data_size];
-	q.copy(data, data_host, data_size);
-	sycl::free(data, q);
-	
-	for (float & x: std::span{data_host, data_size})
+	float * copied = new float[io_data.size()];
+	queue.submit(
+		[&] (sycl::handler & handler)
+		{
+			auto read = sycl::accessor{io_buffer, handler, sycl::read_only};
+			handler.copy(read, copied);
+		}
+	);
+	queue.wait();
+
+	for (const auto & x: std::span{copied, copied+io_data.size()})
 		std::cout << x << ' ';
 	std::cout << std::endl;
-	
-	delete [] data_host;
+
+	delete [] copied;
 }
 
 //]
+
+
 
