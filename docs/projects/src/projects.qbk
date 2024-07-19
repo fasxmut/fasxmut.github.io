@@ -4,3 +4,5 @@
 
 [include q3viewer.qbk]
 
+[include happy-cpp-sycl-examples.qbk]
+
