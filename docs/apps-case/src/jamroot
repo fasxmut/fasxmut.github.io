@@ -1,0 +1,69 @@
+path-constant utxcpp-src-root : ../../../../utxcpp ;
+path-constant qbk-media-root : $(utxcpp-src-root)/docs/fx-quickbook-media/qbk-media ;
+path-constant apps-case-src-root : . ;
+path-constant apps-case-web-root : .. ;
+
+argv = [ modules.peek : ARGV ] ;
+
+if [ MATCH ^(clean)$ : $(argv) ]
+{
+	echo "rm -rf `find $(apps-case-web-root) -name bin`" ;
+	SHELL "rm -rf `find $(apps-case-web-root) -name bin`" ;
+
+	echo "rm -rf `find $(apps-case-src-root) -name html`" ;
+	SHELL "rm -rf `find $(apps-case-src-root) -name html`" ;
+
+	exit ;
+}
+
+if [ MATCH ^(cleanall)$ : $(argv) ]
+{
+	echo "rm -rf `find $(apps-case-web-root) -name bin`" ;
+	SHELL "rm -rf `find $(apps-case-web-root) -name bin`" ;
+
+	echo "rm -rf `find $(apps-case-web-root) -name *html`" ;
+	SHELL "rm -rf `find $(apps-case-web-root) -name *html`" ;
+
+	echo "rm -rf `find $(apps-case-web-root) -name *css`" ;
+	SHELL "rm -rf `find $(apps-case-web-root) -name *css`" ;
+
+	echo "rm -rf `find $(apps-case-web-root) -name images`" ;
+	SHELL "rm -rf `find $(apps-case-web-root) -name images`" ;
+
+	echo "rm -rf `find $(apps-case-web-root) -name *manifest`" ;
+	SHELL "rm -rf `find $(apps-case-web-root) -name *manifest`" ;
+
+	exit ;
+}
+
+xml xml-index : apps-case.qbk ;
+
+boostbook html-index : xml-index
+	:
+	<xsl:param>"chunk.first.sections=1"
+	<dependency>media
+	;
+
+install html
+	:
+		[ glob
+			$(apps-case-src-root)/html/*.html
+			$(apps-case-src-root)/html/*.manifest
+		]
+	:
+		<location>$(apps-case-web-root)
+		<install-source-root>$(apps-case-src-root)/html
+;
+
+install media :
+	[ glob
+		$(qbk-media-root)/*.css
+		$(qbk-media-root)/images/*.png
+	]
+	:
+	<location>$(apps-case-web-root)
+	<install-source-root>$(qbk-media-root)
+	;
+
+
+
