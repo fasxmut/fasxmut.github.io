@@ -1,0 +1,409 @@
+[article ugrep regex
+	[quickbook 1.7]
+]
+
+[h1 [role cyan ugrep search options and regex]]
+
+ugrep (ug) is a file pattern searcher, it is a more powerful, ultra fast, user-friendly, compatible grep (that is also completely free!). ugrep is written in c++.
+
+Home: [@https://ugrep.com ugrep]
+
+July 20, 2024
+
+[h1 [role cyan ugrep search options]]
+
+[h2 Search cpp in a text]
+
+[!teletype]
+```
+ugrep "cpp" a_file
+```
+
+[h2 Recursively search cpp in all files in a directory]
+
+-r
+
+```
+ugrep -r "cpp" .
+```
+
+[h2 Recursively search with ignoring binary files]
+
+-I
+
+```
+ugrep -r -I "cpp" .
+```
+
+Many options mix together
+
+```
+ugrep -rI "cpp" .
+```
+
+[h2 Show line numbers]
+
+-n
+
+```
+ugrep -rIn "cpp" .
+```
+
+For simple search, quotes can be empty.
+
+```
+ugrep -rIn cpp .
+```
+
+[h2 Show file name only]
+
+-l
+
+```
+ugrep -rIl cpp .
+```
+
+[h2 invert search - show results that do not contain cpp]
+
+-v
+
+```
+ugrep -rInv cpp .
+```
+
+[h2 Ignore case]
+
+-i
+
+```
+ugrep -rIni cpp .
+```
+
+[h1 [role cyan ugrep regex]]
+
+[h2 Search cpp at the very begnning of a line in a file]
+
+```
+ugrep "^cpp" a_file
+```
+
+options can be also used.
+
+```
+ugrep -rIn "^cpp" .
+```
+
+Ignore case option can be used too.
+
+```
+ugrep -rIni "^cpp" .
+```
+
+[h2 Search cpp at the very end of a line in a file]
+
+```
+ugrep -rIn "cpp$" .
+```
+
+[h2 Match any single character]
+
+[*a dot: .]
+
+```
+ugrep -rIn ".pp" .
+```
+
+Matched:
+
+cpp [br]
+hpp [br]
+upp [br]
+... [br]
+
+[h2 Match any three characters]
+
+Three dots
+
+```
+ugrep -rIn "...cpp" .
+ugrep -rIn "cpp..." .
+```
+
+[h2 Search any one character of a group]
+
+```
+ugrep -rIn "[hc]pp" .
+```
+
+It will search hpp or cpp .
+
+[*Match any one character of the alphabet or numeric table]
+
+```
+ugrep -rIn "[a-z]cpp" .
+ugrep -rIn "[A-Z]cpp" .
+ugrep -rIn "[0-9]cpp" .
+ugrep -rIn "[a-zA-Z]cpp" .
+ugrep -rIn "[a-zA-Z0-9]cpp" .
+ugrep -rIn "fx[0-9][0-9]" .
+```
+
+[@https://cppfx.xyz/utxcpp/utx_fx32.html [*utx::[role red fx32]]] will match above.
+
+[*Match not any one of]
+
+```
+ugrep -rIn "[^a-zA-Z]cpp" .
+```
+
+[* Don't be confused, this will match any lines that begin with alphabet:]
+
+```
+ugrep -rIn "^[a-zA-Z]" .
+```
+
+[h2 Special character]
+
+[*Match one uppercase]
+
+```
+ugrep -rIn "[[:upper:]]" .
+```
+
+[*Match one lowercase]
+
+```
+ugrep -rIn "[[:lower:]]" .
+```
+
+[*Match one digit]
+
+```
+ugrep -rIn "[[:digit:]]" .
+```
+
+[*Match a space]
+
+including [*\\n], [*\\r], [*\\t], [*\\v]
+
+```
+ugrep -rIn "[[:space:]]" .
+```
+
+[*Match one visible character, including space]
+
+```
+ugrep -rIn "[[:print:]]" .
+```
+
+[h2 Repeat zero or more times]
+
+```
+ugrep -rIn "([A-Z]*)" .
+ugrep -rIn "[A-Z]*" .
+```
+
+[h2 Repeat one or more times]
+
+```
+ugrep -rIn "([A-Z]+)" .
+ugrep -rIn "(cpp[a-z]+)" .	# Matched: cppfx cppreference ...
+ugrep -rIn "cpp([a-z]+)" .
+```
+
+```
+ugrep -rIn "[A-Z]+" .
+ugrep -rIn "cpp[a-z]+" .	# Matched: cppfx cppreference ...
+```
+
+[h2 Match zero or one times]
+
+```
+ugrep -rIn "i[0-9]?" .
+```
+
+() are used for [*grouping] sometimes.
+
+[h2 Match any characters for any times]
+
+```
+ugrep -rIn ".*" .
+```
+
+[h2 Escape meta-characters]
+
+[*[role green \\]]
+
+[h2 Grouping]
+
+[* Escape grouping]
+
+```
+ugrep -rIn "\(void\)" .	# Match (void)
+ugrep -rIn "(void)" .	# Match void
+ugrep -rIn "void" .	# Match void
+```
+
+[* Match any one word of]
+
+```
+ugrep -rIn "(powered|Powered)" .	# Match powered or Powered
+```
+
+[h2 ()?]
+
+```
+ugrep -rIn "(cpp)?fx" .	# Match cppfx or fx
+```
+
+[h2 Match]
+
+Match include following one or more space .
+
+```
+ugrep -rIn "include[[:space:]]+" .
+```
+
+[h2 Match]
+
+Match p or x or i that repeats 3 times: ppp, iii, xxx, ppi, pip, ipp, ...
+
+```
+ugrep -rIn "[pxi]{3}" .
+```
+
+[h2 Match]
+
+Match alphabet that repeats 3~5 tmes.
+
+```
+ugrep -rIn "[[:alpha:]]{3,5}" .
+```
+
+[h2 Match]
+
+[*[role green .*]]
+
+Match any character that repeats any times
+
+[*[role green \\.]]
+
+Match a dot
+
+```
+ugrep -rIn ".*\." .			# a dot must be the last of the matched string.
+ugrep -rIn ".*\.$" .		# a dot must be the very ending of the matched line.
+```
+
+[h2 Match]
+
+Match a line that must begin with [*#include <], and end with [*.hpp>], and [*zero or more blank space] can be existed between [*#include] and [*<]
+
+```
+ugrep -rIn "^#include[ ]*<.*\.hpp>$" .
+```
+
+[h2 Match]
+
+Match a word that has three characters, and the characters must be a, b, u, v, w, x, y, or z, such as:
+abu aaa uba uaz www uby
+
+```
+ugrep -rIn "[abu-z]{3}" .
+```
+
+[Official ugrep regex table]
+
+[!teletype]
+```
+.	any character except \n
+a	the character a
+ab	the string ab
+a|b	a or b
+a*	zero or more a's
+a+	one or more a's
+a?	zero or one a
+a{3}	3 a's
+a{3,}	3 or more a's
+a{3,7}	3 to 7 a's
+a*?	zero or more a's lazily
+a+?	one or more a's lazily
+a??	zero or one a lazily
+a{3}?	3 a's lazily
+a{3,}?	3 or more a's lazily
+a{3,7}?	3 to 7 a's lazily
+\.	escapes . to match .
+\Q...\E	the literal string ...
+\f	form feed
+\n	newline
+\r	carriage return
+\R	any Unicode line break
+\t	tab
+\v	vertical tab
+\X	any character and \n
+\cZ	control character ^Z
+\0	NUL
+\0ddd	octal character code ddd
+\xhh	hex character code hh
+\x{hhhh}	Unicode code point U+hhhh
+\u{hhhh}	Unicode code point U+hhhh
+
+[abc-e]	one character a,b,c,d,e
+[^abc-e]	one char not a,b,c,d,e,\n
+[[:alnum:]]	a letter or decimal digit
+[[:alpha:]]	a lower or uppercase letter
+[[:ascii:]]	ASCII char \x00-\x7f
+[[:blank:]]	a space or a tab
+[[:cntrl:]]	a control character
+[[:digit:]]	a decimal digit
+[[:graph:]]	a visible character
+[[:lower:]]	a lowercase letter
+[[:print:]]	a visible char or space
+[[:punct:]]	a punctuation character
+[[:space:]]	a space,\t,\v,\f,\r
+[[:upper:]]	an uppercase letter
+[[:word:]]	a word-like character
+[[:xdigit:]]	a hexadecimal digit
+\p{Class}	one character in Class
+\P{Class}	one char not in Class
+\d	a decimal digit
+\D	a non-digit character
+\h	a space or a tab
+\H	not a space or a tab
+\l	a lowercase letter
+\L	a non-lowercase character
+\s	a whitespace except \n
+\S	a non-whitespace
+\u	an uppercase letter
+\U	a non-uppercase character
+\w	a word-like character
+\W	a non-word character
+
+^	begin of line anchor
+$	end of line anchor
+\A	begin of file anchor
+\Z	end of file anchor
+\b	word boundary
+\B	non-word boundary
+\<	start of word boundary
+\>	end of word boundary
+(?=...)	lookahead (-P)
+(?!...)	negative lookahead (-P)
+(?<=...)	lookbehind (-P)
+(?<!...)	negative lookbehind (-P)
+(...)	capturing group (-P)
+(...)	non-capturing group
+(?:...)	non-capturing group
+(?<X>...)	capturing, named X (-P)
+\1	matches group 1 (-P)
+\g{10}	matches group 10 (-P)
+\g{X}	matches group name X (-P)
+(?#...)	comments ... are ignored
+```
+
+[h1 [role cyan See Also]]
+
+Home: [@https://ugrep.com ugrep]
+
+
+

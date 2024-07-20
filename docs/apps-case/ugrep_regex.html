@@ -1,0 +1,476 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ugrep regex</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Apps Case">
+<link rel="up" href="index.html" title="Apps Case">
+<link rel="prev" href="index.html" title="Apps Case">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="ugrep_regex"></a>ugrep regex</h1></div></div>
+<hr>
+</div>
+<h2>
+<a name="ugrep_regex.h0"></a>
+      <span class="phrase"><a name="ugrep_regex.role_cyan_ugrep_search_options_a"></a></span><a class="link" href="ugrep_regex.html#ugrep_regex.role_cyan_ugrep_search_options_a"><span class="cyan">ugrep search options and regex</span></a>
+    </h2>
+<p>
+      ugrep (ug) is a file pattern searcher, it is a more powerful, ultra fast, user-friendly,
+      compatible grep (that is also completely free!). ugrep is written in c++.
+    </p>
+<p>
+      Home: <a href="https://ugrep.com" target="_top">ugrep</a>
+    </p>
+<p>
+      July 20, 2024
+    </p>
+<h2>
+<a name="ugrep_regex.h1"></a>
+      <span class="phrase"><a name="ugrep_regex.role_cyan_ugrep_search_options"></a></span><a class="link" href="ugrep_regex.html#ugrep_regex.role_cyan_ugrep_search_options"><span class="cyan">ugrep search options</span></a>
+    </h2>
+<h3>
+<a name="ugrep_regex.h2"></a>
+      <span class="phrase"><a name="ugrep_regex.search_cpp_in_a_text"></a></span><a class="link" href="ugrep_regex.html#ugrep_regex.search_cpp_in_a_text">Search
+      cpp in a text</a>
+    </h3>
+<pre class="programlisting">ugrep "cpp" a_file
+</pre>
+<h3>
+<a name="ugrep_regex.h3"></a>
+      <span class="phrase"><a name="ugrep_regex.recursively_search_cpp_in_all_fi"></a></span><a class="link" href="ugrep_regex.html#ugrep_regex.recursively_search_cpp_in_all_fi">Recursively
+      search cpp in all files in a directory</a>
+    </h3>
+<p>
+      -r
+    </p>
+<pre class="programlisting"><span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">r</span> <span class="string">"cpp"</span> <span class="special">.</span>
+</pre>
+<h3>
+<a name="ugrep_regex.h4"></a>
+      <span class="phrase"><a name="ugrep_regex.recursively_search_with_ignoring"></a></span><a class="link" href="ugrep_regex.html#ugrep_regex.recursively_search_with_ignoring">Recursively
+      search with ignoring binary files</a>
+    </h3>
+<p>
+      -I
+    </p>
+<pre class="programlisting"><span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">r</span> <span class="special">-</span><span class="identifier">I</span> <span class="string">"cpp"</span> <span class="special">.</span>
+</pre>
+<p>
+      Many options mix together
+    </p>
+<pre class="programlisting"><span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rI</span> <span class="string">"cpp"</span> <span class="special">.</span>
+</pre>
+<h3>
+<a name="ugrep_regex.h5"></a>
+      <span class="phrase"><a name="ugrep_regex.show_line_numbers"></a></span><a class="link" href="ugrep_regex.html#ugrep_regex.show_line_numbers">Show
+      line numbers</a>
+    </h3>
+<p>
+      -n
+    </p>
+<pre class="programlisting"><span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">"cpp"</span> <span class="special">.</span>
+</pre>
+<p>
+      For simple search, quotes can be empty.
+    </p>
+<pre class="programlisting"><span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="identifier">cpp</span> <span class="special">.</span>
+</pre>
+<h3>
+<a name="ugrep_regex.h6"></a>
+      <span class="phrase"><a name="ugrep_regex.show_file_name_only"></a></span><a class="link" href="ugrep_regex.html#ugrep_regex.show_file_name_only">Show
+      file name only</a>
+    </h3>
+<p>
+      -l
+    </p>
+<pre class="programlisting"><span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIl</span> <span class="identifier">cpp</span> <span class="special">.</span>
+</pre>
+<h3>
+<a name="ugrep_regex.h7"></a>
+      <span class="phrase"><a name="ugrep_regex.invert_search_show_results_that_"></a></span><a class="link" href="ugrep_regex.html#ugrep_regex.invert_search_show_results_that_">invert
+      search - show results that do not contain cpp</a>
+    </h3>
+<p>
+      -v
+    </p>
+<pre class="programlisting"><span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rInv</span> <span class="identifier">cpp</span> <span class="special">.</span>
+</pre>
+<h3>
+<a name="ugrep_regex.h8"></a>
+      <span class="phrase"><a name="ugrep_regex.ignore_case"></a></span><a class="link" href="ugrep_regex.html#ugrep_regex.ignore_case">Ignore
+      case</a>
+    </h3>
+<p>
+      -i
+    </p>
+<pre class="programlisting"><span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIni</span> <span class="identifier">cpp</span> <span class="special">.</span>
+</pre>
+<h2>
+<a name="ugrep_regex.h9"></a>
+      <span class="phrase"><a name="ugrep_regex.role_cyan_ugrep_regex"></a></span><a class="link" href="ugrep_regex.html#ugrep_regex.role_cyan_ugrep_regex"><span class="cyan">ugrep regex</span></a>
+    </h2>
+<h3>
+<a name="ugrep_regex.h10"></a>
+      <span class="phrase"><a name="ugrep_regex.search_cpp_at_the_very_begnning_"></a></span><a class="link" href="ugrep_regex.html#ugrep_regex.search_cpp_at_the_very_begnning_">Search
+      cpp at the very begnning of a line in a file</a>
+    </h3>
+<pre class="programlisting"><span class="identifier">ugrep</span> <span class="string">"^cpp"</span> <span class="identifier">a_file</span>
+</pre>
+<p>
+      options can be also used.
+    </p>
+<pre class="programlisting"><span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">"^cpp"</span> <span class="special">.</span>
+</pre>
+<p>
+      Ignore case option can be used too.
+    </p>
+<pre class="programlisting"><span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIni</span> <span class="string">"^cpp"</span> <span class="special">.</span>
+</pre>
+<h3>
+<a name="ugrep_regex.h11"></a>
+      <span class="phrase"><a name="ugrep_regex.search_cpp_at_the_very_end_of_a_"></a></span><a class="link" href="ugrep_regex.html#ugrep_regex.search_cpp_at_the_very_end_of_a_">Search
+      cpp at the very end of a line in a file</a>
+    </h3>
+<pre class="programlisting"><span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">"cpp$"</span> <span class="special">.</span>
+</pre>
+<h3>
+<a name="ugrep_regex.h12"></a>
+      <span class="phrase"><a name="ugrep_regex.match_any_single_character"></a></span><a class="link" href="ugrep_regex.html#ugrep_regex.match_any_single_character">Match
+      any single character</a>
+    </h3>
+<p>
+      <span class="bold"><strong>a dot: .</strong></span>
+    </p>
+<pre class="programlisting"><span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">".pp"</span> <span class="special">.</span>
+</pre>
+<p>
+      Matched:
+    </p>
+<p>
+      cpp <br> hpp <br> upp <br> ... <br>
+    </p>
+<h3>
+<a name="ugrep_regex.h13"></a>
+      <span class="phrase"><a name="ugrep_regex.match_any_three_characters"></a></span><a class="link" href="ugrep_regex.html#ugrep_regex.match_any_three_characters">Match
+      any three characters</a>
+    </h3>
+<p>
+      Three dots
+    </p>
+<pre class="programlisting"><span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">"...cpp"</span> <span class="special">.</span>
+<span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">"cpp..."</span> <span class="special">.</span>
+</pre>
+<h3>
+<a name="ugrep_regex.h14"></a>
+      <span class="phrase"><a name="ugrep_regex.search_any_one_character_of_a_gr"></a></span><a class="link" href="ugrep_regex.html#ugrep_regex.search_any_one_character_of_a_gr">Search
+      any one character of a group</a>
+    </h3>
+<pre class="programlisting"><span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">"[hc]pp"</span> <span class="special">.</span>
+</pre>
+<p>
+      It will search hpp or cpp .
+    </p>
+<p>
+      <span class="bold"><strong>Match any one character of the alphabet or numeric table</strong></span>
+    </p>
+<pre class="programlisting"><span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">"[a-z]cpp"</span> <span class="special">.</span>
+<span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">"[A-Z]cpp"</span> <span class="special">.</span>
+<span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">"[0-9]cpp"</span> <span class="special">.</span>
+<span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">"[a-zA-Z]cpp"</span> <span class="special">.</span>
+<span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">"[a-zA-Z0-9]cpp"</span> <span class="special">.</span>
+<span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">"fx[0-9][0-9]"</span> <span class="special">.</span>
+</pre>
+<p>
+      <a href="https://cppfx.xyz/utxcpp/utx_fx32.html" target="_top"><span class="bold"><strong>utx::<span class="red">fx32</span></strong></span></a> will match above.
+    </p>
+<p>
+      <span class="bold"><strong>Match not any one of</strong></span>
+    </p>
+<pre class="programlisting"><span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">"[^a-zA-Z]cpp"</span> <span class="special">.</span>
+</pre>
+<p>
+      <span class="bold"><strong>Don't be confused, this will match any lines that begin
+      with alphabet:</strong></span>
+    </p>
+<pre class="programlisting"><span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">"^[a-zA-Z]"</span> <span class="special">.</span>
+</pre>
+<h3>
+<a name="ugrep_regex.h15"></a>
+      <span class="phrase"><a name="ugrep_regex.special_character"></a></span><a class="link" href="ugrep_regex.html#ugrep_regex.special_character">Special
+      character</a>
+    </h3>
+<p>
+      <span class="bold"><strong>Match one uppercase</strong></span>
+    </p>
+<pre class="programlisting"><span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">"[[:upper:]]"</span> <span class="special">.</span>
+</pre>
+<p>
+      <span class="bold"><strong>Match one lowercase</strong></span>
+    </p>
+<pre class="programlisting"><span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">"[[:lower:]]"</span> <span class="special">.</span>
+</pre>
+<p>
+      <span class="bold"><strong>Match one digit</strong></span>
+    </p>
+<pre class="programlisting"><span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">"[[:digit:]]"</span> <span class="special">.</span>
+</pre>
+<p>
+      <span class="bold"><strong>Match a space</strong></span>
+    </p>
+<p>
+      including <span class="bold"><strong>\n</strong></span>, <span class="bold"><strong>\r</strong></span>,
+      <span class="bold"><strong>\t</strong></span>, <span class="bold"><strong>\v</strong></span>
+    </p>
+<pre class="programlisting"><span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">"[[:space:]]"</span> <span class="special">.</span>
+</pre>
+<p>
+      <span class="bold"><strong>Match one visible character, including space</strong></span>
+    </p>
+<pre class="programlisting"><span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">"[[:print:]]"</span> <span class="special">.</span>
+</pre>
+<h3>
+<a name="ugrep_regex.h16"></a>
+      <span class="phrase"><a name="ugrep_regex.repeat_zero_or_more_times"></a></span><a class="link" href="ugrep_regex.html#ugrep_regex.repeat_zero_or_more_times">Repeat
+      zero or more times</a>
+    </h3>
+<pre class="programlisting"><span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">"([A-Z]*)"</span> <span class="special">.</span>
+<span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">"[A-Z]*"</span> <span class="special">.</span>
+</pre>
+<h3>
+<a name="ugrep_regex.h17"></a>
+      <span class="phrase"><a name="ugrep_regex.repeat_one_or_more_times"></a></span><a class="link" href="ugrep_regex.html#ugrep_regex.repeat_one_or_more_times">Repeat
+      one or more times</a>
+    </h3>
+<pre class="programlisting"><span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">"([A-Z]+)"</span> <span class="special">.</span>
+<span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">"(cpp[a-z]+)"</span> <span class="special">.</span>	<span class="special">#</span> <span class="identifier">Matched</span><span class="special">:</span> <span class="identifier">cppfx</span> <span class="identifier">cppreference</span> <span class="special">...</span>
+<span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">"cpp([a-z]+)"</span> <span class="special">.</span>
+</pre>
+<pre class="programlisting"><span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">"[A-Z]+"</span> <span class="special">.</span>
+<span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">"cpp[a-z]+"</span> <span class="special">.</span>	<span class="special">#</span> <span class="identifier">Matched</span><span class="special">:</span> <span class="identifier">cppfx</span> <span class="identifier">cppreference</span> <span class="special">...</span>
+</pre>
+<h3>
+<a name="ugrep_regex.h18"></a>
+      <span class="phrase"><a name="ugrep_regex.match_zero_or_one_times"></a></span><a class="link" href="ugrep_regex.html#ugrep_regex.match_zero_or_one_times">Match
+      zero or one times</a>
+    </h3>
+<pre class="programlisting"><span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">"i[0-9]?"</span> <span class="special">.</span>
+</pre>
+<p>
+      () are used for <span class="bold"><strong>grouping</strong></span> sometimes.
+    </p>
+<h3>
+<a name="ugrep_regex.h19"></a>
+      <span class="phrase"><a name="ugrep_regex.match_any_characters_for_any_tim"></a></span><a class="link" href="ugrep_regex.html#ugrep_regex.match_any_characters_for_any_tim">Match
+      any characters for any times</a>
+    </h3>
+<pre class="programlisting"><span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">".*"</span> <span class="special">.</span>
+</pre>
+<h3>
+<a name="ugrep_regex.h20"></a>
+      <span class="phrase"><a name="ugrep_regex.escape_meta_characters"></a></span><a class="link" href="ugrep_regex.html#ugrep_regex.escape_meta_characters">Escape
+      meta-characters</a>
+    </h3>
+<p>
+      <span class="bold"><strong><span class="green">\</span></strong></span>
+    </p>
+<h3>
+<a name="ugrep_regex.h21"></a>
+      <span class="phrase"><a name="ugrep_regex.grouping"></a></span><a class="link" href="ugrep_regex.html#ugrep_regex.grouping">Grouping</a>
+    </h3>
+<p>
+      <span class="bold"><strong>Escape grouping</strong></span>
+    </p>
+<pre class="programlisting"><span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">"\(void\)"</span> <span class="special">.</span>	<span class="special">#</span> <span class="identifier">Match</span> <span class="special">(</span><span class="keyword">void</span><span class="special">)</span>
+<span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">"(void)"</span> <span class="special">.</span>	<span class="special">#</span> <span class="identifier">Match</span> <span class="keyword">void</span>
+<span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">"void"</span> <span class="special">.</span>	<span class="special">#</span> <span class="identifier">Match</span> <span class="keyword">void</span>
+</pre>
+<p>
+      <span class="bold"><strong>Match any one word of</strong></span>
+    </p>
+<pre class="programlisting"><span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">"(powered|Powered)"</span> <span class="special">.</span>	<span class="special">#</span> <span class="identifier">Match</span> <span class="identifier">powered</span> <span class="keyword">or</span> <span class="identifier">Powered</span>
+</pre>
+<h3>
+<a name="ugrep_regex.h22"></a>
+      <span class="phrase"><a name="ugrep_regex._"></a></span><a class="link" href="ugrep_regex.html#ugrep_regex._">()?</a>
+    </h3>
+<pre class="programlisting"><span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">"(cpp)?fx"</span> <span class="special">.</span>	<span class="special">#</span> <span class="identifier">Match</span> <span class="identifier">cppfx</span> <span class="keyword">or</span> <span class="identifier">fx</span>
+</pre>
+<h3>
+<a name="ugrep_regex.h23"></a>
+      <span class="phrase"><a name="ugrep_regex.match"></a></span><a class="link" href="ugrep_regex.html#ugrep_regex.match">Match</a>
+    </h3>
+<p>
+      Match include following one or more space .
+    </p>
+<pre class="programlisting"><span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">"include[[:space:]]+"</span> <span class="special">.</span>
+</pre>
+<h3>
+<a name="ugrep_regex.h24"></a>
+      <span class="phrase"><a name="ugrep_regex.match0"></a></span><a class="link" href="ugrep_regex.html#ugrep_regex.match0">Match</a>
+    </h3>
+<p>
+      Match p or x or i that repeats 3 times: ppp, iii, xxx, ppi, pip, ipp, ...
+    </p>
+<pre class="programlisting"><span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">"[pxi]{3}"</span> <span class="special">.</span>
+</pre>
+<h3>
+<a name="ugrep_regex.h25"></a>
+      <span class="phrase"><a name="ugrep_regex.match1"></a></span><a class="link" href="ugrep_regex.html#ugrep_regex.match1">Match</a>
+    </h3>
+<p>
+      Match alphabet that repeats 3~5 tmes.
+    </p>
+<pre class="programlisting"><span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">"[[:alpha:]]{3,5}"</span> <span class="special">.</span>
+</pre>
+<h3>
+<a name="ugrep_regex.h26"></a>
+      <span class="phrase"><a name="ugrep_regex.match2"></a></span><a class="link" href="ugrep_regex.html#ugrep_regex.match2">Match</a>
+    </h3>
+<p>
+      <span class="bold"><strong><span class="green">.*</span></strong></span>
+    </p>
+<p>
+      Match any character that repeats any times
+    </p>
+<p>
+      <span class="bold"><strong><span class="green">\.</span></strong></span>
+    </p>
+<p>
+      Match a dot
+    </p>
+<pre class="programlisting"><span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">".*\."</span> <span class="special">.</span>			<span class="special">#</span> <span class="identifier">a</span> <span class="identifier">dot</span> <span class="identifier">must</span> <span class="identifier">be</span> <span class="identifier">the</span> <span class="identifier">last</span> <span class="identifier">of</span> <span class="identifier">the</span> <span class="identifier">matched</span> <span class="identifier">string</span><span class="special">.</span>
+<span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">".*\.$"</span> <span class="special">.</span>		<span class="special">#</span> <span class="identifier">a</span> <span class="identifier">dot</span> <span class="identifier">must</span> <span class="identifier">be</span> <span class="identifier">the</span> <span class="identifier">very</span> <span class="identifier">ending</span> <span class="identifier">of</span> <span class="identifier">the</span> <span class="identifier">matched</span> <span class="identifier">line</span><span class="special">.</span>
+</pre>
+<h3>
+<a name="ugrep_regex.h27"></a>
+      <span class="phrase"><a name="ugrep_regex.match3"></a></span><a class="link" href="ugrep_regex.html#ugrep_regex.match3">Match</a>
+    </h3>
+<p>
+      Match a line that must begin with <span class="bold"><strong>#include &lt;</strong></span>,
+      and end with <span class="bold"><strong>.hpp&gt;</strong></span>, and <span class="bold"><strong>zero
+      or more blank space</strong></span> can be existed between <span class="bold"><strong>#include</strong></span>
+      and <span class="bold"><strong>&lt;</strong></span>
+    </p>
+<pre class="programlisting"><span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">"^#include[ ]*&lt;.*\.hpp&gt;$"</span> <span class="special">.</span>
+</pre>
+<h3>
+<a name="ugrep_regex.h28"></a>
+      <span class="phrase"><a name="ugrep_regex.match4"></a></span><a class="link" href="ugrep_regex.html#ugrep_regex.match4">Match</a>
+    </h3>
+<p>
+      Match a word that has three characters, and the characters must be a, b, u,
+      v, w, x, y, or z, such as: abu aaa uba uaz www uby
+    </p>
+<pre class="programlisting"><span class="identifier">ugrep</span> <span class="special">-</span><span class="identifier">rIn</span> <span class="string">"[abu-z]{3}"</span> <span class="special">.</span>
+</pre>
+<p>
+      [Official ugrep regex table]
+    </p>
+<pre class="programlisting">.	any character except \n
+a	the character a
+ab	the string ab
+a|b	a or b
+a*	zero or more a's
+a+	one or more a's
+a?	zero or one a
+a{3}	3 a's
+a{3,}	3 or more a's
+a{3,7}	3 to 7 a's
+a*?	zero or more a's lazily
+a+?	one or more a's lazily
+a??	zero or one a lazily
+a{3}?	3 a's lazily
+a{3,}?	3 or more a's lazily
+a{3,7}?	3 to 7 a's lazily
+\.	escapes . to match .
+\Q...\E	the literal string ...
+\f	form feed
+\n	newline
+\r	carriage return
+\R	any Unicode line break
+\t	tab
+\v	vertical tab
+\X	any character and \n
+\cZ	control character ^Z
+\0	NUL
+\0ddd	octal character code ddd
+\xhh	hex character code hh
+\x{hhhh}	Unicode code point U+hhhh
+\u{hhhh}	Unicode code point U+hhhh
+
+[abc-e]	one character a,b,c,d,e
+[^abc-e]	one char not a,b,c,d,e,\n
+[[:alnum:]]	a letter or decimal digit
+[[:alpha:]]	a lower or uppercase letter
+[[:ascii:]]	ASCII char \x00-\x7f
+[[:blank:]]	a space or a tab
+[[:cntrl:]]	a control character
+[[:digit:]]	a decimal digit
+[[:graph:]]	a visible character
+[[:lower:]]	a lowercase letter
+[[:print:]]	a visible char or space
+[[:punct:]]	a punctuation character
+[[:space:]]	a space,\t,\v,\f,\r
+[[:upper:]]	an uppercase letter
+[[:word:]]	a word-like character
+[[:xdigit:]]	a hexadecimal digit
+\p{Class}	one character in Class
+\P{Class}	one char not in Class
+\d	a decimal digit
+\D	a non-digit character
+\h	a space or a tab
+\H	not a space or a tab
+\l	a lowercase letter
+\L	a non-lowercase character
+\s	a whitespace except \n
+\S	a non-whitespace
+\u	an uppercase letter
+\U	a non-uppercase character
+\w	a word-like character
+\W	a non-word character
+
+^	begin of line anchor
+$	end of line anchor
+\A	begin of file anchor
+\Z	end of file anchor
+\b	word boundary
+\B	non-word boundary
+\&lt;	start of word boundary
+\&gt;	end of word boundary
+(?=...)	lookahead (-P)
+(?!...)	negative lookahead (-P)
+(?&lt;=...)	lookbehind (-P)
+(?&lt;!...)	negative lookbehind (-P)
+(...)	capturing group (-P)
+(...)	non-capturing group
+(?:...)	non-capturing group
+(?&lt;X&gt;...)	capturing, named X (-P)
+\1	matches group 1 (-P)
+\g{10}	matches group 10 (-P)
+\g{X}	matches group name X (-P)
+(?#...)	comments ... are ignored
+</pre>
+<h2>
+<a name="ugrep_regex.h29"></a>
+      <span class="phrase"><a name="ugrep_regex.role_cyan_see_also"></a></span><a class="link" href="ugrep_regex.html#ugrep_regex.role_cyan_see_also"><span class="cyan">See Also</span></a>
+    </h2>
+<p>
+      Home: <a href="https://ugrep.com" target="_top">ugrep</a>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+</body>
+</html>
