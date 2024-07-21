@@ -1,4 +1,5 @@
 index.html
+sycl_queue_copy_queue_fill.html
 sycl_class_kernel.html
 sycl_buffer_host_access.html
 glbinding_sfml_version.html

@@ -1,0 +1,72 @@
+[article sycl queue.copy(...), queue.fill(...)
+	[quickbook 1.7]
+]
+
+sycl queue.copy(...), queue.fill(...) - Posted on July 21, 2024 - See [@https://sycl.tech] - [@https://cppfx.xyz/logs Logs Home] - d0030
+
+[h1 [role cyan sycl queue.copy(...), queue.fill(...)]]
+
+sycl copy, or fill data between/to sycl accessors, pointers, c++ std shared-pointers.
+
+[h1 [role cyan cpp example 1]]
+
+cpp/c++ example 1: sycl queue.copy(...)
+
+[!c++]
+```
+#include <sycl/sycl.hpp>
+#include <iostream>
+#include <vector>
+
+// queue.copy(src, dst, count);
+
+int main()
+{
+	sycl::queue queue{sycl::gpu_selector_v};
+	std::vector<float> v1{5,4,3,2,1,0,-1};
+	std::vector<float> v2(v1.size());
+	queue.copy(v1.data(), v2.data(), v1.size());	// Copy on GPU
+	queue.wait();	// Wait GPU
+	std::copy(v2.begin(), v2.end(), std::ostream_iterator<float>(std::cout, " ")); // print
+	std::cout << std::endl;
+}
+```
+
+dpcpp prog.cpp -std=c++23 -o prog
+
+```
+5 4 3 2 1 0 -1 
+```
+
+[h1 [role cyan cpp example 2]]
+
+cpp/c++ example 2: sycl queue.fill(...)
+
+[!c++]
+```
+#include <sycl/sycl.hpp>
+#include <vector>
+#include <iostream>
+#include <numbers>
+
+using std::numbers::pi;
+
+int main()
+{
+	std::vector<double> vector(11);
+	sycl::queue queue{sycl::gpu_selector_v};
+	auto buffer = new sycl::buffer<double, 1>{vector.data(), sycl::range<1>{vector.size()}};
+	auto accessor = sycl::accessor<double, 1, sycl::access_mode::write>{* buffer, sycl::write_only};
+	queue.fill(accessor, pi);	// Fill on GPU
+	delete buffer;	// Wait
+	std::copy(vector.begin(), vector.end(), std::ostream_iterator<double>{std::cout, " "});	// print
+	std::cout << std::endl;
+}
+```
+
+dpcpp prog.cpp -std=c++23 -o prog
+
+```
+3.14159 3.14159 3.14159 3.14159 3.14159 3.14159 3.14159 3.14159 3.14159 3.14159 3.14159 
+```
+
