@@ -1,0 +1,120 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>sycl handler.copy(...), handler.fill(...)</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="logs - Blogs or News">
+<link rel="up" href="index.html" title="logs - Blogs or News">
+<link rel="prev" href="index.html" title="logs - Blogs or News">
+<link rel="next" href="sycl_queue_copy_queue_fill.html" title="sycl queue.copy(...), queue.fill(...)">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="sycl_queue_copy_queue_fill.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="sycl_handler_copy_handler_fill"></a>sycl handler.copy(...), handler.fill(...)</h1></div></div>
+<hr>
+</div>
+<p>
+      sycl handler.copy(...), handler.fill(...) - Posted on July 21, 2024 - See
+      <a href="https://sycl.tech" target="_top">https://sycl.tech</a> - <a href="https://cppfx.xyz/logs" target="_top">Logs
+      Home</a> - d0031
+    </p>
+<h2>
+<a name="sycl_handler_copy_handler_fill.h0"></a>
+      <span class="phrase"><a name="sycl_handler_copy_handler_fill.role_cyan_sycl_handler_copy_hand"></a></span><a class="link" href="sycl_handler_copy_handler_fill.html#sycl_handler_copy_handler_fill.role_cyan_sycl_handler_copy_hand"><span class="cyan">sycl handler.copy(...), handler.fill(...)</span></a>
+    </h2>
+<p>
+      sycl handler.copy(...), handler.fill(...)
+    </p>
+<p>
+      Copy or fill data between/to accessors, std shared-pointers, or pointers on
+      GPU with sycl.
+    </p>
+<h2>
+<a name="sycl_handler_copy_handler_fill.h1"></a>
+      <span class="phrase"><a name="sycl_handler_copy_handler_fill.role_cyan_cpp_example_1"></a></span><a class="link" href="sycl_handler_copy_handler_fill.html#sycl_handler_copy_handler_fill.role_cyan_cpp_example_1"><span class="cyan">cpp
+      example 1</span></a>
+    </h2>
+<p>
+      cpp/c++ example 1: sycl handler.copy(...)
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">sycl</span><span class="special">/</span><span class="identifier">sycl</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">vector</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">sycl</span><span class="special">::</span><span class="identifier">queue</span> <span class="identifier">queue</span><span class="special">{</span><span class="identifier">sycl</span><span class="special">::</span><span class="identifier">gpu_selector_v</span><span class="special">};</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">float</span><span class="special">&gt;</span> <span class="identifier">v1</span><span class="special">{</span><span class="number">2</span><span class="special">,</span><span class="number">4</span><span class="special">,</span><span class="number">6</span><span class="special">,</span><span class="number">8</span><span class="special">,</span><span class="number">9</span><span class="special">};</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">float</span><span class="special">&gt;</span> <span class="identifier">v2</span><span class="special">(</span><span class="identifier">v1</span><span class="special">.</span><span class="identifier">size</span><span class="special">());</span>
+	<span class="keyword">auto</span> <span class="identifier">buffer1</span> <span class="special">=</span> <span class="keyword">new</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">buffer</span><span class="special">&lt;</span><span class="keyword">float</span><span class="special">,</span> <span class="number">1</span><span class="special">&gt;{</span><span class="identifier">v1</span><span class="special">.</span><span class="identifier">data</span><span class="special">(),</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">range</span><span class="special">&lt;</span><span class="number">1</span><span class="special">&gt;{</span><span class="identifier">v1</span><span class="special">.</span><span class="identifier">size</span><span class="special">()}};</span>
+	<span class="keyword">auto</span> <span class="identifier">buffer2</span> <span class="special">=</span> <span class="keyword">new</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">buffer</span><span class="special">&lt;</span><span class="keyword">float</span><span class="special">,</span> <span class="number">1</span><span class="special">&gt;{</span><span class="identifier">v2</span><span class="special">.</span><span class="identifier">data</span><span class="special">(),</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">range</span><span class="special">&lt;</span><span class="number">1</span><span class="special">&gt;{</span><span class="identifier">v1</span><span class="special">.</span><span class="identifier">size</span><span class="special">()}};</span>
+	<span class="identifier">queue</span><span class="special">.</span><span class="identifier">submit</span><span class="special">(</span>
+		<span class="special">[&amp;]</span> <span class="special">(</span><span class="identifier">sycl</span><span class="special">::</span><span class="identifier">handler</span> <span class="special">&amp;</span> <span class="identifier">handler</span><span class="special">)</span>
+		<span class="special">{</span>
+			<span class="keyword">auto</span> <span class="identifier">accessor1</span> <span class="special">=</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">accessor</span><span class="special">&lt;</span><span class="keyword">float</span><span class="special">,</span> <span class="number">1</span><span class="special">,</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">access_mode</span><span class="special">::</span><span class="identifier">read</span><span class="special">&gt;{*</span> <span class="identifier">buffer1</span><span class="special">,</span> <span class="identifier">handler</span><span class="special">,</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">read_only</span><span class="special">};</span>
+			<span class="keyword">auto</span> <span class="identifier">accessor2</span> <span class="special">=</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">accessor</span><span class="special">&lt;</span><span class="keyword">float</span><span class="special">,</span> <span class="number">1</span><span class="special">,</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">access_mode</span><span class="special">::</span><span class="identifier">write</span><span class="special">&gt;{*</span> <span class="identifier">buffer2</span><span class="special">,</span> <span class="identifier">handler</span><span class="special">,</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">write_only</span><span class="special">};</span>
+			<span class="identifier">handler</span><span class="special">.</span><span class="identifier">copy</span><span class="special">(</span><span class="identifier">accessor1</span><span class="special">,</span> <span class="identifier">accessor2</span><span class="special">);</span>	<span class="comment">// Copy on GPU</span>
+		<span class="special">}</span>
+	<span class="special">);</span>
+	<span class="keyword">delete</span> <span class="identifier">buffer1</span><span class="special">;</span>
+	<span class="keyword">delete</span> <span class="identifier">buffer2</span><span class="special">;</span>	<span class="comment">// wait</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">copy</span><span class="special">(</span><span class="identifier">v2</span><span class="special">.</span><span class="identifier">begin</span><span class="special">(),</span> <span class="identifier">v2</span><span class="special">.</span><span class="identifier">end</span><span class="special">(),</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">ostream_iterator</span><span class="special">&lt;</span><span class="keyword">float</span><span class="special">&gt;{</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span><span class="special">,</span> <span class="string">" "</span><span class="special">});</span>	<span class="comment">// print</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<p>
+      dpcpp prog.cpp -std=c++23 -o prog
+    </p>
+<pre class="programlisting"><span class="number">2</span> <span class="number">4</span> <span class="number">6</span> <span class="number">8</span> <span class="number">9</span>
+</pre>
+<h2>
+<a name="sycl_handler_copy_handler_fill.h2"></a>
+      <span class="phrase"><a name="sycl_handler_copy_handler_fill.role_cyan_cpp_example_2"></a></span><a class="link" href="sycl_handler_copy_handler_fill.html#sycl_handler_copy_handler_fill.role_cyan_cpp_example_2"><span class="cyan">cpp
+      example 2</span></a>
+    </h2>
+<p>
+      cpp/c++ example 2: sycl handler.fill(...)
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">sycl</span><span class="special">/</span><span class="identifier">sycl</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">numbers</span><span class="special">&gt;</span>
+
+<span class="keyword">using</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">numbers</span><span class="special">::</span><span class="identifier">pi</span><span class="special">;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">float</span><span class="special">&gt;</span> <span class="identifier">vector</span><span class="special">(</span><span class="number">7</span><span class="special">);</span>
+	<span class="identifier">sycl</span><span class="special">::</span><span class="identifier">queue</span> <span class="identifier">queue</span><span class="special">{</span><span class="identifier">sycl</span><span class="special">::</span><span class="identifier">gpu_selector_v</span><span class="special">};</span>
+	<span class="keyword">auto</span> <span class="identifier">buffer</span> <span class="special">=</span> <span class="keyword">new</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">buffer</span><span class="special">&lt;</span><span class="keyword">float</span><span class="special">,</span> <span class="number">1</span><span class="special">&gt;{</span><span class="identifier">vector</span><span class="special">.</span><span class="identifier">data</span><span class="special">(),</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">range</span><span class="special">&lt;</span><span class="number">1</span><span class="special">&gt;{</span><span class="identifier">vector</span><span class="special">.</span><span class="identifier">size</span><span class="special">()}};</span>
+	<span class="identifier">queue</span><span class="special">.</span><span class="identifier">submit</span><span class="special">(</span>
+		<span class="special">[&amp;]</span> <span class="special">(</span><span class="identifier">sycl</span><span class="special">::</span><span class="identifier">handler</span> <span class="special">&amp;</span> <span class="identifier">handler</span><span class="special">)</span>
+		<span class="special">{</span>
+			<span class="keyword">auto</span> <span class="identifier">accessor</span> <span class="special">=</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">accessor</span><span class="special">&lt;</span><span class="keyword">float</span><span class="special">,</span> <span class="number">1</span><span class="special">,</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">access_mode</span><span class="special">::</span><span class="identifier">write</span><span class="special">&gt;{*</span> <span class="identifier">buffer</span><span class="special">,</span> <span class="identifier">handler</span><span class="special">,</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">write_only</span><span class="special">};</span>
+			<span class="identifier">handler</span><span class="special">.</span><span class="identifier">fill</span><span class="special">(</span><span class="identifier">accessor</span><span class="special">,</span> <span class="special">(</span><span class="keyword">float</span><span class="special">)</span><span class="identifier">pi</span><span class="special">);</span>	<span class="comment">// Fill on GPU</span>
+		<span class="special">}</span>
+	<span class="special">);</span>
+	<span class="keyword">delete</span> <span class="identifier">buffer</span><span class="special">;</span>	<span class="comment">// wait</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">copy</span><span class="special">(</span><span class="identifier">vector</span><span class="special">.</span><span class="identifier">begin</span><span class="special">(),</span> <span class="identifier">vector</span><span class="special">.</span><span class="identifier">end</span><span class="special">(),</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">ostream_iterator</span><span class="special">&lt;</span><span class="keyword">float</span><span class="special">&gt;{</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span><span class="special">,</span> <span class="string">" "</span><span class="special">});</span>	<span class="comment">// print</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<p>
+      dpcpp 1.cpp -std=c++23 -o 1
+    </p>
+<pre class="programlisting"><span class="number">3.14159</span> <span class="number">3.14159</span> <span class="number">3.14159</span> <span class="number">3.14159</span> <span class="number">3.14159</span> <span class="number">3.14159</span> <span class="number">3.14159</span>
+</pre>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="sycl_queue_copy_queue_fill.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

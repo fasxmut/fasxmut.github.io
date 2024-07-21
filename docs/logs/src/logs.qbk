@@ -2,6 +2,7 @@
 	[quickbook 1.7]
 ]
 
+[include d0031_sycl_handler_copy_queue_fill.qbk]
 [include d0030_sycl_queue_copy_queue_fill.qbk]
 [include d0029_sycl_class_kernel.qbk]
 [include d0028_sycl_buffer_host_access.qbk]
