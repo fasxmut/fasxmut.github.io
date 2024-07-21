@@ -1,88 +1,105 @@
-[article sycl handler.copy(...), handler.fill(...)
+[article sycl::buffer
 	[quickbook 1.7]
 ]
 
-sycl handler.copy(...), handler.fill(...) - Posted on July 21, 2024 - See [@https://sycl.tech] - [@https://cppfx.xyz/logs Logs Home] - d0031
+sycl::buffer - Posted on July 21, 2024 - See [@https://sycl.tech] - [@https://cppfx.xyz/logs Logs Home] - d0032
 
-[h1 [role cyan sycl handler.copy(...), handler.fill(...)]]
+[h1 [role cyan sycl::buffer]]
 
-sycl handler.copy(...), handler.fill(...)
+cpp/c++ sycl::buffer - The sycl::buffer class defines a shared array of one, two or three dimensions that can be used by the SYCL kernel and has to be accessed using accessor classes. Buffers are templated on both the type of their data, and the number of dimensions that the data is stored and accessed through.
 
-Copy or fill data between/to accessors, std shared-pointers, or pointers on GPU with sycl.
+[h1 [role cyan cpp examples]]
 
-[h1 [role cyan cpp example 1]]
-
-cpp/c++ example 1: sycl handler.copy(...)
+cpp/c++ examples: sycl::buffer
 
 [!c++]
 ```
 #include <sycl/sycl.hpp>
-#include <vector>
+#include <numbers>
 #include <iostream>
+#include <numeric>
+
+namespace gpu
+{
+
+class copy_kernel
+{
+private:
+	sycl::accessor<float, 1, sycl::access_mode::read> __in_accessor;
+	sycl::accessor<float, 1, sycl::access_mode::write> __out_accessor;
+public:
+	copy_kernel() = delete;
+	copy_kernel(
+		sycl::accessor<float, 1, sycl::access_mode::read> in_accessor__,
+		sycl::accessor<float, 1, sycl::access_mode::write> out_accessor__,
+		sycl::handler & handler__
+	):
+		__in_accessor{in_accessor__},
+		__out_accessor{out_accessor__}
+	{
+	}
+public:
+	void operator()(sycl::nd_item<1> item) const
+	{
+		sycl::id<1> id = item.get_global_id();
+		this->__out_accessor[id] = this->__in_accessor[id];
+	}
+};
+
+}	// namespace gpu
 
 int main()
 {
+	std::vector<float> input(16);
+	std::iota(input.begin(), input.end(), 1.4f);
+
+	// sycl::buffer
+	auto in_buffer = new sycl::buffer<float, 1>{input.data(), sycl::range<1>{input.size()}};
+	// sycl::buffer
+	auto out_buffer = new sycl::buffer<float, 1>{sycl::range<1>{input.size()}};
+
 	sycl::queue queue{sycl::gpu_selector_v};
-	std::vector<float> v1{2,4,6,8,9};
-	std::vector<float> v2(v1.size());
-	auto buffer1 = new sycl::buffer<float, 1>{v1.data(), sycl::range<1>{v1.size()}};
-	auto buffer2 = new sycl::buffer<float, 1>{v2.data(), sycl::range<1>{v1.size()}};
+
 	queue.submit(
 		[&] (sycl::handler & handler)
 		{
-			auto accessor1 = sycl::accessor<float, 1, sycl::access_mode::read>{* buffer1, handler, sycl::read_only};
-			auto accessor2 = sycl::accessor<float, 1, sycl::access_mode::write>{* buffer2, handler, sycl::write_only};
-			handler.copy(accessor1, accessor2);	// Copy on GPU
+
+			auto in_accessor = sycl::accessor<float, 1, sycl::access_mode::read>{* in_buffer, handler, sycl::read_only};
+			// template params are auto-deduced
+			auto out_accessor = sycl::accessor{* out_buffer, handler, sycl::write_only};
+
+			auto copy_kernel = gpu::copy_kernel{in_accessor, out_accessor, handler};
+			handler.parallel_for<class ken1>(
+				sycl::nd_range<1>{
+					sycl::range<1>{input.size()},	// global range
+					sycl::range<1>{input.size()/4}	// local range: work group size
+				},
+				copy_kernel
+			);
 		}
 	);
-	delete buffer1;
-	delete buffer2;	// wait
-	std::copy(v2.begin(), v2.end(), std::ostream_iterator<float>{std::cout, " "});	// print
+	auto result_accessor = out_buffer->get_host_access();
+	std::copy(result_accessor.begin(), result_accessor.end(), std::ostream_iterator<float>{std::cout, " "});
 	std::cout << std::endl;
+
+	delete in_buffer;
+	delete out_buffer;
 }
 ```
+
+acpp prog.cpp -std=c++23 -o prog
 
 dpcpp prog.cpp -std=c++23 -o prog
 
 ```
-2 4 6 8 9 
+1.4 2.4 3.4 4.4 5.4 6.4 7.4 8.4 9.4 10.4 11.4 12.4 13.4 14.4 15.4 16.4 
 ```
 
-[h1 [role cyan cpp example 2]]
+[h1 [role cyan See Also]]
 
-cpp/c++ example 2: sycl handler.fill(...)
+[@https://adaptivecpp.github.io acpp]
 
-[!c++]
-```
-#include <sycl/sycl.hpp>
-#include <iostream>
-#include <numbers>
-
-using std::numbers::pi;
-
-int main()
-{
-	std::vector<float> vector(7);
-	sycl::queue queue{sycl::gpu_selector_v};
-	auto buffer = new sycl::buffer<float, 1>{vector.data(), sycl::range<1>{vector.size()}};
-	queue.submit(
-		[&] (sycl::handler & handler)
-		{
-			auto accessor = sycl::accessor<float, 1, sycl::access_mode::write>{* buffer, handler, sycl::write_only};
-			handler.fill(accessor, (float)pi);	// Fill on GPU
-		}
-	);
-	delete buffer;	// wait
-	std::copy(vector.begin(), vector.end(), std::ostream_iterator<float>{std::cout, " "});	// print
-	std::cout << std::endl;
-}
-```
-
-dpcpp 1.cpp -std=c++23 -o 1
-
-```
-3.14159 3.14159 3.14159 3.14159 3.14159 3.14159 3.14159 
-```
+[@https://software.intel.com/dpcpp dpcpp]
 
 
 

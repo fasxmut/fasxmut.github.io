@@ -1,0 +1,141 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>sycl::buffer</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="logs - Blogs or News">
+<link rel="up" href="index.html" title="logs - Blogs or News">
+<link rel="prev" href="index.html" title="logs - Blogs or News">
+<link rel="next" href="sycl_handler_copy_handler_fill.html" title="sycl handler.copy(...), handler.fill(...)">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="sycl_handler_copy_handler_fill.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="sycl_buffer"></a>sycl::buffer</h1></div></div>
+<hr>
+</div>
+<p>
+      sycl::buffer - Posted on July 21, 2024 - See <a href="https://sycl.tech" target="_top">https://sycl.tech</a>
+      - <a href="https://cppfx.xyz/logs" target="_top">Logs Home</a> - d0032
+    </p>
+<h2>
+<a name="sycl_buffer.h0"></a>
+      <span class="phrase"><a name="sycl_buffer.role_cyan_sycl_buffer"></a></span><a class="link" href="sycl_buffer.html#sycl_buffer.role_cyan_sycl_buffer"><span class="cyan">sycl::buffer</span></a>
+    </h2>
+<p>
+      cpp/c++ sycl::buffer - The sycl::buffer class defines a shared array of one,
+      two or three dimensions that can be used by the SYCL kernel and has to be accessed
+      using accessor classes. Buffers are templated on both the type of their data,
+      and the number of dimensions that the data is stored and accessed through.
+    </p>
+<h2>
+<a name="sycl_buffer.h1"></a>
+      <span class="phrase"><a name="sycl_buffer.role_cyan_cpp_examples"></a></span><a class="link" href="sycl_buffer.html#sycl_buffer.role_cyan_cpp_examples"><span class="cyan">cpp examples</span></a>
+    </h2>
+<p>
+      cpp/c++ examples: sycl::buffer
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">sycl</span><span class="special">/</span><span class="identifier">sycl</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">numbers</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">numeric</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">gpu</span>
+<span class="special">{</span>
+
+<span class="keyword">class</span> <span class="identifier">copy_kernel</span>
+<span class="special">{</span>
+<span class="keyword">private</span><span class="special">:</span>
+	<span class="identifier">sycl</span><span class="special">::</span><span class="identifier">accessor</span><span class="special">&lt;</span><span class="keyword">float</span><span class="special">,</span> <span class="number">1</span><span class="special">,</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">access_mode</span><span class="special">::</span><span class="identifier">read</span><span class="special">&gt;</span> <span class="identifier">__in_accessor</span><span class="special">;</span>
+	<span class="identifier">sycl</span><span class="special">::</span><span class="identifier">accessor</span><span class="special">&lt;</span><span class="keyword">float</span><span class="special">,</span> <span class="number">1</span><span class="special">,</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">access_mode</span><span class="special">::</span><span class="identifier">write</span><span class="special">&gt;</span> <span class="identifier">__out_accessor</span><span class="special">;</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">copy_kernel</span><span class="special">()</span> <span class="special">=</span> <span class="keyword">delete</span><span class="special">;</span>
+	<span class="identifier">copy_kernel</span><span class="special">(</span>
+		<span class="identifier">sycl</span><span class="special">::</span><span class="identifier">accessor</span><span class="special">&lt;</span><span class="keyword">float</span><span class="special">,</span> <span class="number">1</span><span class="special">,</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">access_mode</span><span class="special">::</span><span class="identifier">read</span><span class="special">&gt;</span> <span class="identifier">in_accessor__</span><span class="special">,</span>
+		<span class="identifier">sycl</span><span class="special">::</span><span class="identifier">accessor</span><span class="special">&lt;</span><span class="keyword">float</span><span class="special">,</span> <span class="number">1</span><span class="special">,</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">access_mode</span><span class="special">::</span><span class="identifier">write</span><span class="special">&gt;</span> <span class="identifier">out_accessor__</span><span class="special">,</span>
+		<span class="identifier">sycl</span><span class="special">::</span><span class="identifier">handler</span> <span class="special">&amp;</span> <span class="identifier">handler__</span>
+	<span class="special">):</span>
+		<span class="identifier">__in_accessor</span><span class="special">{</span><span class="identifier">in_accessor__</span><span class="special">},</span>
+		<span class="identifier">__out_accessor</span><span class="special">{</span><span class="identifier">out_accessor__</span><span class="special">}</span>
+	<span class="special">{</span>
+	<span class="special">}</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">void</span> <span class="keyword">operator</span><span class="special">()(</span><span class="identifier">sycl</span><span class="special">::</span><span class="identifier">nd_item</span><span class="special">&lt;</span><span class="number">1</span><span class="special">&gt;</span> <span class="identifier">item</span><span class="special">)</span> <span class="keyword">const</span>
+	<span class="special">{</span>
+		<span class="identifier">sycl</span><span class="special">::</span><span class="identifier">id</span><span class="special">&lt;</span><span class="number">1</span><span class="special">&gt;</span> <span class="identifier">id</span> <span class="special">=</span> <span class="identifier">item</span><span class="special">.</span><span class="identifier">get_global_id</span><span class="special">();</span>
+		<span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">__out_accessor</span><span class="special">[</span><span class="identifier">id</span><span class="special">]</span> <span class="special">=</span> <span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">__in_accessor</span><span class="special">[</span><span class="identifier">id</span><span class="special">];</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="special">}</span>	<span class="comment">// namespace gpu</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">float</span><span class="special">&gt;</span> <span class="identifier">input</span><span class="special">(</span><span class="number">16</span><span class="special">);</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">iota</span><span class="special">(</span><span class="identifier">input</span><span class="special">.</span><span class="identifier">begin</span><span class="special">(),</span> <span class="identifier">input</span><span class="special">.</span><span class="identifier">end</span><span class="special">(),</span> <span class="number">1.4f</span><span class="special">);</span>
+
+	<span class="comment">// sycl::buffer</span>
+	<span class="keyword">auto</span> <span class="identifier">in_buffer</span> <span class="special">=</span> <span class="keyword">new</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">buffer</span><span class="special">&lt;</span><span class="keyword">float</span><span class="special">,</span> <span class="number">1</span><span class="special">&gt;{</span><span class="identifier">input</span><span class="special">.</span><span class="identifier">data</span><span class="special">(),</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">range</span><span class="special">&lt;</span><span class="number">1</span><span class="special">&gt;{</span><span class="identifier">input</span><span class="special">.</span><span class="identifier">size</span><span class="special">()}};</span>
+	<span class="comment">// sycl::buffer</span>
+	<span class="keyword">auto</span> <span class="identifier">out_buffer</span> <span class="special">=</span> <span class="keyword">new</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">buffer</span><span class="special">&lt;</span><span class="keyword">float</span><span class="special">,</span> <span class="number">1</span><span class="special">&gt;{</span><span class="identifier">sycl</span><span class="special">::</span><span class="identifier">range</span><span class="special">&lt;</span><span class="number">1</span><span class="special">&gt;{</span><span class="identifier">input</span><span class="special">.</span><span class="identifier">size</span><span class="special">()}};</span>
+
+	<span class="identifier">sycl</span><span class="special">::</span><span class="identifier">queue</span> <span class="identifier">queue</span><span class="special">{</span><span class="identifier">sycl</span><span class="special">::</span><span class="identifier">gpu_selector_v</span><span class="special">};</span>
+
+	<span class="identifier">queue</span><span class="special">.</span><span class="identifier">submit</span><span class="special">(</span>
+		<span class="special">[&amp;]</span> <span class="special">(</span><span class="identifier">sycl</span><span class="special">::</span><span class="identifier">handler</span> <span class="special">&amp;</span> <span class="identifier">handler</span><span class="special">)</span>
+		<span class="special">{</span>
+
+			<span class="keyword">auto</span> <span class="identifier">in_accessor</span> <span class="special">=</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">accessor</span><span class="special">&lt;</span><span class="keyword">float</span><span class="special">,</span> <span class="number">1</span><span class="special">,</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">access_mode</span><span class="special">::</span><span class="identifier">read</span><span class="special">&gt;{*</span> <span class="identifier">in_buffer</span><span class="special">,</span> <span class="identifier">handler</span><span class="special">,</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">read_only</span><span class="special">};</span>
+			<span class="comment">// template params are auto-deduced</span>
+			<span class="keyword">auto</span> <span class="identifier">out_accessor</span> <span class="special">=</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">accessor</span><span class="special">{*</span> <span class="identifier">out_buffer</span><span class="special">,</span> <span class="identifier">handler</span><span class="special">,</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">write_only</span><span class="special">};</span>
+
+			<span class="keyword">auto</span> <span class="identifier">copy_kernel</span> <span class="special">=</span> <span class="identifier">gpu</span><span class="special">::</span><span class="identifier">copy_kernel</span><span class="special">{</span><span class="identifier">in_accessor</span><span class="special">,</span> <span class="identifier">out_accessor</span><span class="special">,</span> <span class="identifier">handler</span><span class="special">};</span>
+			<span class="identifier">handler</span><span class="special">.</span><span class="identifier">parallel_for</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">ken1</span><span class="special">&gt;(</span>
+				<span class="identifier">sycl</span><span class="special">::</span><span class="identifier">nd_range</span><span class="special">&lt;</span><span class="number">1</span><span class="special">&gt;{</span>
+					<span class="identifier">sycl</span><span class="special">::</span><span class="identifier">range</span><span class="special">&lt;</span><span class="number">1</span><span class="special">&gt;{</span><span class="identifier">input</span><span class="special">.</span><span class="identifier">size</span><span class="special">()},</span>	<span class="comment">// global range</span>
+					<span class="identifier">sycl</span><span class="special">::</span><span class="identifier">range</span><span class="special">&lt;</span><span class="number">1</span><span class="special">&gt;{</span><span class="identifier">input</span><span class="special">.</span><span class="identifier">size</span><span class="special">()/</span><span class="number">4</span><span class="special">}</span>	<span class="comment">// local range: work group size</span>
+				<span class="special">},</span>
+				<span class="identifier">copy_kernel</span>
+			<span class="special">);</span>
+		<span class="special">}</span>
+	<span class="special">);</span>
+	<span class="keyword">auto</span> <span class="identifier">result_accessor</span> <span class="special">=</span> <span class="identifier">out_buffer</span><span class="special">-&gt;</span><span class="identifier">get_host_access</span><span class="special">();</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">copy</span><span class="special">(</span><span class="identifier">result_accessor</span><span class="special">.</span><span class="identifier">begin</span><span class="special">(),</span> <span class="identifier">result_accessor</span><span class="special">.</span><span class="identifier">end</span><span class="special">(),</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">ostream_iterator</span><span class="special">&lt;</span><span class="keyword">float</span><span class="special">&gt;{</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span><span class="special">,</span> <span class="string">" "</span><span class="special">});</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+
+	<span class="keyword">delete</span> <span class="identifier">in_buffer</span><span class="special">;</span>
+	<span class="keyword">delete</span> <span class="identifier">out_buffer</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<p>
+      acpp prog.cpp -std=c++23 -o prog
+    </p>
+<p>
+      dpcpp prog.cpp -std=c++23 -o prog
+    </p>
+<pre class="programlisting"><span class="number">1.4</span> <span class="number">2.4</span> <span class="number">3.4</span> <span class="number">4.4</span> <span class="number">5.4</span> <span class="number">6.4</span> <span class="number">7.4</span> <span class="number">8.4</span> <span class="number">9.4</span> <span class="number">10.4</span> <span class="number">11.4</span> <span class="number">12.4</span> <span class="number">13.4</span> <span class="number">14.4</span> <span class="number">15.4</span> <span class="number">16.4</span>
+</pre>
+<h2>
+<a name="sycl_buffer.h2"></a>
+      <span class="phrase"><a name="sycl_buffer.role_cyan_see_also"></a></span><a class="link" href="sycl_buffer.html#sycl_buffer.role_cyan_see_also"><span class="cyan">See Also</span></a>
+    </h2>
+<p>
+      <a href="https://adaptivecpp.github.io" target="_top">acpp</a>
+    </p>
+<p>
+      <a href="https://software.intel.com/dpcpp" target="_top">dpcpp</a>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="sycl_handler_copy_handler_fill.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
