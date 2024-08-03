@@ -1,0 +1,154 @@
+[article day-02: std::cout
+	[quickbook 1.7]
+]
+
+[h1 [role cyan Let's build the very base of cpp code at first]]
+
+Let's build the very base of cpp code at first: feel c++ at the full scale.
+
+[* Write]
+
+```
+kak prog.cpp
+```
+
+([@https://kakoune.org kak editor])
+
+[!c++]
+```
+#include <iostream>
+
+int main()
+{
+	std::cout << "Hello World c++!" << std::endl;
+}
+```
+
+[* Compile]
+
+```
+g++ prog.cpp -std=c++23 -o prog
+```
+
+[* Run]
+
+```
+./prog
+Hello World c++!
+```
+
+[h1 [role cyan std::cout: the very base of cpp]]
+
+[* [role red std::cout]]
+
+What is std::cout ? Simply speeking, it is like a "print" "function" of c++, but in c++, std::cout is an object, it just prints something to your output console.
+
+[* [role red <<]]
+
+[* [role red operator<<]]
+
+What is [*<<] ? it is a c++ operator. c++ has many operators. If you have learned some mathematics, you should understand what operator is. But in c++, the [*operator] concept is more generic than it in math. [role green <<] is an ostream operator in the program above, [role red we can call it [* [~operator<<]] as its name for the next context of this article].
+
+Can you imagine the math operator? A math operator has some inputs and some outputs. The [role green operator<<] in c++ has some inputs and outputs too:
+
+( In this example, [~ [role blue std::cout << "Hello World c++!"]] )
+
+* [* [role green operator<<] has two inputs]:
+	* std::cout
+	* "Hello World c++!"
+* [* [role green operator<<] has one output]:
+	* std::cout
+
+Yes, you read that right, [*std::cout] is the first input of [role green operator<<], [*"Hello World c++!"] is the second input of [role green operator<<] .
+
+And seriously, you read that right! [*std::cout] is also the output of [role green operator<<] .
+
+[* In c++], we call inputs [* arguments] or [* parameters], and we call outputs [* return-values].
+
+[* [role red step-analysis:]]
+
+[* 1->)]
+
+```
+	(std::cout << "Hello World c++!");
+```
+
+Input [* std::cout] and [* "Hello World c++!"] to [role green operator<<], its output is [* std::cout], (we say that it returns [* std::cout]) .
+
+[* 2->)]
+
+```
+	((std::cout << "Hello World c++!") << std::endl);
+```
+
+The previous calling (the brackets on the inside) to [role green operator<<] returns [*std::cout], and pass it to the next (the brackets on the outside) [role green operator<<] as its first input, and the second input is [* std::endl], then at last, it returns [* std::cout] again !
+
+[* 3->)]
+
+You might have guessed or thought it! You can chain the above process repeatedly for many times!
+
+[* Let's chain it !]
+
+See:
+
+```
+((((std::cout << "Hello") << "c++!") << 123) << 6.5);
+```
+
+You can compile it, it compiles and run OK.
+
+[* 4->)]
+
+Are you annoyed by a lot of brackets? that's right. So I can tell you, you can omit those parentheses, the code will call [role green operator<<] working from left to right correctly.
+
+```
+std::cout << "Hello" << "c++!" << 123 << 6.5;
+```
+
+[*Amazing, doesn't it!] I think c++ [role green operator<<] is more amazing than operator in mathematics !
+
+[* [role red Second parameter of [~ operator<<]]]
+
+Numbers, characters, strings, and many many values can be used as the second parameter of [role green operator<<], example:
+
+```
+std::cout << std::endl;            // std::endl is a manipulator to insert newline character.
+std::cout << 123 << std::endl;     // 123 is an integer
+std::cout << 32.33 << std::endl;   // 32.33 is a decimal, we call it floating value in c++
+std::cout << 'A' << std::endl;     // 'A' is a character.
+std::cout << "A" << std::endl;     // "A" is a string.
+std::cout << "About" << std::endl; // "About" is a string.
+std::cout << '\n';                 // '\n' is a newline character.
+
+// You can chain all of them!
+std::cout << 123 << '\n' << 32.33 << "\n" << 'A' << "A" << "About" << '\n';
+```
+
+[* [role red First parameter of [~ operator<<]]]
+
+Not only [* std::cout], but many c++ objects can be used as the first parameter of [role green operator<<], and even some kind of values can be used as the first parameter of [role green operator<<] too, but that topic is too complicated and out of this article, you just have to focus [* std::cout] now.
+
+[h1 [role cyan main framework]]
+
+A complete c++ program must have one entry point, which the program starts its exeution from, that's the [*main] entry point. The code will run by listed orders according to [*main] .
+
+[h1 [role cyan headers]]
+
+```
+#include <iostream>
+```
+
+[* std::cout] is found from a file on your disk: [* iostream]
+
+[h1 [role cyan Last]]
+
+It seems a bit complicated from this article, but it is very simple, you just only have to know how to use [* std::cout], if you can not understand it. After you use it again and again, you will understand it automatically.
+
+[~Written on Oct 03, 2024]
+
+[h1 [role cyan Back to index]]
+
+[@. Index]
+
+
+

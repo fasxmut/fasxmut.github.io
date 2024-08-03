@@ -1,0 +1,85 @@
+[article day-01: How to compile cpp
+	[quickbook 1.7]
+]
+
+[h1 [role cyan day-01: how to compile cpp: Hello World!]]
+
+Hello World: How to compile c++ code.
+
+[h1 [role cyan How to build and run cpp code]]
+
+[h2 Get cpp compiler]
+
+[*c++ compiler]
+
+There are many c++ compiler nowadays, the most popular and complete c++ compilers are:
+
+* microsft visual studio (or can be called msvc, visualcpp) - [@https://visualstudio.microsoft.com/downloads Home]
+* gcc - [@https://gcc.gnu.org Home]
+* clang - [@https://clang.llvm.org Home]
+
+You can go to their homepage and find how to download and install.
+
+[*c++ compiler]
+
+And also, c++ sycl compiler can build standard c++ code too:
+
+* Intel dpcpp/cpp compiler - [@https://software.intel.com/dpcpp Home]
+* Adaptivecpp acpp compiler - [@https://adaptivecpp.github.io Home]
+
+[h2 Use a code editor]
+
+You can write c++ code with most text editors, there are many text editors you can find on Internet, such as notepad, featherpad, cpeditor, vim, kakoune, emacs, visual studio ide, etc.
+
+I am using kakoune kak editor, it is a good c++ code editor. ([@https://kakoune.org Home])
+
+[h2 Hello World! Build your first cpp code and run your generated program!]
+
+[*c++ code]
+
+First, copy the following c++ code to a text editor, and save it as [*prog.cpp] :
+
+[!c++]
+```
+#include <iostream>
+
+int main()
+{
+	std::cout << "Hello World! This is a c++ program!" << std::endl;
+}
+```
+
+[*Build it with gcc c++ compiler]
+
+```
+g++ prog.cpp -std=c++23 -o prog
+```
+
+The generated program of the code is [*prog] .
+
+[*Run the program]
+
+Run:
+
+```
+./prog
+```
+
+Output:
+
+```
+Hello World! This is a c++ program!
+```
+
+[h1 [role cyan Last]]
+
+In this article of this day, all you have to do is downloading compiler, installing compiler, copying above c++ code, building and running. I guess you can finish them within 10 minutes, you can continue to learn day-02 article in the same day now. So then, day-01 and day-02 articles can be finished in one day.
+
+[~ Written on Oct 03, 2024]
+
+[h1 [role cyan Back to index]]
+
+[@. Index]
+
+
+

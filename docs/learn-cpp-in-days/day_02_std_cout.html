@@ -1,0 +1,259 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>day-02: std::cout</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Learn cpp in days">
+<link rel="up" href="index.html" title="Learn cpp in days">
+<link rel="prev" href="day_01_how_to_compile_cpp.html" title="day-01: How to compile cpp">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="day_01_how_to_compile_cpp.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="day_02_std_cout"></a>day-02: std::cout</h1></div></div>
+<hr>
+</div>
+<h2>
+<a name="day_02_std_cout.h0"></a>
+      <span class="phrase"><a name="day_02_std_cout.role_cyan_let_s_build_the_very_b"></a></span><a class="link" href="day_02_std_cout.html#day_02_std_cout.role_cyan_let_s_build_the_very_b"><span class="cyan">Let's build the very base of cpp code at first</span></a>
+    </h2>
+<p>
+      Let's build the very base of cpp code at first: feel c++ at the full scale.
+    </p>
+<p>
+      <span class="bold"><strong>Write</strong></span>
+    </p>
+<pre class="programlisting"><span class="identifier">kak</span> <span class="identifier">prog</span><span class="special">.</span><span class="identifier">cpp</span>
+</pre>
+<p>
+      (<a href="https://kakoune.org" target="_top">kak editor</a>)
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Hello World c++!"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<p>
+      <span class="bold"><strong>Compile</strong></span>
+    </p>
+<pre class="programlisting"><span class="identifier">g</span><span class="special">++</span> <span class="identifier">prog</span><span class="special">.</span><span class="identifier">cpp</span> <span class="special">-</span><span class="identifier">std</span><span class="special">=</span><span class="identifier">c</span><span class="special">++</span><span class="number">23</span> <span class="special">-</span><span class="identifier">o</span> <span class="identifier">prog</span>
+</pre>
+<p>
+      <span class="bold"><strong>Run</strong></span>
+    </p>
+<pre class="programlisting"><span class="special">./</span><span class="identifier">prog</span>
+<span class="identifier">Hello</span> <span class="identifier">World</span> <span class="identifier">c</span><span class="special">++!</span>
+</pre>
+<h2>
+<a name="day_02_std_cout.h1"></a>
+      <span class="phrase"><a name="day_02_std_cout.role_cyan_std_cout_the_very_base"></a></span><a class="link" href="day_02_std_cout.html#day_02_std_cout.role_cyan_std_cout_the_very_base"><span class="cyan">std::cout: the very base of cpp</span></a>
+    </h2>
+<p>
+      <span class="bold"><strong><span class="red">std::cout</span></strong></span>
+    </p>
+<p>
+      What is std::cout ? Simply speeking, it is like a "print" "function"
+      of c++, but in c++, std::cout is an object, it just prints something to your
+      output console.
+    </p>
+<p>
+      <span class="bold"><strong><span class="red">&lt;&lt;</span></strong></span>
+    </p>
+<p>
+      <span class="bold"><strong><span class="red">operator&lt;&lt;</span></strong></span>
+    </p>
+<p>
+      What is <span class="bold"><strong>&lt;&lt;</strong></span> ? it is a c++ operator. c++
+      has many operators. If you have learned some mathematics, you should understand
+      what operator is. But in c++, the <span class="bold"><strong>operator</strong></span>
+      concept is more generic than it in math. <span class="green">&lt;&lt;</span>
+      is an ostream operator in the program above, <span class="red">we can call
+      it <span class="bold"><strong><em class="replaceable"><code>operator&lt;&lt;</code></em></strong></span>
+      as its name for the next context of this article</span>.
+    </p>
+<p>
+      Can you imagine the math operator? A math operator has some inputs and some
+      outputs. The <span class="green">operator&lt;&lt;</span> in c++ has some
+      inputs and outputs too:
+    </p>
+<p>
+      ( In this example, <em class="replaceable"><code><span class="blue">std::cout &lt;&lt; "Hello
+      World c++!"</span></code></em> )
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          <span class="bold"><strong><span class="green">operator&lt;&lt;</span> has
+          two inputs</strong></span>:
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; ">
+<li class="listitem">
+                std::cout
+              </li>
+<li class="listitem">
+                "Hello World c++!"
+              </li>
+</ul></div>
+        </li>
+<li class="listitem">
+          <span class="bold"><strong><span class="green">operator&lt;&lt;</span> has
+          one output</strong></span>:
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
+                std::cout
+              </li></ul></div>
+        </li>
+</ul></div>
+<p>
+      Yes, you read that right, <span class="bold"><strong>std::cout</strong></span> is the
+      first input of <span class="green">operator&lt;&lt;</span>, <span class="bold"><strong>"Hello
+      World c++!"</strong></span> is the second input of <span class="green">operator&lt;&lt;</span>
+      .
+    </p>
+<p>
+      And seriously, you read that right! <span class="bold"><strong>std::cout</strong></span>
+      is also the output of <span class="green">operator&lt;&lt;</span> .
+    </p>
+<p>
+      <span class="bold"><strong>In c++</strong></span>, we call inputs <span class="bold"><strong>arguments</strong></span>
+      or <span class="bold"><strong>parameters</strong></span>, and we call outputs <span class="bold"><strong>return-values</strong></span>.
+    </p>
+<p>
+      <span class="bold"><strong><span class="red">step-analysis:</span></strong></span>
+    </p>
+<p>
+      <span class="bold"><strong>1-&gt;)</strong></span>
+    </p>
+<pre class="programlisting"><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Hello World c++!"</span><span class="special">);</span>
+</pre>
+<p>
+      Input <span class="bold"><strong>std::cout</strong></span> and <span class="bold"><strong>"Hello
+      World c++!"</strong></span> to <span class="green">operator&lt;&lt;</span>,
+      its output is <span class="bold"><strong>std::cout</strong></span>, (we say that it returns
+      <span class="bold"><strong>std::cout</strong></span>) .
+    </p>
+<p>
+      <span class="bold"><strong>2-&gt;)</strong></span>
+    </p>
+<pre class="programlisting"><span class="special">((</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Hello World c++!"</span><span class="special">)</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">);</span>
+</pre>
+<p>
+      The previous calling (the brackets on the inside) to <span class="green">operator&lt;&lt;</span>
+      returns <span class="bold"><strong>std::cout</strong></span>, and pass it to the next
+      (the brackets on the outside) <span class="green">operator&lt;&lt;</span>
+      as its first input, and the second input is <span class="bold"><strong>std::endl</strong></span>,
+      then at last, it returns <span class="bold"><strong>std::cout</strong></span> again !
+    </p>
+<p>
+      <span class="bold"><strong>3-&gt;)</strong></span>
+    </p>
+<p>
+      You might have guessed or thought it! You can chain the above process repeatedly
+      for many times!
+    </p>
+<p>
+      <span class="bold"><strong>Let's chain it !</strong></span>
+    </p>
+<p>
+      See:
+    </p>
+<pre class="programlisting"><span class="special">((((</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Hello"</span><span class="special">)</span> <span class="special">&lt;&lt;</span> <span class="string">"c++!"</span><span class="special">)</span> <span class="special">&lt;&lt;</span> <span class="number">123</span><span class="special">)</span> <span class="special">&lt;&lt;</span> <span class="number">6.5</span><span class="special">);</span>
+</pre>
+<p>
+      You can compile it, it compiles and run OK.
+    </p>
+<p>
+      <span class="bold"><strong>4-&gt;)</strong></span>
+    </p>
+<p>
+      Are you annoyed by a lot of brackets? that's right. So I can tell you, you
+      can omit those parentheses, the code will call <span class="green">operator&lt;&lt;</span>
+      working from left to right correctly.
+    </p>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Hello"</span> <span class="special">&lt;&lt;</span> <span class="string">"c++!"</span> <span class="special">&lt;&lt;</span> <span class="number">123</span> <span class="special">&lt;&lt;</span> <span class="number">6.5</span><span class="special">;</span>
+</pre>
+<p>
+      <span class="bold"><strong>Amazing, doesn't it!</strong></span> I think c++ <span class="green">operator&lt;&lt;</span>
+      is more amazing than operator in mathematics !
+    </p>
+<p>
+      <span class="bold"><strong><span class="red">Second parameter of <em class="replaceable"><code>operator&lt;&lt;</code></em></span></strong></span>
+    </p>
+<p>
+      Numbers, characters, strings, and many many values can be used as the second
+      parameter of <span class="green">operator&lt;&lt;</span>, example:
+    </p>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>            <span class="comment">// std::endl is a manipulator to insert newline character.</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="number">123</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>     <span class="comment">// 123 is an integer</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="number">32.33</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>   <span class="comment">// 32.33 is a decimal, we call it floating value in c++</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="char">'A'</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>     <span class="comment">// 'A' is a character.</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"A"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>     <span class="comment">// "A" is a string.</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"About"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span> <span class="comment">// "About" is a string.</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="char">'\n'</span><span class="special">;</span>                 <span class="comment">// '\n' is a newline character.</span>
+
+<span class="comment">// You can chain all of them!</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="number">123</span> <span class="special">&lt;&lt;</span> <span class="char">'\n'</span> <span class="special">&lt;&lt;</span> <span class="number">32.33</span> <span class="special">&lt;&lt;</span> <span class="string">"\n"</span> <span class="special">&lt;&lt;</span> <span class="char">'A'</span> <span class="special">&lt;&lt;</span> <span class="string">"A"</span> <span class="special">&lt;&lt;</span> <span class="string">"About"</span> <span class="special">&lt;&lt;</span> <span class="char">'\n'</span><span class="special">;</span>
+</pre>
+<p>
+      <span class="bold"><strong><span class="red">First parameter of <em class="replaceable"><code>operator&lt;&lt;</code></em></span></strong></span>
+    </p>
+<p>
+      Not only <span class="bold"><strong>std::cout</strong></span>, but many c++ objects can
+      be used as the first parameter of <span class="green">operator&lt;&lt;</span>,
+      and even some kind of values can be used as the first parameter of <span class="green">operator&lt;&lt;</span> too, but that topic is too complicated
+      and out of this article, you just have to focus <span class="bold"><strong>std::cout</strong></span>
+      now.
+    </p>
+<h2>
+<a name="day_02_std_cout.h2"></a>
+      <span class="phrase"><a name="day_02_std_cout.role_cyan_main_framework"></a></span><a class="link" href="day_02_std_cout.html#day_02_std_cout.role_cyan_main_framework"><span class="cyan">main framework</span></a>
+    </h2>
+<p>
+      A complete c++ program must have one entry point, which the program starts
+      its exeution from, that's the <span class="bold"><strong>main</strong></span> entry point.
+      The code will run by listed orders according to <span class="bold"><strong>main</strong></span>
+      .
+    </p>
+<h2>
+<a name="day_02_std_cout.h3"></a>
+      <span class="phrase"><a name="day_02_std_cout.role_cyan_headers"></a></span><a class="link" href="day_02_std_cout.html#day_02_std_cout.role_cyan_headers"><span class="cyan">headers</span></a>
+    </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+</pre>
+<p>
+      <span class="bold"><strong>std::cout</strong></span> is found from a file on your disk:
+      <span class="bold"><strong>iostream</strong></span>
+    </p>
+<h2>
+<a name="day_02_std_cout.h4"></a>
+      <span class="phrase"><a name="day_02_std_cout.role_cyan_last"></a></span><a class="link" href="day_02_std_cout.html#day_02_std_cout.role_cyan_last"><span class="cyan">Last</span></a>
+    </h2>
+<p>
+      It seems a bit complicated from this article, but it is very simple, you just
+      only have to know how to use <span class="bold"><strong>std::cout</strong></span>, if
+      you can not understand it. After you use it again and again, you will understand
+      it automatically.
+    </p>
+<p>
+      <em class="replaceable"><code>Written on Oct 03, 2024</code></em>
+    </p>
+<h2>
+<a name="day_02_std_cout.h5"></a>
+      <span class="phrase"><a name="day_02_std_cout.role_cyan_back_to_index"></a></span><a class="link" href="day_02_std_cout.html#day_02_std_cout.role_cyan_back_to_index"><span class="cyan">Back to index</span></a>
+    </h2>
+<p>
+      <a href="." target="_top">Index</a>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="day_01_how_to_compile_cpp.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+</body>
+</html>

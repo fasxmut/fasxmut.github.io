@@ -1,0 +1,15 @@
+[book Learn cpp in days
+	[quickbook 1.7]
+]
+
+[include day01-how-to-compile-cpp.qbk]
+[include day02-std-cout.qbk]
+
+[h1 [role cyan cpp Tutorial: Learn cpp in days]]
+
+c++ Tutorial: Learn c++ in some days, less than 100 days.
+
+Powered by [@https://cppfx.xyz cppfx.xyz]
+
+
+

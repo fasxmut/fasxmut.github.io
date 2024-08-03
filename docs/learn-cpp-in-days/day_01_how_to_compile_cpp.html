@@ -1,0 +1,154 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>day-01: How to compile cpp</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Learn cpp in days">
+<link rel="up" href="index.html" title="Learn cpp in days">
+<link rel="prev" href="index.html" title="Learn cpp in days">
+<link rel="next" href="day_02_std_cout.html" title="day-02: std::cout">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="day_02_std_cout.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="day_01_how_to_compile_cpp"></a>day-01: How to compile cpp</h1></div></div>
+<hr>
+</div>
+<h2>
+<a name="day_01_how_to_compile_cpp.h0"></a>
+      <span class="phrase"><a name="day_01_how_to_compile_cpp.role_cyan_day_01_how_to_compile_"></a></span><a class="link" href="day_01_how_to_compile_cpp.html#day_01_how_to_compile_cpp.role_cyan_day_01_how_to_compile_"><span class="cyan">day-01: how to compile cpp: Hello World!</span></a>
+    </h2>
+<p>
+      Hello World: How to compile c++ code.
+    </p>
+<h2>
+<a name="day_01_how_to_compile_cpp.h1"></a>
+      <span class="phrase"><a name="day_01_how_to_compile_cpp.role_cyan_how_to_build_and_run_c"></a></span><a class="link" href="day_01_how_to_compile_cpp.html#day_01_how_to_compile_cpp.role_cyan_how_to_build_and_run_c"><span class="cyan">How to build and run cpp code</span></a>
+    </h2>
+<h3>
+<a name="day_01_how_to_compile_cpp.h2"></a>
+      <span class="phrase"><a name="day_01_how_to_compile_cpp.get_cpp_compiler"></a></span><a class="link" href="day_01_how_to_compile_cpp.html#day_01_how_to_compile_cpp.get_cpp_compiler">Get
+      cpp compiler</a>
+    </h3>
+<p>
+      <span class="bold"><strong>c++ compiler</strong></span>
+    </p>
+<p>
+      There are many c++ compiler nowadays, the most popular and complete c++ compilers
+      are:
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          microsft visual studio (or can be called msvc, visualcpp) - <a href="https://visualstudio.microsoft.com/downloads" target="_top">Home</a>
+        </li>
+<li class="listitem">
+          gcc - <a href="https://gcc.gnu.org" target="_top">Home</a>
+        </li>
+<li class="listitem">
+          clang - <a href="https://clang.llvm.org" target="_top">Home</a>
+        </li>
+</ul></div>
+<p>
+      You can go to their homepage and find how to download and install.
+    </p>
+<p>
+      <span class="bold"><strong>c++ compiler</strong></span>
+    </p>
+<p>
+      And also, c++ sycl compiler can build standard c++ code too:
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          Intel dpcpp/cpp compiler - <a href="https://software.intel.com/dpcpp" target="_top">Home</a>
+        </li>
+<li class="listitem">
+          Adaptivecpp acpp compiler - <a href="https://adaptivecpp.github.io" target="_top">Home</a>
+        </li>
+</ul></div>
+<h3>
+<a name="day_01_how_to_compile_cpp.h3"></a>
+      <span class="phrase"><a name="day_01_how_to_compile_cpp.use_a_code_editor"></a></span><a class="link" href="day_01_how_to_compile_cpp.html#day_01_how_to_compile_cpp.use_a_code_editor">Use
+      a code editor</a>
+    </h3>
+<p>
+      You can write c++ code with most text editors, there are many text editors
+      you can find on Internet, such as notepad, featherpad, cpeditor, vim, kakoune,
+      emacs, visual studio ide, etc.
+    </p>
+<p>
+      I am using kakoune kak editor, it is a good c++ code editor. (<a href="https://kakoune.org" target="_top">Home</a>)
+    </p>
+<h3>
+<a name="day_01_how_to_compile_cpp.h4"></a>
+      <span class="phrase"><a name="day_01_how_to_compile_cpp.hello_world_build_your_first_cpp"></a></span><a class="link" href="day_01_how_to_compile_cpp.html#day_01_how_to_compile_cpp.hello_world_build_your_first_cpp">Hello
+      World! Build your first cpp code and run your generated program!</a>
+    </h3>
+<p>
+      <span class="bold"><strong>c++ code</strong></span>
+    </p>
+<p>
+      First, copy the following c++ code to a text editor, and save it as <span class="bold"><strong>prog.cpp</strong></span> :
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Hello World! This is a c++ program!"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<p>
+      <span class="bold"><strong>Build it with gcc c++ compiler</strong></span>
+    </p>
+<pre class="programlisting"><span class="identifier">g</span><span class="special">++</span> <span class="identifier">prog</span><span class="special">.</span><span class="identifier">cpp</span> <span class="special">-</span><span class="identifier">std</span><span class="special">=</span><span class="identifier">c</span><span class="special">++</span><span class="number">23</span> <span class="special">-</span><span class="identifier">o</span> <span class="identifier">prog</span>
+</pre>
+<p>
+      The generated program of the code is <span class="bold"><strong>prog</strong></span>
+      .
+    </p>
+<p>
+      <span class="bold"><strong>Run the program</strong></span>
+    </p>
+<p>
+      Run:
+    </p>
+<pre class="programlisting"><span class="special">./</span><span class="identifier">prog</span>
+</pre>
+<p>
+      Output:
+    </p>
+<pre class="programlisting"><span class="identifier">Hello</span> <span class="identifier">World</span><span class="special">!</span> <span class="identifier">This</span> <span class="identifier">is</span> <span class="identifier">a</span> <span class="identifier">c</span><span class="special">++</span> <span class="identifier">program</span><span class="special">!</span>
+</pre>
+<h2>
+<a name="day_01_how_to_compile_cpp.h5"></a>
+      <span class="phrase"><a name="day_01_how_to_compile_cpp.role_cyan_last"></a></span><a class="link" href="day_01_how_to_compile_cpp.html#day_01_how_to_compile_cpp.role_cyan_last"><span class="cyan">Last</span></a>
+    </h2>
+<p>
+      In this article of this day, all you have to do is downloading compiler, installing
+      compiler, copying above c++ code, building and running. I guess you can finish
+      them within 10 minutes, you can continue to learn day-02 article in the same
+      day now. So then, day-01 and day-02 articles can be finished in one day.
+    </p>
+<p>
+      <em class="replaceable"><code>Written on Oct 03, 2024</code></em>
+    </p>
+<h2>
+<a name="day_01_how_to_compile_cpp.h6"></a>
+      <span class="phrase"><a name="day_01_how_to_compile_cpp.role_cyan_back_to_index"></a></span><a class="link" href="day_01_how_to_compile_cpp.html#day_01_how_to_compile_cpp.role_cyan_back_to_index"><span class="cyan">Back to index</span></a>
+    </h2>
+<p>
+      <a href="." target="_top">Index</a>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="day_02_std_cout.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
