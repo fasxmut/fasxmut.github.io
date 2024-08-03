@@ -132,7 +132,7 @@ Not only [* std::cout], but many c++ objects can be used as the first parameter 
 
 A complete c++ program must have one entry point, which the program starts its exeution from, that's the [*main] entry point. The code will run by listed orders according to [*main] .
 
-[h1 [role cyan headers]]
+[h1 [role cyan Header]]
 
 ```
 #include <iostream>

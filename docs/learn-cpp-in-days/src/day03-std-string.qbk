@@ -1,0 +1,127 @@
+[article day-03: std::string
+	[quickbook 1.7]
+]
+
+[h1 [role cyan cpp std::string]]
+
+c++ std::string
+
+[h1 [role cyan let's see cpp code first]]
+
+Let's see c++ code first
+
+[* Code]
+
+```
+#include <iostream>
+#include <string>
+
+int main()
+{
+	std::string str = "This is a string";
+	std::cout << str << '\n' << str.size() << std::endl;
+
+	str = "A string";
+	std::cout << str << std::endl << str.size() << "\n";
+}
+```
+
+[h1 [role cyan analysis]]
+
+[h2 cpp string]
+
+You have learned from [link day_02_std_cout day-02] that you can print a string using std::cout:
+
+```
+std::cout << "Hello World c++!" << std::endl;
+```
+
+The c++ string is sent to [role green operator<<] as its second parameter, and printed with [*std::cout] . What is [role green operator<<] ? it has been explained at [link day_02_std_cout day-02] too.
+
+[h2 std::string]
+
+[h3 Blow]
+
+Did you have thought a question: How to code if I want to save a string at some place in the program instead of printing the string?
+
+std::string is the answer, it can create an object, and store the [~string] into the object, without printing the string immediately.
+
+[h3 Blow]
+
+```
+std::string str = "This is a string";
+```
+
+In this line, create an object named [*str] using [*std::string], and then store "This is a string" into the [*str] .
+
+[*Object] - Like [* std::cout], which is an object; [* str] is an object too. One difference of them is that the object [*std::cout] is already created by the c++ system, but the object [*str] is created by you.
+
+[*variable] - [*str] is an object, it has a name: [*str], we can also call it a variable.
+
+[*Initialize] - Just like this line, when storing value on the same sentence as the variable is created, we call it [*initialize].
+
+You can also create an object or variable without initializing:
+
+```
+std::string str2;
+```
+
+[h3 Blow]
+
+```
+str = "A string";
+```
+
+The [*str] has already stored with a string [*"This is a string"]. By this line, the old stored string will be cleared and [*str] will be stored with a new string: [*"A string"] .
+
+[*Assignment] - Just like this line, when storing value on a variable which has already been created previously, we call it assignment.
+
+[h3 Blow]
+
+```
+std::cout << str;
+```
+
+You have learned from [link day_02_std_cout day-02] that many objects and many values can be passed to [role green operator<<] as the second parameter and printed with [*std::cout], the objects created by [*std::string] can be too.
+
+[h3 Blow]
+
+```
+str.size();
+std::cout << str.size();
+```
+
+See [*str.size()], that means we call a method [*.size()] from the object [*str], the calling will return an integer value to tell us how many characters that the string has which the object stored.
+
+* "This is a string" - it has [*16] characters.
+* "A string" - it has [*8] characters.
+
+It requires that, the object has a method [*.size()], in other words, the class [*std::string] has already defined the method [*.size()] .
+
+[h1 [role cyan Header]]
+
+```
+#include <string>
+```
+
+[*std::string] is declared and defined in a file on your disk: string .
+
+[h1 [role cyan Last]]
+
+This article only has three points, please don't feel stress:
+
+* Create an object of std::string:
+	* [*std::string str = "This is a string";]
+* Store new string to the object:
+	* [*str = "A string";]
+* The object has a method [*.size()], which returns an integer value to tell us how many characters the string has that it stores:
+	* [*str.size();]
+
+[~Written on Oct 03, 2024]
+
+[h1 [role cyan Back to index]]
+
+[@. Index]
+
+
+

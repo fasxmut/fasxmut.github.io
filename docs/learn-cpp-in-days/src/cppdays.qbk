@@ -4,6 +4,7 @@
 
 [include day01-how-to-compile-cpp.qbk]
 [include day02-std-cout.qbk]
+[include day03-std-string.qbk]
 
 [h1 [role cyan cpp Tutorial: Learn cpp in days]]
 
