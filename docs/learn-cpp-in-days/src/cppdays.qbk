@@ -7,6 +7,7 @@
 [include day03-std-string.qbk]
 [include day04-object-oriented.qbk]
 [include day05-class-attributes.qbk]
+[include day06-private-protected-public.qbk]
 
 [h1 [role cyan cpp Tutorial: Learn cpp in days]]
 

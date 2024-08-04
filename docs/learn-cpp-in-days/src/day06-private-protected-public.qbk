@@ -1,0 +1,123 @@
+[article day-06: private protected public
+	[quickbook 1.7]
+]
+
+[h1 [role cyan cpp object-oriented encapsulation: private protected public]]
+
+cpp/c++ object-oriented encapsulation: private protected public
+
+You have already saw the [role blue public] usage case from previous articles, [role blue private] and [role blue protected] have the same way with [role blue public] .
+
+[h2 private]
+
+* The [role green attributes] or [role green methods] that are marked private can be accessed from the inside of the class only,
+
+* but they can not be accessed from the inside of the derived class,
+
+* and they can not be accessed from the outside of the class.
+
+[h2 protected]
+
+* The [role green attributes] or [role green methods] that are marked protected can be accessed from the inside of the class,
+
+* and they can be accessed from the inside of the derived class,
+
+* but they can not be accessed from the outside of the class.
+
+[h2 public]
+
+* The [role green attributes] or [role green methods] that are marked public can be accessed from the inside of the class,
+
+* and they can be accessed from the inside of the derived class,
+
+* and they can be accessed from the outside of the class.
+
+[h3 -> [role green derived class: inheritance]]
+
+Inheritance will be explained in the next article.
+
+[h1 [role cyan See example]]
+
+Save as [*brick.cpp]
+
+[!c++]
+```
+#include <iostream>
+
+class brick
+{
+private:
+	std::string name1;
+protected:
+	std::string name2;
+public:
+	std::string name3;
+public:
+	void set_names(std::string n1, std::string n2, std::string n3)
+	{
+	// access name1, name2, name3 from the inside of the class.
+		name1 = n1;
+		name2 = n2;
+		name3 = n3;
+	}
+	std::string get_name1()
+	{
+		return name1;
+	}
+};
+
+int main()
+{
+	auto a_brick = brick{};
+
+	a_brick.set_names("A", "b", "c");
+
+	std::string nm1 = a_brick.get_name1();
+
+	std::cout << nm1 << std::endl;
+
+	// access attribute name3 from the outside of the class.
+	a_brick.name3 = "D";
+
+	std::cout << a_brick.name3 << std::endl;
+}
+```
+
+Compile and run:
+
+[!teletype]
+```
+$ g++ brick.cpp -std=c++23 -o brick
+$ ./brick 
+A
+D
+```
+
+[note
+name1 can be accessed from the inside of the class [*brick] only, because it is private .
+
+name2 can be accessed from the inside of the class [*brick], and from the inside of [*derived class of brick], because it is protected, but can not be accessed from the outside of the class .
+
+name3, set_names, get_name1 can be accessed from the inside of the class [*brick], the inside of the [*derived class of brick], and [*outside of the class], because they are public .
+]
+
+Inheritance or (derived class) will be explained in the next article.
+
+[h1 [role cyan Last]]
+
+Do not feel stress, this article only has three points:
+
+private
+
+protected
+
+public
+
+[~Written on Oct 04, 2024]
+
+[h1 [role cyan Back to index]]
+
+[@. Index]
+
+
+
