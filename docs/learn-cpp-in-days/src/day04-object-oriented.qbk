@@ -1,0 +1,116 @@
+[article day-04: cpp object oriented
+	[quickbook 1.7]
+]
+
+[h1 [role cyan cpp object oriented programming]]
+
+cpp/c++ object oriented programming
+
+[h2 cpp object oriented]
+
+cpp/c++ object oriented programming treats the real world entities set as a whole concept, and then creates many objects according that concept.
+
+[h2 cpp class]
+
+The concept of the entities set is called class in c++, by keyword [*class] .
+
+[h2 cpp object]
+
+Every entity created by c++ class is called object.
+
+[h2 object oriented features]
+
+* [* Inheritance] - A c++ class can inherit another class B, we say [~"A is derived from B"] .
+* [* Encapsulation] - c++ class has three kind of access control: [~private, protected, public], the sensitive data can be made hidden by private or protected .
+* [* Polymorphism] - c++ polymorphism is a language skill that makes a single action to have the ability to perform many different tasks.
+* [* Attributes] - c++ class attributes are data members, which are the variables the class owns.
+* [* Method] - A method is an action which the c++ class owns.
+* [* Constructor] - A c++ construtor is an action too, which is executed when an object is created by it.
+* [* Destrutor] - A c++ destructor is an action too, which is executed when an object of the class is destroyed.
+
+[h1 [role cyan Start from example]]
+
+Save code as [* chat-robot.cpp]
+
+[!c++]
+```
+#include <iostream>
+#include <string>
+
+// This is a comment line.
+
+class chat_robot
+{
+public:
+	void speak()
+	{
+		std::cout << "Hello, I am a chat robot, please talk to me." << std::endl;
+	}
+};
+
+int main()
+{
+	chat_robot robot_no_1;
+	robot_no_1.speak();
+
+	auto robot_no_2 = chat_robot{};
+	robot_no_2.speak();
+}
+```
+
+Compile and run:
+
+[!teletype]
+```
+$ g++ chat-robot.cpp -std=c++23 -o chat-robot
+$ ./chat-robot 
+Hello, I am a chat robot, please talk to me.
+Hello, I am a chat robot, please talk to me.
+```
+
+[h2 class definition]
+
+You can see that, the program has a class, its name is [role blue chat_robot] .
+
+The class [role blue chat_robot] has a method: [role blue speak] .
+
+[h2 object definition]
+
+Object definition, can be also called object creation.
+
+```
+chat_robot robot_no_1;
+
+auto robot_no_2 = chat_robot{};
+```
+
+In this example, two ways are used to create object of the class [role blue chat_robot] as above. Two objects are created: [role blue robot_no_1], and [role blue robot_no_2] .
+
+The word [*auto] is very powerful and simple in c++ .
+
+[h2 Method calling]
+
+```
+robot_no_1.speak();
+```
+
+The above code shows how to call the method [*.speak()] with the object [*robot_no_1] .
+
+[h1 [role cyan Last]]
+
+You might read many information about c++ class from this article, but please do not feel stress. You only need to focus on the features that the example shows, and other information can be ignored and will be explained in next articles.
+As the example demonstrates, [*you only need to focus on four points from this article]:
+
+* class definition
+* Simple method definition
+* Object creation
+* Call method
+
+And at last, please care and remember the word [role blue auto], you do not have to understand auto now .
+
+[h1 [role cyan Back to index]]
+
+[@. Index]
+
+
+
