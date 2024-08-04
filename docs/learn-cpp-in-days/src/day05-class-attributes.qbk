@@ -1,0 +1,142 @@
+[article day-05: cpp class attribute
+	[quickbook 1.7]
+]
+
+[h1 [role cyan cpp class attribute]]
+
+cpp/c++ class attributes
+
+[h2 class attributes]
+
+A c++ class attribute is a variable that belongs to that class. Attribute can be simply thought as feature . But why is a variable of a class called attribute ? You can compare attribute with method to understand it.
+
+```
+class chat_robot
+{
+public:
+	std::string name = "chat_robot";
+public:
+	void speak()
+	{
+		std::cout << "Please talk to me, I am a chat robot!" << std::endl;
+	}
+};
+```
+
+The class [*chat_robot] has an attribute: [role blue name] ;
+
+and it has a method: [role blue speak] .
+
+Now think of it:
+
+* the attribute [*name] can store a string: "[* chat_robot]",
+* and the the method [*speak] can perform an action: [role green print some information using] [role blue std::cout] .
+* but the method can not store attribute information that belongs to the class.
+
+I think you understand why it is called attribute now.
+
+[h2 How to change the class attribute value, -> [role green setter]]
+
+You can add another method to change the attribute value of the class:
+
+```
+public:
+	void set_name(std::string new_name)
+	{
+		name = new_name;
+	}
+```
+
+You see that a method can have input arguments, and the input is assigned to attribute:
+
+```
+	name = new_name;
+```
+
+[h2 How to fetch the attribute value from the class, -> [role green getter]]
+
+You can add another method to get the attribute value of the class:
+
+```
+public:
+	std::string get_name()
+	{
+		return name;
+	}
+```
+
+You see that the attribute value is returned by [role blue return] statement:
+
+```
+	return name;
+```
+
+[h1 [role cyan Full example: put all of them together]]
+
+Save as [*chat_robot.cpp]
+
+[!c++]
+```
+#include <iostream>
+#include <string>
+
+// cpp/c++ code
+
+class chat_robot
+{
+public:
+	std::string name = "chat_robot";
+public:
+	void speak()
+	{
+		std::cout << "Please talk to me, I am a chat robot!" << std::endl;
+	}
+	void set_name(std::string new_name)
+	{
+		name = new_name;
+	}
+	std::string get_name()
+	{
+		return name;
+	}
+};
+
+int main()
+{
+	auto robot_no_1 = chat_robot{};
+	robot_no_1.speak();
+
+	std::cout << "name: " << robot_no_1.get_name() << std::endl;
+
+	robot_no_1.set_name("robot");
+	std::cout << "name: " << robot_no_1.get_name() << std::endl;
+}
+```
+
+Compile and run:
+
+[!teletype]
+```
+$ g++ chat-robot.cpp -std=c++23 -o chat-robot
+$ ./chat-robot 
+Please talk to me, I am a chat robot!
+name: chat_robot
+name: robot
+```
+
+[h1 [role cyan Last]]
+
+This article explained the attributes of cpp class, it has only three points, no stress:
+
+* Declare class attribute
+* How to change attribute value with method
+* How to get attribute value with method
+
+[~Written on Oct 04, 2024]
+
+[h1 [role cyan Back to index]]
+
+[@. Index]
+
+
+
