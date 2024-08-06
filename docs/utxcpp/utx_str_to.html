@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>utx::std_string_to</title>
+<title>utx::str_to</title>
 <link rel="stylesheet" href="boostbook.css" type="text/css">
 <meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
 <link rel="home" href="index.html" title="Utxcpp Docs - Utxcpp Official Docs">
@@ -17,31 +17,31 @@
 <div class="article">
 <div class="titlepage">
 <div><div><h2 class="title">
-<a name="utx_std_string_to"></a>utx::std_string_to</h2></div></div>
+<a name="utx_str_to"></a>utx::str_to</h2></div></div>
 <hr>
 </div>
 <h2>
-<a name="utx_std_string_to.h0"></a>
-        <span class="phrase"><a name="utx_std_string_to.role_cyan_utx_std_string_to"></a></span><a class="link" href="utx_std_string_to.html#utx_std_string_to.role_cyan_utx_std_string_to"><span class="cyan">utx::std_string_to</span></a>
+<a name="utx_str_to.h0"></a>
+        <span class="phrase"><a name="utx_str_to.role_cyan_utx_str_to"></a></span><a class="link" href="utx_str_to.html#utx_str_to.role_cyan_utx_str_to"><span class="cyan">utx::str_to</span></a>
       </h2>
 <p>
-        utx::std_string_to is a class object function to convert std::string string
-        to other string type: std::wstring, std::u8string, std::u16string, std::u32string.
+        utx::str_to is a class object function to convert std::string string to other
+        string type: std::wstring, std::u8string, std::u16string, std::u32string.
       </p>
 <p>
         Note that any one of std::string, std::string_view and const char * will
         be treated as std::string.
       </p>
 <h4>
-<a name="utx_std_string_to.h1"></a>
-        <span class="phrase"><a name="utx_std_string_to.calling_sig"></a></span><a class="link" href="utx_std_string_to.html#utx_std_string_to.calling_sig">Calling
+<a name="utx_str_to.h1"></a>
+        <span class="phrase"><a name="utx_str_to.calling_sig"></a></span><a class="link" href="utx_str_to.html#utx_str_to.calling_sig">Calling
         Sig:</a>
       </h4>
-<pre class="programlisting"><span class="keyword">auto</span> <span class="identifier">result</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">std_string_to</span><span class="special">&lt;</span><span class="identifier">string_type</span><span class="special">&gt;(</span><span class="identifier">std_string_value</span><span class="special">);</span>
+<pre class="programlisting"><span class="keyword">auto</span> <span class="identifier">result</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">str_to</span><span class="special">&lt;</span><span class="identifier">string_type</span><span class="special">&gt;(</span><span class="identifier">std_string_value</span><span class="special">);</span>
 </pre>
 <h2>
-<a name="utx_std_string_to.h2"></a>
-        <span class="phrase"><a name="utx_std_string_to.role_cyan_cpp_example"></a></span><a class="link" href="utx_std_string_to.html#utx_std_string_to.role_cyan_cpp_example"><span class="cyan">cpp example</span></a>
+<a name="utx_str_to.h2"></a>
+        <span class="phrase"><a name="utx_str_to.role_cyan_cpp_example"></a></span><a class="link" href="utx_str_to.html#utx_str_to.role_cyan_cpp_example"><span class="cyan">cpp example</span></a>
       </h2>
 <p>
         cpp/c++ example
@@ -52,14 +52,14 @@
 <span class="special">{</span>
 	<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">s1</span> <span class="special">=</span> <span class="string">"Hello c++!"</span><span class="special">;</span>
 	<span class="keyword">const</span> <span class="keyword">char</span> <span class="special">*</span> <span class="identifier">s2</span> <span class="special">=</span> <span class="string">"c++ Hello!"</span><span class="special">;</span>
-	<span class="keyword">auto</span> <span class="identifier">s3</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">std_string_to</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">wstring</span><span class="special">&gt;(</span><span class="identifier">s1</span><span class="special">);</span>
-	<span class="keyword">auto</span> <span class="identifier">s4</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">std_string_to</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">wstring</span><span class="special">&gt;(</span><span class="identifier">s2</span><span class="special">);</span>
+	<span class="keyword">auto</span> <span class="identifier">s3</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">str_to</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">wstring</span><span class="special">&gt;(</span><span class="identifier">s1</span><span class="special">);</span>
+	<span class="keyword">auto</span> <span class="identifier">s4</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">str_to</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">wstring</span><span class="special">&gt;(</span><span class="identifier">s2</span><span class="special">);</span>
 	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">wprint</span><span class="special">(</span><span class="identifier">s3</span><span class="special">,</span> <span class="identifier">s4</span><span class="special">);</span>
 <span class="special">}</span>
 </pre>
 <h2>
-<a name="utx_std_string_to.h3"></a>
-        <span class="phrase"><a name="utx_std_string_to.role_cyan_see_also"></a></span><a class="link" href="utx_std_string_to.html#utx_std_string_to.role_cyan_see_also"><span class="cyan">See Also</span></a>
+<a name="utx_str_to.h3"></a>
+        <span class="phrase"><a name="utx_str_to.role_cyan_see_also"></a></span><a class="link" href="utx_str_to.html#utx_str_to.role_cyan_see_also"><span class="cyan">See Also</span></a>
       </h2>
 <p>
         <a class="link" href="utx_print.html" title="utx::print">utx::print</a>
