@@ -3,6 +3,7 @@
 ]
 
 [include ugrep.qbk]
+[include mysql.qbk]
 
 There are many good applications on the Internet world.
 

@@ -1,0 +1,251 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>MySQL cpp</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Apps Case">
+<link rel="up" href="index.html" title="Apps Case">
+<link rel="prev" href="ugrep_regex.html" title="ugrep regex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="ugrep_regex.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="mysql_cpp"></a>MySQL cpp</h1></div></div>
+<hr>
+</div>
+<h2>
+<a name="mysql_cpp.h0"></a>
+      <span class="phrase"><a name="mysql_cpp.role_cyan_mysql"></a></span><a class="link" href="mysql_cpp.html#mysql_cpp.role_cyan_mysql"><span class="cyan">MySQL</span></a>
+    </h2>
+<p>
+      MySQL is the most popular open source database management system that is written
+      in c++. It supports various workloads and cloud providers.
+    </p>
+<p>
+      <em class="replaceable"><code>Oct 07, 2024</code></em>
+    </p>
+<h3>
+<a name="mysql_cpp.h1"></a>
+      <span class="phrase"><a name="mysql_cpp.install_mysql"></a></span><a class="link" href="mysql_cpp.html#mysql_cpp.install_mysql">Install
+      MySQL</a>
+    </h3>
+<p>
+      Go to mysql homepage, download and install mysql:
+    </p>
+<p>
+      <a href="https://dev.mysql.com/downloads" target="_top">https://dev.mysql.com/downloads</a>
+    </p>
+<p>
+      After installing, you should have mysql root password configured, the installing
+      process might have guided you to set one, otherwise set it by youself.
+    </p>
+<p>
+      For example, <span class="bold"><strong>Kubuntu:</strong></span> <br> (Kubuntu is a
+      linux desktop operating system written in c++ qt (<a href="https://kubuntu.org" target="_top">kubuntu.org</a>))
+      .
+    </p>
+<pre class="programlisting">$ su
+# apt install ./mysql-XXX-YYY.deb	# It will guide you to set something on installing process.
+# apt update
+# apt install mysql-server
+# systemctl status mysql	# Check if mysql is started
+</pre>
+<h3>
+<a name="mysql_cpp.h2"></a>
+      <span class="phrase"><a name="mysql_cpp.explore_databases_with_mysql"></a></span><a class="link" href="mysql_cpp.html#mysql_cpp.explore_databases_with_mysql">Explore
+      databases with mysql</a>
+    </h3>
+<p>
+      Explore data with mysql command and sql commands.
+    </p>
+<pre class="programlisting">$ mysql -u root -p
+mysql&gt;
+mysql&gt; show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+
+mysql&gt; use mysql
+Database changed
+mysql&gt; show tables;
+mysql&gt; select * from db;
+mysql&gt; select * from user;
+</pre>
+<h3>
+<a name="mysql_cpp.h3"></a>
+      <span class="phrase"><a name="mysql_cpp.create_database_table_insert_rec"></a></span><a class="link" href="mysql_cpp.html#mysql_cpp.create_database_table_insert_rec">Create
+      database, table, insert records</a>
+    </h3>
+<p>
+      Create database
+    </p>
+<pre class="programlisting">mysql&gt; create database cpp_info;
+mysql&gt; use cpp_info
+Database changed
+</pre>
+<p>
+      Create table
+    </p>
+<pre class="programlisting">mysql&gt; create table cpp_info
+    -&gt; (
+    -&gt; id int unsigned key auto_increment,
+    -&gt; name varchar(160)
+    -&gt; );
+</pre>
+<p>
+      Insert info
+    </p>
+<pre class="programlisting">mysql&gt; insert into cpp_info(name) values
+    -&gt; ('cpp'),
+    -&gt; ('c++'),
+    -&gt; ('boost');
+</pre>
+<p>
+      Query
+    </p>
+<pre class="programlisting">mysql&gt; select * from cpp_info;
++----+-------+
+| id | name  |
++----+-------+
+|  1 | cpp   |
+|  2 | c++   |
+|  3 | boost |
++----+-------+
+</pre>
+<h2>
+<a name="mysql_cpp.h4"></a>
+      <span class="phrase"><a name="mysql_cpp.role_cyan_connect_mysql_with_cpp"></a></span><a class="link" href="mysql_cpp.html#mysql_cpp.role_cyan_connect_mysql_with_cpp"><span class="cyan">Connect mysql with cpp boost</span></a>
+    </h2>
+<p>
+      Connect mysql with c++ boost boost::mysql. <br> (boost::mysql is c++ mysql
+      client library. (<a href="https://www.boost.org/doc/libs/release/libs/mysql" target="_top">boost::mysql
+      home</a>)) .
+    </p>
+<h3>
+<a name="mysql_cpp.h5"></a>
+      <span class="phrase"><a name="mysql_cpp.install_boost"></a></span><a class="link" href="mysql_cpp.html#mysql_cpp.install_boost">Install
+      boost</a>
+    </h3>
+<p>
+      Install c++ boost libraries first.
+    </p>
+<h3>
+<a name="mysql_cpp.h6"></a>
+      <span class="phrase"><a name="mysql_cpp.connect_mysql_with_boost_mysql"></a></span><a class="link" href="mysql_cpp.html#mysql_cpp.connect_mysql_with_boost_mysql">Connect
+      mysql with boost::mysql</a>
+    </h3>
+<p>
+      Connect, query mysql with c++ boost::mysql.
+    </p>
+<p>
+      c++ code, save as <em class="replaceable"><code><span class="bold"><strong>cpp-mysql.cpp</strong></span></code></em>
+      :
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">mysql</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">mysql</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">mysql</span><span class="special">;</span>
+<span class="keyword">namespace</span> <span class="identifier">asio</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">;</span>
+
+<span class="keyword">using</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string_literals</span><span class="special">::</span><span class="keyword">operator</span><span class="string">""</span><span class="identifier">s</span><span class="special">;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">(</span><span class="keyword">int</span> <span class="identifier">argc</span><span class="special">,</span> <span class="keyword">char</span> <span class="special">*</span> <span class="identifier">argv</span><span class="special">[])</span>
+<span class="keyword">try</span>
+<span class="special">{</span>
+	<span class="keyword">if</span> <span class="special">(</span><span class="identifier">argc</span> <span class="special">!=</span> <span class="number">4</span><span class="special">)</span>
+		<span class="keyword">throw</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">runtime_error</span><span class="special">{</span><span class="string">""</span><span class="identifier">s</span> <span class="special">+</span> <span class="identifier">argv</span><span class="special">[</span><span class="number">0</span><span class="special">]</span> <span class="special">+</span> <span class="string">" &lt;username&gt; &lt;password&gt; &lt;mysql host&gt;"</span><span class="special">};</span>
+
+	<span class="keyword">auto</span> <span class="identifier">ctx</span> <span class="special">=</span> <span class="identifier">asio</span><span class="special">::</span><span class="identifier">io_context</span><span class="special">{};</span>
+	<span class="keyword">auto</span> <span class="identifier">ssl_ctx</span> <span class="special">=</span> <span class="identifier">asio</span><span class="special">::</span><span class="identifier">ssl</span><span class="special">::</span><span class="identifier">context</span><span class="special">{</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">ssl</span><span class="special">::</span><span class="identifier">context</span><span class="special">::</span><span class="identifier">tls_client</span><span class="special">};</span>
+	<span class="keyword">auto</span> <span class="identifier">conn</span> <span class="special">=</span> <span class="identifier">mysql</span><span class="special">::</span><span class="identifier">tcp_ssl_connection</span><span class="special">{</span><span class="identifier">ctx</span><span class="special">.</span><span class="identifier">get_executor</span><span class="special">(),</span> <span class="identifier">ssl_ctx</span><span class="special">};</span>
+	<span class="keyword">auto</span> <span class="identifier">resolver</span> <span class="special">=</span> <span class="identifier">asio</span><span class="special">::</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">resolver</span><span class="special">{</span><span class="identifier">ctx</span><span class="special">.</span><span class="identifier">get_executor</span><span class="special">()};</span>
+	<span class="keyword">auto</span> <span class="identifier">ep</span> <span class="special">=</span> <span class="identifier">resolver</span><span class="special">.</span><span class="identifier">resolve</span><span class="special">(</span><span class="identifier">argv</span><span class="special">[</span><span class="number">3</span><span class="special">],</span> <span class="identifier">mysql</span><span class="special">::</span><span class="identifier">default_port_string</span><span class="special">);</span>
+	<span class="keyword">auto</span> <span class="identifier">params</span> <span class="special">=</span> <span class="identifier">mysql</span><span class="special">::</span><span class="identifier">handshake_params</span><span class="special">(</span>
+		<span class="identifier">argv</span><span class="special">[</span><span class="number">1</span><span class="special">],</span>	<span class="comment">// username</span>
+		<span class="identifier">argv</span><span class="special">[</span><span class="number">2</span><span class="special">],</span>	<span class="comment">// password</span>
+		<span class="string">"cpp_info"</span>	<span class="comment">// database</span>
+	<span class="special">);</span>
+
+	<span class="identifier">conn</span><span class="special">.</span><span class="identifier">connect</span><span class="special">(*</span><span class="identifier">ep</span><span class="special">.</span><span class="identifier">begin</span><span class="special">(),</span> <span class="identifier">params</span><span class="special">);</span>
+
+	<span class="identifier">mysql</span><span class="special">::</span><span class="identifier">results</span> <span class="identifier">results</span><span class="special">;</span>
+
+	<span class="identifier">conn</span><span class="special">.</span><span class="identifier">execute</span><span class="special">(</span><span class="string">"select * from cpp_info"</span><span class="special">,</span> <span class="identifier">results</span><span class="special">);</span>
+
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">results</span><span class="special">.</span><span class="identifier">rows</span><span class="special">()[</span><span class="number">0</span><span class="special">][</span><span class="number">1</span><span class="special">]</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>	<span class="comment">// cpp</span>
+
+	<span class="keyword">for</span> <span class="special">(</span><span class="keyword">const</span> <span class="keyword">auto</span> <span class="special">&amp;</span> <span class="identifier">row</span><span class="special">:</span> <span class="identifier">results</span><span class="special">.</span><span class="identifier">rows</span><span class="special">())</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"=&gt;\t"</span><span class="special">;</span>
+		<span class="keyword">for</span> <span class="special">(</span><span class="keyword">const</span> <span class="keyword">auto</span> <span class="special">&amp;</span> <span class="identifier">column</span><span class="special">:</span> <span class="identifier">row</span><span class="special">)</span>
+		<span class="special">{</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">column</span> <span class="special">&lt;&lt;</span> <span class="string">"\t"</span><span class="special">;</span>
+		<span class="special">}</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+
+	<span class="identifier">conn</span><span class="special">.</span><span class="identifier">close</span><span class="special">();</span>
+<span class="special">}</span>
+<span class="keyword">catch</span> <span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">exception</span> <span class="special">&amp;</span> <span class="identifier">e</span><span class="special">)</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cerr</span> <span class="special">&lt;&lt;</span> <span class="string">"[c++ exception], ERROR: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">e</span><span class="special">.</span><span class="identifier">what</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="keyword">return</span> <span class="number">1</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<p>
+      Compile it:
+    </p>
+<pre class="programlisting">$ g++ cpp-mysql.cpp -std=c++23 -lssl -lcrypto -lboost_charconv -o cpp-mysql
+</pre>
+<p>
+      (<a href="https://botan.randombit.net" target="_top">c++ Botan TLS</a>)
+    </p>
+<p>
+      Run program:
+    </p>
+<pre class="programlisting">$ ./cpp-mysql
+[c++ exception], ERROR: ./cpp-mysql &lt;username&gt; &lt;password&gt; &lt;mysql host&gt;
+$ ./cpp-mysql root your-mysql-password localhost
+cpp
+=&gt;	1	cpp
+=&gt;	2	c++
+=&gt;	3	boost
+</pre>
+<h2>
+<a name="mysql_cpp.h7"></a>
+      <span class="phrase"><a name="mysql_cpp.role_cyan_see_also"></a></span><a class="link" href="mysql_cpp.html#mysql_cpp.role_cyan_see_also"><span class="cyan">See Also</span></a>
+    </h2>
+<p>
+      <a href="https://www.mysql.com" target="_top">MySQL Home</a>
+    </p>
+<p>
+      <a href="https://www.boost.org/doc/libs/release/libs/mysql" target="_top">boost::mysql
+      Home</a>
+    </p>
+<p>
+      <a href="https://botan.randombit.net" target="_top">c++ Botan TLS</a>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="ugrep_regex.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+<div id="my_project_code" style="margin-left:auto;margin-right:auto;max-width:300px">
+<div style="float:right">
+<p><a href="https://cppfx.xyz/utxcpp/utx_print.html">utx::print</a></p>
+</div>
+</div>
+</body>
+</html>

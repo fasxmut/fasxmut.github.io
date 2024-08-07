@@ -1,0 +1,203 @@
+[article MySQL cpp
+	[quickbook 1.7]
+]
+
+[h1 [role cyan MySQL]]
+
+MySQL is the most popular open source database management system that is written in c++. It supports various workloads and cloud providers.
+
+[~Oct 07, 2024]
+
+[h2 Install MySQL]
+
+Go to mysql homepage, download and install mysql:
+
+[@https://dev.mysql.com/downloads]
+
+After installing, you should have mysql root password configured, the installing process might have guided you to set one, otherwise set it by youself.
+
+For example, [*Kubuntu:]
+[br]
+(Kubuntu is a linux desktop operating system written in c++ qt ([@https://kubuntu.org kubuntu.org])) .
+
+[!teletype]
+```
+$ su
+# apt install ./mysql-XXX-YYY.deb	# It will guide you to set something on installing process.
+# apt update
+# apt install mysql-server
+# systemctl status mysql	# Check if mysql is started
+```
+
+[h2 Explore databases with mysql]
+
+Explore data with mysql command and sql commands.
+
+[!teletype]
+```
+$ mysql -u root -p
+mysql>
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+
+mysql> use mysql
+Database changed
+mysql> show tables;
+mysql> select * from db;
+mysql> select * from user;
+```
+
+[h2 Create database, table, insert records]
+
+Create database
+
+[!teletype]
+```
+mysql> create database cpp_info;
+mysql> use cpp_info
+Database changed
+```
+
+Create table
+
+[!teletype]
+```
+mysql> create table cpp_info
+    -> (
+    -> id int unsigned key auto_increment,
+    -> name varchar(160)
+    -> );
+```
+
+Insert info
+
+[!teletype]
+```
+mysql> insert into cpp_info(name) values
+    -> ('cpp'),
+    -> ('c++'),
+    -> ('boost');
+```
+
+Query
+
+[!teletype]
+```
+mysql> select * from cpp_info;
++----+-------+
+| id | name  |
++----+-------+
+|  1 | cpp   |
+|  2 | c++   |
+|  3 | boost |
++----+-------+
+```
+
+[h1 [role cyan Connect mysql with cpp boost]]
+
+Connect mysql with c++ boost boost::mysql.
+[br]
+(boost::mysql is c++ mysql client library. ([@https://www.boost.org/doc/libs/release/libs/mysql boost::mysql home])) .
+
+[h2 Install boost]
+
+Install c++ boost libraries first.
+
+[h2 Connect mysql with boost::mysql]
+
+Connect, query mysql with c++ boost::mysql.
+
+c++ code, save as [~[*cpp-mysql.cpp]] :
+
+[!c++]
+```
+#include <boost/mysql.hpp>
+#include <iostream>
+
+namespace mysql = boost::mysql;
+namespace asio = boost::asio;
+
+using std::string_literals::operator""s;
+
+int main(int argc, char * argv[])
+try
+{
+	if (argc != 4)
+		throw std::runtime_error{""s + argv[0] + " <username> <password> <mysql host>"};
+
+	auto ctx = asio::io_context{};
+	auto ssl_ctx = asio::ssl::context{asio::ssl::context::tls_client};
+	auto conn = mysql::tcp_ssl_connection{ctx.get_executor(), ssl_ctx};
+	auto resolver = asio::ip::tcp::resolver{ctx.get_executor()};
+	auto ep = resolver.resolve(argv[3], mysql::default_port_string);
+	auto params = mysql::handshake_params(
+		argv[1],	// username
+		argv[2],	// password
+		"cpp_info"	// database
+	);
+
+	conn.connect(*ep.begin(), params);
+
+	mysql::results results;
+
+	conn.execute("select * from cpp_info", results);
+
+	std::cout << results.rows()[0][1] << std::endl;	// cpp
+
+	for (const auto & row: results.rows())
+	{
+		std::cout << "=>\t";
+		for (const auto & column: row)
+		{
+			std::cout << column << "\t";
+		}
+		std::cout << std::endl;
+	}
+
+	conn.close();
+}
+catch (const std::exception & e)
+{
+	std::cerr << "[c++ exception], ERROR: " << e.what() << std::endl;
+	return 1;
+}
+```
+
+Compile it:
+[!teletype]
+```
+$ g++ cpp-mysql.cpp -std=c++23 -lssl -lcrypto -lboost_charconv -o cpp-mysql
+```
+
+([@https://botan.randombit.net c++ Botan TLS])
+
+Run program:
+
+[!teletype]
+```
+$ ./cpp-mysql 
+[c++ exception], ERROR: ./cpp-mysql <username> <password> <mysql host>
+$ ./cpp-mysql root your-mysql-password localhost
+cpp
+=>	1	cpp
+=>	2	c++
+=>	3	boost
+```
+
+[h1 [role cyan See Also]]
+
+[@https://www.mysql.com MySQL Home]
+
+[@https://www.boost.org/doc/libs/release/libs/mysql boost::mysql Home]
+
+[@https://botan.randombit.net c++ Botan TLS]
+
+
+
