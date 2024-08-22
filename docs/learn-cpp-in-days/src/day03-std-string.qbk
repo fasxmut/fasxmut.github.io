@@ -117,7 +117,7 @@ This article only has three points, please don't feel stress:
 * The object has a method [*.size()], which returns an integer value to tell us how many characters the string has that it stores:
 	* [*str.size();]
 
-[~Written on Oct 03, 2024]
+[~Written on Aug 03, 2024]
 
 [h1 [role cyan Back to index]]
 

@@ -144,7 +144,7 @@ A complete c++ program must have one entry point, which the program starts its e
 
 It seems a bit complicated from this article, but it is very simple, you just only have to know how to use [* std::cout], if you can not understand it. After you use it again and again, you will understand it automatically.
 
-[~Written on Oct 03, 2024]
+[~Written on Aug 03, 2024]
 
 [h1 [role cyan Back to index]]
 
