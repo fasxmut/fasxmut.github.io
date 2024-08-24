@@ -1,0 +1,151 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>esv::sleep</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Esvcpp">
+<link rel="up" href="thread.html" title="Thread">
+<link rel="prev" href="esv_deferred.html" title="esv::deferred">
+<link rel="next" href="esv_ydzs.html" title="esv::ydzs">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="esv_deferred.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="thread.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="esv_ydzs.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="esv_sleep"></a>esv::sleep</h2></div></div>
+<hr>
+</div>
+<p>
+        A bad excuse is worse than none.
+      </p>
+<h2>
+<a name="esv_sleep.h0"></a>
+        <span class="phrase"><a name="esv_sleep.role_cyan_esv_sleep_esvcpp"></a></span><a class="link" href="esv_sleep.html#esv_sleep.role_cyan_esv_sleep_esvcpp"><span class="cyan">esv::sleep - esvcpp</span></a>
+      </h2>
+<p>
+        esv::sleep is the esvcpp c++ object of esv::sleep_class.
+      </p>
+<h2>
+<a name="esv_sleep.h1"></a>
+        <span class="phrase"><a name="esv_sleep.role_cyan_esv_sleep"></a></span><a class="link" href="esv_sleep.html#esv_sleep.role_cyan_esv_sleep"><span class="cyan">esv::sleep</span></a>
+      </h2>
+<p>
+        Sleep for secs seconds, floating value is accepted :
+      </p>
+<pre class="programlisting"><span class="identifier">esv</span><span class="special">::</span><span class="identifier">sleep</span><span class="special">(</span><span class="identifier">secs</span><span class="special">);</span>
+</pre>
+<p>
+        Sleep for dura seconds, chrono-literal-time is accepted:
+      </p>
+<pre class="programlisting"><span class="identifier">esv</span><span class="special">::</span><span class="identifier">sleep</span><span class="special">(</span><span class="identifier">dura</span><span class="special">);</span>
+</pre>
+<p>
+        Sleep for weeks, days, hours, minutes, seconds, and milliseconds, floating
+        value is accepted, chrono-literal value is not accepted :
+      </p>
+<pre class="programlisting"><span class="identifier">esv</span><span class="special">::</span><span class="identifier">sleep</span><span class="special">(</span><span class="identifier">weeks</span><span class="special">,</span> <span class="identifier">days</span><span class="special">,</span> <span class="identifier">hours</span><span class="special">,</span> <span class="identifier">minutes</span><span class="special">,</span> <span class="identifier">seconds</span><span class="special">,</span> <span class="identifier">milliseconds</span><span class="special">);</span>
+</pre>
+<h2>
+<a name="esv_sleep.h2"></a>
+        <span class="phrase"><a name="esv_sleep.role_cyan_esv_sleep_msleep"></a></span><a class="link" href="esv_sleep.html#esv_sleep.role_cyan_esv_sleep_msleep"><span class="cyan">esv::sleep.msleep</span></a>
+      </h2>
+<p>
+        Sleep for milli_seconds, floating value:
+      </p>
+<pre class="programlisting"><span class="identifier">esv</span><span class="special">::</span><span class="identifier">sleep</span><span class="special">.</span><span class="identifier">msleep</span><span class="special">(</span><span class="identifier">milli_seconds</span><span class="special">);</span>
+</pre>
+<h2>
+<a name="esv_sleep.h3"></a>
+        <span class="phrase"><a name="esv_sleep.role_cyan_esv_sleep_usleep"></a></span><a class="link" href="esv_sleep.html#esv_sleep.role_cyan_esv_sleep_usleep"><span class="cyan">esv::sleep.usleep</span></a>
+      </h2>
+<p>
+        Sleep for micro_seconds, floating value:
+      </p>
+<pre class="programlisting"><span class="identifier">esv</span><span class="special">::</span><span class="identifier">sleep</span><span class="special">(</span><span class="identifier">micro_seconds</span><span class="special">);</span>
+</pre>
+<h2>
+<a name="esv_sleep.h4"></a>
+        <span class="phrase"><a name="esv_sleep.role_cyan_esv_sleep_nsleep"></a></span><a class="link" href="esv_sleep.html#esv_sleep.role_cyan_esv_sleep_nsleep"><span class="cyan">esv::sleep.nsleep</span></a>
+      </h2>
+<p>
+        Sleep for nano_seconds, floating value:
+      </p>
+<pre class="programlisting"><span class="identifier">esv</span><span class="special">::</span><span class="identifier">nsleep</span><span class="special">(</span><span class="identifier">nano_seconds</span><span class="special">);</span>
+</pre>
+<h2>
+<a name="esv_sleep.h5"></a>
+        <span class="phrase"><a name="esv_sleep.role_cyan_esv_sleep_minsleep"></a></span><a class="link" href="esv_sleep.html#esv_sleep.role_cyan_esv_sleep_minsleep"><span class="cyan">esv::sleep.minsleep</span></a>
+      </h2>
+<p>
+        Sleep for minutes, floating value:
+      </p>
+<pre class="programlisting"><span class="identifier">esv</span><span class="special">::</span><span class="identifier">sleep</span><span class="special">.</span><span class="identifier">minsleep</span><span class="special">(</span><span class="identifier">minutes</span><span class="special">);</span>
+</pre>
+<h2>
+<a name="esv_sleep.h6"></a>
+        <span class="phrase"><a name="esv_sleep.role_cyan_esv_sleep_hsleep"></a></span><a class="link" href="esv_sleep.html#esv_sleep.role_cyan_esv_sleep_hsleep"><span class="cyan">esv::sleep.hsleep</span></a>
+      </h2>
+<p>
+        Sleep for hours, floating value:
+      </p>
+<pre class="programlisting"><span class="identifier">esv</span><span class="special">::</span><span class="identifier">sleep</span><span class="special">(</span><span class="identifier">hours</span><span class="special">);</span>
+</pre>
+<h2>
+<a name="esv_sleep.h7"></a>
+        <span class="phrase"><a name="esv_sleep.role_cyan_esv_sleep_dsleep"></a></span><a class="link" href="esv_sleep.html#esv_sleep.role_cyan_esv_sleep_dsleep"><span class="cyan">esv::sleep.dsleep</span></a>
+      </h2>
+<p>
+        Sleep for days, floating value:
+      </p>
+<pre class="programlisting"><span class="identifier">esv</span><span class="special">::</span><span class="identifier">sleep</span><span class="special">.</span><span class="identifier">dsleep</span><span class="special">(</span><span class="identifier">days</span><span class="special">);</span>
+</pre>
+<h2>
+<a name="esv_sleep.h8"></a>
+        <span class="phrase"><a name="esv_sleep.role_cyan_esv_sleep_wsleep"></a></span><a class="link" href="esv_sleep.html#esv_sleep.role_cyan_esv_sleep_wsleep"><span class="cyan">esv::sleep.wsleep</span></a>
+      </h2>
+<p>
+        Sleep for weeks, floating value:
+      </p>
+<pre class="programlisting"><span class="identifier">esv</span><span class="special">::</span><span class="identifier">sleep</span><span class="special">.</span><span class="identifier">wsleep</span><span class="special">(</span><span class="identifier">weeks</span><span class="special">);</span>
+</pre>
+<h2>
+<a name="esv_sleep.h9"></a>
+        <span class="phrase"><a name="esv_sleep.role_cyan_see_also"></a></span><a class="link" href="esv_sleep.html#esv_sleep.role_cyan_see_also"><span class="cyan">See Also</span></a>
+      </h2>
+<p>
+        <a class="link" href="esv_async.html" title="esv::async">esv::async</a>
+      </p>
+<p>
+        <a class="link" href="esv_deferred.html" title="esv::deferred">esv::deferred</a>
+      </p>
+<p>
+        <a class="link" href="esv_ydzs.html" title="esv::ydzs">esv::ydzs</a>
+      </p>
+<p>
+        <a class="link" href="esv_mutex0_9.html" title="esv::mutex0~9">esv::mutex0~9</a>
+      </p>
+<p>
+        <a class="link" href="esv_print.html" title="esv::print">esv::print</a>
+      </p>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="esv_deferred.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="thread.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="esv_ydzs.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div id="my_project_code" style="margin-left:auto;margin-right:auto;max-width:300px">
+<div style="float:right">
+<p><a href="https://cppfx.xyz/esvcpp/esv_print.html">esv::print</a></p>
+</div>
+</div>
+</body>
+</html>

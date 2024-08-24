@@ -1,0 +1,103 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>esv::diff_size_cast</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Esvcpp">
+<link rel="up" href="types.html" title="Types">
+<link rel="prev" href="esv_gnrk_static_cast.html" title="esv::gnrk_static_cast">
+<link rel="next" href="esv_pair.html" title="esv::pair">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="esv_gnrk_static_cast.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="types.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="esv_pair.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="esv_diff_size_cast"></a>esv::diff_size_cast</h2></div></div>
+<hr>
+</div>
+<p>
+        Do not compare your life with others'.
+      </p>
+<h2>
+<a name="esv_diff_size_cast.h0"></a>
+        <span class="phrase"><a name="esv_diff_size_cast.role_cyan_esv_diff_size_cast"></a></span><a class="link" href="esv_diff_size_cast.html#esv_diff_size_cast.role_cyan_esv_diff_size_cast"><span class="cyan">esv::diff_size_cast</span></a>
+      </h2>
+<p>
+        esv::diff_size_cast is used to cast from one integral value to another integral
+        value. If the value is greater than the max value of target type, or the
+        value is less than the min value of target type, the compilation will fail.
+      </p>
+<pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="identifier">esv</span><span class="special">::</span><span class="identifier">integral_meric</span> <span class="identifier">target_type</span><span class="special">,</span> <span class="identifier">esv</span><span class="special">::</span><span class="identifier">integral_meric</span> <span class="keyword">auto</span> <span class="identifier">source_value</span><span class="special">&gt;</span>
+	<span class="identifier">requires</span> <span class="special">(</span><span class="identifier">esv</span><span class="special">::</span><span class="identifier">in_scope</span><span class="special">(</span><span class="identifier">source_value</span><span class="special">,</span> <span class="identifier">esv</span><span class="special">::</span><span class="identifier">min_v</span><span class="special">&lt;</span><span class="identifier">target_type</span><span class="special">&gt;,</span> <span class="identifier">esv</span><span class="special">::</span><span class="identifier">max_v</span><span class="special">&lt;</span><span class="identifier">target_type</span><span class="special">&gt;))</span>
+<span class="keyword">constexpr</span> <span class="keyword">inline</span> <span class="identifier">target_type</span> <span class="identifier">diff_size_cast</span> <span class="special">=</span> <span class="identifier">esv</span><span class="special">::</span><span class="identifier">meric_static_cast</span><span class="special">&lt;</span><span class="identifier">target_type</span><span class="special">&gt;(</span><span class="identifier">source_value</span><span class="special">);</span>
+</pre>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            target_type must be integral type
+          </li>
+<li class="listitem">
+            source_value must be integral value.
+          </li>
+<li class="listitem">
+            source_value must be a constant value.
+          </li>
+<li class="listitem">
+            source_value must be smaller than or equal to esv::max_v of target_type.
+          </li>
+<li class="listitem">
+            source_value must be greater than or equal to esv::min_v of target_type.
+          </li>
+</ul></div>
+<h2>
+<a name="esv_diff_size_cast.h1"></a>
+        <span class="phrase"><a name="esv_diff_size_cast.role_cyan_c_example"></a></span><a class="link" href="esv_diff_size_cast.html#esv_diff_size_cast.role_cyan_c_example"><span class="cyan">c++ example</span></a>
+      </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">esvcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">constexpr</span> <span class="identifier">esv</span><span class="special">::</span><span class="identifier">i32</span> <span class="identifier">x</span> <span class="special">=</span> <span class="number">123</span><span class="special">;</span>
+	<span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">x1</span> <span class="special">=</span> <span class="identifier">esv</span><span class="special">::</span><span class="identifier">diff_size_cast</span><span class="special">&lt;</span><span class="identifier">esv</span><span class="special">::</span><span class="identifier">i16</span><span class="special">,</span> <span class="identifier">x</span><span class="special">&gt;;</span>
+
+	<span class="keyword">constexpr</span> <span class="identifier">esv</span><span class="special">::</span><span class="identifier">i32</span> <span class="identifier">x2</span> <span class="special">=</span> <span class="number">128</span><span class="special">;</span>
+
+	<span class="comment">// Error: Constraint not satisfied.</span>
+	<span class="comment">// (Because esv::i8_max is 127, x2 is greater than esv::i8_max)</span>
+	<span class="keyword">auto</span> <span class="identifier">x3</span> <span class="special">=</span> <span class="identifier">esv</span><span class="special">::</span><span class="identifier">diff_size_cast</span><span class="special">&lt;</span><span class="identifier">esv</span><span class="special">::</span><span class="identifier">i8</span><span class="special">,</span> <span class="identifier">x2</span><span class="special">&gt;;</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="esv_diff_size_cast.h2"></a>
+        <span class="phrase"><a name="esv_diff_size_cast.role_cyan_see_also"></a></span><a class="link" href="esv_diff_size_cast.html#esv_diff_size_cast.role_cyan_see_also"><span class="cyan">See Also</span></a>
+      </h2>
+<p>
+        <a class="link" href="esv_gnrk_static_cast.html" title="esv::gnrk_static_cast">esv::gnrk_static_cast</a>
+      </p>
+<p>
+        <a class="link" href="esv_meric_static_cast.html" title="esv::meric_static_cast">esv::meric_static_cast</a>
+      </p>
+<p>
+        <a class="link" href="esv_mean_t.html" title="esv::mean_t">esv::mean_t</a>
+      </p>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="esv_gnrk_static_cast.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="types.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="esv_pair.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div id="my_project_code" style="margin-left:auto;margin-right:auto;max-width:300px">
+<div style="float:right">
+<p><a href="https://cppfx.xyz/esvcpp/esv_print.html">esv::print</a></p>
+</div>
+</div>
+</body>
+</html>

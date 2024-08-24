@@ -1,0 +1,158 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>esv::wstr_rep</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Esvcpp">
+<link rel="up" href="string.html" title="String">
+<link rel="prev" href="esv_str_rep.html" title="esv::str_rep">
+<link rel="next" href="print.html" title="Print">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="esv_str_rep.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="string.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="print.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="esv_wstr_rep"></a>esv::wstr_rep</h2></div></div>
+<hr>
+</div>
+<p>
+        May the love of animals grow with you.
+      </p>
+<h2>
+<a name="esv_wstr_rep.h0"></a>
+        <span class="phrase"><a name="esv_wstr_rep.role_cyan_esv_wstr_rep"></a></span><a class="link" href="esv_wstr_rep.html#esv_wstr_rep.role_cyan_esv_wstr_rep"><span class="cyan">esv::wstr_rep</span></a>
+      </h2>
+<p>
+        esv::wstr_rep is a template class alias, used to replace a sub-string of
+        a wide-string to another sub-string.
+      </p>
+<h2>
+<a name="esv_wstr_rep.h1"></a>
+        <span class="phrase"><a name="esv_wstr_rep.role_cyan_constructor"></a></span><a class="link" href="esv_wstr_rep.html#esv_wstr_rep.role_cyan_constructor"><span class="cyan">constructor</span></a>
+      </h2>
+<h4>
+<a name="esv_wstr_rep.h2"></a>
+        <span class="phrase"><a name="esv_wstr_rep.calling_sig"></a></span><a class="link" href="esv_wstr_rep.html#esv_wstr_rep.calling_sig">Calling
+        Sig:</a>
+      </h4>
+<pre class="programlisting"><span class="keyword">auto</span> <span class="identifier">rep</span> <span class="special">=</span> <span class="identifier">esv</span><span class="special">::</span><span class="identifier">str_rep</span><span class="special">{</span><span class="identifier">a_string_view</span><span class="special">};</span>
+</pre>
+<p>
+        Default constructor is removed, as it must hold a string_view.
+      </p>
+<pre class="programlisting"><span class="identifier">str_rep_class</span><span class="special">()</span> <span class="special">=</span> <span class="keyword">delete</span><span class="special">;</span>
+</pre>
+<h2>
+<a name="esv_wstr_rep.h3"></a>
+        <span class="phrase"><a name="esv_wstr_rep.role_cyan_method_replace"></a></span><a class="link" href="esv_wstr_rep.html#esv_wstr_rep.role_cyan_method_replace"><span class="cyan">Method: .replace</span></a>
+      </h2>
+<p>
+        Replace all sub-string found to another sub-string.
+      </p>
+<p>
+        This member function will not affect the original string held in the object.
+      </p>
+<h4>
+<a name="esv_wstr_rep.h4"></a>
+        <span class="phrase"><a name="esv_wstr_rep.calling_sig0"></a></span><a class="link" href="esv_wstr_rep.html#esv_wstr_rep.calling_sig0">Calling
+        Sig:</a>
+      </h4>
+<pre class="programlisting"><span class="keyword">auto</span> <span class="identifier">result_string</span> <span class="special">=</span> <span class="identifier">rep</span><span class="special">.</span><span class="identifier">replace</span><span class="special">(</span><span class="identifier">a_sub_strinng</span><span class="special">,</span> <span class="identifier">another_sub_string</span><span class="special">);</span>
+</pre>
+<h2>
+<a name="esv_wstr_rep.h5"></a>
+        <span class="phrase"><a name="esv_wstr_rep.role_cyan_method_replace_first"></a></span><a class="link" href="esv_wstr_rep.html#esv_wstr_rep.role_cyan_method_replace_first"><span class="cyan">Method: .replace_first</span></a>
+      </h2>
+<p>
+        Replace the first found sub-string to another sub-string.
+      </p>
+<p>
+        This member function will not affect the original string held in the object.
+      </p>
+<h4>
+<a name="esv_wstr_rep.h6"></a>
+        <span class="phrase"><a name="esv_wstr_rep.calling_sig1"></a></span><a class="link" href="esv_wstr_rep.html#esv_wstr_rep.calling_sig1">Calling
+        Sig:</a>
+      </h4>
+<pre class="programlisting"><span class="keyword">auto</span> <span class="identifier">result_string</span> <span class="special">=</span> <span class="identifier">rep</span><span class="special">.</span><span class="identifier">replace_first</span><span class="special">(</span><span class="identifier">a_sub_string</span><span class="special">,</span> <span class="identifier">another_sub_string</span><span class="special">);</span>
+</pre>
+<h2>
+<a name="esv_wstr_rep.h7"></a>
+        <span class="phrase"><a name="esv_wstr_rep.role_cyan_method_replace_last"></a></span><a class="link" href="esv_wstr_rep.html#esv_wstr_rep.role_cyan_method_replace_last"><span class="cyan">Method: .replace_last</span></a>
+      </h2>
+<p>
+        Replace the last found sub-string to another sub-string.
+      </p>
+<p>
+        This member function will not affect the original string held in the object.
+      </p>
+<h4>
+<a name="esv_wstr_rep.h8"></a>
+        <span class="phrase"><a name="esv_wstr_rep.calling_sig2"></a></span><a class="link" href="esv_wstr_rep.html#esv_wstr_rep.calling_sig2">Calling
+        Sig:</a>
+      </h4>
+<pre class="programlisting"><span class="keyword">auto</span> <span class="identifier">result_string</span> <span class="special">=</span> <span class="identifier">rep</span><span class="special">.</span><span class="identifier">replace_last</span><span class="special">(</span><span class="identifier">a_sub_string</span><span class="special">,</span> <span class="identifier">another_sub_string</span><span class="special">);</span>
+</pre>
+<h2>
+<a name="esv_wstr_rep.h9"></a>
+        <span class="phrase"><a name="esv_wstr_rep.role_cyan_method_replace_at"></a></span><a class="link" href="esv_wstr_rep.html#esv_wstr_rep.role_cyan_method_replace_at"><span class="cyan">Method: .replace_at</span></a>
+      </h2>
+<p>
+        Replace a sub-string found by index__~th to another sub-string.
+      </p>
+<p>
+        This member function will not affect the original string held in the object.
+      </p>
+<h4>
+<a name="esv_wstr_rep.h10"></a>
+        <span class="phrase"><a name="esv_wstr_rep.calling_sig3"></a></span><a class="link" href="esv_wstr_rep.html#esv_wstr_rep.calling_sig3">Calling
+        Sig:</a>
+      </h4>
+<pre class="programlisting"><span class="keyword">auto</span> <span class="identifier">result_string</span> <span class="special">=</span> <span class="identifier">rep</span><span class="special">.</span><span class="identifier">replace_at</span><span class="special">(</span><span class="identifier">index__</span><span class="special">,</span> <span class="identifier">a_sub_string</span><span class="special">,</span> <span class="identifier">another_sub_string</span><span class="special">);</span>
+</pre>
+<h2>
+<a name="esv_wstr_rep.h11"></a>
+        <span class="phrase"><a name="esv_wstr_rep.role_cyan_method_r_replace_at"></a></span><a class="link" href="esv_wstr_rep.html#esv_wstr_rep.role_cyan_method_r_replace_at"><span class="cyan">Method: .r_replace_at</span></a>
+      </h2>
+<p>
+        Reverse-replace a sub-string found by index__~th to another sub-string.
+      </p>
+<p>
+        This member function will not affect the original string held in the object.
+      </p>
+<h4>
+<a name="esv_wstr_rep.h12"></a>
+        <span class="phrase"><a name="esv_wstr_rep.calling_sig4"></a></span><a class="link" href="esv_wstr_rep.html#esv_wstr_rep.calling_sig4">Calling
+        Sig:</a>
+      </h4>
+<pre class="programlisting"><span class="keyword">auto</span> <span class="identifier">result_string</span> <span class="special">=</span> <span class="identifier">rep</span><span class="special">.</span><span class="identifier">r_replace_at</span><span class="special">(</span><span class="identifier">index__</span><span class="special">,</span> <span class="identifier">a_sub_string</span><span class="special">,</span> <span class="identifier">another_sub_string</span><span class="special">);</span>
+</pre>
+<h2>
+<a name="esv_wstr_rep.h13"></a>
+        <span class="phrase"><a name="esv_wstr_rep.role_cyan_see_also"></a></span><a class="link" href="esv_wstr_rep.html#esv_wstr_rep.role_cyan_see_also"><span class="cyan">See Also</span></a>
+      </h2>
+<p>
+        <a class="link" href="esv_str_rep.html" title="esv::str_rep">esv::str_rep</a>
+      </p>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="esv_str_rep.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="string.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="print.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div id="my_project_code" style="margin-left:auto;margin-right:auto;max-width:300px">
+<div style="float:right">
+<p><a href="https://cppfx.xyz/esvcpp/esv_print.html">esv::print</a></p>
+</div>
+</div>
+</body>
+</html>

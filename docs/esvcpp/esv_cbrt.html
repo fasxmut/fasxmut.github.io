@@ -1,0 +1,127 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>esv::cbrt</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Esvcpp">
+<link rel="up" href="math.html" title="Math">
+<link rel="prev" href="esv_sqrt.html" title="esv::sqrt">
+<link rel="next" href="esv_pow2_3_5_7.html" title="esv::pow2/3/5/7">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="esv_sqrt.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="math.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="esv_pow2_3_5_7.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="esv_cbrt"></a>esv::cbrt</h2></div></div>
+<hr>
+</div>
+<p>
+        The smell of birds and flowers is better than the smell of wine.
+      </p>
+<h2>
+<a name="esv_cbrt.h0"></a>
+        <span class="phrase"><a name="esv_cbrt.role_cyan_esv_cbrt"></a></span><a class="link" href="esv_cbrt.html#esv_cbrt.role_cyan_esv_cbrt"><span class="cyan">esv::cbrt</span></a>
+      </h2>
+<p>
+        Calculate the cube root of value.
+      </p>
+<h4>
+<a name="esv_cbrt.h1"></a>
+        <span class="phrase"><a name="esv_cbrt.calling_sig"></a></span><a class="link" href="esv_cbrt.html#esv_cbrt.calling_sig">Calling
+        Sig:</a>
+      </h4>
+<pre class="programlisting"><span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">result</span> <span class="special">=</span> <span class="identifier">esv</span><span class="special">::</span><span class="identifier">cbrt</span><span class="special">(</span><span class="identifier">value</span><span class="special">);</span>
+</pre>
+<pre class="programlisting"><span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">result</span> <span class="special">=</span> <span class="identifier">esv</span><span class="special">::</span><span class="identifier">cbrt</span><span class="special">.</span><span class="identifier">fn</span><span class="special">&lt;</span><span class="identifier">return_type</span><span class="special">&gt;(</span><span class="identifier">value</span><span class="special">);</span>
+</pre>
+<p>
+        <span class="bold"><strong><span class="green">esv::cbrt(value)</span></strong></span>
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            It always returns a float value.
+          </li>
+<li class="listitem">
+            The returned float type is one of esv::f32, esv::f64, esv::f128, esv::fmax,
+            esv::fx32, esv::fx64, esv::fx128, esv::fxmax.
+          </li>
+<li class="listitem">
+            <span class="bold"><strong><span class="green">constexpr</span></strong></span>
+            support.
+          </li>
+</ul></div>
+<p>
+        <span class="bold"><strong><span class="green">esv::cbrt.fn&lt;return_type&gt;(value)</span></strong></span>
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+            The result is converted to return_type .
+          </li></ul></div>
+<h2>
+<a name="esv_cbrt.h2"></a>
+        <span class="phrase"><a name="esv_cbrt.role_cyan_header"></a></span><a class="link" href="esv_cbrt.html#esv_cbrt.role_cyan_header"><span class="cyan">Header</span></a>
+      </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">esvcpp</span><span class="special">/</span><span class="identifier">math</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+</pre>
+<h2>
+<a name="esv_cbrt.h3"></a>
+        <span class="phrase"><a name="esv_cbrt.role_cyan_example"></a></span><a class="link" href="esv_cbrt.html#esv_cbrt.role_cyan_example"><span class="cyan">Example</span></a>
+      </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">esvcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">esvcpp</span><span class="special">/</span><span class="identifier">math</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">x</span> <span class="special">=</span> <span class="identifier">esv</span><span class="special">::</span><span class="identifier">cbrt</span><span class="special">(-</span><span class="number">8</span><span class="special">);</span> <span class="comment">// return esv::f32</span>
+	<span class="identifier">esv</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="identifier">x</span><span class="special">);</span> <span class="comment">// -2.000000</span>
+
+	<span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">y</span> <span class="special">=</span> <span class="identifier">esv</span><span class="special">::</span><span class="identifier">cbrt</span><span class="special">(</span><span class="number">8.12f</span><span class="special">);</span> <span class="comment">// return esv::f32</span>
+	<span class="identifier">esv</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="identifier">y</span><span class="special">);</span> <span class="comment">// 2.009950</span>
+
+	<span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">z</span> <span class="special">=</span> <span class="identifier">esv</span><span class="special">::</span><span class="identifier">cbrt</span><span class="special">(-</span><span class="number">8.12</span><span class="special">);</span> <span class="comment">// return esv::f64</span>
+	<span class="identifier">esv</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="identifier">z</span><span class="special">);</span> <span class="comment">// -2.009950</span>
+
+	<span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">a</span> <span class="special">=</span> <span class="identifier">esv</span><span class="special">::</span><span class="identifier">cbrt</span><span class="special">(</span><span class="identifier">esv</span><span class="special">::</span><span class="identifier">ix32</span><span class="special">{</span><span class="number">8</span><span class="special">});</span> <span class="comment">// return esv::fx32</span>
+	<span class="identifier">esv</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="identifier">a</span><span class="special">);</span> <span class="comment">// 2.000000</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="esv_cbrt.h4"></a>
+        <span class="phrase"><a name="esv_cbrt.role_cyan_see_also"></a></span><a class="link" href="esv_cbrt.html#esv_cbrt.role_cyan_see_also"><span class="cyan">See Also</span></a>
+      </h2>
+<p>
+        <a class="link" href="esv_print.html" title="esv::print">esv::print</a>
+      </p>
+<p>
+        <a class="link" href="esv_sqrt.html" title="esv::sqrt">esv::sqrt</a>
+      </p>
+<p>
+        <a class="link" href="esv_fact.html" title="esv::fact">esv::fact</a>
+      </p>
+<p>
+        <a class="link" href="esv_i32.html" title="esv::i32">esv::i32</a>
+      </p>
+<p>
+        <a class="link" href="esv_ix32.html" title="esv::ix32">esv::ix32</a>
+      </p>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="esv_sqrt.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="math.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="esv_pow2_3_5_7.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div id="my_project_code" style="margin-left:auto;margin-right:auto;max-width:300px">
+<div style="float:right">
+<p><a href="https://cppfx.xyz/esvcpp/esv_print.html">esv::print</a></p>
+</div>
+</div>
+</body>
+</html>

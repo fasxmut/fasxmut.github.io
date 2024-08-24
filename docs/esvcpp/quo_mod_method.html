@@ -1,0 +1,101 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>.quo_mod method</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Esvcpp">
+<link rel="up" href="class_types.html" title="Class Types">
+<link rel="prev" href="ceil_method.html" title=".ceil method">
+<link rel="next" href="quo_method.html" title=".quo method">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="ceil_method.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="class_types.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="quo_method.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="quo_mod_method"></a>.quo_mod method</h2></div></div>
+<hr>
+</div>
+<p>
+          Man makes friend with fire.
+        </p>
+<h2>
+<a name="quo_mod_method.h0"></a>
+          <span class="phrase"><a name="quo_mod_method.role_cyan_quo_mod_member_functio"></a></span><a class="link" href="quo_mod_method.html#quo_mod_method.role_cyan_quo_mod_member_functio"><span class="cyan">.quo_mod member function of esv::class_type</span></a>
+        </h2>
+<p>
+          esv::class_type::quo_mod
+        </p>
+<p>
+          Method .quo_mod of esv::class_type is used to get the quotient and modulus
+          result of a value divided by another value. As the calculating of modulus
+          will also calculate the quotient value, if you need both of them, you can
+          use .quo_mod method, not .mod, which will save duplicated calculating.
+        </p>
+<p>
+          It returns esv::pair type to hold two values.
+        </p>
+<p>
+          Positive/Negative flag rules, a % b :
+        </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+              The flag of quotient is the same as a/b .
+            </li>
+<li class="listitem">
+              The flag of modulus is the same as a .
+            </li>
+</ul></div>
+<h2>
+<a name="quo_mod_method.h1"></a>
+          <span class="phrase"><a name="quo_mod_method.role_cyan_c_example"></a></span><a class="link" href="quo_mod_method.html#quo_mod_method.role_cyan_c_example"><span class="cyan">c++ example</span></a>
+        </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">esvcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">esv</span><span class="special">::</span><span class="identifier">ix32</span> <span class="identifier">a</span> <span class="special">=</span> <span class="special">-</span><span class="number">32</span><span class="special">;</span>
+	<span class="identifier">esv</span><span class="special">::</span><span class="identifier">pair</span><span class="special">&lt;</span><span class="identifier">esv</span><span class="special">::</span><span class="identifier">ix32</span><span class="special">,</span> <span class="identifier">esv</span><span class="special">::</span><span class="identifier">ix32</span><span class="special">&gt;</span> <span class="identifier">b</span> <span class="special">=</span> <span class="identifier">a</span><span class="special">.</span><span class="identifier">quo_mod</span><span class="special">(-</span><span class="number">7</span><span class="special">);</span>
+	<span class="identifier">esv</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="identifier">a</span><span class="special">.</span><span class="identifier">first</span><span class="special">,</span> <span class="identifier">a</span><span class="special">.</span><span class="identifier">second</span><span class="special">);</span>	<span class="comment">// 4 -4</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="quo_mod_method.h2"></a>
+          <span class="phrase"><a name="quo_mod_method.role_cyan_see_also"></a></span><a class="link" href="quo_mod_method.html#quo_mod_method.role_cyan_see_also"><span class="cyan">See Also</span></a>
+        </h2>
+<p>
+          <a class="link" href="mod_method.html" title=".mod method">.mod method</a>
+        </p>
+<p>
+          <a class="link" href="quo_method.html" title=".quo method">.quo method</a>
+        </p>
+<p>
+          <a class="link" href="esv_ix32.html" title="esv::ix32">esv::ix32</a>
+        </p>
+<p>
+          <a class="link" href="esv_pair.html" title="esv::pair">esv::pair</a>
+        </p>
+<p>
+          <a class="link" href="esv_print.html" title="esv::print">esv::print</a>
+        </p>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="ceil_method.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="class_types.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="quo_method.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div id="my_project_code" style="margin-left:auto;margin-right:auto;max-width:300px">
+<div style="float:right">
+<p><a href="https://cppfx.xyz/esvcpp/esv_print.html">esv::print</a></p>
+</div>
+</div>
+</body>
+</html>

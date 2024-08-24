@@ -1,0 +1,91 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>esv::fx64</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Esvcpp">
+<link rel="up" href="class_types.html" title="Class Types">
+<link rel="prev" href="esv_fx32.html" title="esv::fx32">
+<link rel="next" href="esv_fx128.html" title="esv::fx128">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="esv_fx32.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="class_types.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="esv_fx128.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="esv_fx64"></a>esv::fx64</h2></div></div>
+<hr>
+</div>
+<p>
+          The unexamined life is not worth living.
+        </p>
+<h2>
+<a name="esv_fx64.h0"></a>
+          <span class="phrase"><a name="esv_fx64.role_cyan_esv_fx64_esv_f64"></a></span><a class="link" href="esv_fx64.html#esv_fx64.role_cyan_esv_fx64_esv_f64"><span class="cyan">esv::fx64 - esv::f64</span></a>
+        </h2>
+<p>
+          esv::fx64 is the 64-bit floating point esv::class_type template alias,
+          aka. esv::class_type&lt;esv::f64&gt;. esv::fx64 is object-oriented class
+          type for double, it has all basic features of double, and it has its own
+          object-oriented features.
+        </p>
+<p>
+          esv::fx64 - esv::f64, the class type of esv::f64.
+        </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+              .value()
+            </li>
+<li class="listitem">
+              .value_ref()
+            </li>
+<li class="listitem">
+              .operator basic_type ()
+            </li>
+<li class="listitem">
+              .operator()()
+            </li>
+</ul></div>
+<h2>
+<a name="esv_fx64.h1"></a>
+          <span class="phrase"><a name="esv_fx64.role_cyan_c_example"></a></span><a class="link" href="esv_fx64.html#esv_fx64.role_cyan_c_example"><span class="cyan">c++ example</span></a>
+        </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">esvcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">constexpr</span> <span class="identifier">esv</span><span class="special">::</span><span class="identifier">fx64</span> <span class="identifier">x</span> <span class="special">=</span> <span class="number">1.25</span><span class="special">;</span>
+	<span class="identifier">esv</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="identifier">x</span><span class="special">,</span> <span class="identifier">x</span><span class="special">(),</span> <span class="identifier">x</span><span class="special">.</span><span class="identifier">value</span><span class="special">(),</span> <span class="identifier">x</span><span class="special">.</span><span class="identifier">value_ref</span><span class="special">());</span> <span class="comment">// 1.25 1.25 1.25 1.25</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="esv_fx64.h2"></a>
+          <span class="phrase"><a name="esv_fx64.role_cyan_see_also"></a></span><a class="link" href="esv_fx64.html#esv_fx64.role_cyan_see_also"><span class="cyan">See Also</span></a>
+        </h2>
+<p>
+          <a class="link" href="esv_fx32.html" title="esv::fx32">esv::fx32</a>
+        </p>
+<p>
+          <a class="link" href="esv_ix64.html" title="esv::ix64">esv::ix64</a>
+        </p>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="esv_fx32.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="class_types.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="esv_fx128.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div id="my_project_code" style="margin-left:auto;margin-right:auto;max-width:300px">
+<div style="float:right">
+<p><a href="https://cppfx.xyz/esvcpp/esv_print.html">esv::print</a></p>
+</div>
+</div>
+</body>
+</html>

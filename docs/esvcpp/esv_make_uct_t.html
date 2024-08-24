@@ -1,0 +1,117 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>esv::make_uct_t</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Esvcpp">
+<link rel="up" href="comparisons.html" title="Comparisons">
+<link rel="prev" href="esv_make_float_t.html" title="esv::make_float_t">
+<link rel="next" href="esv_make_unsigned_x_t.html" title="esv::make_unsigned_x_t">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="esv_make_float_t.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="comparisons.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="esv_make_unsigned_x_t.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="esv_make_uct_t"></a>esv::make_uct_t</h2></div></div>
+<hr>
+</div>
+<p>
+          The past does not exist, because it disappeared.
+        </p>
+<h2>
+<a name="esv_make_uct_t.h0"></a>
+          <span class="phrase"><a name="esv_make_uct_t.role_cyan_esv_make_uct_t"></a></span><a class="link" href="esv_make_uct_t.html#esv_make_uct_t.role_cyan_esv_make_uct_t"><span class="cyan">esv::make_uct_t</span></a>
+        </h2>
+<p>
+          esv::make_uct_t is used to get an already defined esv::class_type from
+          a basic type or uct type.
+        </p>
+<p>
+          esv::make_uct_t gets one of the folowing types:
+        </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+              esv::ix8
+            </li>
+<li class="listitem">
+              esv::ix16
+            </li>
+<li class="listitem">
+              esv::ix32
+            </li>
+<li class="listitem">
+              esv::ix64
+            </li>
+<li class="listitem">
+              esv::ixmax
+            </li>
+<li class="listitem">
+              esv::ux8
+            </li>
+<li class="listitem">
+              esv::ux16
+            </li>
+<li class="listitem">
+              esv::ux32
+            </li>
+<li class="listitem">
+              esv::ux64
+            </li>
+<li class="listitem">
+              esv::uxmax
+            </li>
+<li class="listitem">
+              esv::fx32
+            </li>
+<li class="listitem">
+              esv::fx64
+            </li>
+<li class="listitem">
+              esv::fx128
+            </li>
+<li class="listitem">
+              esv::fxmax
+            </li>
+</ul></div>
+<p>
+          Other definition of esv::class_type can not be got with esv::make_uct_t.
+        </p>
+<h2>
+<a name="esv_make_uct_t.h1"></a>
+          <span class="phrase"><a name="esv_make_uct_t.role_cyan_esv_make_uct_t_usage"></a></span><a class="link" href="esv_make_uct_t.html#esv_make_uct_t.role_cyan_esv_make_uct_t_usage"><span class="cyan">esv::make_uct_t Usage</span></a>
+        </h2>
+<pre class="programlisting"><span class="keyword">using</span> <span class="identifier">target_type</span> <span class="special">=</span> <span class="identifier">esv</span><span class="special">::</span><span class="identifier">make_uct_t</span><span class="special">&lt;</span><span class="identifier">source_basic_type</span><span class="special">&gt;;</span>
+<span class="keyword">using</span> <span class="identifier">target_type2</span> <span class="special">=</span> <span class="identifier">esv</span><span class="special">::</span><span class="identifier">make_uct_t</span><span class="special">&lt;</span><span class="identifier">esv</span><span class="special">::</span><span class="identifier">i32</span><span class="special">&gt;;</span> <span class="comment">// Get esv::ix32</span>
+</pre>
+<h2>
+<a name="esv_make_uct_t.h2"></a>
+          <span class="phrase"><a name="esv_make_uct_t.role_cyan_see_also"></a></span><a class="link" href="esv_make_uct_t.html#esv_make_uct_t.role_cyan_see_also"><span class="cyan">See Also</span></a>
+        </h2>
+<p>
+          <a class="link" href="esv_overflow_type.html" title="esv::overflow_type">esv::overflow_type</a>
+        </p>
+<p>
+          <a class="link" href="esv_real_meric.html" title="esv::real_meric">esv::real_meric</a>
+        </p>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="esv_make_float_t.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="comparisons.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="esv_make_unsigned_x_t.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div id="my_project_code" style="margin-left:auto;margin-right:auto;max-width:300px">
+<div style="float:right">
+<p><a href="https://cppfx.xyz/esvcpp/esv_print.html">esv::print</a></p>
+</div>
+</div>
+</body>
+</html>
