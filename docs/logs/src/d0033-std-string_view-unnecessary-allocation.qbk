@@ -1,0 +1,105 @@
+[article std::string_view avoid unnecessary allocation
+	[quickbook 1.7]
+]
+
+std::string_view avoid unnecessary memory allocation - Posted on Sep 11, 2024 - See [@https://en.cppreference.com/w/cpp/string/basic_string_view] - [@https://cppfx.xyz/logs Logs Home] - d0033
+
+c++
+
+[h1 [role cyan Using std::string_view to avoid unnecessary memory allocation]]
+
+[*std::string_view]
+
+* Lightweight - cheap to copy
+* non-owning - not responsible for memory allocation
+* read-only view
+
+[!c++]
+```
+#include <string_view>
+#include <vector>
+#include <string>
+
+namespace str
+{
+
+class str_dup
+{
+public:
+	void mp(const std::string &) {}
+	void np(const std::string_view) {}
+};
+
+}
+
+int main()
+{
+	const char * cpp_str = "c++ string";
+	const std::string std_str = "std::string";
+	const std::vector<char> v_str{':', ':', 'v'};
+	str::str_dup dup;
+	dup.mp(cpp_str);	// temp copy
+	dup.mp("c++ str");	// temp copy
+	dup.mp(std_str);	// no copy
+	dup.mp({v_str.begin(), v_str.end()});	// temp copy
+
+	dup.np(cpp_str);	// no copy
+	dup.np("c++ str");	// no copy
+	dup.np(std_str);	// no copy
+	dup.np({v_str.begin(), v_str.end()});	// no copy
+}
+```
+
+[h1 [role cyan std::string_view constructors accept:]]
+
+* A c++ string -
+	```
+	const char * str = "c++ string"
+	std::string_view v{str};
+	```
+* A c++ std string -
+	```
+	std::string str = "c++ std::string";
+	std::string_view v{str};
+	```
+* A c++ range -
+	```
+	std::vector<char> vector{'H', 'i', 'w', 'd'};
+	std::string_view v{vector.begin(), vector.end()};
+	```
+* Another std::string_view -
+	```
+	std::string_view v1{"c++ string"};
+	std::string_view v2{v1};
+	```
+
+[h1 [role cyan std::string constructor does not accept std::string_view]]
+
+That's a vicious circle.
+
+[!c++]
+```
+#include <string_view>
+#include <string>
+#include <iostream>
+
+int main()
+{
+	std::string str = "c++ string";
+	std::string_view v;
+	v = str;
+	str = v;
+	//std::string v3 = v;	// error
+	std::string s2 = v.data();	// OK
+	v = s2.data();
+	std::cout << "v=>" << v << std::endl;
+	std::cout << "s2=>" << s2 << std::endl;
+}
+```
+
+[h1 [role cyan See Also]]
+
+[@https://cppfx.xyz/logs/std_views_zip_to_transpose_matri.html std::views::zip]
+
+
+

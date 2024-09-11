@@ -38,10 +38,12 @@ progs =
 	d0016_cobalt_main_entry_points
 ;
 
+#|
 for prog in $(progs)
 {
 	exe $(prog) : $(prog).cpp ;
 }
+|#
 
 
 

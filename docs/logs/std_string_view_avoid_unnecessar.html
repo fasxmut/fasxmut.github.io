@@ -1,0 +1,168 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>std::string_view avoid unnecessary allocation</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="logs - Blogs or News">
+<link rel="up" href="index.html" title="logs - Blogs or News">
+<link rel="prev" href="index.html" title="logs - Blogs or News">
+<link rel="next" href="sycl_buffer.html" title="sycl::buffer">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="sycl_buffer.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="std_string_view_avoid_unnecessar"></a>std::string_view avoid unnecessary allocation</h1></div></div>
+<hr>
+</div>
+<p>
+      std::string_view avoid unnecessary memory allocation - Posted on Sep 11, 2024
+      - See <a href="https://en.cppreference.com/w/cpp/string/basic_string_view" target="_top">https://en.cppreference.com/w/cpp/string/basic_string_view</a>
+      - <a href="https://cppfx.xyz/logs" target="_top">Logs Home</a> - d0033
+    </p>
+<p>
+      c++
+    </p>
+<h2>
+<a name="std_string_view_avoid_unnecessar.h0"></a>
+      <span class="phrase"><a name="std_string_view_avoid_unnecessar.role_cyan_using_std_string_view_"></a></span><a class="link" href="std_string_view_avoid_unnecessar.html#std_string_view_avoid_unnecessar.role_cyan_using_std_string_view_"><span class="cyan">Using std::string_view to avoid unnecessary memory allocation</span></a>
+    </h2>
+<p>
+      <span class="bold"><strong>std::string_view</strong></span>
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          Lightweight - cheap to copy
+        </li>
+<li class="listitem">
+          non-owning - not responsible for memory allocation
+        </li>
+<li class="listitem">
+          read-only view
+        </li>
+</ul></div>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">string_view</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">vector</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">string</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">str</span>
+<span class="special">{</span>
+
+<span class="keyword">class</span> <span class="identifier">str_dup</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">void</span> <span class="identifier">mp</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="special">&amp;)</span> <span class="special">{}</span>
+	<span class="keyword">void</span> <span class="identifier">np</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string_view</span><span class="special">)</span> <span class="special">{}</span>
+<span class="special">};</span>
+
+<span class="special">}</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">const</span> <span class="keyword">char</span> <span class="special">*</span> <span class="identifier">cpp_str</span> <span class="special">=</span> <span class="string">"c++ string"</span><span class="special">;</span>
+	<span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">std_str</span> <span class="special">=</span> <span class="string">"std::string"</span><span class="special">;</span>
+	<span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">char</span><span class="special">&gt;</span> <span class="identifier">v_str</span><span class="special">{</span><span class="char">':'</span><span class="special">,</span> <span class="char">':'</span><span class="special">,</span> <span class="char">'v'</span><span class="special">};</span>
+	<span class="identifier">str</span><span class="special">::</span><span class="identifier">str_dup</span> <span class="identifier">dup</span><span class="special">;</span>
+	<span class="identifier">dup</span><span class="special">.</span><span class="identifier">mp</span><span class="special">(</span><span class="identifier">cpp_str</span><span class="special">);</span>	<span class="comment">// temp copy</span>
+	<span class="identifier">dup</span><span class="special">.</span><span class="identifier">mp</span><span class="special">(</span><span class="string">"c++ str"</span><span class="special">);</span>	<span class="comment">// temp copy</span>
+	<span class="identifier">dup</span><span class="special">.</span><span class="identifier">mp</span><span class="special">(</span><span class="identifier">std_str</span><span class="special">);</span>	<span class="comment">// no copy</span>
+	<span class="identifier">dup</span><span class="special">.</span><span class="identifier">mp</span><span class="special">({</span><span class="identifier">v_str</span><span class="special">.</span><span class="identifier">begin</span><span class="special">(),</span> <span class="identifier">v_str</span><span class="special">.</span><span class="identifier">end</span><span class="special">()});</span>	<span class="comment">// temp copy</span>
+
+	<span class="identifier">dup</span><span class="special">.</span><span class="identifier">np</span><span class="special">(</span><span class="identifier">cpp_str</span><span class="special">);</span>	<span class="comment">// no copy</span>
+	<span class="identifier">dup</span><span class="special">.</span><span class="identifier">np</span><span class="special">(</span><span class="string">"c++ str"</span><span class="special">);</span>	<span class="comment">// no copy</span>
+	<span class="identifier">dup</span><span class="special">.</span><span class="identifier">np</span><span class="special">(</span><span class="identifier">std_str</span><span class="special">);</span>	<span class="comment">// no copy</span>
+	<span class="identifier">dup</span><span class="special">.</span><span class="identifier">np</span><span class="special">({</span><span class="identifier">v_str</span><span class="special">.</span><span class="identifier">begin</span><span class="special">(),</span> <span class="identifier">v_str</span><span class="special">.</span><span class="identifier">end</span><span class="special">()});</span>	<span class="comment">// no copy</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="std_string_view_avoid_unnecessar.h1"></a>
+      <span class="phrase"><a name="std_string_view_avoid_unnecessar.role_cyan_std_string_view_constr"></a></span><a class="link" href="std_string_view_avoid_unnecessar.html#std_string_view_avoid_unnecessar.role_cyan_std_string_view_constr"><span class="cyan">std::string_view constructors accept:</span></a>
+    </h2>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p class="simpara">
+          A c++ string -
+        </p>
+<pre class="programlisting"><span class="keyword">const</span> <span class="keyword">char</span> <span class="special">*</span> <span class="identifier">str</span> <span class="special">=</span> <span class="string">"c++ string"</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">string_view</span> <span class="identifier">v</span><span class="special">{</span><span class="identifier">str</span><span class="special">};</span>
+</pre>
+</li>
+<li class="listitem">
+<p class="simpara">
+          A c++ std string -
+        </p>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">str</span> <span class="special">=</span> <span class="string">"c++ std::string"</span><span class="special">;</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">string_view</span> <span class="identifier">v</span><span class="special">{</span><span class="identifier">str</span><span class="special">};</span>
+</pre>
+</li>
+<li class="listitem">
+<p class="simpara">
+          A c++ range -
+        </p>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">char</span><span class="special">&gt;</span> <span class="identifier">vector</span><span class="special">{</span><span class="char">'H'</span><span class="special">,</span> <span class="char">'i'</span><span class="special">,</span> <span class="char">'w'</span><span class="special">,</span> <span class="char">'d'</span><span class="special">};</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">string_view</span> <span class="identifier">v</span><span class="special">{</span><span class="identifier">vector</span><span class="special">.</span><span class="identifier">begin</span><span class="special">(),</span> <span class="identifier">vector</span><span class="special">.</span><span class="identifier">end</span><span class="special">()};</span>
+</pre>
+</li>
+<li class="listitem">
+<p class="simpara">
+          Another std::string_view -
+        </p>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">string_view</span> <span class="identifier">v1</span><span class="special">{</span><span class="string">"c++ string"</span><span class="special">};</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">string_view</span> <span class="identifier">v2</span><span class="special">{</span><span class="identifier">v1</span><span class="special">};</span>
+</pre>
+</li>
+</ul></div>
+<h2>
+<a name="std_string_view_avoid_unnecessar.h2"></a>
+      <span class="phrase"><a name="std_string_view_avoid_unnecessar.role_cyan_std_string_constructor"></a></span><a class="link" href="std_string_view_avoid_unnecessar.html#std_string_view_avoid_unnecessar.role_cyan_std_string_constructor"><span class="cyan">std::string constructor does not accept std::string_view</span></a>
+    </h2>
+<p>
+      That's a vicious circle.
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">string_view</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">string</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">str</span> <span class="special">=</span> <span class="string">"c++ string"</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">string_view</span> <span class="identifier">v</span><span class="special">;</span>
+	<span class="identifier">v</span> <span class="special">=</span> <span class="identifier">str</span><span class="special">;</span>
+	<span class="identifier">str</span> <span class="special">=</span> <span class="identifier">v</span><span class="special">;</span>
+	<span class="comment">//std::string v3 = v;	// error</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">s2</span> <span class="special">=</span> <span class="identifier">v</span><span class="special">.</span><span class="identifier">data</span><span class="special">();</span>	<span class="comment">// OK</span>
+	<span class="identifier">v</span> <span class="special">=</span> <span class="identifier">s2</span><span class="special">.</span><span class="identifier">data</span><span class="special">();</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"v=&gt;"</span> <span class="special">&lt;&lt;</span> <span class="identifier">v</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"s2=&gt;"</span> <span class="special">&lt;&lt;</span> <span class="identifier">s2</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="std_string_view_avoid_unnecessar.h3"></a>
+      <span class="phrase"><a name="std_string_view_avoid_unnecessar.role_cyan_see_also"></a></span><a class="link" href="std_string_view_avoid_unnecessar.html#std_string_view_avoid_unnecessar.role_cyan_see_also"><span class="cyan">See Also</span></a>
+    </h2>
+<p>
+      <a href="https://cppfx.xyz/logs/std_views_zip_to_transpose_matri.html" target="_top">std::views::zip</a>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="sycl_buffer.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="footnp" style="margin-left:auto;margin-right:auto;max-width:300px">
+<div style="float:right">
+<p><a href="https://cppfx.xyz/utxcpp/utx_print.html">utx::print</a></p>
+</div>
+</div>
+<div class="footnp" style="margin-left:auto;margin-right:auto;max-width:300px">
+<div style="float:left">
+<p><a href="https://cppfx.xyz/esvcpp/esv_print.html">esv::print</a></p>
+</div>
+</div>
+</body>
+</html>
