@@ -73,9 +73,13 @@ int main()
 	std::string_view v2{v1};
 	```
 
-[h1 [role cyan std::string constructor does not accept std::string_view]]
+[h1 [role cyan std::string constructor and std::string_view]]
 
-That's a vicious circle.
+```
+std::string_view sv = "c++ string";
+std::string s1{sv};	// OK
+std::string s2 = sv;	// error
+```
 
 [!c++]
 ```
@@ -90,6 +94,7 @@ int main()
 	v = str;
 	str = v;
 	//std::string v3 = v;	// error
+	std::string v4{v};	// OK
 	std::string s2 = v.data();	// OK
 	v = s2.data();
 	std::cout << "v=>" << v << std::endl;
