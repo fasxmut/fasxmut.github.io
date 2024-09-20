@@ -9,6 +9,7 @@
 [include day05-class-attributes.qbk]
 [include day06-private-protected-public.qbk]
 [include day07-inheritance.qbk]
+[include day08-constructors-destructor-overload.qbk]
 
 [h1 [role cyan cpp Tutorial: Learn cpp in days]]
 

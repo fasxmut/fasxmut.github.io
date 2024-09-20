@@ -1,0 +1,223 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>day-04: cpp object oriented</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Learn cpp in days">
+<link rel="up" href="index.html" title="Learn cpp in days">
+<link rel="prev" href="day_03_std_string.html" title="day-03: std::string">
+<link rel="next" href="day_05_cpp_class_attribute.html" title="day-05: cpp class attribute">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="day_03_std_string.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="day_05_cpp_class_attribute.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="day_04_cpp_object_oriented"></a>day-04: cpp object oriented</h1></div></div>
+<hr>
+</div>
+<h2>
+<a name="day_04_cpp_object_oriented.h0"></a>
+      <span class="phrase"><a name="day_04_cpp_object_oriented.role_cyan_cpp_object_oriented_pr"></a></span><a class="link" href="day_04_cpp_object_oriented.html#day_04_cpp_object_oriented.role_cyan_cpp_object_oriented_pr"><span class="cyan">cpp object oriented programming</span></a>
+    </h2>
+<p>
+      cpp/c++ object oriented programming
+    </p>
+<h3>
+<a name="day_04_cpp_object_oriented.h1"></a>
+      <span class="phrase"><a name="day_04_cpp_object_oriented.cpp_object_oriented"></a></span><a class="link" href="day_04_cpp_object_oriented.html#day_04_cpp_object_oriented.cpp_object_oriented">cpp
+      object oriented</a>
+    </h3>
+<p>
+      cpp/c++ object oriented programming treats the real world entities set as a
+      whole concept, and then creates many objects according that concept.
+    </p>
+<h3>
+<a name="day_04_cpp_object_oriented.h2"></a>
+      <span class="phrase"><a name="day_04_cpp_object_oriented.cpp_class"></a></span><a class="link" href="day_04_cpp_object_oriented.html#day_04_cpp_object_oriented.cpp_class">cpp
+      class</a>
+    </h3>
+<p>
+      The concept of the entities set is called class in c++, by keyword <span class="bold"><strong>class</strong></span> .
+    </p>
+<h3>
+<a name="day_04_cpp_object_oriented.h3"></a>
+      <span class="phrase"><a name="day_04_cpp_object_oriented.cpp_object"></a></span><a class="link" href="day_04_cpp_object_oriented.html#day_04_cpp_object_oriented.cpp_object">cpp
+      object</a>
+    </h3>
+<p>
+      Every entity created by c++ class is called object.
+    </p>
+<h3>
+<a name="day_04_cpp_object_oriented.h4"></a>
+      <span class="phrase"><a name="day_04_cpp_object_oriented.object_oriented_features"></a></span><a class="link" href="day_04_cpp_object_oriented.html#day_04_cpp_object_oriented.object_oriented_features">object
+      oriented features</a>
+    </h3>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          <span class="bold"><strong>Inheritance</strong></span> - A c++ class can inherit
+          another class B, we say <em class="replaceable"><code>"A is derived from B"</code></em>
+          .
+        </li>
+<li class="listitem">
+          <span class="bold"><strong>Encapsulation</strong></span> - c++ class has three kind
+          of access control: <em class="replaceable"><code>private, protected, public</code></em>,
+          the sensitive data can be made hidden by private or protected .
+        </li>
+<li class="listitem">
+          <span class="bold"><strong>Polymorphism</strong></span> - c++ polymorphism is a language
+          skill that makes a single action to have the ability to perform many different
+          tasks.
+        </li>
+<li class="listitem">
+          <span class="bold"><strong>Attributes</strong></span> - c++ class attributes are
+          data members, which are the variables the class owns.
+        </li>
+<li class="listitem">
+          <span class="bold"><strong>Method</strong></span> - A method is an action which the
+          c++ class owns.
+        </li>
+<li class="listitem">
+          <span class="bold"><strong>Constructor</strong></span> - A c++ construtor is an action
+          too, which is executed when an object is created by it.
+        </li>
+<li class="listitem">
+          <span class="bold"><strong>Destrutor</strong></span> - A c++ destructor is an action
+          too, which is executed when an object of the class is destroyed.
+        </li>
+</ul></div>
+<h2>
+<a name="day_04_cpp_object_oriented.h5"></a>
+      <span class="phrase"><a name="day_04_cpp_object_oriented.role_cyan_start_from_example"></a></span><a class="link" href="day_04_cpp_object_oriented.html#day_04_cpp_object_oriented.role_cyan_start_from_example"><span class="cyan">Start
+      from example</span></a>
+    </h2>
+<p>
+      Save code as <span class="bold"><strong>chat-robot.cpp</strong></span>
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">string</span><span class="special">&gt;</span>
+
+<span class="comment">// This is a comment line.</span>
+
+<span class="keyword">class</span> <span class="identifier">chat_robot</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">void</span> <span class="identifier">speak</span><span class="special">()</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Hello, I am a chat robot, please talk to me."</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">chat_robot</span> <span class="identifier">robot_no_1</span><span class="special">;</span>
+	<span class="identifier">robot_no_1</span><span class="special">.</span><span class="identifier">speak</span><span class="special">();</span>
+
+	<span class="keyword">auto</span> <span class="identifier">robot_no_2</span> <span class="special">=</span> <span class="identifier">chat_robot</span><span class="special">{};</span>
+	<span class="identifier">robot_no_2</span><span class="special">.</span><span class="identifier">speak</span><span class="special">();</span>
+<span class="special">}</span>
+</pre>
+<p>
+      Compile and run:
+    </p>
+<pre class="programlisting">$ g++ chat-robot.cpp -std=c++23 -o chat-robot
+$ ./chat-robot
+Hello, I am a chat robot, please talk to me.
+Hello, I am a chat robot, please talk to me.
+</pre>
+<h3>
+<a name="day_04_cpp_object_oriented.h6"></a>
+      <span class="phrase"><a name="day_04_cpp_object_oriented.class_definition"></a></span><a class="link" href="day_04_cpp_object_oriented.html#day_04_cpp_object_oriented.class_definition">class
+      definition</a>
+    </h3>
+<p>
+      You can see that, the program has a class, its name is <span class="blue">chat_robot</span>
+      .
+    </p>
+<p>
+      The class <span class="blue">chat_robot</span> has a method: <span class="blue">speak</span>
+      .
+    </p>
+<h3>
+<a name="day_04_cpp_object_oriented.h7"></a>
+      <span class="phrase"><a name="day_04_cpp_object_oriented.object_definition"></a></span><a class="link" href="day_04_cpp_object_oriented.html#day_04_cpp_object_oriented.object_definition">object
+      definition</a>
+    </h3>
+<p>
+      Object definition, can be also called object creation.
+    </p>
+<pre class="programlisting"><span class="identifier">chat_robot</span> <span class="identifier">robot_no_1</span><span class="special">;</span>
+
+<span class="keyword">auto</span> <span class="identifier">robot_no_2</span> <span class="special">=</span> <span class="identifier">chat_robot</span><span class="special">{};</span>
+</pre>
+<p>
+      In this example, two ways are used to create object of the class <span class="blue">chat_robot</span>
+      as above. Two objects are created: <span class="blue">robot_no_1</span>,
+      and <span class="blue">robot_no_2</span> .
+    </p>
+<p>
+      The word <span class="bold"><strong>auto</strong></span> is very powerful and simple
+      in c++ .
+    </p>
+<h3>
+<a name="day_04_cpp_object_oriented.h8"></a>
+      <span class="phrase"><a name="day_04_cpp_object_oriented.method_calling"></a></span><a class="link" href="day_04_cpp_object_oriented.html#day_04_cpp_object_oriented.method_calling">Method
+      calling</a>
+    </h3>
+<pre class="programlisting"><span class="identifier">robot_no_1</span><span class="special">.</span><span class="identifier">speak</span><span class="special">();</span>
+</pre>
+<p>
+      The above code shows how to call the method <span class="bold"><strong>.speak()</strong></span>
+      with the object <span class="bold"><strong>robot_no_1</strong></span> .
+    </p>
+<h2>
+<a name="day_04_cpp_object_oriented.h9"></a>
+      <span class="phrase"><a name="day_04_cpp_object_oriented.role_cyan_last"></a></span><a class="link" href="day_04_cpp_object_oriented.html#day_04_cpp_object_oriented.role_cyan_last"><span class="cyan">Last</span></a>
+    </h2>
+<p>
+      You might read many information about c++ class from this article, but please
+      do not feel stress. You only need to focus on the features that the example
+      shows, and other information can be ignored and will be explained in next articles.
+      As the example demonstrates, <span class="bold"><strong>you only need to focus on
+      four points from this article</strong></span>:
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          class definition
+        </li>
+<li class="listitem">
+          Simple method definition
+        </li>
+<li class="listitem">
+          Object creation
+        </li>
+<li class="listitem">
+          Call method
+        </li>
+</ul></div>
+<p>
+      And at last, please care and remember the word <span class="blue">auto</span>,
+      you do not have to understand auto now .
+    </p>
+<p>
+      <em class="replaceable"><code>Written on Aug 04, 2024</code></em>
+    </p>
+<h2>
+<a name="day_04_cpp_object_oriented.h10"></a>
+      <span class="phrase"><a name="day_04_cpp_object_oriented.role_cyan_back_to_index"></a></span><a class="link" href="day_04_cpp_object_oriented.html#day_04_cpp_object_oriented.role_cyan_back_to_index"><span class="cyan">Back to index</span></a>
+    </h2>
+<p>
+      <a href="." target="_top">Index</a>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="day_03_std_string.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="day_05_cpp_class_attribute.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

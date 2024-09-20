@@ -1,0 +1,191 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>day-08: constructors, overload</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Learn cpp in days">
+<link rel="up" href="index.html" title="Learn cpp in days">
+<link rel="prev" href="day_07_cpp_class_inheritance.html" title="day-07: cpp class: Inheritance">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="day_07_cpp_class_inheritance.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="day_08_constructors_overload"></a>day-08: constructors, overload</h1></div></div>
+<hr>
+</div>
+<h2>
+<a name="day_08_constructors_overload.h0"></a>
+      <span class="phrase"><a name="day_08_constructors_overload.role_cyan_cpp_class_constructors"></a></span><a class="link" href="day_08_constructors_overload.html#day_08_constructors_overload.role_cyan_cpp_class_constructors"><span class="cyan">cpp class: constructors, destructor, overload</span></a>
+    </h2>
+<p>
+      c++ class: constructors, destructor, overload
+    </p>
+<h2>
+<a name="day_08_constructors_overload.h1"></a>
+      <span class="phrase"><a name="day_08_constructors_overload.role_cyan_constructors"></a></span><a class="link" href="day_08_constructors_overload.html#day_08_constructors_overload.role_cyan_constructors"><span class="cyan">Constructors</span></a>
+    </h2>
+<p>
+      A class has one or more constructors, which defines how the object is created:
+    </p>
+<pre class="programlisting"><span class="keyword">class</span> <span class="identifier">one_class</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">one_class</span><span class="special">()</span>	<span class="comment">// constructor 1</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"one_class 1\n"</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="identifier">one_class</span><span class="special">(</span><span class="keyword">int</span> <span class="identifier">x</span><span class="special">)</span>	<span class="comment">// constructor 2</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"one_class 2\n"</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+</pre>
+<p>
+      The above class one_class has defined two constructors.
+    </p>
+<p>
+      Then you can create the object like this:
+    </p>
+<pre class="programlisting"><span class="keyword">auto</span> <span class="identifier">obj</span> <span class="special">=</span> <span class="identifier">one_class</span><span class="special">{};</span>	<span class="comment">// This will call constructor 1</span>
+</pre>
+<pre class="programlisting"><span class="keyword">auto</span> <span class="identifier">obj2</span> <span class="special">=</span> <span class="identifier">one_class</span><span class="special">{</span><span class="number">33</span><span class="special">};</span>	<span class="comment">// This will call constructor 2</span>
+</pre>
+<p>
+      If a class has not explicitly defined a constructor, it "hiddenly"
+      defines an implicit constructor, so a class always has a constructor. Such
+      as:
+    </p>
+<pre class="programlisting"><span class="keyword">class</span> <span class="identifier">one2_class</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+<span class="special">};</span>
+</pre>
+<p>
+      Although one2_class has not defined a constructor (explicitly), it still has
+      an implicit constructor.
+    </p>
+<p>
+      Then:
+    </p>
+<pre class="programlisting"><span class="keyword">auto</span> <span class="identifier">obj3</span> <span class="special">=</span> <span class="identifier">one2_class</span><span class="special">{};</span>	<span class="comment">// This calls implicit constructor of one2_class.</span>
+</pre>
+<h2>
+<a name="day_08_constructors_overload.h2"></a>
+      <span class="phrase"><a name="day_08_constructors_overload.role_cyan_destructor"></a></span><a class="link" href="day_08_constructors_overload.html#day_08_constructors_overload.role_cyan_destructor"><span class="cyan">Destructor</span></a>
+    </h2>
+<p>
+      A class has only one destructor, which defines what is did when the object
+      is destroyed. Such as:
+    </p>
+<pre class="programlisting"><span class="keyword">class</span> <span class="identifier">one3_class</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="special">~</span><span class="identifier">one3_class</span><span class="special">()</span>	<span class="comment">// A destructor begins with mark ~</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Destroyed!"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+</pre>
+<p>
+      A class always has a destructor, if the destructor is not explicitly defined,
+      it has an implicit destructor.
+    </p>
+<pre class="programlisting"><span class="keyword">class</span> <span class="identifier">one3_class</span>
+<span class="special">{</span>
+<span class="special">};</span>	<span class="comment">// one3_class still has an implicit destructor, even you have not explicitly defined its destructor.</span>
+</pre>
+<p>
+      So c++ class always has and only has one destructor.
+    </p>
+<h2>
+<a name="day_08_constructors_overload.h3"></a>
+      <span class="phrase"><a name="day_08_constructors_overload.role_cyan_cpp_overload"></a></span><a class="link" href="day_08_constructors_overload.html#day_08_constructors_overload.role_cyan_cpp_overload"><span class="cyan">cpp overload</span></a>
+    </h2>
+<h3>
+<a name="day_08_constructors_overload.h4"></a>
+      <span class="phrase"><a name="day_08_constructors_overload.constructor_overloading"></a></span><a class="link" href="day_08_constructors_overload.html#day_08_constructors_overload.constructor_overloading">Constructor
+      overloading</a>
+    </h3>
+<p>
+      One c++ class can have more than one constructors, we can also call them constructor
+      overloading.
+    </p>
+<p>
+      The above section of this artcile has already used the constructor overloading.
+    </p>
+<pre class="programlisting"><span class="keyword">class</span> <span class="identifier">one_class</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">one_class</span><span class="special">()</span>		<span class="comment">// constructor overloading</span>
+	<span class="special">{</span>
+	<span class="special">}</span>
+	<span class="identifier">one_class</span><span class="special">(</span><span class="keyword">int</span> <span class="identifier">x</span><span class="special">)</span>		<span class="comment">// constructor overloading</span>
+	<span class="special">{</span>
+	<span class="special">}</span>
+	<span class="identifier">one_class</span><span class="special">(</span><span class="keyword">float</span> <span class="identifier">x</span><span class="special">)</span>		<span class="comment">// constructor overloading</span>
+	<span class="special">{</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+</pre>
+<h3>
+<a name="day_08_constructors_overload.h5"></a>
+      <span class="phrase"><a name="day_08_constructors_overload.class_method_overloading"></a></span><a class="link" href="day_08_constructors_overload.html#day_08_constructors_overload.class_method_overloading">class
+      method overloading</a>
+    </h3>
+<p>
+      c++ class method can be overloaded too, that is implemented by using the same
+      method name for more than one times of the same class.
+    </p>
+<pre class="programlisting"><span class="keyword">class</span> <span class="identifier">one4_class</span>
+<span class="special">{</span>
+<span class="keyword">private</span><span class="special">:</span>
+	<span class="keyword">int</span> <span class="identifier">x</span><span class="special">;</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">void</span> <span class="identifier">set</span><span class="special">()</span>	<span class="comment">// method overloading</span>
+	<span class="special">{</span>
+		<span class="identifier">x</span> <span class="special">=</span> <span class="number">0</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="keyword">void</span> <span class="identifier">set</span><span class="special">(</span><span class="keyword">int</span> <span class="identifier">x1</span><span class="special">)</span>	<span class="comment">// method overloading</span>
+	<span class="special">{</span>
+		<span class="identifier">x</span> <span class="special">=</span> <span class="identifier">x1</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="keyword">void</span> <span class="identifier">set</span><span class="special">(</span><span class="keyword">float</span> <span class="identifier">x1</span><span class="special">)</span>	<span class="comment">// method overloading</span>
+	<span class="special">{</span>
+		<span class="identifier">x</span> <span class="special">=</span> <span class="keyword">static_cast</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;(</span><span class="identifier">x1</span><span class="special">)</span> <span class="special">+</span> <span class="number">0.5</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+</pre>
+<p>
+      By the way, static_cast is a c++ operator, which casts a value from one type
+      to another type.
+    </p>
+<p>
+      For example, it converts 4.32 to 4:
+    </p>
+<pre class="programlisting"><span class="keyword">auto</span> <span class="identifier">r</span> <span class="special">=</span> <span class="keyword">static_cast</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;(</span><span class="number">4.32</span><span class="special">);</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">r</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>	<span class="comment">// r is 4 now</span>
+</pre>
+<p>
+      <em class="replaceable"><code>Written on Sep 20, 2024</code></em>
+    </p>
+<h2>
+<a name="day_08_constructors_overload.h6"></a>
+      <span class="phrase"><a name="day_08_constructors_overload.role_cyan_back_to_index"></a></span><a class="link" href="day_08_constructors_overload.html#day_08_constructors_overload.role_cyan_back_to_index"><span class="cyan">Back to index</span></a>
+    </h2>
+<p>
+      <a href="." target="_top">Index</a>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="day_07_cpp_class_inheritance.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+</body>
+</html>

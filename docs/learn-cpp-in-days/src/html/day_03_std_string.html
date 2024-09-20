@@ -1,0 +1,234 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>day-03: std::string</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Learn cpp in days">
+<link rel="up" href="index.html" title="Learn cpp in days">
+<link rel="prev" href="day_02_std_cout.html" title="day-02: std::cout">
+<link rel="next" href="day_04_cpp_object_oriented.html" title="day-04: cpp object oriented">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="day_02_std_cout.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="day_04_cpp_object_oriented.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="day_03_std_string"></a>day-03: std::string</h1></div></div>
+<hr>
+</div>
+<h2>
+<a name="day_03_std_string.h0"></a>
+      <span class="phrase"><a name="day_03_std_string.role_cyan_cpp_std_string"></a></span><a class="link" href="day_03_std_string.html#day_03_std_string.role_cyan_cpp_std_string"><span class="cyan">cpp std::string</span></a>
+    </h2>
+<p>
+      cpp/c++ std::string
+    </p>
+<h2>
+<a name="day_03_std_string.h1"></a>
+      <span class="phrase"><a name="day_03_std_string.role_cyan_let_s_see_cpp_code_fir"></a></span><a class="link" href="day_03_std_string.html#day_03_std_string.role_cyan_let_s_see_cpp_code_fir"><span class="cyan">let's see cpp code first</span></a>
+    </h2>
+<p>
+      Let's see c++ code first
+    </p>
+<p>
+      <span class="bold"><strong>Code</strong></span>
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">string</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">str</span> <span class="special">=</span> <span class="string">"This is a string"</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">str</span> <span class="special">&lt;&lt;</span> <span class="char">'\n'</span> <span class="special">&lt;&lt;</span> <span class="identifier">str</span><span class="special">.</span><span class="identifier">size</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+
+	<span class="identifier">str</span> <span class="special">=</span> <span class="string">"A string"</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">str</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span> <span class="special">&lt;&lt;</span> <span class="identifier">str</span><span class="special">.</span><span class="identifier">size</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="string">"\n"</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="day_03_std_string.h2"></a>
+      <span class="phrase"><a name="day_03_std_string.role_cyan_analysis"></a></span><a class="link" href="day_03_std_string.html#day_03_std_string.role_cyan_analysis"><span class="cyan">analysis</span></a>
+    </h2>
+<h3>
+<a name="day_03_std_string.h3"></a>
+      <span class="phrase"><a name="day_03_std_string.cpp_string"></a></span><a class="link" href="day_03_std_string.html#day_03_std_string.cpp_string">cpp
+      string</a>
+    </h3>
+<p>
+      You have learned from <a class="link" href="day_02_std_cout.html" title="day-02: std::cout">day-02</a> that you
+      can print a string using std::cout:
+    </p>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Hello World c++!"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+</pre>
+<p>
+      The c++ string is sent to <span class="green">operator&lt;&lt;</span> as
+      its second parameter, and printed with <span class="bold"><strong>std::cout</strong></span>
+      . What is <span class="green">operator&lt;&lt;</span> ? it has been explained
+      at <a class="link" href="day_02_std_cout.html" title="day-02: std::cout">day-02</a> too.
+    </p>
+<h3>
+<a name="day_03_std_string.h4"></a>
+      <span class="phrase"><a name="day_03_std_string.std_string"></a></span><a class="link" href="day_03_std_string.html#day_03_std_string.std_string">std::string</a>
+    </h3>
+<h4>
+<a name="day_03_std_string.h5"></a>
+      <span class="phrase"><a name="day_03_std_string.blow"></a></span><a class="link" href="day_03_std_string.html#day_03_std_string.blow">Blow</a>
+    </h4>
+<p>
+      Did you have thought a question: How to code if I want to save a string at
+      some place in the program instead of printing the string?
+    </p>
+<p>
+      std::string is the answer, it can create an object, and store the <em class="replaceable"><code>string</code></em>
+      into the object, without printing the string immediately.
+    </p>
+<h4>
+<a name="day_03_std_string.h6"></a>
+      <span class="phrase"><a name="day_03_std_string.blow0"></a></span><a class="link" href="day_03_std_string.html#day_03_std_string.blow0">Blow</a>
+    </h4>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">str</span> <span class="special">=</span> <span class="string">"This is a string"</span><span class="special">;</span>
+</pre>
+<p>
+      In this line, create an object named <span class="bold"><strong>str</strong></span> using
+      <span class="bold"><strong>std::string</strong></span>, and then store "This is
+      a string" into the <span class="bold"><strong>str</strong></span> .
+    </p>
+<p>
+      <span class="bold"><strong>Object</strong></span> - Like <span class="bold"><strong>std::cout</strong></span>,
+      which is an object; <span class="bold"><strong>str</strong></span> is an object too.
+      One difference of them is that the object <span class="bold"><strong>std::cout</strong></span>
+      is already created by the c++ system, but the object <span class="bold"><strong>str</strong></span>
+      is created by you.
+    </p>
+<p>
+      <span class="bold"><strong>variable</strong></span> - <span class="bold"><strong>str</strong></span>
+      is an object, it has a name: <span class="bold"><strong>str</strong></span>, we can also
+      call it a variable.
+    </p>
+<p>
+      <span class="bold"><strong>Initialize</strong></span> - Just like this line, when storing
+      value on the same sentence as the variable is created, we call it <span class="bold"><strong>initialize</strong></span>.
+    </p>
+<p>
+      You can also create an object or variable without initializing:
+    </p>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">str2</span><span class="special">;</span>
+</pre>
+<h4>
+<a name="day_03_std_string.h7"></a>
+      <span class="phrase"><a name="day_03_std_string.blow1"></a></span><a class="link" href="day_03_std_string.html#day_03_std_string.blow1">Blow</a>
+    </h4>
+<pre class="programlisting"><span class="identifier">str</span> <span class="special">=</span> <span class="string">"A string"</span><span class="special">;</span>
+</pre>
+<p>
+      The <span class="bold"><strong>str</strong></span> has already stored with a string
+      <span class="bold"><strong>"This is a string"</strong></span>. By this line,
+      the old stored string will be cleared and <span class="bold"><strong>str</strong></span>
+      will be stored with a new string: <span class="bold"><strong>"A string"</strong></span>
+      .
+    </p>
+<p>
+      <span class="bold"><strong>Assignment</strong></span> - Just like this line, when storing
+      value on a variable which has already been created previously, we call it assignment.
+    </p>
+<h4>
+<a name="day_03_std_string.h8"></a>
+      <span class="phrase"><a name="day_03_std_string.blow2"></a></span><a class="link" href="day_03_std_string.html#day_03_std_string.blow2">Blow</a>
+    </h4>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">str</span><span class="special">;</span>
+</pre>
+<p>
+      You have learned from <a class="link" href="day_02_std_cout.html" title="day-02: std::cout">day-02</a> that many
+      objects and many values can be passed to <span class="green">operator&lt;&lt;</span>
+      as the second parameter and printed with <span class="bold"><strong>std::cout</strong></span>,
+      the objects created by <span class="bold"><strong>std::string</strong></span> can be
+      too.
+    </p>
+<h4>
+<a name="day_03_std_string.h9"></a>
+      <span class="phrase"><a name="day_03_std_string.blow3"></a></span><a class="link" href="day_03_std_string.html#day_03_std_string.blow3">Blow</a>
+    </h4>
+<pre class="programlisting"><span class="identifier">str</span><span class="special">.</span><span class="identifier">size</span><span class="special">();</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">str</span><span class="special">.</span><span class="identifier">size</span><span class="special">();</span>
+</pre>
+<p>
+      See <span class="bold"><strong>str.size()</strong></span>, that means we call a method
+      <span class="bold"><strong>.size()</strong></span> from the object <span class="bold"><strong>str</strong></span>,
+      the calling will return an integer value to tell us how many characters that
+      the string has which the object stored.
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          "This is a string" - it has <span class="bold"><strong>16</strong></span>
+          characters.
+        </li>
+<li class="listitem">
+          "A string" - it has <span class="bold"><strong>8</strong></span> characters.
+        </li>
+</ul></div>
+<p>
+      It requires that, the object has a method <span class="bold"><strong>.size()</strong></span>,
+      in other words, the class <span class="bold"><strong>std::string</strong></span> has
+      already defined the method <span class="bold"><strong>.size()</strong></span> .
+    </p>
+<h2>
+<a name="day_03_std_string.h10"></a>
+      <span class="phrase"><a name="day_03_std_string.role_cyan_header"></a></span><a class="link" href="day_03_std_string.html#day_03_std_string.role_cyan_header"><span class="cyan">Header</span></a>
+    </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">string</span><span class="special">&gt;</span>
+</pre>
+<p>
+      <span class="bold"><strong>std::string</strong></span> is declared and defined in a file
+      on your disk: string .
+    </p>
+<h2>
+<a name="day_03_std_string.h11"></a>
+      <span class="phrase"><a name="day_03_std_string.role_cyan_last"></a></span><a class="link" href="day_03_std_string.html#day_03_std_string.role_cyan_last"><span class="cyan">Last</span></a>
+    </h2>
+<p>
+      This article only has three points, please don't feel stress:
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          Create an object of std::string:
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
+                <span class="bold"><strong>std::string str = "This is a string";</strong></span>
+              </li></ul></div>
+        </li>
+<li class="listitem">
+          Store new string to the object:
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
+                <span class="bold"><strong>str = "A string";</strong></span>
+              </li></ul></div>
+        </li>
+<li class="listitem">
+          The object has a method <span class="bold"><strong>.size()</strong></span>, which
+          returns an integer value to tell us how many characters the string has
+          that it stores:
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
+                <span class="bold"><strong>str.size();</strong></span>
+              </li></ul></div>
+        </li>
+</ul></div>
+<p>
+      <em class="replaceable"><code>Written on Aug 03, 2024</code></em>
+    </p>
+<h2>
+<a name="day_03_std_string.h12"></a>
+      <span class="phrase"><a name="day_03_std_string.role_cyan_back_to_index"></a></span><a class="link" href="day_03_std_string.html#day_03_std_string.role_cyan_back_to_index"><span class="cyan">Back to index</span></a>
+    </h2>
+<p>
+      <a href="." target="_top">Index</a>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="day_02_std_cout.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="day_04_cpp_object_oriented.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,148 @@
+[article day-08: constructors, overload
+	[quickbook 1.7]
+]
+
+[h1 [role cyan cpp class: constructors, destructor, overload]]
+
+c++ class: constructors, destructor, overload
+
+
+[h1 [role cyan Constructors]]
+
+A class has one or more constructors, which defines how the object is created:
+
+```
+class one_class
+{
+public:
+	one_class()	// constructor 1
+	{
+		std::cout << "one_class 1\n";
+	}
+	one_class(int x)	// constructor 2
+	{
+		std::cout << "one_class 2\n";
+	}
+};
+```
+
+The above class one_class has defined two constructors.
+
+Then you can create the object like this:
+
+```
+auto obj = one_class{};	// This will call constructor 1
+```
+```
+auto obj2 = one_class{33};	// This will call constructor 2
+```
+
+If a class has not explicitly defined a constructor, it "hiddenly" defines an implicit constructor, so a class always has a constructor. Such as:
+
+```
+class one2_class
+{
+public:
+};
+```
+
+Although one2_class has not defined a constructor (explicitly), it still has an implicit constructor.
+
+Then:
+
+```
+auto obj3 = one2_class{};	// This calls implicit constructor of one2_class.
+```
+
+[h1 [role cyan Destructor]]
+
+A class has only one destructor, which defines what is did when the object is destroyed. Such as:
+
+```
+class one3_class
+{
+public:
+	~one3_class()	// A destructor begins with mark ~
+	{
+		std::cout << "Destroyed!" << std::endl;
+	}
+};
+```
+
+A class always has a destructor, if the destructor is not explicitly defined, it has an implicit destructor.
+
+```
+class one3_class
+{
+};	// one3_class still has an implicit destructor, even you have not explicitly defined its destructor.
+```
+
+So c++ class always has and only has one destructor.
+
+[h1 [role cyan cpp overload]]
+
+[h2 Constructor overloading]
+
+One c++ class can have more than one constructors, we can also call them constructor overloading.
+
+The above section of this artcile has already used the constructor overloading.
+
+```
+class one_class
+{
+public:
+	one_class()		// constructor overloading
+	{
+	}
+	one_class(int x)		// constructor overloading
+	{
+	}
+	one_class(float x)		// constructor overloading
+	{
+	}
+};
+```
+
+[h2 class method overloading]
+
+c++ class method can be overloaded too, that is implemented by using the same method name for more than one times of the same class.
+
+```
+class one4_class
+{
+private:
+	int x;
+public:
+	void set()	// method overloading
+	{
+		x = 0;
+	}
+	void set(int x1)	// method overloading
+	{
+		x = x1;
+	}
+	void set(float x1)	// method overloading
+	{
+		x = static_cast<int>(x1) + 0.5;
+	}
+};
+```
+
+By the way, static_cast is a c++ operator, which casts a value from one type to another type.
+
+For example, it converts 4.32 to 4:
+
+```
+auto r = static_cast<int>(4.32);
+std::cout << r << std::endl;	// r is 4 now
+```
+
+
+[~Written on Sep 20, 2024]
+
+[h1 [role cyan Back to index]]
+
+[@. Index]
+
+
+
