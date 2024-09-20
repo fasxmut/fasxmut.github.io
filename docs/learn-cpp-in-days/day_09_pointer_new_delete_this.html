@@ -1,0 +1,332 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>day-09: pointer, new, delete, this</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Learn cpp in days">
+<link rel="up" href="index.html" title="Learn cpp in days">
+<link rel="prev" href="day_08_constructors_overload.html" title="day-08: constructors, overload">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="day_08_constructors_overload.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="day_09_pointer_new_delete_this"></a>day-09: pointer, new, delete, this</h1></div></div>
+<hr>
+</div>
+<p>
+      cpp pointer
+    </p>
+<p>
+      c++ pointer
+    </p>
+<h2>
+<a name="day_09_pointer_new_delete_this.h0"></a>
+      <span class="phrase"><a name="day_09_pointer_new_delete_this.role_cyan_cpp_memory_management_"></a></span><a class="link" href="day_09_pointer_new_delete_this.html#day_09_pointer_new_delete_this.role_cyan_cpp_memory_management_"><span class="cyan">cpp memory management: pointer, new, delete, this</span></a>
+    </h2>
+<p>
+      c++ memory management: pointer, new, delete, this
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          c++ pointer
+        </li>
+<li class="listitem">
+          c++ new
+        </li>
+<li class="listitem">
+          c++ delete
+        </li>
+<li class="listitem">
+          c++ this
+        </li>
+</ul></div>
+<h2>
+<a name="day_09_pointer_new_delete_this.h1"></a>
+      <span class="phrase"><a name="day_09_pointer_new_delete_this.role_cyan_cpp_pointer"></a></span><a class="link" href="day_09_pointer_new_delete_this.html#day_09_pointer_new_delete_this.role_cyan_cpp_pointer"><span class="cyan">cpp pointer</span></a>
+    </h2>
+<h4>
+<a name="day_09_pointer_new_delete_this.h2"></a>
+      <span class="phrase"><a name="day_09_pointer_new_delete_this._"></a></span><a class="link" href="day_09_pointer_new_delete_this.html#day_09_pointer_new_delete_this._">-)</a>
+    </h4>
+<p>
+      cpp/c++ pointer
+    </p>
+<p>
+      First of all, you must know that you can declare many variables in c++. Each
+      variable will occupy a small space in memory. You can imagine every space that
+      a variable occupied in memory as a grid, every grid has an unique address.
+      Then you imagine that, there is a new kind of variable: its value is another
+      variable's address. then we give that new kind of variable a name: pointer.
+    </p>
+<p>
+      See c++ pointer code to get how to coding above description:
+    </p>
+<pre class="programlisting"><span class="keyword">int</span> <span class="identifier">dd</span> <span class="special">=</span> <span class="number">25</span><span class="special">;</span>
+<span class="keyword">int</span> <span class="special">*</span> <span class="identifier">ee</span> <span class="special">=</span> <span class="special">&amp;</span><span class="identifier">dd</span><span class="special">;</span>
+
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">dd</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>	<span class="comment">// 25		- take the value of dd</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="special">*</span><span class="identifier">ee</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>	<span class="comment">// 25		- take the value of dd by its address !</span>
+</pre>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          <span class="green">Both dd and ee are variables.</span>
+        </li>
+<li class="listitem">
+          <span class="green">The memory space that dd stands for has a value: 25</span>
+        </li>
+<li class="listitem">
+          <span class="green">The memory space that ee stands for has a value: address
+          of dd</span>
+        </li>
+</ul></div>
+<h4>
+<a name="day_09_pointer_new_delete_this.h3"></a>
+      <span class="phrase"><a name="day_09_pointer_new_delete_this._0"></a></span><a class="link" href="day_09_pointer_new_delete_this.html#day_09_pointer_new_delete_this._0">-)</a>
+    </h4>
+<p>
+      The pointer can be applied to c++ object too:
+    </p>
+<pre class="programlisting"><span class="keyword">class</span> <span class="identifier">one_class</span>
+<span class="special">{</span>
+<span class="special">};</span>
+
+<span class="identifier">one_class</span> <span class="identifier">nn</span><span class="special">;</span>
+<span class="identifier">one_class</span> <span class="special">*</span> <span class="identifier">uu</span> <span class="special">=</span> <span class="special">&amp;</span><span class="identifier">nn</span><span class="special">;</span>
+</pre>
+<p>
+      pointer variable uu stores the address of nn.
+    </p>
+<h4>
+<a name="day_09_pointer_new_delete_this.h4"></a>
+      <span class="phrase"><a name="day_09_pointer_new_delete_this._1"></a></span><a class="link" href="day_09_pointer_new_delete_this.html#day_09_pointer_new_delete_this._1">-)</a>
+    </h4>
+<p>
+      To access the members of a class by using a pointer, you can use <span class="bold"><strong><span class="red">-&gt;</span></strong></span> operator:
+    </p>
+<pre class="programlisting"><span class="keyword">class</span> <span class="identifier">one_class</span>
+<span class="special">{</span>
+<span class="keyword">private</span><span class="special">:</span>
+	<span class="keyword">int</span> <span class="identifier">x</span><span class="special">;</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">void</span> <span class="identifier">set</span><span class="special">(</span><span class="keyword">int</span> <span class="identifier">x1</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="identifier">x</span> <span class="special">=</span> <span class="identifier">x1</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="keyword">int</span> <span class="identifier">get</span><span class="special">()</span>
+	<span class="special">{</span>
+		<span class="keyword">return</span> <span class="identifier">x</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="identifier">one_class</span> <span class="identifier">nn</span><span class="special">;</span>
+<span class="identifier">one_class</span> <span class="special">*</span> <span class="identifier">uu</span> <span class="special">=</span> <span class="special">&amp;</span><span class="identifier">nn</span><span class="special">;</span>
+<span class="identifier">uu</span><span class="special">-&gt;</span><span class="identifier">set</span><span class="special">(</span><span class="number">3</span><span class="special">);</span>		<span class="comment">// access method by using operator -&gt;, if the object is an pointer.</span>
+<span class="keyword">int</span> <span class="identifier">r</span> <span class="special">=</span> <span class="identifier">uu</span><span class="special">-&gt;</span><span class="identifier">get</span><span class="special">();</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">r</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+</pre>
+<h2>
+<a name="day_09_pointer_new_delete_this.h5"></a>
+      <span class="phrase"><a name="day_09_pointer_new_delete_this.role_cyan_new_delete"></a></span><a class="link" href="day_09_pointer_new_delete_this.html#day_09_pointer_new_delete_this.role_cyan_new_delete"><span class="cyan">new, delete</span></a>
+    </h2>
+<p>
+      In the above case, when we declare a pointer, we have declared a variable previously:
+    </p>
+<pre class="programlisting"><span class="identifier">one_class</span> <span class="identifier">nn</span><span class="special">;</span>
+<span class="identifier">one_class</span> <span class="special">*</span> <span class="identifier">uu</span> <span class="special">=</span> <span class="special">&amp;</span><span class="identifier">nn</span><span class="special">;</span>
+</pre>
+<p>
+      <span class="bold"><strong>We declare nn, then declare a pointer uu to hold address
+      of nn.</strong></span>
+    </p>
+<p>
+      <span class="bold"><strong>-)</strong></span>
+    </p>
+<p>
+      But there is another case always: we do not want to declare a name for what
+      the pointer points to, we just want to declare the pointer directly, then "new"
+      can do that:
+    </p>
+<pre class="programlisting"><span class="identifier">one_class</span> <span class="special">*</span> <span class="identifier">uu</span> <span class="special">=</span> <span class="keyword">new</span> <span class="identifier">one_class</span><span class="special">{};</span>
+</pre>
+<p>
+      In this case, uu is variable, its value is another variable's address, that
+      the another variable is the object of class one_class .
+    </p>
+<p>
+      <span class="bold"><strong>-)</strong></span>
+    </p>
+<p>
+      <span class="bold"><strong><span class="red">-)</span> delete !</strong></span>
+    </p>
+<p>
+      If you create something by <span class="bold"><strong>new</strong></span>, you must destroy
+      it by <span class="bold"><strong>delete</strong></span> when you do not want it any more!
+    </p>
+<pre class="programlisting"><span class="identifier">one_class</span> <span class="special">*</span> <span class="identifier">uu</span> <span class="special">=</span> <span class="keyword">new</span> <span class="identifier">one_class</span><span class="special">{};</span>
+<span class="keyword">int</span> <span class="identifier">r</span> <span class="special">=</span> <span class="identifier">uu</span><span class="special">-&gt;</span><span class="identifier">get</span><span class="special">();</span>
+<span class="keyword">delete</span> <span class="identifier">uu</span><span class="special">;</span>
+</pre>
+<p>
+      <span class="bold"><strong>-)</strong></span>
+    </p>
+<p>
+      auto can be applied to new too:
+    </p>
+<pre class="programlisting"><span class="keyword">auto</span> <span class="special">*</span> <span class="identifier">uu</span> <span class="special">=</span> <span class="keyword">new</span> <span class="identifier">one_class</span><span class="special">{};</span>
+<span class="keyword">delete</span> <span class="identifier">uu</span><span class="special">;</span>
+</pre>
+<h2>
+<a name="day_09_pointer_new_delete_this.h6"></a>
+      <span class="phrase"><a name="day_09_pointer_new_delete_this.role_cyan_this"></a></span><a class="link" href="day_09_pointer_new_delete_this.html#day_09_pointer_new_delete_this.role_cyan_this"><span class="cyan">this</span></a>
+    </h2>
+<p>
+      You must know that, the class object has an implicit pointer which points to
+      itself, that is the <span class="bold"><strong>this</strong></span> pointer!
+    </p>
+<p>
+      I have to explain it by an example.
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">class</span> <span class="identifier">one2_class</span>
+<span class="special">{</span>
+<span class="keyword">private</span><span class="special">:</span>
+	<span class="keyword">int</span> <span class="identifier">x</span><span class="special">;</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">one2_class</span><span class="special">()</span>
+	<span class="special">{</span>
+		<span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">x</span> <span class="special">=</span> <span class="number">12</span><span class="special">;</span>	<span class="comment">// pointer this </span>
+	<span class="special">}</span>
+	<span class="identifier">one2_class</span><span class="special">(</span><span class="keyword">int</span> <span class="identifier">x1</span><span class="special">):</span>
+		<span class="identifier">x</span><span class="special">{</span><span class="identifier">x1</span><span class="special">}</span>	<span class="comment">// this means applying value from x1 to x.</span>
+	<span class="special">{</span>
+	<span class="special">}</span>
+	<span class="identifier">one2_class</span><span class="special">(</span><span class="keyword">double</span> <span class="identifier">x1</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="comment">// pointer this</span>
+		<span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">x</span> <span class="special">=</span> <span class="keyword">static_cast</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;(</span><span class="identifier">x1</span><span class="special">)</span> <span class="special">+</span> <span class="number">100000</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="keyword">void</span> <span class="identifier">print</span><span class="special">()</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"x is "</span> <span class="special">&lt;&lt;</span> <span class="identifier">x</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"x is "</span> <span class="special">&lt;&lt;</span> <span class="special">(</span><span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">x</span><span class="special">)</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>		<span class="comment">// pointer this</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"x is "</span> <span class="special">&lt;&lt;</span> <span class="special">(</span><span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">get</span><span class="special">())</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>		<span class="comment">// pointer this</span>
+	<span class="special">}</span>
+	<span class="keyword">int</span> <span class="identifier">get</span><span class="special">()</span>
+	<span class="special">{</span>
+		<span class="keyword">return</span> <span class="identifier">x</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">auto</span> <span class="identifier">obj1</span> <span class="special">=</span> <span class="identifier">one2_class</span><span class="special">{</span><span class="number">345</span><span class="special">};</span>
+	<span class="identifier">obj1</span><span class="special">.</span><span class="identifier">print</span><span class="special">();</span>
+
+	<span class="keyword">auto</span> <span class="identifier">obj2</span> <span class="special">=</span> <span class="identifier">one2_class</span><span class="special">{</span><span class="number">34.5</span><span class="special">};</span>
+	<span class="identifier">obj2</span><span class="special">.</span><span class="identifier">print</span><span class="special">();</span>
+
+	<span class="keyword">auto</span> <span class="special">*</span> <span class="identifier">test</span> <span class="special">=</span> <span class="keyword">new</span> <span class="identifier">one2_class</span><span class="special">{};</span>
+	<span class="keyword">delete</span> <span class="identifier">test</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<p>
+      <span class="bold"><strong>Output:</strong></span>
+    </p>
+<pre class="programlisting"><span class="identifier">x</span> <span class="identifier">is</span> <span class="number">345</span>
+<span class="identifier">x</span> <span class="identifier">is</span> <span class="number">345</span>
+<span class="identifier">x</span> <span class="identifier">is</span> <span class="number">345</span>
+<span class="identifier">x</span> <span class="identifier">is</span> <span class="number">100034</span>
+<span class="identifier">x</span> <span class="identifier">is</span> <span class="number">100034</span>
+<span class="identifier">x</span> <span class="identifier">is</span> <span class="number">100034</span>
+</pre>
+<p>
+      You can see that, you can access the members of class object by pointer <span class="bold"><strong>this</strong></span>.
+    </p>
+<p>
+      I have to make a notice that:
+    </p>
+<div class="note"><table border="0" summary="Note">
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td>
+<th align="left">Note</th>
+</tr>
+<tr><td align="left" valign="top"><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            rule-1: In the semantics of <span class="bold"><strong>obj1</strong></span>, the
+            pointer <span class="bold"><strong>this</strong></span> <span class="bold"><strong>points
+            to</strong></span> the object <span class="bold"><strong>obj1</strong></span>, this
+            does <span class="bold"><strong>not</strong></span> point to <span class="bold"><strong>obj2</strong></span>,
+          </li>
+<li class="listitem">
+            rule-2: In the semantics of <span class="bold"><strong>obj2</strong></span>, the
+            pointer <span class="bold"><strong>this</strong></span> <span class="bold"><strong>points
+            to</strong></span> the object <span class="bold"><strong>obj2</strong></span>, this
+            does <span class="bold"><strong>not</strong></span> point to <span class="bold"><strong>obj1</strong></span>.
+          </li>
+<li class="listitem">
+            rule-3: <span class="bold"><strong>this</strong></span> can never point to a class
+            (the name one2_class), <span class="bold"><strong>this</strong></span> should point
+            to an object (obj1 or obj2) .
+          </li>
+</ul></div></td></tr>
+</table></div>
+<p>
+      For rule-3, read the following program:
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">class</span> <span class="identifier">one3_class</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">int</span> <span class="identifier">get_a</span><span class="special">()</span>
+	<span class="special">{</span>
+		<span class="keyword">return</span> <span class="number">5</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="keyword">int</span> <span class="identifier">get_b</span><span class="special">()</span>
+	<span class="special">{</span>
+		<span class="keyword">return</span> <span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">get_a</span><span class="special">();</span>	<span class="comment">// pointer this</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+<span class="special">}</span>
+</pre>
+<p>
+      The <span class="bold"><strong>this</strong></span> never and can never point to the
+      class <span class="bold"><strong>one3_class</strong></span>, <br> it should point to
+      an object of <span class="bold"><strong>one3_class</strong></span>, <br> but because
+      no any object of <span class="bold"><strong>one3_class</strong></span> is created, <br>
+      any object semantics does not exist, <br> so its related semantic <span class="bold"><strong>this</strong></span> does not exist too.
+    </p>
+<p>
+      <em class="replaceable"><code>Written on Sep 20, 2024</code></em>
+    </p>
+<h2>
+<a name="day_09_pointer_new_delete_this.h7"></a>
+      <span class="phrase"><a name="day_09_pointer_new_delete_this.role_cyan_back_to_index"></a></span><a class="link" href="day_09_pointer_new_delete_this.html#day_09_pointer_new_delete_this.role_cyan_back_to_index"><span class="cyan">Back
+      to index</span></a>
+    </h2>
+<p>
+      <a href="." target="_top">Index</a>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="day_08_constructors_overload.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+<div class="footnp" style="margin-left:auto;margin-right:auto;max-width:300px">
+<div style="float:left">
+<p><a href="https://cppfx.xyz/esvcpp/esv_print.html">esv::print</a></p>
+</div>
+</div>
+</body>
+</html>

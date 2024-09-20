@@ -10,6 +10,7 @@
 [include day06-private-protected-public.qbk]
 [include day07-inheritance.qbk]
 [include day08-constructors-destructor-overload.qbk]
+[include day09-pointers-new-delete-this.qbk]
 
 [h1 [role cyan cpp Tutorial: Learn cpp in days]]
 

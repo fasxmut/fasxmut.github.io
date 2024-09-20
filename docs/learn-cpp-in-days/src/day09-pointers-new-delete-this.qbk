@@ -1,0 +1,239 @@
+[article day-09: pointer, new, delete, this
+	[quickbook 1.7]
+]
+
+cpp pointer
+
+c++ pointer
+
+[h1 [role cyan cpp memory management: pointer, new, delete, this]]
+
+c++ memory management: pointer, new, delete, this
+
+* c++ pointer
+* c++ new
+* c++ delete
+* c++ this
+
+[h1 [role cyan cpp pointer]]
+
+[h3 -)]
+
+cpp/c++ pointer
+
+First of all, you must know that you can declare many variables in c++. Each variable will occupy a small space in memory. You can imagine every space that a variable occupied in memory as a grid, every grid has an unique address. Then you imagine that, there is a new kind of variable: its value is another variable's address. then we give that new kind of variable a name: pointer.
+
+See c++ pointer code to get how to coding above description:
+
+```
+int dd = 25;
+int * ee = &dd;
+
+std::cout << dd << std::endl;	// 25		- take the value of dd
+std::cout << *ee << std::endl;	// 25		- take the value of dd by its address !
+```
+
+* [role green Both dd and ee are variables.]
+* [role green The memory space that dd stands for has a value: 25]
+* [role green The memory space that ee stands for has a value: address of dd]
+
+[h3 -)]
+
+The pointer can be applied to c++ object too:
+
+```
+class one_class
+{
+};
+
+one_class nn;
+one_class * uu = &nn;
+```
+
+pointer variable uu stores the address of nn.
+
+[h3 -)]
+
+To access the members of a class by using a pointer, you can use [*[role red ->]] operator:
+
+```
+class one_class
+{
+private:
+	int x;
+public:
+	void set(int x1)
+	{
+		x = x1;
+	}
+	int get()
+	{
+		return x;
+	}
+};
+
+one_class nn;
+one_class * uu = &nn;
+uu->set(3);		// access method by using operator ->, if the object is an pointer.
+int r = uu->get();
+std::cout << r << std::endl;
+```
+
+[h1 [role cyan new, delete]]
+
+In the above case, when we declare a pointer, we have declared a variable previously:
+
+```
+one_class nn;
+one_class * uu = &nn;
+```
+
+[* We declare nn, then declare a pointer uu to hold address of nn.]
+
+[*-)]
+
+But there is another case always: we do not want to declare a name for what the pointer points to, we just want to declare the pointer directly, then "new" can do that:
+
+```
+one_class * uu = new one_class{};
+```
+
+In this case, uu is variable, its value is another variable's address, that the another variable is the object of class one_class .
+
+[*-)]
+
+[*[role red -)] delete !]
+
+If you create something by [*new], you must destroy it by [*delete] when you do not want it any more!
+
+```
+one_class * uu = new one_class{};
+int r = uu->get();
+delete uu;
+```
+
+[*-)]
+
+auto can be applied to new too:
+
+```
+auto * uu = new one_class{};
+delete uu;
+```
+
+[h1 [role cyan this]]
+
+You must know that, the class object has an implicit pointer which points to itself, that is the [*this] pointer!
+
+I have to explain it by an example.
+
+[!c++]
+```
+#include <iostream>
+
+class one2_class
+{
+private:
+	int x;
+public:
+	one2_class()
+	{
+		this->x = 12;	// pointer this 
+	}
+	one2_class(int x1):
+		x{x1}	// this means applying value from x1 to x.
+	{
+	}
+	one2_class(double x1)
+	{
+		// pointer this
+		this->x = static_cast<int>(x1) + 100000;
+	}
+	void print()
+	{
+		std::cout << "x is " << x << std::endl;
+		std::cout << "x is " << (this->x) << std::endl;		// pointer this
+		std::cout << "x is " << (this->get()) << std::endl;		// pointer this
+	}
+	int get()
+	{
+		return x;
+	}
+};
+
+int main()
+{
+	auto obj1 = one2_class{345};
+	obj1.print();
+
+	auto obj2 = one2_class{34.5};
+	obj2.print();
+
+	auto * test = new one2_class{};
+	delete test;
+}
+```
+
+[*Output:]
+
+```
+x is 345
+x is 345
+x is 345
+x is 100034
+x is 100034
+x is 100034
+```
+
+You can see that, you can access the members of class object by pointer [*this].
+
+I have to make a notice that:
+
+[note
+	* rule-1: In the semantics of [*obj1], the pointer [*this] [*points to] the object [*obj1], this does [*not] point to [*obj2],
+	* rule-2: In the semantics of [*obj2], the pointer [*this] [*points to] the object [*obj2], this does [*not] point to [*obj1].
+	* rule-3: [*this] can never point to a class (the name one2_class), [*this] should point to an object (obj1 or obj2) .
+]
+
+For rule-3, read the following program:
+
+[!c++]
+```
+#include <iostream>
+
+class one3_class
+{
+public:
+	int get_a()
+	{
+		return 5;
+	}
+	int get_b()
+	{
+		return this->get_a();	// pointer this
+	}
+};
+
+int main()
+{
+}
+```
+
+The [*this] never and can never point to the class [*one3_class],
+[br]
+it should point to an object of [*one3_class],
+[br]
+but because no any object of [*one3_class] is created,
+[br]
+any object semantics does not exist,
+[br]
+so its related semantic [*this] does not exist too.
+
+[~Written on Sep 20, 2024]
+
+[h1 [role cyan Back to index]]
+
+[@. Index]
+
+
+

@@ -85,7 +85,7 @@ So c++ class always has and only has one destructor.
 
 One c++ class can have more than one constructors, we can also call them constructor overloading.
 
-The above section of this artcile has already used the constructor overloading.
+The above section of this article has already used the constructor overloading.
 
 ```
 class one_class
