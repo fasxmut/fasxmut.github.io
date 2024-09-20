@@ -1,0 +1,61 @@
+[article day-07: cpp class: Inheritance
+	[quickbook 1.7]
+]
+
+[h1 [role cyan cpp class: Inheritance]]
+
+Inheritance is called "derived from" in c++. A class can be derived from another class. If class A is derived from class B, B is called base class, and A is called derived class.
+
+[h1 [role cyan Example]]
+
+For example, derived_class is derived from base_class, then 
+derived_class almost inherits most gene from base_class.
+
+[!c++]
+```
+#include <iostream>
+
+class base_class
+{
+public:
+	void method_1()
+	{
+		std::cout << "This is a method from class base_class" << std::endl;
+	}
+};
+
+class derived_class: public base_class	// This line tells that derived_class is derived from base_class
+{
+public:
+	void method_2()
+	{
+		std::cout << "This a method from class derived_class" << std::endl;
+	}
+};
+
+int main()
+{
+	auto object = derived_class{};
+	object.method_1();
+	object.method_2();
+}
+```
+
+[*output:]
+
+```
+This is a method from class base_class
+This a method from class derived_class
+```
+
+[~Written on Sep 20, 2024]
+
+[h1 [role cyan Back to index]]
+
+[@. Index]
+
+
+
+
+
+

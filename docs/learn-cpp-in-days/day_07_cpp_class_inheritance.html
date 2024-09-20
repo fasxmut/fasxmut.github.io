@@ -1,0 +1,94 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>day-07: cpp class: Inheritance</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Learn cpp in days">
+<link rel="up" href="index.html" title="Learn cpp in days">
+<link rel="prev" href="day_06_private_protected_public.html" title="day-06: private protected public">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="day_06_private_protected_public.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="day_07_cpp_class_inheritance"></a>day-07: cpp class: Inheritance</h1></div></div>
+<hr>
+</div>
+<h2>
+<a name="day_07_cpp_class_inheritance.h0"></a>
+      <span class="phrase"><a name="day_07_cpp_class_inheritance.role_cyan_cpp_class_inheritance"></a></span><a class="link" href="day_07_cpp_class_inheritance.html#day_07_cpp_class_inheritance.role_cyan_cpp_class_inheritance"><span class="cyan">cpp class: Inheritance</span></a>
+    </h2>
+<p>
+      Inheritance is called "derived from" in c++. A class can be derived
+      from another class. If class A is derived from class B, B is called base class,
+      and A is called derived class.
+    </p>
+<h2>
+<a name="day_07_cpp_class_inheritance.h1"></a>
+      <span class="phrase"><a name="day_07_cpp_class_inheritance.role_cyan_example"></a></span><a class="link" href="day_07_cpp_class_inheritance.html#day_07_cpp_class_inheritance.role_cyan_example"><span class="cyan">Example</span></a>
+    </h2>
+<p>
+      For example, derived_class is derived from base_class, then derived_class almost
+      inherits most gene from base_class.
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">class</span> <span class="identifier">base_class</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">void</span> <span class="identifier">method_1</span><span class="special">()</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"This is a method from class base_class"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">class</span> <span class="identifier">derived_class</span><span class="special">:</span> <span class="keyword">public</span> <span class="identifier">base_class</span>	<span class="comment">// This line tells that derived_class is derived from base_class</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">void</span> <span class="identifier">method_2</span><span class="special">()</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"This a method from class derived_class"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">auto</span> <span class="identifier">object</span> <span class="special">=</span> <span class="identifier">derived_class</span><span class="special">{};</span>
+	<span class="identifier">object</span><span class="special">.</span><span class="identifier">method_1</span><span class="special">();</span>
+	<span class="identifier">object</span><span class="special">.</span><span class="identifier">method_2</span><span class="special">();</span>
+<span class="special">}</span>
+</pre>
+<p>
+      <span class="bold"><strong>output:</strong></span>
+    </p>
+<pre class="programlisting"><span class="identifier">This</span> <span class="identifier">is</span> <span class="identifier">a</span> <span class="identifier">method</span> <span class="identifier">from</span> <span class="keyword">class</span> <span class="identifier">base_class</span>
+<span class="identifier">This</span> <span class="identifier">a</span> <span class="identifier">method</span> <span class="identifier">from</span> <span class="keyword">class</span> <span class="identifier">derived_class</span>
+</pre>
+<p>
+      <em class="replaceable"><code>Written on Sep 20, 2024</code></em>
+    </p>
+<h2>
+<a name="day_07_cpp_class_inheritance.h2"></a>
+      <span class="phrase"><a name="day_07_cpp_class_inheritance.role_cyan_back_to_index"></a></span><a class="link" href="day_07_cpp_class_inheritance.html#day_07_cpp_class_inheritance.role_cyan_back_to_index"><span class="cyan">Back to index</span></a>
+    </h2>
+<p>
+      <a href="." target="_top">Index</a>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="day_06_private_protected_public.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+<div class="footnp" style="margin-left:auto;margin-right:auto;max-width:300px">
+<div style="float:left">
+<p><a href="https://cppfx.xyz/esvcpp/esv_print.html">esv::print</a></p>
+</div>
+</div>
+</body>
+</html>
