@@ -11,6 +11,7 @@
 [include day07-inheritance.qbk]
 [include day08-constructors-destructor-overload.qbk]
 [include day09-pointers-new-delete-this.qbk]
+[include day10-reference-and-constant.qbk]
 
 [h1 [role cyan cpp Tutorial: Learn cpp in days]]
 

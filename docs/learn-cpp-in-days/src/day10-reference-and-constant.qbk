@@ -1,0 +1,150 @@
+[article day-10: cpp Reference, Constant
+	[quickbook 1.7]
+]
+
+[h1 [role cyan cpp Reference, Constant]]
+
+c++ reference
+
+c++ constant: const
+
+[h1 [role cyan cpp reference]]
+
+What is c++ reference? In brief, c++ reference is name alias.
+
+* [*Variable]: a c++ variable looks like a name, a variable has an unique space in memory, it has its address.
+* [*Reference]: a c++ reference is an alias of a variable name: it does not create new memory space, it is just an alias of an existed variable.
+
+```
+// a, c, e, f are variables, any one of them has its unique memory space and its unique memory address.
+
+// b is alias of a, b is just another name of the same memory space that a stands for.
+
+// d is alias of c, d is just another name of the same memory space that c stands for.
+
+class one_class {};
+
+int a;
+int & b = a;
+one_class c;
+one_class & d = c;
+int e;
+one_class f;
+```
+
+[h1 [role cyan Constant]]
+
+c++ constant: const
+
+c++ const and reference are two different concepts, but they are always used together.
+
+Variable means it is mutable, but marking the variable const means making it unmutable.
+
+```
+int a = 3;
+a = 5;	// a is mutable, because a is a variable
+
+const int b = 4;
+
+// Although b is a variable, but because b is marked const, b is unmutable.
+
+// b = 6;	// error, b is unmutable.
+```
+
+[h1 [role cyan const and reference]]
+
+Use c++ const and reference together.
+
+[*-)]
+
+```
+#include <iostream>
+
+class one_class
+{
+private:
+	int x;
+public:
+	void ma(int x1)
+	{
+		// x1 can be changed and then assigned to x
+
+		this->x = x1;
+	}
+	void mb(const int x1)
+	{
+		// x1 can not be changed
+		this->x = x1;
+	}
+	void mc(const int & x1)
+	{
+		// x1 can not be changed
+		this->x = x1;
+	}
+};
+
+int main()
+{
+	auto one = one_class{};
+	
+	int x2 = 9;
+
+	one.ma(x2);
+
+	// because x1 in .mb is "const int",
+	// x1 will be created as a new memory space,
+	// then copy value from x2 to x1,
+	// and then copy value from x1 to "this->x"
+	one.mb(x2);
+
+	// because x1 in .mc is "const int &",
+	// x1 will be an alias of x2,
+	// then copy value from x2 to "this->x" directly.
+	one.mc(x2);
+}
+```
+
+[*-)]
+
+[h1 [role cyan Some const reference rules]]
+
+* [* const variable must be initialized, non-const does not have to]
+	```
+	int a;	// a is non-const variable
+	const int b = 23;	// b is const variable, b must be initialized
+	```
+* [* const variable can reference const variable]
+	```
+	const int a = 33;
+	const int & b = a;	// Correct!
+	```
+* [* non-const variable can reference non-const variable]
+	```
+	int a;
+	int & b = a;	// Correct!
+	```
+* [* const variable can reference non-const variable]
+	```
+	int a;
+	const int & b = a;	// Correct!
+	```
+* [* non-const variable can [role red not] reference const variable]
+	```
+	const int a = 33;
+	int & b = a;	// ERROR !!!
+	```
+
+[*[role green Too many rules? I tell you a secret, you can understand them by a simple logic:]]
+
+* [*[role blue You can transform a mutable thing to an unmutable thing, but you can not transform an unmutable thing to a mutable thing.]]
+
+[*[role green Then you can deduce all of rules.]]
+
+[~Written on Sep 20, 2024]
+
+[h1 [role cyan Back to index]]
+
+[@. Index]
+
+
+

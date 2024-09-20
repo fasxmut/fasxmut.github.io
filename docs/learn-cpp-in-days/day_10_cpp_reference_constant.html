@@ -1,0 +1,224 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>day-10: cpp Reference, Constant</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Learn cpp in days">
+<link rel="up" href="index.html" title="Learn cpp in days">
+<link rel="prev" href="day_09_pointer_new_delete_this.html" title="day-09: pointer, new, delete, this">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="day_09_pointer_new_delete_this.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="day_10_cpp_reference_constant"></a>day-10: cpp Reference, Constant</h1></div></div>
+<hr>
+</div>
+<h2>
+<a name="day_10_cpp_reference_constant.h0"></a>
+      <span class="phrase"><a name="day_10_cpp_reference_constant.role_cyan_cpp_reference_constant"></a></span><a class="link" href="day_10_cpp_reference_constant.html#day_10_cpp_reference_constant.role_cyan_cpp_reference_constant"><span class="cyan">cpp Reference, Constant</span></a>
+    </h2>
+<p>
+      c++ reference
+    </p>
+<p>
+      c++ constant: const
+    </p>
+<h2>
+<a name="day_10_cpp_reference_constant.h1"></a>
+      <span class="phrase"><a name="day_10_cpp_reference_constant.role_cyan_cpp_reference"></a></span><a class="link" href="day_10_cpp_reference_constant.html#day_10_cpp_reference_constant.role_cyan_cpp_reference"><span class="cyan">cpp reference</span></a>
+    </h2>
+<p>
+      What is c++ reference? In brief, c++ reference is name alias.
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          <span class="bold"><strong>Variable</strong></span>: a c++ variable looks like a
+          name, a variable has an unique space in memory, it has its address.
+        </li>
+<li class="listitem">
+          <span class="bold"><strong>Reference</strong></span>: a c++ reference is an alias
+          of a variable name: it does not create new memory space, it is just an
+          alias of an existed variable.
+        </li>
+</ul></div>
+<pre class="programlisting"><span class="comment">// a, c, e, f are variables, any one of them has its unique memory space and its unique memory address.</span>
+
+<span class="comment">// b is alias of a, b is just another name of the same memory space that a stands for.</span>
+
+<span class="comment">// d is alias of c, d is just another name of the same memory space that c stands for.</span>
+
+<span class="keyword">class</span> <span class="identifier">one_class</span> <span class="special">{};</span>
+
+<span class="keyword">int</span> <span class="identifier">a</span><span class="special">;</span>
+<span class="keyword">int</span> <span class="special">&amp;</span> <span class="identifier">b</span> <span class="special">=</span> <span class="identifier">a</span><span class="special">;</span>
+<span class="identifier">one_class</span> <span class="identifier">c</span><span class="special">;</span>
+<span class="identifier">one_class</span> <span class="special">&amp;</span> <span class="identifier">d</span> <span class="special">=</span> <span class="identifier">c</span><span class="special">;</span>
+<span class="keyword">int</span> <span class="identifier">e</span><span class="special">;</span>
+<span class="identifier">one_class</span> <span class="identifier">f</span><span class="special">;</span>
+</pre>
+<h2>
+<a name="day_10_cpp_reference_constant.h2"></a>
+      <span class="phrase"><a name="day_10_cpp_reference_constant.role_cyan_constant"></a></span><a class="link" href="day_10_cpp_reference_constant.html#day_10_cpp_reference_constant.role_cyan_constant"><span class="cyan">Constant</span></a>
+    </h2>
+<p>
+      c++ constant: const
+    </p>
+<p>
+      c++ const and reference are two different concepts, but they are always used
+      together.
+    </p>
+<p>
+      Variable means it is mutable, but marking the variable const means making it
+      unmutable.
+    </p>
+<pre class="programlisting"><span class="keyword">int</span> <span class="identifier">a</span> <span class="special">=</span> <span class="number">3</span><span class="special">;</span>
+<span class="identifier">a</span> <span class="special">=</span> <span class="number">5</span><span class="special">;</span>	<span class="comment">// a is mutable, because a is a variable</span>
+
+<span class="keyword">const</span> <span class="keyword">int</span> <span class="identifier">b</span> <span class="special">=</span> <span class="number">4</span><span class="special">;</span>
+
+<span class="comment">// Although b is a variable, but because b is marked const, b is unmutable.</span>
+
+<span class="comment">// b = 6;	// error, b is unmutable.</span>
+</pre>
+<h2>
+<a name="day_10_cpp_reference_constant.h3"></a>
+      <span class="phrase"><a name="day_10_cpp_reference_constant.role_cyan_const_and_reference"></a></span><a class="link" href="day_10_cpp_reference_constant.html#day_10_cpp_reference_constant.role_cyan_const_and_reference"><span class="cyan">const and reference</span></a>
+    </h2>
+<p>
+      Use c++ const and reference together.
+    </p>
+<p>
+      <span class="bold"><strong>-)</strong></span>
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">class</span> <span class="identifier">one_class</span>
+<span class="special">{</span>
+<span class="keyword">private</span><span class="special">:</span>
+	<span class="keyword">int</span> <span class="identifier">x</span><span class="special">;</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">void</span> <span class="identifier">ma</span><span class="special">(</span><span class="keyword">int</span> <span class="identifier">x1</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="comment">// x1 can be changed and then assigned to x</span>
+
+		<span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">x</span> <span class="special">=</span> <span class="identifier">x1</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="keyword">void</span> <span class="identifier">mb</span><span class="special">(</span><span class="keyword">const</span> <span class="keyword">int</span> <span class="identifier">x1</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="comment">// x1 can not be changed</span>
+		<span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">x</span> <span class="special">=</span> <span class="identifier">x1</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="keyword">void</span> <span class="identifier">mc</span><span class="special">(</span><span class="keyword">const</span> <span class="keyword">int</span> <span class="special">&amp;</span> <span class="identifier">x1</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="comment">// x1 can not be changed</span>
+		<span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">x</span> <span class="special">=</span> <span class="identifier">x1</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">auto</span> <span class="identifier">one</span> <span class="special">=</span> <span class="identifier">one_class</span><span class="special">{};</span>
+	
+	<span class="keyword">int</span> <span class="identifier">x2</span> <span class="special">=</span> <span class="number">9</span><span class="special">;</span>
+
+	<span class="identifier">one</span><span class="special">.</span><span class="identifier">ma</span><span class="special">(</span><span class="identifier">x2</span><span class="special">);</span>
+
+	<span class="comment">// because x1 in .mb is "const int",</span>
+	<span class="comment">// x1 will be created as a new memory space,</span>
+	<span class="comment">// then copy value from x2 to x1,</span>
+	<span class="comment">// and then copy value from x1 to "this-&gt;x"</span>
+	<span class="identifier">one</span><span class="special">.</span><span class="identifier">mb</span><span class="special">(</span><span class="identifier">x2</span><span class="special">);</span>
+
+	<span class="comment">// because x1 in .mc is "const int &amp;",</span>
+	<span class="comment">// x1 will be an alias of x2,</span>
+	<span class="comment">// then copy value from x2 to "this-&gt;x" directly.</span>
+	<span class="identifier">one</span><span class="special">.</span><span class="identifier">mc</span><span class="special">(</span><span class="identifier">x2</span><span class="special">);</span>
+<span class="special">}</span>
+</pre>
+<p>
+      <span class="bold"><strong>-)</strong></span>
+    </p>
+<h2>
+<a name="day_10_cpp_reference_constant.h4"></a>
+      <span class="phrase"><a name="day_10_cpp_reference_constant.role_cyan_some_const_reference_r"></a></span><a class="link" href="day_10_cpp_reference_constant.html#day_10_cpp_reference_constant.role_cyan_some_const_reference_r"><span class="cyan">Some const reference rules</span></a>
+    </h2>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p class="simpara">
+          <span class="bold"><strong>const variable must be initialized, non-const does
+          not have to</strong></span>
+        </p>
+<pre class="programlisting"><span class="keyword">int</span> <span class="identifier">a</span><span class="special">;</span>	<span class="comment">// a is non-const variable</span>
+<span class="keyword">const</span> <span class="keyword">int</span> <span class="identifier">b</span> <span class="special">=</span> <span class="number">23</span><span class="special">;</span>	<span class="comment">// b is const variable, b must be initialized</span>
+</pre>
+</li>
+<li class="listitem">
+<p class="simpara">
+          <span class="bold"><strong>const variable can reference const variable</strong></span>
+        </p>
+<pre class="programlisting"><span class="keyword">const</span> <span class="keyword">int</span> <span class="identifier">a</span> <span class="special">=</span> <span class="number">33</span><span class="special">;</span>
+<span class="keyword">const</span> <span class="keyword">int</span> <span class="special">&amp;</span> <span class="identifier">b</span> <span class="special">=</span> <span class="identifier">a</span><span class="special">;</span>	<span class="comment">// Correct!</span>
+</pre>
+</li>
+<li class="listitem">
+<p class="simpara">
+          <span class="bold"><strong>non-const variable can reference non-const variable</strong></span>
+        </p>
+<pre class="programlisting"><span class="keyword">int</span> <span class="identifier">a</span><span class="special">;</span>
+<span class="keyword">int</span> <span class="special">&amp;</span> <span class="identifier">b</span> <span class="special">=</span> <span class="identifier">a</span><span class="special">;</span>	<span class="comment">// Correct!</span>
+</pre>
+</li>
+<li class="listitem">
+<p class="simpara">
+          <span class="bold"><strong>const variable can reference non-const variable</strong></span>
+        </p>
+<pre class="programlisting"><span class="keyword">int</span> <span class="identifier">a</span><span class="special">;</span>
+<span class="keyword">const</span> <span class="keyword">int</span> <span class="special">&amp;</span> <span class="identifier">b</span> <span class="special">=</span> <span class="identifier">a</span><span class="special">;</span>	<span class="comment">// Correct!</span>
+</pre>
+</li>
+<li class="listitem">
+<p class="simpara">
+          <span class="bold"><strong>non-const variable can <span class="red">not</span>
+          reference const variable</strong></span>
+        </p>
+<pre class="programlisting"><span class="keyword">const</span> <span class="keyword">int</span> <span class="identifier">a</span> <span class="special">=</span> <span class="number">33</span><span class="special">;</span>
+<span class="keyword">int</span> <span class="special">&amp;</span> <span class="identifier">b</span> <span class="special">=</span> <span class="identifier">a</span><span class="special">;</span>	<span class="comment">// ERROR !!!</span>
+</pre>
+</li>
+</ul></div>
+<p>
+      <span class="bold"><strong><span class="green">Too many rules? I tell you a secret,
+      you can understand them by a simple logic:</span></strong></span>
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+          <span class="bold"><strong><span class="blue">You can transform a mutable thing
+          to an unmutable thing, but you can not transform an unmutable thing to
+          a mutable thing.</span></strong></span>
+        </li></ul></div>
+<p>
+      <span class="bold"><strong><span class="green">Then you can deduce all of rules.</span></strong></span>
+    </p>
+<p>
+      <em class="replaceable"><code>Written on Sep 20, 2024</code></em>
+    </p>
+<h2>
+<a name="day_10_cpp_reference_constant.h5"></a>
+      <span class="phrase"><a name="day_10_cpp_reference_constant.role_cyan_back_to_index"></a></span><a class="link" href="day_10_cpp_reference_constant.html#day_10_cpp_reference_constant.role_cyan_back_to_index"><span class="cyan">Back to index</span></a>
+    </h2>
+<p>
+      <a href="." target="_top">Index</a>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="day_09_pointer_new_delete_this.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+</body>
+</html>
