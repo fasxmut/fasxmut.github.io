@@ -157,7 +157,7 @@
 	<span class="special">}</span>
 	<span class="keyword">void</span> <span class="identifier">set</span><span class="special">(</span><span class="keyword">float</span> <span class="identifier">x1</span><span class="special">)</span>	<span class="comment">// method overloading</span>
 	<span class="special">{</span>
-		<span class="identifier">x</span> <span class="special">=</span> <span class="keyword">static_cast</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;(</span><span class="identifier">x1</span><span class="special">)</span> <span class="special">+</span> <span class="number">0.5</span><span class="special">;</span>
+		<span class="identifier">x</span> <span class="special">=</span> <span class="keyword">static_cast</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;(</span><span class="identifier">x1</span><span class="special">)</span> <span class="special">+</span> <span class="number">10000</span><span class="special">;</span>
 	<span class="special">}</span>
 <span class="special">};</span>
 </pre>
@@ -171,11 +171,84 @@
 <pre class="programlisting"><span class="keyword">auto</span> <span class="identifier">r</span> <span class="special">=</span> <span class="keyword">static_cast</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;(</span><span class="number">4.32</span><span class="special">);</span>
 <span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">r</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>	<span class="comment">// r is 4 now</span>
 </pre>
+<h2>
+<a name="day_08_constructors_overload.h6"></a>
+      <span class="phrase"><a name="day_08_constructors_overload.role_cyan_all_in_one_example"></a></span><a class="link" href="day_08_constructors_overload.html#day_08_constructors_overload.role_cyan_all_in_one_example"><span class="cyan">All in one example:</span></a>
+    </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">class</span> <span class="identifier">one_class</span>
+<span class="special">{</span>
+<span class="keyword">private</span><span class="special">:</span>
+	<span class="keyword">int</span> <span class="identifier">x</span><span class="special">;</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">one_class</span><span class="special">()</span>	<span class="comment">// constructor overloading</span>
+	<span class="special">{</span>
+		<span class="identifier">x</span> <span class="special">=</span> <span class="number">3</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="identifier">one_class</span><span class="special">(</span><span class="keyword">int</span> <span class="identifier">x1</span><span class="special">)</span>	<span class="comment">// constructor overloading</span>
+	<span class="special">{</span>
+		<span class="identifier">x</span> <span class="special">=</span> <span class="identifier">x1</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="special">~</span><span class="identifier">one_class</span><span class="special">()</span>	<span class="comment">// Destructor</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"This is destructor."</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">void</span> <span class="identifier">set</span><span class="special">()</span>	<span class="comment">// method overloading</span>
+	<span class="special">{</span>
+		<span class="identifier">x</span> <span class="special">=</span> <span class="number">2</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="keyword">void</span> <span class="identifier">set</span><span class="special">(</span><span class="keyword">int</span> <span class="identifier">x1</span><span class="special">)</span>	<span class="comment">// method overloading</span>
+	<span class="special">{</span>
+		<span class="identifier">x</span> <span class="special">=</span> <span class="identifier">x1</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="keyword">void</span> <span class="identifier">set</span><span class="special">(</span><span class="keyword">float</span> <span class="identifier">x1</span><span class="special">)</span>	<span class="comment">// method overloading</span>
+	<span class="special">{</span>
+		<span class="identifier">x</span> <span class="special">=</span> <span class="keyword">static_cast</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;(</span><span class="identifier">x1</span><span class="special">)</span> <span class="special">+</span> <span class="number">10000</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">void</span> <span class="identifier">print</span><span class="special">()</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"x is "</span> <span class="special">&lt;&lt;</span> <span class="identifier">x</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">auto</span> <span class="identifier">obj1</span> <span class="special">=</span> <span class="identifier">one_class</span><span class="special">{};</span>
+	<span class="keyword">auto</span> <span class="identifier">obj2</span> <span class="special">=</span> <span class="identifier">one_class</span><span class="special">{</span><span class="number">23</span><span class="special">};</span>
+
+	<span class="identifier">obj1</span><span class="special">.</span><span class="identifier">print</span><span class="special">();</span>
+	<span class="identifier">obj2</span><span class="special">.</span><span class="identifier">print</span><span class="special">();</span>
+
+	<span class="identifier">obj1</span><span class="special">.</span><span class="identifier">set</span><span class="special">();</span>
+	<span class="identifier">obj1</span><span class="special">.</span><span class="identifier">print</span><span class="special">();</span>
+
+	<span class="identifier">obj2</span><span class="special">.</span><span class="identifier">set</span><span class="special">(</span><span class="number">3</span><span class="special">);</span>
+	<span class="identifier">obj2</span><span class="special">.</span><span class="identifier">print</span><span class="special">();</span>
+
+	<span class="identifier">obj2</span><span class="special">.</span><span class="identifier">set</span><span class="special">(</span><span class="number">3.2f</span><span class="special">);</span>
+	<span class="identifier">obj2</span><span class="special">.</span><span class="identifier">print</span><span class="special">();</span>
+<span class="special">}</span>
+</pre>
+<p>
+      <span class="bold"><strong>Output:</strong></span>
+    </p>
+<pre class="programlisting"><span class="identifier">x</span> <span class="identifier">is</span> <span class="number">3</span>
+<span class="identifier">x</span> <span class="identifier">is</span> <span class="number">23</span>
+<span class="identifier">x</span> <span class="identifier">is</span> <span class="number">2</span>
+<span class="identifier">x</span> <span class="identifier">is</span> <span class="number">3</span>
+<span class="identifier">x</span> <span class="identifier">is</span> <span class="number">10003</span>
+<span class="identifier">This</span> <span class="identifier">is</span> <span class="identifier">destructor</span><span class="special">.</span>
+<span class="identifier">This</span> <span class="identifier">is</span> <span class="identifier">destructor</span><span class="special">.</span>
+</pre>
 <p>
       <em class="replaceable"><code>Written on Sep 20, 2024</code></em>
     </p>
 <h2>
-<a name="day_08_constructors_overload.h6"></a>
+<a name="day_08_constructors_overload.h7"></a>
       <span class="phrase"><a name="day_08_constructors_overload.role_cyan_back_to_index"></a></span><a class="link" href="day_08_constructors_overload.html#day_08_constructors_overload.role_cyan_back_to_index"><span class="cyan">Back to index</span></a>
     </h2>
 <p>
