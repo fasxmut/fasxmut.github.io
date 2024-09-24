@@ -10,6 +10,10 @@ Home: [@https://ugrep.com ugrep]
 
 July 20, 2024
 
+* ugrep search options
+* ugrep regex
+* ugrep outputs matched string only (format)
+
 [h1 [role cyan ugrep search options]]
 
 [h2 Search cpp in a text]
@@ -400,6 +404,58 @@ $	end of line anchor
 \g{X}	matches group name X (-P)
 (?#...)	comments ... are ignored
 ```
+
+[h1 [role cyan ugrep outputs matched string only]]
+
+ugrep outputs matched string, with --format and --replace option.
+
+* --format:		output matched string only
+* --replace:		replace matched string with another string
+
+[h2 Example:]
+
+Match ipv4 addresses and outputs:
+
+```
+ugrep '[0-9]+[0-9.:]*[0-9]+' --format="%o
+" .
+```
+
+Read Help:
+
+```
+ugrep --help format
+```
+
+Outputs all in one line
+
+```
+--format="%o"
+```
+
+Outputs by each line
+
+```
+--format="%o
+"
+```
+
+Format:
+
+```
+--format="address=%o
+"
+```
+
+Possible output:
+
+```
+address=1.2.3.4:1024
+address=1.2.3.5:1025
+address=1.2.3.6:1026
+```
+
+
 
 [h1 [role cyan See Also]]
 
