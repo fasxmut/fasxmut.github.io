@@ -38,13 +38,16 @@ if [ MATCH ^(cleanall)$ : $(argv) ]
 
 xml xml-index : cppdays.qbk ;
 
-boostbook html-index : xml-index
-	:
+boostbook
+	html-index
+:
+	xml-index
+:
 	<xsl:param>"chunk.first.sections=1"
 	<xsl:param>"chunker.output.doctype-public=-//W3C//DTD XHTML 1.0 Strict//EN"
 	<xsl:param>"chunker.output.doctype-system=http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"
 	<dependency>media
-	;
+;
 
 install html
 	:
