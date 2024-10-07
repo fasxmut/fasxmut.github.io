@@ -1,0 +1,234 @@
+[article cpp boost::proto
+	[quickbook 1.7]
+]
+
+c++ boost::proto silice
+
+Created on Oct 7, 2024
+
+[@. Index]
+
+[h1 [role cyan cpp boost::proto silice]]
+
+c++ boost proto silice
+
+[h1 [role cyan boost::proto]]
+
+Proto is a framework for building Embedded Domain-Specific Languages in c++. It provides tools for constructing, type-checking, transforming and executing expression templates.
+
+Home: [@https://www.boost.org/libs/proto boost::proto]
+
+[h1 [role cyan cpp placeholders]]
+
+c++ placeholder is a metafunction class.
+
+[!c++]
+```
+template <std::integral auto place_holder_i>
+class my_placeholder
+{
+};
+```
+
+[h1 [role cyan boost::proto::callable_context]]
+
+boost::proto::callable_context is an evaluation context for boost::proto::eval, that explodes each node and calls the derived context type with the expressions constituents.
+
+[!c++]
+```
+class my_context:
+	public boost::proto::callable_context<my_context>
+{
+public:
+	template <std::integral auto value_i>
+	auto operator()(boost::proto::tag::terminal, my_placeholder<value_i>)
+	{
+		...
+	}
+};
+```
+
+[h1 [role cyan boost::proto::terminal]]
+
+A metafunction for generating terminal expression types.
+
+[h1 [role cyan boost::proto::tag::terminal]]
+
+[!c++]
+```
+namespace boost::proto::tag
+{
+public:
+	class terminal;
+	class plus;
+	class negate;
+	.
+	.
+	.
+}
+```
+
+[h1 [role cyan cpp concepts]]
+
+Use c++ concepts for type requirements.
+
+[h1 [role gold slice]]
+
+[!c++]
+```
+#include <boost/proto/proto.hpp>
+#include <vector>
+#include <iostream>
+
+namespace world::space
+{
+
+template <typename type_t20>
+concept additive = requires (type_t20 v0, type_t20 v1)
+{
+	{std::forward<type_t20>(v0) + std::forward<type_t20>(v1)} -> std::same_as<std::remove_cvref_t<type_t20>>;
+};
+
+template <std::integral auto place_v00>
+class place_holder
+{
+};
+
+template <world::space::additive type_t00>
+class addition_context:
+	virtual public boost::proto::callable_context<
+		world::space::addition_context<
+			type_t00
+		>
+	>
+{
+public:
+	using result_type = std::remove_cvref_t<type_t00>;
+protected:
+	std::vector<result_type> __data;
+public:
+	addition_context() = delete;
+	addition_context(const type_t00 & v0__, const type_t00 & v1__)
+	{
+		__data.push_back(v0__);
+		__data.push_back(v1__);
+	}
+	virtual ~addition_context()
+	{
+	}
+public:
+	template <std::integral auto place_v10>
+	result_type operator()(boost::proto::tag::terminal, world::space::place_holder<place_v10>) const
+	{
+		return __data[place_v10];
+	}
+};
+
+template <typename type_t00 = void>
+class evaluator
+{
+public:
+	template <typename expr_t10, world::space::additive type_t11>
+	auto operator()(const expr_t10 & expr__, const type_t11 & v0__, const type_t11 & v1__) const
+	{
+		auto ctx = world::space::addition_context{v0__, v1__};
+		return boost::proto::eval(expr__, ctx);
+	}
+};
+
+}	// namespace world::space
+
+namespace user::space
+{
+
+template <world::space::additive type_t00>
+	requires std::same_as<std::remove_cvref_t<type_t00>, type_t00>
+class my_addition_number
+{
+public:
+	using value_type = type_t00;
+	using self_type = my_addition_number<value_type>;
+public:
+	value_type __value;
+public:
+	my_addition_number(): __value{0} {}
+	my_addition_number(const value_type & value__):
+		__value{value__}
+	{
+	}
+public:
+	self_type operator+(const self_type & other__) const
+	{
+		return __value + other__.__value;
+	}
+	self_type operator+(const value_type & other__) const
+	{
+		return __value + other__;
+	}
+	self_type operator+(const auto &) const = delete;
+	#if false
+	self_type operator+(const auto &) = delete;
+	#endif
+public:
+	void print() const
+	{
+		std::cout << "(user-defined number) result: " << __value << std::endl;
+	}
+};
+
+auto operator""_number (const long double value__)
+{
+	return user::space::my_addition_number<long double>{value__};
+}
+
+}	// namespace user::space
+
+int main()
+{
+	const auto eval = world::space::evaluator<void>{};
+
+	const auto x0 = boost::proto::terminal<world::space::place_holder<0>>::type{};
+	const auto x1 = boost::proto::terminal<world::space::place_holder<1>>::type{};
+
+	{
+		const auto result = eval(x0 + x1, 2.5, 3.4);
+		std::cout << "(number) result: " << result << std::endl;
+	}
+
+	{
+		const auto a = user::space::my_addition_number{5.1};
+		const auto b = user::space::my_addition_number{3.4};
+		const auto result = eval(x0 + x1, a, b);
+		result.print();
+	}
+
+	{
+		using user::space::operator""_number;
+		const auto result = eval(x0 + x1, 3.4_number, 2.55_number);
+		result.print();
+	}
+
+	{
+		[]
+		{
+			const auto a = user::space::my_addition_number{5.1};
+			static_assert(world::space::additive<decltype(a)>);
+			static_assert(world::space::additive<int>);
+			static_assert(world::space::additive<std::remove_cvref_t<decltype(a)>>);
+			using type_zz = user::space::my_addition_number<double>;
+			static_assert(world::space::additive<type_zz>);
+		}
+		()
+		;
+	}
+}
+```
+
+[@. Index]
+
+[h1 [role cyan See Also]]
+
+[@https://www.boost.org/libs/proto c++ boost::proto]
+
+
+

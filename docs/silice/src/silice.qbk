@@ -2,6 +2,8 @@
 	[quickbook 1.7]
 ]
 
+[include boost-proto.qbk]
+
 [h1 [role cyan cpp Silice plan]]
 
 c++ Silice plan, which is a project written for myself, and anyone can read them freely if they like.
