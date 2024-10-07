@@ -1,4 +1,5 @@
 index.html
+cpp_concept_const_ref_remove.html
 std_string_view_avoid_unnecessar.html
 sycl_buffer.html
 sycl_handler_copy_handler_fill.html

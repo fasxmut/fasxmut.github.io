@@ -1,0 +1,80 @@
+[article cpp concept: const, ref, remove, ...
+	[quickbook 1.7]
+]
+
+c++ concept: const, ref, remove-cvref, ... - Posted on Oct 7, 2024 - See [@https://en.cppreference.com/w/cpp/language/constraints] - [@https://cppfx.xyz/logs Logs Home] - d0034
+
+c++
+
+* [* Ordinary parameter most likely converts argument type when passing arg, if the argument type is different.]
+
+* [* Concept paramter requires the argument type is the same as what the parameter requires, otherwise it's compiling error.]
+
+[h1 [role cyan cpp concept: const, ref, remove-cvref, ...]]
+
+c++ concept: const, ref, remove-cvref, ..., care.
+
+c++ code
+
+[!c++]
+```
+#include <boost/proto/proto.hpp>
+#include <vector>
+#include <iostream>
+
+namespace world::space
+{
+
+
+template <typename type_t31>
+concept additive = requires (type_t31 v0__, type_t31 v1__)
+{
+	#if true
+	{std::forward<type_t31>(v0__) + std::forward<type_t31>(v1__)} -> std::same_as<std::remove_cvref_t<type_t31>>;
+	#else
+	std::forward<type_t31>(v0__) + std::forward<type_t31>(v1__);
+	{std::forward<type_t31>(v0__) + std::forward<type_t31>(v1__)} -> std::same_as<std::remove_cvref_t<type_t31>>;
+	#endif
+};
+
+}	// namespace world::space
+
+int main()
+{
+	{
+		static_assert(world::space::additive<int>);		// Satisfy
+		static_assert(world::space::additive<int &>);		// Satisfy
+		static_assert(world::space::additive<const int>);		// Satisfy
+		static_assert(world::space::additive<const int &>);		// Satisfy
+
+		static_assert(world::space::additive<std::string>);		// Satisfy:	std::string is additive
+
+		static_assert(! world::space::additive<std::vector<int>>);		// std::vector does not satisfy
+	}
+	{
+		class my_space
+		{
+		public:
+			my_space operator+(const my_space &) const
+			{
+				return {};
+			}
+		};
+		static_assert(world::space::additive<my_space>);		// Satisfy
+	}
+	{
+		class my_space_2
+		{
+		public:
+			const my_space_2 & operator+(const my_space_2 &) const
+			{
+				return *this;
+			}
+		};
+		static_assert(! world::space::additive<my_space_2>);		// my_space_2 does not satisfy
+	}
+}
+```
+
+
+
