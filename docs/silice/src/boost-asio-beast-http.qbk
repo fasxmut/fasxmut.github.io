@@ -1,0 +1,889 @@
+[article c++ asio beast http networking
+	[quickbook 1.7]
+	[id cpp-asio-beast-http-networking]
+]
+
+cpp: c++ network silice
+
+Created on Oct 9, 2024
+
+[@. Home: cpp Silice]
+
+[h1 [role cyan cpp boost::asio, boost::beast networking silice]]
+
+c++ boost::asio, boost::beast networking silice
+
+* [link cpp-asio-beast-http-networking.async-asio-beast boost::asio, boost::beast, async]
+* [role red [*silice:]] [link cpp-asio-beast-http-networking.silice-server async asio beast http server]
+* [role red [*silice:]] [link cpp-asio-beast-http-networking.silice-client async asio beast http client]
+* [link cpp-asio-beast-http-networking.coroutines c++ boost::asio coroutines]
+* [role red [*silice:]] [link cpp-asio-beast-http-networking.silice-server-coro async asio beast http server, coroutines]
+* [role red [*silice:]] [link cpp-asio-beast-http-networking.silice-client-coro async asio beast http client, coroutines]
+
+[h1:async-asio-beast [role cyan boost::asio, boost::beast, async]]
+
+[h2 boost::asio::ip::tcp::resolver]
+
+The tcp resolver type.
+
+[!teletype]
+```
+resolver.async_resolve(...
+```
+
+Asynchronous perform forward or reverse resolution of a query or an endpoint to entries.
+
+Commonly used on client side.
+
+[h2 boost::asio::ip::tcp::acceptor]
+
+The tcp acceptor type.
+
+[!teletype]
+```
+acceptor.async_accept(...
+```
+
+Asynchronous start an accept.
+
+Commonly used on server side.
+
+[h2 boost::beast::tcp_stream]
+
+A TCP/IP stream socket with timeouts and a polymorphic executor.
+
+Commonly used on both server side and client side.
+
+[h2 __tcp_stream.async_connect]
+
+[!teletype]
+```
+__tcp_stream.async_connect(ep_or_ep_sequence_or_ep_iterators, ...
+```
+
+Connect the stream to the specified endpoint asynchronously.
+
+Commonly used on client side.
+
+[h2 http::async_write]
+
+[!teletype]
+```
+http::async_write(...
+```
+
+Write a complete message to a stream asynchronously.
+
+Commonly used on both server side and client side.
+
+[h2 http::async_read]
+
+[!teletype]
+```
+http::async_read(...
+```
+
+Read a complete message from a stream asynchronously.
+
+Commonly used on both server side and client side.
+
+[h1:silice-server [role gold Async Server Side Http (silice)]]
+
+Server side code can be divided into two stages:
+
+# acceptor looper
+	* boost::asio::ip::tcp::acceptor
+# session
+	* tcp::socket to boost::beast::tcp_stream, and commuicates with the client side.
+
+[h2 cpp example]
+
+c++ example
+
+```
+#include <boost/asio.hpp>
+#include <boost/beast.hpp>
+#include <iostream>
+
+using std::string_literals::operator""s;
+
+namespace asio = boost::asio;
+namespace beast = boost::beast;
+namespace http = beast::http;
+using asio::ip::tcp;
+
+namespace space
+{
+
+class http_session:
+	virtual public std::enable_shared_from_this<
+		space::http_session
+	>
+{
+protected:
+	beast::tcp_stream __tcp_stream;
+	http::request<http::string_body> __request;
+	http::response<http::string_body> __response;
+	beast::flat_buffer __buffer;
+public:
+	virtual ~http_session()
+	{
+		__tcp_stream.close();
+		std::clog << "Session is ended.\n";
+	}
+public:
+	http_session(tcp::socket && socket__):
+		__tcp_stream{std::move(socket__)}
+	{
+		std::clog << "Session is started.\n";
+	}
+public:
+	void run()
+	{
+		std::cout << "Session is running ...\n";
+		this->read_write();
+	}
+protected:
+	void read_write()
+	{
+		this->read();
+	}
+	void read()
+	{
+		http::async_read(
+			__tcp_stream,
+			__buffer,
+			__request,
+			[self=this->shared_from_this()] (std::error_code ec, unsigned long bytes)
+			{
+				if (ec)
+					throw std::system_error{ec, "http::asyn_read error."};
+				std::clog << "Request read: " << bytes << " bytes.\n";
+				self->write();
+			}
+		);
+	}
+	void write()
+	{
+		__response.body() = "<html><body>Hello, c++ http server!</body></html>";
+		__response.keep_alive(__request.keep_alive());
+		http::async_write(
+			__tcp_stream,
+			__response,
+			[self=this->shared_from_this()] (std::error_code ec, unsigned long bytes)
+			{
+				if (ec)
+					throw std::system_error{ec, "http::async write error."};
+				std::clog << "Response written: " << bytes << " bytes.\n";
+			}
+		);
+	}
+};
+
+class http_server:
+	virtual public std::enable_shared_from_this<
+		space::http_server
+	>
+{
+protected:
+	asio::io_context __io_ctx;
+	const std::string __address;
+	const unsigned short __port;
+	tcp::acceptor __acceptor;
+	http::request<http::string_body> __request;
+	http::response<http::string_body> __response;
+public:
+	virtual ~http_server()
+	{
+	}
+public:
+	http_server(
+		const std::string_view address__,
+		const unsigned short port__
+	):
+		__io_ctx{},
+		__address{address__},
+		__port{port__},
+		__acceptor{
+			__io_ctx,
+			tcp::endpoint{
+				asio::ip::make_address(__address),
+				__port
+			}
+		}
+	{
+	}
+public:
+	void run()
+	{
+		this->start();
+		__io_ctx.run();
+	}
+protected:
+	void start()
+	{
+		this->accept();
+	}
+	void accept()
+	{
+		__acceptor.async_accept(
+			[self=this->shared_from_this()] (std::error_code ec, tcp::socket socket)
+			{
+				if (ec)
+					throw std::system_error{ec, "Accept Error."};
+				std::clog << "Accept OK.\n";
+				std::make_shared<space::http_session>(std::move(socket))->run();
+				self->accept();
+			}
+		);
+	}
+};
+
+}	// namespace space
+
+int main(int argc, char * argv[])
+try
+{
+	if (argc != 3)
+		throw std::runtime_error{""s + argv[0] + " <bind address> <bind port>"};
+
+	std::make_shared<space::http_server>(argv[1], std::stoi(argv[2]))->run();
+}
+catch (const std::exception & e)
+{
+	std::cerr << "ERROR:\n" << e.what() << std::endl;
+}
+```
+
+[h1:silice-client [role gold Async Client Side Http (silice)]]
+
+Client side code can be divided into some stages:
+
+# Resolve
+	* resolver.resolve
+# Connect
+	* tcp_stream.async_connect
+# Write Request
+# Read Response
+
+[h2 cpp example]
+
+c++ example
+
+[!c++]
+```
+#include <boost/beast.hpp>
+#include <boost/asio.hpp>
+#include <iostream>
+
+namespace asio = boost::asio;
+namespace beast = boost::beast;
+namespace http = beast::http;
+using asio::ip::tcp;
+
+using std::string_literals::operator""s;
+
+namespace space
+{
+
+class http_client_session:
+	virtual public std::enable_shared_from_this<
+		space::http_client_session
+	>
+{
+protected:
+	asio::io_context __io_ctx;
+	const std::string __target;
+	const std::string __protocol;
+	tcp::resolver __resolver;
+	beast::tcp_stream __tcp_stream;
+	http::request<http::string_body> __request;
+	http::response<http::string_body> __response;
+	beast::flat_buffer __buffer;
+public:
+	virtual ~http_client_session()
+	{
+	}
+public:
+	http_client_session(const std::string_view target__, const std::string_view protocol__):
+		__io_ctx{},
+		__target{target__},
+		__protocol{protocol__},
+		__resolver{__io_ctx},
+		__tcp_stream{__io_ctx}
+	{
+	}
+public:
+	void run()
+	{
+		this->start();
+		__io_ctx.run();
+	}
+protected:
+	void start()
+	{
+		this->resolve();
+	}
+	void resolve()
+	{
+		__resolver.async_resolve(
+			__target,
+			__protocol,
+			[self=this->shared_from_this()] (
+				std::error_code ec,
+				tcp::resolver::results_type results
+			)
+			{
+				if (ec)
+					throw std::system_error{ec, "__resolver.async_resolve Error."};
+				std::clog << "Resolve OK.\n";
+				self->connect(std::move(results));
+			}
+		);
+	}
+	void connect(tcp::resolver::results_type && results__)
+	{
+		__tcp_stream.expires_after(std::chrono::seconds(3));
+		__tcp_stream.async_connect(
+			results__,
+			[self=this->shared_from_this()] (
+				std::error_code ec,
+				tcp::endpoint ep
+			)
+			{
+				if (ec)
+					throw std::system_error{ec, "__tcp_stream.async_connect error."};
+				std::clog << "Connect OK.\n";
+				self->write_read();
+			}
+		);
+	}
+protected:
+	void write_read()
+	{
+		this->write();
+	}
+	void write()
+	{
+		__request.method(http::verb::get);
+		__request.set(http::field::host, __target);
+		__request.target("/");
+		__tcp_stream.expires_after(std::chrono::seconds(3));
+		http::async_write(
+			__tcp_stream,
+			__request,
+			[self=this->shared_from_this()] (
+				std::error_code ec,
+				unsigned long bytes
+			)
+			{
+				if (ec)
+					throw std::system_error{ec, "http::async_write error."};
+				self->read();
+			}
+		);
+	}
+	void read()
+	{
+		__tcp_stream.expires_after(std::chrono::seconds(3));
+		http::async_read(
+			__tcp_stream,
+			__buffer,
+			__response,
+			[self=this->shared_from_this()] (
+				std::error_code ec,
+				unsigned long bytes
+			)
+			{
+				if (ec)
+					throw std::system_error{ec, "http::async_read error."};
+				std::cout << self->__response.body() << std::endl;
+			}
+		);
+	}
+};	// class http_client_session
+
+}	// namespace space
+
+int main(int argc, char * argv[])
+try
+{
+	if (argc != 3)
+		throw std::runtime_error{""s + argv[0] + " <remote host> <protocol (a port number)>"};
+	std::make_shared<space::http_client_session>(argv[1], argv[2])->run();
+}
+catch (const std::exception & e)
+{
+	std::cerr << "ERROR:\n" << e.what() << std::endl;
+}
+```
+
+[h1:coroutines [role cyan c++ boost::asio Coroutines]]
+
+[h2 cpp coroutines]
+
+c++ coroutines
+
+* co_return
+	* coroutine returns
+* co_await
+	* Suspend a coroutine and return control to the caller
+		* [*one coroutine awaits another coroutine]
+* co_yield
+	* Suspend and resume execution
+
+[h2 asio::co_spawn]
+
+boost::asio::co_spawn
+
+Spawn a new coroutine-based thread of execution.
+
+[!c++]
+```
+asio::co_spawn(x__, awaitable__, token__ = DEFAULT, constraint__ = 0);
+```
+
+* x__ can be an executor or an asio context.
+* awaitable__ can be an awaitable or a lambda that returns an awaitable.
+* token__ is a completion token:
+	* asio::detached
+* constraint
+
+[h2 asio::awaitable<value_type, executor_type>]
+
+The [*return type] of a coroutine
+
+[h2 asio::use_awaitable]
+
+A completion token object that reprensents the currently executing coroutine.
+
+[h2 asio::this_coro::executor]
+
+* asio::this_coro::executor
+* `co_await asio::this_coro::executor;`
+
+As the name described, [*asio::this_coro::executor] is an awaitable object that returns the executor of the current coroutine.
+
+[*`co_await asio::this_coro::executor;`] gets the executor that the awaitable object returns.
+
+[h1 [role cyan How]]
+
+Get it step by step
+
+[h2 -)]
+
+First of all, [*all coroutines can not be used directly in main:]
+
+* c++ standard language co_yield, co_return, co_await
+* Any coroutines that the boost::asio creates.
+
+A coroutine execution thread must be spawned as the start point of all other coroutines, which is done by [*boost::asio::co_spawn].
+
+[*main calls asio::co_spawn, asio::co_spawn calls coroutines.]
+
+[!c++]
+```
+boost::asio::co_spawn(io_context, yyzz, asio::detached);
+io_context.run();
+```
+[!c++]
+```
+boost::asio::co_spawn(io_context, yyzz(), asio::detached);
+io_context.run();
+```
+
+Both work.
+
+* [*yyzz] is a lambda that can return an awaitable object.
+* [*yyzz()] is an awaitable object just it returns.
+
+Both [*yyzz] and [*yyzz()] are not actual value. Their relationships are:
+
+[role green [*lambda]] returns [role green [*awaitable object]],
+
+[role green [*awaitable object]] returns [role green [*actual value]] .
+
+[h2 -)]
+
+[*The return type of a coroutine is boost::asio::awaitable, and can not be auto-deduced.]
+
+EX.:
+
+[!c++]
+```
+class server
+{
+public:
+	asio::awaitable<void> run()
+	{
+		co_return;
+	}
+};
+```
+
+[h2 -)]
+
+[* completion-token: boost::asio::use_awaitable]
+
+In most cases, boost::asio::use_awaitable takes the handler place, as a completion token. And then the calling returns an awaitable object.
+
+EX.:
+
+[!c++]
+```
+auto awaitable_object = http::async_write(
+	tcp_stream,
+	request,
+	boost::asio::use_awaitable
+);
+
+co_await awaitable_object;
+```
+
+In most cases, we do not want the awaitable object, we want the actual object, then:
+
+[!c++]
+```
+unsigned long bytes = co_await http::async_write(tcp_stream, request, asio::use_awaitable);
+```
+
+Further on, we don't need both, we only need the write action:
+
+[!c++]
+```
+co_await http::async_write(tcp_stream, request, asio::use_awaitable);
+
+```
+
+The boost::asio::use_awaitable takes pace of the async handler, the async handler:
+
+[!c++]
+```
+http::async_write(
+	tcp_stream,
+	request,
+	[] (std::error_code ec, unsigned long byte)	// This lambda is the so-called handler.
+	{
+		if (! ec)	// if no error
+			...
+	}
+);
+```
+
+[h2 -)]
+
+[*asio::this_coro::executor]
+
+As the name described, get the executor from this-coro, it returns an awaitable object, we need to get the executor from the awaitable object further on:
+
+[!c++]
+```
+auto executor = co_await asio::this_coro::executor;
+```
+
+But be careful, [*co_await] can not be used as the constructor parameter.
+
+[h2 -) Compare them, do not be confused:]
+
+* [role green [*co_await asio::this_coro::executor]] takes place of the object io_context.
+* [role red [*asio::use_awaitable]] takes place of the handler.
+* [role blue [*asio::awaitable<value_type>]] is the return type of the coroutine.
+
+[h1:silice-server-coro [role gold Async Server Side Http (silice: if coroutines)]]
+
+Server side code can be divided into two stages:
+
+# acceptor looper
+	* boost::asio::ip::tcp::acceptor
+# session
+	* tcp::socket to boost::beast::tcp_stream, and commuicates with the client side.
+
+[h2 Server side example]
+
+Server side c++ example code.
+
+```
+#include <boost/asio.hpp>
+#include <boost/asio/detached.hpp>
+#include <iostream>
+#include <memory>
+#include <boost/beast.hpp>
+
+using std::string_literals::operator""s;
+
+namespace space
+{
+
+class http_session:
+	virtual public std::enable_shared_from_this<space::http_session>
+{
+protected:
+	boost::beast::tcp_stream __stream;
+protected:
+	boost::beast::http::request<boost::beast::http::string_body> __request;
+	boost::beast::http::response<boost::beast::http::string_body> __response;
+	boost::beast::flat_buffer __buffer;
+public:
+	virtual ~http_session()
+	{
+		__stream.close();
+		std::cout << "Session is ended.\n";
+	}
+public:
+	http_session(boost::asio::ip::tcp::socket && socket__):
+		__stream{std::move(socket__)}
+	{
+		std::cout << "Session is created.\n";
+	}
+public:
+	boost::asio::awaitable<void> run()
+	{
+		co_await this->read_write();
+	}
+	boost::asio::awaitable<void> read_write()
+	{
+		co_await boost::beast::http::async_read(__stream, __buffer, __request, boost::asio::use_awaitable);
+		
+		__response.body() = R"(
+			<html>
+			<head>
+				<title>Hello, c++!</title>
+			</head>
+			<body>
+				<h1>Hello, c++ !!</h1>
+			</body>
+			</html>
+		)";
+		co_await boost::beast::http::async_write(__stream, __response, boost::asio::use_awaitable);
+	}
+};	// class http_session
+
+class http_server:
+	virtual public std::enable_shared_from_this<
+		space::http_server
+	>
+{
+protected:
+	const std::string __address;
+	const unsigned short __port;
+	boost::asio::ip::tcp::acceptor __acceptor;
+public:
+	virtual ~http_server()
+	{
+	}
+public:
+	http_server(
+		auto executor,
+		const std::string_view address__,
+		const unsigned short port__
+	):
+		__address{address__},
+		__port{port__},
+		__acceptor{
+			executor,
+			boost::asio::ip::tcp::endpoint{
+				boost::asio::ip::make_address(__address),
+				__port
+			}
+		}
+	{
+	}
+public:
+	boost::asio::awaitable<void> operator()()
+	{
+		co_return;
+	}
+public:
+	boost::asio::awaitable<void> run()
+	{
+		co_await this->accept();
+	}
+	boost::asio::awaitable<void> accept()
+	{
+		boost::asio::ip::tcp::socket socket = co_await __acceptor.async_accept(boost::asio::use_awaitable);
+		co_await std::make_shared<space::http_session>(std::move(socket))->run();
+		co_await this->accept();
+	}
+};	// class http_server
+
+}	// namespace space
+
+int main(int argc, char * argv[])
+try
+{
+	if (argc != 3)
+		throw std::runtime_error{""s + argv[0] + " <bind address> <bind port>"};
+	auto io_context = boost::asio::io_context{};
+	boost::asio::co_spawn(
+		io_context,
+		[] (const std::string_view host, const unsigned short port) -> boost::asio::awaitable<void>
+		{
+			co_await
+			std::make_shared<space::http_server>(
+				co_await boost::asio::this_coro::executor,
+				host,
+				port
+			)
+			->run();
+		}
+		(argv[1], static_cast<unsigned short>(std::stoi(argv[2]))),
+		boost::asio::detached
+	);
+	io_context.run();
+}
+catch (const std::exception & e)
+{
+	std::cerr << "ERROR:\n" << e.what() << std::endl;
+}
+```
+
+[h1:silice-client-coro [role gold Async Client Side Http (silice: if coroutines)]]
+
+Client side code can be divided into some stages:
+
+# Resolve
+	* resolver.resolve
+# Connect
+	* tcp_stream.async_connect
+# Write Request
+# Read Response
+
+[h2 Client side example]
+
+Client side c++ example code.
+
+(exceptions or error codes might not work)
+
+[!c++]
+```
+#include <boost/beast.hpp>
+#include <boost/asio.hpp>
+#include <boost/asio/detached.hpp>
+#include <boost/asio/co_spawn.hpp>
+#include <iostream>
+
+namespace asio = boost::asio;
+namespace beast = boost::beast;
+namespace http = beast::http;
+using asio::ip::tcp;
+
+using std::string_literals::operator""s;
+
+namespace space
+{
+
+class http_session:
+	virtual public std::enable_shared_from_this<
+		space::http_session
+	>
+{
+protected:
+	const std::string __target;
+	const std::string __protocol;
+	asio::ip::tcp::resolver __resolver;
+	beast::tcp_stream __stream;
+protected:
+	http::request<http::string_body> __request;
+	http::response<http::string_body> __response;
+	beast::flat_buffer __buffer;
+public:
+	virtual ~http_session()
+	{
+		__stream.close();
+	}
+public:
+	http_session(auto executor__, const std::string_view target__, const std::string_view protocol__):
+		__target{target__},
+		__protocol{protocol__},
+		__resolver{executor__},
+		__stream{executor__}
+	{
+	}
+public:
+	asio::awaitable<void> run()
+	{
+		co_await this->Run();
+	}
+protected:
+	asio::awaitable<void> Run()
+	{
+		tcp::resolver::results_type results = co_await this->resolve();
+		[[maybe_unused]] tcp::endpoint ep = co_await this->connect(std::move(results));
+		co_await this->write_read();
+	}
+protected:
+	asio::awaitable<tcp::resolver::results_type> resolve()
+	{
+		co_return co_await __resolver.async_resolve(
+			__target,
+			__protocol,
+			asio::use_awaitable
+		);
+	}
+	asio::awaitable<tcp::endpoint> connect(tcp::resolver::results_type && results)
+	{
+		__stream.expires_after(std::chrono::seconds(3));
+		co_return co_await __stream.async_connect(results, asio::use_awaitable);
+	}
+	asio::awaitable<void> write_read()
+	{
+		__request.method(http::verb::get);
+		__request.version(11);
+		__request.target("/");
+		__request.set(http::field::host, __target);
+
+		__stream.expires_after(std::chrono::seconds(3));
+		co_await http::async_write(__stream,  __request, asio::use_awaitable);
+		__stream.expires_after(std::chrono::seconds(3));
+		co_await http::async_read(__stream, __buffer, __response, asio::use_awaitable);
+
+		if (true)
+		{
+			std::cout << __response.body() << std::endl;
+		}
+		else
+		{
+			std::cout << __response << std::endl;	// works too.
+			std::cout << __response.body().data() << std::endl;	// works too.
+		}
+	}
+};
+
+}	// namespace space
+
+int main(int argc, char * argv[])
+try
+{
+	if (argc != 3)
+		throw std::runtime_error{""s + argv[0] + " <remote host> <remote port>"};
+
+	auto io_context = asio::io_context{};
+
+	asio::co_spawn(
+		io_context,
+		[&] -> asio::awaitable<void>
+		{
+			co_await
+			std::make_shared<space::http_session>(co_await asio::this_coro::executor, argv[1], argv[2])->run();
+		},
+		asio::detached
+	);
+
+	io_context.run();
+}
+catch (const std::exception & e)
+{
+	std::cerr << "ERROR:\n" << e.what() << std::endl;
+}
+```
+
+[@. Home: cpp Silice]
+
+[h1 [role cyan See Also]]
+
+[@https://www.boost.org/libs/asio boost::asio]
+
+[@https://www.boost.org/libs/beast boost::beast]
+
+
+

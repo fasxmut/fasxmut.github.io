@@ -1,18 +1,22 @@
-[article cpp boost::proto
+[article c++ boost::proto
 	[quickbook 1.7]
+	[id cpp-boost-proto]
 ]
 
-c++ boost::proto silice
+cpp: c++ boost::proto silice
 
 Created on Oct 7, 2024
 
-[@. Index]
+[@. Home: cpp Silice]
 
 [h1 [role cyan cpp boost::proto silice]]
 
 c++ boost proto silice
 
-[h1 [role cyan boost::proto]]
+* [link cpp-boost-proto.start Start]
+* [link cpp-boost-proto.silice [role red [*Silice]]]
+
+[h1:start [role cyan boost::proto]]
 
 Proto is a framework for building Embedded Domain-Specific Languages in c++. It provides tools for constructing, type-checking, transforming and executing expression templates.
 
@@ -68,7 +72,7 @@ public:
 }
 ```
 
-[h1 [role cyan cpp concepts]]
+[h1:silice [role cyan cpp concepts]]
 
 Use c++ concepts for type requirements.
 
@@ -224,7 +228,7 @@ int main()
 }
 ```
 
-[@. Index]
+[@. Home: cpp Silice]
 
 [h1 [role cyan See Also]]
 
