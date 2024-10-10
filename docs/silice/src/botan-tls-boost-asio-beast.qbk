@@ -1,0 +1,649 @@
+[article c++ botan tls + boost asio beast (https client)
+	[quickbook 1.7]
+	[id cpp-botan-tls-boost-asio-beast-client]
+]
+
+cpp: c++ networking https silice
+
+Created on Oct 10, 2024
+
+[@. Home: cpp Silice]
+
+[h1 [role cyan cpp botan tls + boost asio beast]]
+
+* [link cpp-botan-tls-boost-asio-beast-client.step-by-step Hunt (track) it Step By Step]
+* [role red [*silice]] [link cpp-botan-tls-boost-asio-beast-client.silice Botan::TLS and boost asio/beast c++ example]
+* [role red [*silice]] [link cpp-botan-tls-boost-asio-beast-client.silice-coro Botan::TLS and boost asio/beast c++ example, coroutines]
+
+Reading this article requires reading [link cpp-asio-beast-http-networking c++ asio beast http networking]
+
+[h1:step-by-step [role cyan Hunt (track) it Step By Step]]
+
+[h2 Start]
+
+Botan http tls (https) client commuication add a handshake to the boost::asio communication after connection.
+
+[h2 tls handshake: tls_stream.async_handshake(...)]
+
+tls_stream.async_handshake(...) starts an asynchronous ssl (tls) handshake.
+
+[!c++]
+```
+tls_stream.async_handshake(	// async handshake
+	Botan::TLS::Connection_Side::Client,
+	[self = this->shared_from_this()] (std::error_code ec)	// handler
+	{
+	}
+);
+```
+
+[h2 How to get tls_stream]
+
+tls_stream is an object created from Botan::TLS::Stream.
+
+[!c++]
+```
+Botan::TLS::Stream<beast::tcp_stream> tls_stream{tls_context, io_context};
+```
+
+Botan::TLS::Stream is a compatible tls stream to boost::asio.
+
+Stream-Layer-Type: beast::tcp_stream - the next layer type.
+
+io_context is an object of asio::io_context.
+
+[h2 How to get tls_context]
+
+tls_context is an object created from Botan::TLS::Context.
+
+[!c++]
+```
+Botan::TLS::Context tls_context{credentials_manager, rng, session_manager, policy, server_info);
+```
+
+Botan::TLS::Context is a helper class to initialize and configure Botan::TLS::Stream.
+
+Arguments:
+
+* credentials_manager - object created from Botan API - smart pointer - std::shared_ptr.
+* rng - object created from Botan API - smart pointer - std::shared_ptr.
+* session_manager - object created from Botan API - smart pointer - std::shared_ptr.
+* policy - object created from Botan API - smart pointer - std::shared_ptr.
+
+[h2:cpp-smart-pointer c++ Smart Pointer]
+
+[tip
+	[h3 Quote]
+
+	U* shall be implicitly convertible to T*
+	
+	[*Constructor:] [@https://cplusplus.com/reference/memory/shared_ptr/shared_ptr]
+
+	[*operator=:] [@https://cplusplus.com/reference/memory/shared_ptr/operator=]
+]
+
+
+[h3 Constructor]
+
+[!c++]
+```
+std::shared_ptr<T> ptr = std::make_shared<U>(...);
+```
+
+[h3 operator=]
+
+[!c++]
+```
+std::shared_ptr<T> ptr;
+ptr  = std::make_shared<U>(...);
+```
+
+In this article, U is the derived class, T is the base class, so U * is convertibale to T * .
+
+[h2 RNG]
+
+[!c++]
+```
+std::shared_ptr<Botan::RandomNumberGenerator> rng
+	{
+		std::make_shared<Botan::AutoSeeded_RNG>()
+	};
+```
+
+[*Botan::RandomNumberGenerator] is an interface to a crypto random number generator. It is an abstract class.
+
+Some implementors of Botan::RandomNumberGenerator:
+
+* [*Botan::AutoSeeded_RNG] - a userspace rng, auto-seeded.
+* [*Botan::ChaCha_RNG] - very fast but completely ad-hoc RNG, uses a key for chacha20.
+* [*Botan::Processor_RNG] - CPU instruction RNG.
+* [*Botan::Stateful_RNG] - maintains in-process state, reseeds itself whenever a fork is detected.
+* [*Botan::System_RNG] - returns a shared reference to a global RNG instance provided by operating system.
+ 
+[h2 credentials_manager]
+
+[!c++]
+```
+std::shared_ptr<Botan::Credentials_Manager> credentials_manager
+	{
+		std::make_shared<my_tls::credentials_manager>()
+	};
+```
+
+[*Botan::Credentials_Manger] - Interface for a credentials manager.
+
+[*my_tls::credentials_manager] - my_tls::credentials_manager is a user-defined class, which must be derived from Botan::Credentials_Manager and specify how to get the system certificate store. Otherwise the tls handshake will report certificate error.
+
+[h2 session_manager]
+
+[!c++]
+```
+std::shared_ptr<Botan::TLS::Session_Manager> session_manager
+	{
+		std::make_shared<Botan::TLS::Session_Manager_In_Memory>(rng)
+	};
+```
+
+[*Botan::TLS::Session_Manager] is an interface to systems which can save session parameters for supporting session resumption. - it is an abstract class.
+
+* [*Botan::TLS::Session_Manager_In_Memory] is a thread-safe session manager that stores tls sessions in memory. For applications that implement a TLS client and that do not want to persist sessions to non-volatile memory, this is typically a good default option. 
+
+Other session manager:
+
+* [*Botan::TLS::Session_Manager_Noop] - not save sessions at all, preventing session resumption.
+* [*Botan::TLS::Session_Manager_Stateless] - A Session_Manager that emits Session_Handle objects with a Session_Ticket. This is useful for servers that do not want to hold any state about resumable sessions.
+* [*Botan::TLS::Session_Manager_SQL] - Save values in a SQL database file, with data encrypted.
+* [*Botan::TLS::Session_Manager_Hybrid]
+
+[h3 rng]
+
+The std::shared_ptr smart pointer of rng described before.
+
+[h2 policy]
+
+[!c++]
+```
+std::shared_ptr<Botan::TLS::Policy> policy
+	{
+		std::make_shared<Botan::TLS::Policy>()
+	};
+```
+
+Botan::TLS::Policy is the TLS policy base class. Inherit it and overload as desired to suit local policy concerns.
+
+[h2 server_info]
+
+[!c++]
+```
+Botan::TLS::Server_Information server_info;
+```
+
+Botan::TLS::Server_Information represents information known about a TLS server.
+
+[h2 Conclusion]
+
+[h3 tls_stream]
+
+All of the above parameters are for creating tls_stream, the object of [*Botan::TLS::Stream<beast::tcp_stream>]. After getting object [*tls_stream], we can let encrypted boost::asio/boost::beast networking work.
+
+[h1:silice [role gold Botan::TLS and asio/beast c++ example (silice)]]
+
+c++ example
+
+[!c++]
+```
+#include <boost/beast.hpp>
+#include <boost/asio.hpp>
+#include <botan/tls.h>
+#include <botan/asio_stream.h>
+#include <botan/certstor_system.h>
+#include <botan/auto_rng.h>
+#include <iostream>
+
+using std::string_literals::operator""s;
+
+namespace beast = boost::beast;
+namespace asio = boost::asio;
+namespace http = beast::http;
+using asio::ip::tcp;
+
+namespace iotls
+{
+
+class credentials_manager:
+	virtual public Botan::Credentials_Manager
+{
+protected:
+	using ret_t = std::vector<Botan::Certificate_Store *>;
+protected:
+	Botan::System_Certificate_Store __store;
+public:
+	ret_t trusted_certificate_authorities(const std::string & type, const std::string & context) override
+	{
+		return ret_t{&__store};
+	}
+public:
+	virtual ~credentials_manager() {}
+};
+
+class https_client:
+	virtual public std::enable_shared_from_this<
+		iotls::https_client
+	>
+{
+protected:
+	asio::io_context & __io_context;
+	const std::string __host;
+	const std::string __port;
+protected:
+	tcp::resolver __resolver;
+	http::request<http::string_body> __request;
+	http::response<http::string_body> __response;
+	beast::flat_buffer __buffer;
+protected:
+// Parameters for __tls_context
+	std::shared_ptr<Botan::RandomNumberGenerator> __rng;
+	std::shared_ptr<Botan::Credentials_Manager> __cred_man;
+	std::shared_ptr<Botan::TLS::Session_Manager> __sess_man;
+	std::shared_ptr<Botan::TLS::Policy> __policy;
+	Botan::TLS::Server_Information __server_info;
+// __tls_context
+	std::shared_ptr<Botan::TLS::Context> __tls_context;
+// __tls_stream
+	Botan::TLS::Stream<beast::tcp_stream> __tls_stream;
+public:
+	https_client(
+		asio::io_context & io_context__,
+		const std::string_view host__,
+		const std::string_view port__
+	):
+		__io_context{io_context__},
+		__host{host__},
+		__port{port__},
+		__resolver{__io_context},
+
+	// Construct parameters for __tls_context
+		__rng{std::make_shared<Botan::AutoSeeded_RNG>()},
+		__cred_man{std::make_shared<iotls::credentials_manager>()},
+		__sess_man{std::make_shared<Botan::TLS::Session_Manager_In_Memory>(__rng)},
+		__policy{std::make_shared<Botan::TLS::Policy>()},
+		__server_info{},
+
+	// __tls_context
+		__tls_context{
+			std::make_shared<Botan::TLS::Context>(
+				__cred_man,
+				__rng,
+				__sess_man,
+				__policy,
+				__server_info
+			)
+		},
+
+	// __tls_stream
+		__tls_stream{__tls_context, __io_context}
+
+	{
+				std::clog << "https session is created.\n";
+	}
+public:
+	virtual ~https_client()
+	{
+		__tls_stream.async_shutdown(
+			[] (std::error_code ec)
+			{
+				std::clog << "tls async shutdown.\n";
+				if (ec)
+					std::clog << "0\n";
+				else
+					std::clog << "1\n";
+			}
+		);
+		std::clog << "https session is ended.\n";
+	}
+public:
+	void run()
+	{
+		this->start();
+	}
+protected:
+	void start()
+	{
+		this->resolve();
+	}
+protected:
+	void resolve()
+	{
+		__resolver.async_resolve(
+			__host,
+			__port,
+			[self=this->shared_from_this()]
+			(
+				std::error_code ec,
+				tcp::resolver::results_type results
+			)
+			{
+				if (ec)
+					throw std::system_error{ec, "async resolve error."};
+				std::clog << "async resolve OK.\n";
+				self->connect(std::move(results));
+			}
+		);
+	}
+	void connect(tcp::resolver::results_type && results)
+	{
+		__tls_stream.next_layer().expires_after(std::chrono::seconds(3));
+		__tls_stream.next_layer().async_connect(
+			results,
+			[self=this->shared_from_this()]
+			(
+				std::error_code ec,
+				tcp::endpoint ep
+			)
+			{
+				if (ec)
+					throw std::system_error{ec, "async connect error."};
+				std::clog << "async connect OK.\n";
+				self->handshake();
+			}
+		);
+	}
+	void handshake()
+	{
+		__tls_stream.next_layer().expires_after(std::chrono::seconds(3));
+		__tls_stream.async_handshake(
+			Botan::TLS::Connection_Side::Client,
+			[self = this->shared_from_this()]
+			(
+				std::error_code ec
+			)
+			{
+				if (ec)
+					throw std::system_error{ec, "tls async handshake error."};
+				std::clog << "tls async handshake OK.\n";
+				self->write();
+			}
+		);
+	}
+protected:
+	void write()
+	{
+		__request.target("/");
+		__request.set(http::field::host, __host);
+		__request.method(http::verb::get);
+		__request.version(11);
+		__tls_stream.next_layer().expires_after(std::chrono::seconds(3));
+		http::async_write(
+			__tls_stream,
+			__request,
+			[self = this->shared_from_this()]
+			(
+				std::error_code ec,
+				unsigned long bytes
+			)
+			{
+				if (ec)
+					throw std::system_error{ec, "async write error."};
+				std::clog << "async write OK." << std::endl;
+				self->read();
+			}
+		);
+	}
+	void read()
+	{
+		http::async_read(
+			__tls_stream,
+			__buffer,
+			__response,
+			[self = this->shared_from_this()]
+			(
+				std::error_code ec,
+				unsigned long bytes
+			)
+			{
+				if (ec)
+					throw std::system_error{ec, "async read error."};
+				std::cout << "Got:\n\n";
+				std::cout << self->__response << "\n\n";
+			}
+		);
+	}
+};	// class https_client
+
+}	// namespace iotls
+
+int main(int argc, char * argv[])
+try
+{
+	if (argc != 3)
+		throw std::runtime_error{""s + argv[0] + " <remote host> <remote port>"};
+
+	asio::io_context io_context;
+	std::make_shared<iotls::https_client>(io_context, argv[1], argv[2])->run();
+
+	io_context.run();
+}
+catch (const std::exception & e)
+{
+	std::cerr << "ERROR:\n" << e.what() << std::endl;
+}
+```
+
+[h1:silice-coro [role gold Botan::TLS and asio/beast c++ example, coroutines (silice)]]
+
+c++ example
+
+Coroutines (co_await ...) can not be used in a destructor.
+
+[!c++]
+```
+#include <boost/asio/co_spawn.hpp>
+#include <boost/asio.hpp>
+#include <boost/beast.hpp>
+#include <iostream>
+#include <botan/tls.h>
+#include <botan/auto_rng.h>
+#include <botan/certstor_system.h>
+#include <botan/asio_stream.h>
+
+// Coroutines (co_await ...) can not be used in a destructor.
+
+using std::string_literals::operator""s;
+
+namespace asio = boost::asio;
+namespace beast = boost::beast;
+namespace http = beast::http;
+using asio::ip::tcp;
+
+namespace iotls
+{
+
+class credentials_manager:
+	virtual public Botan::Credentials_Manager
+{
+protected:
+	Botan::System_Certificate_Store __store;
+protected:
+	using ret_t = std::vector<Botan::Certificate_Store *>;
+public:
+	ret_t trusted_certificate_authorities(const std::string & type, const std::string & context) override
+	{
+		return ret_t{&__store};
+	}
+};
+
+class https_client:
+	virtual public std::enable_shared_from_this<iotls::https_client>
+{
+protected:
+	const std::string __host;
+	const std::string __port;
+protected:
+	tcp::resolver __resolver;
+	http::request<http::string_body> __request;
+	http::response<http::string_body> __response;
+	beast::flat_buffer __buffer;
+protected:
+	std::shared_ptr<Botan::RandomNumberGenerator> __rng;
+	std::shared_ptr<Botan::Credentials_Manager> __cred_man;
+	std::shared_ptr<Botan::TLS::Session_Manager> __sess_man;
+	std::shared_ptr<Botan::TLS::Policy> __policy;
+	Botan::TLS::Server_Information __server_info;
+
+	std::shared_ptr<Botan::TLS::Context> __tls_context;
+
+	Botan::TLS::Stream<beast::tcp_stream> __tls_stream;
+public:
+	https_client(
+		auto executor__,
+		const std::string_view host__,
+		const std::string_view port__
+	):
+		__host{host__},
+		__port{port__},
+		__resolver{executor__},
+
+		__rng{std::make_shared<Botan::AutoSeeded_RNG>()},
+		__cred_man{std::make_shared<iotls::credentials_manager>()},
+		__sess_man{std::make_shared<Botan::TLS::Session_Manager_In_Memory>(__rng)},
+		__policy{std::make_shared<Botan::TLS::Policy>()},
+		__server_info{},
+
+		__tls_context{
+			std::make_shared<Botan::TLS::Context>(
+				__cred_man,
+				__rng,
+				__sess_man,
+				__policy,
+				__server_info
+			)
+		},
+
+		__tls_stream{
+			__tls_context,
+			executor__
+		}
+	{
+		std::clog << "https sesssion is created.\n";
+	}
+public:
+	virtual ~https_client()
+	{
+		std::clog << "https sesssion is ended.\n";
+	}
+	asio::awaitable<void> close()
+	{
+		co_await __tls_stream.async_shutdown(asio::use_awaitable);
+		std::clog << "__tls_stream is shutdown.\n";
+	}
+public:
+	asio::awaitable<void> run()
+	{
+		co_await this->start();
+	}
+protected:
+	asio::awaitable<void> start()
+	{
+		co_await this->resolve();
+	}
+	asio::awaitable<void> resolve()
+	{
+		tcp::resolver::results_type results =
+			co_await __resolver.async_resolve(__host, __port, asio::use_awaitable);
+		co_await this->connect(std::move(results));
+	}
+	asio::awaitable<void> connect(tcp::resolver::results_type && results)
+	{
+		[[maybe_unused]]
+		tcp::endpoint ep = co_await __tls_stream.next_layer().async_connect(
+			results,
+			asio::use_awaitable
+		);
+		co_await this->handshake();
+	}
+	asio::awaitable<void> handshake()
+	{
+		std::clog << "Handshaking ..." << std::endl;
+		co_await __tls_stream.async_handshake(
+			Botan::TLS::Connection_Side::Client,
+			asio::use_awaitable
+		);
+		co_await this->write();
+	}
+protected:
+	asio::awaitable<void> write()
+	{
+		__request.method(http::verb::get);
+		__request.target("/");
+		__request.set(http::field::host, __host);
+		__request.version(11);
+		co_await http::async_write(
+			__tls_stream,
+			__request,
+			asio::use_awaitable
+		);
+		co_await this->read();
+	}
+	asio::awaitable<void> read()
+	{
+		unsigned long bytes = co_await http::async_read(
+			__tls_stream,
+			__buffer,
+			__response,
+			asio::use_awaitable
+		);
+		std::cout << "Got " << bytes << "bytes:\n\n";
+		std::cout << __response << std::endl;
+		co_await this->close();
+	}
+};	// class https_client
+
+}	// namespace iotls
+
+int main(int argc, char * argv[])
+try
+{
+	if (argc != 3)
+		throw std::runtime_error{""s + argv[0] + " <remote host> <remote port>"};
+	auto io_context = asio::io_context{};
+	asio::co_spawn(
+		io_context,
+		[]
+		(
+			const std::string_view host,
+			const std::string_view port
+		)
+		-> asio::awaitable<void>
+		{
+			co_await
+			std::make_shared<iotls::https_client>(
+				co_await asio::this_coro::executor,
+				host,
+				port
+			)->run();
+		}
+		(argv[1], argv[2])
+		,
+		asio::detached
+	);
+	io_context.run();
+}
+catch (const std::exception & e)
+{
+	std::cerr << "ERROR:\n" << e.what() << std::endl;
+}
+```
+
+[@. Home: cpp Silice]
+
+[h1 [role cyan See Also]]
+
+[@https://botan.randombit.net c++ botan]
+
+[@https://www.boost.org/libs/asio boost::asio]
+
+[@https://www.boost.org/libs/beast boost::beast]
+
+
+
+
