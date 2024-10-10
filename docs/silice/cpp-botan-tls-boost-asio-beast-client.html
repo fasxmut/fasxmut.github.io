@@ -106,7 +106,18 @@
 <p>
       tls_context is an object created from Botan::TLS::Context.
     </p>
-<pre class="programlisting"><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">TLS</span><span class="special">::</span><span class="identifier">Context</span> <span class="identifier">tls_context</span><span class="special">{</span><span class="identifier">credentials_manager</span><span class="special">,</span> <span class="identifier">rng</span><span class="special">,</span> <span class="identifier">session_manager</span><span class="special">,</span> <span class="identifier">policy</span><span class="special">,</span> <span class="identifier">server_info</span><span class="special">);</span>
+<pre class="programlisting"><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">TLS</span><span class="special">::</span><span class="identifier">Context</span> <span class="identifier">tls_context_object</span><span class="special">{</span><span class="identifier">credentials_manager</span><span class="special">,</span> <span class="identifier">rng</span><span class="special">,</span> <span class="identifier">session_manager</span><span class="special">,</span> <span class="identifier">policy</span><span class="special">,</span> <span class="identifier">server_info</span><span class="special">);</span>
+</pre>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">TLS</span><span class="special">::</span><span class="identifier">Context</span><span class="special">&gt;</span> <span class="identifier">tls_context</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">make_shared</span><span class="special">&lt;</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">TLS</span><span class="special">::</span><span class="identifier">Context</span><span class="special">&gt;(</span>
+			<span class="identifier">credentials_manager</span><span class="special">,</span>
+			<span class="identifier">rng</span><span class="special">,</span>
+			<span class="identifier">session_manager</span><span class="special">,</span>
+			<span class="identifier">policy</span><span class="special">,</span>
+			<span class="identifier">server_info</span>
+		<span class="special">)</span>
+	<span class="special">};</span>
 </pre>
 <p>
       Botan::TLS::Context is a helper class to initialize and configure Botan::TLS::Stream.

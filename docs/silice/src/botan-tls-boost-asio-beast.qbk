@@ -58,7 +58,21 @@ tls_context is an object created from Botan::TLS::Context.
 
 [!c++]
 ```
-Botan::TLS::Context tls_context{credentials_manager, rng, session_manager, policy, server_info);
+Botan::TLS::Context tls_context_object{credentials_manager, rng, session_manager, policy, server_info);
+```
+
+[!c++]
+```
+std::shared_ptr<Botan::TLS::Context> tls_context
+	{
+		std::make_shared<Botan::TLS::Context>(
+			credentials_manager,
+			rng,
+			session_manager,
+			policy,
+			server_info
+		)
+	};
 ```
 
 Botan::TLS::Context is a helper class to initialize and configure Botan::TLS::Stream.
