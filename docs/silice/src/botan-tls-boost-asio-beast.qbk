@@ -7,6 +7,8 @@ cpp: c++ networking https silice
 
 Created on Oct 10, 2024
 
+Updated On Oct 13, 2024 - Add asio::as_tuple, update throwing c++ std::exception.
+
 [@. Home: cpp Silice]
 
 [h1 [role cyan cpp botan tls + boost asio beast]]
@@ -451,65 +453,69 @@ Coroutines (co_await ...) can not be used in a destructor.
 
 [!c++]
 ```
-#include <boost/asio/co_spawn.hpp>
-#include <boost/asio.hpp>
 #include <boost/beast.hpp>
-#include <iostream>
+#include <boost/asio.hpp>
+#include <boost/asio/co_spawn.hpp>
+#include <botan/certstor_system.h>
 #include <botan/tls.h>
 #include <botan/auto_rng.h>
-#include <botan/certstor_system.h>
+#include <iostream>
 #include <botan/asio_stream.h>
-
-// Coroutines (co_await ...) can not be used in a destructor.
-
-using std::string_literals::operator""s;
 
 namespace asio = boost::asio;
 namespace beast = boost::beast;
 namespace http = beast::http;
 using asio::ip::tcp;
+using std::string_literals::operator""s;
 
-namespace iotls
+namespace my::https
 {
 
 class credentials_manager:
 	virtual public Botan::Credentials_Manager
+// Requires to load certs from system, otherwise the handshaking reports cert error.
 {
 protected:
 	Botan::System_Certificate_Store __store;
-protected:
-	using ret_t = std::vector<Botan::Certificate_Store *>;
 public:
-	ret_t trusted_certificate_authorities(const std::string & type, const std::string & context) override
+	std::vector<Botan::Certificate_Store *>
+	trusted_certificate_authorities(const std::string & type, const std::string & context) override
 	{
-		return ret_t{&__store};
+		return {&__store};
 	}
 };
 
-class https_client:
-	virtual public std::enable_shared_from_this<iotls::https_client>
+class client:
+	virtual public std::enable_shared_from_this<my::https::client>
 {
 protected:
 	const std::string __host;
 	const std::string __port;
-protected:
 	tcp::resolver __resolver;
 	http::request<http::string_body> __request;
 	http::response<http::string_body> __response;
 	beast::flat_buffer __buffer;
 protected:
+	// params for __tls_context
 	std::shared_ptr<Botan::RandomNumberGenerator> __rng;
 	std::shared_ptr<Botan::Credentials_Manager> __cred_man;
 	std::shared_ptr<Botan::TLS::Session_Manager> __sess_man;
 	std::shared_ptr<Botan::TLS::Policy> __policy;
 	Botan::TLS::Server_Information __server_info;
 
+	// __tls_context
 	std::shared_ptr<Botan::TLS::Context> __tls_context;
 
+	// __tls_stream
 	Botan::TLS::Stream<beast::tcp_stream> __tls_stream;
 public:
-	https_client(
-		auto executor__,
+	virtual ~client()
+	{
+		std::clog << "https session is closed.\n";
+	}
+public:
+	client(
+		asio::any_io_executor executor__,
 		const std::string_view host__,
 		const std::string_view port__
 	):
@@ -517,12 +523,14 @@ public:
 		__port{port__},
 		__resolver{executor__},
 
+	// params for __tls_context
 		__rng{std::make_shared<Botan::AutoSeeded_RNG>()},
-		__cred_man{std::make_shared<iotls::credentials_manager>()},
+		__cred_man{std::make_shared<my::https::credentials_manager>()},
 		__sess_man{std::make_shared<Botan::TLS::Session_Manager_In_Memory>(__rng)},
 		__policy{std::make_shared<Botan::TLS::Policy>()},
 		__server_info{},
 
+	// __tls_context
 		__tls_context{
 			std::make_shared<Botan::TLS::Context>(
 				__cred_man,
@@ -533,22 +541,11 @@ public:
 			)
 		},
 
-		__tls_stream{
-			__tls_context,
-			executor__
-		}
+	// __tls_stream
+		__tls_stream{__tls_context, executor__}
+
 	{
-		std::clog << "https sesssion is created.\n";
-	}
-public:
-	virtual ~https_client()
-	{
-		std::clog << "https sesssion is ended.\n";
-	}
-	asio::awaitable<void> close()
-	{
-		co_await __tls_stream.async_shutdown(asio::use_awaitable);
-		std::clog << "__tls_stream is shutdown.\n";
+		std::clog << "https session is created.\n";
 	}
 public:
 	asio::awaitable<void> run()
@@ -560,28 +557,41 @@ protected:
 	{
 		co_await this->resolve();
 	}
+protected:
 	asio::awaitable<void> resolve()
 	{
-		tcp::resolver::results_type results =
-			co_await __resolver.async_resolve(__host, __port, asio::use_awaitable);
+		auto [ec, results] = co_await __resolver.async_resolve(
+			__host,
+			__port,
+			asio::as_tuple(asio::use_awaitable)
+		);
+		if (ec)
+			throw std::system_error{ec, "async resolve error!"};
+		std::clog << "async resolve OK!" << std::endl;
 		co_await this->connect(std::move(results));
 	}
-	asio::awaitable<void> connect(tcp::resolver::results_type && results)
+	asio::awaitable<void> connect(tcp::resolver::results_type && results__)
 	{
-		[[maybe_unused]]
-		tcp::endpoint ep = co_await __tls_stream.next_layer().async_connect(
-			results,
-			asio::use_awaitable
+		__tls_stream.next_layer().expires_after(std::chrono::seconds(3));	// Only wait 3 seconds.
+		auto [ec, ep] = co_await __tls_stream.next_layer().async_connect(
+			results__,
+			asio::as_tuple(asio::use_awaitable)
 		);
+		if (ec)
+			throw std::system_error{ec, "async connect error!"};
+		std::clog << "async connect OK!" << std::endl;
 		co_await this->handshake();
 	}
 	asio::awaitable<void> handshake()
 	{
-		std::clog << "Handshaking ..." << std::endl;
-		co_await __tls_stream.async_handshake(
+		__tls_stream.next_layer().expires_after(std::chrono::seconds(3));
+		auto [ec] = co_await __tls_stream.async_handshake(
 			Botan::TLS::Connection_Side::Client,
-			asio::use_awaitable
+			asio::as_tuple(asio::use_awaitable)
 		);
+		if (ec)
+			throw std::system_error{ec, "async handshake error!"};
+		std::clog << "async handshake OK!\n";
 		co_await this->write();
 	}
 protected:
@@ -591,28 +601,44 @@ protected:
 		__request.target("/");
 		__request.set(http::field::host, __host);
 		__request.version(11);
-		co_await http::async_write(
+		__tls_stream.next_layer().expires_after(std::chrono::seconds(3));
+		auto [ec, bytes] = co_await http::async_write(
 			__tls_stream,
 			__request,
-			asio::use_awaitable
+			asio::as_tuple(asio::use_awaitable)
 		);
+		if (ec)
+			throw std::system_error{ec, "async write request error."};
+		std::clog << "async write request OK." << std::endl;
 		co_await this->read();
 	}
 	asio::awaitable<void> read()
 	{
-		unsigned long bytes = co_await http::async_read(
+		__tls_stream.next_layer().expires_after(std::chrono::seconds(3));
+		auto [ec, bytes] = co_await http::async_read(
 			__tls_stream,
 			__buffer,
 			__response,
-			asio::use_awaitable
+			asio::as_tuple(asio::use_awaitable)
 		);
-		std::cout << "Got " << bytes << "bytes:\n\n";
-		std::cout << __response << std::endl;
+		if (ec)
+			throw std::system_error{ec, "async read error!"};
+		std::cout << __response.body().data() << std::endl;
 		co_await this->close();
 	}
-};	// class https_client
+protected:
+	asio::awaitable<void> close()
+	{
+		__tls_stream.next_layer().expires_after(std::chrono::seconds(3));
+		auto [ec] = co_await __tls_stream.async_shutdown(asio::as_tuple(asio::use_awaitable));
+		if (ec)
+			std::clog << "0\n";
+		else
+			std::clog << "1\n";
+	}
+};	// class client
 
-}	// namespace iotls
+}	// namespace my::https
 
 int main(int argc, char * argv[])
 try
@@ -622,22 +648,19 @@ try
 	auto io_context = asio::io_context{};
 	asio::co_spawn(
 		io_context,
-		[]
-		(
-			const std::string_view host,
-			const std::string_view port
-		)
-		-> asio::awaitable<void>
+		[host=argv[1], port=argv[2]]
+			-> asio::awaitable<void>
 		{
-			co_await
-			std::make_shared<iotls::https_client>(
-				co_await asio::this_coro::executor,
-				host,
-				port
-			)->run();
-		}
-		(argv[1], argv[2])
-		,
+			try
+			{
+				auto executor = co_await asio::this_coro::executor;
+				co_await std::make_shared<my::https::client>(executor, host, port)->run();
+			}
+			catch (const std::exception & e)
+			{
+				std::cerr << "Run ERROR:\n" << e.what() << std::endl;
+			}
+		},
 		asio::detached
 	);
 	io_context.run();
@@ -657,7 +680,6 @@ catch (const std::exception & e)
 [@https://www.boost.org/libs/asio boost::asio]
 
 [@https://www.boost.org/libs/beast boost::beast]
-
 
 
 
