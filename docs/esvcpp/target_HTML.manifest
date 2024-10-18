@@ -145,10 +145,10 @@ esv_printnl.html
 esv_wprint.html
 esv_wprinte.html
 esv_wprintnl.html
+input.html
+esv_readline.html
 main.html
 esvcpp_main.html
-io.html
-esv_readline.html
 algorithm.html
 numeric.html
 esv_iota.html
