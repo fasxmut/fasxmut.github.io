@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Botan c++ tls connection</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="logs - Blogs or News">
+<link rel="up" href="index.html" title="logs - Blogs or News">
+<link rel="prev" href="index.html" title="logs - Blogs or News">
+<link rel="next" href="cpp_concept_const_ref_remove.html" title="cpp concept: const, ref, remove, ...">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp_concept_const_ref_remove.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="botan-cpp-tls-connection"></a>Botan c++ tls connection</h1></div></div>
+<hr>
+</div>
+<p>
+      Botan c++ tls connection - Posted on Oct 19, 2024 - See <a href="https://botan.randombit.net" target="_top">https://botan.randombit.net</a>
+      - <a href="https://cppfx.xyz/logs" target="_top">Logs Home</a> - d0035
+    </p>
+<p>
+      c++ tls/ssl/https, botan, boost asio beast
+    </p>
+<h2>
+<a name="botan-cpp-tls-connection.h0"></a>
+      <span class="phrase"><a name="botan-cpp-tls-connection.botan-cpp-tls-connection"></a></span><a class="link" href="botan-cpp-tls-connection.html#botan-cpp-tls-connection.botan-cpp-tls-connection"><span class="cyan">Botan c++ tls connection</span></a>
+    </h2>
+<p>
+      Botan c++ tls/ssl connection (https) with boost asio/beast.
+    </p>
+<h2>
+<a name="botan-cpp-tls-connection.h1"></a>
+      <span class="phrase"><a name="botan-cpp-tls-connection.role_cyan_tls_stream_use_botan_t"></a></span><a class="link" href="botan-cpp-tls-connection.html#botan-cpp-tls-connection.role_cyan_tls_stream_use_botan_t"><span class="cyan">tls stream - use Botan::TLS::Stream</span></a>
+    </h2>
+<h3>
+<a name="botan-cpp-tls-connection.h2"></a>
+      <span class="phrase"><a name="botan-cpp-tls-connection.async_connect"></a></span><a class="link" href="botan-cpp-tls-connection.html#botan-cpp-tls-connection.async_connect">Async
+      Connect</a>
+    </h3>
+<p>
+      Async Connect:
+    </p>
+<pre class="programlisting"><span class="identifier">tls_stream</span><span class="special">.</span><span class="identifier">next_layer</span><span class="special">().</span><span class="identifier">async_connect</span><span class="special">(</span><span class="identifier">resolve_results</span><span class="special">,</span> <span class="identifier">handler</span><span class="special">);</span>
+</pre>
+<p>
+      Handler:
+    </p>
+<pre class="programlisting"><span class="special">[]</span> <span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">error_code</span> <span class="identifier">ec</span><span class="special">,</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">endpoint</span> <span class="identifier">ep</span><span class="special">)</span>
+<span class="special">{</span>
+<span class="special">};</span>
+</pre>
+<h3>
+<a name="botan-cpp-tls-connection.h3"></a>
+      <span class="phrase"><a name="botan-cpp-tls-connection.async_handshake"></a></span><a class="link" href="botan-cpp-tls-connection.html#botan-cpp-tls-connection.async_handshake">Async
+      handshake</a>
+    </h3>
+<p>
+      Async Handshake:
+    </p>
+<pre class="programlisting"><span class="identifier">tls_stream</span><span class="special">.</span><span class="identifier">async_handshake</span><span class="special">(</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">TLS</span><span class="special">::</span><span class="identifier">Connection_Side</span><span class="special">::</span><span class="identifier">Client</span><span class="special">,</span> <span class="identifier">handler</span><span class="special">);</span>
+</pre>
+<p>
+      Handler:
+    </p>
+<pre class="programlisting"><span class="special">[]</span> <span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">error_code</span> <span class="identifier">ec</span><span class="special">)</span>
+<span class="special">{</span>
+<span class="special">};</span>
+</pre>
+<h2>
+<a name="botan-cpp-tls-connection.h4"></a>
+      <span class="phrase"><a name="botan-cpp-tls-connection.role_cyan_tls_stream_create_bota"></a></span><a class="link" href="botan-cpp-tls-connection.html#botan-cpp-tls-connection.role_cyan_tls_stream_create_bota"><span class="cyan">tls stream - create Botan::TLS::Stream Object</span></a>
+    </h2>
+<p>
+      Construct Botan::TLS::Stream object:
+    </p>
+<pre class="programlisting"><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">TLS</span><span class="special">::</span><span class="identifier">Stream</span> <span class="identifier">tls_stream</span><span class="special">{</span><span class="identifier">tls_context</span><span class="special">,</span> <span class="identifier">asio_context</span><span class="special">};</span>
+</pre>
+<p>
+      asio_context is an object of <code class="computeroutput"><span class="identifier">asio</span><span class="special">::</span><span class="identifier">io_context</span></code>
+    </p>
+<p>
+      tls_context is a c++ smart pointer std::shared_pointer of type <code class="computeroutput"><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">TLS</span><span class="special">::</span><span class="identifier">Context</span></code>
+    </p>
+<h2>
+<a name="botan-cpp-tls-connection.h5"></a>
+      <span class="phrase"><a name="botan-cpp-tls-connection.role_cyan_tls_context_create_bot"></a></span><a class="link" href="botan-cpp-tls-connection.html#botan-cpp-tls-connection.role_cyan_tls_context_create_bot"><span class="cyan">tls context - create Botan::TLS::Context object</span></a>
+    </h2>
+<h3>
+<a name="botan-cpp-tls-connection.h6"></a>
+      <span class="phrase"><a name="botan-cpp-tls-connection.tls_context"></a></span><a class="link" href="botan-cpp-tls-connection.html#botan-cpp-tls-connection.tls_context">tls_context</a>
+    </h3>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">TLS</span><span class="special">::</span><span class="identifier">Context</span><span class="special">&gt;</span> <span class="identifier">tls_context</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">make_shared</span><span class="special">&lt;</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">TLS</span><span class="special">::</span><span class="identifier">Context</span><span class="special">&gt;(</span>
+	<span class="identifier">cred_man</span><span class="special">,</span>
+	<span class="identifier">rng</span><span class="special">,</span>
+	<span class="identifier">sess_man</span><span class="special">,</span>
+	<span class="identifier">policy</span><span class="special">,</span>
+	<span class="identifier">server_info</span>
+<span class="special">);</span>
+</pre>
+<p>
+      <span class="bold"><strong>cred_man</strong></span> - Botan Credentials Manager - std::shared_ptr
+      smart pointer.
+    </p>
+<p>
+      <span class="bold"><strong>rng</strong></span> - Botan RNG, Random Number Generator -
+      std::shared_ptr smart pointer.
+    </p>
+<p>
+      <span class="bold"><strong>sess_man</strong></span> - Botan TLS Session Manager - std::shared_ptr
+      smart pointer.
+    </p>
+<p>
+      <span class="bold"><strong>policy</strong></span> - Botan TLS Policy - std::shared_ptr
+      smart pointer.
+    </p>
+<p>
+      <span class="bold"><strong>server_info</strong></span> - Botan TLS Server Information.
+    </p>
+<h3>
+<a name="botan-cpp-tls-connection.h7"></a>
+      <span class="phrase"><a name="botan-cpp-tls-connection.rng"></a></span><a class="link" href="botan-cpp-tls-connection.html#botan-cpp-tls-connection.rng">rng</a>
+    </h3>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">RandomNumberGenerator</span><span class="special">&gt;</span> <span class="identifier">rng</span>
+	<span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">make_shared</span><span class="special">&lt;</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">AutoSeeded_RNG</span><span class="special">&gt;();</span>
+</pre>
+<h3>
+<a name="botan-cpp-tls-connection.h8"></a>
+      <span class="phrase"><a name="botan-cpp-tls-connection.cred_man"></a></span><a class="link" href="botan-cpp-tls-connection.html#botan-cpp-tls-connection.cred_man">cred_man</a>
+    </h3>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">Credentials_Manager</span><span class="special">&gt;</span> <span class="identifier">cred_man</span>
+	<span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">make_shared</span><span class="special">&lt;</span><span class="identifier">my_credentials_manager</span><span class="special">&gt;();</span>
+</pre>
+<p>
+      <span class="bold"><strong>my_credentials_manager</strong></span> - You must implement
+      credentials manager to provide how to get system certificate store.
+    </p>
+<pre class="programlisting"><span class="keyword">class</span> <span class="identifier">my_credentials_manager</span><span class="special">:</span> <span class="keyword">public</span> <span class="identifier">Botan</span><span class="special">::</span><span class="identifier">Credentials_Manager</span>
+<span class="special">{</span>
+	<span class="special">...</span>
+<span class="special">};</span>
+</pre>
+<h3>
+<a name="botan-cpp-tls-connection.h9"></a>
+      <span class="phrase"><a name="botan-cpp-tls-connection.sess_man"></a></span><a class="link" href="botan-cpp-tls-connection.html#botan-cpp-tls-connection.sess_man">sess_man</a>
+    </h3>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">TLS</span><span class="special">::</span><span class="identifier">Session_Manager</span><span class="special">&gt;</span> <span class="identifier">sess_man</span>
+<span class="special">=</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">make_shared</span><span class="special">&lt;</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">TLS</span><span class="special">::</span><span class="identifier">Session_Manager_In_Memory</span><span class="special">&gt;(</span>
+	<span class="identifier">rng</span>
+<span class="special">);</span>
+</pre>
+<h3>
+<a name="botan-cpp-tls-connection.h10"></a>
+      <span class="phrase"><a name="botan-cpp-tls-connection.server_info"></a></span><a class="link" href="botan-cpp-tls-connection.html#botan-cpp-tls-connection.server_info">server_info</a>
+    </h3>
+<pre class="programlisting"><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">TLS</span><span class="special">::</span><span class="identifier">Server_Information</span> <span class="identifier">server_info</span><span class="special">{};</span>
+</pre>
+<h2>
+<a name="botan-cpp-tls-connection.h11"></a>
+      <span class="phrase"><a name="botan-cpp-tls-connection.role_cyan_see_also"></a></span><a class="link" href="botan-cpp-tls-connection.html#botan-cpp-tls-connection.role_cyan_see_also"><span class="cyan">See Also</span></a>
+    </h2>
+<p>
+      <a href="https://cppfx.xyz/silice/cpp-botan-tls-boost-asio-beast-client.html" target="_top">c++
+      botan tls + boost asio beast (https client)</a>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp_concept_const_ref_remove.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="footnp" style="margin-left:auto;margin-right:auto;max-width:300px">
+<div style="float:left">
+<p><a href="https://cppfx.xyz/esvcpp/esv_print.html">E</a></p>
+</div>
+</div>
+</body>
+</html>

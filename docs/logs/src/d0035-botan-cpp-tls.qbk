@@ -1,0 +1,138 @@
+[article Botan c++ tls connection
+	[quickbook 1.7]
+	[id botan-cpp-tls-connection]
+]
+
+Botan c++ tls connection - Posted on Oct 19, 2024 - See [@https://botan.randombit.net] - [@https://cppfx.xyz/logs Logs Home] - d0035
+
+c++ tls/ssl/https, botan, boost asio beast
+
+[h1:botan-cpp-tls-connection [role cyan Botan c++ tls connection]]
+
+Botan c++ tls/ssl connection (https) with boost asio/beast.
+
+[h1 [role cyan tls stream - use Botan::TLS::Stream]]
+
+[h2 Async Connect]
+
+Async Connect:
+
+[!c++]
+```
+tls_stream.next_layer().async_connect(resolve_results, handler);
+```
+
+Handler:
+
+[!c++]
+```
+[] (std::error_code ec, boost::asio::tcp::endpoint ep)
+{
+};
+```
+
+[h2 Async handshake]
+
+Async Handshake:
+
+[!c++]
+```
+tls_stream.async_handshake(Botan::TLS::Connection_Side::Client, handler);
+```
+
+Handler:
+
+[!c++]
+```
+[] (std::error_code ec)
+{
+};
+```
+
+[h1 [role cyan tls stream - create Botan::TLS::Stream Object]]
+
+Construct Botan::TLS::Stream object:
+
+[!c++]
+```
+Botan::TLS::Stream tls_stream{tls_context, asio_context};
+```
+
+asio_context is an object of `asio::io_context`
+
+tls_context is a c++ smart pointer std::shared_pointer of type `Botan::TLS::Context`
+
+[h1 [role cyan tls context - create Botan::TLS::Context object]]
+
+[h2 tls_context]
+
+[!c++]
+```
+std::shared_ptr<Botan::TLS::Context> tls_context = std::make_shared<Botan::TLS::Context>(
+	cred_man,
+	rng,
+	sess_man,
+	policy,
+	server_info
+);
+```
+
+[*cred_man] - Botan Credentials Manager - std::shared_ptr smart pointer.
+
+[*rng] - Botan RNG, Random Number Generator - std::shared_ptr smart pointer.
+
+[*sess_man] - Botan TLS Session Manager - std::shared_ptr smart pointer.
+
+[*policy] - Botan TLS Policy - std::shared_ptr smart pointer.
+
+[*server_info] - Botan TLS Server Information.
+
+[h2 rng]
+
+[!c++]
+```
+std::shared_ptr<Botan::RandomNumberGenerator> rng
+	= std::make_shared<Botan::AutoSeeded_RNG>();
+```
+
+[h2 cred_man]
+
+[!c++]
+```
+std::shared_ptr<Botan::Credentials_Manager> cred_man
+	= std::make_shared<my_credentials_manager>();
+```
+
+[*my_credentials_manager] - You must implement credentials manager to provide how to get system certificate store.
+
+[!c++]
+```
+class my_credentials_manager: public Botan::Credentials_Manager
+{
+	...
+};
+```
+
+[h2 sess_man]
+
+[!c++]
+```
+std::shared_ptr<Botan::TLS::Session_Manager> sess_man
+=
+std::make_shared<Botan::TLS::Session_Manager_In_Memory>(
+	rng
+);
+```
+
+[h2 server_info]
+
+[!c++]
+```
+Botan::TLS::Server_Information server_info{};
+```
+
+[h1 [role cyan See Also]]
+
+[@https://cppfx.xyz/silice/cpp-botan-tls-boost-asio-beast-client.html c++ botan tls + boost asio beast (https client)]
+
+
