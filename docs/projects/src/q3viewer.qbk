@@ -14,7 +14,7 @@ q3viewer is a single file viewer of quake 3 map scene. It can help c++ developer
 
 [h2 Build and install b2 build]
 
-[@https://cppfx.xyz/utxcpp/install/install_b2_build_toolchain.html]
+[@https://cppfx.xyz/esvcpp/install/install_b2_build_toolchain.html]
 
 [@https://www.bfgroup.xyz/b2]
 
