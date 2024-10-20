@@ -2,6 +2,7 @@
 	[quickbook 1.7]
 ]
 
+[include d0036-cpp-random-number.qbk]
 [include d0035-botan-cpp-tls.qbk]
 [include d0034-const-ref-remove-cvref-cpp-concept.qbk]
 [include d0033-std-string_view-unnecessary-allocation.qbk]

@@ -1,0 +1,61 @@
+[article c++ random number: std::mt19937
+	[quickbook 1.7]
+	[id cpp-random-number]
+]
+
+c++ random number - Posted on Oct 20, 2024 - See [@https://en.cppreference.com/w/cpp/numeric/random/mersenne_twister_engine/mersenne_twister_engine] - [@https://cppfx.xyz/logs Logs Home] - d0036
+
+c++ random number generator std::mt19937
+
+[h1 [role cyan std::random_device]]
+
+[!c++]
+```
+#include <random>
+#include <iostream>
+
+int main()
+{
+	std::random_device rd;
+	unsigned int number = rd();
+	std::cout << number << std::endl;
+}
+```
+
+[h1 [role cyan std::mt19937]]
+
+Any c++ integer value can be used as a seed. 
+
+Use the number generated from std::random_device object as a seed.
+
+[!c++]
+```
+#include <random>
+#include <iostream>
+
+int main()
+{
+	unsigned int seed = std::random_device{}();
+	std::mt19937 gen{seed};
+	unsigned long int number = gen();
+	std::cout << number << std::endl;
+}
+```
+
+[h1 [role cyan Use Auto deduced]]
+
+[!c++]
+```
+#include <random>
+#include <iostream>
+
+int main()
+{
+	auto gen = std::mt19937{std::random_device{}()};
+	auto number = gen();
+	std::cout << number << std::endl;
+}
+```
+
+
+
