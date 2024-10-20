@@ -1,0 +1,416 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Botan c++ rng - 2024-10-20-02</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Dig Botan">
+<link rel="up" href="index.html" title="Dig Botan">
+<link rel="prev" href="index.html" title="Dig Botan">
+<link rel="next" href="2024-10-20-01-botan-cpp-tls-https.html" title="Botan c++ tls https - 2024-10-20-01">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="2024-10-20-01-botan-cpp-tls-https.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="2024-10-20-02-botan-cpp-rng"></a>Botan c++ rng - 2024-10-20-02</h1></div></div>
+<hr>
+</div>
+<h2>
+<a name="2024-10-20-02-botan-cpp-rng.h0"></a>
+      <span class="phrase"><a name="2024-10-20-02-botan-cpp-rng.role_cyan_botan_c_rng_2024_10_20"></a></span><a class="link" href="2024-10-20-02-botan-cpp-rng.html#2024-10-20-02-botan-cpp-rng.role_cyan_botan_c_rng_2024_10_20"><span class="cyan">Botan c++ rng - 2024-10-20-02</span></a>
+    </h2>
+<p>
+      Botan c++ RNG: Random Number Generator - <span class="bold"><strong>Dig Botan</strong></span>
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          Botan RNG (Botan::AutoSeeded_RNG)
+        </li>
+<li class="listitem">
+          Botan Entropy
+        </li>
+<li class="listitem">
+          Botan::ChaCha_RNG
+        </li>
+</ul></div>
+<h2>
+<a name="2024-10-20-02-botan-cpp-rng.h1"></a>
+      <span class="phrase"><a name="2024-10-20-02-botan-cpp-rng.role_cyan_first_meet_botan_rng"></a></span><a class="link" href="2024-10-20-02-botan-cpp-rng.html#2024-10-20-02-botan-cpp-rng.role_cyan_first_meet_botan_rng"><span class="cyan">First meet Botan RNG</span></a>
+    </h2>
+<p>
+      Randomize a vector with it.
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">botan</span><span class="special">/</span><span class="identifier">auto_rng</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">span</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">Botan</span><span class="special">::</span><span class="identifier">AutoSeeded_RNG</span> <span class="identifier">rng</span><span class="special">;</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">unsigned</span> <span class="keyword">char</span><span class="special">&gt;</span> <span class="identifier">vector</span><span class="special">(</span><span class="number">16</span><span class="special">);</span>
+		<span class="identifier">rng</span><span class="special">.</span><span class="identifier">randomize</span><span class="special">(</span><span class="identifier">vector</span><span class="special">);</span>
+		<span class="keyword">for</span> <span class="special">(</span><span class="keyword">int</span> <span class="identifier">x</span><span class="special">:</span> <span class="identifier">vector</span><span class="special">)</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">x</span> <span class="special">&lt;&lt;</span> <span class="char">' '</span><span class="special">;</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="special">{</span>
+		<span class="keyword">auto</span> <span class="identifier">vector</span> <span class="special">=</span> <span class="identifier">rng</span><span class="special">.</span><span class="identifier">random_vec</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">unsigned</span> <span class="keyword">char</span><span class="special">&gt;&gt;(</span><span class="number">16</span><span class="special">);</span>
+		<span class="keyword">for</span> <span class="special">(</span><span class="keyword">int</span> <span class="identifier">x</span><span class="special">:</span> <span class="identifier">vector</span><span class="special">)</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">x</span> <span class="special">&lt;&lt;</span> <span class="char">' '</span><span class="special">;</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="2024-10-20-02-botan-cpp-rng.h2"></a>
+      <span class="phrase"><a name="2024-10-20-02-botan-cpp-rng.role_cyan_add_entropy"></a></span><a class="link" href="2024-10-20-02-botan-cpp-rng.html#2024-10-20-02-botan-cpp-rng.role_cyan_add_entropy"><span class="cyan">Add entropy</span></a>
+    </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">botan</span><span class="special">/</span><span class="identifier">auto_rng</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">auto</span> <span class="identifier">rng</span> <span class="special">=</span> <span class="identifier">Botan</span><span class="special">::</span><span class="identifier">AutoSeeded_RNG</span><span class="special">{};</span>
+	<span class="identifier">rng</span><span class="special">.</span><span class="identifier">add_entropy</span><span class="special">(</span><span class="identifier">rng</span><span class="special">.</span><span class="identifier">random_vec</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">unsigned</span> <span class="keyword">char</span><span class="special">&gt;&gt;(</span><span class="number">1024</span><span class="special">));</span>
+	<span class="keyword">auto</span> <span class="identifier">vector</span> <span class="special">=</span> <span class="identifier">rng</span><span class="special">.</span><span class="identifier">random_vec</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">unsigned</span> <span class="keyword">char</span><span class="special">&gt;&gt;(</span><span class="number">16</span><span class="special">);</span>
+	<span class="keyword">for</span> <span class="special">(</span><span class="keyword">int</span> <span class="identifier">x</span><span class="special">:</span> <span class="identifier">vector</span><span class="special">)</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">x</span> <span class="special">&lt;&lt;</span> <span class="char">' '</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="2024-10-20-02-botan-cpp-rng.h3"></a>
+      <span class="phrase"><a name="2024-10-20-02-botan-cpp-rng.role_cyan_use_std_shared_ptr"></a></span><a class="link" href="2024-10-20-02-botan-cpp-rng.html#2024-10-20-02-botan-cpp-rng.role_cyan_use_std_shared_ptr"><span class="cyan">use std::shared_ptr</span></a>
+    </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">botan</span><span class="special">/</span><span class="identifier">auto_rng</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">RandomNumberGenerator</span><span class="special">&gt;</span> <span class="identifier">rng</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">make_shared</span><span class="special">&lt;</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">AutoSeeded_RNG</span><span class="special">&gt;();</span>
+	<span class="identifier">rng</span><span class="special">-&gt;</span><span class="identifier">add_entropy</span><span class="special">(</span><span class="identifier">rng</span><span class="special">-&gt;</span><span class="identifier">random_vec</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">unsigned</span> <span class="keyword">char</span><span class="special">&gt;&gt;(</span><span class="number">1024</span><span class="special">));</span>
+	<span class="keyword">auto</span> <span class="identifier">vector</span> <span class="special">=</span> <span class="identifier">rng</span><span class="special">-&gt;</span><span class="identifier">random_vec</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">unsigned</span> <span class="keyword">char</span><span class="special">&gt;&gt;(</span><span class="number">32</span><span class="special">);</span>
+	<span class="keyword">for</span> <span class="special">(</span><span class="keyword">int</span> <span class="identifier">x</span><span class="special">:</span> <span class="identifier">vector</span><span class="special">)</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">x</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="2024-10-20-02-botan-cpp-rng.h4"></a>
+      <span class="phrase"><a name="2024-10-20-02-botan-cpp-rng.role_cyan_entropy_source"></a></span><a class="link" href="2024-10-20-02-botan-cpp-rng.html#2024-10-20-02-botan-cpp-rng.role_cyan_entropy_source"><span class="cyan">Entropy Source</span></a>
+    </h2>
+<h3>
+<a name="2024-10-20-02-botan-cpp-rng.h5"></a>
+      <span class="phrase"><a name="2024-10-20-02-botan-cpp-rng.hardware_entropy"></a></span><a class="link" href="2024-10-20-02-botan-cpp-rng.html#2024-10-20-02-botan-cpp-rng.hardware_entropy">Hardware
+      Entropy</a>
+    </h3>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">botan</span><span class="special">/</span><span class="identifier">auto_rng</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">botan</span><span class="special">/</span><span class="identifier">entropy_src</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">cpp_space</span>
+<span class="special">{</span>
+
+<span class="keyword">class</span> <span class="identifier">my_entropy</span><span class="special">:</span>
+	<span class="keyword">public</span> <span class="identifier">Botan</span><span class="special">::</span><span class="identifier">Entropy_Source</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">name</span><span class="special">()</span> <span class="keyword">const</span> <span class="identifier">override</span>
+	<span class="special">{</span>
+		<span class="keyword">return</span> <span class="string">"cpp_space::my_entropy"</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">poll</span><span class="special">(</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">RandomNumberGenerator</span> <span class="special">&amp;</span> <span class="identifier">rng</span><span class="special">)</span> <span class="identifier">override</span>
+	<span class="special">{</span>
+		<span class="keyword">auto</span> <span class="identifier">entropy</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">unsigned</span> <span class="keyword">char</span><span class="special">&gt;(</span><span class="number">2048</span><span class="special">);</span>
+		<span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">make_hardware_entropy</span><span class="special">(</span><span class="identifier">entropy</span><span class="special">);</span>
+		<span class="keyword">return</span> <span class="identifier">entropy</span><span class="special">.</span><span class="identifier">size</span><span class="special">()</span> <span class="special">*</span> <span class="number">8</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="keyword">protected</span><span class="special">:</span>
+	<span class="keyword">template</span> <span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">ranges</span><span class="special">::</span><span class="identifier">range</span> <span class="identifier">range_t10</span><span class="special">&gt;</span>
+		<span class="identifier">requires</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">same_as</span><span class="special">&lt;</span>
+				<span class="keyword">typename</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">remove_cvref_t</span><span class="special">&lt;</span><span class="identifier">range_t10</span><span class="special">&gt;::</span><span class="identifier">value_type</span><span class="special">,</span>
+				<span class="keyword">unsigned</span> <span class="keyword">char</span>
+			<span class="special">&gt;</span>
+	<span class="keyword">void</span> <span class="identifier">make_hardware_entropy</span><span class="special">(</span><span class="identifier">range_t10</span> <span class="special">&amp;</span> <span class="identifier">r__</span><span class="special">)</span> <span class="keyword">const</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">fill</span><span class="special">(</span><span class="identifier">r__</span><span class="special">.</span><span class="identifier">begin</span><span class="special">(),</span> <span class="identifier">r__</span><span class="special">.</span><span class="identifier">end</span><span class="special">(),</span> <span class="number">0x42</span><span class="special">);</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="special">}</span>	<span class="comment">// namespace cpp_space</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">auto</span> <span class="identifier">esrc</span> <span class="special">=</span> <span class="identifier">Botan</span><span class="special">::</span><span class="identifier">Entropy_Sources</span><span class="special">{};</span>
+	<span class="identifier">esrc</span><span class="special">.</span><span class="identifier">add_source</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">make_unique</span><span class="special">&lt;</span><span class="identifier">cpp_space</span><span class="special">::</span><span class="identifier">my_entropy</span><span class="special">&gt;());</span>
+	<span class="identifier">esrc</span><span class="special">.</span><span class="identifier">add_source</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">make_unique</span><span class="special">&lt;</span><span class="identifier">cpp_space</span><span class="special">::</span><span class="identifier">my_entropy</span><span class="special">&gt;());</span>	<span class="comment">// add another entropy for this demo.</span>
+	<span class="keyword">auto</span> <span class="identifier">rng</span> <span class="special">=</span> <span class="identifier">Botan</span><span class="special">::</span><span class="identifier">AutoSeeded_RNG</span><span class="special">{</span><span class="identifier">esrc</span><span class="special">};</span>
+	<span class="keyword">auto</span> <span class="identifier">vector</span> <span class="special">=</span> <span class="identifier">rng</span><span class="special">.</span><span class="identifier">random_vec</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">unsigned</span> <span class="keyword">char</span><span class="special">&gt;&gt;(</span><span class="number">32</span><span class="special">);</span>
+	<span class="keyword">for</span> <span class="special">(</span><span class="keyword">int</span> <span class="identifier">x</span><span class="special">:</span> <span class="identifier">vector</span><span class="special">)</span>	<span class="comment">// converted to int</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">x</span> <span class="special">&lt;&lt;</span> <span class="char">' '</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<h3>
+<a name="2024-10-20-02-botan-cpp-rng.h6"></a>
+      <span class="phrase"><a name="2024-10-20-02-botan-cpp-rng.time_entropy"></a></span><a class="link" href="2024-10-20-02-botan-cpp-rng.html#2024-10-20-02-botan-cpp-rng.time_entropy">Time
+      Entropy</a>
+    </h3>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">botan</span><span class="special">/</span><span class="identifier">auto_rng</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">botan</span><span class="special">/</span><span class="identifier">entropy_src</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">chrono</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">class</span> <span class="identifier">time_entropy</span><span class="special">:</span>
+	<span class="keyword">public</span> <span class="identifier">Botan</span><span class="special">::</span><span class="identifier">Entropy_Source</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">using</span> <span class="identifier">uint_type</span> <span class="special">=</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span><span class="special">;</span>
+<span class="keyword">protected</span><span class="special">:</span>
+	<span class="identifier">uint_type</span> <span class="identifier">slow_counter</span><span class="special">{</span><span class="number">0</span><span class="special">};</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">name</span><span class="special">()</span> <span class="keyword">const</span> <span class="identifier">override</span>
+	<span class="special">{</span>
+		<span class="keyword">return</span> <span class="string">"time_entropy"</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">poll</span><span class="special">(</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">RandomNumberGenerator</span> <span class="special">&amp;</span> <span class="identifier">rng</span><span class="special">)</span> <span class="identifier">override</span>
+	<span class="special">{</span>
+		<span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">expected</span> <span class="special">=</span> <span class="number">256</span><span class="special">;</span>
+		<span class="keyword">for</span> <span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">i</span><span class="special">=</span><span class="number">0</span><span class="special">;</span> <span class="identifier">i</span><span class="special">&lt;</span><span class="identifier">expected</span><span class="special">;</span> <span class="special">++</span><span class="identifier">i</span><span class="special">)</span>
+		<span class="special">{</span>
+		<span class="comment">////////////////////////////////////////</span>
+		<span class="comment">// This time based algorithm comes from botan src examples,</span>
+		<span class="comment">// I add a new variable slow_counter to it.</span>
+			<span class="identifier">uint_type</span> <span class="identifier">now</span> <span class="special">=</span> <span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">get_now_as_nano</span><span class="special">();</span>
+			<span class="identifier">uint_type</span> <span class="identifier">counter</span><span class="special">{</span><span class="number">0</span><span class="special">};</span>
+			<span class="keyword">while</span> <span class="special">(</span><span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">get_now_as_nano</span><span class="special">()</span> <span class="special">==</span> <span class="identifier">now</span><span class="special">)</span>
+			<span class="special">{</span>
+				<span class="special">++</span><span class="identifier">slow_counter</span><span class="special">;</span>
+				<span class="special">++</span><span class="identifier">counter</span><span class="special">;</span>
+			<span class="special">}</span>
+			<span class="identifier">rng</span><span class="special">.</span><span class="identifier">add_entropy_T</span><span class="special">(</span><span class="identifier">now</span><span class="special">);</span>
+			<span class="identifier">rng</span><span class="special">.</span><span class="identifier">add_entropy_T</span><span class="special">(</span><span class="identifier">counter</span><span class="special">);</span>
+		<span class="comment">////////////////////////////////////////</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"now timer: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">now</span> <span class="special">&lt;&lt;</span> <span class="string">", counter: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">counter</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+		<span class="special">}</span>
+		<span class="keyword">return</span> <span class="identifier">expected</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="keyword">protected</span><span class="special">:</span>
+	<span class="identifier">uint_type</span> <span class="identifier">get_now_as_nano</span><span class="special">()</span> <span class="keyword">const</span>
+	<span class="special">{</span>
+		<span class="keyword">using</span> <span class="identifier">clock_type</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">chrono</span><span class="special">::</span><span class="identifier">high_resolution_clock</span><span class="special">;</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">chrono</span><span class="special">::</span><span class="identifier">time_point</span><span class="special">&lt;</span><span class="identifier">clock_type</span><span class="special">&gt;</span> <span class="identifier">now</span><span class="special">;</span>
+		<span class="identifier">now</span> <span class="special">=</span> <span class="identifier">clock_type</span><span class="special">::</span><span class="identifier">now</span><span class="special">();</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">chrono</span><span class="special">::</span><span class="identifier">duration</span> <span class="identifier">now_duration</span> <span class="special">=</span> <span class="identifier">now</span><span class="special">.</span><span class="identifier">time_since_epoch</span><span class="special">();</span>
+		<span class="keyword">return</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">chrono</span><span class="special">::</span><span class="identifier">duration_cast</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">chrono</span><span class="special">::</span><span class="identifier">nanoseconds</span><span class="special">&gt;(</span><span class="identifier">now_duration</span><span class="special">).</span><span class="identifier">count</span><span class="special">();</span>
+	<span class="special">}</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="special">~</span><span class="identifier">time_entropy</span><span class="special">()</span>
+	<span class="special">{</span>
+		<span class="comment">// Print slow_counter on destructor.</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"slow_counter: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">slow_counter</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">auto</span> <span class="identifier">entropy_src</span> <span class="special">=</span> <span class="identifier">Botan</span><span class="special">::</span><span class="identifier">Entropy_Sources</span><span class="special">{};</span>
+	<span class="identifier">entropy_src</span><span class="special">.</span><span class="identifier">add_source</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">make_unique</span><span class="special">&lt;</span><span class="identifier">time_entropy</span><span class="special">&gt;());</span>
+	<span class="keyword">auto</span> <span class="identifier">rng</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">make_shared</span><span class="special">&lt;</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">AutoSeeded_RNG</span><span class="special">&gt;(</span><span class="identifier">entropy_src</span><span class="special">);</span>
+	<span class="keyword">auto</span> <span class="identifier">vector</span> <span class="special">=</span> <span class="identifier">rng</span><span class="special">-&gt;</span><span class="identifier">random_vec</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">unsigned</span> <span class="keyword">char</span><span class="special">&gt;&gt;(</span><span class="number">32</span><span class="special">);</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"RNG Numbers:\n"</span><span class="special">;</span>
+	<span class="keyword">for</span> <span class="special">(</span><span class="keyword">int</span> <span class="identifier">x</span><span class="special">:</span> <span class="identifier">vector</span><span class="special">)</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">x</span> <span class="special">&lt;&lt;</span> <span class="char">' '</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="2024-10-20-02-botan-cpp-rng.h7"></a>
+      <span class="phrase"><a name="2024-10-20-02-botan-cpp-rng.role_cyan_botan_chacha_rng"></a></span><a class="link" href="2024-10-20-02-botan-cpp-rng.html#2024-10-20-02-botan-cpp-rng.role_cyan_botan_chacha_rng"><span class="cyan">Botan::ChaCha_RNG</span></a>
+    </h2>
+<h3>
+<a name="2024-10-20-02-botan-cpp-rng.h8"></a>
+      <span class="phrase"><a name="2024-10-20-02-botan-cpp-rng.this_constructor_construct_with_"></a></span><a class="link" href="2024-10-20-02-botan-cpp-rng.html#2024-10-20-02-botan-cpp-rng.this_constructor_construct_with_">This
+      constructor: construct with seed</a>
+    </h3>
+<p>
+      The seed is an unsigned char range, it can be Lvalue or Rvalue, the size must
+      be greater than 256 bits.
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">botan</span><span class="special">/</span><span class="identifier">chacha_rng</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">botan</span><span class="special">/</span><span class="identifier">auto_rng</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="comment">// Requires seed.size() * sizeof (unsigned char) &gt;= 256</span>
+	<span class="keyword">auto</span> <span class="identifier">seed</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">unsigned</span> <span class="keyword">char</span><span class="special">&gt;(</span><span class="number">100</span><span class="special">);</span>
+	<span class="identifier">Botan</span><span class="special">::</span><span class="identifier">AutoSeeded_RNG</span><span class="special">{}.</span><span class="identifier">randomize</span><span class="special">(</span><span class="identifier">seed</span><span class="special">);</span>
+
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">RandomNumberGenerator</span><span class="special">&gt;</span> <span class="identifier">rng</span> <span class="special">=</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">make_shared</span><span class="special">&lt;</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">ChaCha_RNG</span><span class="special">&gt;(</span>
+			<span class="identifier">seed</span>	<span class="comment">// can be Lvalue or Rvalue</span>
+		<span class="special">);</span>
+
+	<span class="keyword">auto</span> <span class="identifier">vector</span> <span class="special">=</span> <span class="identifier">rng</span><span class="special">-&gt;</span><span class="identifier">random_vec</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">unsigned</span> <span class="keyword">char</span><span class="special">&gt;&gt;(</span><span class="number">32</span><span class="special">);</span>
+
+	<span class="keyword">for</span> <span class="special">(</span><span class="keyword">int</span> <span class="identifier">x</span><span class="special">:</span> <span class="identifier">vector</span><span class="special">)</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">x</span> <span class="special">&lt;&lt;</span> <span class="char">' '</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<h3>
+<a name="2024-10-20-02-botan-cpp-rng.h9"></a>
+      <span class="phrase"><a name="2024-10-20-02-botan-cpp-rng.this_constructor_construct_with0"></a></span><a class="link" href="2024-10-20-02-botan-cpp-rng.html#2024-10-20-02-botan-cpp-rng.this_constructor_construct_with0">This
+      constructor: construct with RNG</a>
+    </h3>
+<p>
+      The rng passed to constructor must be Lvalue.
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">botan</span><span class="special">/</span><span class="identifier">chacha_rng</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">botan</span><span class="special">/</span><span class="identifier">auto_rng</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">auto</span> <span class="identifier">seed_rng</span> <span class="special">=</span> <span class="identifier">Botan</span><span class="special">::</span><span class="identifier">AutoSeeded_RNG</span><span class="special">{};</span>
+
+	<span class="comment">// the rng used as seed passed to the constructor must be Lvalue.</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">RandomNumberGenerator</span><span class="special">&gt;</span> <span class="identifier">rng</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">make_shared</span><span class="special">&lt;</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">ChaCha_RNG</span><span class="special">&gt;(</span><span class="identifier">seed_rng</span><span class="special">);</span>
+
+	<span class="keyword">auto</span> <span class="identifier">vector</span> <span class="special">=</span> <span class="identifier">rng</span><span class="special">-&gt;</span><span class="identifier">random_vec</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">unsigned</span> <span class="keyword">char</span><span class="special">&gt;&gt;(</span><span class="number">32</span><span class="special">);</span>
+	<span class="keyword">for</span> <span class="special">(</span><span class="keyword">int</span> <span class="identifier">x</span><span class="special">:</span> <span class="identifier">vector</span><span class="special">)</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">x</span> <span class="special">&lt;&lt;</span> <span class="char">' '</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<h3>
+<a name="2024-10-20-02-botan-cpp-rng.h10"></a>
+      <span class="phrase"><a name="2024-10-20-02-botan-cpp-rng.this_constructor_construct_with1"></a></span><a class="link" href="2024-10-20-02-botan-cpp-rng.html#2024-10-20-02-botan-cpp-rng.this_constructor_construct_with1">This
+      constructor: construct with entropy</a>
+    </h3>
+<p>
+      The entropy passed to the constructor must be Lvalue.
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">botan</span><span class="special">/</span><span class="identifier">chacha_rng</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">botan</span><span class="special">/</span><span class="identifier">entropy_src</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">cpp_space</span>
+<span class="special">{</span>
+
+<span class="keyword">class</span> <span class="identifier">my_entropy</span><span class="special">:</span>
+	<span class="keyword">public</span> <span class="identifier">Botan</span><span class="special">::</span><span class="identifier">Entropy_Source</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">name</span><span class="special">()</span> <span class="keyword">const</span> <span class="identifier">override</span>
+	<span class="special">{</span>
+		<span class="keyword">return</span> <span class="string">"cpp_space::my_entropy"</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">poll</span><span class="special">(</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">RandomNumberGenerator</span> <span class="special">&amp;</span> <span class="identifier">rng</span><span class="special">)</span> <span class="identifier">override</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">unsigned</span> <span class="keyword">char</span><span class="special">&gt;</span> <span class="identifier">entro</span><span class="special">(</span><span class="number">1024</span><span class="special">);</span>
+		<span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">make_hardware_entropy</span><span class="special">(</span><span class="identifier">entro</span><span class="special">);</span>
+		<span class="identifier">rng</span><span class="special">.</span><span class="identifier">add_entropy</span><span class="special">(</span><span class="identifier">entro</span><span class="special">);</span>
+		<span class="keyword">return</span> <span class="identifier">entro</span><span class="special">.</span><span class="identifier">size</span><span class="special">()</span> <span class="special">*</span> <span class="keyword">sizeof</span> <span class="special">(</span><span class="keyword">unsigned</span> <span class="keyword">char</span><span class="special">);</span>
+	<span class="special">}</span>
+<span class="keyword">protected</span><span class="special">:</span>
+	<span class="keyword">void</span> <span class="identifier">make_hardware_entropy</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">unsigned</span> <span class="keyword">char</span><span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">entro</span><span class="special">)</span> <span class="keyword">const</span>
+	<span class="special">{</span>
+		<span class="comment">// Memory Fill</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">fill</span><span class="special">(</span><span class="identifier">entro</span><span class="special">.</span><span class="identifier">begin</span><span class="special">(),</span> <span class="identifier">entro</span><span class="special">.</span><span class="identifier">end</span><span class="special">(),</span> <span class="number">0x42</span><span class="special">);</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="special">}</span>	<span class="comment">// namespace cpp_space</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">auto</span> <span class="identifier">src</span> <span class="special">=</span> <span class="identifier">Botan</span><span class="special">::</span><span class="identifier">Entropy_Sources</span><span class="special">{};</span>
+	<span class="identifier">src</span><span class="special">.</span><span class="identifier">add_source</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">make_unique</span><span class="special">&lt;</span><span class="identifier">cpp_space</span><span class="special">::</span><span class="identifier">my_entropy</span><span class="special">&gt;());</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">RandomNumberGenerator</span><span class="special">&gt;</span> <span class="identifier">rng</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">make_shared</span><span class="special">&lt;</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">ChaCha_RNG</span><span class="special">&gt;(</span><span class="identifier">src</span><span class="special">);</span>
+	<span class="keyword">auto</span> <span class="identifier">vector</span> <span class="special">=</span> <span class="identifier">rng</span><span class="special">-&gt;</span><span class="identifier">random_vec</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">unsigned</span> <span class="keyword">char</span><span class="special">&gt;&gt;(</span><span class="number">32</span><span class="special">);</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"cha cha rng numbers:\n"</span><span class="special">;</span>
+	<span class="keyword">for</span> <span class="special">(</span><span class="keyword">int</span> <span class="identifier">x</span><span class="special">:</span> <span class="identifier">vector</span><span class="special">)</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">x</span> <span class="special">&lt;&lt;</span> <span class="char">' '</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<h3>
+<a name="2024-10-20-02-botan-cpp-rng.h11"></a>
+      <span class="phrase"><a name="2024-10-20-02-botan-cpp-rng.this_constructor_construct_with2"></a></span><a class="link" href="2024-10-20-02-botan-cpp-rng.html#2024-10-20-02-botan-cpp-rng.this_constructor_construct_with2">This
+      constructor: construct with RNG and entropy sources</a>
+    </h3>
+<p>
+      Both the rng and entropy-sources passed to the constructor must be Lvalue.
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">botan</span><span class="special">/</span><span class="identifier">chacha_rng</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">botan</span><span class="special">/</span><span class="identifier">entropy_src</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">botan</span><span class="special">/</span><span class="identifier">auto_rng</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">cpp_space</span>
+<span class="special">{</span>
+
+<span class="keyword">class</span> <span class="identifier">my_entropy</span><span class="special">:</span>
+	<span class="keyword">public</span> <span class="identifier">Botan</span><span class="special">::</span><span class="identifier">Entropy_Source</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">name</span><span class="special">()</span> <span class="keyword">const</span> <span class="identifier">override</span>
+	<span class="special">{</span>
+		<span class="keyword">return</span> <span class="string">"cpp_space::my_entropy"</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">poll</span><span class="special">(</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">RandomNumberGenerator</span> <span class="special">&amp;</span> <span class="identifier">rng</span><span class="special">)</span> <span class="identifier">override</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">unsigned</span> <span class="keyword">char</span><span class="special">&gt;</span> <span class="identifier">entro</span><span class="special">(</span><span class="number">1024</span><span class="special">);</span>
+		<span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">make_hardware_entropy</span><span class="special">(</span><span class="identifier">entro</span><span class="special">);</span>
+		<span class="identifier">rng</span><span class="special">.</span><span class="identifier">add_entropy</span><span class="special">(</span><span class="identifier">entro</span><span class="special">);</span>
+		<span class="keyword">return</span> <span class="identifier">entro</span><span class="special">.</span><span class="identifier">size</span><span class="special">()</span> <span class="special">*</span> <span class="keyword">sizeof</span> <span class="special">(</span><span class="keyword">unsigned</span> <span class="keyword">char</span><span class="special">);</span>
+	<span class="special">}</span>
+<span class="keyword">protected</span><span class="special">:</span>
+	<span class="keyword">void</span> <span class="identifier">make_hardware_entropy</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">unsigned</span> <span class="keyword">char</span><span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">entro</span><span class="special">)</span> <span class="keyword">const</span>
+	<span class="special">{</span>
+		<span class="comment">// Memory Fill</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">fill</span><span class="special">(</span><span class="identifier">entro</span><span class="special">.</span><span class="identifier">begin</span><span class="special">(),</span> <span class="identifier">entro</span><span class="special">.</span><span class="identifier">end</span><span class="special">(),</span> <span class="number">0x42</span><span class="special">);</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="special">}</span>	<span class="comment">// namespace cpp_space</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">auto</span> <span class="identifier">entropies</span> <span class="special">=</span> <span class="identifier">Botan</span><span class="special">::</span><span class="identifier">Entropy_Sources</span><span class="special">{};</span>
+	<span class="identifier">entropies</span><span class="special">.</span><span class="identifier">add_source</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">make_unique</span><span class="special">&lt;</span><span class="identifier">cpp_space</span><span class="special">::</span><span class="identifier">my_entropy</span><span class="special">&gt;());</span>
+	<span class="keyword">auto</span> <span class="identifier">auto_rng</span> <span class="special">=</span> <span class="identifier">Botan</span><span class="special">::</span><span class="identifier">AutoSeeded_RNG</span><span class="special">{};</span>
+
+	<span class="keyword">auto</span> <span class="identifier">rng</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">RandomNumberGenerator</span><span class="special">&gt;{};</span>
+	<span class="identifier">rng</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">make_shared</span><span class="special">&lt;</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">ChaCha_RNG</span><span class="special">&gt;(</span><span class="identifier">auto_rng</span><span class="special">,</span> <span class="identifier">entropies</span><span class="special">);</span>
+
+	<span class="keyword">auto</span> <span class="identifier">vector</span> <span class="special">=</span> <span class="identifier">rng</span><span class="special">-&gt;</span><span class="identifier">random_vec</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">unsigned</span> <span class="keyword">char</span><span class="special">&gt;&gt;(</span><span class="number">31</span><span class="special">);</span>
+
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Botan::ChaCha_RNG:\n"</span><span class="special">;</span>
+	<span class="keyword">for</span> <span class="special">(</span><span class="keyword">int</span> <span class="identifier">x</span><span class="special">:</span> <span class="identifier">vector</span><span class="special">)</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">x</span> <span class="special">&lt;&lt;</span> <span class="char">' '</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="2024-10-20-01-botan-cpp-tls-https.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="footnp" style="margin-left:auto;margin-right:auto;max-width:300px">
+<div style="float:left">
+<p><a href="https://cppfx.xyz/esvcpp/esv_print.html">E</a></p>
+</div>
+</div>
+</body>
+</html>

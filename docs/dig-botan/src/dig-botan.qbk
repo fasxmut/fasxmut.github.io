@@ -1,0 +1,23 @@
+[book Dig Botan
+	[quickbook 1.7]
+]
+
+[h1 [role cyan Links]]
+
+[include 2024-10-20-02-botan-cpp-rng.qbk]
+[include 2024-10-20-01-botan-cpp-tls-https.qbk]
+
+[h2 About]
+
+Dig Botan c++ code.
+
+[h2 Botan]
+
+c++ Botan Home: [@https://botan.randombit.net]
+
+[h2 cppfx]
+
+cppfx Home: [@https://cppfx.xyz]
+
+
+

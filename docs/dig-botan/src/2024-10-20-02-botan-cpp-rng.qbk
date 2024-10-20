@@ -1,0 +1,369 @@
+[article Botan c++ rng - 2024-10-20-02
+	[quickbook 1.7]
+	[id 2024-10-20-02-botan-cpp-rng]
+]
+
+[h1 [role cyan Botan c++ rng - 2024-10-20-02]]
+
+Botan c++ RNG: Random Number Generator - [*Dig Botan]
+
+* Botan RNG (Botan::AutoSeeded_RNG)
+* Botan Entropy
+* Botan::ChaCha_RNG
+
+[h1 [role cyan First meet Botan RNG]]
+
+Randomize a vector with it.
+
+[!c++]
+```
+#include <botan/auto_rng.h>
+#include <span>
+#include <iostream>
+
+int main()
+{
+	Botan::AutoSeeded_RNG rng;
+	{
+		std::vector<unsigned char> vector(16);
+		rng.randomize(vector);
+		for (int x: vector)
+			std::cout << x << ' ';
+		std::cout << std::endl;
+	}
+	{
+		auto vector = rng.random_vec<std::vector<unsigned char>>(16);
+		for (int x: vector)
+			std::cout << x << ' ';
+		std::cout << std::endl;
+	}
+}
+```
+
+[h1 [role cyan Add entropy]]
+
+[!c++]
+```
+#include <botan/auto_rng.h>
+#include <iostream>
+
+int main()
+{
+	auto rng = Botan::AutoSeeded_RNG{};
+	rng.add_entropy(rng.random_vec<std::vector<unsigned char>>(1024));
+	auto vector = rng.random_vec<std::vector<unsigned char>>(16);
+	for (int x: vector)
+		std::cout << x << ' ';
+	std::cout << std::endl;
+}
+```
+
+[h1 [role cyan use std::shared_ptr]]
+
+[!c++]
+```
+#include <botan/auto_rng.h>
+#include <iostream>
+
+int main()
+{
+	std::shared_ptr<Botan::RandomNumberGenerator> rng = std::make_shared<Botan::AutoSeeded_RNG>();
+	rng->add_entropy(rng->random_vec<std::vector<unsigned char>>(1024));
+	auto vector = rng->random_vec<std::vector<unsigned char>>(32);
+	for (int x: vector)
+		std::cout << x << std::endl;
+}
+```
+
+[h1 [role cyan Entropy Source]]
+
+[h2 Hardware Entropy]
+
+[!c++]
+```
+#include <botan/auto_rng.h>
+#include <iostream>
+#include <botan/entropy_src.h>
+
+namespace cpp_space
+{
+
+class my_entropy:
+	public Botan::Entropy_Source
+{
+public:
+	std::string name() const override
+	{
+		return "cpp_space::my_entropy";
+	}
+	std::size_t poll(Botan::RandomNumberGenerator & rng) override
+	{
+		auto entropy = std::vector<unsigned char>(2048);
+		this->make_hardware_entropy(entropy);
+		return entropy.size() * 8;
+	}
+protected:
+	template <std::ranges::range range_t10>
+		requires
+			std::same_as<
+				typename std::remove_cvref_t<range_t10>::value_type,
+				unsigned char
+			>
+	void make_hardware_entropy(range_t10 & r__) const
+	{
+		std::fill(r__.begin(), r__.end(), 0x42);
+	}
+};
+
+}	// namespace cpp_space
+
+int main()
+{
+	auto esrc = Botan::Entropy_Sources{};
+	esrc.add_source(std::make_unique<cpp_space::my_entropy>());
+	esrc.add_source(std::make_unique<cpp_space::my_entropy>());	// add another entropy for this demo.
+	auto rng = Botan::AutoSeeded_RNG{esrc};
+	auto vector = rng.random_vec<std::vector<unsigned char>>(32);
+	for (int x: vector)	// converted to int
+		std::cout << x << ' ';
+	std::cout << std::endl;
+}
+```
+
+[h2 Time Entropy]
+
+[!c++]
+```
+#include <botan/auto_rng.h>
+#include <botan/entropy_src.h>
+#include <chrono>
+#include <iostream>
+
+class time_entropy:
+	public Botan::Entropy_Source
+{
+public:
+	using uint_type = unsigned long long;
+protected:
+	uint_type slow_counter{0};
+public:
+	std::string name() const override
+	{
+		return "time_entropy";
+	}
+	std::size_t poll(Botan::RandomNumberGenerator & rng) override
+	{
+		const std::size_t expected = 256;
+		for (std::size_t i=0; i<expected; ++i)
+		{
+		////////////////////////////////////////
+		// This time based algorithm comes from botan src examples,
+		// I add a new variable slow_counter to it.
+			uint_type now = this->get_now_as_nano();
+			uint_type counter{0};
+			while (this->get_now_as_nano() == now)
+			{
+				++slow_counter;
+				++counter;
+			}
+			rng.add_entropy_T(now);
+			rng.add_entropy_T(counter);
+		////////////////////////////////////////
+			std::cout << "now timer: " << now << ", counter: " << counter << std::endl;
+		}
+		return expected;
+	}
+protected:
+	uint_type get_now_as_nano() const
+	{
+		using clock_type = std::chrono::high_resolution_clock;
+		std::chrono::time_point<clock_type> now;
+		now = clock_type::now();
+		std::chrono::duration now_duration = now.time_since_epoch();
+		return std::chrono::duration_cast<std::chrono::nanoseconds>(now_duration).count();
+	}
+public:
+	~time_entropy()
+	{
+		// Print slow_counter on destructor.
+		std::cout << "slow_counter: " << slow_counter << std::endl;
+	}
+};
+
+int main()
+{
+	auto entropy_src = Botan::Entropy_Sources{};
+	entropy_src.add_source(std::make_unique<time_entropy>());
+	auto rng = std::make_shared<Botan::AutoSeeded_RNG>(entropy_src);
+	auto vector = rng->random_vec<std::vector<unsigned char>>(32);
+	std::cout << "RNG Numbers:\n";
+	for (int x: vector)
+		std::cout << x << ' ';
+	std::cout << std::endl;
+}
+```
+
+[h1 [role cyan Botan::ChaCha_RNG]]
+
+[h2 This constructor: construct with seed]
+
+The seed is an unsigned char range, it can be Lvalue or Rvalue, the size must be greater than 256 bits.
+
+[!c++]
+```
+#include <botan/chacha_rng.h>
+#include <botan/auto_rng.h>
+#include <iostream>
+
+int main()
+{
+	// Requires seed.size() * sizeof (unsigned char) >= 256
+	auto seed = std::vector<unsigned char>(100);
+	Botan::AutoSeeded_RNG{}.randomize(seed);
+
+	std::shared_ptr<Botan::RandomNumberGenerator> rng =
+		std::make_shared<Botan::ChaCha_RNG>(
+			seed	// can be Lvalue or Rvalue
+		);
+
+	auto vector = rng->random_vec<std::vector<unsigned char>>(32);
+
+	for (int x: vector)
+		std::cout << x << ' ';
+	std::cout << std::endl;
+}
+```
+
+[h2 This constructor: construct with RNG]
+
+The rng passed to constructor must be Lvalue.
+
+[!c++]
+```
+#include <botan/chacha_rng.h>
+#include <botan/auto_rng.h>
+#include <iostream>
+
+int main()
+{
+	auto seed_rng = Botan::AutoSeeded_RNG{};
+
+	// the rng used as seed passed to the constructor must be Lvalue.
+	std::shared_ptr<Botan::RandomNumberGenerator> rng = std::make_shared<Botan::ChaCha_RNG>(seed_rng);
+
+	auto vector = rng->random_vec<std::vector<unsigned char>>(32);
+	for (int x: vector)
+		std::cout << x << ' ';
+	std::cout << std::endl;
+}
+```
+
+[h2 This constructor: construct with entropy]
+
+The entropy passed to the constructor must be Lvalue.
+
+[!c++]
+```
+#include <botan/chacha_rng.h>
+#include <botan/entropy_src.h>
+#include <iostream>
+
+namespace cpp_space
+{
+
+class my_entropy:
+	public Botan::Entropy_Source
+{
+public:
+	std::string name() const override
+	{
+		return "cpp_space::my_entropy";
+	}
+	std::size_t poll(Botan::RandomNumberGenerator & rng) override
+	{
+		std::vector<unsigned char> entro(1024);
+		this->make_hardware_entropy(entro);
+		rng.add_entropy(entro);
+		return entro.size() * sizeof (unsigned char);
+	}
+protected:
+	void make_hardware_entropy(std::vector<unsigned char> & entro) const
+	{
+		// Memory Fill
+		std::fill(entro.begin(), entro.end(), 0x42);
+	}
+};
+
+}	// namespace cpp_space
+
+int main()
+{
+	auto src = Botan::Entropy_Sources{};
+	src.add_source(std::make_unique<cpp_space::my_entropy>());
+	std::shared_ptr<Botan::RandomNumberGenerator> rng = std::make_shared<Botan::ChaCha_RNG>(src);
+	auto vector = rng->random_vec<std::vector<unsigned char>>(32);
+	std::cout << "cha cha rng numbers:\n";
+	for (int x: vector)
+		std::cout << x << ' ';
+	std::cout << std::endl;
+}
+```
+
+[h2 This constructor: construct with RNG and entropy sources]
+
+Both the rng and entropy-sources passed to the constructor must be Lvalue.
+
+[!c++]
+```
+#include <botan/chacha_rng.h>
+#include <botan/entropy_src.h>
+#include <botan/auto_rng.h>
+#include <iostream>
+
+namespace cpp_space
+{
+
+class my_entropy:
+	public Botan::Entropy_Source
+{
+public:
+	std::string name() const override
+	{
+		return "cpp_space::my_entropy";
+	}
+	std::size_t poll(Botan::RandomNumberGenerator & rng) override
+	{
+		std::vector<unsigned char> entro(1024);
+		this->make_hardware_entropy(entro);
+		rng.add_entropy(entro);
+		return entro.size() * sizeof (unsigned char);
+	}
+protected:
+	void make_hardware_entropy(std::vector<unsigned char> & entro) const
+	{
+		// Memory Fill
+		std::fill(entro.begin(), entro.end(), 0x42);
+	}
+};
+
+}	// namespace cpp_space
+
+int main()
+{
+	auto entropies = Botan::Entropy_Sources{};
+	entropies.add_source(std::make_unique<cpp_space::my_entropy>());
+	auto auto_rng = Botan::AutoSeeded_RNG{};
+
+	auto rng = std::shared_ptr<Botan::RandomNumberGenerator>{};
+	rng = std::make_shared<Botan::ChaCha_RNG>(auto_rng, entropies);
+
+	auto vector = rng->random_vec<std::vector<unsigned char>>(31);
+
+	std::cout << "Botan::ChaCha_RNG:\n";
+	for (int x: vector)
+		std::cout << x << ' ';
+	std::cout << std::endl;
+}
+```
+
+
