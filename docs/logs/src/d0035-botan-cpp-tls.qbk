@@ -124,6 +124,13 @@ std::make_shared<Botan::TLS::Session_Manager_In_Memory>(
 );
 ```
 
+[h2 policy]
+
+[!c++]
+```
+std::shared_ptr<Botan::TLS::Policy> policy = std::make_shared<Botan::TLS::Policy>();
+```
+
 [h2 server_info]
 
 [!c++]
