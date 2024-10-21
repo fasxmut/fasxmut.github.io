@@ -5,7 +5,7 @@
 
 [h1 [role cyan Use c++ library on Haiku OS]]
 
-How to include, link c++ library on haiku.
+How to include, link c++ library on haiku. [*Dig Haiku]
 
 [h2 Prepare]
 
