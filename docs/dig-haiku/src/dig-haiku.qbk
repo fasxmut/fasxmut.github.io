@@ -1,0 +1,23 @@
+[book Dig Haiku OS c++
+	[quickbook 1.7]
+	[id dig-haiku]
+]
+
+[include 2024-10-21-01-use-cpp-library-haiku.qbk]
+
+[h2 About]
+
+Dig c++ programming on Haiku OS
+
+[h2 Haiku OS]
+
+[@https://www.haiku-os.org Haiku OS]
+
+[h2 cppfx]
+
+Here: [@. Dig Haiku OS c++]
+
+cppfx Home: [@https://cppfx.xyz]
+
+
+

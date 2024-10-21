@@ -3,8 +3,6 @@
 	[id dig-botan]
 ]
 
-[h1 [role cyan Links]]
-
 [include 2024-10-21-01-botan-cpp-base58.qbk]
 [include 2024-10-20-02-botan-cpp-rng.qbk]
 [include 2024-10-20-01-botan-cpp-tls-https.qbk]

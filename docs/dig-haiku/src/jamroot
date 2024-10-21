@@ -1,0 +1,74 @@
+path-constant utxcpp-src-root : ../../../../utxcpp ;
+path-constant qbk-media-root : $(utxcpp-src-root)/docs/fx-quickbook-media/qbk-media ;
+path-constant dig-haiku-src-root : . ;
+path-constant dig-haiku-web-root : .. ;
+
+argv = [ modules.peek : ARGV ] ;
+
+if [ MATCH ^(clean)$ : $(argv) ]
+{
+	echo "rm -rf `find $(dig-haiku-web-root) -name bin`" ;
+	SHELL "rm -rf `find $(dig-haiku-web-root) -name bin`" ;
+
+	echo "rm -rf `find $(dig-haiku-src-root) -name html`" ;
+	SHELL "rm -rf `find $(dig-haiku-src-root) -name html`" ;
+
+	exit ;
+}
+
+if [ MATCH ^(cleanall)$ : $(argv) ]
+{
+	echo "rm -rf `find $(dig-haiku-web-root) -name bin`" ;
+	SHELL "rm -rf `find $(dig-haiku-web-root) -name bin`" ;
+
+	echo "rm -rf `find $(dig-haiku-web-root) -name *html`" ;
+	SHELL "rm -rf `find $(dig-haiku-web-root) -name *html`" ;
+
+	echo "rm -rf `find $(dig-haiku-web-root) -name *css`" ;
+	SHELL "rm -rf `find $(dig-haiku-web-root) -name *css`" ;
+
+	echo "rm -rf `find $(dig-haiku-web-root) -name images`" ;
+	SHELL "rm -rf `find $(dig-haiku-web-root) -name images`" ;
+
+	echo "rm -rf `find $(dig-haiku-web-root) -name *manifest`" ;
+	SHELL "rm -rf `find $(dig-haiku-web-root) -name *manifest`" ;
+
+	exit ;
+}
+
+xml xml-index : dig-haiku.qbk ;
+
+boostbook
+	html-index
+:
+	xml-index
+:
+	<xsl:param>"chunk.first.sections=1"
+	<xsl:param>"chunker.output.doctype-public=-//W3C//DTD XHTML 1.0 Strict//EN"
+	<xsl:param>"chunker.output.doctype-system=http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"
+	<dependency>media
+;
+
+install html
+	:
+		[ glob
+			$(dig-haiku-src-root)/html/*.html
+			$(dig-haiku-src-root)/html/*.manifest
+		]
+	:
+		<location>$(dig-haiku-web-root)
+		<install-source-root>$(dig-haiku-src-root)/html
+;
+
+install media :
+	[ glob
+		$(qbk-media-root)/*.css
+		$(qbk-media-root)/images/*.png
+	]
+	:
+	<location>$(dig-haiku-web-root)
+	<install-source-root>$(qbk-media-root)
+	;
+
+
+

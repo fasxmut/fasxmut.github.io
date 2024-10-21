@@ -1,0 +1,54 @@
+[article Use c++ library on Haiku - 2024-10-21-01
+	[quickbook 1.7]
+	[id 2024-10-21-01-use-cpp-library-haiku]
+]
+
+[h1 [role cyan Use c++ library on Haiku OS]]
+
+How to include, link c++ library on haiku.
+
+[h2 Prepare]
+
+Haiku OS - [@https://www.haiku-os.org Haiku OS]
+
+c++ compiler - [@https://gcc.gnu.org Gcc]
+
+c++ Library - [@https://cppfx.xyz/esvcpp Esvcpp]
+
+Editor - [@https://kakoune.org Kakoune]
+
+[h2:cpp-code c++ code]
+
+([@https://cppfx.xyz/esvcpp/esv_print.html esv::print])
+
+// hello.cpp
+
+[!c++]
+```
+#include <iostream>
+#include <esvcpp/core.hpp>
+
+int main()
+{
+	std::cout << "Hello, c++!" << std::endl;
+	esv::print("Hello, c++!!");
+}
+```
+
+[h2 Compile c++ and link libraries]
+
+[!c++]
+```
+g++ hello.cpp \
+	-std=c++23 \
+	-I ./dream/sand/include/ \
+	-L./dream/sand/lib -lesvcpp \
+	-Wl,-rpath,./dream/sand/lib \
+	-o hello
+```
+
+[h1 [role cyan Links]]
+
+Haiku Home - [@https://www.haiku-os.org Haiku OS]
+
+Back Index - [@. Dig Haiku OS c++]
