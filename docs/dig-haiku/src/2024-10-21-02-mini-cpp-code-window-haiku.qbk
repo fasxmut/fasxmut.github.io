@@ -1,0 +1,73 @@
+[article Haiku c++ window minimized code - 2024-10-21-02
+	[quickbook 1.7]
+	[id 2024-10-21-02-mini-cpp-code-window-haiku]
+]
+
+[h1 [role cyan Haiku c++ window minimized code]]
+
+Haiku c++ window minimized code. [*Dig Haiku]
+
+[h1:cpp-code [role cyan c++ code]]
+
+// app.cpp
+
+[!c++]
+```
+#include <Window.h>
+#include <Application.h>
+#include <iostream>
+
+namespace my_space
+{
+
+class my_application:
+	virtual public BApplication
+{
+public:
+	virtual ~my_application()
+	{
+		std::cout << "closed" << std::endl;
+	}
+public:
+	my_application():
+		BApplication{"application/my-application"}	// Should start with "application/"
+	{
+		auto rect = BRect{10, 10, 1280, 720};	// window size: 1280x720, at 10,10
+		auto window = new BWindow{
+			rect,
+			"My Window",
+			B_TITLED_WINDOW,
+			B_QUIT_ON_WINDOW_CLOSE
+		};
+		window->Show();
+		// do not "delete window"
+	}
+};	// class my_application
+
+}	// namespace my_space
+
+int main()
+{
+	auto app = new my_space::my_application{};
+	app->Run();
+	delete app;
+}
+```
+
+Compile:
+
+[!teletype]
+```
+g++ app.cpp -std=c++23 -lbe -o app
+```
+
+Run it, it will open a window 1280x720, placed at 10,10.
+
+[h1 [role cyan Links]]
+
+Haiku Home - [@https://www.haiku-os.org Haiku OS]
+
+Back Index - [@. Dig Haiku OS c++]
+
+
+

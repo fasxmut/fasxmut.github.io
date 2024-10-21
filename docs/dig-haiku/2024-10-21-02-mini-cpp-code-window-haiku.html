@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Haiku c++ window minimized code - 2024-10-21-02</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Dig Haiku OS c++">
+<link rel="up" href="index.html" title="Dig Haiku OS c++">
+<link rel="prev" href="index.html" title="Dig Haiku OS c++">
+<link rel="next" href="2024-10-21-01-use-cpp-library-haiku.html" title="Use c++ library on Haiku - 2024-10-21-01">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="2024-10-21-01-use-cpp-library-haiku.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="2024-10-21-02-mini-cpp-code-window-haiku"></a>Haiku c++ window minimized code - 2024-10-21-02</h1></div></div>
+<hr>
+</div>
+<h2>
+<a name="2024-10-21-02-mini-cpp-code-window-haiku.h0"></a>
+      <span class="phrase"><a name="2024-10-21-02-mini-cpp-code-window-haiku.role_cyan_haiku_c_window_minimiz"></a></span><a class="link" href="2024-10-21-02-mini-cpp-code-window-haiku.html#2024-10-21-02-mini-cpp-code-window-haiku.role_cyan_haiku_c_window_minimiz"><span class="cyan">Haiku c++ window minimized code</span></a>
+    </h2>
+<p>
+      Haiku c++ window minimized code. <span class="bold"><strong>Dig Haiku</strong></span>
+    </p>
+<h2>
+<a name="2024-10-21-02-mini-cpp-code-window-haiku.h1"></a>
+      <span class="phrase"><a name="2024-10-21-02-mini-cpp-code-window-haiku.cpp-code"></a></span><a class="link" href="2024-10-21-02-mini-cpp-code-window-haiku.html#2024-10-21-02-mini-cpp-code-window-haiku.cpp-code"><span class="cyan">c++ code</span></a>
+    </h2>
+<p>
+      // app.cpp
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">Window</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">Application</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">my_space</span>
+<span class="special">{</span>
+
+<span class="keyword">class</span> <span class="identifier">my_application</span><span class="special">:</span>
+	<span class="keyword">virtual</span> <span class="keyword">public</span> <span class="identifier">BApplication</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">virtual</span> <span class="special">~</span><span class="identifier">my_application</span><span class="special">()</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"closed"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">my_application</span><span class="special">():</span>
+		<span class="identifier">BApplication</span><span class="special">{</span><span class="string">"application/my-application"</span><span class="special">}</span>	<span class="comment">// Should start with "application/"</span>
+	<span class="special">{</span>
+		<span class="keyword">auto</span> <span class="identifier">rect</span> <span class="special">=</span> <span class="identifier">BRect</span><span class="special">{</span><span class="number">10</span><span class="special">,</span> <span class="number">10</span><span class="special">,</span> <span class="number">1280</span><span class="special">,</span> <span class="number">720</span><span class="special">};</span>	<span class="comment">// window size: 1280x720, at 10,10</span>
+		<span class="keyword">auto</span> <span class="identifier">window</span> <span class="special">=</span> <span class="keyword">new</span> <span class="identifier">BWindow</span><span class="special">{</span>
+			<span class="identifier">rect</span><span class="special">,</span>
+			<span class="string">"My Window"</span><span class="special">,</span>
+			<span class="identifier">B_TITLED_WINDOW</span><span class="special">,</span>
+			<span class="identifier">B_QUIT_ON_WINDOW_CLOSE</span>
+		<span class="special">};</span>
+		<span class="identifier">window</span><span class="special">-&gt;</span><span class="identifier">Show</span><span class="special">();</span>
+		<span class="comment">// do not "delete window"</span>
+	<span class="special">}</span>
+<span class="special">};</span>	<span class="comment">// class my_application</span>
+
+<span class="special">}</span>	<span class="comment">// namespace my_space</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">auto</span> <span class="identifier">app</span> <span class="special">=</span> <span class="keyword">new</span> <span class="identifier">my_space</span><span class="special">::</span><span class="identifier">my_application</span><span class="special">{};</span>
+	<span class="identifier">app</span><span class="special">-&gt;</span><span class="identifier">Run</span><span class="special">();</span>
+	<span class="keyword">delete</span> <span class="identifier">app</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<p>
+      Compile:
+    </p>
+<pre class="programlisting">g++ app.cpp -std=c++23 -lbe -o app
+</pre>
+<p>
+      Run it, it will open a window 1280x720, placed at 10,10.
+    </p>
+<h2>
+<a name="2024-10-21-02-mini-cpp-code-window-haiku.h2"></a>
+      <span class="phrase"><a name="2024-10-21-02-mini-cpp-code-window-haiku.role_cyan_links"></a></span><a class="link" href="2024-10-21-02-mini-cpp-code-window-haiku.html#2024-10-21-02-mini-cpp-code-window-haiku.role_cyan_links"><span class="cyan">Links</span></a>
+    </h2>
+<p>
+      Haiku Home - <a href="https://www.haiku-os.org" target="_top">Haiku OS</a>
+    </p>
+<p>
+      Back Index - <a href="." target="_top">Dig Haiku OS c++</a>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="2024-10-21-01-use-cpp-library-haiku.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="footnp" style="margin-left:auto;margin-right:auto;max-width:300px">
+<div style="float:left">
+<p><a href="https://cppfx.xyz/esvcpp/esv_print.html">E</a></p>
+</div>
+</div>
+</body>
+</html>

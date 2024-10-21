@@ -3,6 +3,7 @@
 	[id dig-haiku]
 ]
 
+[include 2024-10-21-02-mini-cpp-code-window-haiku.qbk]
 [include 2024-10-21-01-use-cpp-library-haiku.qbk]
 
 [h2 About]
