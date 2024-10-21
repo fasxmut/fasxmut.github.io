@@ -368,7 +368,9 @@ int main()
 
 [h1 [role cyan Botan]]
 
-[@https://botan.randombit.net c++ Botan Home]
+Botan Home: [@https://botan.randombit.net c++ Botan Home]
+
+This Index: [@. Dig Botan c++]
 
 
 

@@ -1,0 +1,103 @@
+[article Botan c++ base58 - 2024-10-21-01
+	[quickbook 1.7]
+	[id 2024-10-21-01-botan-cpp-base58]
+]
+
+[h1 [role cyan Botan c++ base58 - 2024-10-21-01]]
+
+Botan c++ base58: encode and decode - [*Dig Botan]
+
+[h1 [role cyan Botan::base58_encode, Botan::base58_decode]]
+
+*Botan::base58_encode:
+
+Encode a c++ u-int-8-t range to std::string.
+
+*Botan::base58_decode:
+
+Decode base58 std::string to a c++ u-int-8-t range.
+
+
+[!c++]
+```
+#include <botan/base58.h>
+#include <iostream>
+#include <boost/assert.hpp>
+
+int main()
+{
+	const std::string_view str = "No Open";
+	std::span<unsigned char> input{
+		std::bit_cast<unsigned char *>(str.begin()),
+		std::bit_cast<unsigned char *>(str.end())
+	};
+
+	const std::string encoded = Botan::base58_encode(input);
+	const std::vector<unsigned char> decoded = Botan::base58_decode(encoded);
+
+	std::string str2{
+		std::bit_cast<const char *>(decoded.begin()),
+		std::bit_cast<const char *>(decoded.end())
+	};
+
+	BOOST_ASSERT(str2 == str);
+
+	std::cout << "input: " << str << std::endl;
+	std::cout << "encode, then decode: " << str2 << std::endl;
+}
+```
+
+[h1 [role cyan Botan::base58_check_encode, Botan::base58_check_decode]]
+
+Botan::base58_check_encode, Botan::base58_check_decode
+
+Same interfaces with Botan::base58_encode and Botan::base58_decode, but with checksum.
+
+[!c++]
+```
+#include <botan/base58.h>
+#include <iostream>
+#include <boost/assert.hpp>
+
+using u_8 = unsigned char;
+
+int main()
+{
+	const std::string_view str = "No Open";
+
+	const std::string encoded = Botan::base58_check_encode(
+		{ // passed to std::span<u_8>
+			std::bit_cast<u_8 *>(str.begin()),
+			std::bit_cast<u_8 *>(str.end())
+		}
+	);
+
+	const auto decoded = Botan::base58_check_decode(encoded);
+
+	const std::string str2{decoded.begin(), decoded.end()};
+
+	BOOST_ASSERT(str2 == str);
+	static_assert(std::same_as<typename decltype(decoded)::value_type, u_8>);
+	static_assert(std::same_as<std::remove_const_t<decltype(decoded)>, std::vector<u_8>>);
+
+	std::cout << str << '\n' << encoded << '\n' << str2 << std::endl;
+}
+```
+
+Output:
+
+[!teletype]
+```
+No Open
+LT5k5M7Az1Srv5o
+No Open
+```
+
+[h1 [role cyan Botan]]
+
+Botan Home: [@https://botan.randombit.net c++ Botan Home]
+
+This Index: [@. Dig Botan c++]
+
+
+
