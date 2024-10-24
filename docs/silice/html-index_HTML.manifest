@@ -2,3 +2,5 @@ index.html
 cpp-asio-beast-http-networking.html
 cpp-botan-tls-boost-asio-beast-client.html
 cpp-boost-proto.html
+cpp-lvalue-rvalue.html
+01-cpp-lvalue-rvalue-xvalue-prvalue-glvalue.html

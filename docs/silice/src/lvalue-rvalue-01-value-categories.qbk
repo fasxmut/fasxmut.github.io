@@ -1,0 +1,99 @@
+[article 01. c++ lvalue, rvalue, xvalue, prvalue, glvalue (understanding)
+	[quickbook 1.7]
+	[id 01-cpp-lvalue-rvalue-xvalue-prvalue-glvalue]
+]
+
+c++ lvalue, rvalue, xvalue, prvalue, glvalue
+
+Created on Oct 24, 2024
+
+[@. Home: cpp Silice]
+
+[h1 [role cyan cpp lvalue, rvalue, xvalue, prvalue, glvalue]]
+
+c++ lvalue, rvalue, xvalue, prvalue, glvalue: c++ value categories
+
+[h1 [role cyan Categories]]
+
+[$../media/silice/cpp-lvalue-rvalue-graph.jpg [align right]]
+
+[h2 [role red lvalue]]
+
+
+* [* [role purple An lvalue has an address that the program can access.]]
+* [* [role purple It always has a defined storage region.]]
+* [* [role purple It denotes an object whose resource can not be reused.]]
+* [* [role purple An lvalue is a glvalue that is not an xvalue.]]
+
+[* Examples:]
+
+* variable name
+* array subscript reference
+* dereferenced pointer
+* reference return of a function call
+* most function names
+
+[h2 [role red rvalue]]
+
+*[*[role purple An rvalue is an expression that is not an lvalue.]]
+*[*[role purple It does not have to have associated storage.]]
+*[*[role purple It denotes an object whose resource can be reused.]]
+*[*[role purple An rvalue is a prvalue or an xvalue.]]
+
+[* Examples:]
+
+* Literals
+* The return of most operators
+* Non-reference return of a function call
+
+[h2 prvalue]
+
+*[*[role purple A prvalue (pure rvalue) is an rvalue that is not an xvalue.]]
+*[*[role green Most cases, when we talk about rvalues, we are atually talking about prvalues.]]
+
+[h2 xvalue]
+
+*[*[role purple An xvalue (expiring value) is a glvalue that denotes an object whose resource can be reused.]]
+
+[h2 glvalue]
+
+* [*[role purple
+A glvalue (generalized lvalue) is an expression whose evaluation determines the identity of an object or funtion.
+]]
+
+[h1 [role cyan silice]]
+
+Q: [*Is an xvalue an rvalue ?]
+
+A: Yes, an xvalue is an rvalue, but it is not a pure rvalue, a pure rvalue is called prvalue.
+
+Q: [*Which value the resource of can be reused?]
+
+A: Only the resource of lvalue can be reused, the resource of all other values can not be reused.
+
+[* cppreference xvalue:]
+
+[@https://en.cppreference.com/w/cpp/language/value_category#xvalue]
+
+[h2 silice]
+
+Q: [* How to quickly understand all value categories?]
+
+A: An lvalue is a value that has an address that can be accessed by the program, its resource can not be reused. An rvalue is a value that is not lvalue, its resource can be reused. Most cases, when we talk about rvalue, we are actually talking about pure rvalue, which is called prvalue. There is a value category that is rvalue but not pure rvalue, it is xvalue. If the subspace expression of an rvalue expression contains an implicit named value, that is likely an xvalue, x here means expiring. Xvalue is rvalue, but it is not pure rvalue (prvalue). We put xvalue and lvalue to one category: glvalue (generalized lvalue).
+
+[$../media/silice/cpp-lvalue-rvalue-meme.jpg]
+
+[link cpp-lvalue-rvalue Up]
+
+[@. Up Up]
+
+[@. Home: cpp Silice]
+
+[h1 [role cyan See Also]]
+
+[@https://en.cppreference.com/w/cpp/language/value_category cppreference c++ value categories]
+
+[@https://learn.microsoft.com/en-us/cpp/cpp/lvalues-and-rvalues-visual-cpp?view=msvc-170 Microsoft c++ value categories]
+
+
+

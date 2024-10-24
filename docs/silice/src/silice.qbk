@@ -6,6 +6,7 @@
 [include boost-asio-beast-http.qbk]
 [include botan-tls-boost-asio-beast.qbk]
 [include boost-proto.qbk]
+[include lvalue-rvalue.qbk]
 
 [h1 [role cyan cpp Silice plan]]
 
