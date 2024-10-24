@@ -1,5 +1,6 @@
-[article day-01: How to compile cpp
+[article day-01: How to compile c++
 	[quickbook 1.7]
+	[id day_01_how_to_compile_cpp]
 ]
 
 [h1 [role cyan day-01: how to compile cpp: Hello World!]]
