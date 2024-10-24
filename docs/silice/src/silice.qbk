@@ -1,5 +1,6 @@
-[book cpp Silice
+[book c++ Silice
 	[quickbook 1.7]
+	[id cpp-silice]
 ]
 
 [include boost-asio-beast-http.qbk]
