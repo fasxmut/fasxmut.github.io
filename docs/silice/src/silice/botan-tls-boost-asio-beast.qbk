@@ -9,7 +9,8 @@ Created on Oct 10, 2024
 
 Updated On Oct 13, 2024 - Add asio::as_tuple, update throwing c++ std::exception.
 
-[@. Home: cpp Silice]
+* [link cpp-silice-silice Up: c++ Silice Silice]
+* [@.. Home: cppfx.xyz]
 
 [h1 [role cyan cpp botan tls + boost asio beast]]
 
@@ -671,7 +672,8 @@ catch (const std::exception & e)
 }
 ```
 
-[@. Home: cpp Silice]
+* [link cpp-silice-silice Up: c++ Silice Silice]
+* [@.. Home: cppfx.xyz]
 
 [h1 [role cyan See Also]]
 

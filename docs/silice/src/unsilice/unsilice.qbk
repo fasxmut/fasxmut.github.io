@@ -1,0 +1,13 @@
+[article c++ Silice Unsilice
+	[id cpp-silice-unsilice]
+	[quickbook 1.7]
+]
+
+[include lvalue-rvalue.qbk]
+[include traits-type-traits.qbk]
+
+* [@. Up: c++ Silice]
+* [@.. Home: cppfx.xyz]
+
+
+

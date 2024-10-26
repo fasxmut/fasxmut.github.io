@@ -7,7 +7,8 @@ cpp: c++ boost::proto silice
 
 Created on Oct 7, 2024
 
-[@. Home: cpp Silice]
+* [link cpp-silice-silice Up: c++ Silice Silice]
+* [@.. Home: cppfx.xyz]
 
 [h1 [role cyan cpp boost::proto silice]]
 
@@ -228,7 +229,8 @@ int main()
 }
 ```
 
-[@. Home: cpp Silice]
+* [link cpp-silice-silice Up: c++ Silice Silice]
+* [@.. Home: cppfx.xyz]
 
 [h1 [role cyan See Also]]
 
