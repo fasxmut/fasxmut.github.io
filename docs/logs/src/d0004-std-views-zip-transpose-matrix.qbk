@@ -5,3 +5,7 @@
 [import cpp-code/d0004-std-views-zip-transpose-matrix.cpp]
 [d0004_std_views_zip_transpose_matrix_cpp]
 
+[include ../../share/foot-links.inc.qbk]
+
+
+

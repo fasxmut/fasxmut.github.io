@@ -5,3 +5,7 @@
 [import cpp-code/d0009-chaiscript-cpp.cpp]
 [d0009_chaiscript_cpp]
 
+[include ../../share/foot-links.inc.qbk]
+
+
+

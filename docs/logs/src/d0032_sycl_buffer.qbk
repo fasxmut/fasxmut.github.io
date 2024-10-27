@@ -103,3 +103,7 @@ dpcpp prog.cpp -std=c++23 -o prog
 
 
 
+[include ../../share/foot-links.inc.qbk]
+
+
+

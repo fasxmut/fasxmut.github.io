@@ -129,3 +129,7 @@ int main()
 clang++ hello_swift.cpp -std=c++2b -lswiftCore -o hello_swift
 ```
 
+[include ../../share/foot-links.inc.qbk]
+
+
+

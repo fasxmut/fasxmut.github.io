@@ -5,3 +5,7 @@
 [import cpp-code/d0006-cpp-integral.cpp]
 [d0006_cpp_integral]
 
+[include ../../share/foot-links.inc.qbk]
+
+
+

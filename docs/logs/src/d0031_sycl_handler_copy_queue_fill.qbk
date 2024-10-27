@@ -86,3 +86,7 @@ dpcpp 1.cpp -std=c++23 -o 1
 
 
 
+[include ../../share/foot-links.inc.qbk]
+
+
+

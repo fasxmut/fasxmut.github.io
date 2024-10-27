@@ -143,3 +143,7 @@ Botan::TLS::Server_Information server_info{};
 [@https://cppfx.xyz/silice/cpp-botan-tls-boost-asio-beast-client.html c++ botan tls + boost asio beast (https client)]
 
 
+[include ../../share/foot-links.inc.qbk]
+
+
+

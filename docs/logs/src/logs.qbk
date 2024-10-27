@@ -49,13 +49,9 @@ News are written by me - publishing what I found useful programming news, inform
 
 [h1 [role cyan Links]]
 
-[@https://cppfx.xyz cppfx.xyz]
-
-[@https://cppfx.xyz/logs Logs Home - Here]
-
-[@https://cppfx.xyz/utxcpp Utxcpp]
-
 [@https://www.boost.org/tools/quickbook quickbook]
+
+[include ../../share/foot-links.inc.qbk]
 
 
 

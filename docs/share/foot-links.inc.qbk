@@ -1,0 +1,20 @@
+[h1:cpp-lang [role cyan cpp/c++]]
+
+c++ std::exception:
+
+std::cout.write(err.data(), err.size());
+
+std::cout << std::endl;
+
+[role purple caught:]
+
+[pre
+  ==================================================
+  #        The c++ programming language.           #
+  #                                                #
+  #        [@https://cppfx.xyz Home: cppfx.xyz]                         #
+  #        [@https://cppfx.xyz/esvcpp/esv_print.html E]                                       #
+  #        Deck                                    #
+  ==================================================
+]
+

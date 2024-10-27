@@ -5,3 +5,7 @@
 [import cpp-code/d0003-std-predicate-std-relation.cpp]
 [d0003_std_predicate_std_relation_cpp]
 
+[include ../../share/foot-links.inc.qbk]
+
+
+

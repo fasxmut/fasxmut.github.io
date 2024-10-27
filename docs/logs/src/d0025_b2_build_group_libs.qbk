@@ -114,3 +114,7 @@ alias sfml : sfml-graphics sfml-window sfml-audio sfml-system ;
 exe my_prog : my_prog.cpp : <library>sfml <cxxstd>23 ;
 ```
 
+[include ../../share/foot-links.inc.qbk]
+
+
+
