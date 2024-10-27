@@ -44,3 +44,4 @@ std::cout << std::boolalpha << std::is_floating_point_v<std::string> << std::end
 
 
 
+[include ../../../share/foot-links.inc.qbk]

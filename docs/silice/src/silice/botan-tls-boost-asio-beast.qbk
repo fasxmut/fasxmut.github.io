@@ -685,3 +685,4 @@ catch (const std::exception & e)
 
 
 
+[include ../../../share/foot-links.inc.qbk]
