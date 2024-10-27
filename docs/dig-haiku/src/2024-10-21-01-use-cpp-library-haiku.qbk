@@ -52,3 +52,4 @@ g++ hello.cpp \
 Haiku Home - [@https://www.haiku-os.org Haiku OS]
 
 Back Index - [@. Dig Haiku OS c++]
+[include ../../share/foot-links.inc.qbk]
