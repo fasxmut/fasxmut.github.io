@@ -70,7 +70,7 @@ A: Yes, an xvalue is an rvalue, but it is not a pure rvalue, a pure rvalue is ca
 
 Q: [*Which value the resource of can be reused?]
 
-A: Only the resource of lvalue can not be reused, the resource of all other values can be reused.
+A: Just the resource of lvalue can not be reused, the resource of all other values can be reused.
 
 [* cppreference xvalue:]
 
