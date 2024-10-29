@@ -5,7 +5,6 @@
 
 [include boost-asio-beast-http.qbk]
 [include botan-tls-boost-asio-beast.qbk]
-[include boost-proto.qbk]
 
 * [@. Up: c++ Silice]
 * [@.. Home: cppfx.xyz]

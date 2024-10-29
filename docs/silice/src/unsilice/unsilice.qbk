@@ -5,6 +5,7 @@
 
 [include lvalue-rvalue.qbk]
 [include traits-type-traits.qbk]
+[include boost-proto.qbk]
 
 * [@. Up: c++ Silice]
 * [@.. Home: cppfx.xyz]
