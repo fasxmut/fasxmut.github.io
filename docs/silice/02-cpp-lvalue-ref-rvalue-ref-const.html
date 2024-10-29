@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>02. c++ lvalue reference, rvalue reference, const</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="c++ Silice">
+<link rel="up" href="cpp-lvalue-rvalue.html" title="c++ Lvalue and Rvalue">
+<link rel="prev" href="01-cpp-lvalue-rvalue-xvalue-prvalue-glvalue.html" title="01. c++ lvalue, rvalue, xvalue, prvalue, glvalue (understanding)">
+<link rel="next" href="cpp-unsilice-traits-type-traits.html" title="c++ traits type traits - c++ Unsilice">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="01-cpp-lvalue-rvalue-xvalue-prvalue-glvalue.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="cpp-lvalue-rvalue.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp-unsilice-traits-type-traits.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="02-cpp-lvalue-ref-rvalue-ref-const"></a>02. c++ lvalue reference, rvalue reference, const</h2></div></div>
+<hr>
+</div>
+<p>
+          c++ lvalue reference, rvalue reference, and const
+        </p>
+<p>
+          Created on Oct 29, 2024
+        </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+              <a class="link" href="cpp-lvalue-rvalue.html" title="c++ Lvalue and Rvalue">Up: c++ Lvalue Rvalue</a>
+            </li>
+<li class="listitem">
+              <a href=".." target="_top">Home: cppfx.xyz</a>
+            </li>
+</ul></div>
+<h2>
+<a name="02-cpp-lvalue-ref-rvalue-ref-const.h0"></a>
+          <span class="phrase"><a name="02-cpp-lvalue-ref-rvalue-ref-const.cpp-lvalue-ref"></a></span><a class="link" href="02-cpp-lvalue-ref-rvalue-ref-const.html#02-cpp-lvalue-ref-rvalue-ref-const.cpp-lvalue-ref"><span class="cyan">c++ lvalue reference</span></a>
+        </h2>
+<h3>
+<a name="02-cpp-lvalue-ref-rvalue-ref-const.h1"></a>
+          <span class="phrase"><a name="02-cpp-lvalue-ref-rvalue-ref-const.lvalue_ref"></a></span><a class="link" href="02-cpp-lvalue-ref-rvalue-ref-const.html#02-cpp-lvalue-ref-rvalue-ref-const.lvalue_ref">Lvalue
+          ref</a>
+        </h3>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+              Lvalue reference declaration uses a single symbol <span class="red"><span class="bold"><strong>&amp;</strong></span></span>
+            </li></ul></div>
+<pre class="programlisting"><span class="keyword">int</span> <span class="identifier">a</span><span class="special">;</span>
+<span class="keyword">int</span> <span class="special">&amp;</span> <span class="identifier">x</span> <span class="special">=</span> <span class="identifier">a</span><span class="special">;</span>	<span class="comment">// OK. Lvalue reference x is initialized with lvalue a.</span>
+</pre>
+<p>
+          Lvalue reference is also called non-const lvalue reference.
+        </p>
+<p>
+          It can be also described as non-const lvalue reference x is bound to lvalue
+          a.
+        </p>
+<h3>
+<a name="02-cpp-lvalue-ref-rvalue-ref-const.h2"></a>
+          <span class="phrase"><a name="02-cpp-lvalue-ref-rvalue-ref-const.mistake_cases"></a></span><a class="link" href="02-cpp-lvalue-ref-rvalue-ref-const.html#02-cpp-lvalue-ref-rvalue-ref-const.mistake_cases">Mistake
+          Cases</a>
+        </h3>
+<pre class="programlisting"><span class="keyword">int</span> <span class="special">&amp;</span> <span class="identifier">a</span><span class="special">;</span> <span class="comment">// Error, lvalue reference a must be initialized when it is declared.</span>
+
+<span class="keyword">int</span> <span class="special">&amp;</span> <span class="identifier">b</span> <span class="special">=</span> <span class="number">3</span><span class="special">;</span> <span class="comment">// Error, lvalue reference b must be initialized with an lvalue, 3 is rvalue.</span>
+</pre>
+<h2>
+<a name="02-cpp-lvalue-ref-rvalue-ref-const.h3"></a>
+          <span class="phrase"><a name="02-cpp-lvalue-ref-rvalue-ref-const.cpp-rvalue-ref"></a></span><a class="link" href="02-cpp-lvalue-ref-rvalue-ref-const.html#02-cpp-lvalue-ref-rvalue-ref-const.cpp-rvalue-ref"><span class="cyan">c++ rvalue reference</span></a>
+        </h2>
+<h3>
+<a name="02-cpp-lvalue-ref-rvalue-ref-const.h4"></a>
+          <span class="phrase"><a name="02-cpp-lvalue-ref-rvalue-ref-const.rvalue_ref"></a></span><a class="link" href="02-cpp-lvalue-ref-rvalue-ref-const.html#02-cpp-lvalue-ref-rvalue-ref-const.rvalue_ref">Rvalue
+          ref</a>
+        </h3>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+              Rvalue reference declaration uses a double symbols <span class="red"><span class="bold"><strong>&amp;&amp;</strong></span></span>
+            </li></ul></div>
+<pre class="programlisting"><span class="keyword">int</span> <span class="special">&amp;&amp;</span> <span class="identifier">x</span> <span class="special">=</span> <span class="number">3</span><span class="special">;</span>	<span class="comment">// OK. Rvalue reference x is initialized with rvalue 3.</span>
+</pre>
+<p>
+          Rvalue reference is also called non-const rvalue reference.
+        </p>
+<h3>
+<a name="02-cpp-lvalue-ref-rvalue-ref-const.h5"></a>
+          <span class="phrase"><a name="02-cpp-lvalue-ref-rvalue-ref-const.mistake_cases0"></a></span><a class="link" href="02-cpp-lvalue-ref-rvalue-ref-const.html#02-cpp-lvalue-ref-rvalue-ref-const.mistake_cases0">Mistake
+          Cases</a>
+        </h3>
+<pre class="programlisting"><span class="keyword">int</span> <span class="special">&amp;&amp;</span> <span class="identifier">a</span><span class="special">;</span> <span class="comment">// Error, rvalue reference must be initialized when it is declared.</span>
+</pre>
+<pre class="programlisting"><span class="keyword">int</span> <span class="identifier">t</span> <span class="special">=</span> <span class="number">24</span><span class="special">;</span>
+<span class="keyword">int</span> <span class="special">&amp;&amp;</span> <span class="identifier">a</span> <span class="special">=</span> <span class="identifier">t</span><span class="special">;</span>	<span class="comment">// Error. rvalue reference a must be initialized with rvalue, t is lvalue.</span>
+</pre>
+<p>
+          Rvalue reference is also called non-const rvalue reference.
+        </p>
+<h2>
+<a name="02-cpp-lvalue-ref-rvalue-ref-const.h6"></a>
+          <span class="phrase"><a name="02-cpp-lvalue-ref-rvalue-ref-const.role_cyan_const"></a></span><a class="link" href="02-cpp-lvalue-ref-rvalue-ref-const.html#02-cpp-lvalue-ref-rvalue-ref-const.role_cyan_const"><span class="cyan">const</span></a>
+        </h2>
+<p>
+          A const qualified variable must be initialized.
+        </p>
+<pre class="programlisting"><span class="keyword">const</span> <span class="keyword">int</span> <span class="identifier">x</span> <span class="special">=</span> <span class="number">3</span><span class="special">;</span>	<span class="comment">// OK</span>
+<span class="keyword">const</span> <span class="keyword">int</span> <span class="identifier">y</span><span class="special">;</span>	<span class="comment">// Error, not initialized</span>
+</pre>
+<p>
+          const lvalue reference and const rvalue reference must initialize their
+          bindings.
+        </p>
+<h2>
+<a name="02-cpp-lvalue-ref-rvalue-ref-const.h7"></a>
+          <span class="phrase"><a name="02-cpp-lvalue-ref-rvalue-ref-const.role_cyan_const_lvalue_reference"></a></span><a class="link" href="02-cpp-lvalue-ref-rvalue-ref-const.html#02-cpp-lvalue-ref-rvalue-ref-const.role_cyan_const_lvalue_reference"><span class="cyan">const lvalue reference</span></a>
+        </h2>
+<p>
+          const lvalue reference can be bound to either lvalue or rvalue, either
+          const or non-const value.
+        </p>
+<p>
+          const qualifier makes the const-lvalue-reference immutable.
+        </p>
+<p>
+          A const-lvalue-reference must initialize its binding.
+        </p>
+<pre class="programlisting"><span class="keyword">int</span> <span class="identifier">a</span><span class="special">;</span>
+<span class="keyword">const</span> <span class="keyword">int</span> <span class="special">&amp;</span> <span class="identifier">x</span> <span class="special">=</span> <span class="identifier">a</span><span class="special">;</span>
+<span class="keyword">int</span> <span class="keyword">const</span> <span class="special">&amp;</span> <span class="identifier">y</span> <span class="special">=</span> <span class="number">5</span><span class="special">;</span>	<span class="comment">// Note that const int &amp; and int const &amp; are the same type.</span>
+</pre>
+<h2>
+<a name="02-cpp-lvalue-ref-rvalue-ref-const.h8"></a>
+          <span class="phrase"><a name="02-cpp-lvalue-ref-rvalue-ref-const.role_cyan_const_rvalue_reference"></a></span><a class="link" href="02-cpp-lvalue-ref-rvalue-ref-const.html#02-cpp-lvalue-ref-rvalue-ref-const.role_cyan_const_rvalue_reference"><span class="cyan">const rvalue reference</span></a>
+        </h2>
+<p>
+          A const rvalue reference can be bound to an rvalue, it can not be bound
+          to an lvalue.
+        </p>
+<p>
+          const qualifier makes the const-rvalue-reference immutable.
+        </p>
+<p>
+          A const-rvalue-reference must initialize its binding.
+        </p>
+<pre class="programlisting"><span class="keyword">const</span> <span class="keyword">int</span> <span class="special">&amp;&amp;</span> <span class="identifier">x</span> <span class="special">=</span> <span class="number">3</span><span class="special">;</span>
+</pre>
+<pre class="programlisting"><span class="keyword">int</span> <span class="identifier">a</span><span class="special">;</span>
+<span class="keyword">const</span> <span class="keyword">int</span> <span class="special">&amp;&amp;</span> <span class="identifier">x</span> <span class="special">=</span> <span class="identifier">a</span><span class="special">;</span>	<span class="comment">// ERROR, const rvalue reference x can not be bound to lvalue a.</span>
+</pre>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+              <a class="link" href="cpp-lvalue-rvalue.html" title="c++ Lvalue and Rvalue">Up: c++ Lvalue Rvalue</a>
+            </li>
+<li class="listitem">
+              <a href=".." target="_top">Home: cppfx.xyz</a>
+            </li>
+</ul></div>
+<h2>
+<a name="02-cpp-lvalue-ref-rvalue-ref-const.h9"></a>
+          <span class="phrase"><a name="02-cpp-lvalue-ref-rvalue-ref-const.cpp-lang"></a></span><a class="link" href="02-cpp-lvalue-ref-rvalue-ref-const.html#02-cpp-lvalue-ref-rvalue-ref-const.cpp-lang"><span class="cyan">cpp/c++</span></a>
+        </h2>
+<p>
+          c++ std::exception:
+        </p>
+<p>
+          std::cout.write(err.data(), err.size());
+        </p>
+<p>
+          std::cout &lt;&lt; std::endl;
+        </p>
+<p>
+          <span class="purple">caught:</span>
+        </p>
+<pre class="programlisting">  ==================================================
+  #        The c++ programming language.           #
+  #                                                #
+  #        <a href="https://cppfx.xyz" target="_top">Home: cppfx.xyz</a>                         #
+  #        <a href="https://cppfx.xyz/esvcpp/esv_print.html" target="_top">E</a>                                       #
+  #        Deck                                    #
+  ==================================================
+</pre>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="01-cpp-lvalue-rvalue-xvalue-prvalue-glvalue.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="cpp-lvalue-rvalue.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp-unsilice-traits-type-traits.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

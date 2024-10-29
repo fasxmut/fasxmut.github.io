@@ -6,4 +6,5 @@ cpp-boost-proto.html
 cpp-silice-unsilice.html
 cpp-lvalue-rvalue.html
 01-cpp-lvalue-rvalue-xvalue-prvalue-glvalue.html
+02-cpp-lvalue-ref-rvalue-ref-const.html
 cpp-unsilice-traits-type-traits.html

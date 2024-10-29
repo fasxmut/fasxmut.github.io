@@ -1,0 +1,118 @@
+[article 02. c++ lvalue reference, rvalue reference, const
+	[quickbook 1.7]
+	[id 02-cpp-lvalue-ref-rvalue-ref-const]
+]
+
+c++ lvalue reference, rvalue reference, and const
+
+Created on Oct 29, 2024
+
+* [link cpp-lvalue-rvalue Up: c++ Lvalue Rvalue]
+* [@.. Home: cppfx.xyz]
+
+[h1:cpp-lvalue-ref [role cyan c++ lvalue reference]]
+
+[h2 Lvalue ref]
+
+* Lvalue reference declaration uses a single symbol [role red [*&]]
+
+[!c++]
+```
+int a;
+int & x = a;	// OK. Lvalue reference x is initialized with lvalue a.
+```
+
+Lvalue reference is also called non-const lvalue reference.
+
+It can be also described as non-const lvalue reference x is bound to lvalue a.
+
+[h2 Mistake Cases]
+
+[!c++]
+```
+int & a; // Error, lvalue reference a must be initialized when it is declared.
+
+int & b = 3; // Error, lvalue reference b must be initialized with an lvalue, 3 is rvalue.
+```
+
+[h1:cpp-rvalue-ref [role cyan c++ rvalue reference]]
+
+[h2 Rvalue ref]
+
+* Rvalue reference declaration uses a double symbols [role red [*&&]]
+
+[!c++]
+```
+int && x = 3;	// OK. Rvalue reference x is initialized with rvalue 3.
+```
+
+Rvalue reference is also called non-const rvalue reference.
+
+[h2 Mistake Cases]
+
+[!c++]
+```
+int && a; // Error, rvalue reference must be initialized when it is declared.
+```
+
+[!c++]
+```
+int t = 24;
+int && a = t;	// Error. rvalue reference a must be initialized with rvalue, t is lvalue.
+```
+
+Rvalue reference is also called non-const rvalue reference.
+
+[h1 [role cyan const]]
+
+A const qualified variable must be initialized.
+
+[!c++]
+```
+const int x = 3;	// OK
+const int y;	// Error, not initialized
+```
+
+const lvalue reference and const rvalue reference must initialize their bindings.
+
+[h1 [role cyan const lvalue reference]]
+
+const lvalue reference can be bound to either lvalue or rvalue, either const or non-const value.
+
+const qualifier makes the const-lvalue-reference immutable.
+
+A const-lvalue-reference must initialize its binding.
+
+[!c++]
+```
+int a;
+const int & x = a;
+int const & y = 5;	// Note that const int & and int const & are the same type.
+```
+
+[h1 [role cyan const rvalue reference]]
+
+A const rvalue reference can be bound to an rvalue, it can not be bound to an lvalue.
+
+const qualifier makes the const-rvalue-reference immutable.
+
+A const-rvalue-reference must initialize its binding.
+
+[!c++]
+```
+const int && x = 3;
+```
+
+[!c++]
+```
+int a;
+const int && x = a;	// ERROR, const rvalue reference x can not be bound to lvalue a.
+```
+
+* [link cpp-lvalue-rvalue Up: c++ Lvalue Rvalue]
+* [@.. Home: cppfx.xyz]
+
+[include ../../../share/foot-links.inc.qbk]
+
+
+
