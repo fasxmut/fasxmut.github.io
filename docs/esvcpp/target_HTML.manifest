@@ -66,7 +66,7 @@ mod_method.html
 cast_method.html
 basic_concepts.html
 esv_real_meric.html
-esv_real_uct.html
+esv_real_ect.html
 esv_real_number.html
 esv_same_as.html
 esv_not_same_as.html
@@ -87,7 +87,7 @@ comparisons.html
 esv_make_unsigned_t.html
 esv_make_signed_t.html
 esv_make_float_t.html
-esv_make_uct_t.html
+esv_make_ect_t.html
 esv_make_unsigned_x_t.html
 esv_make_signed_x_t.html
 esv_make_float_x_t.html
@@ -102,7 +102,7 @@ esv_na.html
 esv_in_scope.html
 esv_lt_scope.html
 esv_gt_scope.html
-esv_uct_literals.html
+esv_ect_literals.html
 esv_meric_static_cast.html
 esv_gnrk_static_cast.html
 esv_diff_size_cast.html
