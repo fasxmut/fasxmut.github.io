@@ -1,5 +1,5 @@
-path-constant utxcpp-src-root : ../../../../utxcpp ;
-path-constant qbk-media-root : $(utxcpp-src-root)/docs/fx-quickbook-media/qbk-media ;
+path-constant esvcpp-src-root : ../../../../esvcpp ;
+path-constant qbk-media-root : $(esvcpp-src-root)/docs/fx-quickbook-media/qbk-media ;
 path-constant silice-src-root : . ;
 path-constant silice-web-root : .. ;
 
