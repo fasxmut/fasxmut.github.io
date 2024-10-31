@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>day-11: 7 minutes: c++ method const, return type const</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Learn c++ in days">
+<link rel="up" href="day-11-miscellaneous.html" title="day-11: Miscellaneous">
+<link rel="prev" href="day-11-5-minutes-cpp-namespace.html" title="day-11: 5 minutes: c++ namespace">
+<link rel="next" href="day-11-3-minutes-using-type-alias.html" title="day-11: 3 minutes: c++ using - the type alias">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="day-11-5-minutes-cpp-namespace.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="day-11-miscellaneous.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="day-11-3-minutes-using-type-alias.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="day-11-7-minutes-method-const-return-type-const"></a>day-11: 7 minutes: c++ method const, return type const</h2></div></div>
+<hr>
+</div>
+<p>
+        c++ method const, return type const 7 minutes, maybe 5 minutes
+      </p>
+<h2>
+<a name="day-11-7-minutes-method-const-return-type-const.h0"></a>
+        <span class="phrase"><a name="day-11-7-minutes-method-const-return-type-const.role_cyan_const"></a></span><a class="link" href="day-11-7-minutes-method-const-return-type-const.html#day-11-7-minutes-method-const-return-type-const.role_cyan_const"><span class="cyan">const</span></a>
+      </h2>
+<p>
+        const qualifier makes the object immutable. (Read <a class="link" href="day_10_cpp_reference_constant.html" title="day-10: c++ Reference, Constant">day-10</a>)
+      </p>
+<h2>
+<a name="day-11-7-minutes-method-const-return-type-const.h1"></a>
+        <span class="phrase"><a name="day-11-7-minutes-method-const-return-type-const.role_cyan_method_const"></a></span><a class="link" href="day-11-7-minutes-method-const-return-type-const.html#day-11-7-minutes-method-const-return-type-const.role_cyan_method_const"><span class="cyan">Method const</span></a>
+      </h2>
+<p>
+        A const qualifier is placed after the method name and a pair of (), it will
+        make the object immutable inside the scope of the current method.
+      </p>
+<pre class="programlisting"><span class="keyword">class</span> <span class="identifier">my_class</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">void</span> <span class="identifier">fz_kp</span><span class="special">()</span> <span class="keyword">const</span>	<span class="comment">// Method const</span>
+	<span class="special">{</span>
+	<span class="special">}</span>
+	<span class="keyword">void</span> <span class="identifier">kp_fz</span><span class="special">()</span>
+	<span class="special">{</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+</pre>
+<p>
+        The above const qualifer makes the current object immutable inside of the
+        method <span class="bold"><strong>.fz_kp()</strong></span>,
+      </p>
+<p>
+        it can not make the object immutable outside of the method <span class="bold"><strong>.fz_kp()</strong></span>,
+        such as <span class="bold"><strong>.kp_fz()</strong></span> .
+      </p>
+<p>
+        To quickly understand it, the <span class="bold"><strong>method const</strong></span>
+        qualifier make the <span class="bold"><strong>"*this"</strong></span> <span class="red">const</span> .
+      </p>
+<h2>
+<a name="day-11-7-minutes-method-const-return-type-const.h2"></a>
+        <span class="phrase"><a name="day-11-7-minutes-method-const-return-type-const.role_cyan_return_type_const"></a></span><a class="link" href="day-11-7-minutes-method-const-return-type-const.html#day-11-7-minutes-method-const-return-type-const.role_cyan_return_type_const"><span class="cyan">Return type const</span></a>
+      </h2>
+<p>
+        Don't be confused by <span class="bold"><strong>return type const</strong></span> and
+        <span class="bold"><strong>method const</strong></span>, the return type const qualifier
+        is paced before the <span class="bold"><strong>method_name()</strong></span> .
+      </p>
+<pre class="programlisting"><span class="keyword">class</span> <span class="identifier">my_class</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">const</span> <span class="keyword">int</span> <span class="identifier">kf_pz</span><span class="special">()</span>	<span class="comment">// Return type const: The value it returned is const.</span>
+	<span class="special">{</span>
+		<span class="keyword">return</span> <span class="number">5</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+</pre>
+<h2>
+<a name="day-11-7-minutes-method-const-return-type-const.h3"></a>
+        <span class="phrase"><a name="day-11-7-minutes-method-const-return-type-const.role_cyan_method_const_methods_c"></a></span><a class="link" href="day-11-7-minutes-method-const-return-type-const.html#day-11-7-minutes-method-const-return-type-const.role_cyan_method_const_methods_c"><span class="cyan">Method const methods calling each other</span></a>
+      </h2>
+<p>
+        I call method that is qualified by method const as const method now.
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            <span class="bold"><strong>const method can call const method, const method
+            can not call non-const method.</strong></span>
+          </li>
+<li class="listitem">
+            <span class="bold"><strong>non-const method can call both const method and
+            non-const method</strong></span>.
+          </li>
+</ul></div>
+<p>
+        why?
+      </p>
+<p>
+        This is an unofficial understanding:
+      </p>
+<p>
+        You can insert immutable things into mutable things, but you can not insert
+        mutable things into immutable things.
+      </p>
+<pre class="programlisting"><span class="keyword">class</span> <span class="identifier">my_class</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">void</span> <span class="identifier">f_a</span><span class="special">()</span> <span class="keyword">const</span> <span class="special">{}</span>
+	<span class="keyword">void</span> <span class="identifier">f_b</span><span class="special">()</span> <span class="special">{}</span>
+	<span class="keyword">void</span> <span class="identifier">f_c</span><span class="special">()</span> <span class="keyword">const</span>
+	<span class="special">{</span>
+		<span class="identifier">f_a</span><span class="special">();</span>	<span class="comment">// OK</span>
+		<span class="comment">//f_b();	// not allowed</span>
+	<span class="special">}</span>
+	<span class="keyword">void</span> <span class="identifier">f_d</span><span class="special">()</span>
+	<span class="special">{</span>
+		<span class="identifier">f_a</span><span class="special">();</span>	<span class="comment">// OK</span>
+		<span class="identifier">f_b</span><span class="special">();</span>	<span class="comment">// OK</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+</pre>
+<p>
+        Written on Oct 31, 2024
+      </p>
+<h2>
+<a name="day-11-7-minutes-method-const-return-type-const.h4"></a>
+        <span class="phrase"><a name="day-11-7-minutes-method-const-return-type-const.role_cyan_back"></a></span><a class="link" href="day-11-7-minutes-method-const-return-type-const.html#day-11-7-minutes-method-const-return-type-const.role_cyan_back"><span class="cyan">Back</span></a>
+      </h2>
+<p>
+        <a class="link" href="day-11-miscellaneous.html" title="day-11: Miscellaneous">Up: day-11: Miscellaneous</a>
+      </p>
+<p>
+        <a href="." target="_top">Index</a>
+      </p>
+<h2>
+<a name="day-11-7-minutes-method-const-return-type-const.h5"></a>
+        <span class="phrase"><a name="day-11-7-minutes-method-const-return-type-const.cpp-lang"></a></span><a class="link" href="day-11-7-minutes-method-const-return-type-const.html#day-11-7-minutes-method-const-return-type-const.cpp-lang"><span class="cyan">cpp/c++</span></a>
+      </h2>
+<p>
+        c++ std::exception:
+      </p>
+<p>
+        std::cout.write(err.data(), err.size());
+      </p>
+<p>
+        std::cout &lt;&lt; std::endl;
+      </p>
+<p>
+        <span class="purple">caught:</span>
+      </p>
+<pre class="programlisting">  ==================================================
+  #        The c++ programming language.           #
+  #                                                #
+  #        <a href="https://cppfx.xyz" target="_top">Home: cppfx.xyz</a>                         #
+  #        <a href="https://cppfx.xyz/esvcpp/esv_print.html" target="_top">E</a>                                       #
+  #        Join c++ Discord: yZcauUAUyC            #
+  #        Deck                                    #
+  ==================================================
+</pre>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="day-11-5-minutes-cpp-namespace.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="day-11-miscellaneous.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="day-11-3-minutes-using-type-alias.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

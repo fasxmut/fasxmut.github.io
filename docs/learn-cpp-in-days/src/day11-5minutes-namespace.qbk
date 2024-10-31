@@ -1,0 +1,70 @@
+[article day-11: 5 minutes: c++ namespace
+	[quickbook 1.7]
+	[id day-11-5-minutes-cpp-namespace]
+]
+
+c++ namespace 5 minutes, maybe 3 minutes
+
+[h1 [role cyan namespace]]
+
+[!c++]
+```
+std::cout << std::endl;
+```
+
+[*std] is a namespace.
+
+[h2 Create your own namespace]
+
+[h1 [role cyan Make your own namespace]]
+
+[!c++]
+```
+namespace my_space
+{
+	float x = 2.5f;
+}
+
+std::cout << my_space::x << std::endl;
+```
+
+[h1 [role cyan Make your own nested namespace 1]]
+
+[!c++]
+```
+namespace my_space::my_name
+{
+	float x = 5.2f;
+}
+
+std::cout << my_space::my_name::x << std::endl;
+```
+
+[h1 [role cyan Make your own nested namespace 2]]
+
+[!c++]
+```
+namespace my_space
+{
+	namespace my_star
+	{
+		float x = 2.5f;
+	}
+}
+
+std::cout << my_space::my_star::x << std::endl;
+```
+
+Written on Oct 31, 2024
+
+[h1 [role cyan Back]]
+ 
+[link day-11-miscellaneous Up: day-11: Miscellaneous]
+
+[@. Index]
+ 
+
+[include ../../share/foot-links.inc.qbk]
+
+
+

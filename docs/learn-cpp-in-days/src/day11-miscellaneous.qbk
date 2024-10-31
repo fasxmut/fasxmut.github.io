@@ -1,0 +1,17 @@
+[article day-11: Miscellaneous
+	[quickbook 1.7]
+	[id day-11-miscellaneous]
+]
+
+[include day11-5minutes-namespace.qbk]
+[include day11-7minutes-method-const-return-const.qbk]
+[include day11-3minutes-using-type-alias.qbk]
+
+[h1 [role cyan Back]]
+
+[@. Index]
+
+[include ../../share/foot-links.inc.qbk]
+
+
+

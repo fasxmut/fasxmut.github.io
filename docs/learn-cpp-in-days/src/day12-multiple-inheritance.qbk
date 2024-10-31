@@ -1,0 +1,178 @@
+[article day-12: c++ class: multiple inheritance
+	[quickbook 1.7]
+	[id day-12-cpp-class-multiple-inheritance]
+]
+
+[h1:cpp-multiple-inheritance [role cyan c++ class multiple inheritance]]
+
+You have learned from [link day_07_cpp_class_inheritance day-07] about c++ inheritance. A c++ class can not only inherit one class, but also inherit more than one class. If a c++ class is derived from at least two classes, that is multiple inheritance.
+
+[h2 Multiple inheritance]
+
+Any one of C, D, E, F declarations are multiple inheritance, as any one of them is derived from at least two classes.
+
+[!c++]
+```
+class A {};
+class B {}; 
+class C: public A, public B {};
+class D: public A, protected B {};
+class E: private A, private B {};
+class F: public A, protected B, private C {};
+```
+
+[h2 Not multiple inheritance]
+
+There is no multiple inheritance here. Although A is inherited by many classes, it is still single inheritance.
+
+[!c++]
+```
+class A {};
+class B: public A {};
+class C: protected A {};
+class D: private A {};
+```
+
+[h1 [role cyan Diamond Inheritance]]
+
+If a class is derived from multiple classes which are derived from the same class, that is diamond inheritance.
+
+[!c++]
+```
+class A {};
+class B: public A {};
+class C: public A {};
+class D: public B, public C {};
+```
+
+B and C are derived from the same class A, D is derived from B and C, that's diamond inheritance.
+
+[h1 [role cyan Method overloading of inheritance]]
+
+If method overloading (the same method name) happens on many classes of inheritance, the [*class_name::method_name] can be used to distinguish them when that method is called.
+
+For example:
+
+[!c++]
+```
+
+namespace my_space::diamond
+{
+
+class A
+{
+public:
+	void fz_k() const {}
+	void fz_j() const {}
+};
+
+class B
+{
+public:
+	void fz_k() const {}
+};
+
+class c_class: public A, public B
+{
+public:
+	void eater() const
+	{
+		A::fz_k();	// A:: is used here to distinguish.
+		B::fz_k();	// B:: is used here to distinguish.
+		fz_j();	// A::fz_j() can be used here too, but only A has fz_j, so A:: can be omitted.
+	}
+};
+
+}	// namespace my_space::diamond
+
+int main()
+{
+	auto object = my_space::diamond::c_class{};
+}
+```
+
+(You have learned [~method const], [~namespace] from [link day-11-miscellaneous day-11])
+
+[h1:cpp-example [role cyan c++ Diamond multiple inheritance example]]
+
+[!c++]
+```
+#include <iostream>
+
+namespace my_space::diamond
+{
+
+class base_class
+{
+public:
+	void gy_p() const
+	{
+		std::cout << "base_class gy_p" << std::endl;
+	}
+};
+
+class derived_1: public base_class
+{
+public:
+	void gy_p() const
+	{
+		std::cout << "derived_1 gy_p" << std::endl;
+	}
+};
+
+class derived_2: public base_class
+{
+public:
+	void gy_p() const
+	{
+		std::cout << "derived_2 gy_p" << std::endl;
+	}
+	void gy_r() const
+	{
+		std::cout << "derived_2 gy_r" << std::endl;
+	}
+};
+
+class diamond_class: public derived_1, public derived_2
+{
+public:
+	void w_p() const
+	{
+		derived_1::gy_p();
+		derived_2::gy_p();
+		// base_class::gy_p();	// Ambiguous error here, this will be talked next
+
+		derived_2::gy_r();
+		gy_r();	// same, gy_r is only declared in derived_2
+	}
+};
+
+}	// namespace my_space::diamond
+
+int main()
+{
+	auto diamond = my_space::diamond::diamond_class{};
+	diamond.w_p();
+}
+```
+
+output:
+
+[!teletype]
+```
+derived_1 gy_p
+derived_2 gy_p
+derived_2 gy_r
+derived_2 gy_r
+```
+
+[~Written on Oct 31, 2024]
+
+[h1 [role cyan Back to index]]
+
+[@. Index]
+
+[include ../../share/foot-links.inc.qbk]
+
+
+

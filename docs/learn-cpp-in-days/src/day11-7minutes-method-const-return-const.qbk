@@ -1,0 +1,96 @@
+[article day-11: 7 minutes: c++ method const, return type const
+	[quickbook 1.7]
+	[id day-11-7-minutes-method-const-return-type-const]
+]
+
+c++ method const, return type const 7 minutes, maybe 5 minutes
+
+[h1 [role cyan const]]
+
+const qualifier makes the object immutable. (Read [link day_10_cpp_reference_constant day-10])
+
+[h1 [role cyan Method const]]
+
+A const qualifier is placed after the method name and a pair of (), it will make the object immutable inside the scope of the current method.
+
+[!c++]
+```
+class my_class
+{
+public:
+	void fz_kp() const	// Method const
+	{
+	}
+	void kp_fz()
+	{
+	}
+};
+```
+
+The above const qualifer makes the current object immutable inside of the method [*.fz_kp()],
+
+it can not make the object immutable outside of the method [*.fz_kp()], such as [*.kp_fz()] .
+
+To quickly understand it, the [*method const] qualifier make the [*"*this"] [role red const] .
+
+[h1 [role cyan Return type const]]
+
+Don't be confused by [*return type const] and [*method const], the return type const qualifier is paced before the [*method_name()] .
+
+[!c++]
+```
+class my_class
+{
+public:
+	const int kf_pz()	// Return type const: The value it returned is const.
+	{
+		return 5;
+	}
+};
+```
+
+[h1 [role cyan Method const methods calling each other]]
+
+I call method that is qualified by method const as const method now.
+
+* [*const method can call const method, const method can not call non-const method.]
+* [*non-const method can call both const method and non-const method].
+
+why?
+
+This is an unofficial understanding:
+
+You can insert immutable things into mutable things, but you can not insert mutable things into immutable things.
+
+[!c++]
+```
+class my_class
+{
+public:
+	void f_a() const {}
+	void f_b() {}
+	void f_c() const
+	{
+		f_a();	// OK
+		//f_b();	// not allowed
+	}
+	void f_d()
+	{
+		f_a();	// OK
+		f_b();	// OK
+	}
+};
+```
+
+Written on Oct 31, 2024
+
+[h1 [role cyan Back]]
+
+[link day-11-miscellaneous Up: day-11: Miscellaneous]
+
+[@. Index]
+
+[include ../../share/foot-links.inc.qbk]
+
+
+

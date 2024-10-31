@@ -187,7 +187,9 @@ x is 100034
 
 You can see that, you can access the members of class object by pointer [*this].
 
-I have to make a notice that:
+(anchor here: [#what-this-points-to] [link what-this-points-to])
+
+I have to make a clear notice that:
 
 [note
 	* rule-1: In the semantics of [*obj1], the pointer [*this] [*points to] the object [*obj1], this does [*not] point to [*obj2],
@@ -220,23 +222,26 @@ int main()
 ```
 
 The [*this] never and can never point to the class [*one3_class],
-[br]
+
 it should point to an object of [*one3_class],
-[br]
+
 but because no any object of [*one3_class] is created,
-[br]
+
 any object semantics does not exist,
-[br]
+
 so its related semantic [*this] does not exist too.
 
 [*-)]
 
 [~Written on Sep 20, 2024]
 
+[~Update on Oct 31, 2024: add anchor label: [link what-this-points-to]]
+
 [h1 [role cyan Back to index]]
 
 [@. Index]
 
-
-
 [include ../../share/foot-links.inc.qbk]
+
+
+

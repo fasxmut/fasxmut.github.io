@@ -1,0 +1,43 @@
+[article day-11: 3 minutes: c++ using - the type alias
+	[quickbook 1.7]
+	[id day-11-3-minutes-using-type-alias]
+]
+
+c++ the type alias [*using] 3 minutes, maybe 1 minutes.
+
+[h1 [role cyan using]]
+
+c++ using has many wonderful and awesome features, only the type alias is talked here.
+
+[h1 [role cyan type alias using]]
+
+As the [*type alias] denotes, it is used for an alias of a type.
+
+[!c++]
+```
+using my_int = int;	// my_int is an alias of int now, when using my_int, it is using int in future.
+
+my_int a = 5;
+```
+
+If a name of a type is too long, you can use [*using] to short it.
+
+[!c++]
+```
+using my_double = const long long doube &;
+
+my_double x = 2.44;
+```
+
+Written on Oct 31, 2024
+
+[h1 [role cyan Back]]
+
+[link day-11-miscellaneous Up: day-11: Miscellaneous]
+
+[@. Index]
+
+[include ../../share/foot-links.inc.qbk]
+
+
+

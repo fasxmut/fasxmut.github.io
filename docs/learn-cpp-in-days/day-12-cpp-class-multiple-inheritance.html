@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>day-12: c++ class: multiple inheritance</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Learn c++ in days">
+<link rel="up" href="index.html" title="Learn c++ in days">
+<link rel="prev" href="day-11-3-minutes-using-type-alias.html" title="day-11: 3 minutes: c++ using - the type alias">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="day-11-3-minutes-using-type-alias.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="day-12-cpp-class-multiple-inheritance"></a>day-12: c++ class: multiple inheritance</h1></div></div>
+<hr>
+</div>
+<h2>
+<a name="day-12-cpp-class-multiple-inheritance.h0"></a>
+      <span class="phrase"><a name="day-12-cpp-class-multiple-inheritance.cpp-multiple-inheritance"></a></span><a class="link" href="day-12-cpp-class-multiple-inheritance.html#day-12-cpp-class-multiple-inheritance.cpp-multiple-inheritance"><span class="cyan">c++ class multiple inheritance</span></a>
+    </h2>
+<p>
+      You have learned from <a class="link" href="day_07_cpp_class_inheritance.html" title="day-07: c++ class: Inheritance">day-07</a>
+      about c++ inheritance. A c++ class can not only inherit one class, but also
+      inherit more than one class. If a c++ class is derived from at least two classes,
+      that is multiple inheritance.
+    </p>
+<h3>
+<a name="day-12-cpp-class-multiple-inheritance.h1"></a>
+      <span class="phrase"><a name="day-12-cpp-class-multiple-inheritance.multiple_inheritance"></a></span><a class="link" href="day-12-cpp-class-multiple-inheritance.html#day-12-cpp-class-multiple-inheritance.multiple_inheritance">Multiple
+      inheritance</a>
+    </h3>
+<p>
+      Any one of C, D, E, F declarations are multiple inheritance, as any one of
+      them is derived from at least two classes.
+    </p>
+<pre class="programlisting"><span class="keyword">class</span> <span class="identifier">A</span> <span class="special">{};</span>
+<span class="keyword">class</span> <span class="identifier">B</span> <span class="special">{};</span>
+<span class="keyword">class</span> <span class="identifier">C</span><span class="special">:</span> <span class="keyword">public</span> <span class="identifier">A</span><span class="special">,</span> <span class="keyword">public</span> <span class="identifier">B</span> <span class="special">{};</span>
+<span class="keyword">class</span> <span class="identifier">D</span><span class="special">:</span> <span class="keyword">public</span> <span class="identifier">A</span><span class="special">,</span> <span class="keyword">protected</span> <span class="identifier">B</span> <span class="special">{};</span>
+<span class="keyword">class</span> <span class="identifier">E</span><span class="special">:</span> <span class="keyword">private</span> <span class="identifier">A</span><span class="special">,</span> <span class="keyword">private</span> <span class="identifier">B</span> <span class="special">{};</span>
+<span class="keyword">class</span> <span class="identifier">F</span><span class="special">:</span> <span class="keyword">public</span> <span class="identifier">A</span><span class="special">,</span> <span class="keyword">protected</span> <span class="identifier">B</span><span class="special">,</span> <span class="keyword">private</span> <span class="identifier">C</span> <span class="special">{};</span>
+</pre>
+<h3>
+<a name="day-12-cpp-class-multiple-inheritance.h2"></a>
+      <span class="phrase"><a name="day-12-cpp-class-multiple-inheritance.not_multiple_inheritance"></a></span><a class="link" href="day-12-cpp-class-multiple-inheritance.html#day-12-cpp-class-multiple-inheritance.not_multiple_inheritance">Not
+      multiple inheritance</a>
+    </h3>
+<p>
+      There is no multiple inheritance here. Although A is inherited by many classes,
+      it is still single inheritance.
+    </p>
+<pre class="programlisting"><span class="keyword">class</span> <span class="identifier">A</span> <span class="special">{};</span>
+<span class="keyword">class</span> <span class="identifier">B</span><span class="special">:</span> <span class="keyword">public</span> <span class="identifier">A</span> <span class="special">{};</span>
+<span class="keyword">class</span> <span class="identifier">C</span><span class="special">:</span> <span class="keyword">protected</span> <span class="identifier">A</span> <span class="special">{};</span>
+<span class="keyword">class</span> <span class="identifier">D</span><span class="special">:</span> <span class="keyword">private</span> <span class="identifier">A</span> <span class="special">{};</span>
+</pre>
+<h2>
+<a name="day-12-cpp-class-multiple-inheritance.h3"></a>
+      <span class="phrase"><a name="day-12-cpp-class-multiple-inheritance.role_cyan_diamond_inheritance"></a></span><a class="link" href="day-12-cpp-class-multiple-inheritance.html#day-12-cpp-class-multiple-inheritance.role_cyan_diamond_inheritance"><span class="cyan">Diamond Inheritance</span></a>
+    </h2>
+<p>
+      If a class is derived from multiple classes which are derived from the same
+      class, that is diamond inheritance.
+    </p>
+<pre class="programlisting"><span class="keyword">class</span> <span class="identifier">A</span> <span class="special">{};</span>
+<span class="keyword">class</span> <span class="identifier">B</span><span class="special">:</span> <span class="keyword">public</span> <span class="identifier">A</span> <span class="special">{};</span>
+<span class="keyword">class</span> <span class="identifier">C</span><span class="special">:</span> <span class="keyword">public</span> <span class="identifier">A</span> <span class="special">{};</span>
+<span class="keyword">class</span> <span class="identifier">D</span><span class="special">:</span> <span class="keyword">public</span> <span class="identifier">B</span><span class="special">,</span> <span class="keyword">public</span> <span class="identifier">C</span> <span class="special">{};</span>
+</pre>
+<p>
+      B and C are derived from the same class A, D is derived from B and C, that's
+      diamond inheritance.
+    </p>
+<h2>
+<a name="day-12-cpp-class-multiple-inheritance.h4"></a>
+      <span class="phrase"><a name="day-12-cpp-class-multiple-inheritance.role_cyan_method_overloading_of_"></a></span><a class="link" href="day-12-cpp-class-multiple-inheritance.html#day-12-cpp-class-multiple-inheritance.role_cyan_method_overloading_of_"><span class="cyan">Method overloading of inheritance</span></a>
+    </h2>
+<p>
+      If method overloading (the same method name) happens on many classes of inheritance,
+      the <span class="bold"><strong>class_name::method_name</strong></span> can be used to
+      distinguish them when that method is called.
+    </p>
+<p>
+      For example:
+    </p>
+<pre class="programlisting"><span class="keyword">namespace</span> <span class="identifier">my_space</span><span class="special">::</span><span class="identifier">diamond</span>
+<span class="special">{</span>
+
+<span class="keyword">class</span> <span class="identifier">A</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">void</span> <span class="identifier">fz_k</span><span class="special">()</span> <span class="keyword">const</span> <span class="special">{}</span>
+	<span class="keyword">void</span> <span class="identifier">fz_j</span><span class="special">()</span> <span class="keyword">const</span> <span class="special">{}</span>
+<span class="special">};</span>
+
+<span class="keyword">class</span> <span class="identifier">B</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">void</span> <span class="identifier">fz_k</span><span class="special">()</span> <span class="keyword">const</span> <span class="special">{}</span>
+<span class="special">};</span>
+
+<span class="keyword">class</span> <span class="identifier">c_class</span><span class="special">:</span> <span class="keyword">public</span> <span class="identifier">A</span><span class="special">,</span> <span class="keyword">public</span> <span class="identifier">B</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">void</span> <span class="identifier">eater</span><span class="special">()</span> <span class="keyword">const</span>
+	<span class="special">{</span>
+		<span class="identifier">A</span><span class="special">::</span><span class="identifier">fz_k</span><span class="special">();</span>	<span class="comment">// A:: is used here to distinguish.</span>
+		<span class="identifier">B</span><span class="special">::</span><span class="identifier">fz_k</span><span class="special">();</span>	<span class="comment">// B:: is used here to distinguish.</span>
+		<span class="identifier">fz_j</span><span class="special">();</span>	<span class="comment">// A::fz_j() can be used here too, but only A has fz_j, so A:: can be omitted.</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="special">}</span>	<span class="comment">// namespace my_space::diamond</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">auto</span> <span class="identifier">object</span> <span class="special">=</span> <span class="identifier">my_space</span><span class="special">::</span><span class="identifier">diamond</span><span class="special">::</span><span class="identifier">c_class</span><span class="special">{};</span>
+<span class="special">}</span>
+</pre>
+<p>
+      (You have learned <em class="replaceable"><code>method const</code></em>, <em class="replaceable"><code>namespace</code></em>
+      from <a class="link" href="day-11-miscellaneous.html" title="day-11: Miscellaneous">day-11</a>)
+    </p>
+<h2>
+<a name="day-12-cpp-class-multiple-inheritance.h5"></a>
+      <span class="phrase"><a name="day-12-cpp-class-multiple-inheritance.cpp-example"></a></span><a class="link" href="day-12-cpp-class-multiple-inheritance.html#day-12-cpp-class-multiple-inheritance.cpp-example"><span class="cyan">c++ Diamond multiple inheritance example</span></a>
+    </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">my_space</span><span class="special">::</span><span class="identifier">diamond</span>
+<span class="special">{</span>
+
+<span class="keyword">class</span> <span class="identifier">base_class</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">void</span> <span class="identifier">gy_p</span><span class="special">()</span> <span class="keyword">const</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"base_class gy_p"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">class</span> <span class="identifier">derived_1</span><span class="special">:</span> <span class="keyword">public</span> <span class="identifier">base_class</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">void</span> <span class="identifier">gy_p</span><span class="special">()</span> <span class="keyword">const</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"derived_1 gy_p"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">class</span> <span class="identifier">derived_2</span><span class="special">:</span> <span class="keyword">public</span> <span class="identifier">base_class</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">void</span> <span class="identifier">gy_p</span><span class="special">()</span> <span class="keyword">const</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"derived_2 gy_p"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="keyword">void</span> <span class="identifier">gy_r</span><span class="special">()</span> <span class="keyword">const</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"derived_2 gy_r"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">class</span> <span class="identifier">diamond_class</span><span class="special">:</span> <span class="keyword">public</span> <span class="identifier">derived_1</span><span class="special">,</span> <span class="keyword">public</span> <span class="identifier">derived_2</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">void</span> <span class="identifier">w_p</span><span class="special">()</span> <span class="keyword">const</span>
+	<span class="special">{</span>
+		<span class="identifier">derived_1</span><span class="special">::</span><span class="identifier">gy_p</span><span class="special">();</span>
+		<span class="identifier">derived_2</span><span class="special">::</span><span class="identifier">gy_p</span><span class="special">();</span>
+		<span class="comment">// base_class::gy_p();	// Ambiguous error here, this will be talked next</span>
+
+		<span class="identifier">derived_2</span><span class="special">::</span><span class="identifier">gy_r</span><span class="special">();</span>
+		<span class="identifier">gy_r</span><span class="special">();</span>	<span class="comment">// same, gy_r is only declared in derived_2</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="special">}</span>	<span class="comment">// namespace my_space::diamond</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">auto</span> <span class="identifier">diamond</span> <span class="special">=</span> <span class="identifier">my_space</span><span class="special">::</span><span class="identifier">diamond</span><span class="special">::</span><span class="identifier">diamond_class</span><span class="special">{};</span>
+	<span class="identifier">diamond</span><span class="special">.</span><span class="identifier">w_p</span><span class="special">();</span>
+<span class="special">}</span>
+</pre>
+<p>
+      output:
+    </p>
+<pre class="programlisting">derived_1 gy_p
+derived_2 gy_p
+derived_2 gy_r
+derived_2 gy_r
+</pre>
+<p>
+      <em class="replaceable"><code>Written on Oct 31, 2024</code></em>
+    </p>
+<h2>
+<a name="day-12-cpp-class-multiple-inheritance.h6"></a>
+      <span class="phrase"><a name="day-12-cpp-class-multiple-inheritance.role_cyan_back_to_index"></a></span><a class="link" href="day-12-cpp-class-multiple-inheritance.html#day-12-cpp-class-multiple-inheritance.role_cyan_back_to_index"><span class="cyan">Back to index</span></a>
+    </h2>
+<p>
+      <a href="." target="_top">Index</a>
+    </p>
+<h2>
+<a name="day-12-cpp-class-multiple-inheritance.h7"></a>
+      <span class="phrase"><a name="day-12-cpp-class-multiple-inheritance.cpp-lang"></a></span><a class="link" href="day-12-cpp-class-multiple-inheritance.html#day-12-cpp-class-multiple-inheritance.cpp-lang"><span class="cyan">cpp/c++</span></a>
+    </h2>
+<p>
+      c++ std::exception:
+    </p>
+<p>
+      std::cout.write(err.data(), err.size());
+    </p>
+<p>
+      std::cout &lt;&lt; std::endl;
+    </p>
+<p>
+      <span class="purple">caught:</span>
+    </p>
+<pre class="programlisting">  ==================================================
+  #        The c++ programming language.           #
+  #                                                #
+  #        <a href="https://cppfx.xyz" target="_top">Home: cppfx.xyz</a>                         #
+  #        <a href="https://cppfx.xyz/esvcpp/esv_print.html" target="_top">E</a>                                       #
+  #        Join c++ Discord: yZcauUAUyC            #
+  #        Deck                                    #
+  ==================================================
+</pre>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="day-11-3-minutes-using-type-alias.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+</body>
+</html>
