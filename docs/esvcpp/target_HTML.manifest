@@ -145,6 +145,8 @@ esv_printnl.html
 esv_wprint.html
 esv_wprinte.html
 esv_wprintnl.html
+esv_clear_screen.html
+esv_clear_scrollback.html
 input.html
 esv_readline.html
 main.html

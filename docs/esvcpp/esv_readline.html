@@ -26,73 +26,67 @@
       </p>
 <h2>
 <a name="esv_readline.h0"></a>
-        <span class="phrase"><a name="esv_readline.role_cyan_include"></a></span><a class="link" href="esv_readline.html#esv_readline.role_cyan_include"><span class="cyan">Include</span></a>
+        <span class="phrase"><a name="esv_readline.role_cyan_class_esv_readline"></a></span><a class="link" href="esv_readline.html#esv_readline.role_cyan_class_esv_readline"><span class="cyan">class esv::readline</span></a>
       </h2>
-<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">esvcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
-</pre>
 <h2>
 <a name="esv_readline.h1"></a>
-        <span class="phrase"><a name="esv_readline.role_cyan_class_esv_readline"></a></span><a class="link" href="esv_readline.html#esv_readline.role_cyan_class_esv_readline"><span class="cyan"><span class="underline">class esv::readline</span></span></a>
-      </h2>
-<h2>
-<a name="esv_readline.h2"></a>
         <span class="phrase"><a name="esv_readline.role_cyan_constructors"></a></span><a class="link" href="esv_readline.html#esv_readline.role_cyan_constructors"><span class="cyan">Constructors</span></a>
       </h2>
 <h5>
-<a name="esv_readline.h3"></a>
+<a name="esv_readline.h2"></a>
         <span class="phrase"><a name="esv_readline.default_constructor"></a></span><a class="link" href="esv_readline.html#esv_readline.default_constructor"><span class="underline">Default Constructor</span></a>
       </h5>
 <pre class="programlisting"><span class="comment">// Default Prompt</span>
 <span class="identifier">esv</span><span class="special">::</span><span class="identifier">readline</span><span class="special">::</span><span class="identifier">readline</span><span class="special">()</span> <span class="keyword">noexcept</span><span class="special">;</span>
 </pre>
 <h5>
-<a name="esv_readline.h4"></a>
+<a name="esv_readline.h3"></a>
         <span class="phrase"><a name="esv_readline.constructor_with_setting_a_promp"></a></span><a class="link" href="esv_readline.html#esv_readline.constructor_with_setting_a_promp"><span class="underline">Constructor with setting a Prompt</span></a>
       </h5>
 <pre class="programlisting"><span class="comment">// Init customized Prompt</span>
 <span class="identifier">esv</span><span class="special">::</span><span class="identifier">readline</span><span class="special">::</span><span class="identifier">readline</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="special">&amp;</span> <span class="identifier">prompt</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span>
 </pre>
 <h2>
-<a name="esv_readline.h5"></a>
+<a name="esv_readline.h4"></a>
         <span class="phrase"><a name="esv_readline.role_cyan_public_methods"></a></span><a class="link" href="esv_readline.html#esv_readline.role_cyan_public_methods"><span class="cyan">Public Methods</span></a>
       </h2>
 <h5>
-<a name="esv_readline.h6"></a>
+<a name="esv_readline.h5"></a>
         <span class="phrase"><a name="esv_readline.setps"></a></span><a class="link" href="esv_readline.html#esv_readline.setps"><span class="underline">setps</span></a>
       </h5>
 <pre class="programlisting"><span class="comment">// Change Prompt</span>
 <span class="keyword">void</span> <span class="identifier">esv</span><span class="special">::</span><span class="identifier">readline</span><span class="special">::</span><span class="identifier">setps</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="special">&amp;</span> <span class="identifier">prompt</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span>
 </pre>
 <h5>
-<a name="esv_readline.h7"></a>
+<a name="esv_readline.h6"></a>
         <span class="phrase"><a name="esv_readline.read"></a></span><a class="link" href="esv_readline.html#esv_readline.read"><span class="underline">read</span></a>
       </h5>
 <pre class="programlisting"><span class="comment">// Read Input and Return the line string</span>
 <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">esv</span><span class="special">::</span><span class="identifier">readline</span><span class="special">::</span><span class="identifier">read</span><span class="special">()</span> <span class="keyword">noexcept</span><span class="special">;</span>
 </pre>
 <h5>
-<a name="esv_readline.h8"></a>
+<a name="esv_readline.h7"></a>
         <span class="phrase"><a name="esv_readline.read0"></a></span><a class="link" href="esv_readline.html#esv_readline.read0"><span class="underline">read</span></a>
       </h5>
 <pre class="programlisting"><span class="comment">// Read Input and Return the line string with the prompt</span>
 <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">esv</span><span class="special">::</span><span class="identifier">readline</span><span class="special">::</span><span class="identifier">read</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="special">&amp;</span> <span class="identifier">prompt</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span>
 </pre>
 <h5>
-<a name="esv_readline.h9"></a>
+<a name="esv_readline.h8"></a>
         <span class="phrase"><a name="esv_readline.get"></a></span><a class="link" href="esv_readline.html#esv_readline.get"><span class="underline">get</span></a>
       </h5>
 <pre class="programlisting"><span class="comment">// Get the line string</span>
 <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">esv</span><span class="special">::</span><span class="identifier">readline</span><span class="special">::</span><span class="identifier">get</span><span class="special">()</span> <span class="keyword">const</span> <span class="keyword">noexcept</span><span class="special">;</span>
 </pre>
 <h2>
-<a name="esv_readline.h10"></a>
+<a name="esv_readline.h9"></a>
         <span class="phrase"><a name="esv_readline.role_cyan_private_members"></a></span><a class="link" href="esv_readline.html#esv_readline.role_cyan_private_members"><span class="cyan">Private Members</span></a>
       </h2>
 <pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">esv</span><span class="special">::</span><span class="identifier">readline</span><span class="special">::</span><span class="identifier">prompt</span><span class="special">;</span>
 <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">esv</span><span class="special">::</span><span class="identifier">readline</span><span class="special">::</span><span class="identifier">line</span><span class="special">;</span>
 </pre>
 <h2>
-<a name="esv_readline.h11"></a>
+<a name="esv_readline.h10"></a>
         <span class="phrase"><a name="esv_readline.role_cyan_example"></a></span><a class="link" href="esv_readline.html#esv_readline.role_cyan_example"><span class="cyan">Example</span></a>
       </h2>
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">esvcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
@@ -106,7 +100,7 @@
 <span class="special">}</span>
 </pre>
 <h6>
-<a name="esv_readline.h12"></a>
+<a name="esv_readline.h11"></a>
         <span class="phrase"><a name="esv_readline.result"></a></span><a class="link" href="esv_readline.html#esv_readline.result"><span class="underline">Result:</span></a>
       </h6>
 <pre class="programlisting">Please Input Your Name: Fas Xmut
@@ -114,7 +108,7 @@ Your Name is: Fas Xmut
 How are you.
 </pre>
 <h2>
-<a name="esv_readline.h13"></a>
+<a name="esv_readline.h12"></a>
         <span class="phrase"><a name="esv_readline.role_cyan_see_also"></a></span><a class="link" href="esv_readline.html#esv_readline.role_cyan_see_also"><span class="cyan">See Also</span></a>
       </h2>
 <p>
