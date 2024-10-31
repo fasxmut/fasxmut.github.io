@@ -1,5 +1,6 @@
-[article MySQL cpp
+[article MySQL c++
 	[quickbook 1.7]
+	[id mysql_cpp]
 ]
 
 [h1 [role cyan MySQL]]
