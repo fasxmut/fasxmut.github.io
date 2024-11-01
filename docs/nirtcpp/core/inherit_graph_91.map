@@ -111,7 +111,7 @@
 <area shape="poly" id="edge87_Node000056_Node000085" title=" " alt="" coords="173,3059,281,3080,280,3085,172,3064"/>
 <area shape="rect" id="Node000086" href="$classnirt_1_1scene_1_1IMesh.html" title="Class which holds the geometry of an object." alt="" coords="278,3132,415,3157"/>
 <area shape="poly" id="edge88_Node000056_Node000086" title=" " alt="" coords="127,3064,175,3091,230,3117,278,3131,277,3136,228,3122,172,3096,124,3068"/>
-<area shape="rect" id="Node000094" href="$classnirt_1_1scene_1_1IMeshBuffer.html" title="Struct for holding a mesh with a single material." alt="" coords="259,3181,435,3207"/>
+<area shape="rect" id="Node000094" href="$classnirt_1_1scene_1_1IMeshBuffer.html" title="Class for holding a mesh with a single material." alt="" coords="259,3181,435,3207"/>
 <area shape="poly" id="edge96_Node000056_Node000094" title=" " alt="" coords="115,3067,164,3118,196,3144,231,3166,263,3179,261,3184,228,3171,193,3149,160,3122,111,3071"/>
 <area shape="rect" id="Node000100" href="$classnirt_1_1scene_1_1IMeshCache.html" title="The mesh cache stores already loaded meshes and provides an interface to them." alt="" coords="258,3231,435,3256"/>
 <area shape="poly" id="edge102_Node000056_Node000100" title=" " alt="" coords="109,3069,128,3103,156,3143,190,3183,231,3216,259,3229,257,3234,228,3220,186,3187,151,3146,124,3106,104,3072"/>

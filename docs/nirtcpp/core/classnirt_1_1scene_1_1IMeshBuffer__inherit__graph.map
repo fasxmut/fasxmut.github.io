@@ -1,5 +1,5 @@
 <map id="nirt::scene::IMeshBuffer" name="nirt::scene::IMeshBuffer">
-<area shape="rect" id="Node000001" title="Struct for holding a mesh with a single material." alt="" coords="229,95,405,120"/>
+<area shape="rect" id="Node000001" title="Class for holding a mesh with a single material." alt="" coords="229,95,405,120"/>
 <area shape="rect" id="Node000003" href="$classnirt_1_1scene_1_1CMeshBuffer.html" title="Template implementation of the IMeshBuffer interface for 16&#45;bit buffers." alt="" coords="453,5,672,31"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="353,86,399,63,452,41,496,28,497,33,454,46,402,67,355,90"/>
 <area shape="rect" id="Node000004" href="$classnirt_1_1scene_1_1IDynamicMeshBuffer.html" title=" " alt="" coords="465,55,660,95"/>

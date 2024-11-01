@@ -2,15 +2,15 @@
 <area shape="rect" id="Node000001" title="Implementation of the IMeshBuffer interface for which can work with 16 and 32 bit indices as well as ..." alt="" coords="1324,120,1524,160"/>
 <area shape="rect" id="Node000002" href="$classnirt_1_1scene_1_1IDynamicMeshBuffer.html" title=" " alt="" coords="808,5,1003,45"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1011,46,1333,117,1332,123,1010,51"/>
-<area shape="rect" id="Node000003" href="$classnirt_1_1scene_1_1IMeshBuffer.html" title="Struct for holding a mesh with a single material." alt="" coords="312,6,488,31"/>
+<area shape="rect" id="Node000003" href="$classnirt_1_1scene_1_1IMeshBuffer.html" title="Class for holding a mesh with a single material." alt="" coords="312,6,488,31"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="502,17,808,21,808,27,502,23"/>
 <area shape="rect" id="Node000004" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="5,14,181,39"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="195,21,312,18,312,24,195,27"/>
 <area shape="rect" id="Node000007" href="$classnirt_1_1video_1_1ITexture.html" title="Interface of a Video Driver dependent Texture." alt="" coords="326,71,474,97"/>
 <area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="176,39,332,69,331,74,175,45"/>
-<area shape="rect" id="Node000005" href="$classnirt_1_1video_1_1SMaterial.html" title="Struct for holding parameters for a material renderer." alt="" coords="1027,127,1185,153"/>
+<area shape="rect" id="Node000005" href="$classnirt_1_1video_1_1SMaterial.html" title="Class for holding parameters for a material renderer." alt="" coords="1027,127,1185,153"/>
 <area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="1199,137,1324,137,1324,143,1199,143"/>
-<area shape="rect" id="Node000006" href="$classnirt_1_1video_1_1SMaterialLayer.html" title="Struct for holding material parameters which exist per texture layer." alt="" coords="589,67,784,93"/>
+<area shape="rect" id="Node000006" href="$classnirt_1_1video_1_1SMaterialLayer.html" title="Class for holding material parameters which exist per texture layer." alt="" coords="589,67,784,93"/>
 <area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="798,79,898,86,1003,101,1076,125,1074,130,1002,107,898,91,798,84"/>
 <area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="488,80,589,79,589,84,488,85"/>
 <area shape="rect" id="Node000008" href="$classnirt_1_1io_1_1SNamedPath.html" title="Used in places where we identify objects by a filename, but don&#39;t actually work with the real filenam..." alt="" coords="16,73,171,98"/>

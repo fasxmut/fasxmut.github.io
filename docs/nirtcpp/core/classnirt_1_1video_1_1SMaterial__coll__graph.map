@@ -1,6 +1,6 @@
 <map id="nirt::video::SMaterial" name="nirt::video::SMaterial">
-<area shape="rect" id="Node000001" title="Struct for holding parameters for a material renderer." alt="" coords="299,343,458,368"/>
-<area shape="rect" id="Node000002" href="$classnirt_1_1video_1_1SMaterialLayer.html" title="Struct for holding material parameters which exist per texture layer." alt="" coords="185,211,380,236"/>
+<area shape="rect" id="Node000001" title="Class for holding parameters for a material renderer." alt="" coords="299,343,458,368"/>
+<area shape="rect" id="Node000002" href="$classnirt_1_1video_1_1SMaterialLayer.html" title="Class for holding material parameters which exist per texture layer." alt="" coords="185,211,380,236"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="290,249,301,283,321,317,335,330,352,340,349,345,332,334,317,320,296,285,285,250"/>
 <area shape="rect" id="Node000003" href="$classnirt_1_1video_1_1ITexture.html" title="Interface of a Video Driver dependent Texture." alt="" coords="209,123,357,148"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="285,162,285,210,280,210,280,162"/>

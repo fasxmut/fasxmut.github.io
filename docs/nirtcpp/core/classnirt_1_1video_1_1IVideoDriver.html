@@ -472,7 +472,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>deleteAllDyna
 <tr class="memdesc:a6c82499b8f34a491f90051dbc1b43a21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates material attributes list from a material.  <br /></td></tr>
 <tr class="separator:a6c82499b8f34a491f90051dbc1b43a21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aabcf66253027c07d9b0cd09bc6a6886a" id="r_aabcf66253027c07d9b0cd09bc6a6886a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnirt_1_1video_1_1IVideoDriver.html#aabcf66253027c07d9b0cd09bc6a6886a">fillMaterialStructureFromAttributes</a> (<a class="el" href="classnirt_1_1video_1_1SMaterial.html">video::SMaterial</a> &amp;outMaterial, <a class="el" href="classnirt_1_1io_1_1IAttributes.html">io::IAttributes</a> *attributes)=0</td></tr>
-<tr class="memdesc:aabcf66253027c07d9b0cd09bc6a6886a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fills an <a class="el" href="classnirt_1_1video_1_1SMaterial.html" title="Struct for holding parameters for a material renderer.">SMaterial</a> structure from attributes.  <br /></td></tr>
+<tr class="memdesc:aabcf66253027c07d9b0cd09bc6a6886a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fills an <a class="el" href="classnirt_1_1video_1_1SMaterial.html" title="Class for holding parameters for a material renderer.">SMaterial</a> class from attributes.  <br /></td></tr>
 <tr class="separator:aabcf66253027c07d9b0cd09bc6a6886a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a938d884a353bcb7b5e6335dd018b6308" id="r_a938d884a353bcb7b5e6335dd018b6308"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classnirt_1_1video_1_1SExposedVideoData.html">SExposedVideoData</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnirt_1_1video_1_1IVideoDriver.html#a938d884a353bcb7b5e6335dd018b6308">getExposedVideoData</a> ()=0</td></tr>
 <tr class="memdesc:a938d884a353bcb7b5e6335dd018b6308"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns driver and operating system specific data about the <a class="el" href="classnirt_1_1video_1_1IVideoDriver.html" title="Interface to driver which is able to perform 2d and 3d graphics functions.">IVideoDriver</a>.  <br /></td></tr>
@@ -715,7 +715,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Adds a new material renderer to the video device. </p>
-<p>Use this method to extend the VideoDriver with new material types. To extend the engine using this method do the following: Derive a class from <a class="el" href="classnirt_1_1video_1_1IMaterialRenderer.html" title="Interface for material rendering.">IMaterialRenderer</a> and override the methods you need. For setting the right renderstates, you can try to get a pointer to the real rendering device using <a class="el" href="classnirt_1_1video_1_1IVideoDriver.html#a938d884a353bcb7b5e6335dd018b6308" title="Returns driver and operating system specific data about the IVideoDriver.">IVideoDriver::getExposedVideoData()</a>. Add your class with <a class="el" href="classnirt_1_1video_1_1IVideoDriver.html#a97d2372f7b45ac50a4eadbcecb5b7460" title="Adds a new material renderer to the video device.">IVideoDriver::addMaterialRenderer()</a>. To use an object being displayed with your new material, set the MaterialType member of the <a class="el" href="classnirt_1_1video_1_1SMaterial.html" title="Struct for holding parameters for a material renderer.">SMaterial</a> struct to the value returned by this method. If you simply want to create a new material using vertex and/or pixel shaders it would be easier to use the <a class="el" href="classnirt_1_1video_1_1IGPUProgrammingServices.html" title="Interface making it possible to create and use programs running on the GPU.">video::IGPUProgrammingServices</a> interface which you can get using the <a class="el" href="classnirt_1_1video_1_1IVideoDriver.html#a34ebb8bee4d33e825bbfcf24e1b5df5f" title="Gets the IGPUProgrammingServices interface.">getGPUProgrammingServices()</a> method. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Use this method to extend the VideoDriver with new material types. To extend the engine using this method do the following: Derive a class from <a class="el" href="classnirt_1_1video_1_1IMaterialRenderer.html" title="Interface for material rendering.">IMaterialRenderer</a> and override the methods you need. For setting the right renderstates, you can try to get a pointer to the real rendering device using <a class="el" href="classnirt_1_1video_1_1IVideoDriver.html#a938d884a353bcb7b5e6335dd018b6308" title="Returns driver and operating system specific data about the IVideoDriver.">IVideoDriver::getExposedVideoData()</a>. Add your class with <a class="el" href="classnirt_1_1video_1_1IVideoDriver.html#a97d2372f7b45ac50a4eadbcecb5b7460" title="Adds a new material renderer to the video device.">IVideoDriver::addMaterialRenderer()</a>. To use an object being displayed with your new material, set the MaterialType member of the <a class="el" href="classnirt_1_1video_1_1SMaterial.html" title="Class for holding parameters for a material renderer.">SMaterial</a> class to the value returned by this method. If you simply want to create a new material using vertex and/or pixel shaders it would be easier to use the <a class="el" href="classnirt_1_1video_1_1IGPUProgrammingServices.html" title="Interface making it possible to create and use programs running on the GPU.">video::IGPUProgrammingServices</a> interface which you can get using the <a class="el" href="classnirt_1_1video_1_1IVideoDriver.html#a34ebb8bee4d33e825bbfcf24e1b5df5f" title="Gets the IGPUProgrammingServices interface.">getGPUProgrammingServices()</a> method. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">renderer</td><td>A pointer to the new renderer. </td></tr>
     <tr><td class="paramname">name</td><td>Optional name for the material renderer entry. </td></tr>
@@ -3619,7 +3619,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Fills an <a class="el" href="classnirt_1_1video_1_1SMaterial.html" title="Struct for holding parameters for a material renderer.">SMaterial</a> structure from attributes. </p>
+<p>Fills an <a class="el" href="classnirt_1_1video_1_1SMaterial.html" title="Class for holding parameters for a material renderer.">SMaterial</a> class from attributes. </p>
 <p>Please note that for setting material types of the material, the video driver will need to query the material renderers for their names, so all non built-in materials must have been created before calling this method. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">outMaterial</td><td>The material to set the properties for. </td></tr>
@@ -4074,7 +4074,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Get the 2d override material for altering its values. </p>
-<p>The 2d override material allows to alter certain render states of the 2d methods. Not all members of <a class="el" href="classnirt_1_1video_1_1SMaterial.html" title="Struct for holding parameters for a material renderer.">SMaterial</a> are honored, especially not MaterialType and Textures. Moreover, the zbuffer is always ignored, and lighting is always off. All other flags can be changed, though some might have to effect in most cases. Please note that you have to enable/disable this effect with <a class="el" href="classnirt_1_1video_1_1IVideoDriver.html#ac2a5529ea8eadbba7e499f73388ea4e0" title="Enable the 2d override material.">enableMaterial2D()</a>. This effect is costly, as it increases the number of state changes considerably. Always reset the values when done. </p><dl class="section return"><dt>Returns</dt><dd>Material reference which should be altered to reflect the new settings. </dd></dl>
+<p>The 2d override material allows to alter certain render states of the 2d methods. Not all members of <a class="el" href="classnirt_1_1video_1_1SMaterial.html" title="Class for holding parameters for a material renderer.">SMaterial</a> are honored, especially not MaterialType and Textures. Moreover, the zbuffer is always ignored, and lighting is always off. All other flags can be changed, though some might have to effect in most cases. Please note that you have to enable/disable this effect with <a class="el" href="classnirt_1_1video_1_1IVideoDriver.html#ac2a5529ea8eadbba7e499f73388ea4e0" title="Enable the 2d override material.">enableMaterial2D()</a>. This effect is costly, as it increases the number of state changes considerably. Always reset the values when done. </p><dl class="section return"><dt>Returns</dt><dd>Material reference which should be altered to reflect the new settings. </dd></dl>
 
 </div>
 </div>
@@ -5704,7 +5704,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Swap the material renderers used for certain id's. </p>
-<p>Swap the IMaterialRenderers responsible for rendering specific material-id's. This means every <a class="el" href="classnirt_1_1video_1_1SMaterial.html" title="Struct for holding parameters for a material renderer.">SMaterial</a> using a MaterialType with one of the indices involved here will now render differently. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Swap the IMaterialRenderers responsible for rendering specific material-id's. This means every <a class="el" href="classnirt_1_1video_1_1SMaterial.html" title="Class for holding parameters for a material renderer.">SMaterial</a> using a MaterialType with one of the indices involved here will now render differently. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">idx1</td><td>First material index to swap. It must already exist or nothing happens. </td></tr>
     <tr><td class="paramname">idx2</td><td>Second material index to swap. It must already exist or nothing happens. </td></tr>
@@ -5945,8 +5945,8 @@ Additional Inherited Members</h2></td></tr>
 @<a href="https://cppfx.xyz">cppfx.xyz</a>
 </p>
 <p>
-<a href="https://cppfx.xyz/utxcpp">Utxcpp</a>
+<a href="https://cppfx.xyz/esvcpp">Esvcpp</a>
 &nbsp;&nbsp;
-<a href="https://cppfx.xyz/utxcpp/utx_print.html">utx::print</a>
+<a href="https://cppfx.xyz/esvcpp/esv_print.html">esv::print</a>
 </p>
 </div>
