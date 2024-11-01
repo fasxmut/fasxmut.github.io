@@ -1,119 +1,12 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>utx::exp</title>
-<link rel="stylesheet" href="boostbook.css" type="text/css">
-<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
-<link rel="home" href="index.html" title="Utxcpp Docs - Utxcpp Official Docs">
-<link rel="up" href="math.html" title="Math">
-<link rel="prev" href="utx_sin.html" title="utx::sin">
-<link rel="next" href="thread.html" title="Thread">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4149462432</title>
 </head>
-<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-<div class="spirit-nav">
-<a accesskey="p" href="utx_sin.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="math.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="thread.html"><img src="images/next.png" alt="Next"></a>
-</div>
-<div class="article">
-<div class="titlepage">
-<div><div><h2 class="title">
-<a name="utx_exp"></a>utx::exp</h2></div></div>
-<hr>
-</div>
-<h2>
-<a name="utx_exp.h0"></a>
-        <span class="phrase"><a name="utx_exp.role_cyan_utx_exp"></a></span><a class="link" href="utx_exp.html#utx_exp.role_cyan_utx_exp"><span class="cyan">utx::exp</span></a>
-      </h2>
+<body>
+<h1>4149462432</h1>
 <p>
-        utx::exp
-      </p>
-<p>
-        It always calculates floating value. If arg_type is utx::real_number, it
-        returns related utx::real_number; If arg_type is utx::real_uct, it returns
-        related utx::real_uct.
-      </p>
-<h4>
-<a name="utx_exp.h1"></a>
-        <span class="phrase"><a name="utx_exp.calling_sig"></a></span><a class="link" href="utx_exp.html#utx_exp.calling_sig">Calling
-        Sig:</a>
-      </h4>
-<pre class="programlisting"><span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">result</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">exp</span><span class="special">(</span><span class="identifier">value</span><span class="special">);</span>
-</pre>
-<p>
-        return floating point result.
-      </p>
-<pre class="programlisting"><span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">result</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">exp</span><span class="special">.</span><span class="identifier">fn</span><span class="special">&lt;</span><span class="identifier">return_type</span><span class="special">&gt;(</span><span class="identifier">value</span><span class="special">);</span>
-</pre>
-<p>
-        Return resulted that is converted to return_type.
-      </p>
-<p>
-        Overflow: If the result is overflow of the related type, it returns related
-        NaN value, which can be checked by utx::is_nan(result) .
-      </p>
-<pre class="programlisting"><span class="identifier">utx</span><span class="special">::</span><span class="identifier">f32</span> <span class="identifier">result</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">exp</span><span class="special">(</span><span class="number">50.0f</span><span class="special">);</span>
-<span class="keyword">bool</span> <span class="identifier">is_nan</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">is_nan</span><span class="special">(</span><span class="identifier">result</span><span class="special">);</span>
-</pre>
-<h2>
-<a name="utx_exp.h2"></a>
-        <span class="phrase"><a name="utx_exp.role_cyan_utx_exp_c_example"></a></span><a class="link" href="utx_exp.html#utx_exp.role_cyan_utx_exp_c_example"><span class="cyan">utx::exp c++ example</span></a>
-      </h2>
-<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">math</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
-<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">utxcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
-
-<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
-<span class="special">{</span>
-	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">fx32</span> <span class="identifier">x</span> <span class="special">=</span> <span class="number">2.3f</span><span class="special">;</span>
-	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">fx32</span> <span class="identifier">result</span> <span class="special">=</span> <span class="identifier">utx</span><span class="special">::</span><span class="identifier">exp</span><span class="special">(</span><span class="identifier">x</span><span class="special">);</span>
-	<span class="identifier">utx</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="identifier">result</span><span class="special">);</span>
-<span class="special">}</span>
-</pre>
-<h2>
-<a name="utx_exp.h3"></a>
-        <span class="phrase"><a name="utx_exp.role_cyan_see_also"></a></span><a class="link" href="utx_exp.html#utx_exp.role_cyan_see_also"><span class="cyan">See Also</span></a>
-      </h2>
-<p>
-        <a class="link" href="utx_print.html" title="utx::print">utx::print</a>
-      </p>
-<p>
-        <a class="link" href="utx_f32.html" title="utx::f32">utx::f32</a>
-      </p>
-<p>
-        <a class="link" href="utx_fx32.html" title="utx::fx32">utx::fx32</a>
-      </p>
-<h2>
-<a name="utx_exp.h4"></a>
-        <span class="phrase"><a name="utx_exp.cpp-lang"></a></span><a class="link" href="utx_exp.html#utx_exp.cpp-lang"><span class="cyan">cpp/c++</span></a>
-      </h2>
-<p>
-        c++ std::exception:
-      </p>
-<p>
-        std::cout.write(err.data(), err.size());
-      </p>
-<p>
-        std::cout &lt;&lt; std::endl;
-      </p>
-<p>
-        <span class="purple">caught:</span>
-      </p>
-<pre class="programlisting">  ==================================================
-  #        The c++ programming language.           #
-  #                                                #
-  #        <a href="https://cppfx.xyz" target="_top">Home: cppfx.xyz</a>                         #
-  #        <a href="https://cppfx.xyz/esvcpp/esv_print.html" target="_top">E</a>                                       #
-  #        Deck                                    #
-  ==================================================
-</pre>
-</div>
-<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
-        Distributed under the Boost Software License, Version 1.0. (See accompanying
-        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
-      </p>
-</div>
-<hr>
-<div class="spirit-nav">
-<a accesskey="p" href="utx_sin.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="math.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="thread.html"><img src="images/next.png" alt="Next"></a>
-</div>
+This api is deprecated and removed, please upgrade to
+<a href="https://cppfx.xyz/esvcpp/esv_print.html">E</a>
+</p>
 </body>
 </html>
