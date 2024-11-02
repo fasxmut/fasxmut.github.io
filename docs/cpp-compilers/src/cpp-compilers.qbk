@@ -1,6 +1,6 @@
-[book c++ compiler
+[book c++ compilers
 	[quickbook 1.7]
-	[id cpp-compiler]
+	[id cpp-compilers]
 ]
 
 [include microsoft-visualcpp.qbk]

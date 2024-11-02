@@ -5,7 +5,7 @@
 
 Install Visualcpp c++ compiler on windows. Visualcpp is also called msvc, vcpp, visual studio, etc.
 
-[@. Up: c++ compiler]
+[@. Up: c++ compilers]
 
 [h1 [role cyan Download]]
 
@@ -120,7 +120,7 @@ ________________________________________
 
 [~Written on Nov 02, 2024]
 
-[@. Up: c++ compiler]
+[@. Up: c++ compilers]
 
 [include ../../share/foot-links.inc.qbk]
 
