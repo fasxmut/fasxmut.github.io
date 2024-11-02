@@ -15,8 +15,6 @@ swift_cpp_20_concepts.html
 windows_install_cpp_compiler.html
 cpp_std_float_type.html
 kubuntu_install_cpp_compiler.html
-cpp_dlib_dnn_cnn.html
-cpp_boost_serialization.html
 swift_pm_cli_uses_cpp_cpp_intero.html
 cpp_uses_swift_cpp_interop.html
 cobalt_main_entry_points_cpp_boo.html
@@ -29,7 +27,3 @@ q4os_sycl_cpp.html
 chaiscript_cpp.html
 cpp_integral_type.html
 cpp_uses_swift.html
-std_views_zip_to_transpose_matri.html
-std_predicate_and_std_relation.html
-intel_dpcpp_cpp_2024_published.html
-print_nested_ranges_tuples.html

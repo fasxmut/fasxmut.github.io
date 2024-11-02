@@ -1,9 +1,9 @@
 import testing ;
 
-lib utxcpp
+lib esvcpp
 	:
 	:
-		<name>utxcpp
+		<name>esvcpp
 	:
 	:
 ;
@@ -16,7 +16,7 @@ lib boost-cobalt
 
 project
 	: default-build
-		<library>utxcpp
+		<library>esvcpp
 		<cxxstd>23
 ;
 
@@ -26,9 +26,6 @@ project
 ;
 
 progs =
-	d0001-utx-print-nested-print
-	d0003-std-predicate-std-relation
-	d0004-std-views-zip-transpose-matrix
 	d0005-cpp-uses-swift
 	d0006-cpp-integral
 	d0012_boost_cobalt_fast

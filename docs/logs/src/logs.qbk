@@ -18,8 +18,6 @@
 [include d0023_windows_cpp_compiler.qbk]
 [include d0022_cpp_std_float_type.qbk]
 [include d0021_kubuntu_cpp_compiler.qbk]
-[include d0020_cpp_dlib_dnn_cnn.qbk]
-[include d0019_cpp_boost_serialization.qbk]
 [include d0018_swift_cli_uses_cpp.qbk]
 [include d0017_cpp_uses_swift_2.qbk]
 [include d0016_cobalt_main_entry_points.qbk]
@@ -32,10 +30,6 @@
 [include d0009-chaiscript-cpp.qbk]
 [include d0006-cpp-integral.qbk]
 [include d0005-cpp-uses-swift.qbk]
-[include d0004-std-views-zip-transpose-matrix.qbk]
-[include d0003-std-predicate-std-relation.qbk]
-[include d0002-dpcpp-cpp-2024-published.qbk]
-[include d0001-utx-print-nested-print.qbk]
 
 Powered by [@https://cppfx.xyz cppfx.xyz]
 

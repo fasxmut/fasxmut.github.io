@@ -93,11 +93,5 @@ int main()
 	swift_cpp_class swift_cpp{};
 }
 
-/*`
-[h1 [role cyan See Also]]
-
-[@https://cppfx.xyz/utxcpp Utxcpp]
-*/
-
 //]
 

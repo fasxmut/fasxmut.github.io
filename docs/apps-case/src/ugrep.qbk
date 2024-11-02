@@ -152,7 +152,7 @@ ugrep -rIn "[a-zA-Z0-9]cpp" .
 ugrep -rIn "fx[0-9][0-9]" .
 ```
 
-[@https://cppfx.xyz/utxcpp/utx_fx32.html [*utx::[role red fx32]]] will match above.
+[@https://cppfx.xyz/esvcpp/esv_fx32.html [*esv::[role red fx32]]] will match above.
 
 [*Match not any one of]
 
