@@ -4,7 +4,7 @@
 ]
 
 [include microsoft-visualcpp.qbk]
-[/[include haiku-gcc.qbk]]
+[include haiku-gcc.qbk]
 
 [include ../../share/foot-links.inc.qbk]
 

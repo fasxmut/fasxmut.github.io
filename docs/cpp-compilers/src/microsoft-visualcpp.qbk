@@ -11,7 +11,7 @@ Install Visualcpp c++ compiler on windows. Visualcpp is also called msvc, vcpp, 
 
 Find the visualcpp official webpages and download:
 
-[@https://visualstudio.microsoft.com/downloads]
+[@https://visualstudio.microsoft.com/downloads [role red Microsoft Visualcpp:] https://visualstudio.microsoft.com/downloads]
 
 For open-source cases, the community edition is good;
 [br]

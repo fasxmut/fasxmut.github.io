@@ -2,3 +2,125 @@
 	[id haiku-gcc]
 	[quickbook 1.7]
 ]
+
+Install gcc c++ compiler on Haiku OS, gcc the gnu c++ compiler.
+
+[@. Up: c++ compilers]
+
+[h1:haiku-cpp [role cyan Haiku c++ compiler]]
+
+Haiku gnu c++ compiler might be already installed by default. If not, install it.
+
+[@https://www.haiku-os.org [role red Haiku OS:] https://www.haiku-os.org]
+
+[@https://gcc.gnu.org [role red GNU c++:] https://gcc.gnu.org]
+
+[h1:install-gnu-cpp-haiku [role cyan Install gnu c++ haiku]]
+
+[h2 Update basic]
+
+Update haiku repos
+
+[!teletype]
+```
+pkgman full-sync
+pkgman update
+```
+
+[h2 Search gcc]
+
+Search gnu c++ compiler
+
+[!teletype]
+```
+pkgman search gcc
+```
+
+[h2 Install gcc]
+
+Install gnu c++ compiler
+
+[!teletype]
+```
+pkgman install gcc
+```
+
+[h1 [role cyan c++ code Editors]]
+
+[h2 Haiku system cpp editors]
+
+Haiku system editors can be used to write c++
+
+* Haiku Pe
+* Haiku StyleEdit
+
+[h2 Kakoune cpp Editor]
+
+Kakoune is a console c++ code editor.
+
+[@https://kakoune.org]
+
+You can install kakoune c++ editor to write c++.
+
+[!teletype]
+```
+pkgman install kakoune
+```
+
+[h2 Featherpad cpp Editor]
+
+Featherpad is a gui c++ code editor, written in c++ qt.
+
+[@https://github.com/tsujan/FeatherPad]
+
+You can install featherpad c++ editor to write c++.
+
+[!teletype]
+```
+pkgman install featherpad
+```
+
+[h1 [role cyan Check]]
+
+Check if the c++ compiler works.
+
+Copy paste the following c++ code, and save as hello.cpp:
+
+[!c++]
+```
+#include <iostream>
+
+int main()
+{
+	std::cout << "Hello, c++!" << std::endl;
+}
+```
+
+Compile and run the c++ code:
+
+[!teletype]
+```
+g++ hello.cpp -std=c++23 -o hello
+./hello
+```
+
+It should output:
+
+```
+Hello, c++!
+```
+
+If the haiku c++ compiler can not compile c++ code, find and repair issues, or ask for help.
+
+[br][br][br][br][br][br][br][br]
+
+________________________________________
+
+[~Written on Nov 02, 2024]
+
+[@. Up: c++ compilers]
+
+[include ../../share/foot-links.inc.qbk]
+
+
+
