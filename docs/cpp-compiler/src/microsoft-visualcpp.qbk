@@ -1,0 +1,128 @@
+[article Windows Microsoft Visualcpp \[c++ compiler\]
+	[id windows-microsoft-visualcpp]
+	[quickbook 1.7]
+]
+
+Install Visualcpp c++ compiler on windows. Visualcpp is also called msvc, vcpp, visual studio, etc.
+
+[@. Up: c++ compiler]
+
+[h1 [role cyan Download]]
+
+Find the visualcpp official webpages and download:
+
+[@https://visualstudio.microsoft.com/downloads]
+
+For open-source cases, the community edition is good;
+[br]
+For commercial cases, the professional and enterprise editions are good,
+[br]
+it is up to you to choose.
+
+[h1 [role cyan Install]]
+
+[role green After downloading the related installer setup.exe, click it,]
+[br]
+[role purple and follow the installer step-by-step,]
+[br]
+[role red when it asks the compiler or libraries,]
+[br]
+[role indigo make sure you choose the c++ desktop version, c++ compiler, etc.]
+
+[h1 [role cyan Check]]
+
+When finishing installing,
+[br]
+[role blue open the visualcpp IDE,]
+[br]
+[role purple Create a new project,]
+[br]
+[role green Select empty c++ project,]
+[br]
+[role red Add a new item hello.cpp to the source files,]
+[br]
+[role indigo Make sure hello.cpp is open in IDE,]
+[br]
+and [role blue copy the following code to hello.cpp:]
+
+[!c++]
+```
+#include <iostream>
+
+int main()
+{
+	std::cout << "Hello, c++!" << std::endl;
+}
+```
+
+[role blue Then click [*Build/Run] button to compile and run the c++ code,]
+[br]
+the button might have a different name, find it by yourself.
+
+It should open a [*cmd] window and show [*Hello, c++!]
+
+[role red If it does not show that message and reports errors,
+[br]
+check your installation and configure, solve the installing problems.]
+
+[h1:enable-cpp-latest [role cyan Enable c++20, c++23, c++latest, etc]]
+
+
+[role green
+
+Create a project ->
+[br]
+[br]
+Click [*Project] on the menubar ->
+[br]
+[br]
+Click [*Project Properties] ->
+[br]
+[br]
+Click [*c++] ->
+[br]
+[br]
+Click [*Langauge] ->
+[br]
+[br]
+Find the [*c++ Language standard] ->
+[br]
+[br]
+Select [*Preview, ..., /std:c++latest]
+
+]
+
+[h1 [role cyan Compiler command cl.exe]]
+
+Microsoft visualcpp c++ compiler can be used as a commandline command one the cmd window too,
+[br]
+the cmd is [role blue [*cl.exe]] .
+
+Copy-paste the above c++ code, save it as [*hello.cpp], 
+
+then open [role green [*"Developer Command Prompt for VS"]] cmd window,
+
+Run the compiling command:
+
+```
+cl.exe hello.cpp /std:c++latest
+```
+
+Also try
+
+[*/std:c++23]
+
+[*/std:c++20]
+
+[br][br][br][br][br][br]
+
+________________________________________
+
+[~Written on Nov 02, 2024]
+
+[@. Up: c++ compiler]
+
+[include ../../share/foot-links.inc.qbk]
+
+
+

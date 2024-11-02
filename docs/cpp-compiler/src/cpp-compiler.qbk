@@ -1,0 +1,11 @@
+[book c++ compiler
+	[quickbook 1.7]
+	[id cpp-compiler]
+]
+
+[include microsoft-visualcpp.qbk]
+
+[include ../../share/foot-links.inc.qbk]
+
+
+
