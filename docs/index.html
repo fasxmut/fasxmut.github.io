@@ -22,7 +22,7 @@ a:hover {background:#ddd}
 .fourblock {width:100%;margin:1px;float:left;border:0px solid #00f}
 .content {width:auto;padding:15px 25px;margin:1px;border:0px solid #297}
 
-.codeblock {width:auto;border:2px dashed darkcyan;padding:5px 25px;border-radius:5px;background:#eee;color:darkgreen;font-weight:bold;font-size:12px}
+.codeblock {width:auto;border:2px dashed darkcyan;padding:0px 10px;border-radius:3px;background:#eee;color:black;font-weight:bold;font-size:12px}
 </style>
 </head>
 <body>
@@ -44,59 +44,165 @@ a:hover {background:#ddd}
 
 <div id="page">
 
-<div class="twoblock">
+<div class="oneblock">
 <div class="content">
 <h2>c++ now:</h2>
-<p>c++ class and std::cout</p>
 <div class="codeblock">
 <pre>
-#include &lt;iostream&gt;
+<font color="grey">#include &lt;iostream&gt;</font>
 
-class box_world
+<font color="red">class</font> box_world
 {
-public:
-	void greeting() const
-	{
-		std::cout << "Cheers, c++ !" << std::endl;
-	}
+<font color="blue">public:</font>
+  void greeting() const
+  {
+    <font color="red">std::cout</font>
+      &lt;&lt; "Cheers, c++ !"
+      &lt;&lt; <font color="blue">std::endl</font>;
+  }
 };
 
-int main()
+<font color="darkgreen">int</font> <font color="green">main</font>()
 {
-	auto box = box_world{};
-	box.greeting();
+  <font color="blue">auto</font> box = box_world{};
+  box.greeting();
 }
 </pre>
 </div>	<!-- class="codeblock" -->
+
+<ul>
+<li><strong>std::cout (<a href="https://en.cppreference.com/w/cpp/io/cout">std::cout</a>)</strong>
+<li><strong>c++ class</strong>
+</ul>
 </div>	<!-- class="content" -->
-</div>	<!-- class="twoblock" -->
+</div>	<!-- class="oneblock" -->
 
 <div class="oneblock">
 <div class="content">
+<h2>c++ std::copy:<br />copy memory area</h2>
 
-<h2>API Used:</h2>
+<div class="codeblock">
+<pre>
+<font color="grey">#include &lt;algorithm&gt;</font>
+
+<font color="darkgreen">int</font> <font color="green">main</font>()
+{
+  <font color="darkcyan">// c++ array</font>
+  char src[] = {"Hello, c++!"};
+  <font color="darkcyan">// Note: src[11] == '\0'</font>
+  int size = 11 + 1;
+  char * dst = <font color="blue">new</font> char[size];
+  <font color="red">std::copy</font>(src, src+size, dst);
+  <font color="blue">delete</font> [] dst;
+}
+</pre>
+</div>	<!-- class="codeblock" -->
 
 <ul>
-<li>std::cout (<a href="https://en.cppreference.com/w/cpp/io/cout">See</a>)
-<li>c++ class
+<li><strong>std::copy (<a href="https://en.cppreference.com/w/cpp/algorithm/copy">std::copy</a>)</strong>
+<li><strong>new</strong>
+<li><strong>delete</strong>
 </ul>
 
 </div>	<!-- class="content" -->
 </div>	<!-- class="oneblock" -->
 
+<div class="oneblock" id="group-logo-and-std-fill">
+
 <div class="oneblock">
 <div class="content">
-<div style="text-align:right"><img src="cpp-logo/cpp-logo-200x200.png" alt="cpp/c++" title="cpp/c++" /></div>
+<div style="text-align:center"><img src="cpp-logo/cpp-logo-200x200.png" alt="cpp/c++" title="cpp/c++" /></div>
 </div>	<!-- class="content" -->
 </div>	<!-- class="oneblock" -->
 
 <div class="oneblock">
 <div class="content">
 
-<div id="border-0" style="font-size:16px;border:2px solid #099;padding:0px 15px 5px;border-top:none;border-radius:4px;margin:5px">
+<h2>c++ std::fill:<br />fill memory area</h2>
+
+<div class="codeblock">
+<pre>
+<font color="grey">#include &lt;algorithm&gt;</font>
+
+<font color="darkgreen">int</font> <font color="green">main</font>()
+{
+  <font color="darkcyan">// c++ array</font>
+  char src[100];
+  <font color="red">std::fill</font>(src, src+100, '0');
+}
+</pre>
+</div>	<!-- class="codeblock" -->
+
+<ul>
+<li><strong>std::fill (<a href="https://en.cppreference.com/w/cpp/algorithm/fill">std::fill</a>)</strong>
+</ul>
+
+</div>	<!-- class="content" -->
+</div>	<!-- class="oneblock" -->
+
+</div> <!-- class="oneblock" id="group-logo-and-std-fill" -->
+
+<div class="oneblock" id="group-github-and-cpp">
+
+<div class="oneblock">
+<div class="content">
+
+<div style="font-size:20px;text-align:center;padding:20px;border:1px solid #000;border-radius:2px;">
+<a href="https://github.com/fasxmut/q3viewer">Github</a>
+</div>
+
+</div>	<!-- class="content" -->
+</div>	<!-- class="oneblock" -->
+
+<div class="oneblock">
+<div class="content">
+
+<div id="border-0">
+<style>
+	#border-0
+	{
+		background: #dde;
+		color: darkblue;
+		border: 2px solid #bbc;
+		border-top: none;
+		font-size: 16px;
+		padding: 0px 15px 5px;
+		border-radius: 4px;
+		margin: 5px;
+	}
+	#border-0 a
+	{
+		color: darkred;
+		text-decoration: none;
+		font-weight: bold;
+		padding: 5px 30px;
+	}
+	#border-0 .not-link
+	{
+		color: darkblue;
+		background: none;
+	}
+	#border-0 .not-link:hover
+	{
+		color: darkblue;
+		background: none;
+	}
+	#border-0 a:hover
+	{
+		background: blue;
+		color: cyan;
+	}
+	#border-0 h2
+	{
+		background: #ccd;
+		text-align: center;
+		color: darkgreen;
+		font-size:30px;
+	}
+</style>
 
 <h2>c++</h2>
-<p>c++ Tutorial:<br /><a href="learn-cpp-in-days">Learn c++ in days</a></p>
+<p><a class="not-link"> c++ Tutorial:<br /></a><a href="learn-cpp-in-days">Learn c++ in days</a></p>
 <p><a href="cpp-compilers">c++ compilers</a></p>
 <p><a href="cpp-libraries">c++ libraries</a></p>
 <p><a href="cpp-apps">c++ apps</a></p>
@@ -108,15 +214,7 @@ int main()
 </div>	<!-- class="content" -->
 </div>	<!-- class="oneblock" -->
 
-<div class="oneblock">
-<div class="content">
-
-<div style="font-size:20px;text-align:center;margin-top:70px">
-<a href="https://github.com/fasxmut/q3viewer">Github</a>
-</div>
-
-</div>	<!-- class="content" -->
-</div>	<!-- class="oneblock" -->
+</div>	<!-- class="oneblock" id="group-github-and-cpp" -->
 
 <div style="clear:both"></div>
 <hr />
