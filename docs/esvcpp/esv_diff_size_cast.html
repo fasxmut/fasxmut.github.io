@@ -21,16 +21,14 @@
 <a name="esv_diff_size_cast"></a>esv::diff_size_cast</h2></div></div>
 <hr>
 </div>
-<p>
-        Do not compare your life with others'.
-      </p>
 <h2>
 <a name="esv_diff_size_cast.h0"></a>
         <span class="phrase"><a name="esv_diff_size_cast.role_cyan_esv_diff_size_cast"></a></span><a class="link" href="esv_diff_size_cast.html#esv_diff_size_cast.role_cyan_esv_diff_size_cast"><span class="cyan">esv::diff_size_cast</span></a>
       </h2>
 <p>
-        esv::diff_size_cast is used to cast from one integral value to another integral
-        value. If the value is greater than the max value of target type, or the
+        esv::diff_size_cast is used to cast from one integral value to another target
+        integral value. It requires the source value is in the scope of target type
+        range. If the value is greater than the max value of target type, or the
         value is less than the min value of target type, the compilation will fail.
       </p>
 <pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="identifier">esv</span><span class="special">::</span><span class="identifier">integral_meric</span> <span class="identifier">target_type</span><span class="special">,</span> <span class="identifier">esv</span><span class="special">::</span><span class="identifier">integral_meric</span> <span class="keyword">auto</span> <span class="identifier">source_value</span><span class="special">&gt;</span>
