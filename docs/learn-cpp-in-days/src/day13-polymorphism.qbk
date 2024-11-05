@@ -41,7 +41,9 @@ public:
 	[role red [*virtual]]
 ]
 
-[h3 virtual]
+[h3:virtual-method [role blue virtual method]]
+
+[*Specifier: virtual]
 
 You have noticed that the method echo is marked virtual.
 
@@ -62,12 +64,24 @@ And the method const must be the same.
 class derived_A: public base_class
 {
 public:
-	void echo() const
+	void echo() const override
 	{
 		std::cout << "echo echo, I am derived_A" << std::endl;
 	}
 };
 ```
+
+[h3:override Specifier: [role blue override]]
+
+To make it polymorphism, the same name method of the derived class and the method of that name of the base class must meet the following conditions:
+
+* [role purple Method name is same] - (in this example, both the base class and derived class use the same name: [*echo]).
+* [role purple Argument list is same] - (in this example, they are both empty)
+* [role purple Return type is same] - (in this example, they return void)
+
+An also because c++ overloading feature, so if they have a little difference, it makes a different method and the polymorphism is disappeared.
+
+To avoid that mistake, you can add the keyword [*override] at the end of the [*method_name()] declaration, then the compiler will look up that if an overrode method exists on the base class, if not found or mismatched, the compiling will report errors, then you will know what's up.
 
 [h2 Step 3: do the same to derived_B]
 
@@ -80,7 +94,7 @@ Note that derived_B and derived_A are derived from the same class.
 class derived_B: public base_class
 {
 public:
-	void echo() const
+	void echo() const override
 	{
 		std::cout << "echo echo, I am derived_B" << std::endl;
 	}

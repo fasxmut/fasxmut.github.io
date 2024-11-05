@@ -79,8 +79,11 @@
 </table></div>
 <h4>
 <a name="day-13-polymorphism-cpp.h3"></a>
-      <span class="phrase"><a name="day-13-polymorphism-cpp.virtual"></a></span><a class="link" href="day-13-polymorphism-cpp.html#day-13-polymorphism-cpp.virtual">virtual</a>
+      <span class="phrase"><a name="day-13-polymorphism-cpp.virtual-method"></a></span><a class="link" href="day-13-polymorphism-cpp.html#day-13-polymorphism-cpp.virtual-method"><span class="blue">virtual method</span></a>
     </h4>
+<p>
+      <span class="bold"><strong>Specifier: virtual</strong></span>
+    </p>
 <p>
       You have noticed that the method echo is marked virtual.
     </p>
@@ -110,14 +113,48 @@
 <pre class="programlisting"><span class="keyword">class</span> <span class="identifier">derived_A</span><span class="special">:</span> <span class="keyword">public</span> <span class="identifier">base_class</span>
 <span class="special">{</span>
 <span class="keyword">public</span><span class="special">:</span>
-	<span class="keyword">void</span> <span class="identifier">echo</span><span class="special">()</span> <span class="keyword">const</span>
+	<span class="keyword">void</span> <span class="identifier">echo</span><span class="special">()</span> <span class="keyword">const</span> <span class="identifier">override</span>
 	<span class="special">{</span>
 		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"echo echo, I am derived_A"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
 	<span class="special">}</span>
 <span class="special">};</span>
 </pre>
-<h3>
+<h4>
 <a name="day-13-polymorphism-cpp.h5"></a>
+      <span class="phrase"><a name="day-13-polymorphism-cpp.override"></a></span><a class="link" href="day-13-polymorphism-cpp.html#day-13-polymorphism-cpp.override">Specifier:
+      <span class="blue">override</span></a>
+    </h4>
+<p>
+      To make it polymorphism, the same name method of the derived class and the
+      method of that name of the base class must meet the following conditions:
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          <span class="purple">Method name is same</span> - (in this example,
+          both the base class and derived class use the same name: <span class="bold"><strong>echo</strong></span>).
+        </li>
+<li class="listitem">
+          <span class="purple">Argument list is same</span> - (in this example,
+          they are both empty)
+        </li>
+<li class="listitem">
+          <span class="purple">Return type is same</span> - (in this example,
+          they return void)
+        </li>
+</ul></div>
+<p>
+      An also because c++ overloading feature, so if they have a little difference,
+      it makes a different method and the polymorphism is disappeared.
+    </p>
+<p>
+      To avoid that mistake, you can add the keyword <span class="bold"><strong>override</strong></span>
+      at the end of the <span class="bold"><strong>method_name()</strong></span> declaration,
+      then the compiler will look up that if an overrode method exists on the base
+      class, if not found or mismatched, the compiling will report errors, then you
+      will know what's up.
+    </p>
+<h3>
+<a name="day-13-polymorphism-cpp.h6"></a>
       <span class="phrase"><a name="day-13-polymorphism-cpp.step_3_do_the_same_to_derived_b"></a></span><a class="link" href="day-13-polymorphism-cpp.html#day-13-polymorphism-cpp.step_3_do_the_same_to_derived_b">Step 3: do
       the same to derived_B</a>
     </h3>
@@ -130,14 +167,14 @@
 <pre class="programlisting"><span class="keyword">class</span> <span class="identifier">derived_B</span><span class="special">:</span> <span class="keyword">public</span> <span class="identifier">base_class</span>
 <span class="special">{</span>
 <span class="keyword">public</span><span class="special">:</span>
-	<span class="keyword">void</span> <span class="identifier">echo</span><span class="special">()</span> <span class="keyword">const</span>
+	<span class="keyword">void</span> <span class="identifier">echo</span><span class="special">()</span> <span class="keyword">const</span> <span class="identifier">override</span>
 	<span class="special">{</span>
 		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"echo echo, I am derived_B"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
 	<span class="special">}</span>
 <span class="special">};</span>
 </pre>
 <h3>
-<a name="day-13-polymorphism-cpp.h6"></a>
+<a name="day-13-polymorphism-cpp.h7"></a>
       <span class="phrase"><a name="day-13-polymorphism-cpp.step_4_create_relation_object"></a></span><a class="link" href="day-13-polymorphism-cpp.html#day-13-polymorphism-cpp.step_4_create_relation_object">Step
       4: Create relation object !</a>
     </h3>
@@ -164,7 +201,7 @@
         </li>
 </ul></div>
 <h4>
-<a name="day-13-polymorphism-cpp.h7"></a>
+<a name="day-13-polymorphism-cpp.h8"></a>
       <span class="phrase"><a name="day-13-polymorphism-cpp.cpp-ref-poly"></a></span><a class="link" href="day-13-polymorphism-cpp.html#day-13-polymorphism-cpp.cpp-ref-poly">c++
       reference</a>
     </h4>
@@ -187,7 +224,7 @@
       will call the method echo from derived_B.
     </p>
 <h4>
-<a name="day-13-polymorphism-cpp.h8"></a>
+<a name="day-13-polymorphism-cpp.h9"></a>
       <span class="phrase"><a name="day-13-polymorphism-cpp.cpp-ptr-poly"></a></span><a class="link" href="day-13-polymorphism-cpp.html#day-13-polymorphism-cpp.cpp-ptr-poly">c++
       pointer</a>
     </h4>
@@ -204,7 +241,7 @@
 <span class="keyword">delete</span> <span class="identifier">base_ptr</span><span class="special">;</span>
 </pre>
 <h3>
-<a name="day-13-polymorphism-cpp.h9"></a>
+<a name="day-13-polymorphism-cpp.h10"></a>
       <span class="phrase"><a name="day-13-polymorphism-cpp.step_5_parameterize"></a></span><a class="link" href="day-13-polymorphism-cpp.html#day-13-polymorphism-cpp.step_5_parameterize">Step
       5: Parameterize</a>
     </h3>
@@ -230,7 +267,7 @@
 <span class="identifier">call_echo_2</span><span class="special">(&amp;</span><span class="identifier">bb_obj</span><span class="special">);</span>
 </pre>
 <h2>
-<a name="day-13-polymorphism-cpp.h10"></a>
+<a name="day-13-polymorphism-cpp.h11"></a>
       <span class="phrase"><a name="day-13-polymorphism-cpp.role_cyan_exercise"></a></span><a class="link" href="day-13-polymorphism-cpp.html#day-13-polymorphism-cpp.role_cyan_exercise"><span class="cyan">Exercise</span></a>
     </h2>
 <p>
@@ -260,14 +297,14 @@
       <em class="replaceable"><code>Written on Nov 05, 2024</code></em>
     </p>
 <h2>
-<a name="day-13-polymorphism-cpp.h11"></a>
+<a name="day-13-polymorphism-cpp.h12"></a>
       <span class="phrase"><a name="day-13-polymorphism-cpp.role_cyan_back_to_index"></a></span><a class="link" href="day-13-polymorphism-cpp.html#day-13-polymorphism-cpp.role_cyan_back_to_index"><span class="cyan">Back to index</span></a>
     </h2>
 <p>
       <a href="." target="_top">Index</a>
     </p>
 <h2>
-<a name="day-13-polymorphism-cpp.h12"></a>
+<a name="day-13-polymorphism-cpp.h13"></a>
       <span class="phrase"><a name="day-13-polymorphism-cpp.cpp-lang"></a></span><a class="link" href="day-13-polymorphism-cpp.html#day-13-polymorphism-cpp.cpp-lang"><span class="cyan">cpp/c++</span></a>
     </h2>
 <p>
