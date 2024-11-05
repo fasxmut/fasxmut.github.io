@@ -1,0 +1,185 @@
+[article day-13: polymorphism c++
+	[quickbook 1.7]
+	[id day-13-polymorphism-cpp]
+]
+
+[h1:polymorphism-cpp [role cyan polymorphism c++]]
+
+Polymorphism is a c++ skill to make many classes that are related to each other by being derived from the same class. Polymorphism means "many forms".
+
+Polymorphism let different objects to respond the same message differently.
+
+Note that the above description is just the original polymorphism, which is inheritance polymorphism. c++ has many ways to implement polymorphism, not only inheritance.
+
+This article talks inheritance polymorphism only.
+
+[h1 [role cyan step-by-step]]
+
+Step-by-step to write a simple inheritance polymorphism c++ program.
+
+[h2 Step 1: Write base class: base_class]
+
+Write the base class, and its method: echo.
+
+echo will be used as the polymorphism response action.
+
+[!c++]
+```
+#include <iostream>
+
+class base_class
+{
+public:
+	virtual void echo() const
+	{
+		std::cout << "echo echo, I am base" << std::endl;
+	}
+};
+```
+
+[tip
+	[role red [*virtual]]
+]
+
+[h3 virtual]
+
+You have noticed that the method echo is marked virtual.
+
+To make polymorphism c++ work, the related method of the base class must be marked [*virtual] .
+
+[h2 Step 2: Write the derived class: derived_A]
+
+Write derived class: derived_A, and its method echo,
+
+Note that the method name echo is the same as the related method  name of its base class.
+
+And the arguments of echo have to be the same too. In this example, it has no arguments.
+
+And the method const must be the same.
+
+[!c++]
+```
+class derived_A: public base_class
+{
+public:
+	void echo() const
+	{
+		std::cout << "echo echo, I am derived_A" << std::endl;
+	}
+};
+```
+
+[h2 Step 3: do the same to derived_B]
+
+Do the same to derived_B.
+
+Note that derived_B and derived_A are derived from the same class.
+
+[!c++]
+```
+class derived_B: public base_class
+{
+public:
+	void echo() const
+	{
+		std::cout << "echo echo, I am derived_B" << std::endl;
+	}
+};
+```
+
+[h2 Step 4: Create relation object !]
+
+* Point 1: the object type is the base_class type.
+* Point 2: the object content is the derived class object.
+
+How to implement point 1 and point 2 simultaneously ?
+
+There are two ways:
+
+* c++ reference
+* c++ pointer
+
+[h3:cpp-ref-poly c++ reference]
+
+[!c++]
+```
+derived_A a_obj;
+derived_B b_obj;
+
+base_class & base_r = a_obj;
+base_class & base_s = b_obj;
+
+base_r.echo();
+base_s.echo();
+```
+
+You see, the type of base_r and base_s are base class type: base_class, but they are bound to the objects of derived class derived_A and derived_B.
+
+And `base_r.echo();` will call the method echo from derived_A,
+[br]
+`base_s.echo();` will call the method echo from derived_B.
+
+[h3:cpp-ptr-poly c++ pointer]
+
+Similar to reference, pointer can be used for polymorphism too.
+
+[!c++]
+```
+base_class * base_ptr = new derived_A;
+base_ptr->echo();
+
+delete base_ptr;
+base_ptr = new derived_B;
+base_ptr->echo();
+
+delete base_ptr;
+```
+
+[h2 Step 5: Parameterize]
+
+[!c++]
+```
+// reference
+void call_echo_1(base_class & object)
+{
+	object.echo();
+}
+
+// pointer
+void call_echo_2(base_class * object)
+{
+	object->echo();
+}
+
+derived_A aa_obj;
+derived_B bb_obj;
+
+call_echo_1(aa_obj);
+call_echo_1(bb_obj);
+
+call_echo_2(&aa_obj);
+call_echo_2(&bb_obj);
+```
+
+[h1 [role cyan Exercise]]
+
+Write a complete inheritance polymorphism c++ program that can be compiled, use both reference and pointer to do the polymorphism response action. Check, modify and compile the code by yourself.
+
+You can also send your exercise code to the discord server to let others check for you. If you send this exercise code to discord server, the following rules must be followed:
+[br]
+(Discord server can be found on the foot of this page)
+
+* [*Only the header iostream is included for this program, do not include or use other libraries.]
+* [*Use std::cout to print message.]
+* [*Keep code short, no one like to read a long code just for your exercise.]
+
+[~Written on Nov 05, 2024]
+
+[h1 [role cyan Back to index]]
+
+[@. Index]
+
+[include ../../share/foot-links.inc.qbk]
+
+
+

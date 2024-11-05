@@ -107,7 +107,7 @@ int main()
 
 [*-)]
 
-[h1 [role cyan Some const reference rules]]
+[h1:const-ref-rules [role cyan Some const reference rules]]
 
 * [* const variable must be initialized, non-const does not have to]
 	```
