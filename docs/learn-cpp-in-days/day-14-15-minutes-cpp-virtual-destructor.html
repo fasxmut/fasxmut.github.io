@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>day-14: 15 Minutes c++ Virtual Destructor</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Learn c++ in days">
+<link rel="up" href="day-14-cpp-virtual-destructor-virtual-inheritance.html" title="day-14: c++ Virtual Destructor, Virtual Inheritance">
+<link rel="prev" href="day-14-cpp-virtual-destructor-virtual-inheritance.html" title="day-14: c++ Virtual Destructor, Virtual Inheritance">
+<link rel="next" href="day-14-15-minutes-cpp-virtual-inheritance.html" title="day-14: 15 Minutes c++ Virtual Inheritance">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="day-14-cpp-virtual-destructor-virtual-inheritance.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="day-14-cpp-virtual-destructor-virtual-inheritance.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="day-14-15-minutes-cpp-virtual-inheritance.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="day-14-15-minutes-cpp-virtual-destructor"></a>day-14: 15 Minutes c++ Virtual Destructor</h2></div></div>
+<hr>
+</div>
+<h2>
+<a name="day-14-15-minutes-cpp-virtual-destructor.h0"></a>
+        <span class="phrase"><a name="day-14-15-minutes-cpp-virtual-destructor.role_cyan_virtual_destructor"></a></span><a class="link" href="day-14-15-minutes-cpp-virtual-destructor.html#day-14-15-minutes-cpp-virtual-destructor.role_cyan_virtual_destructor"><span class="cyan">Virtual Destructor</span></a>
+      </h2>
+<p>
+        You have learned the virtual method from previous tutorial: <a class="link" href="day-13-polymorphism-cpp.html#day-13-polymorphism-cpp.virtual-method">polymorphism
+        virtual method (day-13)</a>.
+      </p>
+<p>
+        The destructor have to be virtual sometimes.
+      </p>
+<pre class="programlisting"><span class="keyword">class</span> <span class="identifier">class_a</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">virtual</span> <span class="special">~</span><span class="identifier">class_a</span><span class="special">()</span>	<span class="comment">// virtual destructor.</span>
+	<span class="special">{</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+</pre>
+<h2>
+<a name="day-14-15-minutes-cpp-virtual-destructor.h1"></a>
+        <span class="phrase"><a name="day-14-15-minutes-cpp-virtual-destructor.role_cyan_why"></a></span><a class="link" href="day-14-15-minutes-cpp-virtual-destructor.html#day-14-15-minutes-cpp-virtual-destructor.role_cyan_why"><span class="cyan">Why</span></a>
+      </h2>
+<p>
+        Let us see the polymorphism program with no-virtual destructor.
+      </p>
+<p>
+        <span class="red"><span class="bold"><strong>// An issue c++ program.</strong></span></span>
+      </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">class</span> <span class="identifier">base_class</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">base_class</span><span class="special">()</span>	<span class="comment">// constructor</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Create base object"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="special">~</span><span class="identifier">base_class</span><span class="special">()</span>	<span class="comment">// destructor: no virtual</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Remove base object"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">class</span> <span class="identifier">derived_class</span><span class="special">:</span>
+	<span class="keyword">public</span> <span class="identifier">base_class</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">derived_class</span><span class="special">()</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Create derived object"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="special">~</span><span class="identifier">derived_class</span><span class="special">()</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Remove derived object"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">base_class</span> <span class="special">*</span> <span class="identifier">ptr</span> <span class="special">=</span> <span class="keyword">new</span> <span class="identifier">derived_class</span><span class="special">{};</span>
+	<span class="keyword">delete</span> <span class="identifier">ptr</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<p>
+        Compile and run the code:
+      </p>
+<pre class="programlisting">&gt;&gt;&gt; g++ hello.cpp -std=c++23 -o hello
+&gt;&gt;&gt; ./hello
+Create base object
+Create derived object
+Remove base object
+</pre>
+<p>
+        You see,
+      </p>
+<p>
+        <span class="purple">base object is created once, and removed once.</span>
+      </p>
+<p>
+        <span class="purple">derived object is created once, but <span class="bold"><strong>never
+        removed !</strong></span></span>
+      </p>
+<h2>
+<a name="day-14-15-minutes-cpp-virtual-destructor.h2"></a>
+        <span class="phrase"><a name="day-14-15-minutes-cpp-virtual-destructor.role_cyan_solution_virtual_destr"></a></span><a class="link" href="day-14-15-minutes-cpp-virtual-destructor.html#day-14-15-minutes-cpp-virtual-destructor.role_cyan_solution_virtual_destr"><span class="cyan">Solution: Virtual Destructor</span></a>
+      </h2>
+<p>
+        To solve the above issue, the virtual destructor is the solution.
+      </p>
+<p>
+        Add <span class="bold"><strong>virtual</strong></span> specifier to the <span class="bold"><strong>destructor</strong></span>
+        of the <span class="bold"><strong>base</strong></span> class.
+      </p>
+<pre class="programlisting"><span class="keyword">virtual</span> <span class="special">~</span><span class="identifier">base_class</span><span class="special">()</span>	<span class="comment">// virtual destructor</span>
+<span class="special">{</span>
+	<span class="comment">// other code ...</span>
+<span class="special">}</span>
+</pre>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            If the destructor of the base class is virtual, the destructor derived
+            class is automatically virtual, and the destructor of the derived class
+            of the derived class is virtual automatically.
+          </li>
+<li class="listitem">
+            <span class="bold"><strong>virtual destructor is tied to the polymorphism</strong></span>
+            c++ code. If the program does not use polymorphism, virtual destructor
+            is unnecessary.
+          </li>
+<li class="listitem">
+            However, because polymorphism is almost anywhere, you may use polymorphism
+            inadvertently, using virtual destructor is a good habit.
+          </li>
+</ul></div>
+<p>
+        You have learned from the previous tutorial the virtual method for the polymorpihsm,
+        <br> virtual method makes that method polymorphism. <br> The destructor
+        must be made polymorphism too, by using virtual destructor.
+      </p>
+<p>
+        <span class="green"><span class="bold"><strong>According to cppreference:</strong></span></span>
+      </p>
+<p>
+        <span class="bold"><strong>quote:</strong></span>
+      </p>
+<div class="note"><table border="0" summary="Note">
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td>
+<th align="left">Note</th>
+</tr>
+<tr><td align="left" valign="top">
+<p>
+          Deleting an object through pointer to base invokes undefined behavior unless
+          the destructor in the base class is virtual:
+        </p>
+<pre class="programlisting"><span class="keyword">class</span> <span class="identifier">Base</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">virtual</span> <span class="special">~</span><span class="identifier">Base</span><span class="special">()</span> <span class="special">{}</span>
+<span class="special">};</span>
+
+<span class="keyword">class</span> <span class="identifier">Derived</span> <span class="special">:</span> <span class="keyword">public</span> <span class="identifier">Base</span> <span class="special">{};</span>
+
+<span class="identifier">Base</span><span class="special">*</span> <span class="identifier">b</span> <span class="special">=</span> <span class="keyword">new</span> <span class="identifier">Derived</span><span class="special">;</span>
+<span class="keyword">delete</span> <span class="identifier">b</span><span class="special">;</span> <span class="comment">// safe</span>
+</pre>
+<p>
+          <a href="https://en.cppreference.com/w/cpp/language/destructor" target="_top">https://en.cppreference.com/w/cpp/language/destructor</a>
+        </p>
+</td></tr>
+</table></div>
+<p>
+        <br> <br> <br> <br> <br> <br>
+      </p>
+<p>
+        <em class="replaceable"><code>Written on Nov 05, 2024</code></em>
+      </p>
+<h2>
+<a name="day-14-15-minutes-cpp-virtual-destructor.h3"></a>
+        <span class="phrase"><a name="day-14-15-minutes-cpp-virtual-destructor.role_cyan_back"></a></span><a class="link" href="day-14-15-minutes-cpp-virtual-destructor.html#day-14-15-minutes-cpp-virtual-destructor.role_cyan_back"><span class="cyan">Back</span></a>
+      </h2>
+<p>
+        <a class="link" href="day-14-cpp-virtual-destructor-virtual-inheritance.html" title="day-14: c++ Virtual Destructor, Virtual Inheritance">Up: day-14</a>
+      </p>
+<p>
+        <a href="." target="_top">Index</a>
+      </p>
+<h2>
+<a name="day-14-15-minutes-cpp-virtual-destructor.h4"></a>
+        <span class="phrase"><a name="day-14-15-minutes-cpp-virtual-destructor.cpp-lang"></a></span><a class="link" href="day-14-15-minutes-cpp-virtual-destructor.html#day-14-15-minutes-cpp-virtual-destructor.cpp-lang"><span class="cyan">cpp/c++</span></a>
+      </h2>
+<p>
+        c++ std::exception:
+      </p>
+<p>
+        std::cout.write(err.data(), err.size());
+      </p>
+<p>
+        std::cout &lt;&lt; std::endl;
+      </p>
+<p>
+        <span class="purple">caught:</span>
+      </p>
+<pre class="programlisting">  ==================================================
+  #        The c++ programming language.           #
+  #                                                #
+  #        <a href="https://cppfx.xyz" target="_top">Home: cppfx.xyz</a>                         #
+  #        <a href="https://cppfx.xyz/esvcpp/esv_print.html" target="_top">E</a>                                       #
+  #        Join c++ Discord: yZcauUAUyC            #
+  #        Deck                                    #
+  ==================================================
+</pre>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="day-14-cpp-virtual-destructor-virtual-inheritance.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="day-14-cpp-virtual-destructor-virtual-inheritance.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="day-14-15-minutes-cpp-virtual-inheritance.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

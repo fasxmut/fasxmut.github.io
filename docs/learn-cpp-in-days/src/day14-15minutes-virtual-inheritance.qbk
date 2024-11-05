@@ -1,0 +1,153 @@
+[article day-14: 15 Minutes c++ Virtual Inheritance
+	[id day-14-15-minutes-cpp-virtual-inheritance]
+	[quickbook 1.7]
+]
+
+[h1 [role cyan Virtual Inheritance]]
+
+virtual inheritance declaration:
+
+[!c++]
+```
+class derived_class: virtual public base_class	// virtual inheritance
+{
+};
+```
+
+[h1 [role cyan Why]]
+
+Let us see a program that does not use virtual inheritance.
+
+[role red // A maybe-issue or maybe-not-issue program.]
+[!c++]
+```
+#include <iostream>
+
+class base_base
+{
+public:
+	base_base() {std::cout << "0\n";}
+	virtual ~base_base() {std::cout << "~0\n";}
+};
+
+class derived_a: public base_base	// non-virtual inheritance
+{
+public:
+	derived_a() {std::cout << "1\n";}
+	~derived_a() {std::cout << "~1\n";}
+};
+
+class derived_b: public base_base	// non-virtual inheritance
+{
+public:
+	derived_b() {std::cout << "2\n";}
+	~derived_b() {std::cout << "~2\n";}
+};
+
+class derived_z: public derived_a, public derived_b	// non-virtual inheritance
+{
+public:
+	derived_z() {std::cout << "z\n";}
+	~derived_z() {std::cout << "~z\n";}
+};
+
+int main()
+{
+	derived_z z_obj{};
+	std::cout << "----------------------------------------" << std::endl;
+}
+```
+
+[h3 Compile & Run]
+
+Compile and run the code:
+
+[!teletype]
+```
+>>>  g++ hello.cpp -std=c++23 -o hello
+>>>  ./hello 
+0
+1
+0
+2
+z
+----------------------------------------
+~z
+~2
+~0
+~1
+~0
+```
+
+Read the output information carefully, you will notice that,
+
+[role blue The object of base_base is constructed twice, (output two 0), ]
+[br]
+[role blue and destructed twice (output two ~0) .]
+
+The object creation and destroying for base_base is performanced twice, it is duplicated.
+
+Speaking honestly, the above described issue might be an issue, might be not an issue. Anyway, the duplicated creation and destroying portion still work.
+
+[h3 Another]
+
+However, it has another issue, now create a pointer of type base_base, and let it point to derived_z:
+
+[!c++]
+```
+base_base * ptr = new derived_z;
+
+delete ptr;
+```
+
+[* The compiling report errors:]
+
+[!teletype]
+```
+hello.cpp: In function ‘int main()’:
+hello.cpp:33:31: error: ‘base_base’ is an ambiguous base of ‘derived_z’
+   33 |         base_base * ptr = new derived_z;
+      |                               ^~~~~~~~~
+```
+
+[h1 [role cyan Solution: Virtual Inheritance]]
+
+Add a virtual specifier to the inheritance is the solution: virtual inheritance.
+
+[!c++]
+```
+class base_base {};
+class derived_a: virtual public base_base {};
+class derived_b: virtual public base_base {};
+class derived_z: public derived_a, public derived_b {};
+```
+
+Where to put the specifier [*virtual] :
+
+[*Put the [role blue virtual] between derived_a or derived_b [role red and] base_base, because the same base_base is shared to the derived classes via two routines.]
+
+After adding virtual to inheritance, the two issues are solved:
+
+# base_base creation and destroying are not duplicated.
+# Pointer pointing from type base_base to type derived_z work:
+	```base_base * ptr = new derived_z{};```
+
+[br]
+[br]
+[br]
+[br]
+[br]
+[br]
+
+[~Written on Nov 05, 2024]
+
+[h1 [role cyan Back]]
+
+[link day-14-cpp-virtual-destructor-virtual-inheritance Up: day-14]
+
+[@. Index]
+
+[include ../../share/foot-links.inc.qbk]
+
+
+

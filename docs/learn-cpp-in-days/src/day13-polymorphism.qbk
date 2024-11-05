@@ -79,7 +79,7 @@ To make it polymorphism, the same name method of the derived class and the metho
 * [role purple Argument list is same] - (in this example, they are both empty)
 * [role purple Return type is same] - (in this example, they return void)
 
-An also because c++ overloading feature, so if they have a little difference, it makes a different method and the polymorphism is disappeared.
+And also because c++ overloading feature, so if they have a little difference, it makes a different method and the polymorphism is disappeared.
 
 To avoid that mistake, you can add the keyword [*override] at the end of the [*method_name()] declaration, then the compiler will look up that if an overrode method exists on the base class, if not found or mismatched, the compiling will report errors, then you will know what's up.
 

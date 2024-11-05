@@ -1,0 +1,149 @@
+[article day-14: 15 Minutes c++ Virtual Destructor
+	[id day-14-15-minutes-cpp-virtual-destructor]
+	[quickbook 1.7]
+]
+
+[h1 [role cyan Virtual Destructor]]
+
+You have learned the virtual method from previous tutorial: [link day-13-polymorphism-cpp.virtual-method polymorphism virtual method (day-13)].
+
+The destructor have to be virtual sometimes.
+
+[!c++]
+```
+class class_a
+{
+public:
+	virtual ~class_a()	// virtual destructor.
+	{
+	}
+};
+```
+
+[h1 [role cyan Why]]
+
+Let us see the polymorphism program with no-virtual destructor.
+
+[role red [* // An issue c++ program.]]
+
+[!c++]
+```
+#include <iostream>
+
+class base_class
+{
+public:
+	base_class()	// constructor
+	{
+		std::cout << "Create base object" << std::endl;
+	}
+	~base_class()	// destructor: no virtual
+	{
+		std::cout << "Remove base object" << std::endl;
+	}
+};
+
+class derived_class:
+	public base_class
+{
+public:
+	derived_class()
+	{
+		std::cout << "Create derived object" << std::endl;
+	}
+	~derived_class()
+	{
+		std::cout << "Remove derived object" << std::endl;
+	}
+};
+
+int main()
+{
+	base_class * ptr = new derived_class{};
+	delete ptr;
+}
+```
+
+Compile and run the code:
+
+[!teletype]
+```
+>>> g++ hello.cpp -std=c++23 -o hello
+>>> ./hello 
+Create base object
+Create derived object
+Remove base object
+```
+
+You see,
+
+[role purple base object is created once, and removed once.]
+
+[role purple derived object is created once, but [*never removed !]]
+
+[h1 [role cyan Solution: Virtual Destructor]]
+
+To solve the above issue, the virtual destructor is the solution.
+
+Add [*virtual] specifier to the [*destructor] of the [*base] class.
+
+[!c++]
+```
+	virtual ~base_class()	// virtual destructor
+	{
+		// other code ...
+	}
+```
+
+* If the destructor of the base class is virtual, the destructor derived class is automatically virtual, and the destructor of the derived class of the derived class is virtual automatically.
+* [*virtual destructor is tied to the polymorphism] c++ code. If the program does not use polymorphism, virtual destructor is unnecessary.
+* However, because polymorphism is almost anywhere, you may use polymorphism inadvertently, using virtual destructor is a good habit.
+
+You have learned from the previous tutorial the virtual method for the polymorpihsm,
+[br]
+virtual method makes that method polymorphism.
+[br]
+The destructor must be made polymorphism too, by using virtual destructor.
+
+[role green [* According to cppreference:]]
+
+[* quote:]
+[note
+
+Deleting an object through pointer to base invokes undefined behavior unless the destructor in the base class is virtual:
+
+[!c++]
+```
+class Base
+{
+public:
+	virtual ~Base() {}
+};
+
+class Derived : public Base {};
+
+Base* b = new Derived;
+delete b; // safe
+```
+[@https://en.cppreference.com/w/cpp/language/destructor]
+]
+
+[br]
+[br]
+[br]
+[br]
+[br]
+[br]
+
+[~Written on Nov 05, 2024]
+
+[h1 [role cyan Back]]
+
+[link day-14-cpp-virtual-destructor-virtual-inheritance Up: day-14]
+
+[@. Index]
+
+[include ../../share/foot-links.inc.qbk]
+
+
+
