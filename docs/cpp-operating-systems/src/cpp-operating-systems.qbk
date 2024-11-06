@@ -5,6 +5,10 @@
 
 [include cpp-os-haiku-os.qbk]
 
+[h1:cpp-os [role cyan c++ Operating Systems]]
+
+List operating systems written in c++. (c++ os).
+
 [h1 [role cyan Submit]]
 
 If you know an operating system is written in c++, but it is not listed here, please feel free join discord and submit it. I will check it and add it.
