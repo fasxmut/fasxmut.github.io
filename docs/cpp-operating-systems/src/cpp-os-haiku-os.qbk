@@ -1,0 +1,34 @@
+[article Haiku OS
+	[id cpp-os-haiku-os]
+	[quickbook 1.7]
+]
+
+[h1 [role cyan Haiku OS]]
+
+Haiku is an operating system written in c++, forks BeOS and OpenBeOS. Its beautiful and awesome graphical user interface design makes it very suitable for desktop users, office, daily task, games, and developers.
+
+Haiku OS Home: [@https://www.haiku-os.org]
+
+[h1 [role cyan Install Haiku OS]]
+
+Download Haiku anyboot image.
+
+Write anyboot image to USB stick.
+
+Install Haiku with the bootable USB stick.
+
+[br]
+[br]
+[br]
+[br]
+[br]
+[br]
+
+Nov 06, 2024
+
+[link cpp-operating-systems Up: c++ Operating Systems]
+
+[include ../../share/foot-links.inc.qbk]
+
+
+

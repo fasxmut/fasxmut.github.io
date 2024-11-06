@@ -3,7 +3,7 @@
 	[id cpp-operating-systems]
 ]
 
-List some delicious, amazing, powerful, awesome, wonderful, great and nice operating systems written in c++ here.
+[include cpp-os-haiku-os.qbk]
 
 [h1 [role cyan Submit]]
 
