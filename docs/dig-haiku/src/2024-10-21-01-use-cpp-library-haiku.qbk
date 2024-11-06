@@ -3,7 +3,7 @@
 	[id 2024-10-21-01-use-cpp-library-haiku]
 ]
 
-[h1 [role cyan Use c++ library on Haiku OS]]
+[h1:haiku-uses-cpp-lib [role cyan Use c++ library on Haiku OS]]
 
 How to include, link c++ library on haiku. [*Dig Haiku]
 

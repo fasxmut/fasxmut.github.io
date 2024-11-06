@@ -1,0 +1,72 @@
+[article Haiku c++ BFileGameSound play audio - 2024-11-06-01
+	[quickbook 1.7]
+	[id 2024-11-06-01-haiku-cpp-BFileGameSound-play-audio]
+]
+
+[h1 [role cyan BFileGameSound play audio]]
+
+Haiku c++ BFileGameSound audio. [*Dig Haiku]
+
+[h1 [role cyan class BFileGameSound]]
+
+BFileGameSound is a c++ class of haiku api that can load, decode and play an audio file.
+
+[h1 [role cyan method .StartPlaying(), .StopPlaying()]]
+
+Start playing the sound. Stop playing the sound.
+
+[h1 [role cyan method .IsPlaying()]]
+
+Judge if the playing is not stopped.
+
+[h1 [role cyan method .SetPaused, .IsPaused]]
+
+pause
+
+[h1:cpp-code [role cyan c++ code]]
+
+[!c++]
+```
+#include <FileGameSound.h>
+#include <iostream>
+#include <thread>
+
+int main()
+{
+	BFileGameSound snd{"audio.wav", false};
+	snd.StartPlaying();
+	while (true)
+	{
+		std::this_thread::sleep_for(std::chrono::milliseconds(300));
+		std::cout << "Oh! ... " << std::flush;
+		if (! snd.IsPlaying())
+		{
+			std::cout << "\n\nPlaying is finished." << std::endl;
+			break;
+		}
+	}
+}
+```
+
+Compile & Run:
+
+[!teletype]
+```
+~> g++ app.cpp -std=c++23 -o app -lgame
+~> ./app 
+Oh! ... Oh! ... Oh! ... Oh! ...
+Oh! ... 
+
+Playing is finished.
+```
+
+[h1 [role cyan Links]]
+
+Haiku Home - [@https://www.haiku-os.org Haiku OS]
+
+Back Index - [@. Dig Haiku OS c++]
+
+[include ../../share/foot-links.inc.qbk]
+
+
+
