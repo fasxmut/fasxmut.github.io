@@ -253,7 +253,8 @@ Table of contents
     {
        margin: 1pc 4% 0pc 4%;
        padding: 0.1pc 1pc 0.1pc 1pc;
-       font-size: 80%;
+       /*font-size: 80%;*/	/*old*/
+       font-size: 120%;
        line-height: 1.15;
     }
 
@@ -598,7 +599,9 @@ Colors
     /* Table of contents */
         div.toc
         {
-            border: 1px solid #DCDCDC;
+            /*border: 1px solid #DCDCDC;*/	/*old*/
+            border: 2px solid #079;
+            border-radius: 5px;	/*added by fx*/
         }
 
     /* Tables */
