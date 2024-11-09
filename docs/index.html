@@ -104,6 +104,24 @@ a:hover {background:#ddd}
 <li><strong>delete</strong>
 </ul>
 
+<h2>c++ std::mt19937</h2>
+
+<div class="codeblock">
+<pre>
+<font color="red">std::random_device</font> seed;
+<font color="red">std::mt19937</font> rng{seed()};
+<font color="blue">auto</font> rd_value = rng();
+<font color="darkcyan">std::cout</font> << rd_value << std::endl;
+</pre>
+</div>
+
+<ul>
+<li><strong>std::mt19937</strong>
+<li><strong>std::random_device</strong>
+</ul>
+
+<p>Get Random Number</p>
+
 </div>	<!-- class="content" -->
 </div>	<!-- class="oneblock" -->
 
