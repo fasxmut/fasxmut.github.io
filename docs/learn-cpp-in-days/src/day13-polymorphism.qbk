@@ -79,9 +79,9 @@ To make it polymorphism, the same name method of the derived class and the metho
 * [role purple Argument list is same] - (in this example, they are both empty)
 * [role purple Return type is same] - (in this example, they return void)
 
-And also because c++ overloading feature, so if they have a little difference, it makes a different method and the polymorphism is disappeared.
+And also because c++ overloading feature, so if they have a little difference, it makes a different method and it will not polymorphism.
 
-To avoid that mistake, you can add the keyword [*override] at the end of the [*method_name()] declaration, then the compiler will look up that if an overrode method exists on the base class, if not found or mismatched, the compiling will report errors, then you will know what's up.
+To avoid that mistake, you can add the keyword [*override] at the end of the [*method_name()] declaration, then the compiler will look up that if an overrode method exists on the base class, if not found or mismatched, the compiling will report errors, then you will know what's up. No keyword [~override], no compiling checking. 
 
 [h2 Step 3: do the same to derived_B]
 
@@ -102,6 +102,8 @@ public:
 ```
 
 [h2 Step 4: Create relation object !]
+
+[role green [~Make a polymorphism object:]]
 
 * Point 1: the object type is the base_class type.
 * Point 2: the object content is the derived class object.

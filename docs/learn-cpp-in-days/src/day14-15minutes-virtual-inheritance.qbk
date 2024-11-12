@@ -3,6 +3,8 @@
 	[quickbook 1.7]
 ]
 
+Learn c++ virtual inheritance in 15 minutes, maybe 5 minutes, even in 2 minutes if you can, as it has one key point only.
+
 [h1 [role cyan Virtual Inheritance]]
 
 virtual inheritance declaration:

@@ -3,6 +3,8 @@
 	[quickbook 1.7]
 ]
 
+Learn c++ virtual destructor in 15 minutes, maybe in 8 minutes, even in 2 minutes if you can, as it has one key point only.
+
 [h1 [role cyan Virtual Destructor]]
 
 You have learned the virtual method from previous tutorial: [link day-13-polymorphism-cpp.virtual-method polymorphism virtual method (day-13)].
@@ -95,7 +97,7 @@ Add [*virtual] specifier to the [*destructor] of the [*base] class.
 	}
 ```
 
-* If the destructor of the base class is virtual, the destructor derived class is automatically virtual, and the destructor of the derived class of the derived class is virtual automatically.
+* If the destructor of the base class is virtual, the destructor of the derived class is automatically virtual, and the destructor of the derived class of the derived class is virtual automatically.
 * [*virtual destructor is tied to the polymorphism] c++ code. If the program does not use polymorphism, virtual destructor is unnecessary.
 * However, because polymorphism is almost anywhere, you may use polymorphism inadvertently, using virtual destructor is a good habit.
 

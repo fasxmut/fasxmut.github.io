@@ -145,14 +145,15 @@
 </ul></div>
 <p>
       And also because c++ overloading feature, so if they have a little difference,
-      it makes a different method and the polymorphism is disappeared.
+      it makes a different method and it will not polymorphism.
     </p>
 <p>
       To avoid that mistake, you can add the keyword <span class="bold"><strong>override</strong></span>
       at the end of the <span class="bold"><strong>method_name()</strong></span> declaration,
       then the compiler will look up that if an overrode method exists on the base
       class, if not found or mismatched, the compiling will report errors, then you
-      will know what's up.
+      will know what's up. No keyword <em class="replaceable"><code>override</code></em>, no compiling
+      checking.
     </p>
 <h3>
 <a name="day-13-polymorphism-cpp.h6"></a>
@@ -179,6 +180,9 @@
       <span class="phrase"><a name="day-13-polymorphism-cpp.step_4_create_relation_object"></a></span><a class="link" href="day-13-polymorphism-cpp.html#day-13-polymorphism-cpp.step_4_create_relation_object">Step
       4: Create relation object !</a>
     </h3>
+<p>
+      <span class="green"><em class="replaceable"><code>Make a polymorphism object:</code></em></span>
+    </p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
           Point 1: the object type is the base_class type.
