@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>day-15: c++ template</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Learn c++ in days">
+<link rel="up" href="index.html" title="Learn c++ in days">
+<link rel="prev" href="day-14-15-minutes-cpp-virtual-inheritance.html" title="day-14: 15 Minutes c++ Virtual Inheritance">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="day-14-15-minutes-cpp-virtual-inheritance.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="day-15-cpp-template"></a>day-15: c++ template</h1></div></div>
+<hr>
+</div>
+<h2>
+<a name="day-15-cpp-template.h0"></a>
+      <span class="phrase"><a name="day-15-cpp-template.cpp-template"></a></span><a class="link" href="day-15-cpp-template.html#day-15-cpp-template.cpp-template"><span class="cyan">c++ template</span></a>
+    </h2>
+<p>
+      Template is a template to shape things. c++ template is a generic programming
+      basis of c++. c++ template is the basis of c++ type system.
+    </p>
+<h3>
+<a name="day-15-cpp-template.h1"></a>
+      <span class="phrase"><a name="day-15-cpp-template.template_declaration"></a></span><a class="link" href="day-15-cpp-template.html#day-15-cpp-template.template_declaration">template
+      declaration</a>
+    </h3>
+<p>
+      c++ template declaration:
+    </p>
+<pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">type_t00</span><span class="special">&gt;</span>
+<span class="identifier">the</span><span class="special">-</span><span class="identifier">declared</span><span class="special">-</span><span class="identifier">name</span> <span class="special">...</span>
+</pre>
+<pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">type_t00</span><span class="special">,</span> <span class="keyword">typename</span> <span class="identifier">type_t01</span><span class="special">&gt;</span>
+<span class="identifier">the</span><span class="special">-</span><span class="identifier">declared</span><span class="special">-</span><span class="identifier">name</span> <span class="special">...</span>
+</pre>
+<p>
+      c++ template declaration declares a template that can be instantiated laterly.
+    </p>
+<p>
+      the type_t00 and type_t01 are the template arguments, which are generic types,
+      that can be any possible type. A generic type means it is not a specific type.
+    </p>
+<h3>
+<a name="day-15-cpp-template.h2"></a>
+      <span class="phrase"><a name="day-15-cpp-template.template_instantiation"></a></span><a class="link" href="day-15-cpp-template.html#day-15-cpp-template.template_instantiation">template
+      instantiation</a>
+    </h3>
+<p>
+      Passing a specific type to the template is called template instantiation.
+    </p>
+<pre class="programlisting"><span class="identifier">the</span><span class="special">-</span><span class="identifier">declared</span><span class="special">-</span><span class="identifier">name</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;</span> <span class="special">...</span>
+<span class="identifier">the</span><span class="special">-</span><span class="identifier">declared</span><span class="special">-</span><span class="identifier">name</span><span class="special">&lt;</span><span class="keyword">float</span><span class="special">,</span> <span class="keyword">char</span><span class="special">&gt;</span> <span class="special">...</span>
+</pre>
+<p>
+      The above instantiations pass int as type_t00, and pass float, char as type_t00,
+      type_t01.
+    </p>
+<p>
+      int, float, and char are specific types, which are not generic types.
+    </p>
+<h2>
+<a name="day-15-cpp-template.h3"></a>
+      <span class="phrase"><a name="day-15-cpp-template.cpp-class-template"></a></span><a class="link" href="day-15-cpp-template.html#day-15-cpp-template.cpp-class-template"><span class="cyan">c++ class template declaration and instantiation (example)</span></a>
+    </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="comment">// template declaration</span>
+<span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">type_t00</span><span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">my_class</span>
+<span class="special">{</span>
+<span class="keyword">private</span><span class="special">:</span>
+	<span class="identifier">type_t00</span> <span class="identifier">__value</span><span class="special">;</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">my_class</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">type_t00</span> <span class="special">&amp;</span> <span class="identifier">value__</span><span class="special">):</span>
+		<span class="identifier">__value</span><span class="special">{</span><span class="identifier">value__</span><span class="special">}</span> <span class="comment">// It means initializing __value with value__ here.</span>
+	<span class="special">{</span>
+	<span class="special">}</span>
+	<span class="keyword">void</span> <span class="identifier">print</span><span class="special">()</span> <span class="keyword">const</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">__value</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="comment">// template instantiation</span>
+	<span class="identifier">my_class</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;</span> <span class="identifier">objjpp</span><span class="special">{</span><span class="number">12345</span><span class="special">};</span>
+
+	<span class="identifier">objjpp</span><span class="special">.</span><span class="identifier">print</span><span class="special">();</span>
+<span class="special">}</span>
+</pre>
+<h4>
+<a name="day-15-cpp-template.h4"></a>
+      <span class="phrase"><a name="day-15-cpp-template.this_is_template_declaration"></a></span><a class="link" href="day-15-cpp-template.html#day-15-cpp-template.this_is_template_declaration">This
+      is template declaration:</a>
+    </h4>
+<pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">type_t00</span><span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">my_class</span>
+</pre>
+<p>
+      type_t00 is not specified, that will be waiting for specifying, it is generic.
+    </p>
+<h4>
+<a name="day-15-cpp-template.h5"></a>
+      <span class="phrase"><a name="day-15-cpp-template.this_is_template_instantiation"></a></span><a class="link" href="day-15-cpp-template.html#day-15-cpp-template.this_is_template_instantiation">This
+      is template instantiation:</a>
+    </h4>
+<pre class="programlisting"><span class="identifier">my_class</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;</span> <span class="identifier">objjpp</span><span class="special">{</span><span class="number">12345</span><span class="special">};</span>
+</pre>
+<p>
+      The type_t00 is specified with int, by passing int to the template.
+    </p>
+<p>
+      <span class="blue"><span class="bold"><strong>Serious Note:</strong></span></span>
+    </p>
+<p>
+      <span class="blue">Actually, the above statement contains three behaviors
+      : template instantiation, object declaration, and object initialization.</span>
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+          <span class="blue">This is template <span class="red">instantiation actually</span>:</span>
+        </li></ul></div>
+<pre class="programlisting"><span class="identifier">my_class</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;</span>
+</pre>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+          <span class="blue">This is object declaration:</span>
+        </li></ul></div>
+<pre class="programlisting"><span class="special">...</span> <span class="identifier">objjpp</span>
+</pre>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+          <span class="blue">This is object initialization:</span>
+        </li></ul></div>
+<pre class="programlisting"><span class="special">...</span> <span class="identifier">objjpp</span><span class="special">{</span><span class="number">12345</span><span class="special">}</span>
+</pre>
+<p>
+      Just note what is template instantiation actually here.
+    </p>
+<h2>
+<a name="day-15-cpp-template.h6"></a>
+      <span class="phrase"><a name="day-15-cpp-template.role_cyan_template_type_paramete"></a></span><a class="link" href="day-15-cpp-template.html#day-15-cpp-template.role_cyan_template_type_paramete"><span class="cyan">template type parameter can be auto-deduced</span></a>
+    </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">type_t00</span><span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">my_class</span>
+<span class="special">{</span>
+<span class="keyword">private</span><span class="special">:</span>
+	<span class="identifier">type_t00</span> <span class="identifier">__value</span><span class="special">;</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">my_class</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">type_t00</span> <span class="special">&amp;</span> <span class="identifier">value__</span><span class="special">):</span>
+		<span class="identifier">__value</span><span class="special">{</span><span class="identifier">value__</span><span class="special">}</span>
+	<span class="special">{</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">my_class</span> <span class="identifier">objjpp</span><span class="special">{</span><span class="number">12345</span><span class="special">};</span>	<span class="comment">// Instantiation: auto-deduced</span>
+<span class="special">}</span>
+</pre>
+<p>
+      The template parameter type type_t00 is auto-deduced as int, because 12345
+      is auto-deduced as type int.
+    </p>
+<h2>
+<a name="day-15-cpp-template.h7"></a>
+      <span class="phrase"><a name="day-15-cpp-template.role_cyan_template_constructor"></a></span><a class="link" href="day-15-cpp-template.html#day-15-cpp-template.role_cyan_template_constructor"><span class="cyan">template constructor</span></a>
+    </h2>
+<p>
+      The examples above are using template class, that the template is generic for
+      the whole class.
+    </p>
+<p>
+      However, the template can be generic for a specific constructor.
+    </p>
+<h3>
+<a name="day-15-cpp-template.h8"></a>
+      <span class="phrase"><a name="day-15-cpp-template.template_constructor_example"></a></span><a class="link" href="day-15-cpp-template.html#day-15-cpp-template.template_constructor_example">template
+      constructor example:</a>
+    </h3>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">class</span> <span class="identifier">my_class</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">type_t00</span><span class="special">&gt;</span>
+	<span class="identifier">my_class</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">type_t00</span> <span class="special">&amp;</span> <span class="identifier">v__</span><span class="special">)</span>	<span class="comment">// constructor 1</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"constructor 1 is called=&gt; "</span> <span class="special">&lt;&lt;</span> <span class="identifier">v__</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+
+	<span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">type_t00</span><span class="special">,</span> <span class="keyword">typename</span> <span class="identifier">type_t01</span><span class="special">&gt;</span>
+	<span class="identifier">my_class</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">type_t00</span> <span class="special">&amp;</span> <span class="identifier">v0__</span><span class="special">,</span> <span class="keyword">const</span> <span class="identifier">type_t01</span> <span class="special">&amp;</span> <span class="identifier">v1__</span><span class="special">)</span>	<span class="comment">// constructor 2</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"constructor 2 is called=&gt; "</span> <span class="special">&lt;&lt;</span> <span class="identifier">v0__</span> <span class="special">&lt;&lt;</span> <span class="string">" "</span> <span class="special">&lt;&lt;</span> <span class="identifier">v1__</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">my_class</span> <span class="identifier">obj11</span><span class="special">{</span><span class="number">23</span><span class="special">};</span>	<span class="comment">// Instantiation: call constructor 1</span>
+	<span class="identifier">my_class</span> <span class="identifier">obj22</span><span class="special">{</span><span class="number">2.5</span><span class="special">,</span> <span class="char">'a'</span><span class="special">};</span>	<span class="comment">// Instantiation: call constructor 2</span>
+	<span class="identifier">my_class</span> <span class="identifier">obj11_11</span><span class="special">{</span><span class="number">32</span><span class="special">};</span>	<span class="comment">// Instantiation: call constructor 1</span>
+<span class="special">}</span>
+</pre>
+<p>
+      Output:
+    </p>
+<pre class="programlisting">constructor 1 is called=&gt; 23
+constructor 2 is called=&gt; 2.5 a
+constructor 1 is called=&gt; 32
+</pre>
+<p>
+      <span class="blue">Note that <br> my_class is not a template class in this
+      example, <br> you should not use <span class="bold"><strong>my_class&lt;int&gt;</strong></span>,
+      which is an error.</span>
+    </p>
+<h2>
+<a name="day-15-cpp-template.h9"></a>
+      <span class="phrase"><a name="day-15-cpp-template.role_cyan_template_method"></a></span><a class="link" href="day-15-cpp-template.html#day-15-cpp-template.role_cyan_template_method"><span class="cyan">template method</span></a>
+    </h2>
+<p>
+      The method of the class can be template too.
+    </p>
+<h3>
+<a name="day-15-cpp-template.h10"></a>
+      <span class="phrase"><a name="day-15-cpp-template.template_method_example"></a></span><a class="link" href="day-15-cpp-template.html#day-15-cpp-template.template_method_example">template
+      method example</a>
+    </h3>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">class</span> <span class="identifier">my_class</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">type_t10</span><span class="special">&gt;</span>
+	<span class="keyword">void</span> <span class="identifier">say_something</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">type_t10</span> <span class="special">&amp;</span> <span class="identifier">something</span><span class="special">)</span> <span class="keyword">const</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"say: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">something</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">auto</span> <span class="identifier">objjpp</span> <span class="special">=</span> <span class="identifier">my_class</span><span class="special">{};</span>
+	<span class="identifier">objjpp</span><span class="special">.</span><span class="identifier">say_something</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;(</span><span class="number">254444</span><span class="special">);</span>	<span class="comment">// type_t10 is passed as int</span>
+	<span class="identifier">objjpp</span><span class="special">.</span><span class="identifier">say_something</span><span class="special">&lt;</span><span class="keyword">double</span><span class="special">&gt;(</span><span class="number">254.444</span><span class="special">);</span>	<span class="comment">// type_t10 is passed as double</span>
+	<span class="identifier">objjpp</span><span class="special">.</span><span class="identifier">say_something</span><span class="special">(</span><span class="char">'J'</span><span class="special">);</span>	<span class="comment">// type_t10 is auto-deduced as char</span>
+<span class="special">}</span>
+</pre>
+<p>
+      output:
+    </p>
+<pre class="programlisting">say: 254444
+say: 254.444
+say: J
+</pre>
+<p>
+      <br> <br> <br> <br> <br> <br>
+    </p>
+<p>
+      <em class="replaceable"><code>Written on Nov 12, 2024</code></em>
+    </p>
+<h2>
+<a name="day-15-cpp-template.h11"></a>
+      <span class="phrase"><a name="day-15-cpp-template.role_cyan_back_to_index"></a></span><a class="link" href="day-15-cpp-template.html#day-15-cpp-template.role_cyan_back_to_index"><span class="cyan">Back to index</span></a>
+    </h2>
+<p>
+      <a href="." target="_top">Index</a>
+    </p>
+<h2>
+<a name="day-15-cpp-template.h12"></a>
+      <span class="phrase"><a name="day-15-cpp-template.cpp-lang"></a></span><a class="link" href="day-15-cpp-template.html#day-15-cpp-template.cpp-lang"><span class="cyan">cpp/c++</span></a>
+    </h2>
+<p>
+      c++ std::exception:
+    </p>
+<p>
+      std::cout.write(err.data(), err.size());
+    </p>
+<p>
+      std::cout &lt;&lt; std::endl;
+    </p>
+<p>
+      <span class="purple">caught:</span>
+    </p>
+<pre class="programlisting">  ==================================================
+  #        The c++ programming language.           #
+  #                                                #
+  #        <a href="https://cppfx.xyz" target="_top">Home: cppfx.xyz</a>                         #
+  #        <a href="https://cppfx.xyz/esvcpp/esv_print.html" target="_top">E</a>                                       #
+  #        Join c++ Discord: yZcauUAUyC            #
+  #        Deck                                    #
+  ==================================================
+</pre>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="day-14-15-minutes-cpp-virtual-inheritance.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+</body>
+</html>

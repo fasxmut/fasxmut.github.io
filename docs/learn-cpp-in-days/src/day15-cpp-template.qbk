@@ -1,0 +1,253 @@
+[article day-15: c++ template
+	[id day-15-cpp-template]
+	[quickbook 1.7]
+]
+
+[h1:cpp-template [role cyan c++ template]]
+
+Template is a template to shape things. c++ template is a generic programming basis of c++. c++ template is the basis of c++ type system.
+
+[h2 template declaration]
+
+c++ template declaration:
+
+[!c++]
+```
+template <typename type_t00>
+the-declared-name ...
+```
+
+[!c++]
+```
+template <typename type_t00, typename type_t01>
+the-declared-name ...
+```
+
+c++ template declaration declares a template that can be instantiated laterly.
+
+the type_t00 and type_t01 are the template arguments, which are generic types, that can be any possible type. A generic type means it is not a specific type.
+
+[h2 template instantiation]
+
+Passing a specific type to the template is called template instantiation.
+
+[!c++]
+```
+the-declared-name<int> ...
+the-declared-name<float, char> ...
+```
+
+The above instantiations pass int as type_t00, and pass float, char as type_t00, type_t01.
+
+int, float, and char are specific types, which are not generic types.
+
+[h1:cpp-class-template [role cyan c++ class template declaration and instantiation (example)]]
+
+[!c++]
+```
+#include <iostream>
+
+// template declaration
+template <typename type_t00>
+class my_class
+{
+private:
+	type_t00 __value;
+public:
+	my_class(const type_t00 & value__):
+		__value{value__} // It means initializing __value with value__ here.
+	{
+	}
+	void print() const
+	{
+		std::cout << __value << std::endl;
+	}
+};
+
+int main()
+{
+	// template instantiation
+	my_class<int> objjpp{12345};
+
+	objjpp.print();
+}
+```
+
+[h3 This is template declaration:]
+
+[!c++]
+```
+template <typename type_t00>
+class my_class
+```
+
+type_t00 is not specified, that will be waiting for specifying, it is generic.
+
+[h3 This is template instantiation:]
+
+[!c++]
+```
+my_class<int> objjpp{12345};
+```
+
+The type_t00 is specified with int, by passing int to the template.
+
+[role blue [*Serious Note:]]
+
+[role blue Actually, the above statement contains three behaviors : template instantiation, object declaration, and object initialization.]
+
+* [role blue This is template [role red instantiation actually]:]
+
+[!c++]
+```
+my_class<int>
+```
+
+* [role blue This is object declaration:]
+
+[!c++]
+```
+... objjpp
+```
+
+* [role blue This is object initialization:]
+
+[!c++]
+```
+... objjpp{12345}
+```
+
+Just note what is template instantiation actually here.
+
+[h1 [role cyan template type parameter can be auto-deduced]]
+
+[!c++]
+```
+#include <iostream>
+
+template <typename type_t00>
+class my_class
+{
+private:
+	type_t00 __value;
+public:
+	my_class(const type_t00 & value__):
+		__value{value__}
+	{
+	}
+};
+
+int main()
+{
+	my_class objjpp{12345};	// Instantiation: auto-deduced
+}
+```
+
+The template parameter type type_t00 is auto-deduced as int, because 12345 is auto-deduced as type int.
+
+[h1 [role cyan template constructor]]
+
+The examples above are using template class, that the template is generic for the whole class.
+
+However, the template can be generic for a specific constructor.
+
+[h2 template constructor example:]
+
+[!c++]
+```
+#include <iostream>
+
+class my_class
+{
+public:
+	template <typename type_t00>
+	my_class(const type_t00 & v__)	// constructor 1
+	{
+		std::cout << "constructor 1 is called=> " << v__ << std::endl;
+	}
+
+	template <typename type_t00, typename type_t01>
+	my_class(const type_t00 & v0__, const type_t01 & v1__)	// constructor 2
+	{
+		std::cout << "constructor 2 is called=> " << v0__ << " " << v1__ << std::endl;
+	}
+};
+
+int main()
+{
+	my_class obj11{23};	// Instantiation: call constructor 1
+	my_class obj22{2.5, 'a'};	// Instantiation: call constructor 2
+	my_class obj11_11{32};	// Instantiation: call constructor 1
+}
+```
+
+Output:
+
+[!teletype]
+```
+constructor 1 is called=> 23
+constructor 2 is called=> 2.5 a
+constructor 1 is called=> 32
+```
+
+[role blue Note that
+[br]
+my_class is not a template class in this example,
+[br]
+you should not use [*my_class<int>], which is an error.]
+
+[h1 [role cyan template method]]
+
+The method of the class can be template too.
+
+[h2 template method example]
+
+[!c++]
+```
+#include <iostream>
+
+class my_class
+{
+public:
+	template <typename type_t10>
+	void say_something(const type_t10 & something) const
+	{
+		std::cout << "say: " << something << std::endl;
+	}
+};
+
+int main()
+{
+	auto objjpp = my_class{};
+	objjpp.say_something<int>(254444);	// type_t10 is passed as int
+	objjpp.say_something<double>(254.444);	// type_t10 is passed as double
+	objjpp.say_something('J');	// type_t10 is auto-deduced as char
+}
+```
+
+output:
+
+[!teletype]
+```
+say: 254444
+say: 254.444
+say: J
+```
+
+[br]
+[br]
+[br]
+[br]
+[br]
+[br]
+
+[~Written on Nov 12, 2024]
+
+[h1 [role cyan Back to index]]
+
+[@. Index]
+
+[include ../../share/foot-links.inc.qbk]
+
+
+
