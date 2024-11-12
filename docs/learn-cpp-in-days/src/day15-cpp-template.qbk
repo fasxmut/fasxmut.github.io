@@ -5,7 +5,11 @@
 
 [h1:cpp-template [role cyan c++ template]]
 
-Template is a template to shape things. c++ template is a generic programming basis of c++. c++ template is the basis of c++ type system.
+Template is a template that is one thing to shape many things.
+
+One thing: a c++ template; many things: many c++ classes.
+
+c++ template is a generic programming basis of c++. c++ template is the basis of c++ type system.
 
 [h2 template declaration]
 
@@ -233,6 +237,22 @@ say: 254444
 say: 254.444
 say: J
 ```
+
+[h1 [role cyan Back to the starting line]]
+
+Template is a template that is one thing to shape many things.
+
+[!c++]
+```
+template <typename type_t00>
+class my_class;
+```
+
+[* * One thing: [role purple one template]: the template class [~my_class]]
+
+[* * Many things: [role purple many classes]: [~my_class<int>,  my_class<double>, my_class<char>, ...]]
+
+[role indigo ( [*my_class<int>], [*my_class<double>], [*my_class<char>] are three different standalone classes.)]
 
 [br]
 [br]
