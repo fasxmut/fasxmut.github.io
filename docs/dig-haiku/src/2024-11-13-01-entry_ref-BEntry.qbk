@@ -1,0 +1,44 @@
+[article Haiku c++ entry_ref BEntry - 2024-11-13-01
+	[quickbook 1.7]
+	[id 2024-11-13-01-haiku-cpp-entry_ref-BEntry]
+]
+
+[h1 [role cyan entry_ref BEntry]]
+
+entry_ref, BEntry, Haiku c++ api
+
+[!c++]
+```
+#include <Entry.h>
+#include <iostream>
+
+int main()
+{
+	entry_ref e_ref;
+	BEntry{"audio.wav"}.GetRef(&e_ref);
+	std::cout << e_ref.name << "::" << e_ref.device << "::" << e_ref.directory << std::endl;
+}
+                        
+```
+
+Build & Run:
+
+[!teletype]
+```
+~> g++ xx.cpp -std=c++23 -lbe -o xx
+~> ./xx 
+audio.wav::3::1048576
+```
+
+[h1 [role cyan Links]]
+
+Haiku API Docs [@https://api.haiku-os.org]
+
+Haiku Home - [@https://www.haiku-os.org Haiku OS]
+
+Back Index - [@. Dig Haiku OS c++]
+
+[include ../../share/foot-links.inc.qbk]
+
+
+
