@@ -1,0 +1,78 @@
+[article Haiku c++ BEntry Rename- 2024-11-13-02
+	[quickbook 1.7]
+	[id 2024-11-13-02-haiku-cpp-BEntry-Rename]
+]
+
+[h1 [role cyan BEntry Rename]]
+
+BEntry Rename, Haiku c++
+
+[!c++]
+```
+#include <Entry.h>
+#include <iostream>
+
+int main()
+{
+	BEntry file{"audio.wav"};
+
+	std::cout << file.Name() << " exists: " << std::boolalpha << file.Exists() << std::endl;
+	
+	// entry_ref e_ref;
+	// file.GetRef(&e_ref);
+
+	if (file.Exists())
+	{
+		std::cout << "Rename audio.wav to music.wav, sure? (y/n) " << std::flush;
+		std::string ans;
+		std::getline(std::cin, ans);
+		std::cout << std::endl;
+		if (ans == "y")
+		{
+			file.Rename("music.wav");
+			std::cout << "Renamed OK." << std::endl;
+		}
+	}
+	else
+		std::cout << "not exists!" << std::endl;
+
+
+	// file.Remove();
+
+	std::cout << std::endl;
+}
+```
+
+Build & Run
+
+[!teletype]
+```
+~> g++ xx.cpp -std=c++23 -lbe -o xx
+~> ./xx 
+audio.wav exists: true
+Rename audio.wav to music.wav, sure? (y/n) y
+Renamed OK.
+
+~> ./xx 
+audio.wav exists: false
+not exists!
+
+~> mv music.wav audio.wav
+~> ./xx
+audio.wav exists: true
+Rename audio.wav to music.wav, sure? (y/n) n
+
+```
+
+[h1 [role cyan Links]]
+
+Haiku API Docs [@https://api.haiku-os.org]
+
+Haiku Home - [@https://www.haiku-os.org Haiku OS]
+
+Back Index - [@. Dig Haiku OS c++]
+
+[include ../../share/foot-links.inc.qbk]
+
+
+

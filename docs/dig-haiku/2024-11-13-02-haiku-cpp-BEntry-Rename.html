@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Haiku c++ BEntry Rename- 2024-11-13-02</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Dig Haiku OS c++">
+<link rel="up" href="index.html" title="Dig Haiku OS c++">
+<link rel="prev" href="index.html" title="Dig Haiku OS c++">
+<link rel="next" href="2024-11-13-01-haiku-cpp-entry_ref-BEntry.html" title="Haiku c++ entry_ref BEntry - 2024-11-13-01">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="2024-11-13-01-haiku-cpp-entry_ref-BEntry.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="2024-11-13-02-haiku-cpp-BEntry-Rename"></a>Haiku c++ BEntry Rename- 2024-11-13-02</h1></div></div>
+<hr>
+</div>
+<h2>
+<a name="2024-11-13-02-haiku-cpp-BEntry-Rename.h0"></a>
+      <span class="phrase"><a name="2024-11-13-02-haiku-cpp-BEntry-Rename.role_cyan_bentry_rename"></a></span><a class="link" href="2024-11-13-02-haiku-cpp-BEntry-Rename.html#2024-11-13-02-haiku-cpp-BEntry-Rename.role_cyan_bentry_rename"><span class="cyan">BEntry Rename</span></a>
+    </h2>
+<p>
+      BEntry Rename, Haiku c++
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">Entry</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">BEntry</span> <span class="identifier">file</span><span class="special">{</span><span class="string">"audio.wav"</span><span class="special">};</span>
+
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">file</span><span class="special">.</span><span class="identifier">Name</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="string">" exists: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">boolalpha</span> <span class="special">&lt;&lt;</span> <span class="identifier">file</span><span class="special">.</span><span class="identifier">Exists</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	
+	<span class="comment">// entry_ref e_ref;</span>
+	<span class="comment">// file.GetRef(&amp;e_ref);</span>
+
+	<span class="keyword">if</span> <span class="special">(</span><span class="identifier">file</span><span class="special">.</span><span class="identifier">Exists</span><span class="special">())</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Rename audio.wav to music.wav, sure? (y/n) "</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">flush</span><span class="special">;</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">ans</span><span class="special">;</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">getline</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">cin</span><span class="special">,</span> <span class="identifier">ans</span><span class="special">);</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+		<span class="keyword">if</span> <span class="special">(</span><span class="identifier">ans</span> <span class="special">==</span> <span class="string">"y"</span><span class="special">)</span>
+		<span class="special">{</span>
+			<span class="identifier">file</span><span class="special">.</span><span class="identifier">Rename</span><span class="special">(</span><span class="string">"music.wav"</span><span class="special">);</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Renamed OK."</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="special">}</span>
+	<span class="keyword">else</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"not exists!"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+
+
+	<span class="comment">// file.Remove();</span>
+
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<p>
+      Build &amp; Run
+    </p>
+<pre class="programlisting">~&gt; g++ xx.cpp -std=c++23 -lbe -o xx
+~&gt; ./xx
+audio.wav exists: true
+Rename audio.wav to music.wav, sure? (y/n) y
+Renamed OK.
+
+~&gt; ./xx
+audio.wav exists: false
+not exists!
+
+~&gt; mv music.wav audio.wav
+~&gt; ./xx
+audio.wav exists: true
+Rename audio.wav to music.wav, sure? (y/n) n
+</pre>
+<h2>
+<a name="2024-11-13-02-haiku-cpp-BEntry-Rename.h1"></a>
+      <span class="phrase"><a name="2024-11-13-02-haiku-cpp-BEntry-Rename.role_cyan_links"></a></span><a class="link" href="2024-11-13-02-haiku-cpp-BEntry-Rename.html#2024-11-13-02-haiku-cpp-BEntry-Rename.role_cyan_links"><span class="cyan">Links</span></a>
+    </h2>
+<p>
+      Haiku API Docs <a href="https://api.haiku-os.org" target="_top">https://api.haiku-os.org</a>
+    </p>
+<p>
+      Haiku Home - <a href="https://www.haiku-os.org" target="_top">Haiku OS</a>
+    </p>
+<p>
+      Back Index - <a href="." target="_top">Dig Haiku OS c++</a>
+    </p>
+<h2>
+<a name="2024-11-13-02-haiku-cpp-BEntry-Rename.h2"></a>
+      <span class="phrase"><a name="2024-11-13-02-haiku-cpp-BEntry-Rename.cpp-lang"></a></span><a class="link" href="2024-11-13-02-haiku-cpp-BEntry-Rename.html#2024-11-13-02-haiku-cpp-BEntry-Rename.cpp-lang"><span class="cyan">cpp/c++</span></a>
+    </h2>
+<p>
+      c++ std::exception:
+    </p>
+<p>
+      std::cout.write(err.data(), err.size());
+    </p>
+<p>
+      std::cout &lt;&lt; std::endl;
+    </p>
+<p>
+      <span class="purple">caught:</span>
+    </p>
+<pre class="programlisting">  ==================================================
+  #        The c++ programming language.           #
+  #                                                #
+  #        <a href="https://cppfx.xyz" target="_top">Home: cppfx.xyz</a>                         #
+  #        <a href="https://cppfx.xyz/esvcpp/esv_print.html" target="_top">E</a>                                       #
+  #        Join c++ Discord: yZcauUAUyC            #
+  #        Deck                                    #
+  ==================================================
+</pre>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="2024-11-13-01-haiku-cpp-entry_ref-BEntry.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
