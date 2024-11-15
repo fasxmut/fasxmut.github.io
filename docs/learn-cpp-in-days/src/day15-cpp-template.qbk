@@ -18,13 +18,13 @@ c++ template declaration:
 [!c++]
 ```
 template <typename type_t00>
-the-declared-name ...
+... the-declared-name ...
 ```
 
 [!c++]
 ```
 template <typename type_t00, typename type_t01>
-the-declared-name ...
+... the-declared-name ...
 ```
 
 c++ template declaration declares a template that can be instantiated laterly.
