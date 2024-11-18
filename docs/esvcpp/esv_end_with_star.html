@@ -1,102 +1,12 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>esv::end_with_star</title>
-<link rel="stylesheet" href="boostbook.css" type="text/css">
-<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
-<link rel="home" href="index.html" title="Esvcpp Home">
-<link rel="up" href="basic_concepts.html" title="Basic Concepts">
-<link rel="prev" href="esv_same_assert.html" title="esv::same_assert">
-<link rel="next" href="esv_param_mutex.html" title="esv::param_mutex">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>489064615</title>
 </head>
-<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-<div class="spirit-nav">
-<a accesskey="p" href="esv_same_assert.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="basic_concepts.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="esv_param_mutex.html"><img src="images/next.png" alt="Next"></a>
-</div>
-<div class="article">
-<div class="titlepage">
-<div><div><h2 class="title">
-<a name="esv_end_with_star"></a>esv::end_with_star</h2></div></div>
-<hr>
-</div>
-<h2>
-<a name="esv_end_with_star.h0"></a>
-          <span class="phrase"><a name="esv_end_with_star.role_cyan_esv_end_with_star_conc"></a></span><a class="link" href="esv_end_with_star.html#esv_end_with_star.role_cyan_esv_end_with_star_conc"><span class="cyan">esv::end_with_star
-          concept</span></a>
-        </h2>
+<body>
+<h1>489064615</h1>
 <p>
-          esv::end_with_star is a concept used to match a type which has a pointer
-          star symbol at the end.
-        </p>
-<p>
-          As some type might be a pointer but does not have a pointer star symbol,
-          esv::end_with_star is used to distinguish them, esv::end_with_star concept
-          guarantees a star symbol must exist at the end.
-        </p>
-<p>
-          The following types satisfy concept esv::end_with_star :
-        </p>
-<pre class="programlisting">const char *
-char *
-int *
-any_type any_qualifiers *
-</pre>
-<p>
-          The following types do not satisfy concept esv::end_with_star :
-        </p>
-<pre class="programlisting">const char * const
-char * const
-int * const
-chat (*)[16]
-</pre>
-<p>
-          To match a type which has a star symbol before cv- qualifiers, you can
-          use esv::remove_cvref_t on it, then use concept esv::end_with_star .
-        </p>
-<p>
-          esv::end_with_star was designed for <a class="link" href="esv_str_size.html" title="esv::str_size">esv::str_size</a>,
-          but it can be used for general purpose.
-        </p>
-<h2>
-<a name="esv_end_with_star.h1"></a>
-          <span class="phrase"><a name="esv_end_with_star.role_cyan_c_example"></a></span><a class="link" href="esv_end_with_star.html#esv_end_with_star.role_cyan_c_example"><span class="cyan">c++ example</span></a>
-        </h2>
-<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">esvcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
-
-<span class="keyword">template</span> <span class="special">&lt;</span><span class="identifier">esv</span><span class="special">::</span><span class="identifier">end_with_star</span> <span class="identifier">pointer_type</span><span class="special">&gt;</span>
-<span class="keyword">class</span> <span class="identifier">fizz_box</span>
-<span class="special">{</span>
-<span class="special">};</span>
-
-<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
-<span class="special">{</span>
-	<span class="identifier">fizz_box</span><span class="special">&lt;</span><span class="keyword">const</span> <span class="keyword">char</span> <span class="special">*&gt;</span> <span class="identifier">f1</span><span class="special">;</span>	<span class="comment">// OK</span>
-	<span class="comment">// fizz_box&lt;char (*) [16]&gt; f2;	// error</span>
-<span class="special">}</span>
-</pre>
-<h2>
-<a name="esv_end_with_star.h2"></a>
-          <span class="phrase"><a name="esv_end_with_star.role_cyan_see_also"></a></span><a class="link" href="esv_end_with_star.html#esv_end_with_star.role_cyan_see_also"><span class="cyan">See Also</span></a>
-        </h2>
-<p>
-          <a class="link" href="esv_str_size.html" title="esv::str_size">esv::str_size</a>
-        </p>
-</div>
-<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
-        Distributed under the Boost Software License, Version 1.0. (See accompanying
-        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
-      </p>
-</div>
-<hr>
-<div class="spirit-nav">
-<a accesskey="p" href="esv_same_assert.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="basic_concepts.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="esv_param_mutex.html"><img src="images/next.png" alt="Next"></a>
-</div>
-<div class="footnp" style="margin-left:auto;margin-right:auto;max-width:300px">
-<div style="float:left">
-<p><a href="https://cppfx.xyz/kcpp/kcpp-print.html">K</a></p>
-</div>
-</div>
+This api is deprecated and removed, please upgrade to
+<a href="https://cppfx.xyz/kcpp/kcpp-print.html">K</a>
+</p>
 </body>
 </html>

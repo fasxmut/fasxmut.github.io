@@ -1,87 +1,12 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>esv::str_to</title>
-<link rel="stylesheet" href="boostbook.css" type="text/css">
-<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
-<link rel="home" href="index.html" title="Esvcpp Home">
-<link rel="up" href="string.html" title="String">
-<link rel="prev" href="string.html" title="String">
-<link rel="next" href="esv_split_view.html" title="esv::split_view">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>738465001</title>
 </head>
-<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-<div class="spirit-nav">
-<a accesskey="p" href="string.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="string.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="esv_split_view.html"><img src="images/next.png" alt="Next"></a>
-</div>
-<div class="article">
-<div class="titlepage">
-<div><div><h2 class="title">
-<a name="esv_str_to"></a>esv::str_to</h2></div></div>
-<hr>
-</div>
-<h2>
-<a name="esv_str_to.h0"></a>
-        <span class="phrase"><a name="esv_str_to.role_cyan_esv_str_to"></a></span><a class="link" href="esv_str_to.html#esv_str_to.role_cyan_esv_str_to"><span class="cyan">esv::str_to</span></a>
-      </h2>
+<body>
+<h1>738465001</h1>
 <p>
-        esv::str_to is a class object function to convert std::string string to other
-        string type: std::wstring, std::u8string, std::u16string, std::u32string.
-      </p>
-<p>
-        Note that any one of std::string, std::string_view and const char * will
-        be treated as std::string.
-      </p>
-<h4>
-<a name="esv_str_to.h1"></a>
-        <span class="phrase"><a name="esv_str_to.calling_sig"></a></span><a class="link" href="esv_str_to.html#esv_str_to.calling_sig">Calling
-        Sig:</a>
-      </h4>
-<pre class="programlisting"><span class="keyword">auto</span> <span class="identifier">result</span> <span class="special">=</span> <span class="identifier">esv</span><span class="special">::</span><span class="identifier">str_to</span><span class="special">&lt;</span><span class="identifier">string_type</span><span class="special">&gt;(</span><span class="identifier">std_string_value</span><span class="special">);</span>
-</pre>
-<h2>
-<a name="esv_str_to.h2"></a>
-        <span class="phrase"><a name="esv_str_to.role_cyan_cpp_example"></a></span><a class="link" href="esv_str_to.html#esv_str_to.role_cyan_cpp_example"><span class="cyan">cpp example</span></a>
-      </h2>
-<p>
-        cpp/c++ example
-      </p>
-<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">esvcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
-
-<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
-<span class="special">{</span>
-	<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">s1</span> <span class="special">=</span> <span class="string">"Hello c++!"</span><span class="special">;</span>
-	<span class="keyword">const</span> <span class="keyword">char</span> <span class="special">*</span> <span class="identifier">s2</span> <span class="special">=</span> <span class="string">"c++ Hello!"</span><span class="special">;</span>
-	<span class="keyword">auto</span> <span class="identifier">s3</span> <span class="special">=</span> <span class="identifier">esv</span><span class="special">::</span><span class="identifier">str_to</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">wstring</span><span class="special">&gt;(</span><span class="identifier">s1</span><span class="special">);</span>
-	<span class="keyword">auto</span> <span class="identifier">s4</span> <span class="special">=</span> <span class="identifier">esv</span><span class="special">::</span><span class="identifier">str_to</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">wstring</span><span class="special">&gt;(</span><span class="identifier">s2</span><span class="special">);</span>
-	<span class="identifier">esv</span><span class="special">::</span><span class="identifier">wprint</span><span class="special">(</span><span class="identifier">s3</span><span class="special">,</span> <span class="identifier">s4</span><span class="special">);</span>
-<span class="special">}</span>
-</pre>
-<h2>
-<a name="esv_str_to.h3"></a>
-        <span class="phrase"><a name="esv_str_to.role_cyan_see_also"></a></span><a class="link" href="esv_str_to.html#esv_str_to.role_cyan_see_also"><span class="cyan">See Also</span></a>
-      </h2>
-<p>
-        <a class="link" href="esv_print.html" title="esv::print">esv::print</a>
-      </p>
-<p>
-        <a class="link" href="esv_wprint.html" title="esv::wprint">esv::wprint</a>
-      </p>
-</div>
-<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
-        Distributed under the Boost Software License, Version 1.0. (See accompanying
-        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
-      </p>
-</div>
-<hr>
-<div class="spirit-nav">
-<a accesskey="p" href="string.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="string.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="esv_split_view.html"><img src="images/next.png" alt="Next"></a>
-</div>
-<div class="footnp" style="margin-left:auto;margin-right:auto;max-width:300px">
-<div style="float:left">
-<p><a href="https://cppfx.xyz/kcpp/kcpp-print.html">K</a></p>
-</div>
-</div>
+This api is deprecated and removed, please upgrade to
+<a href="https://cppfx.xyz/kcpp/kcpp-print.html">K</a>
+</p>
 </body>
 </html>
