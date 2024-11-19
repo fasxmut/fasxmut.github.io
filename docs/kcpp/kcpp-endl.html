@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>kcpp::endl</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Kcpp Home">
+<link rel="up" href="kcpp-io.html" title="Kcpp IO">
+<link rel="prev" href="kcpp-klog.html" title="kcpp::klog">
+<link rel="next" href="kcpp-kin.html" title="kcpp::kin">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="kcpp-klog.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="kcpp-io.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="kcpp-kin.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="kcpp-endl"></a>kcpp::endl</h2></div></div>
+<hr>
+</div>
+<h2>
+<a name="kcpp-endl.h0"></a>
+        <span class="phrase"><a name="kcpp-endl.io"></a></span><a class="link" href="kcpp-endl.html#kcpp-endl.io"><span class="cyan">kcpp::endl</span></a>
+      </h2>
+<p>
+        kcpp::endl is an executor which outputs a newline character and flush the
+        output stream.
+      </p>
+<p>
+        kcpp::endl is similar to std::endl.
+      </p>
+<h2>
+<a name="kcpp-endl.h1"></a>
+        <span class="phrase"><a name="kcpp-endl.include"></a></span><a class="link" href="kcpp-endl.html#kcpp-endl.include"><span class="cyan">include</span></a>
+      </h2>
+<pre class="programlisting">#include &lt;kcpp/io.hpp&gt;
+</pre>
+<h2>
+<a name="kcpp-endl.h2"></a>
+        <span class="phrase"><a name="kcpp-endl.cpp-example"></a></span><a class="link" href="kcpp-endl.html#kcpp-endl.cpp-example"><span class="cyan">c++ example</span></a>
+      </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">kcpp</span><span class="special">/</span><span class="identifier">io</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">kcpp</span><span class="special">::</span><span class="identifier">kout</span> <span class="special">&lt;&lt;</span> <span class="number">23</span> <span class="special">&lt;&lt;</span> <span class="identifier">kcpp</span><span class="special">::</span><span class="identifier">endl</span> <span class="special">&lt;&lt;</span> <span class="number">45</span> <span class="special">&lt;&lt;</span> <span class="identifier">kcpp</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="comment">/*
+23
+45
+*/</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="kcpp-endl.h3"></a>
+        <span class="phrase"><a name="kcpp-endl.back"></a></span><a class="link" href="kcpp-endl.html#kcpp-endl.back"><span class="cyan">Back</span></a>
+      </h2>
+<p>
+        Back: <a class="link" href="kcpp-io.html" title="Kcpp IO">Kcpp IO</a>
+      </p>
+<h2>
+<a name="kcpp-endl.h4"></a>
+        <span class="phrase"><a name="kcpp-endl.see-also"></a></span><a class="link" href="kcpp-endl.html#kcpp-endl.see-also"><span class="cyan">See Also</span></a>
+      </h2>
+<p>
+        <a class="link" href="kcpp-kout.html" title="kcpp::kout">kcpp::kout</a>
+      </p>
+<p>
+        <a class="link" href="kcpp-kerr.html" title="kcpp::kerr">kcpp::kerr</a>
+      </p>
+<p>
+        <a class="link" href="kcpp-kin.html" title="kcpp::kin">kcpp::kin</a>
+      </p>
+<p>
+        <br> <br> <br> <br> <br> <br> <br> <br>
+      </p>
+<p>
+        ________________________________________
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            Kcpp Home: <a href="." target="_top">Kcpp Home</a>
+          </li>
+<li class="listitem">
+            Home: <a href=".." target="_top">Home</a>
+          </li>
+</ul></div>
+<p>
+        ________________________________________
+      </p>
+<p>
+        <a href="https://cppfx.xyz/kcpp/kcpp-print.html" target="_top">P</a>
+      </p>
+<p>
+        <a href="https://cppfx.xyz/kcpp/kcpp-roll.html" target="_top">R</a>
+      </p>
+<p>
+        <a href="https://cppfx.xyz/kcpp/kcpp-dice.html" target="_top">D</a>
+      </p>
+</div>
+<div class="copyright-footer">Copyright © 2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="kcpp-klog.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="kcpp-io.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="kcpp-kin.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

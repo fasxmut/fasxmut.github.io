@@ -13,9 +13,10 @@ std::cout << std::endl;
   #        The c++ programming language.           #
   #                                                #
   #        [@https://cppfx.xyz Home: cppfx.xyz]                         #
-  #        [@https://cppfx.xyz/kcpp/kcpp-print.html K]                                       #
   #        Join c++ Discord: yZcauUAUyC            #
   #        Deck                                    #
   ==================================================
 ]
+
+[include /tmp-links.qbk]
 

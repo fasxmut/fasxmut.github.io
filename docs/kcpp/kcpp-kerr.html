@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>kcpp::kerr</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Kcpp Home">
+<link rel="up" href="kcpp-io.html" title="Kcpp IO">
+<link rel="prev" href="kcpp-kout.html" title="kcpp::kout">
+<link rel="next" href="kcpp-klog.html" title="kcpp::klog">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="kcpp-kout.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="kcpp-io.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="kcpp-klog.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="kcpp-kerr"></a>kcpp::kerr</h2></div></div>
+<hr>
+</div>
+<h2>
+<a name="kcpp-kerr.h0"></a>
+        <span class="phrase"><a name="kcpp-kerr.io"></a></span><a class="link" href="kcpp-kerr.html#kcpp-kerr.io"><span class="cyan">kcpp::kerr</span></a>
+      </h2>
+<p>
+        kcpp::kerr is the c++ error output stream object of kcpp output stream class
+        to the error character device.
+      </p>
+<p>
+        kcpp::kerr is similar to std::cerr.
+      </p>
+<p>
+        The error device might be a virtual device that can be anything which can
+        record error logs.
+      </p>
+<h2>
+<a name="kcpp-kerr.h1"></a>
+        <span class="phrase"><a name="kcpp-kerr.include"></a></span><a class="link" href="kcpp-kerr.html#kcpp-kerr.include"><span class="cyan">include</span></a>
+      </h2>
+<pre class="programlisting">#include &lt;kcpp/io.hpp&gt;
+</pre>
+<h2>
+<a name="kcpp-kerr.h2"></a>
+        <span class="phrase"><a name="kcpp-kerr.cpp-example"></a></span><a class="link" href="kcpp-kerr.html#kcpp-kerr.cpp-example"><span class="cyan">c++ example</span></a>
+      </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">kcpp</span><span class="special">/</span><span class="identifier">io</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">kcpp</span><span class="special">::</span><span class="identifier">kerr</span> <span class="special">&lt;&lt;</span> <span class="string">"Error is recorded"</span> <span class="special">&lt;&lt;</span> <span class="char">','</span> <span class="special">&lt;&lt;</span> <span class="number">129</span> <span class="special">&lt;&lt;</span> <span class="identifier">kcpp</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="comment">// Error is recorded,129</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="kcpp-kerr.h3"></a>
+        <span class="phrase"><a name="kcpp-kerr.back"></a></span><a class="link" href="kcpp-kerr.html#kcpp-kerr.back"><span class="cyan">Back</span></a>
+      </h2>
+<p>
+        Back: <a class="link" href="kcpp-io.html" title="Kcpp IO">Kcpp IO</a>
+      </p>
+<h2>
+<a name="kcpp-kerr.h4"></a>
+        <span class="phrase"><a name="kcpp-kerr.see-also"></a></span><a class="link" href="kcpp-kerr.html#kcpp-kerr.see-also"><span class="cyan">See Also</span></a>
+      </h2>
+<p>
+        <a class="link" href="kcpp-kout.html" title="kcpp::kout">kcpp::kout</a>
+      </p>
+<p>
+        <a class="link" href="kcpp-endl.html" title="kcpp::endl">kcpp::endl</a>
+      </p>
+<p>
+        <a class="link" href="kcpp-kin-getline.html" title="kcpp::kin.getline">kcpp::kin.getline</a>
+      </p>
+<p>
+        <br> <br> <br> <br> <br> <br> <br> <br>
+      </p>
+<p>
+        ________________________________________
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            Kcpp Home: <a href="." target="_top">Kcpp Home</a>
+          </li>
+<li class="listitem">
+            Home: <a href=".." target="_top">Home</a>
+          </li>
+</ul></div>
+<p>
+        ________________________________________
+      </p>
+<p>
+        <a href="https://cppfx.xyz/kcpp/kcpp-print.html" target="_top">P</a>
+      </p>
+<p>
+        <a href="https://cppfx.xyz/kcpp/kcpp-roll.html" target="_top">R</a>
+      </p>
+<p>
+        <a href="https://cppfx.xyz/kcpp/kcpp-dice.html" target="_top">D</a>
+      </p>
+</div>
+<div class="copyright-footer">Copyright © 2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="kcpp-kout.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="kcpp-io.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="kcpp-klog.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

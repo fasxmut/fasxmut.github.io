@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>kcpp::kin.getline</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Kcpp Home">
+<link rel="up" href="kcpp-io.html" title="Kcpp IO">
+<link rel="prev" href="kcpp-kin.html" title="kcpp::kin">
+<link rel="next" href="kcpp-getline.html" title="kcpp::getline">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="kcpp-kin.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="kcpp-io.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="kcpp-getline.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="kcpp-kin-getline"></a>kcpp::kin.getline</h2></div></div>
+<hr>
+</div>
+<h2>
+<a name="kcpp-kin-getline.h0"></a>
+        <span class="phrase"><a name="kcpp-kin-getline.io"></a></span><a class="link" href="kcpp-kin-getline.html#kcpp-kin-getline.io"><span class="cyan">kcpp::kin.getline()</span></a>
+      </h2>
+<p>
+        kcpp::kin.getline() is a c++ method of the kcpp input stream class object
+        kcpp::kin.
+      </p>
+<p>
+        It reads a whole line from standard input kcpp::kin as its return value of
+        the calling.
+      </p>
+<p>
+        Keyboard is commonly used as the standard input device.
+      </p>
+<h2>
+<a name="kcpp-kin-getline.h1"></a>
+        <span class="phrase"><a name="kcpp-kin-getline.include"></a></span><a class="link" href="kcpp-kin-getline.html#kcpp-kin-getline.include"><span class="cyan">include</span></a>
+      </h2>
+<pre class="programlisting">#include &lt;kcpp/io.hpp&gt;
+</pre>
+<h2>
+<a name="kcpp-kin-getline.h2"></a>
+        <span class="phrase"><a name="kcpp-kin-getline.cpp-example"></a></span><a class="link" href="kcpp-kin-getline.html#kcpp-kin-getline.cpp-example"><span class="cyan">c++ example</span></a>
+      </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">kcpp</span><span class="special">/</span><span class="identifier">io</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">string</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">line</span><span class="special">;</span>
+	<span class="keyword">auto</span> <span class="identifier">bytes</span> <span class="special">=</span> <span class="identifier">kcpp</span><span class="special">::</span><span class="identifier">kin</span><span class="special">.</span><span class="identifier">getline</span><span class="special">(</span><span class="identifier">line</span><span class="special">);</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="kcpp-kin-getline.h3"></a>
+        <span class="phrase"><a name="kcpp-kin-getline.back"></a></span><a class="link" href="kcpp-kin-getline.html#kcpp-kin-getline.back"><span class="cyan">Back</span></a>
+      </h2>
+<p>
+        Back: <a class="link" href="kcpp-io.html" title="Kcpp IO">Kcpp IO</a>
+      </p>
+<h2>
+<a name="kcpp-kin-getline.h4"></a>
+        <span class="phrase"><a name="kcpp-kin-getline.see-also"></a></span><a class="link" href="kcpp-kin-getline.html#kcpp-kin-getline.see-also"><span class="cyan">See Also</span></a>
+      </h2>
+<p>
+        <a class="link" href="kcpp-kin.html" title="kcpp::kin">kcpp::kin</a>
+      </p>
+<p>
+        <a class="link" href="kcpp-getline.html" title="kcpp::getline">kcpp::getline</a>
+      </p>
+<p>
+        <a class="link" href="kcpp-roll.html" title="kcpp::roll">kcpp::roll</a>
+      </p>
+<p>
+        <br> <br> <br> <br> <br> <br> <br> <br>
+      </p>
+<p>
+        ________________________________________
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            Kcpp Home: <a href="." target="_top">Kcpp Home</a>
+          </li>
+<li class="listitem">
+            Home: <a href=".." target="_top">Home</a>
+          </li>
+</ul></div>
+<p>
+        ________________________________________
+      </p>
+<p>
+        <a href="https://cppfx.xyz/kcpp/kcpp-print.html" target="_top">P</a>
+      </p>
+<p>
+        <a href="https://cppfx.xyz/kcpp/kcpp-roll.html" target="_top">R</a>
+      </p>
+<p>
+        <a href="https://cppfx.xyz/kcpp/kcpp-dice.html" target="_top">D</a>
+      </p>
+</div>
+<div class="copyright-footer">Copyright © 2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="kcpp-kin.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="kcpp-io.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="kcpp-getline.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
