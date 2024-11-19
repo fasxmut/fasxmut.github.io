@@ -1,12 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
-<title>302405844</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>esv::raii_lock</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Esvcpp Home">
+<link rel="up" href="types.html" title="Types">
+<link rel="prev" href="esv_u32str_new.html" title="esv::u32str_new">
+<link rel="next" href="string.html" title="String">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body>
-<h1>302405844</h1>
-<p>This api is deprecated and removed, please upgrade.</p>
-<p><a href="https://cppfx.xyz/kcpp/kcpp-print.html">P</a></p>
-<p><a href="https://cppfx.xyz/kcpp/kcpp-roll.html">R</a></p>
-<p><a href="https://cppfx.xyz/kcpp/kcpp-dice.html">D</a></p>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="esv_u32str_new.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="types.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="string.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="esv_raii_lock"></a>esv::raii_lock</h2></div></div>
+<hr>
+</div>
+<h2>
+<a name="esv_raii_lock.h0"></a>
+        <span class="phrase"><a name="esv_raii_lock.role_cyan_esv_raii_lock"></a></span><a class="link" href="esv_raii_lock.html#esv_raii_lock.role_cyan_esv_raii_lock"><span class="cyan">esv::raii_lock</span></a>
+      </h2>
+<p>
+        esv::raii_lock is a RAII-only lock template class for a mutex. Its usage
+        is similar to std::lock_guard.
+      </p>
+<p>
+        esv::raii_lock is designed for esv::print firstly, but it can be used for
+        general purpose.
+      </p>
+<p>
+        <span class="bold"><strong>Calling Sig:</strong></span>
+      </p>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">mutex</span> <span class="identifier">mutex</span><span class="special">;</span>
+<span class="special">{</span>
+	<span class="identifier">esv</span><span class="special">::</span><span class="identifier">raii_lock</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">mutex</span><span class="special">&gt;</span> <span class="identifier">lock</span><span class="special">{</span><span class="identifier">mutex</span><span class="special">};</span>
+<span class="special">}</span>	<span class="comment">// Auto-unlock when leaving this scope.</span>
+</pre>
+<h2>
+<a name="esv_raii_lock.h1"></a>
+        <span class="phrase"><a name="esv_raii_lock.role_cyan_c_example"></a></span><a class="link" href="esv_raii_lock.html#esv_raii_lock.role_cyan_c_example"><span class="cyan">c++ example</span></a>
+      </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">esvcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">future</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">mutex</span> <span class="identifier">mutex</span><span class="special">;</span>
+	<span class="keyword">auto</span> <span class="identifier">f</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">async</span><span class="special">(</span>
+		<span class="special">[&amp;</span><span class="identifier">mutex</span><span class="special">]</span>
+		<span class="special">{</span>
+			<span class="identifier">esv</span><span class="special">::</span><span class="identifier">raii_lock</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">mutex</span><span class="special">&gt;</span> <span class="identifier">lock</span><span class="special">{</span><span class="identifier">mutex</span><span class="special">};</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Hello c++!"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="special">);</span>
+	
+	<span class="identifier">esv</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="identifier">mutex</span><span class="special">,</span> <span class="string">"Hello c++ by"</span><span class="special">,</span> <span class="string">"esv::print!"</span><span class="special">);</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="esv_raii_lock.h2"></a>
+        <span class="phrase"><a name="esv_raii_lock.role_cyan_see_also"></a></span><a class="link" href="esv_raii_lock.html#esv_raii_lock.role_cyan_see_also"><span class="cyan">See Also</span></a>
+      </h2>
+<p>
+        <a class="link" href="esv_print.html" title="esv::print">esv::print</a>
+      </p>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="esv_u32str_new.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="types.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="string.html"><img src="images/next.png" alt="Next"></a>
+</div>
 </body>
 </html>

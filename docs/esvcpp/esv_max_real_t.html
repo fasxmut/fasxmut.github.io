@@ -1,12 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
-<title>3649620282</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>esv::max_real_t</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Esvcpp Home">
+<link rel="up" href="comparisons.html" title="Comparisons">
+<link rel="prev" href="esv_make_float_x_t.html" title="esv::make_float_x_t">
+<link rel="next" href="esv_eq.html" title="esv::eq">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body>
-<h1>3649620282</h1>
-<p>This api is deprecated and removed, please upgrade.</p>
-<p><a href="https://cppfx.xyz/kcpp/kcpp-print.html">P</a></p>
-<p><a href="https://cppfx.xyz/kcpp/kcpp-roll.html">R</a></p>
-<p><a href="https://cppfx.xyz/kcpp/kcpp-dice.html">D</a></p>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="esv_make_float_x_t.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="comparisons.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="esv_eq.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="esv_max_real_t"></a>esv::max_real_t</h2></div></div>
+<hr>
+</div>
+<h2>
+<a name="esv_max_real_t.h0"></a>
+          <span class="phrase"><a name="esv_max_real_t.role_cyan_esv_max_real_t"></a></span><a class="link" href="esv_max_real_t.html#esv_max_real_t.role_cyan_esv_max_real_t"><span class="cyan">esv::max_real_t</span></a>
+        </h2>
+<p>
+          esv::max_real_t is used to get the lowest maximum type of two real types.
+        </p>
+<p>
+          For example, it gets esv::ix64 from esv::u32 and esv::ix16; gets esv::ix32
+          from esv::ix32 and esv::u8.
+        </p>
+<p>
+          However, esv::max_real_t gets esv::overflow_type, if the converter have
+          a chance to make overflow values. Such as it gets esv::overflow_type from
+          esv::u64 and esv::i32.
+        </p>
+<h2>
+<a name="esv_max_real_t.h1"></a>
+          <span class="phrase"><a name="esv_max_real_t.role_cyan_esv_max_real_t_usage"></a></span><a class="link" href="esv_max_real_t.html#esv_max_real_t.role_cyan_esv_max_real_t_usage"><span class="cyan">esv::max_real_t Usage</span></a>
+        </h2>
+<pre class="programlisting"><span class="keyword">using</span> <span class="identifier">target_type</span> <span class="special">=</span> <span class="identifier">esv</span><span class="special">::</span><span class="identifier">max_real_t</span><span class="special">&lt;</span><span class="identifier">real_type1</span><span class="special">,</span> <span class="identifier">real_type2</span><span class="special">&gt;;</span>
+</pre>
+<h2>
+<a name="esv_max_real_t.h2"></a>
+          <span class="phrase"><a name="esv_max_real_t.role_cyan_see_also"></a></span><a class="link" href="esv_max_real_t.html#esv_max_real_t.role_cyan_see_also"><span class="cyan">See Also</span></a>
+        </h2>
+<p>
+          <a class="link" href="esv_overflow_type.html" title="esv::overflow_type">esv::overflow_type</a>
+        </p>
+<p>
+          <a class="link" href="esv_real_meric.html" title="esv::real_meric">esv::real_meric</a>
+        </p>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="esv_make_float_x_t.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="comparisons.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="esv_eq.html"><img src="images/next.png" alt="Next"></a>
+</div>
 </body>
 </html>

@@ -1,12 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
-<title>4164274966</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>esv::deferred</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Esvcpp Home">
+<link rel="up" href="thread.html" title="Thread">
+<link rel="prev" href="esv_async.html" title="esv::async">
+<link rel="next" href="esv_sleep.html" title="esv::sleep">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body>
-<h1>4164274966</h1>
-<p>This api is deprecated and removed, please upgrade.</p>
-<p><a href="https://cppfx.xyz/kcpp/kcpp-print.html">P</a></p>
-<p><a href="https://cppfx.xyz/kcpp/kcpp-roll.html">R</a></p>
-<p><a href="https://cppfx.xyz/kcpp/kcpp-dice.html">D</a></p>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="esv_async.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="thread.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="esv_sleep.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="esv_deferred"></a>esv::deferred</h2></div></div>
+<hr>
+</div>
+<h2>
+<a name="esv_deferred.h0"></a>
+        <span class="phrase"><a name="esv_deferred.role_cyan_esv_deferred"></a></span><a class="link" href="esv_deferred.html#esv_deferred.role_cyan_esv_deferred"><span class="cyan">esv::deferred</span></a>
+      </h2>
+<p>
+        esv::deferred is used to create deferred std::future thread. Unlike std::async
+        which takes a parameter to indicate async or deferred, esv::deferred is always
+        in deferred mode.
+      </p>
+<p>
+        esv::deferred is based on std::async, that esv::deferred will call std::async.
+      </p>
+<h2>
+<a name="esv_deferred.h1"></a>
+        <span class="phrase"><a name="esv_deferred.role_cyan_c_example"></a></span><a class="link" href="esv_deferred.html#esv_deferred.role_cyan_c_example"><span class="cyan">c++ example</span></a>
+      </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">esvcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">esvcpp</span><span class="special">/</span><span class="identifier">thread</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">future</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">()&gt;</span> <span class="identifier">f1</span> <span class="special">=</span> <span class="identifier">esv</span><span class="special">::</span><span class="identifier">deferred</span><span class="special">([]</span> <span class="special">{</span><span class="identifier">esv</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"Hello!"</span><span class="special">);});</span>
+	<span class="keyword">auto</span> <span class="identifier">f2</span> <span class="special">=</span> <span class="identifier">esv</span><span class="special">::</span><span class="identifier">deferred</span><span class="special">([]</span> <span class="special">{</span><span class="identifier">esv</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"c++!"</span><span class="special">);});</span>
+	<span class="identifier">f1</span><span class="special">.</span><span class="identifier">wait</span><span class="special">();</span>
+	<span class="identifier">f2</span><span class="special">.</span><span class="identifier">wait</span><span class="special">();</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="esv_deferred.h2"></a>
+        <span class="phrase"><a name="esv_deferred.role_cyan_see_also"></a></span><a class="link" href="esv_deferred.html#esv_deferred.role_cyan_see_also"><span class="cyan">See Also</span></a>
+      </h2>
+<p>
+        <a class="link" href="esv_async.html" title="esv::async">esv::async</a>
+      </p>
+<p>
+        <a class="link" href="esv_ydzs.html" title="esv::ydzs">esv::ydzs</a>
+      </p>
+<p>
+        <a class="link" href="esv_mutex0_9.html" title="esv::mutex0~9">esv::mutex0~9</a>
+      </p>
+<p>
+        <a class="link" href="esv_print.html" title="esv::print">esv::print</a>
+      </p>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="esv_async.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="thread.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="esv_sleep.html"><img src="images/next.png" alt="Next"></a>
+</div>
 </body>
 </html>
