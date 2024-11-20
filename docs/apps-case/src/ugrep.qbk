@@ -149,10 +149,10 @@ ugrep -rIn "[A-Z]cpp" .
 ugrep -rIn "[0-9]cpp" .
 ugrep -rIn "[a-zA-Z]cpp" .
 ugrep -rIn "[a-zA-Z0-9]cpp" .
-ugrep -rIn "fx[0-9][0-9]" .
+ugrep -rIn "boost[0-9][0-9]" .
 ```
 
-[@https://cppfx.xyz/esvcpp/esv_fx32.html [*esv::[role red fx32]]] will match above.
+boost86 will match above.
 
 [*Match not any one of]
 

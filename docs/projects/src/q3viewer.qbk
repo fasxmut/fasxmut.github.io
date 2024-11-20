@@ -14,19 +14,19 @@ q3viewer is a single file viewer of quake 3 map scene. It can help c++ developer
 
 [h2 Build and install b2 build]
 
-[@https://cppfx.xyz/esvcpp/install/install_b2_build_toolchain.html]
-
 [@https://www.bfgroup.xyz/b2]
+
+the_cpp_engine is not placed here.
 
 [h2 Build q3viewer]
 
 ```
 cd q3viewer/
 b2 -q -j7 \
-define=api=nirt \
-define=engine_device=nirt::NirtcppDevice \
-cxxflags="-include nirtcpp/core.hpp" \
-linkflags=-lnirtcpp-core
+define=api=the_cpp_engine \
+define=engine_device=the_cpp_engine::device \
+cxxflags="-include the_cpp_engine/core.hpp" \
+linkflags=-lthe_cpp_engine
 ```
 
 [h1 [role cyan Home]]

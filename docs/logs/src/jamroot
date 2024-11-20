@@ -1,5 +1,4 @@
-path-constant esvcpp-src-root : ../../../../esvcpp ;
-path-constant qbk-media-root : $(esvcpp-src-root)/docs/fx-quickbook-media/qbk-media ;
+path-constant qbk-media-root : ../../share/fx-quickbook-media/qbk-media ;
 path-constant logs-src-root : . ;
 path-constant logs-web-root : .. ;
 

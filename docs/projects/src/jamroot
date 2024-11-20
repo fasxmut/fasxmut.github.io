@@ -1,4 +1,4 @@
-path-constant qbk-media-path : ../../../../esvcpp/docs/fx-quickbook-media/qbk-media ;
+path-constant qbk-media-path : ../../share/fx-quickbook-media/qbk-media ;
 path-constant this-path : . ;
 path-constant html-install-path : .. ;
 path-constant html-cache-path : ./html ;

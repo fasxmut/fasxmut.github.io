@@ -1,9 +1,0 @@
-<map id="nirt::video::IImage" name="nirt::video::IImage">
-<area shape="rect" id="Node000001" title="Interface for software image data." alt="" coords="292,63,433,88"/>
-<area shape="rect" id="Node000002" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="5,5,181,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="168,31,303,60,302,65,167,36"/>
-<area shape="rect" id="Node000003" href="$classnirt_1_1core_1_1dimension2d.html" title=" " alt="" coords="7,55,179,95"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="193,73,292,73,292,78,193,78"/>
-<area shape="rect" id="Node000004" href="$classnirt_1_1core_1_1irrAllocator.html" title=" " alt="" coords="13,119,173,159"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="186,115,308,85,309,91,187,120"/>
-</map>

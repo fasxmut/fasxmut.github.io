@@ -1,13 +1,5 @@
 import testing ;
 
-lib esvcpp
-	:
-	:
-		<name>esvcpp
-	:
-	:
-;
-
 lib boost-cobalt
 	:
 	:
@@ -16,7 +8,6 @@ lib boost-cobalt
 
 project
 	: default-build
-		<library>esvcpp
 		<cxxstd>23
 ;
 

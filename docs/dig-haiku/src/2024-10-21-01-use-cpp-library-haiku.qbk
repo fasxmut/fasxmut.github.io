@@ -13,25 +13,23 @@ Haiku OS - [@https://www.haiku-os.org Haiku OS]
 
 c++ compiler - [@https://gcc.gnu.org Gcc]
 
-c++ Library - [@https://cppfx.xyz/esvcpp Esvcpp]
+Your favorite c++ Library, for example, your_lib, the shared library: libyour_lib.so
 
 Editor - [@https://kakoune.org Kakoune]
 
 [h2:cpp-code c++ code]
-
-([@https://cppfx.xyz/esvcpp/esv_print.html esv::print])
 
 // hello.cpp
 
 [!c++]
 ```
 #include <iostream>
-#include <esvcpp/core.hpp>
+#include <your/lib/include/path.hpp>
 
 int main()
 {
 	std::cout << "Hello, c++!" << std::endl;
-	esv::print("Hello, c++!!");
+	use::your::lib::please;
 }
 ```
 
@@ -42,7 +40,7 @@ int main()
 g++ hello.cpp \
 	-std=c++23 \
 	-I ./dream/sand/include/ \
-	-L./dream/sand/lib -lesvcpp \
+	-L./path/to/your/lib -lyour_lib \
 	-Wl,-rpath,./dream/sand/lib \
 	-o hello
 ```
@@ -53,3 +51,4 @@ Haiku Home - [@https://www.haiku-os.org Haiku OS]
 
 Back Index - [@. Dig Haiku OS c++]
 [include ../../share/foot-links.inc.qbk]
+

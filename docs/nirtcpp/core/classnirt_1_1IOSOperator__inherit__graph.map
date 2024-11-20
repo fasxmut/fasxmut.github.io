@@ -1,5 +1,0 @@
-<map id="nirt::IOSOperator" name="nirt::IOSOperator">
-<area shape="rect" id="Node000001" title="The Operating system operator provides operation system specific methods and information." alt="" coords="28,79,159,104"/>
-<area shape="rect" id="Node000002" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="5,5,181,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,44,96,79,91,79,91,44"/>
-</map>
