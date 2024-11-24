@@ -7,14 +7,16 @@ std::cout.write(err.data(), err.size());
 std::cout << std::endl;
 
 [role purple caught:]
-
 [pre
   ==================================================
   #        The c++ programming language.           #
   #                                                #
-  #        [@https://cppfx.xyz Home: cppfx.xyz]                         #
   #        Join c++ Discord: yZcauUAUyC            #
   #        Deck                                    #
   ==================================================
 ]
+
+[@https://cppfx.xyz Home: cppfx.xyz]
+
+[@https://cppfx.xyz/kjcpp/kjcpp-print.html kjcpp::print]
 
