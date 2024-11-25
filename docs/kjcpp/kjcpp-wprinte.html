@@ -2,87 +2,40 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>kjcpp::print</title>
+<title>kjcpp::wprinte</title>
 <link rel="stylesheet" href="boostbook.css" type="text/css">
 <meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
 <link rel="home" href="index.html" title="Kjcpp Home">
 <link rel="up" href="print.html" title="Print">
-<link rel="prev" href="kjcpp-delim_base.html" title="kjcpp::delim_base">
-<link rel="next" href="kjcpp-printe.html" title="kjcpp::printe">
+<link rel="prev" href="kjcpp-wprint.html" title="kjcpp::wprint">
+<link rel="next" href="kjcpp-wprintnl.html" title="kjcpp::wprintnl">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <div class="spirit-nav">
-<a accesskey="p" href="kjcpp-delim_base.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="print.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="kjcpp-printe.html"><img src="images/next.png" alt="Next"></a>
+<a accesskey="p" href="kjcpp-wprint.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="print.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="kjcpp-wprintnl.html"><img src="images/next.png" alt="Next"></a>
 </div>
 <div class="article">
 <div class="titlepage">
 <div><div><h2 class="title">
-<a name="kjcpp-print"></a>kjcpp::print</h2></div></div>
+<a name="kjcpp-wprinte"></a>kjcpp::wprinte</h2></div></div>
 <hr>
 </div>
 <h2>
-<a name="kjcpp-print.h0"></a>
-        <span class="phrase"><a name="kjcpp-print.role_cyan_kjcpp_print_kjcpp_prin"></a></span><a class="link" href="kjcpp-print.html#kjcpp-print.role_cyan_kjcpp_print_kjcpp_prin"><span class="cyan">kjcpp::print - kjcpp::print_class</span></a>
+<a name="kjcpp-wprinte.h0"></a>
+        <span class="phrase"><a name="kjcpp-wprinte.role_cyan_kjcpp_wprinte_kjcpp_pr"></a></span><a class="link" href="kjcpp-wprinte.html#kjcpp-wprinte.role_cyan_kjcpp_wprinte_kjcpp_pr"><span class="cyan">kjcpp::wprinte - kjcpp::print_class</span></a>
       </h2>
-<h3>
-<a name="kjcpp-print.h1"></a>
-        <span class="phrase"><a name="kjcpp-print.kjcpp_print"></a></span><a class="link" href="kjcpp-print.html#kjcpp-print.kjcpp_print">kjcpp::print</a>
-      </h3>
 <p>
-        kjcpp::print is a c++ printer object of kjcpp class kjcpp::print_class. It
-        is a multiple value printer which can print many values by one calling. It
-        can print many single values, many nested ranges, many nested tuples, and
-        many nested ranges and tuples.
+        kjcpp::wprinte is the error output object of kjcpp::print_class, wide string
+        stream based output.
       </p>
-<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
-<li class="listitem">
-            <span class="bold"><strong>Multiple</strong></span> - Many single values, nested
-            ranges, nested tuples, and their mixings can be printed by one calling.
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>Many values</strong></span> - Many single printable
-            values can be printed by kjcpp::print.
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>Many containers</strong></span> - Many c++ containers
-            can be printed by kjcpp::print.
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>Many nested containers</strong></span> - Many c++ nested
-            containers can be printed by kjcpp::print.
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>Many tuples</strong></span> - Many c++ tuples can be
-            printed by kjcpp::print.
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>Many nested tuples</strong></span> - Many c++ nested
-            tuples can be printed by kjcpp::print.
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>Many nested values, containers, tuples</strong></span>
-            - The mixture of nested them can be printed by kjcpp::print too.
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>Session</strong></span> - The flags settings and format
-            settings are kept on the current session only, these settings are not
-            kept after the end of the session. A session begins with a '(', and ends
-            with a ')'.
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>Thread-safe</strong></span> - A kjcpp::print session
-            creates an unique object internally and removes the object after ending.
-          </li>
-<li class="listitem">
-            <span class="bold"><strong>Mutex Lock</strong></span> - The first parameter of
-            kjcpp::print can be passed with a mutex, to make a unique lock for a
-            session.
-          </li>
-</ul></div>
+<p>
+        Beside that, kjcpp::wprinte is similar to kjcpp::wprint, see <a class="link" href="kjcpp-wprint.html" title="kjcpp::wprint">kjcpp::wprint</a>
+        .
+      </p>
 <h2>
-<a name="kjcpp-print.h2"></a>
-        <span class="phrase"><a name="kjcpp-print.role_cyan_kjcpp_print_class"></a></span><a class="link" href="kjcpp-print.html#kjcpp-print.role_cyan_kjcpp_print_class"><span class="cyan">kjcpp::print_class</span></a>
+<a name="kjcpp-wprinte.h1"></a>
+        <span class="phrase"><a name="kjcpp-wprinte.role_cyan_kjcpp_print_class"></a></span><a class="link" href="kjcpp-wprinte.html#kjcpp-wprinte.role_cyan_kjcpp_print_class"><span class="cyan">kjcpp::print_class</span></a>
       </h2>
 <p>
         kjcpp::print_class is a class template for all kjcpp print api.
@@ -112,20 +65,20 @@
         (<a class="link" href="kjcpp-print.html" title="kjcpp::print">kjcpp::print</a>)
       </p>
 <h2>
-<a name="kjcpp-print.h3"></a>
-        <span class="phrase"><a name="kjcpp-print.role_cyan_polymorphism_friendly"></a></span><a class="link" href="kjcpp-print.html#kjcpp-print.role_cyan_polymorphism_friendly"><span class="cyan">Polymorphism Friendly</span></a>
+<a name="kjcpp-wprinte.h2"></a>
+        <span class="phrase"><a name="kjcpp-wprinte.role_cyan_polymorphism_friendly"></a></span><a class="link" href="kjcpp-wprinte.html#kjcpp-wprinte.role_cyan_polymorphism_friendly"><span class="cyan">Polymorphism Friendly</span></a>
       </h2>
 <p>
         kjcpp::print_class is inheritance and polymorphism friendly. It has virtual
         destructor. Its member data or member functions are protected or public.
       </p>
 <h2>
-<a name="kjcpp-print.h4"></a>
-        <span class="phrase"><a name="kjcpp-print.role_cyan_constructors"></a></span><a class="link" href="kjcpp-print.html#kjcpp-print.role_cyan_constructors"><span class="cyan">Constructors</span></a>
+<a name="kjcpp-wprinte.h3"></a>
+        <span class="phrase"><a name="kjcpp-wprinte.role_cyan_constructors"></a></span><a class="link" href="kjcpp-wprinte.html#kjcpp-wprinte.role_cyan_constructors"><span class="cyan">Constructors</span></a>
       </h2>
 <h3>
-<a name="kjcpp-print.h5"></a>
-        <span class="phrase"><a name="kjcpp-print.kjcpp_print_class_constructors"></a></span><a class="link" href="kjcpp-print.html#kjcpp-print.kjcpp_print_class_constructors">kjcpp::print_class
+<a name="kjcpp-wprinte.h4"></a>
+        <span class="phrase"><a name="kjcpp-wprinte.kjcpp_print_class_constructors"></a></span><a class="link" href="kjcpp-wprinte.html#kjcpp-wprinte.kjcpp_print_class_constructors">kjcpp::print_class
         constructors</a>
       </h3>
 <p>
@@ -196,8 +149,8 @@
 <span class="special">);</span>
 </pre>
 <h2>
-<a name="kjcpp-print.h6"></a>
-        <span class="phrase"><a name="kjcpp-print.role_cyan_public_member_function"></a></span><a class="link" href="kjcpp-print.html#kjcpp-print.role_cyan_public_member_function"><span class="cyan">Public Member Functions</span></a>
+<a name="kjcpp-wprinte.h5"></a>
+        <span class="phrase"><a name="kjcpp-wprinte.role_cyan_public_member_function"></a></span><a class="link" href="kjcpp-wprinte.html#kjcpp-wprinte.role_cyan_public_member_function"><span class="cyan">Public Member Functions</span></a>
       </h2>
 <p>
         List public member functions of kjcpp::print_class. The protected members
@@ -251,8 +204,8 @@
           </li>
 </ul></div>
 <h2>
-<a name="kjcpp-print.h7"></a>
-        <span class="phrase"><a name="kjcpp-print.role_cyan_lock_and_mutex_support"></a></span><a class="link" href="kjcpp-print.html#kjcpp-print.role_cyan_lock_and_mutex_support"><span class="cyan">Lock and Mutex Support</span></a>
+<a name="kjcpp-wprinte.h6"></a>
+        <span class="phrase"><a name="kjcpp-wprinte.role_cyan_lock_and_mutex_support"></a></span><a class="link" href="kjcpp-wprinte.html#kjcpp-wprinte.role_cyan_lock_and_mutex_support"><span class="cyan">Lock and Mutex Support</span></a>
       </h2>
 <p>
         kjcpp::print_class object such as <a class="link" href="kjcpp-print.html" title="kjcpp::print">kjcpp::print</a>
@@ -271,8 +224,8 @@
         See <a class="link" href="kjcpp-param_mutex.html" title="kjcpp::param_mutex">kjcpp::param_mutex</a>
       </p>
 <h2>
-<a name="kjcpp-print.h8"></a>
-        <span class="phrase"><a name="kjcpp-print.role_cyan_std_fmtflags_rules"></a></span><a class="link" href="kjcpp-print.html#kjcpp-print.role_cyan_std_fmtflags_rules"><span class="cyan">std::fmtflags rules</span></a>
+<a name="kjcpp-wprinte.h7"></a>
+        <span class="phrase"><a name="kjcpp-wprinte.role_cyan_std_fmtflags_rules"></a></span><a class="link" href="kjcpp-wprinte.html#kjcpp-wprinte.role_cyan_std_fmtflags_rules"><span class="cyan">std::fmtflags rules</span></a>
       </h2>
 <p>
         Every calling of kjcpp::print, kjcpp::wprint, etc., the std::boolalpha, std::fixed,
@@ -284,14 +237,14 @@
         output std::cout, std::cerr, std::wcout etc. will be not affected.
       </p>
 <h2>
-<a name="kjcpp-print.h9"></a>
-        <span class="phrase"><a name="kjcpp-print.role_cyan_public_header"></a></span><a class="link" href="kjcpp-print.html#kjcpp-print.role_cyan_public_header"><span class="cyan">Public Header</span></a>
+<a name="kjcpp-wprinte.h8"></a>
+        <span class="phrase"><a name="kjcpp-wprinte.role_cyan_public_header"></a></span><a class="link" href="kjcpp-wprinte.html#kjcpp-wprinte.role_cyan_public_header"><span class="cyan">Public Header</span></a>
       </h2>
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">kjcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 </pre>
 <h2>
-<a name="kjcpp-print.h10"></a>
-        <span class="phrase"><a name="kjcpp-print.role_cyan_notice"></a></span><a class="link" href="kjcpp-print.html#kjcpp-print.role_cyan_notice"><span class="cyan">Notice</span></a>
+<a name="kjcpp-wprinte.h9"></a>
+        <span class="phrase"><a name="kjcpp-wprinte.role_cyan_notice"></a></span><a class="link" href="kjcpp-wprinte.html#kjcpp-wprinte.role_cyan_notice"><span class="cyan">Notice</span></a>
       </h2>
 <div class="note"><table border="0" summary="Note">
 <tr>
@@ -347,20 +300,23 @@
         <a class="link" href="kjcpp-print.html" title="kjcpp::print">kjcpp::print</a>
       </p>
 <h2>
-<a name="kjcpp-print.h11"></a>
-        <span class="phrase"><a name="kjcpp-print.role_cyan_c_example"></a></span><a class="link" href="kjcpp-print.html#kjcpp-print.role_cyan_c_example"><span class="cyan">c++ Example</span></a>
+<a name="kjcpp-wprinte.h10"></a>
+        <span class="phrase"><a name="kjcpp-wprinte.role_cyan_c_example"></a></span><a class="link" href="kjcpp-wprinte.html#kjcpp-wprinte.role_cyan_c_example"><span class="cyan">c++ example</span></a>
       </h2>
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">kjcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 
 <span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
 <span class="special">{</span>
-	<span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="keyword">true</span><span class="special">,</span> <span class="char">':'</span><span class="special">,</span> <span class="number">3.14</span><span class="special">,</span> <span class="string">"kg"</span><span class="special">,</span> <span class="string">"waters"</span><span class="special">);</span>
+	<span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">wprinte</span><span class="special">(</span><span class="identifier">L</span><span class="string">"Hello"</span><span class="special">,</span> <span class="keyword">true</span><span class="special">,</span> <span class="number">2023</span><span class="special">,</span> <span class="identifier">L</span><span class="string">"c++!"</span><span class="special">);</span>
 <span class="special">}</span>
 </pre>
 <h2>
-<a name="kjcpp-print.h12"></a>
-        <span class="phrase"><a name="kjcpp-print.role_cyan_see_also"></a></span><a class="link" href="kjcpp-print.html#kjcpp-print.role_cyan_see_also"><span class="cyan">See Also</span></a>
+<a name="kjcpp-wprinte.h11"></a>
+        <span class="phrase"><a name="kjcpp-wprinte.role_cyan_see_also"></a></span><a class="link" href="kjcpp-wprinte.html#kjcpp-wprinte.role_cyan_see_also"><span class="cyan">See Also</span></a>
       </h2>
+<p>
+        <a class="link" href="kjcpp-print.html" title="kjcpp::print">kjcpp::print</a>
+      </p>
 <p>
         <a class="link" href="kjcpp-printe.html" title="kjcpp::printe">kjcpp::printe</a>
       </p>
@@ -369,9 +325,6 @@
       </p>
 <p>
         <a class="link" href="kjcpp-wprint.html" title="kjcpp::wprint">kjcpp::wprint</a>
-      </p>
-<p>
-        <a class="link" href="kjcpp-wprinte.html" title="kjcpp::wprinte">kjcpp::wprinte</a>
       </p>
 <p>
         <a class="link" href="kjcpp-wprintnl.html" title="kjcpp::wprintnl">kjcpp::wprintnl</a>
@@ -393,7 +346,7 @@
 </div>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="kjcpp-delim_base.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="print.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="kjcpp-printe.html"><img src="images/next.png" alt="Next"></a>
+<a accesskey="p" href="kjcpp-wprint.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="print.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="kjcpp-wprintnl.html"><img src="images/next.png" alt="Next"></a>
 </div>
 </body>
 </html>

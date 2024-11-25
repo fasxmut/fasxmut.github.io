@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>kjcpp::mod2n</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Kjcpp Home">
+<link rel="up" href="kjcpp-math.html" title="Math">
+<link rel="prev" href="kjcpp-mod2.html" title="kjcpp::mod2">
+<link rel="next" href="kjcpp-round.html" title="kjcpp::round">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="kjcpp-mod2.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="kjcpp-math.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="kjcpp-round.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="kjcpp-mod2n"></a>kjcpp::mod2n</h2></div></div>
+<hr>
+</div>
+<pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">integral</span> <span class="identifier">T</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">unsigned_integral</span> <span class="identifier">U</span><span class="special">&gt;</span>
+<span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="identifier">T</span> <span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">mod2n</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">T</span> <span class="special">&amp;</span> <span class="identifier">dividend</span><span class="special">,</span> <span class="keyword">const</span> <span class="identifier">U</span> <span class="special">&amp;</span> <span class="identifier">n</span><span class="special">);</span>
+</pre>
+<p>
+        Calculate dividend % (2^n)
+      </p>
+<p>
+        Divisor is (2^n)
+      </p>
+<p>
+        The same as <span class="bold"><strong>kjcpp::mod</strong></span>, but set the <span class="bold"><strong>divisor</strong></span> to <span class="bold"><strong>2^n</strong></span>. Please
+        read the <span class="bold"><strong>kjcpp::mod</strong></span> doc page.
+      </p>
+<p>
+        If n is <span class="bold"><strong>zero</strong></span>, it gets <span class="bold"><strong>zero</strong></span>
+        .
+      </p>
+<h2>
+<a name="kjcpp-mod2n.h0"></a>
+        <span class="phrase"><a name="kjcpp-mod2n.role_cyan_header"></a></span><a class="link" href="kjcpp-mod2n.html#kjcpp-mod2n.role_cyan_header"><span class="cyan">Header</span></a>
+      </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">kjcpp</span><span class="special">/</span><span class="identifier">math</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+</pre>
+<p>
+        <br> <br> <br> <br> <br> <br> <br> <br> <br>
+      </p>
+<p>
+        ____________________________________________________________
+      </p>
+<p>
+        <a class="link" href="kjcpp-print.html" title="kjcpp::print">kjcpp::print</a>
+      </p>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="kjcpp-mod2.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="kjcpp-math.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="kjcpp-round.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

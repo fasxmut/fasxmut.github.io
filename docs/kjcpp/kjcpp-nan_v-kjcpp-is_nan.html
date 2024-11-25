@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>kjcpp::nan_v, kjcpp::is_nan</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Kjcpp Home">
+<link rel="up" href="basic-traits.html" title="Basic Traits">
+<link rel="prev" href="kjcpp-max_v-kjcpp-min_v-kjcpp-inf_v.html" title="kjcpp::max_v, kjcpp::min_v, kjcpp::inf_v">
+<link rel="next" href="kjcpp-remove_cvref_t.html" title="kjcpp::remove_cvref_t">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="kjcpp-max_v-kjcpp-min_v-kjcpp-inf_v.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="basic-traits.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="kjcpp-remove_cvref_t.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="kjcpp-nan_v-kjcpp-is_nan"></a>kjcpp::nan_v, kjcpp::is_nan</h2></div></div>
+<hr>
+</div>
+<h2>
+<a name="kjcpp-nan_v-kjcpp-is_nan.h0"></a>
+          <span class="phrase"><a name="kjcpp-nan_v-kjcpp-is_nan.role_cyan_kjcpp_nan_v"></a></span><a class="link" href="kjcpp-nan_v-kjcpp-is_nan.html#kjcpp-nan_v-kjcpp-is_nan.role_cyan_kjcpp_nan_v"><span class="cyan">kjcpp::nan_v</span></a>
+        </h2>
+<p>
+          kjcpp::nan_v - gets the NaN value of specific real type.
+        </p>
+<p>
+          kjcpp::nan_v can be applied to floating types only.
+        </p>
+<pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">floating_meric</span> <span class="identifier">type1</span><span class="special">&gt;</span>
+<span class="keyword">constexpr</span> <span class="keyword">inline</span> <span class="identifier">type1</span> <span class="identifier">nan_v</span> <span class="special">=</span> <span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">nan_v_impl</span><span class="special">&lt;</span><span class="identifier">type1</span><span class="special">&gt;::</span><span class="identifier">value</span><span class="special">;</span>
+</pre>
+<h2>
+<a name="kjcpp-nan_v-kjcpp-is_nan.h1"></a>
+          <span class="phrase"><a name="kjcpp-nan_v-kjcpp-is_nan.role_cyan_kjcpp_is_nan"></a></span><a class="link" href="kjcpp-nan_v-kjcpp-is_nan.html#kjcpp-nan_v-kjcpp-is_nan.role_cyan_kjcpp_is_nan"><span class="cyan">kjcpp::is_nan</span></a>
+        </h2>
+<p>
+          kjcpp::is_nan - used to judge if a floating value is NaN or not.
+        </p>
+<p>
+          kjcpp::is_nan can be applied to floating types only.
+        </p>
+<pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">floating_meric</span> <span class="identifier">float_type</span><span class="special">&gt;</span>
+<span class="keyword">constexpr</span> <span class="keyword">inline</span> <span class="keyword">bool</span> <span class="identifier">is_nan</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">float_type</span> <span class="special">&amp;</span> <span class="identifier">value</span><span class="special">);</span>
+</pre>
+<h2>
+<a name="kjcpp-nan_v-kjcpp-is_nan.h2"></a>
+          <span class="phrase"><a name="kjcpp-nan_v-kjcpp-is_nan.role_cyan_c_example"></a></span><a class="link" href="kjcpp-nan_v-kjcpp-is_nan.html#kjcpp-nan_v-kjcpp-is_nan.role_cyan_c_example"><span class="cyan">c++ example</span></a>
+        </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">kjcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">kjcpp</span><span class="special">/</span><span class="identifier">math</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">fx32</span> <span class="identifier">a</span> <span class="special">=</span> <span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">nan_v</span><span class="special">&lt;</span><span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">fx32</span><span class="special">&gt;;</span>
+	<span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">fx32</span> <span class="identifier">b</span> <span class="special">=</span> <span class="number">123.321f</span><span class="special">;</span>
+	<span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">fx32</span> <span class="identifier">c</span> <span class="special">=</span> <span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">sqrt</span><span class="special">(-</span><span class="number">1.0f</span><span class="special">);</span>
+
+	<span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">is_nan</span><span class="special">(</span><span class="identifier">a</span><span class="special">),</span> <span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">is_nan</span><span class="special">(</span><span class="identifier">b</span><span class="special">),</span> <span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">is_nan</span><span class="special">(</span><span class="identifier">c</span><span class="special">));</span> <span class="comment">// true false true</span>
+
+	<span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="identifier">a</span><span class="special">,</span> <span class="identifier">b</span><span class="special">,</span> <span class="identifier">c</span><span class="special">);</span> <span class="comment">// nan 123.321 nan</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="kjcpp-nan_v-kjcpp-is_nan.h3"></a>
+          <span class="phrase"><a name="kjcpp-nan_v-kjcpp-is_nan.role_cyan_see_also"></a></span><a class="link" href="kjcpp-nan_v-kjcpp-is_nan.html#kjcpp-nan_v-kjcpp-is_nan.role_cyan_see_also"><span class="cyan">See Also</span></a>
+        </h2>
+<p>
+          <a class="link" href="kjcpp-na.html" title="kjcpp::na">kjcpp::na</a>
+        </p>
+<p>
+          <a class="link" href="kjcpp-fx32.html" title="kjcpp::fx32">kjcpp::fx32</a>
+        </p>
+<p>
+          <a class="link" href="kjcpp-sqrt.html" title="kjcpp::sqrt">kjcpp::sqrt</a>
+        </p>
+<p>
+          <br> <br> <br> <br> <br> <br> <br> <br> <br>
+        </p>
+<p>
+          ____________________________________________________________
+        </p>
+<p>
+          <a class="link" href="kjcpp-print.html" title="kjcpp::print">kjcpp::print</a>
+        </p>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="kjcpp-max_v-kjcpp-min_v-kjcpp-inf_v.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="basic-traits.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="kjcpp-remove_cvref_t.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

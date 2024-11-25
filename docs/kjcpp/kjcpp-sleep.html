@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>kjcpp::sleep</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Kjcpp Home">
+<link rel="up" href="thread.html" title="Thread">
+<link rel="prev" href="kjcpp-deferred.html" title="kjcpp::deferred">
+<link rel="next" href="kjcpp-ydzs.html" title="kjcpp::ydzs">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="kjcpp-deferred.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="thread.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="kjcpp-ydzs.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="kjcpp-sleep"></a>kjcpp::sleep</h2></div></div>
+<hr>
+</div>
+<h2>
+<a name="kjcpp-sleep.h0"></a>
+        <span class="phrase"><a name="kjcpp-sleep.role_cyan_kjcpp_sleep_kjcpp"></a></span><a class="link" href="kjcpp-sleep.html#kjcpp-sleep.role_cyan_kjcpp_sleep_kjcpp"><span class="cyan">kjcpp::sleep - kjcpp</span></a>
+      </h2>
+<p>
+        kjcpp::sleep is the kjcpp c++ object of kjcpp::sleep_class.
+      </p>
+<h2>
+<a name="kjcpp-sleep.h1"></a>
+        <span class="phrase"><a name="kjcpp-sleep.role_cyan_kjcpp_sleep"></a></span><a class="link" href="kjcpp-sleep.html#kjcpp-sleep.role_cyan_kjcpp_sleep"><span class="cyan">kjcpp::sleep</span></a>
+      </h2>
+<p>
+        Sleep for secs seconds, floating value is accepted :
+      </p>
+<pre class="programlisting"><span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">sleep</span><span class="special">(</span><span class="identifier">secs</span><span class="special">);</span>
+</pre>
+<p>
+        Sleep for dura seconds, chrono-literal-time is accepted:
+      </p>
+<pre class="programlisting"><span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">sleep</span><span class="special">(</span><span class="identifier">dura</span><span class="special">);</span>
+</pre>
+<p>
+        Sleep for weeks, days, hours, minutes, seconds, and milliseconds, floating
+        value is accepted, chrono-literal value is not accepted :
+      </p>
+<pre class="programlisting"><span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">sleep</span><span class="special">(</span><span class="identifier">weeks</span><span class="special">,</span> <span class="identifier">days</span><span class="special">,</span> <span class="identifier">hours</span><span class="special">,</span> <span class="identifier">minutes</span><span class="special">,</span> <span class="identifier">seconds</span><span class="special">,</span> <span class="identifier">milliseconds</span><span class="special">);</span>
+</pre>
+<h2>
+<a name="kjcpp-sleep.h2"></a>
+        <span class="phrase"><a name="kjcpp-sleep.role_cyan_kjcpp_sleep_msleep"></a></span><a class="link" href="kjcpp-sleep.html#kjcpp-sleep.role_cyan_kjcpp_sleep_msleep"><span class="cyan">kjcpp::sleep.msleep</span></a>
+      </h2>
+<p>
+        Sleep for milli_seconds, floating value:
+      </p>
+<pre class="programlisting"><span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">sleep</span><span class="special">.</span><span class="identifier">msleep</span><span class="special">(</span><span class="identifier">milli_seconds</span><span class="special">);</span>
+</pre>
+<h2>
+<a name="kjcpp-sleep.h3"></a>
+        <span class="phrase"><a name="kjcpp-sleep.role_cyan_kjcpp_sleep_usleep"></a></span><a class="link" href="kjcpp-sleep.html#kjcpp-sleep.role_cyan_kjcpp_sleep_usleep"><span class="cyan">kjcpp::sleep.usleep</span></a>
+      </h2>
+<p>
+        Sleep for micro_seconds, floating value:
+      </p>
+<pre class="programlisting"><span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">sleep</span><span class="special">(</span><span class="identifier">micro_seconds</span><span class="special">);</span>
+</pre>
+<h2>
+<a name="kjcpp-sleep.h4"></a>
+        <span class="phrase"><a name="kjcpp-sleep.role_cyan_kjcpp_sleep_nsleep"></a></span><a class="link" href="kjcpp-sleep.html#kjcpp-sleep.role_cyan_kjcpp_sleep_nsleep"><span class="cyan">kjcpp::sleep.nsleep</span></a>
+      </h2>
+<p>
+        Sleep for nano_seconds, floating value:
+      </p>
+<pre class="programlisting"><span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">nsleep</span><span class="special">(</span><span class="identifier">nano_seconds</span><span class="special">);</span>
+</pre>
+<h2>
+<a name="kjcpp-sleep.h5"></a>
+        <span class="phrase"><a name="kjcpp-sleep.role_cyan_kjcpp_sleep_minsleep"></a></span><a class="link" href="kjcpp-sleep.html#kjcpp-sleep.role_cyan_kjcpp_sleep_minsleep"><span class="cyan">kjcpp::sleep.minsleep</span></a>
+      </h2>
+<p>
+        Sleep for minutes, floating value:
+      </p>
+<pre class="programlisting"><span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">sleep</span><span class="special">.</span><span class="identifier">minsleep</span><span class="special">(</span><span class="identifier">minutes</span><span class="special">);</span>
+</pre>
+<h2>
+<a name="kjcpp-sleep.h6"></a>
+        <span class="phrase"><a name="kjcpp-sleep.role_cyan_kjcpp_sleep_hsleep"></a></span><a class="link" href="kjcpp-sleep.html#kjcpp-sleep.role_cyan_kjcpp_sleep_hsleep"><span class="cyan">kjcpp::sleep.hsleep</span></a>
+      </h2>
+<p>
+        Sleep for hours, floating value:
+      </p>
+<pre class="programlisting"><span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">sleep</span><span class="special">(</span><span class="identifier">hours</span><span class="special">);</span>
+</pre>
+<h2>
+<a name="kjcpp-sleep.h7"></a>
+        <span class="phrase"><a name="kjcpp-sleep.role_cyan_kjcpp_sleep_dsleep"></a></span><a class="link" href="kjcpp-sleep.html#kjcpp-sleep.role_cyan_kjcpp_sleep_dsleep"><span class="cyan">kjcpp::sleep.dsleep</span></a>
+      </h2>
+<p>
+        Sleep for days, floating value:
+      </p>
+<pre class="programlisting"><span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">sleep</span><span class="special">.</span><span class="identifier">dsleep</span><span class="special">(</span><span class="identifier">days</span><span class="special">);</span>
+</pre>
+<h2>
+<a name="kjcpp-sleep.h8"></a>
+        <span class="phrase"><a name="kjcpp-sleep.role_cyan_kjcpp_sleep_wsleep"></a></span><a class="link" href="kjcpp-sleep.html#kjcpp-sleep.role_cyan_kjcpp_sleep_wsleep"><span class="cyan">kjcpp::sleep.wsleep</span></a>
+      </h2>
+<p>
+        Sleep for weeks, floating value:
+      </p>
+<pre class="programlisting"><span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">sleep</span><span class="special">.</span><span class="identifier">wsleep</span><span class="special">(</span><span class="identifier">weeks</span><span class="special">);</span>
+</pre>
+<h2>
+<a name="kjcpp-sleep.h9"></a>
+        <span class="phrase"><a name="kjcpp-sleep.role_cyan_see_also"></a></span><a class="link" href="kjcpp-sleep.html#kjcpp-sleep.role_cyan_see_also"><span class="cyan">See Also</span></a>
+      </h2>
+<p>
+        <a class="link" href="kjcpp-async.html" title="kjcpp::async">kjcpp::async</a>
+      </p>
+<p>
+        <a class="link" href="kjcpp-deferred.html" title="kjcpp::deferred">kjcpp::deferred</a>
+      </p>
+<p>
+        <a class="link" href="kjcpp-ydzs.html" title="kjcpp::ydzs">kjcpp::ydzs</a>
+      </p>
+<p>
+        <a class="link" href="kjcpp-mutex-0-9.html" title="kjcpp::mutex0~9">kjcpp::mutex0~9</a>
+      </p>
+<p>
+        <a class="link" href="kjcpp-print.html" title="kjcpp::print">kjcpp::print</a>
+      </p>
+<p>
+        <br> <br> <br> <br> <br> <br> <br> <br> <br>
+      </p>
+<p>
+        ____________________________________________________________
+      </p>
+<p>
+        <a class="link" href="kjcpp-print.html" title="kjcpp::print">kjcpp::print</a>
+      </p>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="kjcpp-deferred.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="thread.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="kjcpp-ydzs.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

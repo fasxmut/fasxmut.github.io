@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>kjcpp::fact</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Kjcpp Home">
+<link rel="up" href="kjcpp-math.html" title="Math">
+<link rel="prev" href="kjcpp-math.html" title="Math">
+<link rel="next" href="kjcpp-abs.html" title="kjcpp::abs">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="kjcpp-math.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="kjcpp-math.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="kjcpp-abs.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="kjcpp-fact"></a>kjcpp::fact</h2></div></div>
+<hr>
+</div>
+<h2>
+<a name="kjcpp-fact.h0"></a>
+        <span class="phrase"><a name="kjcpp-fact.role_cyan_kjcpp_fact"></a></span><a class="link" href="kjcpp-fact.html#kjcpp-fact.role_cyan_kjcpp_fact"><span class="cyan">kjcpp::fact</span></a>
+      </h2>
+<p>
+        kjcpp::fact calculates the factorial result of value.
+      </p>
+<h4>
+<a name="kjcpp-fact.h1"></a>
+        <span class="phrase"><a name="kjcpp-fact.calling_sig"></a></span><a class="link" href="kjcpp-fact.html#kjcpp-fact.calling_sig">Calling
+        Sig:</a>
+      </h4>
+<pre class="programlisting"><span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">result</span> <span class="special">=</span> <span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">fact</span><span class="special">(</span><span class="identifier">unsigned_value</span><span class="special">);</span>
+</pre>
+<pre class="programlisting"><span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">result</span> <span class="special">=</span> <span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">fact</span><span class="special">.</span><span class="identifier">fn</span><span class="special">&lt;</span><span class="identifier">return_type</span><span class="special">&gt;(</span><span class="identifier">unsigned_value</span><span class="special">);</span>
+</pre>
+<pre class="programlisting"><span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">result</span> <span class="special">=</span> <span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">fact</span><span class="special">.</span><span class="identifier">fn</span><span class="special">&lt;</span><span class="identifier">return_type</span><span class="special">,</span> <span class="identifier">unsignned_arg_type</span><span class="special">&gt;(</span><span class="identifier">value</span><span class="special">);</span>
+</pre>
+<p>
+        <span class="bold"><strong><span class="indigo">kjcpp::fact(???)</span></strong></span>
+        :
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            If <span class="bold"><strong>result</strong></span> is less than <span class="bold"><strong>value</strong></span>,
+            it indicates the result is overflow. When that happens, the result is
+            3 (There is no any unsigned integral factorial result is 3, so kjcpp::fact
+            uses 3 to indicate overflow).
+          </li>
+<li class="listitem">
+            The returned type is same as value type, but the value type must satisfy
+            unsigned. That's one of kjcpp::u8, kjcpp::u16, kjcpp::u32, kjcpp::u64,
+            kjcpp::umax, kjcpp::ux8, kjcpp::ux16, kjcpp::ux32, kjcpp::ux64, kjcpp::uxmax.
+          </li>
+<li class="listitem">
+            <span class="bold"><strong><span class="green">constexpr</span></strong></span>
+            support.
+          </li>
+</ul></div>
+<p>
+        <span class="bold"><strong><span class="indigo">kjcpp::fact.fn&lt;return_type&gt;(???)</span></strong></span>
+        :
+      </p>
+<p>
+        <span class="bold"><strong><span class="indigo">kjcpp::fact.fn&lt;return_type,
+        unsigned_arg_type&gt;(???)</span></strong></span> :
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+            The argument type must be still unsigned integral type, the result is
+            converted to return_type.
+          </li></ul></div>
+<h2>
+<a name="kjcpp-fact.h2"></a>
+        <span class="phrase"><a name="kjcpp-fact.role_cyan_header"></a></span><a class="link" href="kjcpp-fact.html#kjcpp-fact.role_cyan_header"><span class="cyan">Header</span></a>
+      </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">kjcpp</span><span class="special">/</span><span class="identifier">math</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+</pre>
+<h2>
+<a name="kjcpp-fact.h3"></a>
+        <span class="phrase"><a name="kjcpp-fact.role_cyan_example"></a></span><a class="link" href="kjcpp-fact.html#kjcpp-fact.role_cyan_example"><span class="cyan">Example</span></a>
+      </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">kjcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">kjcpp</span><span class="special">/</span><span class="identifier">math</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="comment">// arg_type is kjcpp::u32</span>
+	<span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">result1</span> <span class="special">=</span> <span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">fact</span><span class="special">(</span><span class="number">8u</span><span class="special">);</span>
+
+	<span class="comment">// arg_type is kjcpp::u32, result is converted to kjcpp::f32</span>
+	<span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">result1</span> <span class="special">=</span> <span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">fact</span><span class="special">&lt;</span><span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">f32</span><span class="special">&gt;(</span><span class="number">8u</span><span class="special">);</span>
+
+	<span class="comment">// arg_type is kjcpp::ux32, result is converted to kjcpp::ix32</span>
+	<span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">result2</span> <span class="special">=</span> <span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">fact</span><span class="special">&lt;</span><span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">ix32</span><span class="special">,</span> <span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">ux32</span><span class="special">&gt;(</span><span class="number">8</span><span class="special">);</span>
+
+	<span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="identifier">result1</span><span class="special">,</span> <span class="identifier">result2</span><span class="special">,</span> <span class="identifier">result3</span><span class="special">);</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="kjcpp-fact.h4"></a>
+        <span class="phrase"><a name="kjcpp-fact.role_cyan_see_also"></a></span><a class="link" href="kjcpp-fact.html#kjcpp-fact.role_cyan_see_also"><span class="cyan">See Also</span></a>
+      </h2>
+<p>
+        <a class="link" href="kjcpp-print.html" title="kjcpp::print">kjcpp::print</a>
+      </p>
+<p>
+        <a class="link" href="kjcpp-u32.html" title="kjcpp::u32">kjcpp::u32</a>
+      </p>
+<p>
+        <a class="link" href="kjcpp-ux32.html" title="kjcpp::ux32">kjcpp::ux32</a>
+      </p>
+<p>
+        <a class="link" href="kjcpp-f32.html" title="kjcpp::f32">kjcpp::f32</a>
+      </p>
+<p>
+        <a class="link" href="kjcpp-fx32.html" title="kjcpp::fx32">kjcpp::fx32</a>
+      </p>
+<p>
+        <a class="link" href="kjcpp-i32.html" title="kjcpp::i32">kjcpp::i32</a>
+      </p>
+<p>
+        <a class="link" href="kjcpp-ix32.html" title="kjcpp::ix32">kjcpp::ix32</a>
+      </p>
+<p>
+        <br> <br> <br> <br> <br> <br> <br> <br> <br>
+      </p>
+<p>
+        ____________________________________________________________
+      </p>
+<p>
+        <a class="link" href="kjcpp-print.html" title="kjcpp::print">kjcpp::print</a>
+      </p>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="kjcpp-math.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="kjcpp-math.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="kjcpp-abs.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

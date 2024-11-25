@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>kjcpp::bare_t</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Kjcpp Home">
+<link rel="up" href="basic-traits.html" title="Basic Traits">
+<link rel="prev" href="kjcpp-remove_cvref_t.html" title="kjcpp::remove_cvref_t">
+<link rel="next" href="comparisons.html" title="Comparisons">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="kjcpp-remove_cvref_t.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="basic-traits.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="comparisons.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="kjcpp-bare_t"></a>kjcpp::bare_t</h2></div></div>
+<hr>
+</div>
+<h2>
+<a name="kjcpp-bare_t.h0"></a>
+          <span class="phrase"><a name="kjcpp-bare_t.role_cyan_kjcpp_bare_t"></a></span><a class="link" href="kjcpp-bare_t.html#kjcpp-bare_t.role_cyan_kjcpp_bare_t"><span class="cyan">kjcpp::bare_t</span></a>
+        </h2>
+<p>
+          kjcpp::bare_t is a type-trait used to extract the basic type from a complicated
+          type,
+        </p>
+<h3>
+<a name="kjcpp-bare_t.h1"></a>
+          <span class="phrase"><a name="kjcpp-bare_t.examples"></a></span><a class="link" href="kjcpp-bare_t.html#kjcpp-bare_t.examples">Examples:</a>
+        </h3>
+<p>
+          <span class="blue">kjcpp::ix32</span> from <span class="blue">const
+          kjcpp::ix32 &amp;</span>
+        </p>
+<p>
+          <span class="blue">kjcpp::fx64</span> from <span class="blue">const
+          kjcpp::fx64 * &amp;</span>
+        </p>
+<p>
+          <span class="blue">kjcpp::ix32</span> from <span class="blue">const
+          kjcpp::ix32(*)[3][4][5][6]</span>
+        </p>
+<p>
+          <span class="blue">kjcpp::ix32(kjcpp::fx64 &amp;, const kjcpp::ix32)</span>
+          from <span class="blue">kjcpp::ix32(&amp;)(kjcpp::fx64 &amp;, const kjcpp::ix32)</span>
+        </p>
+<p>
+          It uses kjcpp::decay_t at first, but then kjcpp::decay_t is found not the
+          same as std::decay_t, and it has different goals compared with std::decay_t,
+          so kjcpp::decay_t is removed, and then kjcpp::bare_t is added .
+        </p>
+<h3>
+<a name="kjcpp-bare_t.h2"></a>
+          <span class="phrase"><a name="kjcpp-bare_t.a_difference"></a></span><a class="link" href="kjcpp-bare_t.html#kjcpp-bare_t.a_difference">A
+          difference:</a>
+        </h3>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+              <span class="blue">std::decay_t</span> will transform function prototype
+              to function pointer type;
+            </li>
+<li class="listitem">
+              <span class="blue">kjcpp::bare_t</span> will transform function
+              pointer type to function prototype.
+            </li>
+</ul></div>
+<p>
+          Applying kjcpp::bare_t to an array type, it will extract a basic data type;
+          but applying kjcpp::bare_t to a function type, it will extract a funtion
+          prototype, not a basic data type. That's because kjcpp::bare_t tries to
+          extract a bared type as more as it can. A function type has zero or more
+          input parameter types and has a return type, but an array only has one
+          basic data type, kjcpp::bare_t can not get exactly one basic data type
+          of a function type.
+        </p>
+<h2>
+<a name="kjcpp-bare_t.h3"></a>
+          <span class="phrase"><a name="kjcpp-bare_t.role_cyan_c_example"></a></span><a class="link" href="kjcpp-bare_t.html#kjcpp-bare_t.role_cyan_c_example"><span class="cyan">c++ example</span></a>
+        </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">kjcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">using</span> <span class="identifier">t1</span> <span class="special">=</span> <span class="keyword">const</span> <span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">ix32</span><span class="special">;</span>
+	<span class="keyword">using</span> <span class="identifier">t2</span> <span class="special">=</span> <span class="identifier">t1</span> <span class="special">************;</span>
+	<span class="keyword">using</span> <span class="identifier">t3</span> <span class="special">=</span> <span class="keyword">const</span> <span class="identifier">t2</span> <span class="special">&amp;;</span>
+	<span class="keyword">static_assert</span><span class="special">(</span><span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">same_as</span><span class="special">&lt;</span><span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">bare_t</span><span class="special">&lt;</span><span class="identifier">t3</span><span class="special">&gt;,</span> <span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">ix32</span><span class="special">&gt;);</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="kjcpp-bare_t.h4"></a>
+          <span class="phrase"><a name="kjcpp-bare_t.role_cyan_see_also"></a></span><a class="link" href="kjcpp-bare_t.html#kjcpp-bare_t.role_cyan_see_also"><span class="cyan">See Also</span></a>
+        </h2>
+<p>
+          <a class="link" href="kjcpp-remove_cvref_t.html" title="kjcpp::remove_cvref_t">kjcpp::remove_cvref_t</a>
+        </p>
+<p>
+          <a class="link" href="kjcpp-same_as.html" title="kjcpp::same_as">kjcpp::same_as</a>
+        </p>
+<p>
+          <a class="link" href="kjcpp-ix32.html" title="kjcpp::ix32">kjcpp::ix32</a>
+        </p>
+<p>
+          <a class="link" href="kjcpp-fx64.html" title="kjcpp::fx64">kjcpp::fx64</a>
+        </p>
+<p>
+          <br> <br> <br> <br> <br> <br> <br> <br> <br>
+        </p>
+<p>
+          ____________________________________________________________
+        </p>
+<p>
+          <a class="link" href="kjcpp-print.html" title="kjcpp::print">kjcpp::print</a>
+        </p>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="kjcpp-remove_cvref_t.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="basic-traits.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="comparisons.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>kjcpp::kspt::wprintable</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Kjcpp Home">
+<link rel="up" href="output-concepts.html" title="Output Concepts">
+<link rel="prev" href="kjcpp-kspt-printable.html" title="kjcpp::kspt::printable">
+<link rel="next" href="kjcpp-kspt-printable_adapter.html" title="kjcpp::kspt::printable_adapter">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="kjcpp-kspt-printable.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="output-concepts.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="kjcpp-kspt-printable_adapter.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="kjcpp-kspt-wprintable"></a>kjcpp::kspt::wprintable</h2></div></div>
+<hr>
+</div>
+<h2>
+<a name="kjcpp-kspt-wprintable.h0"></a>
+          <span class="phrase"><a name="kjcpp-kspt-wprintable.role_cyan_kjcpp_kspt_wprintable_"></a></span><a class="link" href="kjcpp-kspt-wprintable.html#kjcpp-kspt-wprintable.role_cyan_kjcpp_kspt_wprintable_"><span class="cyan">kjcpp::kspt::wprintable - Kjcpp Output Concepts</span></a>
+        </h2>
+<p>
+          kjcpp::kspt::wprintable is a concept to constrain a wchar_t based printable
+          types of std::wostream. The type must satisfy printable by std::wostream.
+          Many basic types satisfy kjcpp::wprintable, such as int, float, bool. Specially,
+          std::wstring satisfies kjcpp::kspt::wprintable, but std::string does not
+          satisfy kjcpp::kspt::wprintable, it satisfies kjcpp::kspt::printable.
+        </p>
+<p>
+          <span class="bold"><strong>kjcpp::kspt::wprintable</strong></span>
+        </p>
+<pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">type1</span><span class="special">&gt;</span>
+<span class="identifier">concept</span> <span class="identifier">wprintable</span> <span class="special">=</span> <span class="special">???;</span>
+</pre>
+<h2>
+<a name="kjcpp-kspt-wprintable.h1"></a>
+          <span class="phrase"><a name="kjcpp-kspt-wprintable.role_cyan_c_example"></a></span><a class="link" href="kjcpp-kspt-wprintable.html#kjcpp-kspt-wprintable.role_cyan_c_example"><span class="cyan">c++ example</span></a>
+        </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">kjcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">template</span> <span class="special">&lt;</span><span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">kspt</span><span class="special">::</span><span class="identifier">wprintable</span> <span class="identifier">type1</span><span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">fizz_buzz</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">fizz_buzz</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">type1</span> <span class="special">&amp;</span> <span class="identifier">value1</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">wcout</span> <span class="special">&lt;&lt;</span> <span class="identifier">value1</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+		<span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">wprint</span><span class="special">(</span><span class="identifier">value1</span><span class="special">);</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">fizz_buzz</span> <span class="identifier">f1</span><span class="special">{</span><span class="number">123</span><span class="special">};</span>
+	<span class="identifier">fizz_buzz</span> <span class="identifier">f2</span><span class="special">{</span><span class="identifier">L</span><span class="string">"Hello c++!"</span><span class="special">};</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="kjcpp-kspt-wprintable.h2"></a>
+          <span class="phrase"><a name="kjcpp-kspt-wprintable.role_cyan_see_also"></a></span><a class="link" href="kjcpp-kspt-wprintable.html#kjcpp-kspt-wprintable.role_cyan_see_also"><span class="cyan">See Also</span></a>
+        </h2>
+<p>
+          <a class="link" href="kjcpp-kspt-printable.html" title="kjcpp::kspt::printable">kjcpp::kspt::printable</a>
+        </p>
+<p>
+          <a class="link" href="kjcpp-kspt-printable_adapter.html" title="kjcpp::kspt::printable_adapter">kjcpp::kspt::printable_adapter</a>
+        </p>
+<p>
+          <a class="link" href="kjcpp-wprint.html" title="kjcpp::wprint">kjcpp::wprint</a>
+        </p>
+<p>
+          <br> <br> <br> <br> <br> <br> <br> <br> <br>
+        </p>
+<p>
+          ____________________________________________________________
+        </p>
+<p>
+          <a class="link" href="kjcpp-print.html" title="kjcpp::print">kjcpp::print</a>
+        </p>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="kjcpp-kspt-printable.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="output-concepts.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="kjcpp-kspt-printable_adapter.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

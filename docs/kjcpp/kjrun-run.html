@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>kjrun::run</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Kjcpp Home">
+<link rel="up" href="programs.html" title="Programs">
+<link rel="prev" href="kjcpp-throw_if.html" title="kjcpp::throw_if">
+<link rel="next" href="literals-list.html" title="Literals List">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="kjcpp-throw_if.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="programs.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="literals-list.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="kjrun-run"></a>kjrun::run</h2></div></div>
+<hr>
+</div>
+<h2>
+<a name="kjrun-run.h0"></a>
+        <span class="phrase"><a name="kjrun-run.kjrun-run"></a></span><a class="link" href="kjrun-run.html#kjrun-run.kjrun-run"><span class="cyan">kjrun::run</span></a>
+      </h2>
+<p>
+        kjrun::run is a c++ method of kjcpp class kjrun. It is the main entry point
+        of the program, which enables automatically exception catching.
+      </p>
+<h2>
+<a name="kjrun-run.h1"></a>
+        <span class="phrase"><a name="kjrun-run.how-to-use"></a></span><a class="link" href="kjrun-run.html#kjrun-run.how-to-use"><span class="cyan">How to use</span></a>
+      </h2>
+<h3>
+<a name="kjrun-run.h2"></a>
+        <span class="phrase"><a name="kjrun-run.include_kjcpp_kjrun_hpp"></a></span><a class="link" href="kjrun-run.html#kjrun-run.include_kjcpp_kjrun_hpp">Include
+        kjcpp/kjrun.hpp</a>
+      </h3>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">kjcpp</span><span class="special">/</span><span class="identifier">kjrun</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+</pre>
+<h3>
+<a name="kjrun-run.h3"></a>
+        <span class="phrase"><a name="kjrun-run.implement_kjrun_run_method"></a></span><a class="link" href="kjrun-run.html#kjrun-run.implement_kjrun_run_method">Implement
+        kjrun::run method</a>
+      </h3>
+<pre class="programlisting"><span class="keyword">void</span> <span class="identifier">kjrun</span><span class="special">::</span><span class="identifier">run</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"Hello, c++!"</span><span class="special">);</span>
+<span class="special">}</span>
+</pre>
+<h3>
+<a name="kjrun-run.h4"></a>
+        <span class="phrase"><a name="kjrun-run.cpp-example"></a></span><a class="link" href="kjrun-run.html#kjrun-run.cpp-example">The
+        complete c++ example</a>
+      </h3>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">kjcpp</span><span class="special">/</span><span class="identifier">kjrun</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">void</span> <span class="identifier">kjrun</span><span class="special">::</span><span class="identifier">run</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"Hello, c++!"</span><span class="special">);</span>
+<span class="special">}</span>
+</pre>
+<h3>
+<a name="kjrun-run.h5"></a>
+        <span class="phrase"><a name="kjrun-run.compile_code"></a></span><a class="link" href="kjrun-run.html#kjrun-run.compile_code">Compile
+        code</a>
+      </h3>
+<pre class="programlisting"><span class="identifier">g</span><span class="special">++</span> <span class="identifier">hello</span><span class="special">.</span><span class="identifier">cpp</span> <span class="special">-</span><span class="identifier">std</span><span class="special">=</span><span class="identifier">c</span><span class="special">++</span><span class="number">23</span> <span class="special">-</span><span class="identifier">o</span> <span class="identifier">hello</span>
+</pre>
+<h2>
+<a name="kjrun-run.h6"></a>
+        <span class="phrase"><a name="kjrun-run.auto-throw-catch"></a></span><a class="link" href="kjrun-run.html#kjrun-run.auto-throw-catch"><span class="cyan">Automatically try-throw-catch exception</span></a>
+      </h2>
+<p>
+        The exception will be automatically thrown and caught.
+      </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">kjcpp</span><span class="special">/</span><span class="identifier">kjrun</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">void</span> <span class="identifier">kjrun</span><span class="special">::</span><span class="identifier">run</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"Hello, c++!"</span><span class="special">);</span>
+	<span class="keyword">throw</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">runtime_error</span><span class="special">{</span><span class="string">"Hello, test c++ exception!"</span><span class="special">};</span>
+	<span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"Bye Bye!"</span><span class="special">);</span>
+<span class="special">}</span>
+</pre>
+<p>
+        Output:
+      </p>
+<pre class="programlisting"><span class="identifier">Hello</span><span class="special">,</span> <span class="identifier">c</span><span class="special">++!</span>
+
+
+<span class="special">[</span><span class="identifier">c</span><span class="special">++</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">exception</span><span class="special">]</span>  <span class="identifier">Hello</span><span class="special">,</span> <span class="identifier">test</span> <span class="identifier">c</span><span class="special">++</span> <span class="identifier">exception</span><span class="special">!</span>
+<span class="special">============================================================</span>
+</pre>
+<h2>
+<a name="kjrun-run.h7"></a>
+        <span class="phrase"><a name="kjrun-run.enable_tcrash"></a></span><a class="link" href="kjrun-run.html#kjrun-run.enable_tcrash"><span class="cyan">Enable tcrash: .enable_tcrash(true/false)</span></a>
+      </h2>
+<p>
+        Enable tcrash true: after the exception is automatically throw-and-catch,
+        rethrow it again to the system.
+      </p>
+<p>
+        Enable tcrash false: after the exception is automatically throw-and-catch,
+        do not rethrow.
+      </p>
+<p>
+        Default: not enable.
+      </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">kjcpp</span><span class="special">/</span><span class="identifier">kjrun</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">void</span> <span class="identifier">kjrun</span><span class="special">::</span><span class="identifier">run</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">self</span><span class="special">-&gt;</span><span class="identifier">enable_tcrash</span><span class="special">(</span><span class="keyword">true</span><span class="special">);</span>
+	<span class="keyword">throw</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">runtime_error</span><span class="special">{</span><span class="string">"test error"</span><span class="special">};</span>
+<span class="special">}</span>
+</pre>
+<p>
+        output:
+      </p>
+<pre class="programlisting">[c++ std::exception]  test error
+============================================================
+
+
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  c++ std::exception: test error
+Aborted (core dumped)
+</pre>
+<h2>
+<a name="kjrun-run.h8"></a>
+        <span class="phrase"><a name="kjrun-run.member-self"></a></span><a class="link" href="kjrun-run.html#kjrun-run.member-self"><span class="cyan">self member</span></a>
+      </h2>
+<p>
+        kjrun::run is a c++ method of the class kjrun, kjrun::run is declared but
+        not defined, it will be called by main, the user-code must define it. The
+        member variable self is declared and defined in the class kjrun. The self
+        is a std::shared_ptr object.
+      </p>
+<h2>
+<a name="kjrun-run.h9"></a>
+        <span class="phrase"><a name="kjrun-run.set_return"></a></span><a class="link" href="kjrun-run.html#kjrun-run.set_return"><span class="cyan">Return value: .set_return</span></a>
+      </h2>
+<p>
+        The return value is set by method .set_return, if it has no exception.
+      </p>
+<p>
+        If it has exception, the return value is non-zero, which can not be set by
+        method .set_return.
+      </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">kjcpp</span><span class="special">/</span><span class="identifier">kjrun</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">void</span> <span class="identifier">kjrun</span><span class="special">::</span><span class="identifier">run</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">self</span><span class="special">-&gt;</span><span class="identifier">set_return</span><span class="special">(</span><span class="number">0</span><span class="special">);</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="kjrun-run.h10"></a>
+        <span class="phrase"><a name="kjrun-run.see-also"></a></span><a class="link" href="kjrun-run.html#kjrun-run.see-also"><span class="cyan">See Also</span></a>
+      </h2>
+<p>
+        <a class="link" href="kjcpp-throw_if.html" title="kjcpp::throw_if">kjcpp::throw_if</a>
+      </p>
+<p>
+        <br> <br> <br> <br> <br> <br> <br> <br> <br>
+      </p>
+<p>
+        ____________________________________________________________
+      </p>
+<p>
+        <a class="link" href="kjcpp-print.html" title="kjcpp::print">kjcpp::print</a>
+      </p>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="kjcpp-throw_if.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="programs.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="literals-list.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

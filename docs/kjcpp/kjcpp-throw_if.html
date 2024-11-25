@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>kjcpp::throw_if</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Kjcpp Home">
+<link rel="up" href="programs.html" title="Programs">
+<link rel="prev" href="programs.html" title="Programs">
+<link rel="next" href="kjrun-run.html" title="kjrun::run">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="programs.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="programs.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="kjrun-run.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="kjcpp-throw_if"></a>kjcpp::throw_if</h2></div></div>
+<hr>
+</div>
+<h2>
+<a name="kjcpp-throw_if.h0"></a>
+        <span class="phrase"><a name="kjcpp-throw_if.kjcpp-throw_if"></a></span><a class="link" href="kjcpp-throw_if.html#kjcpp-throw_if.kjcpp-throw_if"><span class="cyan">kjcpp::throw_if</span></a>
+      </h2>
+<p>
+        kjcpp::throw_if is a c++ object of the class template. It has two arguments,
+        if the first param is true, it will throw an exception with the information
+        passed from the second parameter.
+      </p>
+<p>
+        Calling Sig:
+      </p>
+<pre class="programlisting"><span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">throw_if</span><span class="special">(</span><span class="identifier">true_or_false</span><span class="special">,</span> <span class="string">"the message"</span><span class="special">);</span>
+</pre>
+<h2>
+<a name="kjcpp-throw_if.h1"></a>
+        <span class="phrase"><a name="kjcpp-throw_if.cpp-example"></a></span><a class="link" href="kjcpp-throw_if.html#kjcpp-throw_if.cpp-example"><span class="cyan">c++ example</span></a>
+      </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">kjcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">throw_if</span><span class="special">(</span><span class="keyword">true</span><span class="special">,</span> <span class="string">"test exception"</span><span class="special">);</span>
+<span class="special">}</span>
+</pre>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">kjcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">error_code</span> <span class="identifier">ec</span><span class="special">;</span>
+	<span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">throw_if</span><span class="special">(</span><span class="identifier">ec</span><span class="special">,</span> <span class="string">"test exception"</span><span class="special">);</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="kjcpp-throw_if.h2"></a>
+        <span class="phrase"><a name="kjcpp-throw_if.see-also"></a></span><a class="link" href="kjcpp-throw_if.html#kjcpp-throw_if.see-also"><span class="cyan">See Also</span></a>
+      </h2>
+<p>
+        <a class="link" href="kjrun-run.html" title="kjrun::run">kjrun::run</a>
+      </p>
+<p>
+        <br> <br> <br> <br> <br> <br> <br> <br> <br>
+      </p>
+<p>
+        ____________________________________________________________
+      </p>
+<p>
+        <a class="link" href="kjcpp-print.html" title="kjcpp::print">kjcpp::print</a>
+      </p>
+</div>
+<div class="copyright-footer">Copyright © 2022-2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="programs.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="programs.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="kjrun-run.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
