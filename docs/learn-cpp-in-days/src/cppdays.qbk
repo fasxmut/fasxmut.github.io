@@ -19,6 +19,7 @@
 [include day14-virtual-destructor-virtual-inheritance.qbk]
 [include day15-cpp-template.qbk]
 [include day16-cpp-template-basis-completion.qbk]
+[include day17-cpp-concepts.qbk]
 
 [h1:cpp-tutorial [role cyan cpp Tutorial: Learn c++ in days]]
 

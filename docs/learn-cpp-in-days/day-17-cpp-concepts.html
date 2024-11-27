@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>day-17: c++ concepts</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Learn c++ in days">
+<link rel="up" href="index.html" title="Learn c++ in days">
+<link rel="prev" href="day-16-cpp-template-moon.html" title="day-16: c++ template, the moon">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="day-16-cpp-template-moon.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="day-17-cpp-concepts"></a>day-17: c++ concepts</h1></div></div>
+<hr>
+</div>
+<p>
+      concepts are c++ language feature that make c++ template programming funny.
+    </p>
+<h2>
+<a name="day-17-cpp-concepts.h0"></a>
+      <span class="phrase"><a name="day-17-cpp-concepts.write-a-simplest-concept"></a></span><a class="link" href="day-17-cpp-concepts.html#day-17-cpp-concepts.write-a-simplest-concept"><span class="cyan">Write a simplest concept</span></a>
+    </h2>
+<pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">type_t20</span><span class="special">&gt;</span>
+<span class="identifier">concept</span> <span class="identifier">always_true</span> <span class="special">=</span> <span class="keyword">true</span><span class="special">;</span>
+
+<span class="keyword">template</span> <span class="special">&lt;</span><span class="identifier">always_true</span> <span class="identifier">type_t00</span><span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">my_class</span>
+<span class="special">{</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">my_class</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;</span> <span class="identifier">obj1</span><span class="special">;</span>
+	<span class="keyword">auto</span> <span class="identifier">obj2</span> <span class="special">=</span> <span class="identifier">my_class</span><span class="special">&lt;</span><span class="keyword">char</span><span class="special">&gt;{};</span>
+<span class="special">}</span>
+</pre>
+<p>
+      You see, <em class="replaceable"><code>always_true</code></em> is a concept, it is assigned
+      true.
+    </p>
+<h2>
+<a name="day-17-cpp-concepts.h1"></a>
+      <span class="phrase"><a name="day-17-cpp-concepts.basic-syntax"></a></span><a class="link" href="day-17-cpp-concepts.html#day-17-cpp-concepts.basic-syntax"><span class="cyan">Basic Syntax</span></a>
+    </h2>
+<p>
+      c++ concept basic syntax:
+    </p>
+<pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">the_constrait_type</span><span class="special">,</span> <span class="keyword">typename</span> <span class="identifier">other_type1</span><span class="special">,</span> <span class="keyword">typename</span> <span class="identifier">other_type2</span><span class="special">,</span> <span class="special">...</span> <span class="special">...</span> <span class="special">...&gt;</span>
+<span class="identifier">concept</span> <span class="identifier">the_concept_name</span> <span class="special">=</span> <span class="identifier">the_constrait_expression</span> <span class="special">;</span>
+</pre>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          <span class="bold"><strong>the_constrait_expression</strong></span> must be an expression
+          that can be evaluated to true or false at compile time.
+        </li>
+<li class="listitem">
+          <span class="bold"><strong>the_constrait_type</strong></span> is the target type
+          that are constrained.
+        </li>
+<li class="listitem">
+          <span class="bold"><strong>other_type1, other_type2, ...</strong></span> are the
+          types that are needed to help to constrain target type <span class="bold"><strong>the_constrait_type</strong></span>
+          .
+        </li>
+</ul></div>
+<h4>
+<a name="day-17-cpp-concepts.h2"></a>
+      <span class="phrase"><a name="day-17-cpp-concepts.note"></a></span><a class="link" href="day-17-cpp-concepts.html#day-17-cpp-concepts.note">Note:</a>
+    </h4>
+<p>
+      The concept template might have more than one template parameters, the first
+      parameter is the target type to be constrained, the rest parameters are used
+      to constrain the first parameter.
+    </p>
+<h2>
+<a name="day-17-cpp-concepts.h3"></a>
+      <span class="phrase"><a name="day-17-cpp-concepts.some-cpp-standard-concepts-libraries"></a></span><a class="link" href="day-17-cpp-concepts.html#day-17-cpp-concepts.some-cpp-standard-concepts-libraries"><span class="cyan">Some c++ standard concept libraries</span></a>
+    </h2>
+<h3>
+<a name="day-17-cpp-concepts.h4"></a>
+      <span class="phrase"><a name="day-17-cpp-concepts.std-same_as"></a></span><a class="link" href="day-17-cpp-concepts.html#day-17-cpp-concepts.std-same_as">std::same_as</a>
+    </h3>
+<p>
+      std::same_as constrains the target type (the first parameter) must be the same
+      as the second type (the second parameter).
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">concepts</span><span class="special">&gt;</span>
+
+<span class="keyword">template</span> <span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">same_as</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;</span> <span class="identifier">type_t00</span><span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">test</span>
+<span class="special">{</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">test</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;</span> <span class="identifier">t1</span><span class="special">{};</span>
+	<span class="comment">//test&lt;const int&gt; t2{};	// fail</span>
+	<span class="comment">//test&lt;unsigned int&gt; t3{};	// fail</span>
+	<span class="comment">//test&lt;float&gt; t4{};	// fail</span>
+<span class="special">}</span>
+</pre>
+<p>
+      The <span class="bold"><strong>std::same_as</strong></span> should be declared like this:
+    </p>
+<pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">param1</span><span class="special">,</span> <span class="keyword">typename</span> <span class="identifier">param2</span><span class="special">&gt;</span>
+<span class="identifier">concept</span> <span class="identifier">same_as</span> <span class="special">=</span> <span class="identifier">expression___</span> <span class="special">;</span>
+</pre>
+<p>
+      The above example, <span class="bold"><strong>template &lt;std::same_as&lt;int&gt;
+      type_t00&gt;</strong></span>,<br> <span class="blue">type_t00</span> will be
+      passed as the <span class="blue">first parameter: param1</span> , <br>
+      <span class="blue">int</span> will be passed as the <span class="blue">second
+      parameter: param2</span> .<br> <span class="purple">type_t00 is the target
+      constraint type.</span>
+    </p>
+<h3>
+<a name="day-17-cpp-concepts.h5"></a>
+      <span class="phrase"><a name="day-17-cpp-concepts.std-integral"></a></span><a class="link" href="day-17-cpp-concepts.html#day-17-cpp-concepts.std-integral">std::integral</a>
+    </h3>
+<p>
+      std::integral requires the type must be an integral type.
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">concepts</span><span class="special">&gt;</span>
+
+<span class="keyword">template</span> <span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">integral</span> <span class="identifier">type_t00</span><span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">test</span>
+<span class="special">{</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">test</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;</span> <span class="identifier">t0</span><span class="special">;</span>	<span class="comment">// OK</span>
+	<span class="identifier">test</span><span class="special">&lt;</span><span class="keyword">long</span> <span class="keyword">int</span><span class="special">&gt;</span> <span class="identifier">t1</span><span class="special">;</span>	<span class="comment">// OK</span>
+	<span class="identifier">test</span><span class="special">&lt;</span><span class="keyword">unsigned</span> <span class="keyword">int</span><span class="special">&gt;</span> <span class="identifier">t2</span><span class="special">;</span>	<span class="comment">// OK</span>
+	<span class="comment">// test&lt;float&gt; t3;	// fail, float does not satisfy std::integral.</span>
+<span class="special">}</span>
+</pre>
+<h3>
+<a name="day-17-cpp-concepts.h6"></a>
+      <span class="phrase"><a name="day-17-cpp-concepts.std-floating_point"></a></span><a class="link" href="day-17-cpp-concepts.html#day-17-cpp-concepts.std-floating_point">std::floating_point</a>
+    </h3>
+<p>
+      std::floating_point requires the type must be a floating point type.
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">concepts</span><span class="special">&gt;</span>
+
+<span class="keyword">template</span> <span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">floating_point</span> <span class="identifier">type_t00</span><span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">test</span>
+<span class="special">{</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">auto</span> <span class="identifier">t1</span> <span class="special">=</span> <span class="identifier">test</span><span class="special">&lt;</span><span class="keyword">float</span><span class="special">&gt;{};</span>	<span class="comment">// OK</span>
+	<span class="keyword">auto</span> <span class="identifier">t2</span> <span class="special">=</span> <span class="identifier">test</span><span class="special">&lt;</span><span class="keyword">double</span><span class="special">&gt;{};</span>	<span class="comment">// OK</span>
+	<span class="comment">//auto t3 = test&lt;int&gt;{};	// fail. int does not satisfy std::floating_point.</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="day-17-cpp-concepts.h7"></a>
+      <span class="phrase"><a name="day-17-cpp-concepts.requires-expression"></a></span><a class="link" href="day-17-cpp-concepts.html#day-17-cpp-concepts.requires-expression"><span class="cyan">Define concepts: requires expression</span></a>
+    </h2>
+<p>
+      Define concepts
+    </p>
+<p>
+      c++ example
+    </p>
+<h3>
+<a name="day-17-cpp-concepts.h8"></a>
+      <span class="phrase"><a name="day-17-cpp-concepts.requires_some_op"></a></span><a class="link" href="day-17-cpp-concepts.html#day-17-cpp-concepts.requires_some_op">Requires
+      some op</a>
+    </h3>
+<pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">type_t20</span><span class="special">&gt;</span>
+<span class="identifier">concept</span> <span class="identifier">has_int_get</span> <span class="special">=</span> <span class="identifier">requires</span> <span class="special">(</span><span class="identifier">type_t20</span> <span class="identifier">value_ob</span><span class="special">)</span>	<span class="comment">// requires</span>
+<span class="special">{</span>
+	<span class="identifier">value_ob</span><span class="special">.</span><span class="identifier">get</span><span class="special">();</span>	<span class="comment">// It requires object of type_t20 has a method get()</span>
+<span class="special">};</span>
+
+<span class="keyword">class</span> <span class="identifier">tt_class</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">void</span> <span class="identifier">get</span><span class="special">()</span>
+	<span class="special">{</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">template</span> <span class="special">&lt;</span><span class="identifier">has_int_get</span> <span class="identifier">type_t00</span><span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">test</span>
+<span class="special">{</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">test</span><span class="special">&lt;</span><span class="identifier">tt_class</span><span class="special">&gt;</span> <span class="identifier">t1</span><span class="special">{};</span>	<span class="comment">// OK: tt_class is a type that has a method get().</span>
+	<span class="comment">//test&lt;int&gt; t2{};	// fail. int does not have a method get().</span>
+<span class="special">}</span>
+</pre>
+<p>
+      The concept <span class="blue">has_int_get</span> requires the type has
+      a method <span class="blue">.get</span> .
+    </p>
+<h3>
+<a name="day-17-cpp-concepts.h9"></a>
+      <span class="phrase"><a name="day-17-cpp-concepts.requires_returning_a_required_ty"></a></span><a class="link" href="day-17-cpp-concepts.html#day-17-cpp-concepts.requires_returning_a_required_ty">Requires
+      returning a required type</a>
+    </h3>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">concepts</span><span class="special">&gt;</span>
+
+<span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">type_t20</span><span class="special">&gt;</span>
+<span class="identifier">concept</span> <span class="identifier">has_int_get</span> <span class="special">=</span> <span class="identifier">requires</span> <span class="special">(</span><span class="identifier">type_t20</span> <span class="identifier">value_ob</span><span class="special">)</span>	<span class="comment">// requires</span>
+<span class="special">{</span>
+	<span class="special">{</span><span class="identifier">value_ob</span><span class="special">.</span><span class="identifier">get</span><span class="special">()}</span> <span class="special">-&gt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">same_as</span><span class="special">&lt;</span><span class="keyword">float</span><span class="special">&gt;;</span> <span class="comment">// Requires the return type is the same as float.</span>
+<span class="special">};</span>
+
+<span class="keyword">class</span> <span class="identifier">tt_class</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">int</span> <span class="identifier">get</span><span class="special">()</span> <span class="special">{</span><span class="keyword">return</span> <span class="number">0</span><span class="special">;}</span>
+<span class="special">};</span>
+
+<span class="keyword">class</span> <span class="identifier">pp_class</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">float</span> <span class="identifier">get</span><span class="special">()</span> <span class="special">{</span><span class="keyword">return</span> <span class="number">1.2f</span><span class="special">;}</span>
+<span class="special">};</span>
+
+<span class="keyword">template</span> <span class="special">&lt;</span><span class="identifier">has_int_get</span> <span class="identifier">type_t00</span><span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">test</span>
+<span class="special">{</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="comment">//auto t1 = test&lt;tt_class&gt;{};	// fail. tt_class::get does not return float.</span>
+	<span class="keyword">auto</span> <span class="identifier">t2</span> <span class="special">=</span> <span class="identifier">test</span><span class="special">&lt;</span><span class="identifier">pp_class</span><span class="special">&gt;{};</span>	<span class="comment">// OK</span>
+<span class="special">}</span>
+</pre>
+<p>
+      The concept <span class="blue">has_int_get</span> requires the type must
+      have a method <span class="blue">.get</span>, <br> and that method must
+      return a type that is the same as <span class="blue">float</span> .
+    </p>
+<p>
+      Although <span class="blue">tt_class</span> has a method <span class="blue">get</span>,
+      but it returns <span class="blue">int</span>, not <span class="blue">float</span>
+      .
+    </p>
+<p>
+      <span class="blue">pp_class</span> has a method <span class="blue">get</span>,
+      and it returns <span class="blue">float</span> .
+    </p>
+<p>
+      So, <span class="blue">tt_class</span> <span class="purple">does not satisfy</span>
+      the concept <span class="blue">has_int_get</span> , <br> <span class="blue">pp_class</span>
+      <span class="indigo">satisfies</span> the concept <span class="blue">has_int_get</span>
+      .
+    </p>
+<p>
+      <br> <br> <br> <br> <br> <br>
+    </p>
+<p>
+      <em class="replaceable"><code>Written on Nov 27, 2024</code></em>
+    </p>
+<h2>
+<a name="day-17-cpp-concepts.h10"></a>
+      <span class="phrase"><a name="day-17-cpp-concepts.role_cyan_back_to_index"></a></span><a class="link" href="day-17-cpp-concepts.html#day-17-cpp-concepts.role_cyan_back_to_index"><span class="cyan">Back to index</span></a>
+    </h2>
+<p>
+      <a href="." target="_top">Index</a>
+    </p>
+<h2>
+<a name="day-17-cpp-concepts.h11"></a>
+      <span class="phrase"><a name="day-17-cpp-concepts.cpp-lang"></a></span><a class="link" href="day-17-cpp-concepts.html#day-17-cpp-concepts.cpp-lang"><span class="cyan">cpp/c++</span></a>
+    </h2>
+<p>
+      c++ std::exception:
+    </p>
+<p>
+      std::cout.write(err.data(), err.size());
+    </p>
+<p>
+      std::cout &lt;&lt; std::endl;
+    </p>
+<p>
+      <span class="purple">caught:</span>
+    </p>
+<pre class="programlisting">  ==================================================
+  #        The c++ programming language.           #
+  #                                                #
+  #        Join c++ Discord: yZcauUAUyC            #
+  #        Deck                                    #
+  ==================================================
+</pre>
+<p>
+      <a href="https://cppfx.xyz" target="_top">Home: cppfx.xyz</a>
+    </p>
+<p>
+      <a href="https://cppfx.xyz/kjcpp/kjcpp-print.html" target="_top">kjcpp::print</a>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="day-16-cpp-template-moon.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+</body>
+</html>

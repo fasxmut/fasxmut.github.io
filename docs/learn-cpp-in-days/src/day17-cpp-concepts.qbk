@@ -1,0 +1,227 @@
+[article day-17: c++ concepts
+	[id day-17-cpp-concepts]
+	[quickbook 1.7]
+]
+
+concepts are c++ language feature that make c++ template programming funny.
+
+[h1:write-a-simplest-concept [role cyan Write a simplest concept]]
+
+[!c++]
+```
+template <typename type_t20>
+concept always_true = true;
+
+template <always_true type_t00>
+class my_class
+{
+};
+
+int main()
+{
+	my_class<int> obj1;
+	auto obj2 = my_class<char>{};
+}
+```
+
+You see, [~always_true] is a concept, it is assigned true.
+
+[h1:basic-syntax [role cyan Basic Syntax]]
+
+c++ concept basic syntax:
+
+[!c++]
+```
+template <typename the_constrait_type, typename other_type1, typename other_type2, ... ... ...>
+concept the_concept_name = the_constrait_expression ;
+```
+
+* [*the_constrait_expression] must be an expression that can be evaluated to true or false at compile time.
+* [*the_constrait_type] is the target type that are constrained.
+* [*other_type1, other_type2, ...] are the types that are needed to help to constrain target type [*the_constrait_type] .
+
+[h3 Note:]
+
+The concept template might have more than one template parameters, the first parameter is the target type to be constrained, the rest parameters are used to constrain the first parameter.
+
+[h1:some-cpp-standard-concepts-libraries [role cyan Some c++ standard concept libraries]]
+
+[h2:std-same_as std::same_as]
+
+std::same_as constrains the target type (the first parameter) must be the same as the second type (the second parameter).
+
+[!c++]
+```
+#include <concepts>
+
+template <std::same_as<int> type_t00>
+class test
+{
+};
+
+int main()
+{
+	test<int> t1{};
+	//test<const int> t2{};	// fail
+	//test<unsigned int> t3{};	// fail
+	//test<float> t4{};	// fail
+}
+```
+
+The [*std::same_as] should be declared like this:
+```
+template <typename param1, typename param2>
+concept same_as = expression___ ;
+```
+
+The above example, [*template <std::same_as<int> type_t00>],[br]
+[role blue type_t00] will be passed as the [role blue first parameter: param1] , [br]
+[role blue int] will be passed as the [role blue second parameter: param2] .[br]
+[role purple type_t00 is the target constraint type.]
+
+[h2:std-integral std::integral]
+
+std::integral requires the type must be an integral type.
+
+[!c++]
+```
+#include <concepts>
+
+template <std::integral type_t00>
+class test
+{
+};
+
+int main()
+{
+	test<int> t0;	// OK
+	test<long int> t1;	// OK
+	test<unsigned int> t2;	// OK
+	// test<float> t3;	// fail, float does not satisfy std::integral.
+}
+```
+
+[h2:std-floating_point std::floating_point]
+
+std::floating_point requires the type must be a floating point type.
+
+[!c++]
+```
+#include <concepts>
+
+template <std::floating_point type_t00>
+class test
+{
+};
+
+int main()
+{
+	auto t1 = test<float>{};	// OK
+	auto t2 = test<double>{};	// OK
+	//auto t3 = test<int>{};	// fail. int does not satisfy std::floating_point.
+}
+```
+
+[h1:requires-expression [role cyan Define concepts: requires expression]]
+
+Define concepts
+
+c++ example
+
+[h2 Requires some op]
+
+[!c++]
+```
+template <typename type_t20>
+concept has_int_get = requires (type_t20 value_ob)	// requires
+{
+	value_ob.get();	// It requires object of type_t20 has a method get()
+};
+
+class tt_class
+{
+public:
+	void get()
+	{
+	}
+};
+
+template <has_int_get type_t00>
+class test
+{
+};
+
+int main()
+{
+	test<tt_class> t1{};	// OK: tt_class is a type that has a method get().
+	//test<int> t2{};	// fail. int does not have a method get().
+}
+```
+
+The concept [role blue has_int_get] requires the type has a method [role blue .get] .
+
+[h2 Requires returning a required type]
+
+[!c++]
+```
+#include <concepts>
+
+template <typename type_t20>
+concept has_int_get = requires (type_t20 value_ob)	// requires
+{
+	{value_ob.get()} -> std::same_as<float>; // Requires the return type is the same as float.
+};
+
+class tt_class
+{
+public:
+	int get() {return 0;}
+};
+
+class pp_class
+{
+public:
+	float get() {return 1.2f;}
+};
+
+template <has_int_get type_t00>
+class test
+{
+};
+
+int main()
+{
+	//auto t1 = test<tt_class>{};	// fail. tt_class::get does not return float.
+	auto t2 = test<pp_class>{};	// OK
+}
+```
+
+The concept [role blue has_int_get] requires the type must have a method [role blue .get],
+[br]
+and that method must return a type that is the same as [role blue float] .
+
+Although [role blue tt_class] has a method [role blue get], but it returns [role blue int], not [role blue float] .
+
+[role blue pp_class] has a method [role blue get], and it returns [role blue float] .
+
+So, [role blue tt_class] [role purple does not satisfy] the concept [role blue has_int_get] ,
+[br]
+[role blue pp_class] [role indigo satisfies] the concept [role blue has_int_get] .
+
+[br]
+[br]
+[br]
+[br]
+[br]
+[br]
+
+[~Written on Nov 27, 2024]
+
+[h1 [role cyan Back to index]]
+
+[@. Index]
+
+[include ../../share/foot-links.inc.qbk]
+
+
+
