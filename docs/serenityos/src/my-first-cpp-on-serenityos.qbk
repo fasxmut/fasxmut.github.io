@@ -1,0 +1,72 @@
+[article My first c++ programming code on SerenityOS
+	[id my-first-cpp-on-serenityos]
+	[quickbook 1.7]
+]
+
+[h1:prepare [role cyan Prepare]]
+
+SerenityOS, Serenity
+
+* Install SerenityOS
+
+* Build and install gnu c++ compiler from serenity ports to serenityos.
+
+[h1:cpp-code [role cyan The c++ programming on serenityos]]
+
+The AK library of serenityos has implemented c++ concepts library.
+
+c++ :
+
+hello.cpp
+
+[!c++]
+```
+#include <AK/Format.h>
+#include <AK/BufferedStream.h>
+
+namespace my_space
+{
+    class A {};
+    class B: virtual public A {};
+    class C {};
+}
+
+int main()
+{
+    static_assert(AK::Concepts::SameAs<int, int>);
+    static_assert(! AK::Concepts::SameAs<const int, int>);
+
+    constexpr auto x = AK::Concepts::SameAs<const int, int>?true:false;
+    AK::out("result: {}\n", x);
+
+    static_assert(AK::Concepts::DerivedFrom<my_space::B, my_space::A>);
+    static_assert(! AK::Concepts::DerivedFrom<my_space::C, my_space::A>);
+
+    // AK::Detail::RemoveCVReference is a c++ concept too
+    using t1 = AK::Detail::RemoveCVReference<int const volatile &>;
+    static_assert(AK::Concepts::SameAs<t1, int>);
+
+    AK::Variant<int, const char *> v = 23;
+    AK::out("=>{}\n", v.get<int>());
+    v = "Hello, AK!";
+    AK::out("=>{}\n", v.get<const char *>());
+
+    // AK::SeekableStreamLike is a c++ concept too
+    static_assert(AK::SeekableStreamLike<AK::SeekableStream>);
+    using my_stream = AK::OutputBufferedSeekable<AK::SeekableStream>;
+}
+```
+
+Compile and run it:
+
+[!teletype]
+```
+courage:~ $ g++ hello.cpp -std=c++23 -lgcc_s -o hello
+courage:~ $ ./hello
+result: false
+=>23
+=>Hello, AK!
+```
+
+[include ../../share/foot-links.inc.qbk]
+

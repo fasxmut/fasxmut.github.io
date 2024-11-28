@@ -1,0 +1,13 @@
+[book SerenityOS
+	[quickbook 1.7]
+	[id serenityos]
+]
+
+[include my-first-cpp-on-serenityos.qbk]
+
+[h2 SerenityOS]
+
+SerenityOS is an operating system written in c++ from scratch.
+
+[include ../../share/foot-links.inc.qbk]
+
