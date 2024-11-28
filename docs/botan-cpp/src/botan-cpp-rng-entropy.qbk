@@ -1,0 +1,267 @@
+[article Botan c++ RNG Entropy
+	[id botan-cpp-rng-entropy]
+	[quickbook 1.7]
+]
+
+[@https://botan.randombit.net c++ botan Home]
+
+[h1:auto-seeded-rng [role cyan Botan::AutoSeeded_RNG]]
+
+As the name, the rng is automatically seeded.
+
+c++ :
+
+[!c++]
+```
+#include <botan/auto_rng.h>
+#include <iostream>
+#include <array>
+#include <vector>
+#include <bit>
+
+int main()
+{
+	auto rng = Botan::AutoSeeded_RNG{};
+
+	auto vector = rng.random_vec<std::vector<std::uint8_t>>(13);	// Make random std::vector
+	auto array = rng.random_array<13>();	// Make random std::array
+
+	for (int x: vector) std::cout << x << ' ';
+	std::cout << std::endl;
+	for (int x: array) std::cout << x << ' ';
+	std::cout << std::endl;
+
+	int x = 0;
+	rng.randomize(std::bit_cast<std::uint8_t *>(&x), sizeof x);	// random a value
+	std::cout << x << std::endl;
+}
+```
+
+Possible output:
+
+[!teletype]
+```
+114 164 34 228 223 178 101 133 116 220 200 12 124 
+36 79 155 95 52 99 17 5 203 211 29 222 197 
+826644109
+```
+
+[h1:make-a-range-printer [role cyan Make a range printer]]
+
+Make a c++ range printer and save it as print.hpp
+
+[!c++]
+```
+#ifndef __this_article_print_range_hpp__
+#define __this_article_print_range_hpp__
+
+#include <iostream>
+
+namespace my_range
+{
+
+template <typename convert_type>
+class print_class
+{
+public:
+	template <std::ranges::input_range range_t00>
+		requires 
+			requires (const range_t00::value_type & value)
+			{
+				std::cout << value;
+			}
+	void operator()(const range_t00 & range__) const
+	{
+		if constexpr (std::same_as<convert_type, void>)
+			for (const auto & x: range__)
+				std::cout << x << ' ';
+		else
+			for (const convert_type x: range__)
+				std::cout << x << ' ';
+		std::cout << std::endl;
+	}
+};
+
+template <typename convert_type = void>
+inline auto print = my_range::print_class<convert_type>{};
+
+}
+
+#endif
+```
+
+[h1:chacha-rng [role cyan Botan::ChaCha_RNG]]
+
+Botan::ChaCha_RNG needs a seed, Botan::AutoSeeded_RNG can be use as its seed.
+
+c++:
+
+[!c++]
+```
+#include "print.hpp"
+#include <botan/chacha_rng.h>
+#include <botan/auto_rng.h>
+#include <random>
+
+int main()
+{
+	auto seed_rng = Botan::AutoSeeded_RNG{};
+	auto chacha_rng = Botan::ChaCha_RNG{seed_rng};
+	auto vector = chacha_rng.random_vec<std::vector<std::uint8_t>>(13);
+	my_range::print<int>(vector); // convert value_type to int, see above print implementation
+}
+```
+
+Possible output:
+
+[!teletype]
+```
+5 123 193 168 100 125 181 217 245 126 27 104 94 
+```
+
+[h1:use-botan-entropy [role cyan Use Botan Entropy]]
+
+Two botan classes:
+
+* Botan::Entropy_Source - Abstract virtual base
+* Botan::Entropy_Sources
+
+c++
+
+[!c++]
+```
+#include "print.hpp"
+#include <botan/entropy_src.h>
+#include <botan/auto_rng.h>
+#include <botan/chacha_rng.h>
+
+int main()
+{
+	auto rng1 = Botan::AutoSeeded_RNG{};	// used as seed
+
+	auto ess = Botan::Entropy_Sources{};
+
+	auto es = Botan::Entropy_Source::create("Any words here, hello c++");
+	// add an entropy source, (std::move(es) is transferred to std::make_unique)
+	ess.add_source(std::move(es));
+
+	auto rng2 = Botan::ChaCha_RNG{rng1, ess};
+	auto array = rng2.random_array<17>();
+	my_range::print<int>(array);	// print as int
+
+	{
+	// Another way of creating Botan::Entropy_Sources object.
+		auto ess7 = Botan::Entropy_Sources{
+			{
+				"any words",
+				"hello",
+				"c++"
+			}
+		};
+		auto rng7 = Botan::ChaCha_RNG{rng2, ess};
+		auto vector = rng7.random_vec<std::vector<std::uint8_t>>(17);
+		my_range::print<int>(vector); // print as int
+	}
+}
+```
+
+Possible output:
+
+[!teletype]
+```
+31 140 147 27 75 50 182 222 9 11 203 160 41 14 213 98 51 
+107 27 170 174 44 157 11 136 76 74 102 47 202 76 248 237 66 
+```
+
+[h1:derived-from-Botan-Entropy_Source [role cyan derived from Botan::Entropy_Source]]
+
+Two abstract method must be implemented:
+
+* name
+* poll
+
+c++
+
+[!c++]
+```
+#include "print.hpp"
+#include <botan/entropy_src.h>
+#include <botan/chacha_rng.h>
+#include <botan/auto_rng.h>
+#include <bit>
+
+namespace my_space
+{
+
+class my_entropy: virtual public Botan::Entropy_Source
+{
+protected:
+	using umax_type = unsigned long long;
+public:
+	std::string name() const override
+	{
+		return "my_space::my_entropy";
+	}
+	std::size_t poll(Botan::RandomNumberGenerator & rng__) override
+	{
+		const int estimated = 300;
+		for (int i=0; i<estimated; ++i)
+		{
+			auto now = this->get_now_since_epoch();
+			while (this->get_now_since_epoch() == now);
+			unsigned int x = 0;
+			rng__.randomize(std::bit_cast<std::uint8_t *>(&x), sizeof x);
+			switch (x % 3)
+			{
+			/*
+			case 0:
+				break;	// not add
+			*/
+			case 1:
+				rng__.add_entropy_T(now);
+				break;
+			case 2:
+				rng__.add_entropy_T(now);
+				rng__.add_entropy_T(++now);
+				break;
+			default:
+				break;
+			}
+		}
+		return estimated;
+	}
+public:
+	umax_type get_now_since_epoch() const
+	{
+		std::chrono::time_point now = std::chrono::system_clock::now();
+		std::chrono::duration now_epo = now.time_since_epoch();
+		std::chrono::duration now_ep = std::chrono::duration_cast<std::chrono::nanoseconds>(now_epo);
+		return now_ep.count();
+	}
+};
+
+}
+
+int main()
+{
+	auto ess = Botan::Entropy_Sources{};
+	ess.add_source(
+		std::make_unique<my_space::my_entropy>()
+	);
+	auto seed = Botan::AutoSeeded_RNG{};
+	auto rng = Botan::ChaCha_RNG{seed, ess};
+
+	auto vector = rng.random_vec<std::vector<std::uint8_t>>(17);
+	my_range::print<int>(vector);
+}
+```
+
+Possible output:
+
+[!teletype]
+```
+175 76 169 220 82 46 19 193 207 145 170 42 28 148 154 135 198 
+```
+
+[include ../../share/foot-links.inc.qbk]
+

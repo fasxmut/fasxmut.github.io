@@ -179,10 +179,9 @@ kjcpp-deferred.html
 kjcpp-sleep.html
 kjcpp-ydzs.html
 kjcpp-mutex-0-9.html
-test.html
-kjcpp-rt_assert.html
 programs.html
 kjcpp-throw_if.html
+kjcpp-rt_assert.html
 kjrun-run.html
 literals-list.html
 concepts-list.html
