@@ -1,0 +1,9 @@
+<map id="nirt::scene::CVertexBuffer" name="nirt::scene::CVertexBuffer">
+<area shape="rect" id="Node000001" title=" " alt="" coords="159,183,347,208"/>
+<area shape="rect" id="Node000002" href="$classnirt_1_1scene_1_1IVertexBuffer.html" title=" " alt="" coords="5,87,188,113"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="129,117,235,180,232,185,126,122"/>
+<area shape="rect" id="Node000003" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="9,5,185,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="99,44,99,87,94,87,94,44"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="212,80,400,120"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="291,133,262,184,257,181,286,131"/>
+</map>

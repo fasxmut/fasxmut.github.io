@@ -1,0 +1,7 @@
+<map id="nirt::scene::IIndexBuffer" name="nirt::scene::IIndexBuffer">
+<area shape="rect" id="Node000001" title=" " alt="" coords="8,79,185,104"/>
+<area shape="rect" id="Node000003" href="$classnirt_1_1scene_1_1CIndexBuffer.html" title=" " alt="" coords="5,152,188,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="99,118,99,152,94,152,94,118"/>
+<area shape="rect" id="Node000002" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="9,5,185,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,44,99,79,94,79,94,44"/>
+</map>

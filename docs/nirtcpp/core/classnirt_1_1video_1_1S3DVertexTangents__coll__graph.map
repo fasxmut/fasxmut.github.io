@@ -1,0 +1,12 @@
+<map id="nirt::video::S3DVertexTangents" name="nirt::video::S3DVertexTangents">
+<area shape="rect" id="Node000001" title="Vertex with a tangent and binormal vector." alt="" coords="16,201,239,227"/>
+<area shape="rect" id="Node000002" href="$classnirt_1_1video_1_1S3DVertex.html" title="standard vertex used by the Nirtcpp engine." alt="" coords="165,125,329,150"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="218,160,147,203,145,199,216,155"/>
+<area shape="rect" id="Node000003" href="$classnirt_1_1core_1_1vector3d.html" title=" " alt="" coords="5,5,151,45"/>
+<area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="79,59,81,103,91,151,104,178,120,199,115,203,100,181,86,153,76,104,74,59"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="120,51,190,96,231,122,228,127,187,101,117,55"/>
+<area shape="rect" id="Node000004" href="$classnirt_1_1video_1_1SColor.html" title="Class representing a 32 bit ARGB color." alt="" coords="177,13,315,38"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="249,52,250,124,245,124,244,52"/>
+<area shape="rect" id="Node000005" href="$classnirt_1_1core_1_1vector2d.html" title=" " alt="" coords="340,5,485,45"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="374,55,266,127,263,122,371,51"/>
+</map>

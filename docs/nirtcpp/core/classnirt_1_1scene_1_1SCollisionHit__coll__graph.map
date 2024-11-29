@@ -1,0 +1,27 @@
+<map id="nirt::scene::SCollisionHit" name="nirt::scene::SCollisionHit">
+<area shape="rect" id="Node000001" title=" " alt="" coords="955,239,1136,265"/>
+<area shape="rect" id="Node000002" href="$classnirt_1_1core_1_1vector3d.html" title=" " alt="" coords="277,5,423,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="436,10,489,6,548,5,610,10,670,21,729,41,787,67,841,97,892,130,977,192,1031,237,1028,241,974,196,889,134,839,102,784,72,727,46,669,27,609,15,548,11,489,12,436,16"/>
+<area shape="rect" id="Node000005" href="$classnirt_1_1scene_1_1ISceneNode.html" title="Scene node interface." alt="" coords="693,191,868,217"/>
+<area shape="poly" id="edge7_Node000005_Node000002" title=" " alt="" coords="426,47,494,65,544,73,584,74,623,79,671,96,703,117,732,143,772,189,768,193,728,147,700,122,668,101,622,84,584,79,543,78,493,71,425,52"/>
+<area shape="rect" id="Node000003" href="$classnirt_1_1scene_1_1ITriangleSelector.html" title="Interface to return triangles with specific properties." alt="" coords="247,258,453,283"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="467,265,955,252,955,257,467,270"/>
+<area shape="poly" id="edge13_Node000005_Node000003" title=" " alt="" coords="467,257,565,244,669,228,731,214,733,219,670,233,566,250,467,262"/>
+<area shape="rect" id="Node000004" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="5,237,181,262"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="195,255,247,259,246,265,195,260"/>
+<area shape="rect" id="Node000006" href="$classnirt_1_1io_1_1IAttributeExchangingObject.html" title="An object which is able to serialize and deserialize its attributes into an attributes object." alt="" coords="246,193,454,233"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="194,233,245,225,246,231,195,238"/>
+<area shape="rect" id="Node000009" href="$classnirt_1_1scene_1_1ISceneManager.html" title="The Scene Manager manages scene nodes, mesh resources, cameras and all the other stuff." alt="" coords="251,79,449,105"/>
+<area shape="poly" id="edge12_Node000009_Node000004" title=" " alt="" coords="110,224,159,168,193,139,229,115,261,102,263,107,232,120,196,144,163,172,114,227"/>
+<area shape="rect" id="Node000010" href="$classnirt_1_1scene_1_1IMeshBuffer.html" title="Class for holding a mesh with a single material." alt="" coords="493,366,669,391"/>
+<area shape="poly" id="edge15_Node000010_Node000004" title=" " alt="" coords="116,270,165,317,197,340,232,358,298,376,367,386,434,388,493,386,493,391,434,393,366,391,297,382,230,362,194,344,162,321,112,274"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="865,216,975,237,974,242,864,222"/>
+<area shape="poly" id="edge8_Node000005_Node000005" title=" " alt="" coords="755,176,763,168,781,165,796,167,805,173,808,183,803,192,798,190,802,182,801,176,794,172,781,170,765,173,759,180"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="468,208,693,203,693,209,468,213"/>
+<area shape="rect" id="Node000007" href="$classnirt_1_1core_1_1list.html" title=" " alt="" coords="261,129,439,169"/>
+<area shape="poly" id="edge9_Node000005_Node000007" title=" " alt="" coords="453,160,693,190,693,196,453,165"/>
+<area shape="rect" id="Node000008" href="$classnirt_1_1core_1_1list.html" title=" " alt="" coords="231,308,469,348"/>
+<area shape="poly" id="edge10_Node000005_Node000008" title=" " alt="" coords="483,316,576,301,623,289,668,274,759,215,762,219,670,278,624,294,577,306,484,322"/>
+<area shape="poly" id="edge11_Node000005_Node000009" title=" " alt="" coords="451,104,575,125,670,147,719,167,759,189,757,194,717,172,669,152,574,130,450,109"/>
+<area shape="poly" id="edge14_Node000001_Node000010" title=" " alt="" coords="683,363,773,347,867,324,899,313,930,299,1014,262,1016,267,932,304,901,318,869,329,774,352,684,368"/>
+</map>

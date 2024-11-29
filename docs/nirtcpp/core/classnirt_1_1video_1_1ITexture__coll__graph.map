@@ -1,0 +1,9 @@
+<map id="nirt::video::ITexture" name="nirt::video::ITexture">
+<area shape="rect" id="Node000001" title="Interface of a Video Driver dependent Texture." alt="" coords="209,123,357,148"/>
+<area shape="rect" id="Node000002" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="5,13,181,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="127,42,264,120,261,125,124,47"/>
+<area shape="rect" id="Node000003" href="$classnirt_1_1io_1_1SNamedPath.html" title="Used in places where we identify objects by a filename, but don&#39;t actually work with the real filenam..." alt="" coords="205,13,360,38"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="285,52,285,122,280,122,280,52"/>
+<area shape="rect" id="Node000004" href="$classnirt_1_1core_1_1dimension2d.html" title=" " alt="" coords="385,5,557,45"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="438,56,369,101,316,125,314,120,367,96,435,51"/>
+</map>

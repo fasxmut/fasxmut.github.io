@@ -1,0 +1,9 @@
+<map id="nirt::scene::quake3::IShader" name="nirt::scene::quake3::IShader">
+<area shape="rect" id="Node000001" title="A Parsed Shader Holding Variables ordered in Groups." alt="" coords="114,225,259,265"/>
+<area shape="rect" id="Node000002" href="$classnirt_1_1scene_1_1quake3_1_1SVarGroupList.html" title="holding a group a variable" alt="" coords="114,123,259,163"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="189,177,189,225,184,225,184,177"/>
+<area shape="rect" id="Node000003" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="5,20,181,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="114,54,172,121,168,124,110,58"/>
+<area shape="rect" id="Node000004" href="$classnirt_1_1core_1_1array.html" title=" " alt="" coords="205,5,355,60"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="250,73,205,124,201,120,246,69"/>
+</map>

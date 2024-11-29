@@ -1,0 +1,15 @@
+<map id="nirt::scene::IMeshBuffer" name="nirt::scene::IMeshBuffer">
+<area shape="rect" id="Node000001" title="Class for holding a mesh with a single material." alt="" coords="229,95,405,120"/>
+<area shape="rect" id="Node000003" href="$classnirt_1_1scene_1_1CMeshBuffer.html" title="Template implementation of the IMeshBuffer interface for 16&#45;bit buffers." alt="" coords="453,5,672,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="353,86,399,63,452,41,496,28,497,33,454,46,402,67,355,90"/>
+<area shape="rect" id="Node000004" href="$classnirt_1_1scene_1_1IDynamicMeshBuffer.html" title=" " alt="" coords="465,55,660,95"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="419,91,465,85,465,91,419,97"/>
+<area shape="rect" id="Node000006" href="$classnirt_1_1scene_1_1SSharedMeshBuffer.html" title="Implementation of the IMeshBuffer interface with shared vertex list." alt="" coords="469,119,656,159"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="419,118,470,125,469,130,418,123"/>
+<area shape="rect" id="Node000007" href="$classnirt_1_1scene_1_1SSkinMeshBuffer.html" title="A mesh buffer able to choose between S3DVertex2TCoords, S3DVertex and S3DVertexTangents at runtime." alt="" coords="459,184,667,209"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="355,124,402,147,454,169,497,181,496,186,452,174,399,152,353,129"/>
+<area shape="rect" id="Node000002" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="5,95,181,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="195,105,229,105,229,110,195,110"/>
+<area shape="rect" id="Node000005" href="$classnirt_1_1scene_1_1CDynamicMeshBuffer.html" title="Implementation of the IMeshBuffer interface for which can work with 16 and 32 bit indices as well as ..." alt="" coords="720,55,920,95"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="674,73,720,73,720,78,674,78"/>
+</map>
