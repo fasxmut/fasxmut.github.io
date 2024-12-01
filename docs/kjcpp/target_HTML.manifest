@@ -66,7 +66,7 @@ method-mod.html
 method-cast.html
 basic-concepts.html
 kjcpp-real_meric.html
-kjcpp-real_kct.html
+kjcpp-real_kkt.html
 kjcpp-real_number.html
 kjcpp-same_as.html
 kjcpp-not_same_as.html
@@ -87,7 +87,7 @@ comparisons.html
 kjcpp-make_unsigned_t.html
 kjcpp-make_signed_t.html
 kjcpp-make_float_t.html
-kjcpp-make_kct_t.html
+kjcpp-make_kkt_t.html
 kjcpp-make_unsigned_x_t.html
 kjcpp-make_signed_x_t.html
 kjcpp-make_float_x_t.html
@@ -102,7 +102,7 @@ kjcpp-na.html
 kjcpp-in_scope.html
 kjcpp-lt_scope.html
 kjcpp-gt_scope.html
-kjcpp-kct_literals.html
+kjcpp-kkt_literals.html
 kjcpp-meric_static_cast.html
 kjcpp-gnrk_static_cast.html
 kjcpp-diff_size_cast.html

@@ -96,7 +96,7 @@
 </pre>
 <h2>
 <a name="kjrun-run.h7"></a>
-        <span class="phrase"><a name="kjrun-run.enable_tcrash"></a></span><a class="link" href="kjrun-run.html#kjrun-run.enable_tcrash"><span class="cyan">Enable tcrash: .enable_tcrash(true/false)</span></a>
+        <span class="phrase"><a name="kjrun-run.enable-tcrash"></a></span><a class="link" href="kjrun-run.html#kjrun-run.enable-tcrash"><span class="cyan">Enable tcrash: self-&gt;enable_tcrash(true/false)</span></a>
       </h2>
 <p>
         Enable tcrash true: after the exception is automatically throw-and-catch,
@@ -140,7 +140,7 @@ Aborted (core dumped)
       </p>
 <h2>
 <a name="kjrun-run.h9"></a>
-        <span class="phrase"><a name="kjrun-run.set_return"></a></span><a class="link" href="kjrun-run.html#kjrun-run.set_return"><span class="cyan">Return value: .set_return</span></a>
+        <span class="phrase"><a name="kjrun-run.set_return"></a></span><a class="link" href="kjrun-run.html#kjrun-run.set_return"><span class="cyan">Return value: self-&gt;set_return(value)</span></a>
       </h2>
 <p>
         The return value is set by method .set_return, if it has no exception.
@@ -158,6 +158,37 @@ Aborted (core dumped)
 </pre>
 <h2>
 <a name="kjrun-run.h10"></a>
+        <span class="phrase"><a name="kjrun-run.cmd-args"></a></span><a class="link" href="kjrun-run.html#kjrun-run.cmd-args"><span class="cyan">Get commandline args: self-&gt;args()</span></a>
+      </h2>
+<p>
+        The method self-&gt;args() returns the const reference of const object __args
+        of std::vector&lt;std::string&gt;. self-&gt;args() returns const reference,
+        and __args is a const member of the object.
+      </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">kjcpp</span><span class="special">/</span><span class="identifier">kjrun</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">void</span> <span class="identifier">kjrun</span><span class="special">::</span><span class="identifier">run</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">for</span> <span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string_view</span> <span class="identifier">view</span><span class="special">:</span> <span class="identifier">self</span><span class="special">-&gt;</span><span class="identifier">args</span><span class="special">())</span>
+		<span class="identifier">kjcpp</span><span class="special">::</span><span class="identifier">print</span><span class="special">(</span><span class="string">"=&gt;"</span><span class="special">,</span> <span class="identifier">view</span><span class="special">);</span>
+<span class="special">}</span>
+</pre>
+<p>
+        Compile and run:
+      </p>
+<pre class="programlisting">$ g++ args.cpp -std=c++23 -o args
+$ ./args a b cd 2 3 45 "7 a bc 82"
+=&gt; ./args
+=&gt; a
+=&gt; b
+=&gt; cd
+=&gt; 2
+=&gt; 3
+=&gt; 45
+=&gt; 7 a bc 82
+</pre>
+<h2>
+<a name="kjrun-run.h11"></a>
         <span class="phrase"><a name="kjrun-run.see-also"></a></span><a class="link" href="kjrun-run.html#kjrun-run.see-also"><span class="cyan">See Also</span></a>
       </h2>
 <p>
@@ -170,7 +201,7 @@ Aborted (core dumped)
         ____________________________________________________________
       </p>
 <p>
-        <a class="link" href="kjcpp-print.html" title="kjcpp::print">K</a>
+        <a class="link" href="kjcpp-print.html" title="kjcpp::print">kjcpp::print</a>
       </p>
 <p>
         <a href="." target="_top">Kjcpp Home</a>
