@@ -4,6 +4,10 @@
 
 [include q3viewer.qbk]
 
+[h2 Back]
+
+[@.. Up]
+
 [include happy-cpp-sycl-examples.qbk]
 
 [include ../../share/foot-links.inc.qbk]

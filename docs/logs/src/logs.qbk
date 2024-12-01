@@ -31,19 +31,13 @@
 [include d0006-cpp-integral.qbk]
 [include d0005-cpp-uses-swift.qbk]
 
-Powered by [@https://cppfx.xyz cppfx.xyz]
-
 Logs - blogs or News .
 
-Trying to write blogs or news with c++ boost documentation tool - [@https://www.boost.org/tools/quickbook quickbook] .
+[@https://www.boost.org/tools/quickbook boost quickbook]
 
-Blogs are written by me - publishing what I write useful programming skills, informations for you.
+[h2 Back]
 
-News are written by me - publishing what I found useful programming news, informations for you.
-
-[h1 [role cyan Links]]
-
-[@https://www.boost.org/tools/quickbook quickbook]
+[@.. Up]
 
 [include ../../share/foot-links.inc.qbk]
 

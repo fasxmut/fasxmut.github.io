@@ -36,7 +36,7 @@ template <typename the_constrait_type, typename other_type1, typename other_type
 concept the_concept_name = the_constrait_expression ;
 ```
 
-* [*the_constrait_expression] must be an expression that can be evaluated to true or false at compile time.
+* [*the_constrait_expression] is an expression that will be evaluated to true or false at compile time. To make a true/false result, it does syntax checking, type deducing or compile-time computing etc.
 * [*the_constrait_type] is the target type that are constrained.
 * [*other_type1, other_type2, ...] are the types that are needed to help to constrain target type [*the_constrait_type] .
 

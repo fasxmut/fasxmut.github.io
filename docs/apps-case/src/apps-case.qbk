@@ -8,15 +8,11 @@
 
 There are many good applications on the Internet world.
 
-Powered by [@https://cppfx.xyz cppfx.xyz]
-
-Apps Case
-
 [h1 [role cyan Links]]
 
-[@https://cppfx.xyz cppfx.xyz]
+[@https://www.boost.org/tools/quickbook boost quickbook]
 
-[@https://www.boost.org/tools/quickbook quickbook]
+[@.. Up]
 
 [include ../../share/foot-links.inc.qbk]
 

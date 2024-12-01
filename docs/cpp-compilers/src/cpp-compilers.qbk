@@ -6,7 +6,9 @@
 [include microsoft-visualcpp.qbk]
 [include haiku-gcc.qbk]
 
-[@.. Up: cppfx.xyz]
+[h2 Back]
+
+[@.. Up]
 
 [include ../../share/foot-links.inc.qbk]
 
