@@ -1,0 +1,12 @@
+<map id="jpp::video::S3DVertexTangents" name="jpp::video::S3DVertexTangents">
+<area shape="rect" id="Node000001" title="Vertex with a tangent and binormal vector." alt="" coords="15,201,235,227"/>
+<area shape="rect" id="Node000002" href="$classjpp_1_1video_1_1S3DVertex.html" title="standard vertex used by the Jimcpp engine." alt="" coords="162,125,325,150"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="215,160,144,203,142,199,212,155"/>
+<area shape="rect" id="Node000003" href="$classjpp_1_1core_1_1vector3d.html" title=" " alt="" coords="5,5,148,45"/>
+<area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="77,59,79,103,89,151,102,178,117,199,113,203,97,181,83,153,74,104,72,59"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="117,51,186,96,227,122,224,127,183,101,114,55"/>
+<area shape="rect" id="Node000004" href="$classjpp_1_1video_1_1SColor.html" title="Class representing a 32 bit ARGB color." alt="" coords="174,13,310,38"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="245,52,246,124,241,124,240,52"/>
+<area shape="rect" id="Node000005" href="$classjpp_1_1core_1_1vector2d.html" title=" " alt="" coords="335,5,477,45"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="368,55,262,127,259,122,365,51"/>
+</map>

@@ -1,0 +1,35 @@
+<map id="jpp::scene::ISceneNode" name="jpp::scene::ISceneNode">
+<area shape="rect" id="Node000001" title="Scene node interface." alt="" coords="483,309,656,334"/>
+<area shape="rect" id="Node000004" href="$classjpp_1_1scene_1_1IAnimatedMeshSceneNode.html" title="Scene node capable of displaying an animated mesh." alt="" coords="730,5,929,45"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="574,295,588,244,613,180,651,113,675,83,702,57,728,41,731,46,706,61,679,87,655,116,618,182,593,246,579,296"/>
+<area shape="rect" id="Node000005" href="$classjpp_1_1scene_1_1IBillboardSceneNode.html" title="A billboard scene node." alt="" coords="714,70,945,95"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="577,294,594,252,620,201,656,149,678,126,703,106,727,93,729,98,705,110,682,130,660,152,625,203,599,254,582,296"/>
+<area shape="rect" id="Node000007" href="$classjpp_1_1scene_1_1IBoneSceneNode.html" title="Interface for bones used for skeletal animation." alt="" coords="726,119,933,145"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="581,295,601,263,628,225,662,187,703,155,730,142,732,147,705,160,666,190,632,228,605,266,586,298"/>
+<area shape="rect" id="Node000008" href="$classjpp_1_1scene_1_1ICameraSceneNode.html" title="Scene Node which is a (controllable) camera." alt="" coords="717,169,941,194"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="589,297,637,249,669,225,703,204,737,192,739,197,705,209,672,229,641,253,592,300"/>
+<area shape="rect" id="Node000009" href="$classjpp_1_1scene_1_1IDummyTransformationSceneNode.html" title="Dummy scene node for adding additional transformations to the scene graph." alt="" coords="704,219,955,259"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="615,301,703,269,748,256,750,261,705,275,616,306"/>
+<area shape="rect" id="Node000010" href="$classjpp_1_1scene_1_1ILightSceneNode.html" title="Scene node which is a dynamic light." alt="" coords="727,283,932,309"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="669,309,726,303,727,309,670,314"/>
+<area shape="rect" id="Node000011" href="$classjpp_1_1scene_1_1IMeshSceneNode.html" title="A scene node displaying a static mesh." alt="" coords="725,333,933,358"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="670,328,726,333,725,338,670,333"/>
+<area shape="rect" id="Node000013" href="$classjpp_1_1scene_1_1IParticleSystemSceneNode.html" title=" " alt="" coords="731,383,928,423"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="616,336,705,368,746,380,745,385,703,373,614,341"/>
+<area shape="rect" id="Node000014" href="$classjpp_1_1scene_1_1IShadowVolumeSceneNode.html" title="Scene node for rendering a shadow volume into a stencil buffer." alt="" coords="729,447,929,487"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="593,342,641,388,672,412,705,432,733,444,731,449,703,437,669,416,638,392,589,346"/>
+<area shape="rect" id="Node000015" href="$classjpp_1_1scene_1_1ITerrainSceneNode.html" title="A scene node for displaying terrain using the geo mip map algorithm." alt="" coords="721,511,938,537"/>
+<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="584,345,603,380,630,421,664,462,705,496,732,509,729,514,703,501,660,466,626,425,599,383,580,348"/>
+<area shape="rect" id="Node000016" href="$classjpp_1_1scene_1_1ITextSceneNode.html" title="A scene node for displaying 2d text at a position in three dimensional space." alt="" coords="729,561,929,586"/>
+<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="581,346,596,391,622,446,658,501,680,526,705,547,731,560,728,565,703,552,677,530,654,505,617,449,591,393,575,348"/>
+<area shape="rect" id="Node000017" href="$classjpp_1_1scene_1_1IVolumeLightSceneNode.html" title=" " alt="" coords="739,611,920,651"/>
+<area shape="poly" id="edge16_Node000001_Node000017" title=" " alt="" coords="578,347,592,400,616,467,653,537,678,569,706,597,739,615,737,620,702,601,674,573,649,540,611,470,587,401,573,348"/>
+<area shape="rect" id="Node000002" href="$classjpp_1_1io_1_1IAttributeExchangingObject.html" title="An object which is able to serialize and deserialize its attributes into an attributes object." alt="" coords="228,301,435,341"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="448,319,482,319,482,324,448,324"/>
+<area shape="rect" id="Node000003" href="$classjpp_1_1IReferenceCounted.html" title="Base class of most objects of the Jimcpp Engine." alt="" coords="5,309,180,334"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="194,319,228,319,228,324,194,324"/>
+<area shape="rect" id="Node000006" href="$classjpp_1_1scene_1_1IBillboardTextSceneNode.html" title="A billboard text scene node." alt="" coords="1018,63,1203,103"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="959,80,1018,80,1018,85,959,85"/>
+<area shape="rect" id="Node000012" href="$classjpp_1_1scene_1_1IOctreeSceneNode.html" title="A scene node displaying a static mesh." alt="" coords="1003,333,1219,358"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="947,343,1003,343,1003,348,947,348"/>
+</map>

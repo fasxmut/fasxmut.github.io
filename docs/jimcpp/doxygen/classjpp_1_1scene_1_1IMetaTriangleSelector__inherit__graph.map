@@ -1,0 +1,7 @@
+<map id="jpp::scene::IMetaTriangleSelector" name="jpp::scene::IMetaTriangleSelector">
+<area shape="rect" id="Node000001" title="Interface for making multiple triangle selectors work as one big selector." alt="" coords="15,152,199,192"/>
+<area shape="rect" id="Node000002" href="$classjpp_1_1scene_1_1ITriangleSelector.html" title="Interface to return triangles with specific properties." alt="" coords="5,79,209,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="110,118,110,152,105,152,105,118"/>
+<area shape="rect" id="Node000003" href="$classjpp_1_1IReferenceCounted.html" title="Base class of most objects of the Jimcpp Engine." alt="" coords="20,5,195,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="110,44,110,79,105,79,105,44"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="jpp::scene::CIndexBuffer" name="jpp::scene::CIndexBuffer">
+<area shape="rect" id="Node000001" title=" " alt="" coords="153,183,333,208"/>
+<area shape="rect" id="Node000002" href="$classjpp_1_1scene_1_1IIndexBuffer.html" title=" " alt="" coords="5,87,180,113"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,118,226,180,223,185,121,122"/>
+<area shape="rect" id="Node000003" href="$classjpp_1_1IReferenceCounted.html" title="Base class of most objects of the Jimcpp Engine." alt="" coords="5,5,180,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="95,44,95,87,90,87,90,44"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="204,80,384,120"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="280,133,252,184,247,181,275,131"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="jpp::scene::SMD3Mesh" name="jpp::scene::SMD3Mesh">
+<area shape="rect" id="Node000001" title="Holding Frames Buffers and Tag Infos." alt="" coords="8,79,177,104"/>
+<area shape="rect" id="Node000002" href="$classjpp_1_1IReferenceCounted.html" title="Base class of most objects of the Jimcpp Engine." alt="" coords="5,5,180,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,44,95,79,90,79,90,44"/>
+</map>

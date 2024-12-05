@@ -1,0 +1,5 @@
+<map id="jpp::scene::IColladaMeshWriterProperties" name="jpp::scene::IColladaMeshWriterProperties">
+<area shape="rect" id="Node000001" title="Callback interface for properties which can be used to influence collada writing." alt="" coords="5,79,189,119"/>
+<area shape="rect" id="Node000002" href="$classjpp_1_1IReferenceCounted.html" title="Base class of most objects of the Jimcpp Engine." alt="" coords="10,5,185,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,44,100,79,95,79,95,44"/>
+</map>

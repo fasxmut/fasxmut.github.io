@@ -1,0 +1,5 @@
+<map id="jpp::gui::IGUIEnvironment" name="jpp::gui::IGUIEnvironment">
+<area shape="rect" id="Node000001" title="GUI Environment. Used as factory and manager of all other GUI elements." alt="" coords="5,79,195,104"/>
+<area shape="rect" id="Node000002" href="$classjpp_1_1IReferenceCounted.html" title="Base class of most objects of the Jimcpp Engine." alt="" coords="13,5,187,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,44,103,79,97,79,97,44"/>
+</map>

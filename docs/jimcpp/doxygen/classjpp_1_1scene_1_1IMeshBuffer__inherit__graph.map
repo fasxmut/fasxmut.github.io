@@ -1,0 +1,15 @@
+<map id="jpp::scene::IMeshBuffer" name="jpp::scene::IMeshBuffer">
+<area shape="rect" id="Node000001" title="Class for holding a mesh with a single material." alt="" coords="228,92,403,117"/>
+<area shape="rect" id="Node000003" href="$classjpp_1_1scene_1_1CMeshBuffer.html" title="Template implementation of the IMeshBuffer interface for 16&#45;bit buffers." alt="" coords="453,5,671,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="352,83,398,61,450,41,495,28,496,33,452,46,400,66,354,88"/>
+<area shape="rect" id="Node000004" href="$classjpp_1_1scene_1_1IDynamicMeshBuffer.html" title=" " alt="" coords="465,55,659,95"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="416,90,465,84,465,89,416,95"/>
+<area shape="rect" id="Node000006" href="$classjpp_1_1scene_1_1SSharedMeshBuffer.html" title="Implementation of the IMeshBuffer interface with shared vertex list." alt="" coords="451,120,673,145"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="416,113,451,117,450,123,416,119"/>
+<area shape="rect" id="Node000007" href="$classjpp_1_1scene_1_1SSkinMeshBuffer.html" title="A mesh buffer able to choose between S3DVertex2TCoords, S3DVertex and S3DVertexTangents at runtime." alt="" coords="459,169,665,195"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="358,120,451,155,495,167,493,172,450,161,356,125"/>
+<area shape="rect" id="Node000002" href="$classjpp_1_1IReferenceCounted.html" title="Base class of most objects of the Jimcpp Engine." alt="" coords="5,92,180,117"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="194,102,228,102,228,107,194,107"/>
+<area shape="rect" id="Node000005" href="$classjpp_1_1scene_1_1CDynamicMeshBuffer.html" title="Implementation of the IMeshBuffer interface for which can work with 16 and 32 bit indices as well as ..." alt="" coords="721,55,920,95"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="672,73,721,73,721,78,672,78"/>
+</map>

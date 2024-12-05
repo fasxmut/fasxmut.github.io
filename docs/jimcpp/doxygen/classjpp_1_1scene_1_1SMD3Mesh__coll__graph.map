@@ -1,0 +1,11 @@
+<map id="jpp::scene::SMD3Mesh" name="jpp::scene::SMD3Mesh">
+<area shape="rect" id="Node000001" title="Holding Frames Buffers and Tag Infos." alt="" coords="349,95,519,120"/>
+<area shape="rect" id="Node000002" href="$classjpp_1_1IReferenceCounted.html" title="Base class of most objects of the Jimcpp Engine." alt="" coords="25,5,200,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="181,31,221,41,326,66,401,92,399,97,325,71,219,46,180,37"/>
+<area shape="rect" id="Node000003" href="$classjpp_1_1core_1_1array.html" title=" " alt="" coords="5,55,220,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="234,85,349,96,349,102,233,90"/>
+<area shape="rect" id="Node000004" href="$classjpp_1_1scene_1_1SMD3QuaternionTagList.html" title="holds a associative list of named quaternions" alt="" coords="9,119,216,159"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="229,125,349,113,349,118,230,130"/>
+<area shape="rect" id="Node000005" href="$classjpp_1_1scene_1_1SMD3Header.html" title="this holds the header info of the MD3 file" alt="" coords="22,184,203,209"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="191,179,325,145,401,118,402,123,326,150,192,184"/>
+</map>

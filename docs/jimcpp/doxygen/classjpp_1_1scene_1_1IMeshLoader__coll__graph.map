@@ -1,0 +1,8 @@
+<map id="jpp::scene::IMeshLoader" name="jpp::scene::IMeshLoader">
+<area shape="rect" id="Node000001" title="Class which is able to load an animated mesh from a file." alt="" coords="9,183,187,208"/>
+<area shape="rect" id="Node000002" href="$classjpp_1_1IReferenceCounted.html" title="Base class of most objects of the Jimcpp Engine." alt="" coords="5,5,180,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,44,100,182,95,182,91,45"/>
+<area shape="rect" id="Node000003" href="$classjpp_1_1scene_1_1IMeshTextureLoader.html" title="Finding and loading textures inside meshloaders." alt="" coords="115,80,297,120"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="121,36,181,78,178,82,118,41"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="176,131,113,184,110,180,172,127"/>
+</map>

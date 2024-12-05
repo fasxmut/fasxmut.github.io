@@ -1,0 +1,11 @@
+<map id="jpp::video::SMaterialLayer" name="jpp::video::SMaterialLayer">
+<area shape="rect" id="Node000001" title="Class for holding material parameters which exist per texture layer." alt="" coords="185,211,377,236"/>
+<area shape="rect" id="Node000002" href="$classjpp_1_1video_1_1ITexture.html" title="Interface of a Video Driver dependent Texture." alt="" coords="207,123,354,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="283,162,283,210,278,210,278,162"/>
+<area shape="rect" id="Node000003" href="$classjpp_1_1IReferenceCounted.html" title="Base class of most objects of the Jimcpp Engine." alt="" coords="5,13,180,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="126,42,262,120,259,125,123,47"/>
+<area shape="rect" id="Node000004" href="$classjpp_1_1io_1_1SNamedPath.html" title="Used in places where we identify objects by a filename, but don&#39;t actually work with the real filenam..." alt="" coords="204,13,357,38"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="283,52,283,122,278,122,278,52"/>
+<area shape="rect" id="Node000005" href="$classjpp_1_1core_1_1dimension2d.html" title=" " alt="" coords="382,5,553,45"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="435,56,367,101,314,125,312,120,365,96,432,52"/>
+</map>
