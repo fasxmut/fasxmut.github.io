@@ -1,7 +1,0 @@
-<map id="nirt::scene::SSharedMeshBuffer" name="nirt::scene::SSharedMeshBuffer">
-<area shape="rect" id="Node000001" title="Implementation of the IMeshBuffer interface with shared vertex list." alt="" coords="5,152,192,192"/>
-<area shape="rect" id="Node000002" href="$classnirt_1_1scene_1_1IMeshBuffer.html" title="Class for holding a mesh with a single material." alt="" coords="11,79,187,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,118,101,152,96,152,96,118"/>
-<area shape="rect" id="Node000003" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="11,5,187,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="101,44,101,79,96,79,96,44"/>
-</map>

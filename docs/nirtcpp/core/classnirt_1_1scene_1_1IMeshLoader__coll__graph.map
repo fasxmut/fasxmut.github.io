@@ -1,8 +1,0 @@
-<map id="nirt::scene::IMeshLoader" name="nirt::scene::IMeshLoader">
-<area shape="rect" id="Node000001" title="Class which is able to load an animated mesh from a file." alt="" coords="8,183,189,208"/>
-<area shape="rect" id="Node000002" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="5,5,181,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,44,101,182,96,182,91,45"/>
-<area shape="rect" id="Node000003" href="$classnirt_1_1scene_1_1IMeshTextureLoader.html" title="Finding and loading textures inside meshloaders." alt="" coords="115,80,301,120"/>
-<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="122,36,182,78,179,82,119,41"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="177,131,114,184,111,180,174,127"/>
-</map>

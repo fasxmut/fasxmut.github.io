@@ -1,9 +1,0 @@
-<map id="nirt::scene::IQ3LevelMesh" name="nirt::scene::IQ3LevelMesh">
-<area shape="rect" id="Node000001" title="Interface for a Mesh which can be loaded directly from a Quake3 .bsp&#45;file." alt="" coords="10,225,201,251"/>
-<area shape="rect" id="Node000002" href="$classnirt_1_1scene_1_1IAnimatedMesh.html" title="Interface for an animated mesh." alt="" coords="5,152,205,177"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,191,108,225,103,225,103,191"/>
-<area shape="rect" id="Node000003" href="$classnirt_1_1scene_1_1IMesh.html" title="Class which holds the geometry of an object." alt="" coords="37,79,174,104"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="108,118,108,152,103,152,103,118"/>
-<area shape="rect" id="Node000004" href="$classnirt_1_1IReferenceCounted.html" title="Base class of most objects of the Nirtcpp Engine." alt="" coords="17,5,193,31"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="108,44,108,79,103,79,103,44"/>
-</map>
