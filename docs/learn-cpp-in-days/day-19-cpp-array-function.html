@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>day-19: c++ array, function</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Learn c++ in days">
+<link rel="up" href="index.html" title="Learn c++ in days">
+<link rel="prev" href="day-18-cpp-condition-loop.html" title="day-18: c++ condition, loop">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="day-18-cpp-condition-loop.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="day-19-cpp-array-function"></a>day-19: c++ array, function</h1></div></div>
+<hr>
+</div>
+<h2>
+<a name="day-19-cpp-array-function.h0"></a>
+      <span class="phrase"><a name="day-19-cpp-array-function.array"></a></span><a class="link" href="day-19-cpp-array-function.html#day-19-cpp-array-function.array"><span class="cyan">c++ array</span></a>
+    </h2>
+<p>
+      c++ raw array. c++ array is a continuous area of a list of raid values in the
+      c++ memory.
+    </p>
+<p>
+      <span class="bold"><strong>Syntax:</strong></span>
+    </p>
+<pre class="programlisting"><span class="identifier">the_value_type</span> <span class="identifier">the_array_name</span><span class="special">[</span><span class="identifier">the_array_size</span><span class="special">]</span> <span class="special">=</span> <span class="special">{</span><span class="identifier">value1</span><span class="special">,</span> <span class="identifier">value2</span><span class="special">,</span> <span class="special">...};</span>	<span class="comment">// (1)</span>
+</pre>
+<pre class="programlisting"><span class="identifier">the_value_type</span> <span class="identifier">the_array_name</span><span class="special">[</span><span class="identifier">the_array_size</span><span class="special">];</span>	<span class="comment">// (2)</span>
+</pre>
+<pre class="programlisting"><span class="identifier">the_value_type</span> <span class="identifier">the_array_name</span><span class="special">[]</span> <span class="special">=</span> <span class="special">{</span><span class="identifier">value1</span><span class="special">,</span> <span class="identifier">value2</span><span class="special">,</span> <span class="special">...};</span>	<span class="comment">// (3)</span>
+</pre>
+<p>
+      <span class="bold"><strong>For example:</strong></span>
+    </p>
+<pre class="programlisting"><span class="keyword">int</span> <span class="identifier">xzz</span><span class="special">[</span><span class="number">4</span><span class="special">]</span> <span class="special">=</span> <span class="special">{</span><span class="number">2</span><span class="special">,</span> <span class="number">3</span><span class="special">,</span> <span class="number">5</span><span class="special">,</span> <span class="number">2</span><span class="special">};</span>
+</pre>
+<p>
+      <span class="bold"><strong>the_value_type</strong></span> is <span class="blue">int</span>,
+      <span class="bold"><strong>the_array_name</strong></span> is <span class="blue">xzz</span>,
+      <span class="bold"><strong>the_array_size</strong></span> is <span class="blue">4</span>,
+      which means the array <span class="blue">xzz</span> has four <span class="blue">int</span>
+      values. These four variables are initialized with 2, 3, 5, 2.
+    </p>
+<p>
+      The stored positions of the four variables in memory are continuous, which
+      means they are stored one after another.
+    </p>
+<p>
+      For <span class="bold"><strong>(3)</strong></span>, <span class="bold"><strong>the_array_size</strong></span>
+      can be not specified, because the size can be deduced from its value initilizer
+      list.
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+          <span class="bold"><strong>a c++ raw array can be used in c++ range-based for
+          loop as the initializer list, for example:</strong></span>
+        </li></ul></div>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">int</span> <span class="identifier">arr4</span><span class="special">[]</span> <span class="special">=</span> <span class="special">{</span><span class="number">2</span><span class="special">,</span><span class="number">3</span><span class="special">,</span><span class="number">9</span><span class="special">,</span><span class="number">5</span><span class="special">,</span><span class="number">7</span><span class="special">,</span><span class="number">23</span><span class="special">};</span> <span class="comment">// array size is auto-deduced as 6</span>
+	<span class="keyword">for</span> <span class="special">(</span><span class="keyword">int</span> <span class="identifier">x</span><span class="special">:</span> <span class="identifier">arr4</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"x is "</span> <span class="special">&lt;&lt;</span> <span class="identifier">x</span> <span class="special">&lt;&lt;</span> <span class="char">' '</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<p>
+      output:
+    </p>
+<pre class="programlisting">2 3 9 5 7 23
+</pre>
+<h2>
+<a name="day-19-cpp-array-function.h1"></a>
+      <span class="phrase"><a name="day-19-cpp-array-function.function"></a></span><a class="link" href="day-19-cpp-array-function.html#day-19-cpp-array-function.function"><span class="cyan">c++ function</span></a>
+    </h2>
+<p>
+      c++ function is similar to the method of a class, just the function does not
+      belong to a class. <span class="bold"><strong>c++ example:</strong></span>
+    </p>
+<pre class="programlisting"><span class="keyword">float</span> <span class="identifier">fn_xx</span><span class="special">(</span><span class="keyword">float</span> <span class="identifier">x</span><span class="special">,</span> <span class="keyword">float</span> <span class="identifier">y</span><span class="special">)</span>
+<span class="special">{</span>
+	<span class="keyword">return</span> <span class="identifier">x</span> <span class="special">+</span> <span class="identifier">y</span><span class="special">;</span>
+<span class="special">}</span>
+
+<span class="comment">// Use the function:</span>
+<span class="keyword">auto</span> <span class="identifier">result</span> <span class="special">=</span> <span class="identifier">fn_xx</span><span class="special">(</span><span class="number">1.2f</span><span class="special">,</span> <span class="number">2.1f</span><span class="special">);</span>
+</pre>
+<p>
+      Put c++ function in a namespace:
+    </p>
+<pre class="programlisting"><span class="keyword">namespace</span> <span class="identifier">my_space</span>
+<span class="special">{</span>
+
+<span class="keyword">float</span> <span class="identifier">fzzz</span><span class="special">(</span><span class="keyword">const</span> <span class="keyword">float</span> <span class="identifier">x</span><span class="special">,</span> <span class="keyword">const</span> <span class="keyword">float</span> <span class="identifier">y</span><span class="special">)</span>
+<span class="special">{</span>
+	<span class="keyword">return</span> <span class="identifier">x</span><span class="special">+</span><span class="identifier">y</span><span class="special">;</span>
+<span class="special">}</span>
+
+<span class="special">}</span>
+
+<span class="comment">// Use the function:</span>
+<span class="keyword">auto</span> <span class="identifier">result</span> <span class="special">=</span> <span class="identifier">my_space</span><span class="special">::</span><span class="identifier">fzzz</span><span class="special">(</span><span class="number">2.1f</span><span class="special">,</span> <span class="number">1.2f</span><span class="special">);</span>
+</pre>
+<p>
+      <br> <br> <br> <br> <br> <br>
+    </p>
+<p>
+      <em class="replaceable"><code>Written on Dec 06, 2024</code></em>
+    </p>
+<h2>
+<a name="day-19-cpp-array-function.h2"></a>
+      <span class="phrase"><a name="day-19-cpp-array-function.role_cyan_back_to_index"></a></span><a class="link" href="day-19-cpp-array-function.html#day-19-cpp-array-function.role_cyan_back_to_index"><span class="cyan">Back to index</span></a>
+    </h2>
+<p>
+      <a href="." target="_top">Index</a>
+    </p>
+<h2>
+<a name="day-19-cpp-array-function.h3"></a>
+      <span class="phrase"><a name="day-19-cpp-array-function.cpp-lang"></a></span><a class="link" href="day-19-cpp-array-function.html#day-19-cpp-array-function.cpp-lang"><span class="cyan">cpp/c++</span></a>
+    </h2>
+<p>
+      c++ std::exception:
+    </p>
+<p>
+      std::cout.write(err.data(), err.size());
+    </p>
+<p>
+      std::cout &lt;&lt; std::endl;
+    </p>
+<p>
+      <span class="purple">caught:</span>
+    </p>
+<pre class="programlisting">  ===================================
+  #  The c++ programming language.  #
+  #                                 #
+  #  Join c++ Discord: yZcauUAUyC   #
+  #  Deck                           #
+  ===================================
+</pre>
+<p>
+      <a href="https://cppfx.xyz" target="_top">Home: cppfx.xyz</a>
+    </p>
+<p>
+      <a href="https://cppfx.xyz/kpp/kpp-print.html" target="_top">K</a>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="day-18-cpp-condition-loop.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+</body>
+</html>

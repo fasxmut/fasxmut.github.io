@@ -1,0 +1,114 @@
+[article day-19: c++ array, function
+	[id day-19-cpp-array-function]
+	[quickbook 1.7]
+]
+
+[h1:array [role cyan c++ array]]
+
+c++ raw array. c++ array is a continuous area of a list of raid values in the c++ memory.
+
+[*Syntax:]
+
+[!c++]
+```
+the_value_type the_array_name[the_array_size] = {value1, value2, ...};	// (1)
+```
+
+[!c++]
+```
+the_value_type the_array_name[the_array_size];	// (2)
+```
+
+[!c++]
+```
+the_value_type the_array_name[] = {value1, value2, ...};	// (3)
+```
+
+[*For example:]
+
+[!c++]
+```
+int xzz[4] = {2, 3, 5, 2};
+```
+
+[*the_value_type] is [role blue int], [*the_array_name] is [role blue xzz], [*the_array_size] is [role blue 4], which means the array [role blue xzz] has four [role blue int] values. These four variables are initialized with 2, 3, 5, 2.
+
+The stored positions of the four variables in memory are continuous, which means they are stored one after another.
+
+For [*(3)], [*the_array_size] can be not specified, because the size can be deduced from its value initilizer list.
+
+* [*a c++ raw array can be used in c++ range-based for loop as the initializer list, for example:]
+
+[!c++]
+```
+#include <iostream>
+
+int main()
+{
+	int arr4[] = {2,3,9,5,7,23}; // array size is auto-deduced as 6
+	for (int x: arr4)
+	{
+		std::cout << "x is " << x << ' ';
+	}
+	std::cout << std::endl;
+}
+```
+
+output:
+
+[!teletype]
+```
+2 3 9 5 7 23
+```
+
+[h1:function [role cyan c++ function]]
+
+c++ function is similar to the method of a class, just the function does not belong to a class.
+[*c++ example:]
+
+[!c++]
+```
+float fn_xx(float x, float y)
+{
+	return x + y;
+}
+
+// Use the function:
+auto result = fn_xx(1.2f, 2.1f);
+```
+
+Put c++ function in a namespace:
+
+[!c++]
+```
+namespace my_space
+{
+
+float fzzz(const float x, const float y)
+{
+	return x+y;
+}
+
+}
+
+// Use the function:
+auto result = my_space::fzzz(2.1f, 1.2f);
+```
+
+[br]
+[br]
+[br]
+[br]
+[br]
+[br]
+
+[~Written on Dec 06, 2024]
+
+[h1 [role cyan Back to index]]
+
+[@. Index]
+
+[include ../../share/foot-links.inc.qbk]
+
+
+

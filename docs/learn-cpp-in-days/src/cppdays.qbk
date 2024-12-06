@@ -21,6 +21,7 @@
 [include day16-cpp-template-basis-completion.qbk]
 [include day17-cpp-concepts.qbk]
 [include day18-condition-loop.qbk]
+[include day19-array-function.qbk]
 
 [h1:cpp-tutorial [role cyan cpp Tutorial: Learn c++ in days]]
 
