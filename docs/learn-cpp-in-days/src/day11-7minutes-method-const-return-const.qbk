@@ -5,11 +5,11 @@
 
 c++ method const, return type const 7 minutes, maybe 5 minutes
 
-[h1 [role cyan const]]
+[h1:const [role cyan const]]
 
 const qualifier makes the object immutable. (Read [link day_10_cpp_reference_constant day-10])
 
-[h1 [role cyan Method const]]
+[h1:method-const [role cyan Method const]]
 
 A const qualifier is placed after the method name and a pair of (), it will make the object immutable inside the scope of the current method.
 
@@ -33,7 +33,7 @@ it can not make the object immutable outside of the method [*.fz_kp()], such as 
 
 To quickly understand it, the [*method const] qualifier make the [*"*this"] [role red const] .
 
-[h1 [role cyan Return type const]]
+[h1:return-const [role cyan Return type const]]
 
 Don't be confused by [*return type const] and [*method const], the return type const qualifier is paced before the [*method_name()] .
 
@@ -49,12 +49,14 @@ public:
 };
 ```
 
-[h1 [role cyan Method const methods calling each other]]
+[h1:const-method-calling [role cyan Method const methods calling each other]]
 
-I call method that is qualified by method const as const method now.
+I name method that is qualified by method const as const method now.
 
-* [*const method can call const method, const method can not call non-const method.]
+* [*const method can call const method, const method can not call non-const method].
 * [*non-const method can call both const method and non-const method].
+* [*const object can not call non-const method, it can call const method].
+* [*non-const object can call both const method and non-const method].
 
 why?
 
@@ -80,11 +82,22 @@ public:
 		f_b();	// OK
 	}
 };
+
+int main()
+{
+	const auto obj = my_class{};
+	obj.f_a();	// OK
+	//obj.f_b();	// ERROR, not allowed
+
+	auto obj2 = my_class{};
+	obj2.f_a();	// OK
+	obj2.f_b();	// OK
+}
 ```
 
 Written on Oct 31, 2024
 
-[h1 [role cyan Back]]
+[h1:back [role cyan Back]]
 
 [link day-11-miscellaneous Up: day-11: Miscellaneous]
 

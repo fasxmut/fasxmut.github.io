@@ -211,6 +211,15 @@ int main()
 }
 ```
 
+Note that a const object can not call a non-const method,
+[br]
+and constexpr object is also const object,
+[br]
+so the method .get() must be marked as [*const].
+[br]
+Please read
+[link day-11-7-minutes-method-const-return-type-const.const-method-calling day-11 >>>> const method calling each other]
+
 [h2:non-constexpr-calling constexpr declaration, non-constexpr calling]
 
 [!c++]

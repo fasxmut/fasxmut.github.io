@@ -278,6 +278,12 @@
 	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"x is "</span> <span class="special">&lt;&lt;</span> <span class="identifier">x</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
 <span class="special">}</span>
 </pre>
+<p>
+      Note that a const object can not call a non-const method, <br> and constexpr
+      object is also const object, <br> so the method .get() must be marked as
+      <span class="bold"><strong>const</strong></span>. <br> Please read <a class="link" href="day-11-7-minutes-method-const-return-type-const.html#day-11-7-minutes-method-const-return-type-const.const-method-calling">day-11
+      &gt;&gt;&gt;&gt; const method calling each other</a>
+    </p>
 <h3>
 <a name="day-20-cpp-compile-time-constexpr.h9"></a>
       <span class="phrase"><a name="day-20-cpp-compile-time-constexpr.non-constexpr-calling"></a></span><a class="link" href="day-20-cpp-compile-time-constexpr.html#day-20-cpp-compile-time-constexpr.non-constexpr-calling">constexpr

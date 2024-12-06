@@ -26,14 +26,14 @@
       </p>
 <h2>
 <a name="day-11-7-minutes-method-const-return-type-const.h0"></a>
-        <span class="phrase"><a name="day-11-7-minutes-method-const-return-type-const.role_cyan_const"></a></span><a class="link" href="day-11-7-minutes-method-const-return-type-const.html#day-11-7-minutes-method-const-return-type-const.role_cyan_const"><span class="cyan">const</span></a>
+        <span class="phrase"><a name="day-11-7-minutes-method-const-return-type-const.const"></a></span><a class="link" href="day-11-7-minutes-method-const-return-type-const.html#day-11-7-minutes-method-const-return-type-const.const"><span class="cyan">const</span></a>
       </h2>
 <p>
         const qualifier makes the object immutable. (Read <a class="link" href="day_10_cpp_reference_constant.html" title="day-10: c++ Reference, Constant">day-10</a>)
       </p>
 <h2>
 <a name="day-11-7-minutes-method-const-return-type-const.h1"></a>
-        <span class="phrase"><a name="day-11-7-minutes-method-const-return-type-const.role_cyan_method_const"></a></span><a class="link" href="day-11-7-minutes-method-const-return-type-const.html#day-11-7-minutes-method-const-return-type-const.role_cyan_method_const"><span class="cyan">Method const</span></a>
+        <span class="phrase"><a name="day-11-7-minutes-method-const-return-type-const.method-const"></a></span><a class="link" href="day-11-7-minutes-method-const-return-type-const.html#day-11-7-minutes-method-const-return-type-const.method-const"><span class="cyan">Method const</span></a>
       </h2>
 <p>
         A const qualifier is placed after the method name and a pair of (), it will
@@ -64,7 +64,7 @@
       </p>
 <h2>
 <a name="day-11-7-minutes-method-const-return-type-const.h2"></a>
-        <span class="phrase"><a name="day-11-7-minutes-method-const-return-type-const.role_cyan_return_type_const"></a></span><a class="link" href="day-11-7-minutes-method-const-return-type-const.html#day-11-7-minutes-method-const-return-type-const.role_cyan_return_type_const"><span class="cyan">Return type const</span></a>
+        <span class="phrase"><a name="day-11-7-minutes-method-const-return-type-const.return-const"></a></span><a class="link" href="day-11-7-minutes-method-const-return-type-const.html#day-11-7-minutes-method-const-return-type-const.return-const"><span class="cyan">Return type const</span></a>
       </h2>
 <p>
         Don't be confused by <span class="bold"><strong>return type const</strong></span> and
@@ -82,18 +82,26 @@
 </pre>
 <h2>
 <a name="day-11-7-minutes-method-const-return-type-const.h3"></a>
-        <span class="phrase"><a name="day-11-7-minutes-method-const-return-type-const.role_cyan_method_const_methods_c"></a></span><a class="link" href="day-11-7-minutes-method-const-return-type-const.html#day-11-7-minutes-method-const-return-type-const.role_cyan_method_const_methods_c"><span class="cyan">Method const methods calling each other</span></a>
+        <span class="phrase"><a name="day-11-7-minutes-method-const-return-type-const.const-method-calling"></a></span><a class="link" href="day-11-7-minutes-method-const-return-type-const.html#day-11-7-minutes-method-const-return-type-const.const-method-calling"><span class="cyan">Method const methods calling each other</span></a>
       </h2>
 <p>
-        I call method that is qualified by method const as const method now.
+        I name method that is qualified by method const as const method now.
       </p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
             <span class="bold"><strong>const method can call const method, const method
-            can not call non-const method.</strong></span>
+            can not call non-const method</strong></span>.
           </li>
 <li class="listitem">
             <span class="bold"><strong>non-const method can call both const method and
+            non-const method</strong></span>.
+          </li>
+<li class="listitem">
+            <span class="bold"><strong>const object can not call non-const method, it
+            can call const method</strong></span>.
+          </li>
+<li class="listitem">
+            <span class="bold"><strong>non-const object can call both const method and
             non-const method</strong></span>.
           </li>
 </ul></div>
@@ -123,13 +131,24 @@
 		<span class="identifier">f_b</span><span class="special">();</span>	<span class="comment">// OK</span>
 	<span class="special">}</span>
 <span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">const</span> <span class="keyword">auto</span> <span class="identifier">obj</span> <span class="special">=</span> <span class="identifier">my_class</span><span class="special">{};</span>
+	<span class="identifier">obj</span><span class="special">.</span><span class="identifier">f_a</span><span class="special">();</span>	<span class="comment">// OK</span>
+	<span class="comment">//obj.f_b();	// ERROR, not allowed</span>
+
+	<span class="keyword">auto</span> <span class="identifier">obj2</span> <span class="special">=</span> <span class="identifier">my_class</span><span class="special">{};</span>
+	<span class="identifier">obj2</span><span class="special">.</span><span class="identifier">f_a</span><span class="special">();</span>	<span class="comment">// OK</span>
+	<span class="identifier">obj2</span><span class="special">.</span><span class="identifier">f_b</span><span class="special">();</span>	<span class="comment">// OK</span>
+<span class="special">}</span>
 </pre>
 <p>
         Written on Oct 31, 2024
       </p>
 <h2>
 <a name="day-11-7-minutes-method-const-return-type-const.h4"></a>
-        <span class="phrase"><a name="day-11-7-minutes-method-const-return-type-const.role_cyan_back"></a></span><a class="link" href="day-11-7-minutes-method-const-return-type-const.html#day-11-7-minutes-method-const-return-type-const.role_cyan_back"><span class="cyan">Back</span></a>
+        <span class="phrase"><a name="day-11-7-minutes-method-const-return-type-const.back"></a></span><a class="link" href="day-11-7-minutes-method-const-return-type-const.html#day-11-7-minutes-method-const-return-type-const.back"><span class="cyan">Back</span></a>
       </h2>
 <p>
         <a class="link" href="day-11-miscellaneous.html" title="day-11: Miscellaneous">Up: day-11: Miscellaneous</a>
