@@ -1,0 +1,511 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>day-18: c++ condition, loop</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Learn c++ in days">
+<link rel="up" href="index.html" title="Learn c++ in days">
+<link rel="prev" href="day-17-cpp-concepts.html" title="day-17: c++ concepts">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="day-17-cpp-concepts.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="day-18-cpp-condition-loop"></a>day-18: c++ condition, loop</h1></div></div>
+<hr>
+</div>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          <a class="link" href="day-18-cpp-condition-loop.html#day-18-cpp-condition-loop.if">c++ if-statement</a>
+        </li>
+<li class="listitem">
+          <a class="link" href="day-18-cpp-condition-loop.html#day-18-cpp-condition-loop.switch">c++ switch-branches</a>
+        </li>
+<li class="listitem">
+          <a class="link" href="day-18-cpp-condition-loop.html#day-18-cpp-condition-loop.three-op">c++ three-op-operator
+          :?</a>
+        </li>
+<li class="listitem">
+          <a class="link" href="day-18-cpp-condition-loop.html#day-18-cpp-condition-loop.for">c++ for loop</a>
+        </li>
+<li class="listitem">
+          <a class="link" href="day-18-cpp-condition-loop.html#day-18-cpp-condition-loop.range-based-for">c++ range-based
+          for loop</a>
+        </li>
+<li class="listitem">
+          <a class="link" href="day-18-cpp-condition-loop.html#day-18-cpp-condition-loop.while">c++ while loop</a>
+        </li>
+<li class="listitem">
+          <a class="link" href="day-18-cpp-condition-loop.html#day-18-cpp-condition-loop.do-while">c++ do-while loop</a>
+        </li>
+</ul></div>
+<h2>
+<a name="day-18-cpp-condition-loop.h0"></a>
+      <span class="phrase"><a name="day-18-cpp-condition-loop.if"></a></span><a class="link" href="day-18-cpp-condition-loop.html#day-18-cpp-condition-loop.if"><span class="cyan">if-statement - [c++ if-conditions]</span></a>
+    </h2>
+<p>
+      <span class="bold"><strong>if</strong></span> is a c++ condition statement.
+    </p>
+<p>
+      <span class="bold"><strong>Syntax:</strong></span>
+    </p>
+<pre class="programlisting"><span class="keyword">if</span> <span class="special">(&lt;&lt;</span><span class="identifier">condition</span><span class="special">-</span><span class="identifier">expression</span><span class="special">&gt;&gt;)</span>
+<span class="special">{</span>
+	<span class="special">&lt;&lt;</span><span class="identifier">evaluate</span><span class="special">-</span><span class="identifier">statement</span><span class="special">-</span><span class="number">1</span><span class="special">&gt;&gt;;</span>
+	<span class="special">&lt;&lt;</span><span class="identifier">evaluate</span><span class="special">-</span><span class="identifier">statement</span><span class="special">-</span><span class="number">2</span><span class="special">&gt;&gt;;</span>
+	<span class="comment">// ... more statements</span>
+<span class="special">}</span>
+<span class="keyword">else</span>
+<span class="special">{</span>
+	<span class="special">&lt;&lt;</span><span class="identifier">evaluate</span><span class="special">-</span><span class="identifier">statement</span><span class="special">-</span><span class="number">1</span><span class="special">&gt;&gt;;</span>
+	<span class="special">&lt;&lt;</span><span class="identifier">evaluate</span><span class="special">-</span><span class="identifier">statement</span><span class="special">-</span><span class="number">2</span><span class="special">&gt;&gt;;</span>
+	<span class="comment">// ... more statements</span>
+<span class="special">}</span>
+</pre>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          <span class="bold"><strong>&lt;&lt;condition-expression&gt;&gt;</strong></span> is
+          an expression that can be judged as <span class="bold"><strong>true</strong></span>
+          or <span class="bold"><strong>false</strong></span>.
+        </li>
+<li class="listitem">
+          <span class="bold"><strong>&lt;&lt;evaluate-statement&gt;&gt;</strong></span> etc.
+          are some statements that will be executed by your program.
+        </li>
+<li class="listitem">
+          The <span class="bold"><strong>else</strong></span> section can be omitted.
+        </li>
+</ul></div>
+<p>
+      <span class="bold"><strong>c++ example:</strong></span>
+    </p>
+<pre class="programlisting">int x;
+x = 4;
+if (x == 4)
+{
+	std::cout &lt;&lt; "x is 4" &lt;&lt; std::endl;
+}
+else
+{
+	std::cout &lt;&lt; "x is not 4" &lt;&lt; std::endl;
+}
+</pre>
+<p>
+      Because <span class="bold"><strong>x</strong></span> is <span class="bold"><strong>4</strong></span>,
+      so <span class="bold"><strong>x == 4</strong></span> is true, so <em class="replaceable"><code><span class="underline"><span class="bold"><strong><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span>
+      <span class="string">"x is 4"</span> <span class="special">&lt;&lt;</span>
+      <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span></code></strong></span></span></code></em>
+      will be executed, <em class="replaceable"><code><span class="underline"><span class="bold"><strong><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span>
+      <span class="special">&lt;&lt;</span> <span class="string">"x is not
+      4"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span></code></strong></span></span></code></em>
+      will be not executed.
+    </p>
+<h2>
+<a name="day-18-cpp-condition-loop.h1"></a>
+      <span class="phrase"><a name="day-18-cpp-condition-loop.switch"></a></span><a class="link" href="day-18-cpp-condition-loop.html#day-18-cpp-condition-loop.switch"><span class="cyan">switch branches - [c++ if-conditions]</span></a>
+    </h2>
+<p>
+      <span class="bold"><strong>switch</strong></span> is another c++ condition statement,
+      <span class="bold"><strong>switch</strong></span> is a more powerful <span class="bold"><strong>if</strong></span>
+    </p>
+<p>
+      <span class="bold"><strong>Syntax:</strong></span>
+    </p>
+<pre class="programlisting"><span class="keyword">switch</span> <span class="special">(&lt;&lt;</span><span class="identifier">value</span><span class="special">-</span><span class="identifier">expression</span><span class="special">&gt;&gt;)</span>
+<span class="special">{</span>
+<span class="keyword">case</span> <span class="special">&lt;&lt;</span><span class="identifier">value1</span><span class="special">&gt;&gt;:</span>
+	<span class="special">&lt;&lt;</span><span class="identifier">evaluate</span><span class="special">-</span><span class="identifier">statement</span><span class="special">-</span><span class="number">1</span><span class="special">&gt;&gt;;</span>
+	<span class="keyword">break</span><span class="special">;</span>
+<span class="keyword">case</span> <span class="special">&lt;&lt;</span><span class="identifier">value2</span><span class="special">&gt;&gt;:</span>
+	<span class="special">&lt;&lt;</span><span class="identifier">evaluate</span><span class="special">-</span><span class="identifier">statement</span><span class="special">-</span><span class="number">2</span><span class="special">&gt;&gt;;</span>
+	<span class="keyword">break</span><span class="special">;</span>
+<span class="comment">// more case ...</span>
+<span class="comment">// more case ...</span>
+<span class="keyword">default</span><span class="special">:</span>
+	<span class="special">&lt;&lt;</span><span class="identifier">evaluate</span><span class="special">-</span><span class="identifier">statement</span><span class="special">-</span><span class="identifier">N</span><span class="special">&gt;&gt;;</span>
+	<span class="keyword">break</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          If <em class="replaceable"><code><span class="underline"><span class="bold"><strong>&lt;&lt;value-expression&gt;&gt;</strong></span></span></code></em>
+          is equal to <em class="replaceable"><code><span class="underline"><span class="bold"><strong>&lt;&lt;value1&gt;&gt;</strong></span></span></code></em>,
+          it will execute <em class="replaceable"><code><span class="underline"><span class="bold"><strong>&lt;&lt;evaluate-statement-1&gt;&gt;;</strong></span></span></code></em>
+        </li>
+<li class="listitem">
+          If <em class="replaceable"><code><span class="underline"><span class="bold"><strong>&lt;&lt;value-expression&gt;&gt;</strong></span></span></code></em>
+          is equal to <em class="replaceable"><code><span class="underline"><span class="bold"><strong>&lt;&lt;value2&gt;&gt;</strong></span></span></code></em>,
+          it will execute <em class="replaceable"><code><span class="underline"><span class="bold"><strong>&lt;&lt;evaluate-statement-2&gt;&gt;;</strong></span></span></code></em>
+        </li>
+<li class="listitem">
+          ....
+        </li>
+<li class="listitem">
+          ....
+        </li>
+<li class="listitem">
+          If all of the above <span class="bold"><strong>case</strong></span>s are not met,
+          the <em class="replaceable"><code><span class="underline"><span class="bold"><strong>&lt;&lt;evaluate-statement-N&gt;&gt;;</strong></span></span></code></em>
+          "inside" th <span class="bold"><strong>default</strong></span> will be
+          executed.
+        </li>
+<li class="listitem">
+          <em class="replaceable"><code><span class="underline"><span class="bold"><strong>break</strong></span></span></code></em>
+          means "break and quit the switch immediately", otherwise another
+          case might match the condition, and an unexpected statement will be executed,
+          so you'd better add a <span class="bold"><strong>break</strong></span> "inside"
+          every case.
+        </li>
+</ul></div>
+<h2>
+<a name="day-18-cpp-condition-loop.h2"></a>
+      <span class="phrase"><a name="day-18-cpp-condition-loop.three-op"></a></span><a class="link" href="day-18-cpp-condition-loop.html#day-18-cpp-condition-loop.three-op"><span class="cyan">c++ three-op-operator :? [c++ if-conditions]</span></a>
+    </h2>
+<p>
+      <em class="replaceable"><code><span class="underline"><span class="bold"><strong>three-op-operator
+      :?</strong></span></span></code></em> is also another c++ if-condition. It
+      is more short for value judgement.
+    </p>
+<p>
+      <em class="replaceable"><code><span class="bold"><strong><span class="blue">?:</span></strong></span></code></em>
+    </p>
+<p>
+      <span class="bold"><strong>Syntax:</strong></span>
+    </p>
+<pre class="programlisting"><span class="keyword">auto</span> <span class="identifier">result</span> <span class="special">=</span> <span class="special">&lt;&lt;</span><span class="identifier">condition</span><span class="special">&gt;&gt;</span> <span class="special">?</span> <span class="special">&lt;&lt;</span><span class="identifier">expression</span><span class="special">-</span><span class="number">1</span><span class="special">&gt;&gt;</span> <span class="special">:</span> <span class="special">&lt;&lt;</span><span class="identifier">expression</span><span class="special">-</span><span class="number">2</span><span class="special">&gt;&gt;</span> <span class="special">;</span>
+</pre>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          If <em class="replaceable"><code><span class="underline"><span class="bold"><strong>&lt;&lt;condition&gt;&gt;</strong></span></span></code></em>
+          is <span class="green">true</span>, the <em class="replaceable"><code><span class="underline"><span class="bold"><strong>&lt;&lt;expression-1&gt;&gt;</strong></span></span></code></em>
+          will be executed, and the result is <em class="replaceable"><code><span class="underline"><span class="bold"><strong>&lt;&lt;expression-1&gt;&gt;</strong></span></span></code></em>
+        </li>
+<li class="listitem">
+          If <em class="replaceable"><code><span class="underline"><span class="bold"><strong>&lt;&lt;condition&gt;&gt;</strong></span></span></code></em>
+          is <span class="green">false</span>, the <em class="replaceable"><code><span class="underline"><span class="bold"><strong>&lt;&lt;expression-2&gt;&gt;</strong></span></span></code></em>
+          will be executed, and the result is <em class="replaceable"><code><span class="underline"><span class="bold"><strong>&lt;&lt;expression-2&gt;&gt;</strong></span></span></code></em>
+        </li>
+</ul></div>
+<p>
+      <span class="bold"><strong>c++ example:</strong></span>
+    </p>
+<pre class="programlisting"><span class="keyword">bool</span> <span class="identifier">x</span> <span class="special">=</span> <span class="number">3</span><span class="special">;</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">result</span> <span class="special">=</span> <span class="special">(</span><span class="identifier">x</span><span class="special">==</span><span class="number">3</span><span class="special">)?</span><span class="string">"true"</span><span class="special">:</span><span class="string">"false"</span><span class="special">;</span>
+</pre>
+<h2>
+<a name="day-18-cpp-condition-loop.h3"></a>
+      <span class="phrase"><a name="day-18-cpp-condition-loop.for"></a></span><a class="link" href="day-18-cpp-condition-loop.html#day-18-cpp-condition-loop.for"><span class="cyan">for-loop - [c++ loops]</span></a>
+    </h2>
+<p>
+      c++ for loop
+    </p>
+<p>
+      <span class="bold"><strong>Syntax:</strong></span>
+    </p>
+<pre class="programlisting"><span class="comment">// for-loop:</span>
+<span class="keyword">for</span> <span class="special">(&lt;&lt;</span><span class="identifier">init</span><span class="special">-</span><span class="identifier">statement</span><span class="special">&gt;&gt;;</span> <span class="special">&lt;&lt;</span><span class="identifier">judge</span><span class="special">-</span><span class="identifier">condition</span><span class="special">&gt;&gt;;</span> <span class="special">&lt;&lt;</span><span class="identifier">change</span><span class="special">-</span><span class="identifier">expression</span><span class="special">&gt;&gt;)</span>
+<span class="special">{</span> <span class="comment">// loop-body begins</span>
+	<span class="special">&lt;&lt;</span><span class="identifier">evaluate</span><span class="special">-</span><span class="identifier">statement</span><span class="special">-</span><span class="number">1</span><span class="special">&gt;&gt;;</span>
+	<span class="special">&lt;&lt;</span><span class="identifier">evaluate</span><span class="special">-</span><span class="identifier">statement</span><span class="special">-</span><span class="number">2</span><span class="special">&gt;&gt;;</span>
+	<span class="comment">// ... more statement</span>
+	<span class="comment">// ... more statement</span>
+<span class="special">}</span> <span class="comment">// loop-body ends</span>
+</pre>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          <em class="replaceable"><code><span class="underline"><span class="bold"><strong>for-loop</strong></span></span></code></em>
+          will execute the <span class="blue">loop-body</span> again and again,
+          ...
+        </li>
+<li class="listitem">
+          <em class="replaceable"><code><span class="underline"><span class="bold"><strong>&lt;&lt;init-statement&gt;&gt;</strong></span></span></code></em>
+          is used to set the initial status, it is used to initialize a variable's
+          value commonly.
+        </li>
+<li class="listitem">
+          <em class="replaceable"><code><span class="underline"><span class="bold"><strong>&lt;&lt;judge-condition&gt;&gt;</strong></span></span></code></em>
+          is an expression that can be judged to <span class="bold"><strong>true</strong></span>
+          or <span class="bold"><strong>false</strong></span>, if it is <span class="blue">true</span>,
+          the <span class="bold"><strong>loop-body</strong></span> will be executed again;
+          if it is <span class="blue">false</span>, the <span class="bold"><strong>for-loop</strong></span>
+          will quit.
+        </li>
+<li class="listitem">
+          <em class="replaceable"><code><span class="underline"><span class="bold"><strong>&lt;&lt;change-expression&gt;&gt;</strong></span></span></code></em>
+          is used to change the <span class="bold"><strong>status</strong></span> of something.
+          You don't want to execute the same <span class="red">loop-body</span>
+          commonly, so <em class="replaceable"><code><span class="underline"><span class="bold"><strong>&lt;&lt;change-expression&gt;&gt;</strong></span></span></code></em>
+          can be used to change the <span class="bold"><strong>status</strong></span>.
+        </li>
+<li class="listitem">
+          <em class="replaceable"><code><span class="underline"><span class="bold"><strong>Infinite
+          loop</strong></span></span></code></em> - If the <em class="replaceable"><code><span class="underline"><span class="bold"><strong>&lt;&lt;judge-condition&gt;&gt;</strong></span></span></code></em>
+          is always <span class="blue">true</span>, the for-loop will run forever
+          until some external thing interrupts it. This is commonly used in a game-rendering
+          loop, a user click might trigger an event to interrupt the loop.
+        </li>
+<li class="listitem">
+          The brackets <em class="replaceable"><code><span class="bold"><strong>{}</strong></span></code></em>
+          can be omitted, if it has only one <em class="replaceable"><code><span class="underline"><span class="bold"><strong>&lt;&lt;evaluate-statement&gt;&gt;</strong></span></span></code></em>;
+          otherwise the brackets can not be omitted.
+        </li>
+</ul></div>
+<p>
+      <span class="bold"><strong><span class="blue">Run orders:</span></strong></span>
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          step-1: Run <span class="purple">&lt;&lt;init-statement&gt;&gt;</span>
+        </li>
+<li class="listitem">
+          step-2: Run <span class="purple">&lt;&lt;judge-condition&gt;&gt;</span>
+        </li>
+<li class="listitem">
+          step-3: Run <span class="purple">&lt;&lt;loop-body&gt;&gt;</span>
+        </li>
+<li class="listitem">
+          step-4: Run <span class="purple">&lt;&lt;change-expression&gt;&gt;</span>
+        </li>
+<li class="listitem">
+          step-5: Run <span class="purple">&lt;&lt;judge-condition&gt;&gt;</span>
+        </li>
+<li class="listitem">
+          step-6: Run <span class="purple">&lt;&lt;loop-body&gt;&gt;</span>
+        </li>
+<li class="listitem">
+          step-7: Run <span class="purple">&lt;&lt;change-expression&gt;&gt;</span>
+        </li>
+<li class="listitem">
+          <span class="blue">Repeat step-5 -&gt; step-6 -&gt; step-7</span> again
+          and again
+        </li>
+<li class="listitem">
+          <span class="bold"><strong><span class="green">When it runs at &lt;&lt;judge-condition&gt;&gt;,
+          if the condition is not met (aka. the condition result is false), the
+          <span class="bold"><strong>for-loop</strong></span> will stop and quit; otherwise
+          it will repeat the loop.</span></strong></span>
+        </li>
+<li class="listitem">
+          A <em class="replaceable"><code><span class="underline"><span class="bold"><strong>break;</strong></span></span></code></em>
+          statement can be inserted inside the <span class="bold"><strong>loop-body</strong></span>
+          .
+        </li>
+</ul></div>
+<p>
+      <span class="bold"><strong>c++ example:</strong></span>
+    </p>
+<pre class="programlisting"><span class="keyword">for</span> <span class="special">(</span><span class="keyword">int</span> <span class="identifier">i</span><span class="special">=</span><span class="number">0</span><span class="special">;</span> <span class="identifier">i</span><span class="special">&lt;</span><span class="number">5</span><span class="special">;</span> <span class="special">++</span><span class="identifier">i</span><span class="special">)</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"i is "</span> <span class="special">&lt;&lt;</span> <span class="identifier">i</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="day-18-cpp-condition-loop.h4"></a>
+      <span class="phrase"><a name="day-18-cpp-condition-loop.range-based-for"></a></span><a class="link" href="day-18-cpp-condition-loop.html#day-18-cpp-condition-loop.range-based-for"><span class="cyan">c++ Range-based for loop - [c++ loops]</span></a>
+    </h2>
+<p>
+      c++ range-based for loop can be also called c++ for each.
+    </p>
+<p>
+      <span class="bold"><strong>Syntax:</strong></span>
+    </p>
+<pre class="programlisting"><span class="keyword">for</span> <span class="special">(&lt;&lt;</span><span class="identifier">declare</span><span class="special">-</span><span class="identifier">a</span><span class="special">-</span><span class="identifier">variable</span><span class="special">&gt;&gt;:</span> <span class="special">&lt;&lt;</span><span class="identifier">initializing</span><span class="special">-</span><span class="identifier">value</span><span class="special">-</span><span class="identifier">list</span><span class="special">&gt;&gt;)</span>
+<span class="special">{</span> <span class="comment">// loop-body begins</span>
+	<span class="special">&lt;&lt;</span><span class="identifier">evaluate</span><span class="special">-</span><span class="identifier">statement</span><span class="special">-</span><span class="number">1</span><span class="special">&gt;&gt;;</span>
+	<span class="special">&lt;&lt;</span><span class="identifier">evaluate</span><span class="special">-</span><span class="identifier">statement</span><span class="special">-</span><span class="number">2</span><span class="special">&gt;&gt;;</span>
+	<span class="comment">// ... more statement</span>
+	<span class="comment">// ... more statement</span>
+<span class="special">}</span> <span class="comment">// loop-body ends</span>
+</pre>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          <span class="bold"><strong>&lt;&lt;declare-a-variable&gt;&gt;</strong></span> is
+          used to declare a <span class="blue">variable</span> .
+        </li>
+<li class="listitem">
+          The <span class="bold"><strong>declared variable</strong></span> will be assigned
+          with a value from the <span class="bold"><strong>&lt;&lt;initializing-value-list&gt;&gt;</strong></span>
+          one by one (<span class="blue">iteration</span>)
+        </li>
+<li class="listitem">
+          The <span class="bold"><strong>&lt;&lt;loop-body&gt;&gt;</strong></span> will be
+          executed one by one.
+        </li>
+<li class="listitem">
+          When all values of the <span class="bold"><strong>&lt;&lt;initializing-value-list&gt;&gt;</strong></span>
+          are iterated, the <span class="bold"><strong>range-based for loop</strong></span>
+          is finished and quits.
+        </li>
+<li class="listitem">
+          A <em class="replaceable"><code><span class="underline"><span class="bold"><strong>break;</strong></span></span></code></em>
+          statement can be inserted inside the <span class="bold"><strong>loop-body</strong></span>
+          .
+        </li>
+</ul></div>
+<p>
+      <span class="bold"><strong>c++ example:</strong></span>
+    </p>
+<pre class="programlisting"><span class="keyword">for</span> <span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">str</span><span class="special">:</span> <span class="special">{</span><span class="string">"c++"</span><span class="special">,</span> <span class="string">"world"</span><span class="special">,</span> <span class="string">"hello world"</span><span class="special">})</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"str is "</span> <span class="special">&lt;&lt;</span> <span class="identifier">str</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="day-18-cpp-condition-loop.h5"></a>
+      <span class="phrase"><a name="day-18-cpp-condition-loop.while"></a></span><a class="link" href="day-18-cpp-condition-loop.html#day-18-cpp-condition-loop.while"><span class="cyan">c++ while-loop [c++ loops]</span></a>
+    </h2>
+<p>
+      c++ while loop
+    </p>
+<p>
+      <span class="bold"><strong>Syntax:</strong></span>
+    </p>
+<pre class="programlisting"><span class="keyword">while</span> <span class="special">(&lt;&lt;</span><span class="identifier">judge</span><span class="special">-</span><span class="identifier">condition</span><span class="special">&gt;&gt;)</span>
+<span class="special">{</span> <span class="comment">// loop-body begins</span>
+	<span class="special">&lt;&lt;</span><span class="identifier">evaluate</span><span class="special">-</span><span class="identifier">statement</span><span class="special">-</span><span class="number">1</span><span class="special">&gt;&gt;;</span>
+	<span class="special">&lt;&lt;</span><span class="identifier">evaluate</span><span class="special">-</span><span class="identifier">statement</span><span class="special">-</span><span class="number">1</span><span class="special">&gt;&gt;;</span>
+	<span class="comment">// ... more statement</span>
+	<span class="comment">// ... more statement</span>
+<span class="special">}</span> <span class="comment">// loop-body ends</span>
+</pre>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          If <span class="bold"><strong>&lt;&lt;judge-condition&gt;&gt;</strong></span> is
+          true, run the <span class="bold"><strong>loop-body</strong></span> again; Otherwise,
+          <span class="bold"><strong>while-loop</strong></span> stops and quits.
+        </li>
+<li class="listitem">
+          <em class="replaceable"><code><span class="underline"><span class="bold"><strong>Infinite
+          loop</strong></span></span></code></em> - If the <em class="replaceable"><code><span class="underline"><span class="bold"><strong>&lt;&lt;judge-condition&gt;&gt;</strong></span></span></code></em>
+          is always <span class="blue">true</span>, the while-loop will run forever
+          until some external thing interrupts it. This is commonly used in a game-rendering
+          loop, a user click might trigger an event to interrupt the loop.
+        </li>
+<li class="listitem">
+          Put a <span class="bold"><strong>&lt;&lt;change-statement&gt;&gt;</strong></span>
+          anywhere inside the <span class="bold"><strong>loop-body</strong></span> to change
+          the <span class="bold"><strong>status</strong></span> .
+        </li>
+<li class="listitem">
+          If the <span class="bold"><strong>&lt;&lt;judge-condition&gt;&gt;</strong></span>
+          is true at the very first time of running the <span class="bold"><strong>while-loop</strong></span>,
+          the <span class="bold"><strong>while-loop</strong></span> will stop and quit, so
+          the <span class="bold"><strong>loop-body</strong></span> will be never executed.
+        </li>
+<li class="listitem">
+          A <em class="replaceable"><code><span class="underline"><span class="bold"><strong>break;</strong></span></span></code></em>
+          statement can be inserted inside the <span class="bold"><strong>loop-body</strong></span>
+          .
+        </li>
+</ul></div>
+<p>
+      <span class="bold"><strong>c++ example:</strong></span>
+    </p>
+<pre class="programlisting"><span class="keyword">int</span> <span class="identifier">x</span> <span class="special">=</span> <span class="number">0</span><span class="special">;</span>
+<span class="keyword">while</span> <span class="special">(</span><span class="identifier">x</span> <span class="special">&lt;</span> <span class="number">10</span><span class="special">)</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">:</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"x is "</span> <span class="special">&lt;&lt;</span> <span class="identifier">x</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">++</span><span class="identifier">x</span><span class="special">;</span>	<span class="comment">// change-statement</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="day-18-cpp-condition-loop.h6"></a>
+      <span class="phrase"><a name="day-18-cpp-condition-loop.do-while"></a></span><a class="link" href="day-18-cpp-condition-loop.html#day-18-cpp-condition-loop.do-while"><span class="cyan">do-while-loop - [c++ loops]</span></a>
+    </h2>
+<p>
+      c++ do-while loop
+    </p>
+<p>
+      <span class="bold"><strong>Syntax:</strong></span>
+    </p>
+<pre class="programlisting"><span class="keyword">do</span>
+<span class="special">{</span>
+	<span class="special">&lt;&lt;</span><span class="identifier">evaluate</span><span class="special">-</span><span class="identifier">statement</span><span class="special">-</span><span class="number">1</span><span class="special">&gt;&gt;;</span>
+	<span class="special">&lt;&lt;</span><span class="identifier">evaluate</span><span class="special">-</span><span class="identifier">statement</span><span class="special">-</span><span class="number">2</span><span class="special">&gt;&gt;;</span>
+	<span class="comment">// ... more statement</span>
+	<span class="comment">// ... more statement</span>
+<span class="special">}</span>
+<span class="keyword">while</span> <span class="special">(&lt;&lt;</span><span class="identifier">judge</span><span class="special">-</span><span class="identifier">condition</span><span class="special">&gt;&gt;);</span>
+</pre>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          <span class="bold"><strong>do-while-loop</strong></span> is similar with <span class="bold"><strong>while-loop</strong></span>.
+        </li>
+<li class="listitem">
+          The first running is the loop-body, it will always run at the first time,
+          whatever the <span class="bold"><strong>&lt;&lt;judge-condition&gt;&gt;</strong></span>
+          result is.
+        </li>
+<li class="listitem">
+          The <em class="replaceable"><code><span class="underline"><span class="bold"><strong>;</strong></span></span></code></em>
+          should be placed at the end of <span class="bold"><strong>do-while-loop</strong></span>
+          .
+        </li>
+</ul></div>
+<p>
+      <span class="bold"><strong>c++ example:</strong></span>
+    </p>
+<pre class="programlisting"><span class="keyword">int</span> <span class="identifier">i</span> <span class="special">=</span> <span class="number">0</span><span class="special">;</span>
+<span class="keyword">do</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"i is "</span> <span class="special">&lt;&lt;</span> <span class="identifier">i</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">++</span><span class="identifier">i</span><span class="special">;</span>
+<span class="special">}</span>
+<span class="keyword">while</span> <span class="special">(</span><span class="identifier">i</span><span class="special">&lt;</span><span class="number">10</span><span class="special">);</span>
+</pre>
+<p>
+      <br> <br> <br> <br> <br> <br>
+    </p>
+<p>
+      <em class="replaceable"><code>Written on Dec 06, 2024</code></em>
+    </p>
+<h2>
+<a name="day-18-cpp-condition-loop.h7"></a>
+      <span class="phrase"><a name="day-18-cpp-condition-loop.role_cyan_back_to_index"></a></span><a class="link" href="day-18-cpp-condition-loop.html#day-18-cpp-condition-loop.role_cyan_back_to_index"><span class="cyan">Back to index</span></a>
+    </h2>
+<p>
+      <a href="." target="_top">Index</a>
+    </p>
+<h2>
+<a name="day-18-cpp-condition-loop.h8"></a>
+      <span class="phrase"><a name="day-18-cpp-condition-loop.cpp-lang"></a></span><a class="link" href="day-18-cpp-condition-loop.html#day-18-cpp-condition-loop.cpp-lang"><span class="cyan">cpp/c++</span></a>
+    </h2>
+<p>
+      c++ std::exception:
+    </p>
+<p>
+      std::cout.write(err.data(), err.size());
+    </p>
+<p>
+      std::cout &lt;&lt; std::endl;
+    </p>
+<p>
+      <span class="purple">caught:</span>
+    </p>
+<pre class="programlisting">  ===================================
+  #  The c++ programming language.  #
+  #                                 #
+  #  Join c++ Discord: yZcauUAUyC   #
+  #  Deck                           #
+  ===================================
+</pre>
+<p>
+      <a href="https://cppfx.xyz" target="_top">Home: cppfx.xyz</a>
+    </p>
+<p>
+      <a href="https://cppfx.xyz/kpp/kpp-print.html" target="_top">K</a>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="day-17-cpp-concepts.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+</body>
+</html>
