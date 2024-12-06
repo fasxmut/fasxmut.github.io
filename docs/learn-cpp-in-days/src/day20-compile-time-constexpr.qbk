@@ -211,7 +211,63 @@ int main()
 }
 ```
 
-At last, note that [~[*std::cout]] can not be constexpr.
+[h2:non-constexpr-calling constexpr declaration, non-constexpr calling]
+
+[!c++]
+```
+class my_class
+{
+public:
+	constexpr int get() const // constexpr declaration
+	{
+		return 1234;
+	}
+};
+
+int main()
+{
+	constexpr auto obj = my_class{};
+
+	int g = obj.get();	// non-constexpr calling
+}
+```
+
+Although the method .get() is declared constexpr, and the object obj is constexpr,
+[br]
+but the method calling [~[*obj.get();]] is not constexpr.
+
+[h2:no-guarantee constexpr does not guarantee compile-time]
+
+If you insert runtime code inside the definition of body of the constexpr declaration, the code can not run at compile-time, then the calling will not be constexpr.
+
+(Note that [~[*std::cout]] can not be constexpr, std::cout is runtime code.)
+
+[!c++]
+```
+#include <iostream>
+
+class my_class
+{
+public:
+	constexpr int get() const
+	{
+		std::cout << "return value" << std::endl;
+		return 123;
+	}
+};
+
+int main()
+{
+	constexpr auto obj = my_class{};
+	int a = obj.get();	// OK
+
+	constexpr int b = obj.get();	// ERROR,
+	//method .get() can not be constexpr,
+	// because it contains runtime code: std::cout.
+}
+```
+
+[*Putting runtime code (can not be constexpr) inside a definition body of related constexpr declaration is not an error, but the calling of it can not be constexpr.]
 
 [br]
 [br]

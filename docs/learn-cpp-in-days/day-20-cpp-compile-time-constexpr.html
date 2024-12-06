@@ -278,9 +278,71 @@
 	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"x is "</span> <span class="special">&lt;&lt;</span> <span class="identifier">x</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
 <span class="special">}</span>
 </pre>
+<h3>
+<a name="day-20-cpp-compile-time-constexpr.h9"></a>
+      <span class="phrase"><a name="day-20-cpp-compile-time-constexpr.non-constexpr-calling"></a></span><a class="link" href="day-20-cpp-compile-time-constexpr.html#day-20-cpp-compile-time-constexpr.non-constexpr-calling">constexpr
+      declaration, non-constexpr calling</a>
+    </h3>
+<pre class="programlisting"><span class="keyword">class</span> <span class="identifier">my_class</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">constexpr</span> <span class="keyword">int</span> <span class="identifier">get</span><span class="special">()</span> <span class="keyword">const</span> <span class="comment">// constexpr declaration</span>
+	<span class="special">{</span>
+		<span class="keyword">return</span> <span class="number">1234</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">obj</span> <span class="special">=</span> <span class="identifier">my_class</span><span class="special">{};</span>
+
+	<span class="keyword">int</span> <span class="identifier">g</span> <span class="special">=</span> <span class="identifier">obj</span><span class="special">.</span><span class="identifier">get</span><span class="special">();</span>	<span class="comment">// non-constexpr calling</span>
+<span class="special">}</span>
+</pre>
 <p>
-      At last, note that <em class="replaceable"><code><span class="bold"><strong>std::cout</strong></span></code></em>
-      can not be constexpr.
+      Although the method .get() is declared constexpr, and the object obj is constexpr,
+      <br> but the method calling <em class="replaceable"><code><span class="bold"><strong>obj.get();</strong></span></code></em>
+      is not constexpr.
+    </p>
+<h3>
+<a name="day-20-cpp-compile-time-constexpr.h10"></a>
+      <span class="phrase"><a name="day-20-cpp-compile-time-constexpr.no-guarantee"></a></span><a class="link" href="day-20-cpp-compile-time-constexpr.html#day-20-cpp-compile-time-constexpr.no-guarantee">constexpr
+      does not guarantee compile-time</a>
+    </h3>
+<p>
+      If you insert runtime code inside the definition of body of the constexpr declaration,
+      the code can not run at compile-time, then the calling will not be constexpr.
+    </p>
+<p>
+      (Note that <em class="replaceable"><code><span class="bold"><strong>std::cout</strong></span></code></em>
+      can not be constexpr, std::cout is runtime code.)
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">class</span> <span class="identifier">my_class</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">constexpr</span> <span class="keyword">int</span> <span class="identifier">get</span><span class="special">()</span> <span class="keyword">const</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"return value"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+		<span class="keyword">return</span> <span class="number">123</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">obj</span> <span class="special">=</span> <span class="identifier">my_class</span><span class="special">{};</span>
+	<span class="keyword">int</span> <span class="identifier">a</span> <span class="special">=</span> <span class="identifier">obj</span><span class="special">.</span><span class="identifier">get</span><span class="special">();</span>	<span class="comment">// OK</span>
+
+	<span class="keyword">constexpr</span> <span class="keyword">int</span> <span class="identifier">b</span> <span class="special">=</span> <span class="identifier">obj</span><span class="special">.</span><span class="identifier">get</span><span class="special">();</span>	<span class="comment">// ERROR,</span>
+	<span class="comment">//method .get() can not be constexpr,</span>
+	<span class="comment">// because it contains runtime code: std::cout.</span>
+<span class="special">}</span>
+</pre>
+<p>
+      <span class="bold"><strong>Putting runtime code (can not be constexpr) inside a
+      definition body of related constexpr declaration is not an error, but the calling
+      of it can not be constexpr.</strong></span>
     </p>
 <p>
       <br> <br> <br> <br> <br> <br>
@@ -289,14 +351,14 @@
       <em class="replaceable"><code>Written on Dec 06, 2024</code></em>
     </p>
 <h2>
-<a name="day-20-cpp-compile-time-constexpr.h9"></a>
+<a name="day-20-cpp-compile-time-constexpr.h11"></a>
       <span class="phrase"><a name="day-20-cpp-compile-time-constexpr.role_cyan_back_to_index"></a></span><a class="link" href="day-20-cpp-compile-time-constexpr.html#day-20-cpp-compile-time-constexpr.role_cyan_back_to_index"><span class="cyan">Back to index</span></a>
     </h2>
 <p>
       <a href="." target="_top">Index</a>
     </p>
 <h2>
-<a name="day-20-cpp-compile-time-constexpr.h10"></a>
+<a name="day-20-cpp-compile-time-constexpr.h12"></a>
       <span class="phrase"><a name="day-20-cpp-compile-time-constexpr.cpp-lang"></a></span><a class="link" href="day-20-cpp-compile-time-constexpr.html#day-20-cpp-compile-time-constexpr.cpp-lang"><span class="cyan">cpp/c++</span></a>
     </h2>
 <p>
