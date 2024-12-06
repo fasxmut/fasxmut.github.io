@@ -1,0 +1,232 @@
+[article day-20: c++ compile-time, constexpr
+	[id day-20-cpp-compile-time-constexpr]
+	[quickbook 1.7]
+]
+
+[h1:compile-time [role cyan c++ compile-time]]
+
+In [link day_01_how_to_compile_cpp day-01], we have learned how to compile c++ code.
+
+A program written in c++ must be translated to machine code, then the machine code can be executed. The c++ code can not run directly without compiling. The machine code can run directly, but it is not readable by human. The c++ code is readable by human, but it can not run directly.
+
+So there are two stages:
+
+* compile-time
+* runtime
+
+[h2:variable c++ Variable]
+
+Declaring a variable, the variable type is identified at compile-time:
+
+[!c++]
+```
+int x;
+x = 3;
+```
+
+The type of x is identified as int at compile-time, the allocation of x is at runtime.
+
+[h2:template c++ template]
+
+The declaration, definition and instantiation of template are done at [*compile-time].
+
+What is template instantiation? It is explained at [link day-15-cpp-template day-15] .
+
+I explain it again:
+
+[!c++]
+```
+template <typename type_t00>
+class my_class
+{
+};
+```
+
+[*my_class] is a [role blue class template]; [*my_class<int>], [*my_class<char>], ... are [role blue classes].
+
+Transforming from [role purple my_class] to [role purple my_class<int>] etc. is called [role blue template instantiation] .
+
+Template is considered as [*compile-time] thing. When it comes to runtime, all templates are already instantiated and no template exists at runtime any more.
+
+[h1:constexpr [role cyan constexpr]]
+
+By default, the object declaration, the method calling, the function calling, the variable declaration etc. are done at runtime.
+
+However, c++ has the ability to make them at be done at compile-time, that's by using [*constexpr] .
+
+[h2:constexpr-variable c++ constexpr variable]
+
+[*c++ :]
+
+[!c++]
+```
+int x = 3;
+constexpr int y = 789;
+```
+
+[*x] is allocated and initialized at runtime.
+
+[*y] is allocated and initialized at compile-time.
+
+[*c++ :]
+
+The constexpr variable must be initialized.
+
+[!c++]
+```
+int a;	// OK
+int b = 2;	// OK
+constexpr int c = 5;	// OK
+constexpr int d;	// ERROR, constexpr variable must be initialized
+```
+
+[h2:constexpr-object c++ constexpr object]
+
+[*c++ :]
+
+[!c++]
+```
+class my_class
+{
+};
+
+int main()
+{
+	constexpr auto obj1 = my_class{};	// OK
+	constexpr my_class obj2{};	// OK
+	constexpr my_class obj3;	// ERROR, obj3 is not initialized.
+}
+```
+
+constexpr object is the same as constexpr variable in above example.
+[br]
+But just note that [~[*my_class obj3;]] is considered that obj3 is not initialized, it [*can not be] constexpr,
+[br]
+and [~[*my_class obj2{};]] is considered that obj2 is initialized, it [*can be] constexpr.
+
+[h2:constexpr-constructor c++ constexpr constructor]
+
+Commonly, declaring an object means calling the constructor of the class.
+[br]
+If the object is expected to be constexpr, the constructor must be constexpr too.
+
+If the class has no user-defined constructor,
+[br]
+the class still has an implicit-defined constructor by default,[br]
+that the constructor is constexpr. Such as above example.
+
+If the class has user-defined constructor, and you want the object creation is constexpr,
+[br]
+then you must make the constructor declaration consexpr.
+
+See c++ example:
+
+[!c++]
+```
+class my_class
+{
+private:
+	int __x;
+public:
+				// constexpr constructor
+	constexpr my_class(int x__):
+		__x{x__}
+	{
+	}
+};
+
+int main()
+{
+	constexpr auto obj1 = my_class{33};
+	constexpr my_class obj2{44};
+}
+```
+
+[h2:constexpr-destructor constexpr destructor]
+
+Just as the constexpr constructor,
+[br]
+the implicit-defined destructor is constexpr by default.
+[br]
+And the user-defined destructor can be marked constexpr too.
+
+[!c++]
+```
+#include <iostream>
+
+class my_class
+{
+private:
+	int __x;
+public:
+	constexpr my_class(int x__):
+		__x{x__}
+	{
+	}
+	constexpr ~my_class()
+	{
+	}
+};
+
+int main()
+{
+	constexpr auto obj1 = my_class{3};
+}
+```
+
+I said above, to make object creation constexpr, the constructor must be constexpr.
+
+The same chain happens on destructor:
+
+To make constexpr destructor [role blue work], the object creation must be constexpr,
+[br]
+to make object creation constexpr, the constructor must be constexpr.
+
+So,
+
+[*A [role blue working] constexpr destructor] requires [*constexpr constructor] .
+
+Note the words [*work] and [*working] I used here. I mean the constexpr object creation should work.
+
+[h2:constexpr-method constexpr method]
+
+A method of a class can be constexpr too,
+
+[!c++]
+```
+class my_class
+{
+public:
+	constexpr int get() const
+	{
+		return 123;
+	}
+};
+
+int main()
+{
+	constexpr auto obj = my_class{};
+	constexpr int x = obj.get();
+	std::cout << "x is " << x << std::endl;
+}
+```
+
+At last, note that [~[*std::cout]] can not be constexpr.
+
+[br]
+[br]
+[br]
+[br]
+[br]
+[br]
+
+[~Written on Dec 06, 2024]
+
+[h1 [role cyan Back to index]]
+
+[@. Index]
+
+[include ../../share/foot-links.inc.qbk]
+
+
+
