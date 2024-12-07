@@ -1,0 +1,163 @@
+[article day-21: c++ STL: std::string
+	[id day-21-cpp-stl-std-string]
+	[quickbook 1.7]
+]
+
+STL is the c++ Standard Template Library. Most c++ compilers have implemented its own STL. So if you have installed a mainstream c++ compiler, you can use STL directly without additional setup. Microsoft visual c++ (visualcpp), GNU c++ compiler (gcc), clang c++ compiler are all such compilers that have implemented STL.
+
+[h1:std-string [role cyan std::string]]
+
+std::string is the c++ string from STL. You have learned it at [link day_03_std_string day-03]
+
+Include:
+
+[~`#include <string>`]
+
+Because std::string is widely used almost anywhere by c++ libraries, commonly you don't have to include <string>, other headers might have already included it.
+
+[h2:create-string Create string]
+
+[!c++]
+```
+#include <iostream>
+
+int main()
+{
+	std::string str1;	// Create an empty string
+	std::string str2 = "Hello";	// Create string "Hello"
+	std::string str3{"c++"};	// Create string "c++"
+	std::cout << str1 << '\n' << str2 << '\n' << str3 << '\n';
+}
+```
+
+[h2:method-data Method: .data()]
+
+The method .data() of std::string returns [~[_ `const char *`]] style string.
+
+[~[_`const char *`]] style string is the c++ raw string.
+
+[!c++]
+```
+std::string str = "hello c++";
+const char * str_data = str.data();	// Method .data()
+std::cout << str << '\n' << str_data << std::endl;
+```
+
+[h2:Method-size Method: .size()]
+
+The method .size() of std::string returns how many characters that the string has.
+
+[!c++]
+```
+std::string str = "Hello c++!!";
+auto size = str.size();	// Method .size()		Returns 11
+```
+
+[h2:method-op-plus Method: .operator+, .operator+=]
+
+The method .operator+, .operator+= of sd::string can join two c++ std::string together as one string.
+
+[!c++]
+```
+std::string str = "Hello";
+str = str + " world";	// .operator+
+str += "!!!";	// .operator+=
+std::cout << str << std::endl;	// Hello world!!!
+```
+
+[h2:method-push_back Method .push_back]
+
+The method .push_back of std::string appends a single character to the end of the string.
+
+[!c++]
+```
+std::string str = "c++ boo";
+str.push_back('s');	// appends a single character 's'
+str.push_back('t');	// appends a single character 't'
+std::cout << str << std::endl;	// c++ boost
+```
+
+[h2:method-op-ia Method .operator[]]
+
+The method .operator[] of std::string access an element (it is a character) at specific location.
+
+[!c++]
+```
+std::string str = "Hello c++";
+std::cout << str[1] << std::endl;	// e
+```
+
+[h2:method-contains Method .contains]
+
+The method .contains of std::string checks if the string contains a specific sub-string.
+
+[!c++]
+```
+std::string str = "Hello c++";
+bool r = str.contains("ll");	// true
+bool r2 = str.contains("le");	// false
+```
+
+[h2:method-starts_with Method .starts_with]
+
+The method .starts_with of std::string checks if the string starts with a specific string.
+
+[!c++]
+```
+std::string str = "c++ Hello...";
+bool r1 = str.starts_with("c++");	// true
+bool r2 = str.starts_with("++");	// false
+```
+
+[h2:method-ends_with Method .ends_with]
+
+The method .ends_with of std::string checks if the string ends with a specific string.
+
+[!c++]
+```
+std::string str = "c++ Hello...";
+bool r1 = str.ends_with("...");	// true
+bool r2 = str.ends_with("....");	// false
+```
+
+[h2:method-substr Method .substr]
+
+The method .substr of std::string returns a sub-string of the string.
+
+[!c++]
+```
+#include <iostream>
+
+int main()
+{
+	std::string str = "Hello woRld";
+
+	// Get a sub-string from position 2, with 5 characters.
+	std::string s1 = str.substr(2, 5);
+
+	// Get a sub-string from position 2, to the end.
+	std::string s2 = str.substr(2);
+
+	std::cout << s1 << std::endl;	// llo w
+	std::cout << s2 << std::endl;	// llo woRld
+}
+```
+
+
+[br]
+[br]
+[br]
+[br]
+[br]
+[br]
+
+[~Written on Dec 07, 2024]
+
+[h1 [role cyan Back to index]]
+
+[@. Index]
+
+[include ../../share/foot-links.inc.qbk]
+
+
+

@@ -23,6 +23,7 @@
 [include day18-condition-loop.qbk]
 [include day19-array-function-lambda.qbk]
 [include day20-compile-time-constexpr.qbk]
+[include day21-stl-std-string.qbk]
 
 [h1:cpp-tutorial [role cyan cpp Tutorial: Learn c++ in days]]
 

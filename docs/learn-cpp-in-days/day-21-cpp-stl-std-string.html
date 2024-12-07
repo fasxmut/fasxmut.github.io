@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>day-21: c++ STL: std::string</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Learn c++ in days">
+<link rel="up" href="index.html" title="Learn c++ in days">
+<link rel="prev" href="day-20-cpp-compile-time-constexpr.html" title="day-20: c++ compile-time, constexpr">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="day-20-cpp-compile-time-constexpr.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="day-21-cpp-stl-std-string"></a>day-21: c++ STL: std::string</h1></div></div>
+<hr>
+</div>
+<p>
+      STL is the c++ Standard Template Library. Most c++ compilers have implemented
+      its own STL. So if you have installed a mainstream c++ compiler, you can use
+      STL directly without additional setup. Microsoft visual c++ (visualcpp), GNU
+      c++ compiler (gcc), clang c++ compiler are all such compilers that have implemented
+      STL.
+    </p>
+<h2>
+<a name="day-21-cpp-stl-std-string.h0"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-string.std-string"></a></span><a class="link" href="day-21-cpp-stl-std-string.html#day-21-cpp-stl-std-string.std-string"><span class="cyan">std::string</span></a>
+    </h2>
+<p>
+      std::string is the c++ string from STL. You have learned it at <a class="link" href="day_03_std_string.html" title="day-03: std::string">day-03</a>
+    </p>
+<p>
+      Include:
+    </p>
+<p>
+      <em class="replaceable"><code><code class="computeroutput"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">string</span><span class="special">&gt;</span></code></code></em>
+    </p>
+<p>
+      Because std::string is widely used almost anywhere by c++ libraries, commonly
+      you don't have to include &lt;string&gt;, other headers might have already
+      included it.
+    </p>
+<h3>
+<a name="day-21-cpp-stl-std-string.h1"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-string.create-string"></a></span><a class="link" href="day-21-cpp-stl-std-string.html#day-21-cpp-stl-std-string.create-string">Create
+      string</a>
+    </h3>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">str1</span><span class="special">;</span>	<span class="comment">// Create an empty string</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">str2</span> <span class="special">=</span> <span class="string">"Hello"</span><span class="special">;</span>	<span class="comment">// Create string "Hello"</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">str3</span><span class="special">{</span><span class="string">"c++"</span><span class="special">};</span>	<span class="comment">// Create string "c++"</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">str1</span> <span class="special">&lt;&lt;</span> <span class="char">'\n'</span> <span class="special">&lt;&lt;</span> <span class="identifier">str2</span> <span class="special">&lt;&lt;</span> <span class="char">'\n'</span> <span class="special">&lt;&lt;</span> <span class="identifier">str3</span> <span class="special">&lt;&lt;</span> <span class="char">'\n'</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<h3>
+<a name="day-21-cpp-stl-std-string.h2"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-string.method-data"></a></span><a class="link" href="day-21-cpp-stl-std-string.html#day-21-cpp-stl-std-string.method-data">Method:
+      .data()</a>
+    </h3>
+<p>
+      The method .data() of std::string returns <em class="replaceable"><code><span class="underline"><code class="computeroutput"><span class="keyword">const</span> <span class="keyword">char</span> <span class="special">*</span></code></span></code></em> style string.
+    </p>
+<p>
+      <em class="replaceable"><code><span class="underline"><code class="computeroutput"><span class="keyword">const</span>
+      <span class="keyword">char</span> <span class="special">*</span></code></span></code></em>
+      style string is the c++ raw string.
+    </p>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">str</span> <span class="special">=</span> <span class="string">"hello c++"</span><span class="special">;</span>
+<span class="keyword">const</span> <span class="keyword">char</span> <span class="special">*</span> <span class="identifier">str_data</span> <span class="special">=</span> <span class="identifier">str</span><span class="special">.</span><span class="identifier">data</span><span class="special">();</span>	<span class="comment">// Method .data()</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">str</span> <span class="special">&lt;&lt;</span> <span class="char">'\n'</span> <span class="special">&lt;&lt;</span> <span class="identifier">str_data</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+</pre>
+<h3>
+<a name="day-21-cpp-stl-std-string.h3"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-string.Method-size"></a></span><a class="link" href="day-21-cpp-stl-std-string.html#day-21-cpp-stl-std-string.Method-size">Method:
+      .size()</a>
+    </h3>
+<p>
+      The method .size() of std::string returns how many characters that the string
+      has.
+    </p>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">str</span> <span class="special">=</span> <span class="string">"Hello c++!!"</span><span class="special">;</span>
+<span class="keyword">auto</span> <span class="identifier">size</span> <span class="special">=</span> <span class="identifier">str</span><span class="special">.</span><span class="identifier">size</span><span class="special">();</span>	<span class="comment">// Method .size()		Returns 11</span>
+</pre>
+<h3>
+<a name="day-21-cpp-stl-std-string.h4"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-string.method-op-plus"></a></span><a class="link" href="day-21-cpp-stl-std-string.html#day-21-cpp-stl-std-string.method-op-plus">Method:
+      .operator+, .operator+=</a>
+    </h3>
+<p>
+      The method .operator+, .operator+= of sd::string can join two c++ std::string
+      together as one string.
+    </p>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">str</span> <span class="special">=</span> <span class="string">"Hello"</span><span class="special">;</span>
+<span class="identifier">str</span> <span class="special">=</span> <span class="identifier">str</span> <span class="special">+</span> <span class="string">" world"</span><span class="special">;</span>	<span class="comment">// .operator+</span>
+<span class="identifier">str</span> <span class="special">+=</span> <span class="string">"!!!"</span><span class="special">;</span>	<span class="comment">// .operator+=</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">str</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>	<span class="comment">// Hello world!!!</span>
+</pre>
+<h3>
+<a name="day-21-cpp-stl-std-string.h5"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-string.method-push_back"></a></span><a class="link" href="day-21-cpp-stl-std-string.html#day-21-cpp-stl-std-string.method-push_back">Method
+      .push_back</a>
+    </h3>
+<p>
+      The method .push_back of std::string appends a single character to the end
+      of the string.
+    </p>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">str</span> <span class="special">=</span> <span class="string">"c++ boo"</span><span class="special">;</span>
+<span class="identifier">str</span><span class="special">.</span><span class="identifier">push_back</span><span class="special">(</span><span class="char">'s'</span><span class="special">);</span>	<span class="comment">// appends a single character 's'</span>
+<span class="identifier">str</span><span class="special">.</span><span class="identifier">push_back</span><span class="special">(</span><span class="char">'t'</span><span class="special">);</span>	<span class="comment">// appends a single character 't'</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">str</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>	<span class="comment">// c++ boost</span>
+</pre>
+<h3>
+<a name="day-21-cpp-stl-std-string.h6"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-string.method-op-ia"></a></span><a class="link" href="day-21-cpp-stl-std-string.html#day-21-cpp-stl-std-string.method-op-ia">Method
+      .operator[]</a>
+    </h3>
+<p>
+      The method .operator[] of std::string access an element (it is a character)
+      at specific location.
+    </p>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">str</span> <span class="special">=</span> <span class="string">"Hello c++"</span><span class="special">;</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">str</span><span class="special">[</span><span class="number">1</span><span class="special">]</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>	<span class="comment">// e</span>
+</pre>
+<h3>
+<a name="day-21-cpp-stl-std-string.h7"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-string.method-contains"></a></span><a class="link" href="day-21-cpp-stl-std-string.html#day-21-cpp-stl-std-string.method-contains">Method
+      .contains</a>
+    </h3>
+<p>
+      The method .contains of std::string checks if the string contains a specific
+      sub-string.
+    </p>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">str</span> <span class="special">=</span> <span class="string">"Hello c++"</span><span class="special">;</span>
+<span class="keyword">bool</span> <span class="identifier">r</span> <span class="special">=</span> <span class="identifier">str</span><span class="special">.</span><span class="identifier">contains</span><span class="special">(</span><span class="string">"ll"</span><span class="special">);</span>	<span class="comment">// true</span>
+<span class="keyword">bool</span> <span class="identifier">r2</span> <span class="special">=</span> <span class="identifier">str</span><span class="special">.</span><span class="identifier">contains</span><span class="special">(</span><span class="string">"le"</span><span class="special">);</span>	<span class="comment">// false</span>
+</pre>
+<h3>
+<a name="day-21-cpp-stl-std-string.h8"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-string.method-starts_with"></a></span><a class="link" href="day-21-cpp-stl-std-string.html#day-21-cpp-stl-std-string.method-starts_with">Method
+      .starts_with</a>
+    </h3>
+<p>
+      The method .starts_with of std::string checks if the string starts with a specific
+      string.
+    </p>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">str</span> <span class="special">=</span> <span class="string">"c++ Hello..."</span><span class="special">;</span>
+<span class="keyword">bool</span> <span class="identifier">r1</span> <span class="special">=</span> <span class="identifier">str</span><span class="special">.</span><span class="identifier">starts_with</span><span class="special">(</span><span class="string">"c++"</span><span class="special">);</span>	<span class="comment">// true</span>
+<span class="keyword">bool</span> <span class="identifier">r2</span> <span class="special">=</span> <span class="identifier">str</span><span class="special">.</span><span class="identifier">starts_with</span><span class="special">(</span><span class="string">"++"</span><span class="special">);</span>	<span class="comment">// false</span>
+</pre>
+<h3>
+<a name="day-21-cpp-stl-std-string.h9"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-string.method-ends_with"></a></span><a class="link" href="day-21-cpp-stl-std-string.html#day-21-cpp-stl-std-string.method-ends_with">Method
+      .ends_with</a>
+    </h3>
+<p>
+      The method .ends_with of std::string checks if the string ends with a specific
+      string.
+    </p>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">str</span> <span class="special">=</span> <span class="string">"c++ Hello..."</span><span class="special">;</span>
+<span class="keyword">bool</span> <span class="identifier">r1</span> <span class="special">=</span> <span class="identifier">str</span><span class="special">.</span><span class="identifier">ends_with</span><span class="special">(</span><span class="string">"..."</span><span class="special">);</span>	<span class="comment">// true</span>
+<span class="keyword">bool</span> <span class="identifier">r2</span> <span class="special">=</span> <span class="identifier">str</span><span class="special">.</span><span class="identifier">ends_with</span><span class="special">(</span><span class="string">"...."</span><span class="special">);</span>	<span class="comment">// false</span>
+</pre>
+<h3>
+<a name="day-21-cpp-stl-std-string.h10"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-string.method-substr"></a></span><a class="link" href="day-21-cpp-stl-std-string.html#day-21-cpp-stl-std-string.method-substr">Method
+      .substr</a>
+    </h3>
+<p>
+      The method .substr of std::string returns a sub-string of the string.
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">str</span> <span class="special">=</span> <span class="string">"Hello woRld"</span><span class="special">;</span>
+
+	<span class="comment">// Get a sub-string from position 2, with 5 characters.</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">s1</span> <span class="special">=</span> <span class="identifier">str</span><span class="special">.</span><span class="identifier">substr</span><span class="special">(</span><span class="number">2</span><span class="special">,</span> <span class="number">5</span><span class="special">);</span>
+
+	<span class="comment">// Get a sub-string from position 2, to the end.</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">s2</span> <span class="special">=</span> <span class="identifier">str</span><span class="special">.</span><span class="identifier">substr</span><span class="special">(</span><span class="number">2</span><span class="special">);</span>
+
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">s1</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>	<span class="comment">// llo w</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">s2</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>	<span class="comment">// llo woRld</span>
+<span class="special">}</span>
+</pre>
+<p>
+      <br> <br> <br> <br> <br> <br>
+    </p>
+<p>
+      <em class="replaceable"><code>Written on Dec 07, 2024</code></em>
+    </p>
+<h2>
+<a name="day-21-cpp-stl-std-string.h11"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-string.role_cyan_back_to_index"></a></span><a class="link" href="day-21-cpp-stl-std-string.html#day-21-cpp-stl-std-string.role_cyan_back_to_index"><span class="cyan">Back to index</span></a>
+    </h2>
+<p>
+      <a href="." target="_top">Index</a>
+    </p>
+<h2>
+<a name="day-21-cpp-stl-std-string.h12"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-string.cpp-lang"></a></span><a class="link" href="day-21-cpp-stl-std-string.html#day-21-cpp-stl-std-string.cpp-lang"><span class="cyan">cpp/c++</span></a>
+    </h2>
+<p>
+      c++ std::exception:
+    </p>
+<p>
+      std::cout.write(err.data(), err.size());
+    </p>
+<p>
+      std::cout &lt;&lt; std::endl;
+    </p>
+<p>
+      <span class="purple">caught:</span>
+    </p>
+<pre class="programlisting">  ===================================
+  #  The c++ programming language.  #
+  #                                 #
+  #  Join c++ Discord: yZcauUAUyC   #
+  #  Deck                           #
+  ===================================
+</pre>
+<p>
+      <a href="https://cppfx.xyz" target="_top">Home: cppfx.xyz</a>
+    </p>
+<p>
+      <a href="https://cppfx.xyz/kpp/kpp-print.html" target="_top">K</a>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="day-20-cpp-compile-time-constexpr.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+</body>
+</html>
