@@ -1,7 +1,11 @@
-[article day-19: c++ array, function
-	[id day-19-cpp-array-function]
+[article day-19: c++ array, function, lambda
+	[id day-19-cpp-array-function-lambda]
 	[quickbook 1.7]
 ]
+
+* [link day-19-cpp-array-function-lambda.array c++ array]
+* [link day-19-cpp-array-function-lambda.function c++ function]
+* [link day-19-cpp-array-function-lambda.lambda c++ lambda]
 
 [h1:array [role cyan c++ array]]
 
@@ -94,6 +98,49 @@ float fzzz(const float x, const float y)
 // Use the function:
 auto result = my_space::fzzz(2.1f, 1.2f);
 ```
+
+[h1:lambda [role cyan c++ lambda]]
+
+General speaking, lambda is the advanced function. Function is the function of value. Lambda is the function of function.
+
+[*Syntax:]
+
+[!c++]
+```
+auto the_lambda_name = [<<capture-list>>] (<<arg-list>>)
+{
+	<<statement-list>;
+};
+```
+
+For example:
+
+[!c++]
+```
+#include <iostream>
+
+auto fn = [] (float x)
+{
+	std::cout << "Receive: " << x << std::endl;
+	return x*x;
+};
+
+int main()
+{
+	int y = fn(2.1f);
+	std::cout << "Got: " << y << std::endl;
+}
+```
+
+Output:
+
+[!teletype]
+```
+Receive: 2.1
+Got: 4.41
+```
+
+fn is a lambda object. It is an object of a class.
 
 [br]
 [br]

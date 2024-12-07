@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>day-19: c++ array, function</title>
+<title>day-19: c++ array, function, lambda</title>
 <link rel="stylesheet" href="boostbook.css" type="text/css">
 <meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
 <link rel="home" href="index.html" title="Learn c++ in days">
@@ -18,12 +18,23 @@
 <div class="article">
 <div class="titlepage">
 <div><div><h1 class="title">
-<a name="day-19-cpp-array-function"></a>day-19: c++ array, function</h1></div></div>
+<a name="day-19-cpp-array-function-lambda"></a>day-19: c++ array, function, lambda</h1></div></div>
 <hr>
 </div>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          <a class="link" href="day-19-cpp-array-function-lambda.html#day-19-cpp-array-function-lambda.array">c++ array</a>
+        </li>
+<li class="listitem">
+          <a class="link" href="day-19-cpp-array-function-lambda.html#day-19-cpp-array-function-lambda.function">c++ function</a>
+        </li>
+<li class="listitem">
+          <a class="link" href="day-19-cpp-array-function-lambda.html#day-19-cpp-array-function-lambda.lambda">c++ lambda</a>
+        </li>
+</ul></div>
 <h2>
-<a name="day-19-cpp-array-function.h0"></a>
-      <span class="phrase"><a name="day-19-cpp-array-function.array"></a></span><a class="link" href="day-19-cpp-array-function.html#day-19-cpp-array-function.array"><span class="cyan">c++ array</span></a>
+<a name="day-19-cpp-array-function-lambda.h0"></a>
+      <span class="phrase"><a name="day-19-cpp-array-function-lambda.array"></a></span><a class="link" href="day-19-cpp-array-function-lambda.html#day-19-cpp-array-function-lambda.array"><span class="cyan">c++ array</span></a>
     </h2>
 <p>
       c++ raw array. c++ array is a continuous area of a list of raid values in the
@@ -81,8 +92,8 @@
 <pre class="programlisting">2 3 9 5 7 23
 </pre>
 <h2>
-<a name="day-19-cpp-array-function.h1"></a>
-      <span class="phrase"><a name="day-19-cpp-array-function.function"></a></span><a class="link" href="day-19-cpp-array-function.html#day-19-cpp-array-function.function"><span class="cyan">c++ function</span></a>
+<a name="day-19-cpp-array-function-lambda.h1"></a>
+      <span class="phrase"><a name="day-19-cpp-array-function-lambda.function"></a></span><a class="link" href="day-19-cpp-array-function-lambda.html#day-19-cpp-array-function-lambda.function"><span class="cyan">c++ function</span></a>
     </h2>
 <p>
       c++ function is similar to the method of a class, just the function does not
@@ -112,6 +123,48 @@
 <span class="comment">// Use the function:</span>
 <span class="keyword">auto</span> <span class="identifier">result</span> <span class="special">=</span> <span class="identifier">my_space</span><span class="special">::</span><span class="identifier">fzzz</span><span class="special">(</span><span class="number">2.1f</span><span class="special">,</span> <span class="number">1.2f</span><span class="special">);</span>
 </pre>
+<h2>
+<a name="day-19-cpp-array-function-lambda.h2"></a>
+      <span class="phrase"><a name="day-19-cpp-array-function-lambda.lambda"></a></span><a class="link" href="day-19-cpp-array-function-lambda.html#day-19-cpp-array-function-lambda.lambda"><span class="cyan">c++ lambda</span></a>
+    </h2>
+<p>
+      General speaking, lambda is the advanced function. Function is the function
+      of value. Lambda is the function of function.
+    </p>
+<p>
+      <span class="bold"><strong>Syntax:</strong></span>
+    </p>
+<pre class="programlisting"><span class="keyword">auto</span> <span class="identifier">the_lambda_name</span> <span class="special">=</span> <span class="special">[&lt;&lt;</span><span class="identifier">capture</span><span class="special">-</span><span class="identifier">list</span><span class="special">&gt;&gt;]</span> <span class="special">(&lt;&lt;</span><span class="identifier">arg</span><span class="special">-</span><span class="identifier">list</span><span class="special">&gt;&gt;)</span>
+<span class="special">{</span>
+	<span class="special">&lt;&lt;</span><span class="identifier">statement</span><span class="special">-</span><span class="identifier">list</span><span class="special">&gt;;</span>
+<span class="special">};</span>
+</pre>
+<p>
+      For example:
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">auto</span> <span class="identifier">fn</span> <span class="special">=</span> <span class="special">[]</span> <span class="special">(</span><span class="keyword">float</span> <span class="identifier">x</span><span class="special">)</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Receive: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">x</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="keyword">return</span> <span class="identifier">x</span><span class="special">*</span><span class="identifier">x</span><span class="special">;</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">int</span> <span class="identifier">y</span> <span class="special">=</span> <span class="identifier">fn</span><span class="special">(</span><span class="number">2.1f</span><span class="special">);</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Got: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">y</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<p>
+      Output:
+    </p>
+<pre class="programlisting">Receive: 2.1
+Got: 4.41
+</pre>
+<p>
+      fn is a lambda object. It is an object of a class.
+    </p>
 <p>
       <br> <br> <br> <br> <br> <br>
     </p>
@@ -119,15 +172,15 @@
       <em class="replaceable"><code>Written on Dec 06, 2024</code></em>
     </p>
 <h2>
-<a name="day-19-cpp-array-function.h2"></a>
-      <span class="phrase"><a name="day-19-cpp-array-function.role_cyan_back_to_index"></a></span><a class="link" href="day-19-cpp-array-function.html#day-19-cpp-array-function.role_cyan_back_to_index"><span class="cyan">Back to index</span></a>
+<a name="day-19-cpp-array-function-lambda.h3"></a>
+      <span class="phrase"><a name="day-19-cpp-array-function-lambda.role_cyan_back_to_index"></a></span><a class="link" href="day-19-cpp-array-function-lambda.html#day-19-cpp-array-function-lambda.role_cyan_back_to_index"><span class="cyan">Back to index</span></a>
     </h2>
 <p>
       <a href="." target="_top">Index</a>
     </p>
 <h2>
-<a name="day-19-cpp-array-function.h3"></a>
-      <span class="phrase"><a name="day-19-cpp-array-function.cpp-lang"></a></span><a class="link" href="day-19-cpp-array-function.html#day-19-cpp-array-function.cpp-lang"><span class="cyan">cpp/c++</span></a>
+<a name="day-19-cpp-array-function-lambda.h4"></a>
+      <span class="phrase"><a name="day-19-cpp-array-function-lambda.cpp-lang"></a></span><a class="link" href="day-19-cpp-array-function-lambda.html#day-19-cpp-array-function-lambda.cpp-lang"><span class="cyan">cpp/c++</span></a>
     </h2>
 <p>
       c++ std::exception:
