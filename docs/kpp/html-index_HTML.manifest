@@ -55,7 +55,10 @@ kpp-overflow_type.html
 kpp-pest_type.html
 kpp-invalid_mark_type.html
 iff-types.html
-output.html
+kpp-output.html
 kpp-print.html
 kpp-output-concepts.html
 kpp-kspt-ostream_printable.html
+kpp-kspt-register_printable.html
+method-register_print.html
+kpp-kspt-printable.html
