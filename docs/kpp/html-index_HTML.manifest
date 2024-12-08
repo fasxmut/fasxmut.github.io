@@ -57,3 +57,5 @@ kpp-invalid_mark_type.html
 iff-types.html
 output.html
 kpp-print.html
+kpp-output-concepts.html
+kpp-kspt-ostream_printable.html
