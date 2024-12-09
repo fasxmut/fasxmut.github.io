@@ -39,6 +39,8 @@ int main()
 */
 ```
 
+(.begin(), .end(): Return c++ iterator, Read [link day-21-cpp-stl-std-vector.cpp-iterator std::vector iterator]) .
+
 [h2:std-copy-mtm std::copy: Copy from memory to memory]
 
 [!c++]
