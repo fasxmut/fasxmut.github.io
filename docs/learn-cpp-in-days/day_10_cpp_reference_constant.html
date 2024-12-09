@@ -49,7 +49,8 @@
           alias of an existed variable.
         </li>
 </ul></div>
-<pre class="programlisting"><span class="comment">// a, c, e, f are variables, any one of them has its unique memory space and its unique memory address.</span>
+<pre class="programlisting"><span class="comment">// a, c, e, f are variables,</span>
+<span class="comment">// any one of them has its unique memory space and its unique memory address.</span>
 
 <span class="comment">// b is alias of a, b is just another name of the same memory space that a stands for.</span>
 
@@ -150,50 +151,38 @@
 <a name="day_10_cpp_reference_constant.h4"></a>
       <span class="phrase"><a name="day_10_cpp_reference_constant.const-ref-rules"></a></span><a class="link" href="day_10_cpp_reference_constant.html#day_10_cpp_reference_constant.const-ref-rules"><span class="cyan">Some const reference rules</span></a>
     </h2>
-<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
-<li class="listitem">
-<p class="simpara">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
           <span class="bold"><strong>const variable must be initialized, non-const does
           not have to</strong></span>
-        </p>
+        </li></ul></div>
 <pre class="programlisting"><span class="keyword">int</span> <span class="identifier">a</span><span class="special">;</span>	<span class="comment">// a is non-const variable</span>
 <span class="keyword">const</span> <span class="keyword">int</span> <span class="identifier">b</span> <span class="special">=</span> <span class="number">23</span><span class="special">;</span>	<span class="comment">// b is const variable, b must be initialized</span>
 </pre>
-</li>
-<li class="listitem">
-<p class="simpara">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
           <span class="bold"><strong>const variable can reference const variable</strong></span>
-        </p>
+        </li></ul></div>
 <pre class="programlisting"><span class="keyword">const</span> <span class="keyword">int</span> <span class="identifier">a</span> <span class="special">=</span> <span class="number">33</span><span class="special">;</span>
 <span class="keyword">const</span> <span class="keyword">int</span> <span class="special">&amp;</span> <span class="identifier">b</span> <span class="special">=</span> <span class="identifier">a</span><span class="special">;</span>	<span class="comment">// Correct!</span>
 </pre>
-</li>
-<li class="listitem">
-<p class="simpara">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
           <span class="bold"><strong>non-const variable can reference non-const variable</strong></span>
-        </p>
+        </li></ul></div>
 <pre class="programlisting"><span class="keyword">int</span> <span class="identifier">a</span><span class="special">;</span>
 <span class="keyword">int</span> <span class="special">&amp;</span> <span class="identifier">b</span> <span class="special">=</span> <span class="identifier">a</span><span class="special">;</span>	<span class="comment">// Correct!</span>
 </pre>
-</li>
-<li class="listitem">
-<p class="simpara">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
           <span class="bold"><strong>const variable can reference non-const variable</strong></span>
-        </p>
+        </li></ul></div>
 <pre class="programlisting"><span class="keyword">int</span> <span class="identifier">a</span><span class="special">;</span>
 <span class="keyword">const</span> <span class="keyword">int</span> <span class="special">&amp;</span> <span class="identifier">b</span> <span class="special">=</span> <span class="identifier">a</span><span class="special">;</span>	<span class="comment">// Correct!</span>
 </pre>
-</li>
-<li class="listitem">
-<p class="simpara">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
           <span class="bold"><strong>non-const variable can <span class="red">not</span>
           reference const variable</strong></span>
-        </p>
+        </li></ul></div>
 <pre class="programlisting"><span class="keyword">const</span> <span class="keyword">int</span> <span class="identifier">a</span> <span class="special">=</span> <span class="number">33</span><span class="special">;</span>
 <span class="keyword">int</span> <span class="special">&amp;</span> <span class="identifier">b</span> <span class="special">=</span> <span class="identifier">a</span><span class="special">;</span>	<span class="comment">// ERROR !!!</span>
 </pre>
-</li>
-</ul></div>
 <p>
       <span class="bold"><strong><span class="green">Too many rules? I tell you a secret,
       you can understand them by a simple logic:</span></strong></span>

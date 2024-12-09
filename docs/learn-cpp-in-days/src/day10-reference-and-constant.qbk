@@ -17,7 +17,8 @@ What is c++ reference? In brief, c++ reference is name alias.
 * [*Reference]: a c++ reference is an alias of a variable name: it does not create new memory space, it is just an alias of an existed variable.
 
 ```
-// a, c, e, f are variables, any one of them has its unique memory space and its unique memory address.
+// a, c, e, f are variables,
+// any one of them has its unique memory space and its unique memory address.
 
 // b is alias of a, b is just another name of the same memory space that a stands for.
 
@@ -110,30 +111,39 @@ int main()
 [h1:const-ref-rules [role cyan Some const reference rules]]
 
 * [* const variable must be initialized, non-const does not have to]
-	```
-	int a;	// a is non-const variable
-	const int b = 23;	// b is const variable, b must be initialized
-	```
+
+```
+int a;	// a is non-const variable
+const int b = 23;	// b is const variable, b must be initialized
+```
+
 * [* const variable can reference const variable]
-	```
-	const int a = 33;
-	const int & b = a;	// Correct!
-	```
+
+```
+const int a = 33;
+const int & b = a;	// Correct!
+```
+
 * [* non-const variable can reference non-const variable]
-	```
-	int a;
-	int & b = a;	// Correct!
-	```
+
+```
+int a;
+int & b = a;	// Correct!
+```
+
 * [* const variable can reference non-const variable]
-	```
-	int a;
-	const int & b = a;	// Correct!
-	```
+
+```
+int a;
+const int & b = a;	// Correct!
+```
+
 * [* non-const variable can [role red not] reference const variable]
-	```
-	const int a = 33;
-	int & b = a;	// ERROR !!!
-	```
+
+```
+const int a = 33;
+int & b = a;	// ERROR !!!
+```
 
 [*[role green Too many rules? I tell you a secret, you can understand them by a simple logic:]]
 

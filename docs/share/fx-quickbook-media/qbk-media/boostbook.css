@@ -56,11 +56,13 @@ Program listings
     .screen
     {
         /*font-size: 9pt;*/
+        font-size: 80%;	/*Modified by fx*/
+        min-width: 700px;	/*Added by fx*/
         display: block;
         margin: 1pc 4% 0pc 4%;
         padding: 0.5pc 0.5pc 0.5pc 0.5pc;
 		background: #dce;
-		border-radius: 7px;
+		border-radius: 4px;
     }
 
     /* Program listings in tables don't get borders */
@@ -576,7 +578,6 @@ Colors
         .screen
         {
             border: 1px solid #DCDCDC;
-            min-width: 900px;	/*added by fx*/
         }
 
         td .programlisting,

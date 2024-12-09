@@ -112,7 +112,7 @@ std::cout << "Hello" << "c++!" << 123 << 6.5;
 Numbers, characters, strings, and many many values can be used as the second parameter of [role green operator<<], example:
 
 ```
-std::cout << std::endl;            // std::endl is a manipulator to insert newline character.
+std::cout << std::endl;         // std::endl is a manipulator to insert newline character.
 std::cout << 123 << std::endl;     // 123 is an integer
 std::cout << 32.33 << std::endl;   // 32.33 is a decimal, we call it floating value in c++
 std::cout << 'A' << std::endl;     // 'A' is a character.

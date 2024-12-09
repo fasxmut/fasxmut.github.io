@@ -32,7 +32,12 @@ c++ concept basic syntax:
 
 [!c++]
 ```
-template <typename the_constrait_type, typename other_type1, typename other_type2, ... ... ...>
+template <
+	typename the_constrait_type,
+	typename other_type1,
+	typename other_type2,
+	... ... ...
+>
 concept the_concept_name = the_constrait_expression ;
 ```
 

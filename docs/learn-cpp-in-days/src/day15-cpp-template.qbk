@@ -173,7 +173,8 @@ public:
 	template <typename type_t00, typename type_t01>
 	my_class(const type_t00 & v0__, const type_t01 & v1__)	// constructor 2
 	{
-		std::cout << "constructor 2 is called=> " << v0__ << " " << v1__ << std::endl;
+		std::cout << "constructor 2 is called=> "
+			<< v0__ << " " << v1__ << std::endl;
 	}
 };
 
