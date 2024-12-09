@@ -9,13 +9,13 @@ STL is the c++ Standard Template Library. Most c++ compilers have implemented it
 
 std::vector is the c++ vector container class type.
 
-[h3:std-vector-is-array [role red -) First, It is array (dynamic)]]
+[h3:std-vector-is-array [* -) First, It is array (dynamic)]]
 
 The element of std::vector are continuous in memory. And the memory space is dynamic allocated.
 
-[h3:std-vector [role red -) Second, it is template]]
+[h3:std-vector [* -) Second, it is template]]
 
-std::vector is class template, you must instantiate it to a specific class. The template parameter of std::vector is the type of the value (its element).
+std::vector is class template, you must instantiate it to a specific class. The template parameter of std::vector is the type of its value (its element).
 
 [h2:include Include]
 
@@ -23,7 +23,7 @@ std::vector is class template, you must instantiate it to a specific class. The 
 
 [h2:instantiation Template Instantiation]
 
-[role blue From] std::vector [role blue to] std::vector<int>, std::vector<float>, etc.
+[role blue From] std::vector [role blue to] std::vector<int>, or std::vector<float>, etc.
 
 [h2:create-object Create vector container object]
 
@@ -123,7 +123,7 @@ bool s2 = v2.empty();	// false
 
 [h2:method-data Method .data()]
 
-Note that the std::vector elements storage in memory is contnuous.
+Note that the std::vector elements storage in memory is continuous.
 
 The method .data() of std::vector is used to get the pointer to the first memory space of std::vector object.
 

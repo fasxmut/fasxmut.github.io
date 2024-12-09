@@ -25,6 +25,7 @@
 [include day20-compile-time-constexpr.qbk]
 [include day21-stl-std-string.qbk]
 [include day22-stl-std-vector.qbk]
+[include day23-stl-random-numbers.qbk]
 
 [h1:cpp-tutorial [role cyan cpp Tutorial: Learn c++ in days]]
 

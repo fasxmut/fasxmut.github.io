@@ -35,11 +35,11 @@ the_value_type the_array_name[] = {value1, value2, ...};	// (3)
 int xzz[4] = {2, 3, 5, 2};
 ```
 
-[*the_value_type] is [role blue int], [*the_array_name] is [role blue xzz], [*the_array_size] is [role blue 4], which means the array [role blue xzz] has four [role blue int] values. These four variables are initialized with 2, 3, 5, 2.
+[*the_value_type] is [role blue int], [*the_array_name] is [role blue xzz], [*the_array_size] is [role blue 4], which means the array [role blue xzz] has four [role blue int] values. These four elements are initialized with 2, 3, 5, 2.
 
-The stored positions of the four variables in memory are continuous, which means they are stored one after another.
+The stored positions of the four elements in memory are continuous, which means they are stored one after another tightly.
 
-For [*(3)], [*the_array_size] can be not specified, because the size can be deduced from its value initilizer list.
+For [*(3)], [*the_array_size] is not specified, because the size can be deduced from its value initilizer list.
 
 * [*a c++ raw array can be used in c++ range-based for loop as the initializer list, for example:]
 
@@ -101,7 +101,7 @@ auto result = my_space::fzzz(2.1f, 1.2f);
 
 [h1:lambda [role cyan c++ lambda]]
 
-General speaking, lambda is the advanced function. Function is the function of value. Lambda is the function of function.
+General speaking, lambda is advanced function. Function is the function of value. Lambda is the function of function.
 
 [*Syntax:]
 
