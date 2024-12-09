@@ -23,12 +23,10 @@
 [include day18-condition-loop.qbk]
 [include day19-array-function-lambda.qbk]
 [include day20-compile-time-constexpr.qbk]
-
 [include day21-stl-std-vector.qbk]
 [include day22-stl-std-string.qbk]
-
 [include day23-stl-random-numbers.qbk]
-[/include day24-stl-std-copy-std-fill.qbk]
+[include day24-stl-std-copy-std-fill.qbk]
 
 [h1:cpp-tutorial [role cyan cpp Tutorial: Learn c++ in days]]
 

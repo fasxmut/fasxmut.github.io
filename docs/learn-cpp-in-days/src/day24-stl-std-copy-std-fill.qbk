@@ -3,11 +3,163 @@
 	[quickbook 1.7]
 ]
 
-Both std::copy and std::fill are c++ algorithms. They can be used for c++ range and memory operations.
+Both std::copy and std::fill are c++ algorithms of c++ STL. They can be used for c++ range and memory operations.
+
+* [link day-24-cpp-stl-std-copy-std-fill.std-copy std::copy]
+* [link day-24-cpp-stl-std-copy-std-fill.std-fill std::fill]
 
 [h1:std-copy [role cyan std::copy]]
 
-[h2:copy-vtv Copy from one std::vector object to another std::vector object]
+As the name, std::copy copies data from one area to another area.
+
+[h2:std-copy-vtv st::copy: Copy from one std::vector range to another std::vector range]
+
+The target range must be allocated bigger than or equal to the source range. And their value type must be the same.
+
+[!c++]
+```
+#include <algorithm>
+#include <iostream>
+#include <vector>
+
+int main()
+{
+	auto v1 = std::vector<int>{2, 3, 4, 7, 1, 5};
+	auto v2 = std::vector<int>(v1.size());	// v2 is alloated the same size as v1 size.
+
+	// std::copy: copy from v1 to v2
+	std::copy(v1.begin(), v1.end(), v2.begin());
+
+	for (const auto x: v2)
+		std::cout << x << ' ';
+	std::cout << std::endl;
+}
+/* output:
+2 3 4 7 1 5 
+*/
+```
+
+[h2:std-copy-mtm std::copy: Copy from memory to memory]
+
+[!c++]
+```
+#include <algorithm>
+#include <iostream>
+
+int main()
+{
+	int size = 7;
+	int * mm1 = new int[size];
+
+	// Initialize all values of mm1
+	for (int i=0; i<size; ++i)
+		mm1[i] = i * 2 + 3;
+
+	int * mm2 = new int[size];	// allocate the same size as mm1 size.
+
+	// Copy Memory !!
+	// std::copy: copy from mm1 to mm2
+	std::copy(mm1, mm1+size, mm2);
+
+	// output
+	for (int i=0; i<size; ++i)
+		std::cout << mm2[i] << ' ';
+	std::cout << std::endl;
+
+	// delete
+	delete [] mm1;	// delete an array created by new, use symbols: []
+	delete [] mm2;
+}
+/* output:
+3 5 7 9 11 13 15 
+*/
+```
+
+[h2:std-copy-vtm std::copy: Copy from raw memory to std::vector]
+
+Actually, std::vector object is memory too.
+
+[!c++]
+```
+#include <algorithm>
+#include <iostream>
+#include <vector>
+
+int main()
+{
+	int size = 11;
+	int * mm = new int[size];
+	for (int i=0; i<size; ++i)
+		mm[i] = i*2;
+
+	auto vv = std::vector<int>(size);	// allocate the same size
+
+	// std::copy: copy from mm to vv
+	std::copy(mm, mm+size, vv.begin());
+
+	// output
+	for (int i=0; i<vv.size(); ++i)
+		std::cout << vv[i] << ' ';
+	std::cout << std::endl;
+
+	delete [] mm;
+}
+```
+
+[h1:std-fill [role cyan std::fill]]
+
+As the name, std::fill fills an area with data.
+
+[h2:std-fill-tv std::fill: Fill std::vector]
+
+[!c++]
+```
+#include <algorithm>
+#include <iostream>
+#include <vector>
+
+int main()
+{
+	auto v1 = std::vector<char>(7);	// Allocate std::vector object with size 7.
+
+	// std::fill: fill all elements with 'G'
+	std::fill(v1.begin(), v1.end(), 'G');
+
+	// output
+	for (const char x: v1)
+		std::cout << x << ' ';
+	std::cout << std::endl;
+}
+/* output:
+G G G G G G G 
+*/
+```
+
+[h2:std-fill-m std::fill: Fill memory created by new]
+
+[!c++]
+```
+#include <algorithm>
+#include <iostream>
+
+int main()
+{
+	int size = 11;
+	float * mm = new float[size];	// size: 11
+
+	// std::fill: fill all element with 2.3
+	std::fill(mm, mm+size, 2.3f);
+
+	for (int i=0; i<size; ++i)
+		std::cout << mm[i] << ' ';
+	std::cout << std::endl;
+
+	delete [] mm;	// delete
+}
+/* output:
+2.3 2.3 2.3 2.3 2.3 2.3 2.3 2.3 2.3 2.3 2.3 
+*/
+```
 
 [br]
 [br]

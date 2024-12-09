@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>day-24: c++ STL: std::copy, std::fill</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Learn c++ in days">
+<link rel="up" href="index.html" title="Learn c++ in days">
+<link rel="prev" href="day-23-cpp-stl-random-numbers.html" title="day-23: c++ STL: c++ Random Numbers">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="day-23-cpp-stl-random-numbers.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="day-24-cpp-stl-std-copy-std-fill"></a>day-24: c++ STL: std::copy, std::fill</h1></div></div>
+<hr>
+</div>
+<p>
+      Both std::copy and std::fill are c++ algorithms of c++ STL. They can be used
+      for c++ range and memory operations.
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          <a class="link" href="day-24-cpp-stl-std-copy-std-fill.html#day-24-cpp-stl-std-copy-std-fill.std-copy">std::copy</a>
+        </li>
+<li class="listitem">
+          <a class="link" href="day-24-cpp-stl-std-copy-std-fill.html#day-24-cpp-stl-std-copy-std-fill.std-fill">std::fill</a>
+        </li>
+</ul></div>
+<h2>
+<a name="day-24-cpp-stl-std-copy-std-fill.h0"></a>
+      <span class="phrase"><a name="day-24-cpp-stl-std-copy-std-fill.std-copy"></a></span><a class="link" href="day-24-cpp-stl-std-copy-std-fill.html#day-24-cpp-stl-std-copy-std-fill.std-copy"><span class="cyan">std::copy</span></a>
+    </h2>
+<p>
+      As the name, std::copy copies data from one area to another area.
+    </p>
+<h3>
+<a name="day-24-cpp-stl-std-copy-std-fill.h1"></a>
+      <span class="phrase"><a name="day-24-cpp-stl-std-copy-std-fill.std-copy-vtv"></a></span><a class="link" href="day-24-cpp-stl-std-copy-std-fill.html#day-24-cpp-stl-std-copy-std-fill.std-copy-vtv">st::copy:
+      Copy from one std::vector range to another std::vector range</a>
+    </h3>
+<p>
+      The target range must be allocated bigger than or equal to the source range.
+      And their value type must be the same.
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">algorithm</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">vector</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">auto</span> <span class="identifier">v1</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;{</span><span class="number">2</span><span class="special">,</span> <span class="number">3</span><span class="special">,</span> <span class="number">4</span><span class="special">,</span> <span class="number">7</span><span class="special">,</span> <span class="number">1</span><span class="special">,</span> <span class="number">5</span><span class="special">};</span>
+	<span class="keyword">auto</span> <span class="identifier">v2</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;(</span><span class="identifier">v1</span><span class="special">.</span><span class="identifier">size</span><span class="special">());</span>	<span class="comment">// v2 is alloated the same size as v1 size.</span>
+
+	<span class="comment">// std::copy: copy from v1 to v2</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">copy</span><span class="special">(</span><span class="identifier">v1</span><span class="special">.</span><span class="identifier">begin</span><span class="special">(),</span> <span class="identifier">v1</span><span class="special">.</span><span class="identifier">end</span><span class="special">(),</span> <span class="identifier">v2</span><span class="special">.</span><span class="identifier">begin</span><span class="special">());</span>
+
+	<span class="keyword">for</span> <span class="special">(</span><span class="keyword">const</span> <span class="keyword">auto</span> <span class="identifier">x</span><span class="special">:</span> <span class="identifier">v2</span><span class="special">)</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">x</span> <span class="special">&lt;&lt;</span> <span class="char">' '</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+<span class="comment">/* output:
+2 3 4 7 1 5
+*/</span>
+</pre>
+<h3>
+<a name="day-24-cpp-stl-std-copy-std-fill.h2"></a>
+      <span class="phrase"><a name="day-24-cpp-stl-std-copy-std-fill.std-copy-mtm"></a></span><a class="link" href="day-24-cpp-stl-std-copy-std-fill.html#day-24-cpp-stl-std-copy-std-fill.std-copy-mtm">std::copy:
+      Copy from memory to memory</a>
+    </h3>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">algorithm</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">int</span> <span class="identifier">size</span> <span class="special">=</span> <span class="number">7</span><span class="special">;</span>
+	<span class="keyword">int</span> <span class="special">*</span> <span class="identifier">mm1</span> <span class="special">=</span> <span class="keyword">new</span> <span class="keyword">int</span><span class="special">[</span><span class="identifier">size</span><span class="special">];</span>
+
+	<span class="comment">// Initialize all values of mm1</span>
+	<span class="keyword">for</span> <span class="special">(</span><span class="keyword">int</span> <span class="identifier">i</span><span class="special">=</span><span class="number">0</span><span class="special">;</span> <span class="identifier">i</span><span class="special">&lt;</span><span class="identifier">size</span><span class="special">;</span> <span class="special">++</span><span class="identifier">i</span><span class="special">)</span>
+		<span class="identifier">mm1</span><span class="special">[</span><span class="identifier">i</span><span class="special">]</span> <span class="special">=</span> <span class="identifier">i</span> <span class="special">*</span> <span class="number">2</span> <span class="special">+</span> <span class="number">3</span><span class="special">;</span>
+
+	<span class="keyword">int</span> <span class="special">*</span> <span class="identifier">mm2</span> <span class="special">=</span> <span class="keyword">new</span> <span class="keyword">int</span><span class="special">[</span><span class="identifier">size</span><span class="special">];</span>	<span class="comment">// allocate the same size as mm1 size.</span>
+
+	<span class="comment">// Copy Memory !!</span>
+	<span class="comment">// std::copy: copy from mm1 to mm2</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">copy</span><span class="special">(</span><span class="identifier">mm1</span><span class="special">,</span> <span class="identifier">mm1</span><span class="special">+</span><span class="identifier">size</span><span class="special">,</span> <span class="identifier">mm2</span><span class="special">);</span>
+
+	<span class="comment">// output</span>
+	<span class="keyword">for</span> <span class="special">(</span><span class="keyword">int</span> <span class="identifier">i</span><span class="special">=</span><span class="number">0</span><span class="special">;</span> <span class="identifier">i</span><span class="special">&lt;</span><span class="identifier">size</span><span class="special">;</span> <span class="special">++</span><span class="identifier">i</span><span class="special">)</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">mm2</span><span class="special">[</span><span class="identifier">i</span><span class="special">]</span> <span class="special">&lt;&lt;</span> <span class="char">' '</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+
+	<span class="comment">// delete</span>
+	<span class="keyword">delete</span> <span class="special">[]</span> <span class="identifier">mm1</span><span class="special">;</span>	<span class="comment">// delete an array created by new, use symbols: []</span>
+	<span class="keyword">delete</span> <span class="special">[]</span> <span class="identifier">mm2</span><span class="special">;</span>
+<span class="special">}</span>
+<span class="comment">/* output:
+3 5 7 9 11 13 15
+*/</span>
+</pre>
+<h3>
+<a name="day-24-cpp-stl-std-copy-std-fill.h3"></a>
+      <span class="phrase"><a name="day-24-cpp-stl-std-copy-std-fill.std-copy-vtm"></a></span><a class="link" href="day-24-cpp-stl-std-copy-std-fill.html#day-24-cpp-stl-std-copy-std-fill.std-copy-vtm">std::copy:
+      Copy from raw memory to std::vector</a>
+    </h3>
+<p>
+      Actually, std::vector object is memory too.
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">algorithm</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">vector</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">int</span> <span class="identifier">size</span> <span class="special">=</span> <span class="number">11</span><span class="special">;</span>
+	<span class="keyword">int</span> <span class="special">*</span> <span class="identifier">mm</span> <span class="special">=</span> <span class="keyword">new</span> <span class="keyword">int</span><span class="special">[</span><span class="identifier">size</span><span class="special">];</span>
+	<span class="keyword">for</span> <span class="special">(</span><span class="keyword">int</span> <span class="identifier">i</span><span class="special">=</span><span class="number">0</span><span class="special">;</span> <span class="identifier">i</span><span class="special">&lt;</span><span class="identifier">size</span><span class="special">;</span> <span class="special">++</span><span class="identifier">i</span><span class="special">)</span>
+		<span class="identifier">mm</span><span class="special">[</span><span class="identifier">i</span><span class="special">]</span> <span class="special">=</span> <span class="identifier">i</span><span class="special">*</span><span class="number">2</span><span class="special">;</span>
+
+	<span class="keyword">auto</span> <span class="identifier">vv</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;(</span><span class="identifier">size</span><span class="special">);</span>	<span class="comment">// allocate the same size</span>
+
+	<span class="comment">// std::copy: copy from mm to vv</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">copy</span><span class="special">(</span><span class="identifier">mm</span><span class="special">,</span> <span class="identifier">mm</span><span class="special">+</span><span class="identifier">size</span><span class="special">,</span> <span class="identifier">vv</span><span class="special">.</span><span class="identifier">begin</span><span class="special">());</span>
+
+	<span class="comment">// output</span>
+	<span class="keyword">for</span> <span class="special">(</span><span class="keyword">int</span> <span class="identifier">i</span><span class="special">=</span><span class="number">0</span><span class="special">;</span> <span class="identifier">i</span><span class="special">&lt;</span><span class="identifier">vv</span><span class="special">.</span><span class="identifier">size</span><span class="special">();</span> <span class="special">++</span><span class="identifier">i</span><span class="special">)</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">vv</span><span class="special">[</span><span class="identifier">i</span><span class="special">]</span> <span class="special">&lt;&lt;</span> <span class="char">' '</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+
+	<span class="keyword">delete</span> <span class="special">[]</span> <span class="identifier">mm</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="day-24-cpp-stl-std-copy-std-fill.h4"></a>
+      <span class="phrase"><a name="day-24-cpp-stl-std-copy-std-fill.std-fill"></a></span><a class="link" href="day-24-cpp-stl-std-copy-std-fill.html#day-24-cpp-stl-std-copy-std-fill.std-fill"><span class="cyan">std::fill</span></a>
+    </h2>
+<p>
+      As the name, std::fill fills an area with data.
+    </p>
+<h3>
+<a name="day-24-cpp-stl-std-copy-std-fill.h5"></a>
+      <span class="phrase"><a name="day-24-cpp-stl-std-copy-std-fill.std-fill-tv"></a></span><a class="link" href="day-24-cpp-stl-std-copy-std-fill.html#day-24-cpp-stl-std-copy-std-fill.std-fill-tv">std::fill:
+      Fill std::vector</a>
+    </h3>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">algorithm</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">vector</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">auto</span> <span class="identifier">v1</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">char</span><span class="special">&gt;(</span><span class="number">7</span><span class="special">);</span>	<span class="comment">// Allocate std::vector object with size 7.</span>
+
+	<span class="comment">// std::fill: fill all elements with 'G'</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">fill</span><span class="special">(</span><span class="identifier">v1</span><span class="special">.</span><span class="identifier">begin</span><span class="special">(),</span> <span class="identifier">v1</span><span class="special">.</span><span class="identifier">end</span><span class="special">(),</span> <span class="char">'G'</span><span class="special">);</span>
+
+	<span class="comment">// output</span>
+	<span class="keyword">for</span> <span class="special">(</span><span class="keyword">const</span> <span class="keyword">char</span> <span class="identifier">x</span><span class="special">:</span> <span class="identifier">v1</span><span class="special">)</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">x</span> <span class="special">&lt;&lt;</span> <span class="char">' '</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+<span class="comment">/* output:
+G G G G G G G
+*/</span>
+</pre>
+<h3>
+<a name="day-24-cpp-stl-std-copy-std-fill.h6"></a>
+      <span class="phrase"><a name="day-24-cpp-stl-std-copy-std-fill.std-fill-m"></a></span><a class="link" href="day-24-cpp-stl-std-copy-std-fill.html#day-24-cpp-stl-std-copy-std-fill.std-fill-m">std::fill:
+      Fill memory created by new</a>
+    </h3>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">algorithm</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">int</span> <span class="identifier">size</span> <span class="special">=</span> <span class="number">11</span><span class="special">;</span>
+	<span class="keyword">float</span> <span class="special">*</span> <span class="identifier">mm</span> <span class="special">=</span> <span class="keyword">new</span> <span class="keyword">float</span><span class="special">[</span><span class="identifier">size</span><span class="special">];</span>	<span class="comment">// size: 11</span>
+
+	<span class="comment">// std::fill: fill all element with 2.3</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">fill</span><span class="special">(</span><span class="identifier">mm</span><span class="special">,</span> <span class="identifier">mm</span><span class="special">+</span><span class="identifier">size</span><span class="special">,</span> <span class="number">2.3f</span><span class="special">);</span>
+
+	<span class="keyword">for</span> <span class="special">(</span><span class="keyword">int</span> <span class="identifier">i</span><span class="special">=</span><span class="number">0</span><span class="special">;</span> <span class="identifier">i</span><span class="special">&lt;</span><span class="identifier">size</span><span class="special">;</span> <span class="special">++</span><span class="identifier">i</span><span class="special">)</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">mm</span><span class="special">[</span><span class="identifier">i</span><span class="special">]</span> <span class="special">&lt;&lt;</span> <span class="char">' '</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+
+	<span class="keyword">delete</span> <span class="special">[]</span> <span class="identifier">mm</span><span class="special">;</span>	<span class="comment">// delete</span>
+<span class="special">}</span>
+<span class="comment">/* output:
+2.3 2.3 2.3 2.3 2.3 2.3 2.3 2.3 2.3 2.3 2.3
+*/</span>
+</pre>
+<p>
+      <br> <br> <br> <br> <br> <br>
+    </p>
+<p>
+      <em class="replaceable"><code>Written on Dec 09, 2024</code></em>
+    </p>
+<h2>
+<a name="day-24-cpp-stl-std-copy-std-fill.h7"></a>
+      <span class="phrase"><a name="day-24-cpp-stl-std-copy-std-fill.role_cyan_back_to_index"></a></span><a class="link" href="day-24-cpp-stl-std-copy-std-fill.html#day-24-cpp-stl-std-copy-std-fill.role_cyan_back_to_index"><span class="cyan">Back to index</span></a>
+    </h2>
+<p>
+      <a href="." target="_top">Index</a>
+    </p>
+<h2>
+<a name="day-24-cpp-stl-std-copy-std-fill.h8"></a>
+      <span class="phrase"><a name="day-24-cpp-stl-std-copy-std-fill.cpp-lang"></a></span><a class="link" href="day-24-cpp-stl-std-copy-std-fill.html#day-24-cpp-stl-std-copy-std-fill.cpp-lang"><span class="cyan">cpp/c++</span></a>
+    </h2>
+<p>
+      c++ std::exception:
+    </p>
+<p>
+      std::cout.write(err.data(), err.size());
+    </p>
+<p>
+      std::cout &lt;&lt; std::endl;
+    </p>
+<p>
+      <span class="purple">caught:</span>
+    </p>
+<pre class="programlisting">  ===================================
+  #  The c++ programming language.  #
+  #                                 #
+  #  Join c++ Discord: yZcauUAUyC   #
+  #  Deck                           #
+  ===================================
+</pre>
+<p>
+      <a href="https://cppfx.xyz" target="_top">Home: cppfx.xyz</a>
+    </p>
+<p>
+      <a href="https://cppfx.xyz/kpp/kpp-print.html" target="_top">K</a>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="day-23-cpp-stl-random-numbers.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+</body>
+</html>
