@@ -152,8 +152,8 @@ public:
 	void print()
 	{
 		std::cout << "x is " << x << std::endl;
-		std::cout << "x is " << (this->x) << std::endl;		// pointer this
-		std::cout << "x is " << (this->get()) << std::endl;		// pointer this
+		std::cout << "x is " << (this->x) << std::endl;	// pointer this
+		std::cout << "x is " << (this->get()) << std::endl;	// pointer this
 	}
 	int get()
 	{

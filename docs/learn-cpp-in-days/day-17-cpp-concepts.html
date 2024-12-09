@@ -220,7 +220,8 @@
 <span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">type_t20</span><span class="special">&gt;</span>
 <span class="identifier">concept</span> <span class="identifier">has_int_get</span> <span class="special">=</span> <span class="identifier">requires</span> <span class="special">(</span><span class="identifier">type_t20</span> <span class="identifier">value_ob</span><span class="special">)</span>	<span class="comment">// requires</span>
 <span class="special">{</span>
-	<span class="special">{</span><span class="identifier">value_ob</span><span class="special">.</span><span class="identifier">get</span><span class="special">()}</span> <span class="special">-&gt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">same_as</span><span class="special">&lt;</span><span class="keyword">float</span><span class="special">&gt;;</span> <span class="comment">// Requires the return type is the same as float.</span>
+	<span class="comment">// Requires the return type is the same as float.</span>
+	<span class="special">{</span><span class="identifier">value_ob</span><span class="special">.</span><span class="identifier">get</span><span class="special">()}</span> <span class="special">-&gt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">same_as</span><span class="special">&lt;</span><span class="keyword">float</span><span class="special">&gt;;</span>
 <span class="special">};</span>
 
 <span class="keyword">class</span> <span class="identifier">tt_class</span>

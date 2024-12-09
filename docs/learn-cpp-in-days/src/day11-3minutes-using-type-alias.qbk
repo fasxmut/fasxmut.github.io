@@ -15,7 +15,8 @@ As the [*type alias] denotes, it is used for an alias of a type.
 
 [!c++]
 ```
-using my_int = int;	// my_int is an alias of int now, when using my_int, it is using int in future.
+using my_int = int;	// my_int is an alias of int now, when using my_int,
+					// it is using int in future.
 
 my_int a = 5;
 ```

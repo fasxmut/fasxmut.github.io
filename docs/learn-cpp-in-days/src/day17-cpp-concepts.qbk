@@ -169,7 +169,8 @@ The concept [role blue has_int_get] requires the type has a method [role blue .g
 template <typename type_t20>
 concept has_int_get = requires (type_t20 value_ob)	// requires
 {
-	{value_ob.get()} -> std::same_as<float>; // Requires the return type is the same as float.
+	// Requires the return type is the same as float.
+	{value_ob.get()} -> std::same_as<float>;
 };
 
 class tt_class

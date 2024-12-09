@@ -576,6 +576,7 @@ Colors
         .screen
         {
             border: 1px solid #DCDCDC;
+            min-width: 900px;	/*added by fx*/
         }
 
         td .programlisting,

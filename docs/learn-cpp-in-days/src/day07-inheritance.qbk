@@ -25,7 +25,8 @@ public:
 	}
 };
 
-class derived_class: public base_class	// This line tells that derived_class is derived from base_class
+class derived_class: public base_class	// This line tells that
+					// derived_class is derived from base_class
 {
 public:
 	void method_2()

@@ -14,7 +14,8 @@
 int main()
 {
 	std::random_device rng;
-	unsigned int aay = rng();	// Now you got a random number: aay, it can be any unsigned int value
+	unsigned int aay = rng();
+	// Now you got a random number: aay, it can be any unsigned int value
 }
 ```
 

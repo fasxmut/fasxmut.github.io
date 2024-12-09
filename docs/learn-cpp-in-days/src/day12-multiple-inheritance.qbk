@@ -79,7 +79,8 @@ public:
 	{
 		A::fz_k();	// A:: is used here to distinguish.
 		B::fz_k();	// B:: is used here to distinguish.
-		fz_j();	// A::fz_j() can be used here too, but only A has fz_j, so A:: can be omitted.
+		fz_j();	// A::fz_j() can be used here too, but only A has fz_j,
+					// so A:: can be omitted.
 	}
 };
 

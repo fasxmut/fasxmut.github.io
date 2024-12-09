@@ -74,7 +74,8 @@ A class always has a destructor, if the destructor is not explicitly defined, it
 ```
 class one3_class
 {
-};	// one3_class still has an implicit destructor, even you have not explicitly defined its destructor.
+};	// one3_class still has an implicit destructor,
+		// even you have not explicitly defined its destructor.
 ```
 
 So c++ class always has and only has one destructor.

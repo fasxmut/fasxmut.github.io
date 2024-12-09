@@ -156,7 +156,9 @@ Yeah, you read that right. std::string has related iterator, just like the [*std
 [!c++]
 ```
 #include <iostream>
-// #include <string> // This include can be omitted, as std::string is widely used and included by many headers.
+
+// This include can be omitted, as std::string is widely used and included by many headers.
+// #include <string>
 
 int main()
 {
