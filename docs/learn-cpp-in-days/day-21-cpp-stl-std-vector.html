@@ -2,23 +2,23 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>day-22: c++ STL: std::vector</title>
+<title>day-21: c++ STL: std::vector</title>
 <link rel="stylesheet" href="boostbook.css" type="text/css">
 <meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
 <link rel="home" href="index.html" title="Learn c++ in days">
 <link rel="up" href="index.html" title="Learn c++ in days">
-<link rel="prev" href="day-21-cpp-stl-std-string.html" title="day-21: c++ STL: std::string">
-<link rel="next" href="day-23-cpp-stl-random-numbers.html" title="day-23: c++ STL: c++ Random Numbers">
+<link rel="prev" href="day-20-cpp-compile-time-constexpr.html" title="day-20: c++ compile-time, constexpr">
+<link rel="next" href="day-22-cpp-stl-std-string.html" title="day-22: c++ STL: std::string">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <div class="spirit-nav">
-<a accesskey="p" href="day-21-cpp-stl-std-string.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="day-23-cpp-stl-random-numbers.html"><img src="images/next.png" alt="Next"></a>
+<a accesskey="p" href="day-20-cpp-compile-time-constexpr.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="day-22-cpp-stl-std-string.html"><img src="images/next.png" alt="Next"></a>
 </div>
 <div class="article">
 <div class="titlepage">
 <div><div><h1 class="title">
-<a name="day-22-cpp-stl-std-vector"></a>day-22: c++ STL: std::vector</h1></div></div>
+<a name="day-21-cpp-stl-std-vector"></a>day-21: c++ STL: std::vector</h1></div></div>
 <hr>
 </div>
 <p>
@@ -29,38 +29,38 @@
       STL.
     </p>
 <h2>
-<a name="day-22-cpp-stl-std-vector.h0"></a>
-      <span class="phrase"><a name="day-22-cpp-stl-std-vector.std-vector"></a></span><a class="link" href="day-22-cpp-stl-std-vector.html#day-22-cpp-stl-std-vector.std-vector"><span class="cyan">std::vector</span></a>
+<a name="day-21-cpp-stl-std-vector.h0"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-vector.std-vector"></a></span><a class="link" href="day-21-cpp-stl-std-vector.html#day-21-cpp-stl-std-vector.std-vector"><span class="cyan">std::vector</span></a>
     </h2>
 <p>
       std::vector is the c++ vector container class type.
     </p>
 <h4>
-<a name="day-22-cpp-stl-std-vector.h1"></a>
-      <span class="phrase"><a name="day-22-cpp-stl-std-vector.std-vector-is-array"></a></span><a class="link" href="day-22-cpp-stl-std-vector.html#day-22-cpp-stl-std-vector.std-vector-is-array"><span class="bold"><strong>-) First, It is array (dynamic)</strong></span></a>
+<a name="day-21-cpp-stl-std-vector.h1"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-vector.std-vector-is-array"></a></span><a class="link" href="day-21-cpp-stl-std-vector.html#day-21-cpp-stl-std-vector.std-vector-is-array"><span class="bold"><strong>-) First, It is array (dynamic)</strong></span></a>
     </h4>
 <p>
       The element of std::vector are continuous in memory. And the memory space is
       dynamic allocated.
     </p>
 <h4>
-<a name="day-22-cpp-stl-std-vector.h2"></a>
-      <span class="phrase"><a name="day-22-cpp-stl-std-vector.std-vector0"></a></span><a class="link" href="day-22-cpp-stl-std-vector.html#day-22-cpp-stl-std-vector.std-vector0"><span class="bold"><strong>-) Second, it is template</strong></span></a>
+<a name="day-21-cpp-stl-std-vector.h2"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-vector.std-vector0"></a></span><a class="link" href="day-21-cpp-stl-std-vector.html#day-21-cpp-stl-std-vector.std-vector0"><span class="bold"><strong>-) Second, it is template</strong></span></a>
     </h4>
 <p>
       std::vector is class template, you must instantiate it to a specific class.
       The template parameter of std::vector is the type of its value (its element).
     </p>
 <h3>
-<a name="day-22-cpp-stl-std-vector.h3"></a>
-      <span class="phrase"><a name="day-22-cpp-stl-std-vector.include"></a></span><a class="link" href="day-22-cpp-stl-std-vector.html#day-22-cpp-stl-std-vector.include">Include</a>
+<a name="day-21-cpp-stl-std-vector.h3"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-vector.include"></a></span><a class="link" href="day-21-cpp-stl-std-vector.html#day-21-cpp-stl-std-vector.include">Include</a>
     </h3>
 <p>
       <em class="replaceable"><code><code class="computeroutput"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">vector</span><span class="special">&gt;</span></code></code></em>
     </p>
 <h3>
-<a name="day-22-cpp-stl-std-vector.h4"></a>
-      <span class="phrase"><a name="day-22-cpp-stl-std-vector.instantiation"></a></span><a class="link" href="day-22-cpp-stl-std-vector.html#day-22-cpp-stl-std-vector.instantiation">Template
+<a name="day-21-cpp-stl-std-vector.h4"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-vector.instantiation"></a></span><a class="link" href="day-21-cpp-stl-std-vector.html#day-21-cpp-stl-std-vector.instantiation">Template
       Instantiation</a>
     </h3>
 <p>
@@ -68,8 +68,8 @@
       std::vector&lt;int&gt;, or std::vector&lt;float&gt;, etc.
     </p>
 <h3>
-<a name="day-22-cpp-stl-std-vector.h5"></a>
-      <span class="phrase"><a name="day-22-cpp-stl-std-vector.create-object"></a></span><a class="link" href="day-22-cpp-stl-std-vector.html#day-22-cpp-stl-std-vector.create-object">Create
+<a name="day-21-cpp-stl-std-vector.h5"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-vector.create-object"></a></span><a class="link" href="day-21-cpp-stl-std-vector.html#day-21-cpp-stl-std-vector.create-object">Create
       vector container object</a>
     </h3>
 <p>
@@ -93,8 +93,8 @@
 <pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;</span> <span class="identifier">v4</span><span class="special">{</span><span class="number">2</span><span class="special">,</span> <span class="number">3</span><span class="special">,</span> <span class="number">4</span><span class="special">,</span> <span class="number">2</span><span class="special">,</span> <span class="number">6</span><span class="special">};</span>
 </pre>
 <h3>
-<a name="day-22-cpp-stl-std-vector.h6"></a>
-      <span class="phrase"><a name="day-22-cpp-stl-std-vector.method-size"></a></span><a class="link" href="day-22-cpp-stl-std-vector.html#day-22-cpp-stl-std-vector.method-size">Method:
+<a name="day-21-cpp-stl-std-vector.h6"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-vector.method-size"></a></span><a class="link" href="day-21-cpp-stl-std-vector.html#day-21-cpp-stl-std-vector.method-size">Method:
       .size()</a>
     </h3>
 <p>
@@ -104,8 +104,8 @@
 <span class="keyword">auto</span> <span class="identifier">size</span> <span class="special">=</span> <span class="identifier">v1</span><span class="special">.</span><span class="identifier">size</span><span class="special">();</span>	<span class="comment">// 6</span>
 </pre>
 <h3>
-<a name="day-22-cpp-stl-std-vector.h7"></a>
-      <span class="phrase"><a name="day-22-cpp-stl-std-vector.access-elements"></a></span><a class="link" href="day-22-cpp-stl-std-vector.html#day-22-cpp-stl-std-vector.access-elements">Access
+<a name="day-21-cpp-stl-std-vector.h7"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-vector.access-elements"></a></span><a class="link" href="day-21-cpp-stl-std-vector.html#day-21-cpp-stl-std-vector.access-elements">Access
       std::vector elements</a>
     </h3>
 <p>
@@ -137,8 +137,8 @@
 	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">v1</span><span class="special">[</span><span class="identifier">i</span><span class="special">]</span> <span class="special">&lt;&lt;</span> <span class="char">'\n'</span><span class="special">;</span>	<span class="comment">// .operator[]</span>
 </pre>
 <h3>
-<a name="day-22-cpp-stl-std-vector.h8"></a>
-      <span class="phrase"><a name="day-22-cpp-stl-std-vector.method-push_back"></a></span><a class="link" href="day-22-cpp-stl-std-vector.html#day-22-cpp-stl-std-vector.method-push_back">Method
+<a name="day-21-cpp-stl-std-vector.h8"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-vector.method-push_back"></a></span><a class="link" href="day-21-cpp-stl-std-vector.html#day-21-cpp-stl-std-vector.method-push_back">Method
       .push_back</a>
     </h3>
 <p>
@@ -151,8 +151,8 @@
 <span class="identifier">v1</span><span class="special">.</span><span class="identifier">push_back</span><span class="special">(</span><span class="number">2.92f</span><span class="special">);</span>
 </pre>
 <h3>
-<a name="day-22-cpp-stl-std-vector.h9"></a>
-      <span class="phrase"><a name="day-22-cpp-stl-std-vector.method-empty"></a></span><a class="link" href="day-22-cpp-stl-std-vector.html#day-22-cpp-stl-std-vector.method-empty">Method
+<a name="day-21-cpp-stl-std-vector.h9"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-vector.method-empty"></a></span><a class="link" href="day-21-cpp-stl-std-vector.html#day-21-cpp-stl-std-vector.method-empty">Method
       .empty()</a>
     </h3>
 <p>
@@ -165,8 +165,8 @@
 <span class="keyword">bool</span> <span class="identifier">s2</span> <span class="special">=</span> <span class="identifier">v2</span><span class="special">.</span><span class="identifier">empty</span><span class="special">();</span>	<span class="comment">// false</span>
 </pre>
 <h3>
-<a name="day-22-cpp-stl-std-vector.h10"></a>
-      <span class="phrase"><a name="day-22-cpp-stl-std-vector.method-data"></a></span><a class="link" href="day-22-cpp-stl-std-vector.html#day-22-cpp-stl-std-vector.method-data">Method
+<a name="day-21-cpp-stl-std-vector.h10"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-vector.method-data"></a></span><a class="link" href="day-21-cpp-stl-std-vector.html#day-21-cpp-stl-std-vector.method-data">Method
       .data()</a>
     </h3>
 <p>
@@ -213,15 +213,15 @@
       <em class="replaceable"><code>Written on Dec 07, 2024</code></em>
     </p>
 <h2>
-<a name="day-22-cpp-stl-std-vector.h11"></a>
-      <span class="phrase"><a name="day-22-cpp-stl-std-vector.role_cyan_back_to_index"></a></span><a class="link" href="day-22-cpp-stl-std-vector.html#day-22-cpp-stl-std-vector.role_cyan_back_to_index"><span class="cyan">Back to index</span></a>
+<a name="day-21-cpp-stl-std-vector.h11"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-vector.role_cyan_back_to_index"></a></span><a class="link" href="day-21-cpp-stl-std-vector.html#day-21-cpp-stl-std-vector.role_cyan_back_to_index"><span class="cyan">Back to index</span></a>
     </h2>
 <p>
       <a href="." target="_top">Index</a>
     </p>
 <h2>
-<a name="day-22-cpp-stl-std-vector.h12"></a>
-      <span class="phrase"><a name="day-22-cpp-stl-std-vector.cpp-lang"></a></span><a class="link" href="day-22-cpp-stl-std-vector.html#day-22-cpp-stl-std-vector.cpp-lang"><span class="cyan">cpp/c++</span></a>
+<a name="day-21-cpp-stl-std-vector.h12"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-vector.cpp-lang"></a></span><a class="link" href="day-21-cpp-stl-std-vector.html#day-21-cpp-stl-std-vector.cpp-lang"><span class="cyan">cpp/c++</span></a>
     </h2>
 <p>
       c++ std::exception:
@@ -252,7 +252,7 @@
 <div class="copyright-footer"></div>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="day-21-cpp-stl-std-string.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="day-23-cpp-stl-random-numbers.html"><img src="images/next.png" alt="Next"></a>
+<a accesskey="p" href="day-20-cpp-compile-time-constexpr.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="day-22-cpp-stl-std-string.html"><img src="images/next.png" alt="Next"></a>
 </div>
 </body>
 </html>

@@ -1,0 +1,28 @@
+[article day-24: c++ STL: std::copy, std::fill
+	[id day-24-cpp-stl-std-copy-std-fill]
+	[quickbook 1.7]
+]
+
+Both std::copy and std::fill are c++ algorithms. They can be used for c++ range and memory operations.
+
+[h1:std-copy [role cyan std::copy]]
+
+[h2:copy-vtv Copy from one std::vector object to another std::vector object]
+
+[br]
+[br]
+[br]
+[br]
+[br]
+[br]
+
+[~Written on Dec 09, 2024]
+
+[h1 [role cyan Back to index]]
+
+[@. Index]
+
+[include ../../share/foot-links.inc.qbk]
+
+
+

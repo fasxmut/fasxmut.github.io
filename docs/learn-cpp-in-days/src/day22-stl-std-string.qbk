@@ -1,5 +1,5 @@
-[article day-21: c++ STL: std::string
-	[id day-21-cpp-stl-std-string]
+[article day-22: c++ STL: std::string
+	[id day-22-cpp-stl-std-string]
 	[quickbook 1.7]
 ]
 
@@ -142,6 +142,32 @@ int main()
 	std::cout << s2 << std::endl;	// llo woRld
 }
 ```
+
+[h2:iterator-begin-end Method .begin(), .end()]
+
+std::string has two methods: [*.begin()], [*.end()].
+
+Method [*.begin()] and [*.end()] return the iterators of the std::string object.
+
+The [*iterator] is a special class of c++ STL library.
+[br]
+Many c++ STL containers (it is named range too) have its related iterator,
+[br]
+they share many same or similar principles.
+
+[h3:iterator c++ iterator]
+
+[!c++]
+```
+auto itr1 = str.begin();
+auto itr2 = str.end();
+```
+
+itr1 points to the first element of the range.
+
+An iterator object stands for a position of the range, it has methods:
+
+[*-) Method .operator++, .operator--]
 
 
 [br]
