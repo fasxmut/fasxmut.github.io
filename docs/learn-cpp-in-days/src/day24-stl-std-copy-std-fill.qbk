@@ -25,7 +25,7 @@ The target range must be allocated bigger than or equal to the source range. And
 int main()
 {
 	auto v1 = std::vector<int>{2, 3, 4, 7, 1, 5};
-	auto v2 = std::vector<int>(v1.size());	// v2 is alloated the same size as v1 size.
+	auto v2 = std::vector<int>(v1.size());	// v2 is allocated the same size as v1 size.
 
 	// std::copy: copy from v1 to v2
 	std::copy(v1.begin(), v1.end(), v2.begin());
