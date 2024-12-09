@@ -53,7 +53,7 @@
       .
     </p>
 <pre class="programlisting">$ su
-# apt install ./mysql-XXX-YYY.deb	# It will guide you to set something on installing process.
+# apt install ./mysql-XXX-YYY.deb	# It will guide you to set something when installing
 # apt update
 # apt install mysql-server
 # systemctl status mysql	# Check if mysql is started
@@ -166,7 +166,11 @@ Database changed
 <span class="keyword">try</span>
 <span class="special">{</span>
 	<span class="keyword">if</span> <span class="special">(</span><span class="identifier">argc</span> <span class="special">!=</span> <span class="number">4</span><span class="special">)</span>
-		<span class="keyword">throw</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">runtime_error</span><span class="special">{</span><span class="string">""</span><span class="identifier">s</span> <span class="special">+</span> <span class="identifier">argv</span><span class="special">[</span><span class="number">0</span><span class="special">]</span> <span class="special">+</span> <span class="string">" &lt;username&gt; &lt;password&gt; &lt;mysql host&gt;"</span><span class="special">};</span>
+		<span class="keyword">throw</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">runtime_error</span><span class="special">{</span>
+			<span class="string">""</span><span class="identifier">s</span>
+			<span class="special">+</span> <span class="identifier">argv</span><span class="special">[</span><span class="number">0</span><span class="special">]</span>
+			<span class="special">+</span> <span class="string">" &lt;username&gt; &lt;password&gt; &lt;mysql host&gt;"</span>
+		<span class="special">};</span>
 
 	<span class="keyword">auto</span> <span class="identifier">ctx</span> <span class="special">=</span> <span class="identifier">asio</span><span class="special">::</span><span class="identifier">io_context</span><span class="special">{};</span>
 	<span class="keyword">auto</span> <span class="identifier">ssl_ctx</span> <span class="special">=</span> <span class="identifier">asio</span><span class="special">::</span><span class="identifier">ssl</span><span class="special">::</span><span class="identifier">context</span><span class="special">{</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">ssl</span><span class="special">::</span><span class="identifier">context</span><span class="special">::</span><span class="identifier">tls_client</span><span class="special">};</span>

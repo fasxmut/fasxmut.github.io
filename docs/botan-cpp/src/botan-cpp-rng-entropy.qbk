@@ -23,7 +23,9 @@ int main()
 {
 	auto rng = Botan::AutoSeeded_RNG{};
 
-	auto vector = rng.random_vec<std::vector<std::uint8_t>>(13);	// Make random std::vector
+	// Make random std::vector
+	auto vector = rng.random_vec<std::vector<std::uint8_t>>(13);
+
 	auto array = rng.random_array<13>();	// Make random std::array
 
 	for (int x: vector) std::cout << x << ' ';
@@ -108,7 +110,9 @@ int main()
 	auto seed_rng = Botan::AutoSeeded_RNG{};
 	auto chacha_rng = Botan::ChaCha_RNG{seed_rng};
 	auto vector = chacha_rng.random_vec<std::vector<std::uint8_t>>(13);
-	my_range::print<int>(vector); // convert value_type to int, see above print implementation
+
+	// convert value_type to int, see above print implementation
+	my_range::print<int>(vector);
 }
 ```
 
@@ -235,7 +239,8 @@ public:
 	{
 		std::chrono::time_point now = std::chrono::system_clock::now();
 		std::chrono::duration now_epo = now.time_since_epoch();
-		std::chrono::duration now_ep = std::chrono::duration_cast<std::chrono::nanoseconds>(now_epo);
+		std::chrono::duration now_ep
+			= std::chrono::duration_cast<std::chrono::nanoseconds>(now_epo);
 		return now_ep.count();
 	}
 };

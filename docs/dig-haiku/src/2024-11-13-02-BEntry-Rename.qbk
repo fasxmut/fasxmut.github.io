@@ -16,7 +16,8 @@ int main()
 {
 	BEntry file{"audio.wav"};
 
-	std::cout << file.Name() << " exists: " << std::boolalpha << file.Exists() << std::endl;
+	std::cout << file.Name() << " exists: " << std::boolalpha << file.Exists()
+		<< std::endl;
 	
 	// entry_ref e_ref;
 	// file.GetRef(&e_ref);

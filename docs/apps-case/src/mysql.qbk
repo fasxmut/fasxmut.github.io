@@ -24,7 +24,7 @@ For example, [*Kubuntu:]
 [!teletype]
 ```
 $ su
-# apt install ./mysql-XXX-YYY.deb	# It will guide you to set something on installing process.
+# apt install ./mysql-XXX-YYY.deb	# It will guide you to set something when installing
 # apt update
 # apt install mysql-server
 # systemctl status mysql	# Check if mysql is started
@@ -131,7 +131,11 @@ int main(int argc, char * argv[])
 try
 {
 	if (argc != 4)
-		throw std::runtime_error{""s + argv[0] + " <username> <password> <mysql host>"};
+		throw std::runtime_error{
+			""s
+			+ argv[0]
+			+ " <username> <password> <mysql host>"
+		};
 
 	auto ctx = asio::io_context{};
 	auto ssl_ctx = asio::ssl::context{asio::ssl::context::tls_client};

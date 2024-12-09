@@ -30,9 +30,9 @@ public:
 	}
 public:
 	my_application():
-		BApplication{"application/my-application"}	// Should start with "application/"
+		BApplication{"application/my-application"} // Should start with "application/"
 	{
-		auto rect = BRect{10, 10, 1280, 720};	// window size: 1280x720, at 10,10
+		auto rect = BRect{10, 10, 1280, 720}; // window size: 1280x720, at 10,10
 		auto window = new BWindow{
 			rect,
 			"My Window",

@@ -19,8 +19,12 @@ Body defaults
     {
         margin: 1em;
         /*font-size: 18px;*/
-        /*font-family: sans-serif;*/
+        font-family: sans-serif;
         font-size: 16px;
+        margin-left: auto;	/*Added by fx*/
+        margin-right: auto;	/*Added by fx*/
+        max-width: 1200px;	/*Added by fx*/
+        min-width: 800px;	/*Added by fx*/
     }
 
 /*=============================================================================
@@ -56,11 +60,15 @@ Program listings
     .screen
     {
         /*font-size: 9pt;*/
+        font-size: 90%;	/*Modified by fx*/
+        width: 800px;	/*Added by fx*/
         display: block;
         margin: 1pc 4% 0pc 4%;
+        margin-left: auto;	/*Added by fx*/
+        margin-right: auto;	/*Added by fx*/
         padding: 0.5pc 0.5pc 0.5pc 0.5pc;
 		background: #dce;
-		border-radius: 7px;
+		border-radius: 5px;
     }
 
     /* Program listings in tables don't get borders */

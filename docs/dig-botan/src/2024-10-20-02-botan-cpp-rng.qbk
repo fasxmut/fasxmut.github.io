@@ -67,7 +67,8 @@ int main()
 
 int main()
 {
-	std::shared_ptr<Botan::RandomNumberGenerator> rng = std::make_shared<Botan::AutoSeeded_RNG>();
+	std::shared_ptr<Botan::RandomNumberGenerator> rng
+		= std::make_shared<Botan::AutoSeeded_RNG>();
 	rng->add_entropy(rng->random_vec<std::vector<unsigned char>>(1024));
 	auto vector = rng->random_vec<std::vector<unsigned char>>(32);
 	for (int x: vector)
@@ -121,7 +122,10 @@ int main()
 {
 	auto esrc = Botan::Entropy_Sources{};
 	esrc.add_source(std::make_unique<cpp_space::my_entropy>());
-	esrc.add_source(std::make_unique<cpp_space::my_entropy>());	// add another entropy for this demo.
+
+	// add another entropy for this demo.
+	esrc.add_source(std::make_unique<cpp_space::my_entropy>());
+
 	auto rng = Botan::AutoSeeded_RNG{esrc};
 	auto vector = rng.random_vec<std::vector<unsigned char>>(32);
 	for (int x: vector)	// converted to int
@@ -169,7 +173,8 @@ public:
 			rng.add_entropy_T(now);
 			rng.add_entropy_T(counter);
 		////////////////////////////////////////
-			std::cout << "now timer: " << now << ", counter: " << counter << std::endl;
+			std::cout << "now timer: " << now
+				<< ", counter: " << counter << std::endl;
 		}
 		return expected;
 	}
@@ -180,7 +185,10 @@ protected:
 		std::chrono::time_point<clock_type> now;
 		now = clock_type::now();
 		std::chrono::duration now_duration = now.time_since_epoch();
-		return std::chrono::duration_cast<std::chrono::nanoseconds>(now_duration).count();
+		return
+			std::chrono::duration_cast<std::chrono::nanoseconds>(
+				now_duration
+			).count();
 	}
 public:
 	~time_entropy()
@@ -249,7 +257,8 @@ int main()
 	auto seed_rng = Botan::AutoSeeded_RNG{};
 
 	// the rng used as seed passed to the constructor must be Lvalue.
-	std::shared_ptr<Botan::RandomNumberGenerator> rng = std::make_shared<Botan::ChaCha_RNG>(seed_rng);
+	std::shared_ptr<Botan::RandomNumberGenerator> rng
+		= std::make_shared<Botan::ChaCha_RNG>(seed_rng);
 
 	auto vector = rng->random_vec<std::vector<unsigned char>>(32);
 	for (int x: vector)
@@ -300,7 +309,8 @@ int main()
 {
 	auto src = Botan::Entropy_Sources{};
 	src.add_source(std::make_unique<cpp_space::my_entropy>());
-	std::shared_ptr<Botan::RandomNumberGenerator> rng = std::make_shared<Botan::ChaCha_RNG>(src);
+	std::shared_ptr<Botan::RandomNumberGenerator> rng
+		= std::make_shared<Botan::ChaCha_RNG>(src);
 	auto vector = rng->random_vec<std::vector<unsigned char>>(32);
 	std::cout << "cha cha rng numbers:\n";
 	for (int x: vector)

@@ -16,7 +16,8 @@ int main()
 {
 	entry_ref e_ref;
 	BEntry{"audio.wav"}.GetRef(&e_ref);
-	std::cout << e_ref.name << "::" << e_ref.device << "::" << e_ref.directory << std::endl;
+	std::cout << e_ref.name << "::" << e_ref.device << "::" << e_ref.directory
+		<< std::endl;
 }
                         
 ```
