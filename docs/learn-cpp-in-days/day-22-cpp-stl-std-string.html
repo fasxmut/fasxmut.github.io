@@ -193,40 +193,43 @@
 	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">s2</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>	<span class="comment">// llo woRld</span>
 <span class="special">}</span>
 </pre>
-<h3>
+<h2>
 <a name="day-22-cpp-stl-std-string.h11"></a>
-      <span class="phrase"><a name="day-22-cpp-stl-std-string.iterator-begin-end"></a></span><a class="link" href="day-22-cpp-stl-std-string.html#day-22-cpp-stl-std-string.iterator-begin-end">Method
-      .begin(), .end()</a>
-    </h3>
+      <span class="phrase"><a name="day-22-cpp-stl-std-string.cpp-iterator"></a></span><a class="link" href="day-22-cpp-stl-std-string.html#day-22-cpp-stl-std-string.cpp-iterator"><span class="cyan">c++ iterator - std::string</span></a>
+    </h2>
 <p>
-      std::string has two methods: <span class="bold"><strong>.begin()</strong></span>, <span class="bold"><strong>.end()</strong></span>.
-    </p>
-<p>
-      Method <span class="bold"><strong>.begin()</strong></span> and <span class="bold"><strong>.end()</strong></span>
-      return the iterators of the std::string object.
-    </p>
-<p>
-      The <span class="bold"><strong>iterator</strong></span> is a special class of c++ STL
-      library. <br> Many c++ STL containers (it is named range too) have its related
-      iterator, <br> they share many same or similar principles.
-    </p>
-<h4>
-<a name="day-22-cpp-stl-std-string.h12"></a>
-      <span class="phrase"><a name="day-22-cpp-stl-std-string.iterator"></a></span><a class="link" href="day-22-cpp-stl-std-string.html#day-22-cpp-stl-std-string.iterator">c++
+      Yeah, you read that right. std::string has related iterator, just like the
+      <span class="bold"><strong>std::vector</strong></span>: <br> <a class="link" href="day-21-cpp-stl-std-vector.html#day-21-cpp-stl-std-vector.cpp-iterator">std::vector
       iterator</a>
-    </h4>
-<pre class="programlisting"><span class="keyword">auto</span> <span class="identifier">itr1</span> <span class="special">=</span> <span class="identifier">str</span><span class="special">.</span><span class="identifier">begin</span><span class="special">();</span>
-<span class="keyword">auto</span> <span class="identifier">itr2</span> <span class="special">=</span> <span class="identifier">str</span><span class="special">.</span><span class="identifier">end</span><span class="special">();</span>
+    </p>
+<p>
+      <span class="bold"><strong>std::string</strong></span> is also a vector, just its value
+      data type is character type, and it is desgiend for string specially.
+    </p>
+<p>
+      <span class="bold"><strong>c++ example:</strong></span>
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+<span class="comment">// #include &lt;string&gt; // This include can be omitted, as std::string is widely used and included by many headers.</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">str</span> <span class="special">=</span> <span class="string">"Hello, welcome to c++ programming!"</span><span class="special">;</span>
+
+	<span class="keyword">const</span> <span class="keyword">auto</span> <span class="identifier">itr1</span> <span class="special">=</span> <span class="identifier">str</span><span class="special">.</span><span class="identifier">begin</span><span class="special">();</span>
+	<span class="keyword">const</span> <span class="keyword">auto</span> <span class="identifier">itr2</span> <span class="special">=</span> <span class="identifier">str</span><span class="special">.</span><span class="identifier">end</span><span class="special">();</span>
+
+	<span class="keyword">auto</span> <span class="identifier">itr3</span> <span class="special">=</span> <span class="identifier">str</span><span class="special">.</span><span class="identifier">begin</span><span class="special">();</span>
+	<span class="identifier">itr3</span><span class="special">++;</span>
+	<span class="identifier">itr3</span> <span class="special">+=</span> <span class="number">3</span><span class="special">;</span>
+
+	<span class="keyword">char</span> <span class="identifier">x</span> <span class="special">=</span> <span class="special">*</span><span class="identifier">itr3</span><span class="special">;</span>	<span class="comment">// Result is 'o'</span>
+
+	<span class="keyword">auto</span> <span class="identifier">distance</span> <span class="special">=</span> <span class="identifier">itr2</span> <span class="special">-</span> <span class="identifier">itr3</span><span class="special">;</span>	<span class="comment">// Get the distance between itr2 and itr3</span>
+
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">x</span> <span class="special">&lt;&lt;</span> <span class="char">'\n'</span> <span class="special">&lt;&lt;</span> <span class="identifier">distance</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
 </pre>
-<p>
-      itr1 points to the first element of the range.
-    </p>
-<p>
-      An iterator object stands for a position of the range, it has methods:
-    </p>
-<p>
-      <span class="bold"><strong>-) Method .operator++, .operator--</strong></span>
-    </p>
 <p>
       <br> <br> <br> <br> <br> <br>
     </p>
@@ -234,14 +237,14 @@
       <em class="replaceable"><code>Written on Dec 07, 2024</code></em>
     </p>
 <h2>
-<a name="day-22-cpp-stl-std-string.h13"></a>
+<a name="day-22-cpp-stl-std-string.h12"></a>
       <span class="phrase"><a name="day-22-cpp-stl-std-string.role_cyan_back_to_index"></a></span><a class="link" href="day-22-cpp-stl-std-string.html#day-22-cpp-stl-std-string.role_cyan_back_to_index"><span class="cyan">Back to index</span></a>
     </h2>
 <p>
       <a href="." target="_top">Index</a>
     </p>
 <h2>
-<a name="day-22-cpp-stl-std-string.h14"></a>
+<a name="day-22-cpp-stl-std-string.h13"></a>
       <span class="phrase"><a name="day-22-cpp-stl-std-string.cpp-lang"></a></span><a class="link" href="day-22-cpp-stl-std-string.html#day-22-cpp-stl-std-string.cpp-lang"><span class="cyan">cpp/c++</span></a>
     </h2>
 <p>

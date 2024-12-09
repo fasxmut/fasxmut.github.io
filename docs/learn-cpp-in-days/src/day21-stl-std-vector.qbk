@@ -162,6 +162,113 @@ output:
 112233 3 4 5 7 1 4 
 ```
 
+[h1:cpp-iterator [role cyan c++ iterator - std::vector]]
+
+[h2:iterators the c++ iterators]
+
+The [*iterator] is a special class of c++ STL library.
+[br]
+Many c++ STL containers (it is named ranges too) have its related iterator,
+[br]
+they share many same or similar principles.
+
+An iterator object stands for an access position of the range.
+
+[h2:method-begin-end Method .begin(), .end() of the range]
+
+std::vector has two methods: [*.begin()], [*.end()], and some other ranges have them too.
+
+* [*.begin()] of the std::vector or other ranges returns an iterator to store the start position of the range.
+
+* [*.end()] of the std::vector or other ranges returns an iterator to store the position past the last element of the range.
+
+[!c++]
+```
+// std::vector can be named container, and can be also named range
+std::vector<int> v2 = {2, 3, 4, 5, 7, 9, 13};
+auto itr1 = v2.begin();	// return an iterator to store the start position.
+auto itr2 = v2.end();	// return an iterator to store the position past the last element.
+```
+
+[*iterator type] : the iterator type that the .begin() and .end() returns has some complexity, you can use auto here to ignore those complexity, [*auto] works at many cases. Feel free to use auto, you just only need to know how to use it currently.
+
+[h2:method-move-itr Method [role blue .operator++, .operator--] of the iterator]
+
+The iterator type is a class, it defined many convenient methods.
+
+[!c++]
+```
+++itr1;	// Move itr1 to store the next position of the range.
+itr1++;	// Move itr1 to store the next position of the range.
+
+--itr1;	// Move itr1 to store the previous position of the range.
+itr1--;	// Move itr1 to store the previous position of the range.
+```
+
+[h2:method-get-element Method [role blue .operator*] of the iterator]
+
+An iterator is an object,
+[br]
+it stores the position of related range.
+[br]
+If you want to [role blue take the element] from the range via the iterator,
+[br]
+you can use method [*.operator*]
+
+[!c++]
+```
+std::vector<int> v3{4, 5, 7, 2, 9, 6};	// v3 is a std::vector object, it is a range
+
+auto itr_jj = v3.begin();	// Feel free to use auto
+
+int x = * itr_jj;	// Method .operator*    it takes 4 from the range
+
+++itr_jj;
+++itr_jj;
+++itr_jj;
+
+int a = * itr_jj;	// Take 2 from the range through the iterator now
+```
+
+[h2:method-minus Method [role blue .operator-] of the iterator]
+
+The method [*.operator-] is the method of the iterator:
+
+[!c++]
+```
+auto distance = itr2 - itr1;
+```
+
+It means calculating the distance of two iterators, the result is an integer type.
+
+[!c++]
+```
+#include <vector>
+#include <iostream>
+
+int main()
+{
+	std::vector<int> v4{9, 3, 8, 7, 5, 4, 2};
+
+	auto end = v4.end();
+
+	// const can be applied to the iterator, so it is immutable.
+	const auto itr1 = v4.begin();
+
+	auto itr2 = v4.begin();
+	++itr2;
+	itr2++;
+	++itr2;
+	itr2 += 2;	// Move to next 2 elements.
+
+	auto dist1 = itr2 - itr1;	// result is 5, because their distance is 5.
+	auto dist2 = end - itr1;	// result is 7, because their distance is 7.
+	auto dist3 = end - itr2;	// result is 2, because their distance is 2.
+
+	std::cout << dist1 << ',' << dist2 << ',' << dist3 << std::endl;
+}
+```
+
 [br]
 [br]
 [br]

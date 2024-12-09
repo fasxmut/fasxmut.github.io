@@ -143,32 +143,39 @@ int main()
 }
 ```
 
-[h2:iterator-begin-end Method .begin(), .end()]
+[h1:cpp-iterator [role cyan c++ iterator - std::string]]
 
-std::string has two methods: [*.begin()], [*.end()].
-
-Method [*.begin()] and [*.end()] return the iterators of the std::string object.
-
-The [*iterator] is a special class of c++ STL library.
+Yeah, you read that right. std::string has related iterator, just like the [*std::vector]:
 [br]
-Many c++ STL containers (it is named range too) have its related iterator,
-[br]
-they share many same or similar principles.
+[link day-21-cpp-stl-std-vector.cpp-iterator std::vector iterator]
 
-[h3:iterator c++ iterator]
+[*std::string] is also a vector, just its value data type is character type, and it is desgiend for string specially.
+
+[*c++ example:]
 
 [!c++]
 ```
-auto itr1 = str.begin();
-auto itr2 = str.end();
+#include <iostream>
+// #include <string> // This include can be omitted, as std::string is widely used and included by many headers.
+
+int main()
+{
+	const std::string str = "Hello, welcome to c++ programming!";
+
+	const auto itr1 = str.begin();
+	const auto itr2 = str.end();
+
+	auto itr3 = str.begin();
+	itr3++;
+	itr3 += 3;
+
+	char x = *itr3;	// Result is 'o'
+
+	auto distance = itr2 - itr3;	// Get the distance between itr2 and itr3
+
+	std::cout << x << '\n' << distance << std::endl;
+}
 ```
-
-itr1 points to the first element of the range.
-
-An iterator object stands for a position of the range, it has methods:
-
-[*-) Method .operator++, .operator--]
-
 
 [br]
 [br]
