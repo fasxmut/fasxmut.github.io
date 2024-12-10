@@ -62,3 +62,9 @@ kpp-kspt-ostream_printable.html
 kpp-kspt-register_printable.html
 method-register_print.html
 kpp-kspt-printable.html
+kpp-kspt-ostream.html
+kpp-output-backends.html
+kpp-backends-ostream_dummy_std_string.html
+kpp-backends-ostream_dummy_std_vector.html
+kpp-backends-ostream_dummy_std_ostream.html
+kpp-ostream-backends-howto.html

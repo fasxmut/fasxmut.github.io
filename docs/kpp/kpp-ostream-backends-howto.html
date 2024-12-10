@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Kpp Ostream Backends HowTo</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Kpp Home">
+<link rel="up" href="kpp-output-backends.html" title="Kpp Output Backends">
+<link rel="prev" href="kpp-backends-ostream_dummy_std_ostream.html" title="kpp::backends::ostream_dummy_std_ostream">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="kpp-backends-ostream_dummy_std_ostream.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="kpp-output-backends.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="kpp-ostream-backends-howto"></a>Kpp Ostream Backends HowTo</h2></div></div>
+<hr>
+</div>
+<p>
+          <span class="bold"><strong><span class="purple">---- Ostream Backends HowTo&lt;&lt;
+          Output Backends &lt;&lt; Output &lt;&lt; Kpp c++ ----</span></strong></span>
+        </p>
+<p>
+          <span class="ddred"><span class="bold"><strong>How to design a backend ostream
+          for <a class="link" href="kpp-print.html" title="kpp::print">kpp::print</a> :</strong></span></span>
+        </p>
+<p>
+          <span class="ddcyan"><span class="bold"><strong>Required:</strong></span></span>
+        </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+              The backend ostream should be a class.
+            </li>
+<li class="listitem">
+              The class should define virtual destructor.
+            </li>
+<li class="listitem">
+              The class has an "using alias" to the buffer-type,<br>
+              its name should be buffer_type (For example: using buffer_type = std::ostream),<br>
+              and it should be public.<br>
+              <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; ">
+<li class="listitem">
+                    (
+                    <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: square; ">
+<li class="listitem">
+                          The backend-ostream is named ostream_type in kpp,
+                        </li>
+<li class="listitem">
+                          the buffer_type is the actual ostream-type,
+                        </li>
+<li class="listitem">
+                          but it is not named ostream_type in kpp.
+                        </li>
+<li class="listitem">
+                          For example, std::ostream can be used as the buffer_type,
+                        </li>
+<li class="listitem">
+                          but std::ostream is not named ostream_type of kpp
+                        </li>
+</ul></div>
+                  </li>
+<li class="listitem">
+                    )
+                  </li>
+</ul></div>
+            </li>
+<li class="listitem">
+              It does not require the __buffer created by the buffer_type is Lvalue-reference
+              or not.
+            </li>
+<li class="listitem">
+              .operator&lt;&lt; should be a method of the class as the ostream-operator,<br>
+              global free function operator&lt;&lt; will be never called.
+            </li>
+<li class="listitem">
+              Method operator&lt;&lt; should return a "self-type &amp;"
+            </li>
+<li class="listitem">
+              The class should not have any constexpr.
+            </li>
+</ul></div>
+<p>
+          <span class="ddred"><span class="bold"><strong>Not required, but helpful:</strong></span></span>
+        </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+              protected self_type
+            </li>
+<li class="listitem">
+              Method .data(),
+            </li>
+<li class="listitem">
+              Method .cpp_str()
+            </li>
+<li class="listitem">
+              Method .begin(), .end(), .operator[](...)
+            </li>
+<li class="listitem">
+              How constructor is designed is not limited.
+            </li>
+</ul></div>
+<h2>
+<a name="kpp-ostream-backends-howto.h0"></a>
+          <span class="phrase"><a name="kpp-ostream-backends-howto.see-also"></a></span><a class="link" href="kpp-ostream-backends-howto.html#kpp-ostream-backends-howto.see-also"><span class="cyan">See Also</span></a>
+        </h2>
+<p>
+          <a class="link" href="kpp-kspt-ostream.html" title="kpp::kspt::ostream">kpp::kspt::ostream</a>
+        </p>
+<p>
+          <a class="link" href="kpp-kspt-ostream_printable.html" title="kpp::kspt::ostream_printable">kpp::kspt::ostream_printable</a>
+        </p>
+<p>
+          <a class="link" href="kpp-kspt-register_printable.html" title="kpp::kspt::register_printable">kpp::kspt::register_printable</a>
+        </p>
+<p>
+          <a class="link" href="kpp-print.html" title="kpp::print">kpp::print</a>
+        </p>
+<h2>
+<a name="kpp-ostream-backends-howto.h1"></a>
+          <span class="phrase"><a name="kpp-ostream-backends-howto.back"></a></span><a class="link" href="kpp-ostream-backends-howto.html#kpp-ostream-backends-howto.back"><span class="cyan">Back</span></a>
+        </h2>
+<p>
+          <a class="link" href="kpp-output-backends.html" title="Kpp Output Backends">Up</a>
+        </p>
+<p>
+          <br> <br> <br> <br> <br> <br> <br> <br> <br>
+        </p>
+<h2>
+<a name="kpp-ostream-backends-howto.h2"></a>
+          <span class="phrase"><a name="kpp-ostream-backends-howto.deck"></a></span><a class="link" href="kpp-ostream-backends-howto.html#kpp-ostream-backends-howto.deck"><span class="cyan">Deck</span></a>
+        </h2>
+<p>
+          <a href="https://cppfx.xyz/kpp" target="_top">Kpp Home</a>
+        </p>
+</div>
+<div class="copyright-footer">Copyright © 2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="kpp-backends-ostream_dummy_std_ostream.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="kpp-output-backends.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+</body>
+</html>
