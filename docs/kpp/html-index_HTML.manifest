@@ -31,6 +31,8 @@ kpp-not_same_as.html
 kpp-array_sizable.html
 kpp-one_of.html
 kpp-not_one_of.html
+kpp-dynamic_castable_to.html
+kpp-dynamic_castable_from.html
 kpp-real_number.html
 kpp-integral.html
 kpp-unsigned_integral.html
