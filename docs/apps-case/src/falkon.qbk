@@ -1,0 +1,21 @@
+[article Falkon Browser
+	[quickbook 1.7]
+	[id falkon]
+]
+
+falkon is an excellent web browser written in c++ qt webengine.
+
+* TLS: https
+* Security
+* Safety
+* Privacy
+* Open Source
+* KDE Plasma Desktop
+
+Home: [@https://www.falkon.org https://www.falkon.org]
+
+______________________________________________________________________
+
+Oct 12, 2024
+
+[include ../../share/foot-links.inc.qbk]
