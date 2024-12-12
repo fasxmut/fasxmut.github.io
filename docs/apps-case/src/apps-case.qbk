@@ -2,9 +2,9 @@
 	[quickbook 1.7]
 ]
 
+[include falkon.qbk]
 [include ugrep.qbk]
 [include mysql.qbk]
-[include falkon.qbk]
 [include compiled.qbk]
 
 There are many good applications on the Internet world.
