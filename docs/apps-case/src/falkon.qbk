@@ -3,7 +3,7 @@
 	[id falkon]
 ]
 
-falkon is an excellent web browser written in c++ qt webengine.
+Falkon is an excellent web browser written in c++ qt webengine.
 
 * TLS: https
 * Security
