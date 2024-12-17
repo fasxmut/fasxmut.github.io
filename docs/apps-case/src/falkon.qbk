@@ -3,6 +3,8 @@
 	[id falkon]
 ]
 
+Oct 12, 2024
+
 Falkon is an excellent web browser written in c++ qt webengine.
 
 * TLS: https
@@ -14,8 +16,8 @@ Falkon is an excellent web browser written in c++ qt webengine.
 
 Home: [@https://www.falkon.org https://www.falkon.org]
 
-______________________________________________________________________
+[h1:back [role cyan Back]]
 
-Oct 12, 2024
+[@. Up]
 
 [include ../../share/foot-links.inc.qbk]

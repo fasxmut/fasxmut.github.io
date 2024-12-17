@@ -2,6 +2,8 @@
 	[quickbook 1.7]
 ]
 
+Oct 05, 2024
+
 [h1 [role cyan Compiled Language List]]
 
 There are many good compiled programming language in the world, they are excellent programming languages.
@@ -11,8 +13,6 @@ There are many good compiled programming language in the world, they are excelle
 * Swift
 * Pascal
 * Fortran
-
-[~Oct 05, 2024]
 
 [h1:cpp [role cyan c++]]
 
@@ -34,10 +34,18 @@ Free Pascal is a mature, versatile, open source Pascal compiler. It can target m
 
 Fortran is a natively parallel programming language with intuitive array-like syntax to communicate data between CPUs. 
 
+
+
+
+Oct 05, 2024
+
 [h1 [role cyan See Also]]
 
 [@https://www.boost.org c++ boost]
 
+[h1:back [role cyan Back]]
 
+[@. Up]
 
 [include ../../share/foot-links.inc.qbk]
+

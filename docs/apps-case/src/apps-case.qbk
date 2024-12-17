@@ -2,6 +2,7 @@
 	[quickbook 1.7]
 ]
 
+[include krita.qbk]
 [include falkon.qbk]
 [include ugrep.qbk]
 [include mysql.qbk]
@@ -9,9 +10,11 @@
 
 There are many good applications on the Internet world.
 
-[h1 [role cyan Links]]
+[h1:boost-quickbook [role cyan boost quickbook]]
 
-[@https://www.boost.org/tools/quickbook boost quickbook]
+[@https://www.boost.org/tools/quickbook]
+
+[h1:back [role cyan Back]]
 
 [@.. Up]
 

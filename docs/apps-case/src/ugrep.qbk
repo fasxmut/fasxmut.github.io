@@ -2,13 +2,13 @@
 	[quickbook 1.7]
 ]
 
+July 20, 2024
+
 [h1 [role cyan ugrep search options and regex]]
 
 ugrep (ug) is a file pattern searcher, it is a more powerful, ultra fast, user-friendly, compatible grep (that is also completely free!). ugrep is written in c++.
 
 Home: [@https://ugrep.com ugrep]
-
-July 20, 2024
 
 * ugrep search options
 * ugrep regex
@@ -455,11 +455,13 @@ address=1.2.3.5:1025
 address=1.2.3.6:1026
 ```
 
-
-
 [h1 [role cyan See Also]]
 
 Home: [@https://ugrep.com ugrep]
+
+[h1:back [role cyan Back]]
+
+[@. Up]
 
 
 

@@ -3,11 +3,11 @@
 	[id mysql_cpp]
 ]
 
+Aug 07, 2024
+
 [h1 [role cyan MySQL]]
 
 MySQL is the most popular open source database management system that is written in c++. It supports various workloads and cloud providers.
-
-[~Aug 07, 2024]
 
 [h2 Install MySQL]
 
@@ -204,6 +204,9 @@ cpp
 
 [@https://botan.randombit.net c++ Botan TLS]
 
+[h1:back [role cyan Back]]
+
+[@. Up]
 
 
 [include ../../share/foot-links.inc.qbk]

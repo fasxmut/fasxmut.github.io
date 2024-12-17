@@ -1,0 +1,7 @@
+[article Krita
+	[id krita]
+	[quickbook 1.7]
+]
+
+Krita is a photo editor and the artists drawing software written in c++ qt.
+
