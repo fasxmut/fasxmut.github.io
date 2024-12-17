@@ -3,5 +3,17 @@
 	[quickbook 1.7]
 ]
 
+Dec 17, 2024
+
 Krita is a photo editor and the artists drawing software written in c++ qt.
+
+Krita is a professional FREE and open source painting program. It is made by artists that want to see affordable art tools for everyone.
+
+[@https://krita.org]
+
+[h1:back [role cyan Back]]
+
+[@. Up]
+
+[include ../../share/foot-links.inc.qbk]
 
