@@ -2,6 +2,7 @@
 	[quickbook 1.7]
 ]
 
+[include elisa.qbk]
 [include krita.qbk]
 [include falkon.qbk]
 [include ugrep.qbk]
