@@ -3,7 +3,7 @@
 	[quickbook 1.7]
 ]
 
-sycl::gpu_selector_v, Select sycl gpu device.
+sycl::gpu_selector_v, Select sycl gpu device. c++
 
 [!c++]
 ```
@@ -87,6 +87,10 @@ c++ GPU
 ```
 
 Em, c++ sycl is funny.
+
+____
+
+Dec 20, 2024
 
 [h1:back [role cyan Back]]
 

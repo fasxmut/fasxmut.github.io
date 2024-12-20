@@ -3,6 +3,7 @@
 	[quickbook 1.7]
 ]
 
+[include sycl-buffer-std-vector.qbk]
 [include sycl-gpu_selector_v.qbk]
 
 SYCL is a general GPU computing programming framework for c++.
