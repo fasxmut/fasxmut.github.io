@@ -1,0 +1,13 @@
+[article Dragon Player
+	[id dragon]
+	[quickbook 1.7]
+]
+
+Dec 20, 2024
+
+Dragon is a video player written in c++ qt.
+
+Home: [@https://apps.kde.org/dragonplayer]
+
+[include ../../share/foot-links.inc.qbk]
+

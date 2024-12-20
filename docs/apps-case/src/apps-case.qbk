@@ -1,7 +1,10 @@
 [book Apps Case
+	[id apps-case]
 	[quickbook 1.7]
 ]
 
+[include dragon.qbk]
+[include featherpad.qbk]
 [include elisa.qbk]
 [include krita.qbk]
 [include falkon.qbk]
