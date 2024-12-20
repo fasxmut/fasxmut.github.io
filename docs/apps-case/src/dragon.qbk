@@ -9,5 +9,9 @@ Dragon is a video player written in c++ qt.
 
 Home: [@https://apps.kde.org/dragonplayer]
 
+[h1:back [role cyan Back]]
+
+[@. Up]
+
 [include ../../share/foot-links.inc.qbk]
 
