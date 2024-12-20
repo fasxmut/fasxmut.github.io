@@ -1,0 +1,96 @@
+[article sycl::gpu_selector_v
+	[id sycl-gpu_selector_v]
+	[quickbook 1.7]
+]
+
+sycl::gpu_selector_v, Select sycl gpu device.
+
+[!c++]
+```
+#include <sycl/sycl.hpp>
+
+int main()
+{
+	auto device = sycl::device{sycl::gpu_selector_v};
+}
+```
+
+[!teletype]
+```
+dpcpp test.cpp -std=c++23 -o test
+```
+
+[h2:got-it Got it without documentations and reading source code]
+
+c++:
+
+[!c++]
+```
+#include <sycl/sycl.hpp>
+#include <iostream>
+
+int main()
+{
+	using type_t90 = decltype(sycl::gpu_selector_v);
+	static_assert(std::same_as<type_t90, void>);
+}
+```
+
+Compile, it reports error:
+
+[!c++]
+```
+***
+error: static assertion failed
+***
+*** because '__detail::__same_as<int (const sycl::device &), void>' evaluated to false ***
+```
+
+So, we know the type of sycl::gpu_selector_v is [~[*int (const sycl::device &)]] .
+
+Make that type:
+
+[!c++]
+```
+#include <sycl/sycl.hpp>
+#include <iostream>
+
+namespace my_gpu
+{
+
+class my_gpu_selector_v
+{
+public:
+	int operator()(const sycl::device & device__) const
+	{
+		std::cout << "c++ GPU" << std::endl;
+		return sycl::gpu_selector_v(device__);
+	}
+};
+
+}
+
+int main()
+{
+	auto device = sycl::device{my_gpu::my_gpu_selector_v{}};
+}
+```
+
+Compile and run the code:
+
+[!teletype]
+```
+$ dpcpp test.cpp -std=c++23 -o test
+$ ./test 
+c++ GPU
+c++ GPU
+```
+
+Em, c++ sycl is funny.
+
+[h1:back [role cyan Back]]
+
+[@. Up]
+
+[include ../../share/foot-links.inc.qbk]
+

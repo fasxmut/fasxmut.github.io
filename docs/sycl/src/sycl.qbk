@@ -1,0 +1,27 @@
+[book SYCL c++
+	[id sycl-cpp]
+	[quickbook 1.7]
+]
+
+[include sycl-gpu_selector_v.qbk]
+
+SYCL is a general GPU computing programming framework for c++.
+
+SYCL Home:
+
+[@https://sycl.tech]
+
+Intel dpcpp/cpp:
+
+[@https://software.intel.com/dpcpp]
+
+Adaptivecpp:
+
+[@https://adaptivecpp.github.io]
+
+[h1:back [role cyan Back]]
+
+[@.. Up]
+
+[include ../../share/foot-links.inc.qbk]
+

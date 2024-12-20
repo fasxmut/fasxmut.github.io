@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>sycl::gpu_selector_v</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="SYCL c++">
+<link rel="up" href="index.html" title="SYCL c++">
+<link rel="prev" href="index.html" title="SYCL c++">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="sycl-gpu_selector_v"></a>sycl::gpu_selector_v</h1></div></div>
+<hr>
+</div>
+<p>
+      sycl::gpu_selector_v, Select sycl gpu device.
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">sycl</span><span class="special">/</span><span class="identifier">sycl</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">auto</span> <span class="identifier">device</span> <span class="special">=</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">device</span><span class="special">{</span><span class="identifier">sycl</span><span class="special">::</span><span class="identifier">gpu_selector_v</span><span class="special">};</span>
+<span class="special">}</span>
+</pre>
+<pre class="programlisting">dpcpp test.cpp -std=c++23 -o test
+</pre>
+<h3>
+<a name="sycl-gpu_selector_v.h0"></a>
+      <span class="phrase"><a name="sycl-gpu_selector_v.got-it"></a></span><a class="link" href="sycl-gpu_selector_v.html#sycl-gpu_selector_v.got-it">Got
+      it without documentations and reading source code</a>
+    </h3>
+<p>
+      c++:
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">sycl</span><span class="special">/</span><span class="identifier">sycl</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">using</span> <span class="identifier">type_t90</span> <span class="special">=</span> <span class="keyword">decltype</span><span class="special">(</span><span class="identifier">sycl</span><span class="special">::</span><span class="identifier">gpu_selector_v</span><span class="special">);</span>
+	<span class="keyword">static_assert</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">same_as</span><span class="special">&lt;</span><span class="identifier">type_t90</span><span class="special">,</span> <span class="keyword">void</span><span class="special">&gt;);</span>
+<span class="special">}</span>
+</pre>
+<p>
+      Compile, it reports error:
+    </p>
+<pre class="programlisting"><span class="special">***</span>
+<span class="identifier">error</span><span class="special">:</span> <span class="keyword">static</span> <span class="identifier">assertion</span> <span class="identifier">failed</span>
+<span class="special">***</span>
+<span class="special">***</span> <span class="identifier">because</span> <span class="char">'__detail::__same_as&lt;int (const sycl::device &amp;), void&gt;'</span> <span class="identifier">evaluated</span> <span class="identifier">to</span> <span class="keyword">false</span> <span class="special">***</span>
+</pre>
+<p>
+      So, we know the type of sycl::gpu_selector_v is <em class="replaceable"><code><span class="bold"><strong>int
+      (const sycl::device &amp;)</strong></span></code></em> .
+    </p>
+<p>
+      Make that type:
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">sycl</span><span class="special">/</span><span class="identifier">sycl</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">my_gpu</span>
+<span class="special">{</span>
+
+<span class="keyword">class</span> <span class="identifier">my_gpu_selector_v</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">int</span> <span class="keyword">operator</span><span class="special">()(</span><span class="keyword">const</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">device</span> <span class="special">&amp;</span> <span class="identifier">device__</span><span class="special">)</span> <span class="keyword">const</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"c++ GPU"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+		<span class="keyword">return</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">gpu_selector_v</span><span class="special">(</span><span class="identifier">device__</span><span class="special">);</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="special">}</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">auto</span> <span class="identifier">device</span> <span class="special">=</span> <span class="identifier">sycl</span><span class="special">::</span><span class="identifier">device</span><span class="special">{</span><span class="identifier">my_gpu</span><span class="special">::</span><span class="identifier">my_gpu_selector_v</span><span class="special">{}};</span>
+<span class="special">}</span>
+</pre>
+<p>
+      Compile and run the code:
+    </p>
+<pre class="programlisting">$ dpcpp test.cpp -std=c++23 -o test
+$ ./test
+c++ GPU
+c++ GPU
+</pre>
+<p>
+      Em, c++ sycl is funny.
+    </p>
+<h2>
+<a name="sycl-gpu_selector_v.h1"></a>
+      <span class="phrase"><a name="sycl-gpu_selector_v.back"></a></span><a class="link" href="sycl-gpu_selector_v.html#sycl-gpu_selector_v.back"><span class="cyan">Back</span></a>
+    </h2>
+<p>
+      <a href="." target="_top">Up</a>
+    </p>
+<h2>
+<a name="sycl-gpu_selector_v.h2"></a>
+      <span class="phrase"><a name="sycl-gpu_selector_v.cpp-lang"></a></span><a class="link" href="sycl-gpu_selector_v.html#sycl-gpu_selector_v.cpp-lang"><span class="cyan">cpp/c++</span></a>
+    </h2>
+<p>
+      c++ std::exception:
+    </p>
+<p>
+      std::cout.write(err.data(), err.size());
+    </p>
+<p>
+      std::cout &lt;&lt; std::endl;
+    </p>
+<p>
+      <span class="purple">caught:</span>
+    </p>
+<pre class="programlisting">  ===================================
+  #  The c++ programming language.  #
+  #                                 #
+  #  Join c++ Discord: yZcauUAUyC   #
+  #  Deck                           #
+  ===================================
+</pre>
+<p>
+      <a href="https://cppfx.xyz" target="_top">Home: cppfx.xyz</a>
+    </p>
+<p>
+      <a href="https://cppfx.xyz/kpp/kpp-print.html" target="_top">K</a>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+</body>
+</html>
