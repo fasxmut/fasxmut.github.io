@@ -66,6 +66,11 @@ kpp-bare_same_assert.html
 kpp-same_v_assert.html
 kpp-bare_same_v_assert.html
 basic-string-utils.html
+kpp-str_size.html
+kpp-wstr_size.html
+kpp-u8str_size.html
+kpp-u16str_size.html
+kpp-u32str_size.html
 empty-string-constants.html
 kpp-nullstop_v_basic.html
 kpp-space_v_basic.html
