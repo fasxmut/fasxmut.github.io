@@ -97,7 +97,7 @@ var classjpp_1_1video_1_1IVideoDriver =
     [ "getTextureCount", "classjpp_1_1video_1_1IVideoDriver.html#a9822aea3bda8bce3ad1625d745272441", null ],
     [ "getTextureCreationFlag", "classjpp_1_1video_1_1IVideoDriver.html#a17363e0469b179159e3ea63cdcbf1482", null ],
     [ "getTransform", "classjpp_1_1video_1_1IVideoDriver.html#a822d78011e01a5a8c9863e2635309c66", null ],
-    [ "getVendorInfo", "classjpp_1_1video_1_1IVideoDriver.html#ab0f82c7a958fa4463bc730d961700236", null ],
+    [ "getVendorInfo", "classjpp_1_1video_1_1IVideoDriver.html#a83ab9bbf8c967d342e5a145fa3d09a0d", null ],
     [ "getViewPort", "classjpp_1_1video_1_1IVideoDriver.html#af17d88643acda17960c1244c367c4790", null ],
     [ "makeColorKeyTexture", "classjpp_1_1video_1_1IVideoDriver.html#a9380e503b67f76229b3ab2a964ea21fe", null ],
     [ "makeColorKeyTexture", "classjpp_1_1video_1_1IVideoDriver.html#a9f77e2ecf9c4f21b3933cd6d375145af", null ],

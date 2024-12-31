@@ -4,7 +4,7 @@ var searchData=
   ['r5g6b5toa1r5g5b5_1',['R5G6B5toA1R5G5B5',['../namespacejpp_1_1video.html#acd1729909e28e67707a09290bcf51d6c',1,'jpp::video']]],
   ['r5g6b5toa8r8g8b8_2',['R5G6B5toA8R8G8B8',['../namespacejpp_1_1video.html#ae48dd9ddb6370705ece0de841bba1525',1,'jpp::video']]],
   ['radius_3',['Radius',['../classjpp_1_1video_1_1SLight.html#ab857a16ec43e379a0c01df987d218bb1',1,'jpp::video::SLight']]],
-  ['radtodeg_4',['radtodeg',['../namespacejpp_1_1core.html#a706b48bd3948c36da55e03088c002cc6',1,'jpp::core::radToDeg(f32 radians)'],['../namespacejpp_1_1core.html#a19ee781301523a336650627d93a12c23',1,'jpp::core::radToDeg(f64 radians)'],['../namespacejpp_1_1core.html#a1886a8832eadd5068ef99587d68687c6',1,'jpp::core::RADTODEG']]],
+  ['radtodeg_4',['radtodeg',['../namespacejpp_1_1core.html#a19ee781301523a336650627d93a12c23',1,'jpp::core::radToDeg(f64 radians)'],['../namespacejpp_1_1core.html#a1886a8832eadd5068ef99587d68687c6',1,'jpp::core::RADTODEG'],['../namespacejpp_1_1core.html#a706b48bd3948c36da55e03088c002cc6',1,'jpp::core::radToDeg(f32 radians)']]],
   ['radtodeg64_5',['RADTODEG64',['../namespacejpp_1_1core.html#a0a24a3e08a2fd90d03906457b3a7c0f3',1,'jpp::core']]],
   ['rand_6',['rand',['../classjpp_1_1IRandomizer.html#abc7cc2e319e6df6b78c9da8e8525b646',1,'jpp::IRandomizer']]],
   ['randmax_7',['randMax',['../classjpp_1_1IRandomizer.html#ab5aece66568a6ebca364a88a74739a26',1,'jpp::IRandomizer']]],

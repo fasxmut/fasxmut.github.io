@@ -50,7 +50,7 @@ var namespacejpp_1_1io =
       [ "EAT_TRIANGLE3D", "namespacejpp_1_1io.html#a07b1940bf743a9d0c07169b5c988781bac29c7ed22b4e011967f674cda0455dd3", null ],
       [ "EAT_LINE2D", "namespacejpp_1_1io.html#a07b1940bf743a9d0c07169b5c988781baf6894b0d5a23ce1054b407a761458464", null ],
       [ "EAT_LINE3D", "namespacejpp_1_1io.html#a07b1940bf743a9d0c07169b5c988781bab77d41419ae1413219601e2c7186906a", null ],
-      [ "EAT_STRINGWARRAY", "namespacejpp_1_1io.html#a07b1940bf743a9d0c07169b5c988781baba6859cf4add33cda292c436337a5c76", null ],
+      [ "EAT_WSTRINGARRAY", "namespacejpp_1_1io.html#a07b1940bf743a9d0c07169b5c988781ba808bb895a4b8c522224efb60ab14db31", null ],
       [ "EAT_FLOATARRAY", "namespacejpp_1_1io.html#a07b1940bf743a9d0c07169b5c988781ba79a4ea019fb9dbbf8850f3fe28d8949a", null ],
       [ "EAT_INTARRAY", "namespacejpp_1_1io.html#a07b1940bf743a9d0c07169b5c988781ba0dd67c5d5ed52b49a2e48805706c55ec", null ],
       [ "EAT_BINARY", "namespacejpp_1_1io.html#a07b1940bf743a9d0c07169b5c988781ba3058ae67025c5d9f49d7aaf02ea33133", null ],

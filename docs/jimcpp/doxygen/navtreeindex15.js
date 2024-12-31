@@ -1,5 +1,9 @@
 var NAVTREEINDEX15 =
 {
+"classjpp_1_1scene_1_1ILightManager.html#a5cde34a4be7219627248a38608ec6350":[2,0,0,3,21,5],
+"classjpp_1_1scene_1_1ILightManager.html#a5cde34a4be7219627248a38608ec6350":[3,0,0,3,22,5],
+"classjpp_1_1scene_1_1ILightManager.html#a5eaf164e442b3f64a931f4e767960b97":[3,0,0,3,22,0],
+"classjpp_1_1scene_1_1ILightManager.html#a5eaf164e442b3f64a931f4e767960b97":[2,0,0,3,21,0],
 "classjpp_1_1scene_1_1ILightManager.html#a8309d5fb2fb4b0c9bb705130e0e329b5":[3,0,0,3,22,3],
 "classjpp_1_1scene_1_1ILightManager.html#a8309d5fb2fb4b0c9bb705130e0e329b5":[2,0,0,3,21,3],
 "classjpp_1_1scene_1_1ILightManager.html#aaea21bbe20f13f675a70c0c6ed44e6b7":[3,0,0,3,22,1],
@@ -245,9 +249,5 @@ var NAVTREEINDEX15 =
 "classjpp_1_1scene_1_1IMeshManipulator.html#aa939dc970fadf7cebaed5b181b7ac786":[2,0,0,3,27,26],
 "classjpp_1_1scene_1_1IMeshManipulator.html#aa939dc970fadf7cebaed5b181b7ac786":[3,0,0,3,28,26],
 "classjpp_1_1scene_1_1IMeshManipulator.html#ab1178e7a47cba72e5809c541b44a0ab5":[2,0,0,3,27,16],
-"classjpp_1_1scene_1_1IMeshManipulator.html#ab1178e7a47cba72e5809c541b44a0ab5":[3,0,0,3,28,16],
-"classjpp_1_1scene_1_1IMeshManipulator.html#abbc6b5d75108d6b48670101acc1b9ca9":[3,0,0,3,28,30],
-"classjpp_1_1scene_1_1IMeshManipulator.html#abbc6b5d75108d6b48670101acc1b9ca9":[2,0,0,3,27,30],
-"classjpp_1_1scene_1_1IMeshManipulator.html#ac53f6f39706eeb490a78fb9ace9271e1":[2,0,0,3,27,20],
-"classjpp_1_1scene_1_1IMeshManipulator.html#ac53f6f39706eeb490a78fb9ace9271e1":[3,0,0,3,28,20]
+"classjpp_1_1scene_1_1IMeshManipulator.html#ab1178e7a47cba72e5809c541b44a0ab5":[3,0,0,3,28,16]
 };
