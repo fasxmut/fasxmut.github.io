@@ -7,8 +7,9 @@
 [include traits-type-traits.qbk]
 [include boost-proto.qbk]
 
-* [@. Up: c++ Silice]
-* [@.. Home: cppfx.xyz]
+[h1:back [role cyan Back]]
+
+[@. Up]
 
 
 

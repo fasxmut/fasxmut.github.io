@@ -5,9 +5,6 @@
 
 Created on Oct 26, 2024
 
-* [link cpp-silice-unsilice Up: c++ Silice Unsilice]
-* [@.. Home: cppfx.xyz]
-
 [h1:cpp-traits-type-traits [role cyan c++ traits type traits]]
 
 Think of a trait as a small object whose main purpose is to carry information used by another object or algorithm to determine "policy" or "implementation details".
@@ -35,12 +32,13 @@ static_assert( ! std::is_floating_point_v<std::string>);
 std::cout << std::boolalpha << std::is_floating_point_v<std::string> << std::endl;	// false
 ```
 
-* [link cpp-silice-unsilice Up: c++ Silice Unsilice]
-* [@.. Home: cppfx.xyz]
-
 [h1 [role cyan See Also]]
 
 [@https://en.cppreference.com/w/cpp/header/type_traits cppreference <type_traits>]
+
+[h1:back [role cyan Back]]
+
+[link cpp-silice-unsilice Up]
 
 
 

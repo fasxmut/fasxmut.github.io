@@ -7,9 +7,6 @@ c++ lvalue reference, rvalue reference, and const
 
 Created on Oct 29, 2024
 
-* [link cpp-lvalue-rvalue Up: c++ Lvalue Rvalue]
-* [@.. Home: cppfx.xyz]
-
 [h1:cpp-lvalue-ref [role cyan c++ lvalue reference]]
 
 [h2 Lvalue ref]
@@ -109,8 +106,11 @@ int a;
 const int && x = a;	// ERROR, const rvalue reference x can not be bound to lvalue a.
 ```
 
-* [link cpp-lvalue-rvalue Up: c++ Lvalue Rvalue]
-* [@.. Home: cppfx.xyz]
+[h1:back [role cyan Back]]
+
+[link cpp-lvalue-rvalue Up]
+
+
 
 [include ../../../share/foot-links.inc.qbk]
 

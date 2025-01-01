@@ -1,0 +1,255 @@
+[article c++ play audio: Haiku BFileGameSound
+	[id play-audio-BFileGameSound]
+	[quickbook 1.7]
+]
+
+Haiku c++ Play Audio: BFileGameSound
+
+BFileGameSound is in Haiku game kit.
+
+Haiku: [@https://www.haiku-os.org]
+
+[h1:class-BFileGameSound [role cyan class BFileGameSound]]
+
+Construct:
+
+[!c++]
+```
+auto music = BFileGameSound{music_filename, loop, device};
+```
+
+[!c++]
+```
+auto music = BFileGameSound{"test2.mp3", false, nullptr};
+```
+
+[h1:play [role cyan Play]]
+
+[*[role ddddred play] - [role ddred stop play] - [role pred is playing]]
+
+[*play:]
+
+```
+music.StartPlaying();
+```
+
+[*stop:]
+
+```
+music.StopPlaying();
+```
+
+[*is playing:]
+
+```
+bool r = music.IsPlaying();
+```
+
+[h1:pause [role cyan Pause]]
+
+[*[role dgreen pause] - [role ddgreen resume] - [role ddddgreen is paused]]
+
+[*pause]
+
+music.SetPaused(true/false, ramp_time);
+
+```
+music.SetPaused(true, 0);
+```
+
+[*resume]
+
+```
+music.SetPaused(false, 0);
+```
+
+[*is paused]
+
+```
+bool r = music.IsPaused();
+```
+
+[h1:cpp-example [role cyan c++ example]]
+
+[!c++]
+```
+#include <FileGameSound.h>
+#include <future>
+#include <iostream>
+#include <atomic>
+
+namespace app
+{
+
+std::mutex mutex;
+
+enum class music_status
+{
+	not_started,
+	playing,
+	pausing,
+	stopped
+};
+
+class a_sleep_class
+{
+public:
+	void operator()(float seconds) const
+	{
+		std::this_thread::sleep_for(std::chrono::milliseconds(1) * (seconds*1000));
+	}
+};
+
+inline auto a_sleep = app::a_sleep_class{};
+
+}	// namespace app
+
+int main(int argc, char * argv[])
+{
+	if (argc != 2)
+	{
+		std::unique_lock<std::mutex> lock{app::mutex};
+		std::cout << argv[0] << " <music file>" << std::endl;
+		return 0;
+	}
+	auto music = BFileGameSound{argv[1], false, nullptr};	// filename, loop, device
+	std::atomic<app::music_status> status = app::music_status::not_started;
+	music.StartPlaying();
+	std::unique_lock<std::mutex> lock{app::mutex};
+	std::cout << "Playing ..." << std::endl;
+	lock.unlock();
+	status.store(app::music_status::playing);
+	std::atomic<app::music_status> old_status;
+	old_status.store(status.load());
+
+	std::future<void> ui = std::async(
+		[&]
+		{
+			while (true)
+			{
+				if (status == app::music_status::stopped)
+				{
+					std::unique_lock<std::mutex> lock{app::mutex};
+					std::cout << "UI quit ...\n";
+					break;
+				}
+
+				std::unique_lock<std::mutex> lock{app::mutex};
+				std::cout
+					<< "-----------------\n"
+					<< "q - quit\n"
+					<< "p - pause\n"
+					<< "r - resume\n"
+					<< "-----------------\n"
+				;
+				lock.unlock();
+				std::string input = "";
+				std::getline(std::cin, input);
+
+				if (input == "q")
+					music.StopPlaying();
+				if (input == "p")
+					music.SetPaused(true, 0);
+				if (input == "r")
+					music.SetPaused(false, 0);
+			}
+		}
+	);
+
+	while (true)
+	{
+		app::a_sleep(0.354);
+
+		// Make status
+		{
+			if (! music.IsPlaying())
+				status.store(app::music_status::stopped);
+			else
+			{
+				status.store(app::music_status::playing);
+			}
+
+			if (music.IsPaused())
+				status.store(app::music_status::pausing);
+		}
+
+		// Process status
+		{
+			if (status == old_status)
+				continue;
+
+			// else
+
+			old_status.store(status.load());
+
+			if (status == app::music_status::playing)
+			{
+				std::unique_lock<std::mutex> lock{app::mutex};
+				std::cout << "Playing ..." << std::endl;
+			}
+			if (status == app::music_status::pausing)
+			{
+				std::unique_lock<std::mutex> lock{app::mutex};
+				std::cout << "Paused ..." << std::endl;
+			}
+			if (status == app::music_status::stopped)
+			{
+				std::unique_lock<std::mutex> lock{app::mutex};
+				std::cout << "Stopped" << std::endl;
+				std::cout << "Player quit ...\n";
+				break;
+			}
+		}
+	}
+	return 0;
+}
+```
+
+Run:
+
+[!teletype]
+```
+~> g++ test.cpp -std=c++23 -o test -lgame
+~> ./test 
+./test <music file>
+~> ./test test2.mp3 
+Playing ...
+-----------------
+q - quit
+p - pause
+r - resume
+-----------------
+p
+-----------------
+q - quit
+p - pause
+r - resume
+-----------------
+Paused ...
+r
+-----------------
+q - quit
+p - pause
+r - resume
+-----------------
+Playing ...
+q
+-----------------
+q - quit
+p - pause
+r - resume
+-----------------
+Stopped
+Player quit ...
+
+UI quit ...
+```
+
+[h1:back [role cyan Back]]
+
+[link haiku-cpp-audio Up]
+
+
+
+[include ../../../../../share/foot-links.inc.qbk]
+

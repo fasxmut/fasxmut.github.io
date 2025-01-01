@@ -9,9 +9,6 @@ Created on Oct 10, 2024
 
 Updated On Oct 13, 2024 - Add asio::as_tuple, update throwing c++ std::exception.
 
-* [link cpp-silice-silice Up: c++ Silice Silice]
-* [@.. Home: cppfx.xyz]
-
 [h1 [role cyan cpp botan tls + boost asio beast]]
 
 * [link cpp-botan-tls-boost-asio-beast-client.step-by-step Hunt (track) it Step By Step]
@@ -672,9 +669,6 @@ catch (const std::exception & e)
 }
 ```
 
-* [link cpp-silice-silice Up: c++ Silice Silice]
-* [@.. Home: cppfx.xyz]
-
 [h1 [role cyan See Also]]
 
 [@https://botan.randombit.net c++ botan]
@@ -683,6 +677,10 @@ catch (const std::exception & e)
 
 [@https://www.boost.org/libs/beast boost::beast]
 
+[h1:back [role cyan Back]]
+
+[link cpp-silice-silice Up]
 
 
-[include ../../../share/foot-links.inc.qbk]
+
+[include ../../../../share/foot-links.inc.qbk]

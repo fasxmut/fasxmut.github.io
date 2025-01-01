@@ -1,0 +1,15 @@
+[article Haiku OS c++ audio
+	[id haiku-cpp-audio]
+	[quickbook 1.7]
+]
+
+[include BFileGameSound.qbk]
+
+[h1:back [role cyan Back]]
+
+[link cpp-audio Up]
+
+
+
+[include ../../../../../share/foot-links.inc.qbk]
+

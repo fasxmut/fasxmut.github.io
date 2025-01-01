@@ -6,9 +6,9 @@
 [include silice/silice.qbk]
 [include unsilice/unsilice.qbk]
 
-* [@.. Up]
+[h1:back [role cyan Back]]
 
-
+[@.. Up]
 
 [include ../../share/foot-links.inc.qbk]
 

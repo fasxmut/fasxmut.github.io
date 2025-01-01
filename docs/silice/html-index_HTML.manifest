@@ -1,7 +1,13 @@
 index.html
 cpp-silice-silice.html
+cpp-networking.html
 cpp-asio-beast-http-networking.html
 cpp-botan-tls-boost-asio-beast-client.html
+cpp-audio.html
+haiku-cpp-audio.html
+play-audio-BFileGameSound.html
+serenity-cpp-audio.html
+rtaudio-cpp-audio.html
 cpp-silice-unsilice.html
 cpp-lvalue-rvalue.html
 01-cpp-lvalue-rvalue-xvalue-prvalue-glvalue.html

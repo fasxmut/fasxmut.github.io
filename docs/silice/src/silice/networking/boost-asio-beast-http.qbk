@@ -7,9 +7,6 @@ cpp: c++ network silice
 
 Created on Oct 9, 2024
 
-* [link cpp-silice-silice Up: c++ Silice Silice]
-* [@.. Home: cppfx.xyz]
-
 [h1 [role cyan cpp boost::asio, boost::beast networking silice]]
 
 c++ boost::asio, boost::beast networking silice
@@ -878,15 +875,16 @@ catch (const std::exception & e)
 }
 ```
 
-* [link cpp-silice-silice Up: c++ Silice Silice]
-* [@.. Home: cppfx.xyz]
-
 [h1 [role cyan See Also]]
 
 [@https://www.boost.org/libs/asio boost::asio]
 
 [@https://www.boost.org/libs/beast boost::beast]
 
+[h1:back [role cyan Back]]
+
+[link cpp-silice-silice Up]
 
 
-[include ../../../share/foot-links.inc.qbk]
+
+[include ../../../../share/foot-links.inc.qbk]

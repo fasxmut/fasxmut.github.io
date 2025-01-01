@@ -7,9 +7,6 @@ c++ lvalue, rvalue, xvalue, prvalue, glvalue
 
 Created on Oct 24, 2024
 
-* [link cpp-lvalue-rvalue Up: c++ Lvalue Rvalue]
-* [@.. Home: cppfx.xyz]
-
 [h1 [role cyan cpp lvalue, rvalue, xvalue, prvalue, glvalue]]
 
 c++ lvalue, rvalue, xvalue, prvalue, glvalue: c++ value categories
@@ -84,14 +81,15 @@ A: An lvalue is a value that has an address that can be accessed by the program,
 
 [$../media/silice/cpp-lvalue-rvalue-meme.jpg]
 
-* [link cpp-lvalue-rvalue Up: c++ Lvalue Rvalue]
-* [@.. Home: cppfx.xyz]
-
 [h1 [role cyan See Also]]
 
 [@https://en.cppreference.com/w/cpp/language/value_category cppreference c++ value categories]
 
 [@https://learn.microsoft.com/en-us/cpp/cpp/lvalues-and-rvalues-visual-cpp?view=msvc-170 Microsoft c++ value categories]
+
+[h1:back [role cyan Back]]
+
+[link cpp-lvalue-rvalue Up]
 
 
 

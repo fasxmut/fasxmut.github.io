@@ -6,8 +6,9 @@
 [include lvalue-rvalue-01-value-categories.qbk]
 [include lvalue-rvalue-02-lvalue-ref-rvalue-ref-const.qbk]
 
-* [link cpp-silice-unsilice Up: c++ Silice Unsilice]
-* [@.. Home: cppfx.xyz]
+[h1:back [role cyan Back]]
+
+[link cpp-silice-unsilice Up]
 
 
 
