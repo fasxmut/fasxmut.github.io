@@ -1,0 +1,163 @@
+[article Haiku c++: BSoundPlayer
+	[id BSoundPlayer]
+	[quickbook 1.7]
+]
+
+BSoundPlayer of Haiku c++ audio api.
+
+Kit: Haiku media kit.
+
+Read BeBook
+
+[*Constructor:]
+
+[!c++]
+```
+auto player = BSoundPlayer{
+	name-str,
+	player-callback-func,
+	notifier-callback-func,
+	cookie-ptr
+};
+```
+
+[*player-callback-func]
+
+[!c++]
+```
+auto cb = [] (
+	void * cookie,
+	void * buffer,
+	std::size_t size,
+	const media_raw_audio_format & format
+)
+{
+};
+```
+
+[*cookie]
+
+Any c++ object whose lifetime is across all callbacks.
+
+[*Play]
+
+[!c++]
+```
+player.Start();
+
+player.Stop();
+```
+
+[@https://www.haiku-os.org]
+
+[h1:cpp-example [role cyan c++ example]]
+
+Note:
+
+* It has [*dimx] channels.
+* Each channel has [*dimy] floats.
+* The memory layout is [*<dimx-floats><dimx-floats><dimx-floats> ... <dimx-floats> ...]
+
+Total-bytes:
+
+size__ \* dimx
+==
+(dimx \* dimy) \* sizeof float{}
+
+[!c++]
+```
+#include <SoundPlayer.h>
+#include <iostream>
+#include <future>
+
+namespace app
+{
+
+class cookie
+{
+private:
+	float incrementer = 0.0f;
+public:
+	virtual ~cookie()
+	{
+		std::cout << std::endl;
+		std::cout << "cookie destructor is called" << std::endl;
+	}
+	cookie() = default;
+public:
+	float get()
+	{
+		incrementer += 0.1f;
+		if (incrementer >= 100.0f)
+			incrementer = -100.0f;
+		return incrementer;
+	}
+	void reset()
+	{
+		std::cout << "cookie reset ... " << std::flush;
+		incrementer = 0.0f;
+	}
+};
+
+}
+
+int main()
+{
+	auto cookie = app::cookie{};
+	auto player = BSoundPlayer{
+		"player",
+		[] (
+			void * cookie__,
+			void * buffer__,
+			std::size_t size__,
+			const media_raw_audio_format & format__
+		)
+		{
+			if (format__.format != media_raw_audio_format::B_AUDIO_FLOAT)
+			{
+				std::cout << "Unsupported by this program." << std::endl;
+				return;
+			}
+			auto dimy = size__ / sizeof float{};
+			auto dimx = format__.channel_count;
+
+			auto buffer = reinterpret_cast<float *>(buffer__);
+			auto cookie = reinterpret_cast<app::cookie *>(cookie__);
+
+			cookie->reset();
+
+			for (int j=0; j<dimy; ++j)
+			{
+				for (int i=0; i<dimx; ++i)
+				{
+					buffer[j*dimx + i] = cookie->get();
+				}
+			}
+		},
+		{},
+		&cookie
+	};
+	player.Start();
+	std::this_thread::sleep_for(std::chrono::minutes(1));
+	player.Stop();
+}
+```
+
+Build:
+
+[!teletype]
+```
+g++ play.cpp -std=c++23 -lmedia -o play
+```
+
+[br][br][br][br]
+[br][br][br][br]
+
+Jan 02, 2025
+
+[h1:back [role cyan Back]]
+
+[link audio Up]
+
+[include ../../../share/foot-links.inc.qbk]
+

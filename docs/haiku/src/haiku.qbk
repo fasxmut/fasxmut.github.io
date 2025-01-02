@@ -1,0 +1,15 @@
+[book Haiku OS c++
+	[id haiku-os]
+	[quickbook 1.7]
+]
+
+[include audio/audio.qbk]
+
+[@https://www.haiku-os.org]
+
+[h1:back [role cyan Back]]
+
+[@.. Up]
+
+[include ../../share/foot-links.inc.qbk]
+
