@@ -85,6 +85,9 @@
             The memory layout is <span class="bold"><strong>&lt;dimx-floats&gt;&lt;dimx-floats&gt;&lt;dimx-floats&gt;
             ... &lt;dimx-floats&gt; ...</strong></span>
           </li>
+<li class="listitem">
+            The sample ranges from -1.0 to 1.0, if the format is float.
+          </li>
 </ul></div>
 <p>
         Total-bytes:
@@ -95,6 +98,7 @@
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">SoundPlayer</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">future</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">bit</span><span class="special">&gt;</span>
 
 <span class="keyword">namespace</span> <span class="identifier">app</span>
 <span class="special">{</span>
@@ -102,26 +106,24 @@
 <span class="keyword">class</span> <span class="identifier">cookie</span>
 <span class="special">{</span>
 <span class="keyword">private</span><span class="special">:</span>
-	<span class="keyword">float</span> <span class="identifier">incrementer</span> <span class="special">=</span> <span class="number">0.0f</span><span class="special">;</span>
+	<span class="keyword">float</span> <span class="identifier">__incrementer</span> <span class="special">=</span> <span class="number">0.0f</span><span class="special">;</span>
 <span class="keyword">public</span><span class="special">:</span>
 	<span class="keyword">virtual</span> <span class="special">~</span><span class="identifier">cookie</span><span class="special">()</span>
 	<span class="special">{</span>
-		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
-		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"cookie destructor is called"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"cookie is removed"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
 	<span class="special">}</span>
 	<span class="identifier">cookie</span><span class="special">()</span> <span class="special">=</span> <span class="keyword">default</span><span class="special">;</span>
 <span class="keyword">public</span><span class="special">:</span>
 	<span class="keyword">float</span> <span class="identifier">get</span><span class="special">()</span>
 	<span class="special">{</span>
-		<span class="identifier">incrementer</span> <span class="special">+=</span> <span class="number">0.1f</span><span class="special">;</span>
-		<span class="keyword">if</span> <span class="special">(</span><span class="identifier">incrementer</span> <span class="special">&gt;=</span> <span class="number">100.0f</span><span class="special">)</span>
-			<span class="identifier">incrementer</span> <span class="special">=</span> <span class="special">-</span><span class="number">100.0f</span><span class="special">;</span>
-		<span class="keyword">return</span> <span class="identifier">incrementer</span><span class="special">;</span>
+		<span class="identifier">__incrementer</span> <span class="special">+=</span> <span class="number">0.02f</span><span class="special">;</span>
+		<span class="keyword">if</span> <span class="special">(</span><span class="identifier">__incrementer</span> <span class="special">&gt;=</span> <span class="number">1.0f</span><span class="special">)</span>
+			<span class="identifier">__incrementer</span> <span class="special">=</span> <span class="special">-</span><span class="number">1.0</span><span class="special">;</span>
+		<span class="keyword">return</span> <span class="identifier">__incrementer</span><span class="special">;</span>
 	<span class="special">}</span>
 	<span class="keyword">void</span> <span class="identifier">reset</span><span class="special">()</span>
 	<span class="special">{</span>
-		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"cookie reset ... "</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">flush</span><span class="special">;</span>
-		<span class="identifier">incrementer</span> <span class="special">=</span> <span class="number">0.0f</span><span class="special">;</span>
+		<span class="identifier">__incrementer</span> <span class="special">=</span> <span class="number">0.0f</span><span class="special">;</span>
 	<span class="special">}</span>
 <span class="special">};</span>
 
@@ -141,15 +143,15 @@
 		<span class="special">{</span>
 			<span class="keyword">if</span> <span class="special">(</span><span class="identifier">format__</span><span class="special">.</span><span class="identifier">format</span> <span class="special">!=</span> <span class="identifier">media_raw_audio_format</span><span class="special">::</span><span class="identifier">B_AUDIO_FLOAT</span><span class="special">)</span>
 			<span class="special">{</span>
-				<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Unsupported by this program."</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+				<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Only float format is supported by this program"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
 				<span class="keyword">return</span><span class="special">;</span>
 			<span class="special">}</span>
 			<span class="keyword">auto</span> <span class="identifier">dimy</span> <span class="special">=</span> <span class="identifier">size__</span> <span class="special">/</span> <span class="keyword">sizeof</span> <span class="keyword">float</span><span class="special">{};</span>
 			<span class="keyword">auto</span> <span class="identifier">dimx</span> <span class="special">=</span> <span class="identifier">format__</span><span class="special">.</span><span class="identifier">channel_count</span><span class="special">;</span>
 
-			<span class="keyword">auto</span> <span class="identifier">buffer</span> <span class="special">=</span> <span class="keyword">reinterpret_cast</span><span class="special">&lt;</span><span class="keyword">float</span> <span class="special">*&gt;(</span><span class="identifier">buffer__</span><span class="special">);</span>
-			<span class="keyword">auto</span> <span class="identifier">cookie</span> <span class="special">=</span> <span class="keyword">reinterpret_cast</span><span class="special">&lt;</span><span class="identifier">app</span><span class="special">::</span><span class="identifier">cookie</span> <span class="special">*&gt;(</span><span class="identifier">cookie__</span><span class="special">);</span>
+			<span class="keyword">auto</span> <span class="identifier">buffer</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">bit_cast</span><span class="special">&lt;</span><span class="keyword">float</span> <span class="special">*&gt;(</span><span class="identifier">buffer__</span><span class="special">);</span>
 
+			<span class="keyword">auto</span> <span class="identifier">cookie</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">bit_cast</span><span class="special">&lt;</span><span class="identifier">app</span><span class="special">::</span><span class="identifier">cookie</span> <span class="special">*&gt;(</span><span class="identifier">cookie__</span><span class="special">);</span>
 			<span class="identifier">cookie</span><span class="special">-&gt;</span><span class="identifier">reset</span><span class="special">();</span>
 
 			<span class="keyword">for</span> <span class="special">(</span><span class="keyword">int</span> <span class="identifier">j</span><span class="special">=</span><span class="number">0</span><span class="special">;</span> <span class="identifier">j</span><span class="special">&lt;</span><span class="identifier">dimy</span><span class="special">;</span> <span class="special">++</span><span class="identifier">j</span><span class="special">)</span>
@@ -164,6 +166,7 @@
 		<span class="special">&amp;</span><span class="identifier">cookie</span>
 	<span class="special">};</span>
 	<span class="identifier">player</span><span class="special">.</span><span class="identifier">Start</span><span class="special">();</span>
+	<span class="identifier">player</span><span class="special">.</span><span class="identifier">SetHasData</span><span class="special">(</span><span class="keyword">true</span><span class="special">);</span>
 	<span class="identifier">std</span><span class="special">::</span><span class="identifier">this_thread</span><span class="special">::</span><span class="identifier">sleep_for</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">chrono</span><span class="special">::</span><span class="identifier">minutes</span><span class="special">(</span><span class="number">1</span><span class="special">));</span>
 	<span class="identifier">player</span><span class="special">.</span><span class="identifier">Stop</span><span class="special">();</span>
 <span class="special">}</span>

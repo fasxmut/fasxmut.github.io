@@ -57,6 +57,7 @@ Note:
 * It has [*dimx] channels.
 * Each channel has [*dimy] floats.
 * The memory layout is [*<dimx-floats><dimx-floats><dimx-floats> ... <dimx-floats> ...]
+* The sample ranges from -1.0 to 1.0, if the format is float.
 
 Total-bytes:
 
@@ -69,6 +70,7 @@ size__ \* dimx
 #include <SoundPlayer.h>
 #include <iostream>
 #include <future>
+#include <bit>
 
 namespace app
 {
@@ -76,26 +78,24 @@ namespace app
 class cookie
 {
 private:
-	float incrementer = 0.0f;
+	float __incrementer = 0.0f;
 public:
 	virtual ~cookie()
 	{
-		std::cout << std::endl;
-		std::cout << "cookie destructor is called" << std::endl;
+		std::cout << "cookie is removed" << std::endl;
 	}
 	cookie() = default;
 public:
 	float get()
 	{
-		incrementer += 0.1f;
-		if (incrementer >= 100.0f)
-			incrementer = -100.0f;
-		return incrementer;
+		__incrementer += 0.02f;
+		if (__incrementer >= 1.0f)
+			__incrementer = -1.0;
+		return __incrementer;
 	}
 	void reset()
 	{
-		std::cout << "cookie reset ... " << std::flush;
-		incrementer = 0.0f;
+		__incrementer = 0.0f;
 	}
 };
 
@@ -115,15 +115,15 @@ int main()
 		{
 			if (format__.format != media_raw_audio_format::B_AUDIO_FLOAT)
 			{
-				std::cout << "Unsupported by this program." << std::endl;
+				std::cout << "Only float format is supported by this program" << std::endl;
 				return;
 			}
 			auto dimy = size__ / sizeof float{};
 			auto dimx = format__.channel_count;
 
-			auto buffer = reinterpret_cast<float *>(buffer__);
-			auto cookie = reinterpret_cast<app::cookie *>(cookie__);
+			auto buffer = std::bit_cast<float *>(buffer__);
 
+			auto cookie = std::bit_cast<app::cookie *>(cookie__);
 			cookie->reset();
 
 			for (int j=0; j<dimy; ++j)
@@ -138,6 +138,7 @@ int main()
 		&cookie
 	};
 	player.Start();
+	player.SetHasData(true);
 	std::this_thread::sleep_for(std::chrono::minutes(1));
 	player.Stop();
 }
