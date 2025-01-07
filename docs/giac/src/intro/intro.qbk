@@ -1,0 +1,13 @@
+[article Intro - Giac c++
+	[id intro]
+	[quickbook 1.7]
+]
+
+[include start.qbk]
+
+[h1:back [role cyan Back]]
+
+[@. Up]
+
+[include ../../../share/foot-links.inc.qbk]
+
