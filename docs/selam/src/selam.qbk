@@ -1,0 +1,19 @@
+[book Selam c++ Audio Codec
+	[id selam]
+	[quickbook 1.7]
+]
+
+Selam is a c++ audio encoder and decoder library of the sela audio codec format.
+
+Selam forks from c++ sela audio codec.
+
+Selam c++ project code breaks the clone-link with sela c++ project, because selam changes the file structures, code structures and code styles very much.
+
+The audio codec structure and file extension name of format .sela are still kept the same.
+
+[h1:back [role cyan Back]]
+
+[@.. Up]
+
+[include ../../share/foot-links.inc.qbk]
+
