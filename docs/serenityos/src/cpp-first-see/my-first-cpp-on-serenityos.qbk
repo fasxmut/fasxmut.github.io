@@ -3,6 +3,8 @@
 	[quickbook 1.7]
 ]
 
+My first c++ programming code on SerenityOS - c++ first see - SereninyOS c++
+
 SerenityOS Home: [@https://serenityos.org SerenityOS]
 
 [h1:prepare [role cyan Prepare]]
@@ -70,9 +72,15 @@ result: false
 =>Hello, AK!
 ```
 
+[br] [br] [br] [br]
+[br] [br] [br] [br]
+[br] [br] [br] [br]
+
+Nov 20, 2024
+
 [h1:back [role cyan Back]]
 
-[@. Up]
+[link cpp-first-see Up]
 
-[include ../../share/foot-links.inc.qbk]
+[include ../../../share/foot-links.inc.qbk]
 

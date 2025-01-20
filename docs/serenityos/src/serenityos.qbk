@@ -3,7 +3,7 @@
 	[id serenityos]
 ]
 
-[include my-first-cpp-on-serenityos.qbk]
+[include cpp-first-see/cpp-first-see.qbk]
 
 [h2 SerenityOS]
 
