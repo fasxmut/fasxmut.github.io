@@ -5,6 +5,7 @@
 
 [include my-first-cpp-on-serenityos.qbk]
 [include core-system-fork.qbk]
+[include core-system-waitpid.qbk]
 
 [h1:back [role cyan Back]]
 
