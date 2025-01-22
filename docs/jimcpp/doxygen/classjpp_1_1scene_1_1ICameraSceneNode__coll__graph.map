@@ -1,24 +1,26 @@
 <map id="jpp::scene::ICameraSceneNode" name="jpp::scene::ICameraSceneNode">
-<area shape="rect" id="Node000001" title="Scene Node which is a (controllable) camera." alt="" coords="864,186,1088,211"/>
-<area shape="rect" id="Node000002" href="$classjpp_1_1scene_1_1ISceneNode.html" title="Scene node interface." alt="" coords="641,153,815,178"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="828,176,882,183,881,189,828,181"/>
-<area shape="poly" id="edge5_Node000002_Node000002" title=" " alt="" coords="706,138,713,129,728,126,741,128,749,135,751,144,747,154,742,152,746,144,745,138,739,133,728,131,715,134,710,141"/>
+<area shape="rect" id="Node000001" title="Scene Node which is a (controllable) camera." alt="" coords="864,199,1088,225"/>
+<area shape="rect" id="Node000002" href="$classjpp_1_1scene_1_1ISceneNode.html" title="Scene node interface." alt="" coords="641,166,815,191"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="828,189,882,197,881,202,828,195"/>
+<area shape="poly" id="edge6_Node000002_Node000002" title=" " alt="" coords="706,151,713,143,728,139,741,142,749,148,751,158,747,167,742,165,746,157,745,151,739,147,728,145,715,147,710,154"/>
 <area shape="rect" id="Node000003" href="$classjpp_1_1io_1_1IAttributeExchangingObject.html" title="An object which is able to serialize and deserialize its attributes into an attributes object." alt="" coords="245,5,452,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="466,35,543,52,618,79,648,95,675,114,716,150,712,154,671,119,645,100,616,84,541,57,465,41"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="467,33,543,49,582,62,619,78,650,97,678,121,718,164,714,168,674,125,647,102,616,82,580,67,542,54,466,38"/>
 <area shape="rect" id="Node000004" href="$classjpp_1_1IReferenceCounted.html" title="Base class of most objects of the Jimcpp Engine." alt="" coords="5,70,180,95"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="163,64,258,43,260,48,164,70"/>
-<area shape="rect" id="Node000008" href="$classjpp_1_1scene_1_1ISceneManager.html" title="The Scene Manager manages scene nodes, mesh resources, cameras and all the other stuff." alt="" coords="251,70,447,95"/>
-<area shape="poly" id="edge9_Node000008_Node000004" title=" " alt="" coords="194,80,251,80,251,85,194,85"/>
-<area shape="rect" id="Node000009" href="$classjpp_1_1scene_1_1ITriangleSelector.html" title="Interface to return triangles with specific properties." alt="" coords="247,119,451,145"/>
-<area shape="poly" id="edge11_Node000009_Node000004" title=" " alt="" coords="173,95,282,117,281,122,172,101"/>
-<area shape="rect" id="Node000005" href="$classjpp_1_1core_1_1vector3d.html" title=" " alt="" coords="277,176,420,216"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="434,206,523,209,570,207,617,199,628,194,640,187,674,176,676,181,642,192,631,198,618,204,571,212,523,215,434,211"/>
-<area shape="rect" id="Node000006" href="$classjpp_1_1core_1_1list.html" title=" " alt="" coords="259,240,438,280"/>
-<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="452,268,493,267,536,261,578,249,616,230,624,221,627,210,631,199,640,187,659,176,662,180,643,191,635,201,632,212,629,224,619,234,580,254,537,266,494,272,452,273"/>
-<area shape="rect" id="Node000007" href="$classjpp_1_1core_1_1list.html" title=" " alt="" coords="229,304,468,344"/>
-<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="481,333,517,329,553,321,586,307,616,286,624,275,628,264,627,240,626,214,630,201,639,187,655,176,658,180,643,191,635,203,632,215,633,239,633,265,629,278,619,290,589,311,555,326,518,334,482,338"/>
-<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="461,93,538,105,618,123,697,150,696,155,617,128,537,111,460,98"/>
-<area shape="poly" id="edge10_Node000002_Node000009" title=" " alt="" coords="465,139,641,155,641,160,464,145"/>
-<area shape="rect" id="Node000010" href="$classjpp_1_1IEventReceiver.html" title="Interface of an object which can receive events." alt="" coords="654,202,802,227"/>
-<area shape="poly" id="edge12_Node000001_Node000010" title=" " alt="" coords="816,206,864,203,864,209,816,212"/>
+<area shape="rect" id="Node000009" href="$classjpp_1_1scene_1_1ISceneManager.html" title="The Scene Manager manages scene nodes, mesh resources, cameras and all the other stuff." alt="" coords="251,70,447,95"/>
+<area shape="poly" id="edge10_Node000009_Node000004" title=" " alt="" coords="194,80,251,80,251,85,194,85"/>
+<area shape="rect" id="Node000010" href="$classjpp_1_1scene_1_1ITriangleSelector.html" title="Interface to return triangles with specific properties." alt="" coords="247,119,451,145"/>
+<area shape="poly" id="edge12_Node000010_Node000004" title=" " alt="" coords="173,95,282,117,281,122,172,101"/>
+<area shape="rect" id="Node000005" href="$classjpp_1_1core_1_1basic__string.html" title=" " alt="" coords="267,169,431,209"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="444,184,641,178,641,184,444,189"/>
+<area shape="rect" id="Node000006" href="$classjpp_1_1core_1_1vector3d.html" title=" " alt="" coords="277,233,420,273"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="434,262,478,263,525,260,572,250,616,232,623,226,627,218,631,209,640,201,662,189,664,194,643,205,636,212,632,220,628,229,619,237,574,255,526,265,478,269,434,267"/>
+<area shape="rect" id="Node000007" href="$classjpp_1_1core_1_1list.html" title=" " alt="" coords="259,297,438,337"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="452,328,494,327,538,320,579,306,616,283,623,274,627,265,627,245,628,223,631,212,639,201,656,189,659,194,643,205,636,214,633,224,633,245,632,266,628,277,619,287,581,311,539,325,495,332,452,333"/>
+<area shape="rect" id="Node000008" href="$classjpp_1_1core_1_1list.html" title=" " alt="" coords="229,361,468,401"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="482,393,518,390,554,381,587,367,615,346,628,330,632,313,628,277,623,239,627,220,639,201,654,189,657,194,643,204,632,222,628,240,633,276,638,313,633,332,619,350,589,372,555,386,519,395,482,398"/>
+<area shape="poly" id="edge9_Node000002_Node000009" title=" " alt="" coords="461,92,539,105,618,125,665,144,705,164,703,168,663,149,617,131,538,111,460,97"/>
+<area shape="poly" id="edge11_Node000002_Node000010" title=" " alt="" coords="465,142,618,160,642,163,641,169,617,165,464,147"/>
+<area shape="rect" id="Node000011" href="$classjpp_1_1IEventReceiver.html" title="Interface of an object which can receive events." alt="" coords="654,215,802,241"/>
+<area shape="poly" id="edge13_Node000001_Node000011" title=" " alt="" coords="816,220,864,217,864,222,816,225"/>
 </map>

@@ -35,7 +35,7 @@ var searchData=
   ['imeshscenenode_32',['IMeshSceneNode',['../classjpp_1_1scene_1_1IMeshSceneNode.html#aa14a785a4d9863ef9d3b8496adb02eb1',1,'jpp::scene::IMeshSceneNode']]],
   ['incidentsegments_33',['incidentSegments',['../classjpp_1_1core_1_1line2d.html#a15529e55c5f90ffb1fa10f0006b4c4b6',1,'jpp::core::line2d']]],
   ['initialize_34',['initialize',['../classjpp_1_1video_1_1IContextManager.html#a991a35f288d5bb93d0fb0a4ec143c354',1,'jpp::video::IContextManager']]],
-  ['insert_35',['insert',['../classjpp_1_1core_1_1map.html#afdf39028550d8560a8e07134b10ee46c',1,'jpp::core::map::insert()'],['../classjpp_1_1core_1_1string.html#ad7dc26942deee26e67125c3f2d8795e5',1,'jpp::core::string::insert()'],['../classjpp_1_1core_1_1array.html#abd3e0fc5a80852268f8bfef5eb2f195b',1,'jpp::core::array::insert()']]],
+  ['insert_35',['insert',['../classjpp_1_1core_1_1map.html#afdf39028550d8560a8e07134b10ee46c',1,'jpp::core::map::insert()'],['../classjpp_1_1core_1_1basic__string.html#ae370dcb796fe43a60900081ca83e4fdf',1,'jpp::core::basic_string::insert()'],['../classjpp_1_1core_1_1array.html#abd3e0fc5a80852268f8bfef5eb2f195b',1,'jpp::core::array::insert()']]],
   ['insert_5fafter_36',['insert_after',['../classjpp_1_1core_1_1list.html#a34d68af383d06af051ed71ce844c429d',1,'jpp::core::list']]],
   ['insert_5fbefore_37',['insert_before',['../classjpp_1_1core_1_1list.html#a4d3f90a066858ea18cb08b1b8efa6285',1,'jpp::core::list']]],
   ['insertchildafter_38',['insertChildAfter',['../classjpp_1_1gui_1_1IGUITreeViewNode.html#aef523c5195cda1066f6f6388111d7d3a',1,'jpp::gui::IGUITreeViewNode']]],

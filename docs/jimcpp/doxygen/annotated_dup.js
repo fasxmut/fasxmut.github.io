@@ -4,6 +4,7 @@ var annotated_dup =
       [ "core", "namespacejpp_1_1core.html", [
         [ "aabbox3d", "classjpp_1_1core_1_1aabbox3d.html", "classjpp_1_1core_1_1aabbox3d" ],
         [ "array", "classjpp_1_1core_1_1array.html", "classjpp_1_1core_1_1array" ],
+        [ "basic_string", "classjpp_1_1core_1_1basic__string.html", "classjpp_1_1core_1_1basic__string" ],
         [ "CMatrix4", "classjpp_1_1core_1_1CMatrix4.html", "classjpp_1_1core_1_1CMatrix4" ],
         [ "dimension2d", "classjpp_1_1core_1_1dimension2d.html", "classjpp_1_1core_1_1dimension2d" ],
         [ "FloatIntUnion32", "unionjpp_1_1core_1_1FloatIntUnion32.html", null ],
@@ -16,7 +17,6 @@ var annotated_dup =
         [ "plane3d", "classjpp_1_1core_1_1plane3d.html", "classjpp_1_1core_1_1plane3d" ],
         [ "quaternion", "classjpp_1_1core_1_1quaternion.html", "classjpp_1_1core_1_1quaternion" ],
         [ "rect", "classjpp_1_1core_1_1rect.html", "classjpp_1_1core_1_1rect" ],
-        [ "string", "classjpp_1_1core_1_1string.html", "classjpp_1_1core_1_1string" ],
         [ "triangle3d", "classjpp_1_1core_1_1triangle3d.html", "classjpp_1_1core_1_1triangle3d" ],
         [ "vector2d", "classjpp_1_1core_1_1vector2d.html", "classjpp_1_1core_1_1vector2d" ],
         [ "vector3d", "classjpp_1_1core_1_1vector3d.html", "classjpp_1_1core_1_1vector3d" ]

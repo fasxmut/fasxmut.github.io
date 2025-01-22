@@ -15,6 +15,6 @@ var searchData=
   ['attenuation_12',['Attenuation',['../classjpp_1_1video_1_1SLight.html#ab60cb16409d9d1c08bfb0877a81ff516',1,'jpp::video::SLight']]],
   ['automaticcullingnames_13',['AutomaticCullingNames',['../namespacejpp_1_1scene.html#a0c04fbaba340e61cad22473b91d0c89b',1,'jpp::scene']]],
   ['automaticcullingstate_14',['AutomaticCullingState',['../classjpp_1_1scene_1_1ISceneNode.html#a84b6109d4ab3196bcfcef5a8e8550455',1,'jpp::scene::ISceneNode']]],
-  ['axes_15',['Axes',['../classjpp_1_1SJoystickInfo.html#a00cab18b44e4916910a079bedbe2b3bb',1,'jpp::SJoystickInfo']]],
+  ['axes_15',['Axes',['../classjpp_1_1SJoystickInfo.html#a9c16249ecc9a3b639b866d6d8f50abe2',1,'jpp::SJoystickInfo']]],
   ['axis_16',['Axis',['../classjpp_1_1SEvent_1_1SJoystickEvent.html#af8e40da402aabc3f16ec1285da1ce23c',1,'jpp::SEvent::SJoystickEvent']]]
 ];

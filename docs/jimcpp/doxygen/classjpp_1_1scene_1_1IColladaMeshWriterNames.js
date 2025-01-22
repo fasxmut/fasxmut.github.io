@@ -1,6 +1,6 @@
 var classjpp_1_1scene_1_1IColladaMeshWriterNames =
 [
-    [ "nameForMaterial", "classjpp_1_1scene_1_1IColladaMeshWriterNames.html#af4a0ebdb712d235860147cf137952170", null ],
-    [ "nameForMesh", "classjpp_1_1scene_1_1IColladaMeshWriterNames.html#a6fecd7aea7290c728c579bf63def6bcc", null ],
-    [ "nameForNode", "classjpp_1_1scene_1_1IColladaMeshWriterNames.html#a0b3f58a5e69d770b397d3ac97188af8e", null ]
+    [ "nameForMaterial", "classjpp_1_1scene_1_1IColladaMeshWriterNames.html#acf36f505ad8a1b4d9c95ccf4687002b2", null ],
+    [ "nameForMesh", "classjpp_1_1scene_1_1IColladaMeshWriterNames.html#afb6e569e29b9fc30ed2ac19de8d80fae", null ],
+    [ "nameForNode", "classjpp_1_1scene_1_1IColladaMeshWriterNames.html#a27ce831c458f4f5e3164ff1076f3791b", null ]
 ];

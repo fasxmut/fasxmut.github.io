@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['lastchar_0',['lastChar',['../classjpp_1_1core_1_1string.html#a81b5085ded9963b6c748d62c4681ccf5',1,'jpp::core::string']]],
+  ['lastchar_0',['lastChar',['../classjpp_1_1core_1_1basic__string.html#a2a9d122a7dd5d7e02e157e85ecd8eda0',1,'jpp::core::basic_string']]],
   ['lerp_1',['lerp',['../classjpp_1_1core_1_1quaternion.html#a8eeddc11835180696fa0e710c84de712',1,'jpp::core::quaternion::lerp()'],['../namespacejpp_1_1core.html#a5c2760d7811299f8abb6904bfb52faac',1,'jpp::core::lerp()']]],
   ['lerpn_2',['lerpN',['../classjpp_1_1core_1_1quaternion.html#ad845f8f92c4a16c675c2ec26b7b2b6bf',1,'jpp::core::quaternion']]],
   ['line2d_3',['line2d',['../classjpp_1_1core_1_1line2d.html#a8a934e07f33542f84e25597683ebd1d4',1,'jpp::core::line2d::line2d(T xa, T ya, T xb, T yb)'],['../classjpp_1_1core_1_1line2d.html#a7eebeb365cbca3bf726416c7d842d18d',1,'jpp::core::line2d::line2d(const vector2d&lt; T &gt; &amp;start, const vector2d&lt; T &gt; &amp;end)'],['../classjpp_1_1core_1_1line2d.html#a1d5ec7b1c406ab3e8f84a5ca4a1bec77',1,'jpp::core::line2d::line2d()']]],
@@ -17,5 +17,5 @@ var searchData=
   ['loadscene_14',['loadscene',['../classjpp_1_1scene_1_1ISceneManager.html#a8f5a7ac71781b4f6538a9bed8fa4b22c',1,'jpp::scene::ISceneManager::loadScene(const io::path &amp;filename, ISceneUserDataSerializer *userDataSerializer=0, ISceneNode *rootNode=0)=0'],['../classjpp_1_1scene_1_1ISceneManager.html#a5bb42669f6e7134c735c9e3882ed3f80',1,'jpp::scene::ISceneManager::loadScene(io::IReadFile *file, ISceneUserDataSerializer *userDataSerializer=0, ISceneNode *rootNode=0)=0'],['../classjpp_1_1scene_1_1ISceneLoader.html#a3addce6d3a4096231d742d32b01d5eac',1,'jpp::scene::ISceneLoader::loadScene()']]],
   ['lock_15',['lock',['../classjpp_1_1video_1_1ITexture.html#a7986e5116679dd8af673f9342ed17d2d',1,'jpp::video::ITexture::lock()'],['../classjpp_1_1video_1_1IImage.html#a6f70b88aafda94b58d00612a64360623',1,'jpp::video::IImage::lock()']]],
   ['log_16',['log',['../classjpp_1_1ILogger.html#aecd464f645313f8a3f187c417c421a29',1,'jpp::ILogger::log(const c8 *text, ELOG_LEVEL ll=ELL_INFORMATION)=0'],['../classjpp_1_1ILogger.html#ae8ff1b1ffa579b401534543caf2c053a',1,'jpp::ILogger::log(const c8 *text, const c8 *hint, ELOG_LEVEL ll=ELL_INFORMATION)=0'],['../classjpp_1_1ILogger.html#ae390b10db71b9a3cea6673dbd75e8825',1,'jpp::ILogger::log(const wchar_t *text, const wchar_t *hint, ELOG_LEVEL ll=ELL_INFORMATION)=0'],['../classjpp_1_1ILogger.html#ae8f3f20de6fa02d017473c4f44b8aa52',1,'jpp::ILogger::log(const wchar_t *text, ELOG_LEVEL ll=ELL_INFORMATION)=0']]],
-  ['lower_5fignore_5fcase_17',['lower_ignore_case',['../classjpp_1_1core_1_1string.html#a0b5f1e793f3d37f033ed5c8bffc681d3',1,'jpp::core::string']]]
+  ['lower_5fignore_5fcase_17',['lower_ignore_case',['../classjpp_1_1core_1_1basic__string.html#a8a71b1069bb398f697916e20e86a762e',1,'jpp::core::basic_string']]]
 ];

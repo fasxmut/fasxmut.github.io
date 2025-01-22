@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['data_0',['data',['../classjpp_1_1core_1_1string.html#af922541a367370aeb68a59c66e33aab9',1,'jpp::core::string']]],
+  ['data_0',['data',['../classjpp_1_1core_1_1basic__string.html#a7e66de68ec8b4eda1e822bc9eac3315b',1,'jpp::core::basic_string']]],
   ['deallocate_1',['deallocate',['../classjpp_1_1core_1_1irrAllocator.html#af5c8271b41073c863761d9e4da7a568d',1,'jpp::core::irrAllocator::deallocate()'],['../classjpp_1_1core_1_1irrAllocatorFast.html#aaae9798df104a70aa78e2ed3fb5191b8',1,'jpp::core::irrAllocatorFast::deallocate()']]],
   ['degtorad_2',['degtorad',['../namespacejpp_1_1core.html#adc7dbf4dfccc5a40a85aa4c6d655516e',1,'jpp::core::degToRad(f64 degrees)'],['../namespacejpp_1_1core.html#aab719c63329f21d12fa12d74a258b20d',1,'jpp::core::degToRad(f32 degrees)']]],
   ['deletealldynamiclights_3',['deleteAllDynamicLights',['../classjpp_1_1video_1_1IVideoDriver.html#ab202f22d5a934cc43b231d92c5a8ce53',1,'jpp::video::IVideoDriver']]],

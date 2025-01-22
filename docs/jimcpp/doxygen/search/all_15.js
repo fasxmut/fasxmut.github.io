@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['validate_0',['validate',['../classjpp_1_1core_1_1string.html#ab25581aabe7d863115bccdbff32ef1e8',1,'jpp::core::string']]],
+  ['validate_0',['validate',['../classjpp_1_1core_1_1basic__string.html#aea4f73e56dff581f7d7b1ad4f1f21ac9',1,'jpp::core::basic_string']]],
   ['vector_1',['vector',['../classjpp_1_1scene_1_1SParticle.html#a26b6a8f06bc7e9aa56040181a3b21e75',1,'jpp::scene::SParticle']]],
   ['vector2d_2',['vector2d',['../classjpp_1_1core_1_1vector2d.html',1,'jpp::core::vector2d&lt; T &gt;'],['../classjpp_1_1core_1_1vector2d.html#a02de9e98cf462ebf8e361c832e35ffa1',1,'jpp::core::vector2d::vector2d(T n)'],['../classjpp_1_1core_1_1vector2d.html#aebaca952e5cd218281f0bdf4791c10eb',1,'jpp::core::vector2d::vector2d()'],['../classjpp_1_1core_1_1vector2d.html#a78f117a0d21f41b5e3aefbaca11ad30d',1,'jpp::core::vector2d::vector2d(T nx, T ny)']]],
   ['vector2d_3c_20f32_20_3e_3',['vector2d&lt; f32 &gt;',['../classjpp_1_1core_1_1vector2d.html',1,'jpp::core']]],

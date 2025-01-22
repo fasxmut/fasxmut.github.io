@@ -1,9 +1,9 @@
 var classjpp_1_1io_1_1IFileSystem =
 [
     [ "addArchiveLoader", "classjpp_1_1io_1_1IFileSystem.html#ab92c5d2644d1db9a056c364700ef40de", null ],
-    [ "addFileArchive", "classjpp_1_1io_1_1IFileSystem.html#aa5cf6abefa6b23248ccda73f58ca6e20", null ],
+    [ "addFileArchive", "classjpp_1_1io_1_1IFileSystem.html#a5ef6ce7e3f6d4a159b58740caef0c624", null ],
     [ "addFileArchive", "classjpp_1_1io_1_1IFileSystem.html#afa63e2df6d5d31845e816b0284f4ba97", null ],
-    [ "addFileArchive", "classjpp_1_1io_1_1IFileSystem.html#ae69f87b79457429ed905ceb052892c52", null ],
+    [ "addFileArchive", "classjpp_1_1io_1_1IFileSystem.html#a826fa4ce6a8896a766765bace1017816", null ],
     [ "addFolderFileArchive", "classjpp_1_1io_1_1IFileSystem.html#a4afa0a0d96242d7e47c5c3a03937d210", null ],
     [ "addPakFileArchive", "classjpp_1_1io_1_1IFileSystem.html#a21c14fd0a8dc3ba4c21c9a5feb1a4360", null ],
     [ "addZipFileArchive", "classjpp_1_1io_1_1IFileSystem.html#a105b411804b8cf7d5a236b0ca01e0213", null ],

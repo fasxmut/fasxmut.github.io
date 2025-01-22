@@ -3,7 +3,7 @@ var searchData=
   ['jimcpp_20core_20layer_20api_20documentation_0',['Jimcpp core layer API documentation',['../index.html',1,'']]],
   ['jimcpp_20engine_1',['Jimcpp Engine',['../index.html#description',1,'']]],
   ['jimcppdevice_2',['JimcppDevice',['../classjpp_1_1JimcppDevice.html',1,'jpp']]],
-  ['joystick_3',['joystick',['../classjpp_1_1SEvent_1_1SJoystickEvent.html#a934568e7f134c44890812b78a6551fbd',1,'jpp::SEvent::SJoystickEvent::Joystick'],['../classjpp_1_1SJoystickInfo.html#a84d7f15d814a7646b6870b749b2d04ee',1,'jpp::SJoystickInfo::Joystick']]],
+  ['joystick_3',['joystick',['../classjpp_1_1SEvent_1_1SJoystickEvent.html#a934568e7f134c44890812b78a6551fbd',1,'jpp::SEvent::SJoystickEvent::Joystick'],['../classjpp_1_1SJoystickInfo.html#a6f9ab47aec52ecf69fef4caa7e54f346',1,'jpp::SJoystickInfo::Joystick']]],
   ['jpp_4',['jpp',['../namespacejpp.html',1,'']]],
   ['jpp_3a_3acore_5',['core',['../namespacejpp_1_1core.html',1,'jpp']]],
   ['jpp_3a_3agui_6',['gui',['../namespacejpp_1_1gui.html',1,'jpp']]],

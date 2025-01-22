@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['make_5flower_0',['make_lower',['../classjpp_1_1core_1_1string.html#a098f3576190065cdd22c67ba2b4afc3c',1,'jpp::core::string']]],
-  ['make_5fupper_1',['make_upper',['../classjpp_1_1core_1_1string.html#a51ac60c98dad9dfb58e8d7f14ae99e3d',1,'jpp::core::string']]],
+  ['make_5flower_0',['make_lower',['../classjpp_1_1core_1_1basic__string.html#ac397cc27ad0ed47f64210c44531e3352',1,'jpp::core::basic_string']]],
+  ['make_5fupper_1',['make_upper',['../classjpp_1_1core_1_1basic__string.html#ad40cb0cdaf50e096153bfe116362c629',1,'jpp::core::basic_string']]],
   ['makecolorkeytexture_2',['makecolorkeytexture',['../classjpp_1_1video_1_1IVideoDriver.html#a9f77e2ecf9c4f21b3933cd6d375145af',1,'jpp::video::IVideoDriver::makeColorKeyTexture(video::ITexture *texture, video::SColor color, bool zeroTexels=false) const =0'],['../classjpp_1_1video_1_1IVideoDriver.html#a9380e503b67f76229b3ab2a964ea21fe',1,'jpp::video::IVideoDriver::makeColorKeyTexture(video::ITexture *texture, core::position2d&lt; s32 &gt; colorKeyPixelPos, bool zeroTexels=false) const =0']]],
   ['makeidentity_3',['makeidentity',['../classjpp_1_1core_1_1quaternion.html#a90d9e2b51a828b69230b20137b5abb60',1,'jpp::core::quaternion::makeIdentity()'],['../classjpp_1_1core_1_1CMatrix4.html#a75f976946414f873da9e61b028023d8b',1,'jpp::core::CMatrix4::makeIdentity()']]],
   ['makeinverse_4',['makeinverse',['../classjpp_1_1core_1_1quaternion.html#a4c9b737208d7c43e141aa3a65f488c86',1,'jpp::core::quaternion::makeInverse()'],['../classjpp_1_1core_1_1CMatrix4.html#a9ce0c3254038504e2372abce9d836737',1,'jpp::core::CMatrix4::makeInverse()']]],

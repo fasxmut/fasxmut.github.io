@@ -125,27 +125,27 @@ Collaboration diagram for jpp::io::IFileSystem:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a260661810354612d59d3f8ead154a0f7" id="r_a260661810354612d59d3f8ead154a0f7"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classjpp_1_1io_1_1IReadFile.html">IReadFile</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#a260661810354612d59d3f8ead154a0f7">createAndOpenFile</a> (const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;filename)=0</td></tr>
+<tr class="memitem:a260661810354612d59d3f8ead154a0f7" id="r_a260661810354612d59d3f8ead154a0f7"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classjpp_1_1io_1_1IReadFile.html">IReadFile</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#a260661810354612d59d3f8ead154a0f7">createAndOpenFile</a> (const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;filename)=0</td></tr>
 <tr class="memdesc:a260661810354612d59d3f8ead154a0f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens a file for read access.  <br /></td></tr>
 <tr class="separator:a260661810354612d59d3f8ead154a0f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33bba200b3e6b60c008c4a767dbc7ea7" id="r_a33bba200b3e6b60c008c4a767dbc7ea7"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classjpp_1_1io_1_1IReadFile.html">IReadFile</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#a33bba200b3e6b60c008c4a767dbc7ea7">createMemoryReadFile</a> (const void *memory, <a class="el" href="namespacejpp.html#a0ba67f63a64d4da5e6996fb8501bc674">s32</a> len, const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;fileName, bool deleteMemoryWhenDropped=false)=0</td></tr>
+<tr class="memitem:a33bba200b3e6b60c008c4a767dbc7ea7" id="r_a33bba200b3e6b60c008c4a767dbc7ea7"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classjpp_1_1io_1_1IReadFile.html">IReadFile</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#a33bba200b3e6b60c008c4a767dbc7ea7">createMemoryReadFile</a> (const void *memory, <a class="el" href="namespacejpp.html#a0ba67f63a64d4da5e6996fb8501bc674">s32</a> len, const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;fileName, bool deleteMemoryWhenDropped=false)=0</td></tr>
 <tr class="memdesc:a33bba200b3e6b60c008c4a767dbc7ea7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an <a class="el" href="classjpp_1_1io_1_1IReadFile.html" title="Interface providing read access to a file.">IReadFile</a> interface for accessing memory like a file.  <br /></td></tr>
 <tr class="separator:a33bba200b3e6b60c008c4a767dbc7ea7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65ac39576d1d0b4f2883298a103a0812" id="r_a65ac39576d1d0b4f2883298a103a0812"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classjpp_1_1io_1_1IReadFile.html">IReadFile</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#a65ac39576d1d0b4f2883298a103a0812">createLimitReadFile</a> (const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;fileName, <a class="el" href="classjpp_1_1io_1_1IReadFile.html">IReadFile</a> *alreadyOpenedFile, long pos, long areaSize)=0</td></tr>
+<tr class="memitem:a65ac39576d1d0b4f2883298a103a0812" id="r_a65ac39576d1d0b4f2883298a103a0812"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classjpp_1_1io_1_1IReadFile.html">IReadFile</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#a65ac39576d1d0b4f2883298a103a0812">createLimitReadFile</a> (const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;fileName, <a class="el" href="classjpp_1_1io_1_1IReadFile.html">IReadFile</a> *alreadyOpenedFile, long pos, long areaSize)=0</td></tr>
 <tr class="memdesc:a65ac39576d1d0b4f2883298a103a0812"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an <a class="el" href="classjpp_1_1io_1_1IReadFile.html" title="Interface providing read access to a file.">IReadFile</a> interface for accessing files inside files.  <br /></td></tr>
 <tr class="separator:a65ac39576d1d0b4f2883298a103a0812"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84c915c9895f2e36b9246f4f6f7b616b" id="r_a84c915c9895f2e36b9246f4f6f7b616b"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classjpp_1_1io_1_1IWriteFile.html">IWriteFile</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#a84c915c9895f2e36b9246f4f6f7b616b">createMemoryWriteFile</a> (void *memory, <a class="el" href="namespacejpp.html#a0ba67f63a64d4da5e6996fb8501bc674">s32</a> len, const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;fileName, bool deleteMemoryWhenDropped=false)=0</td></tr>
+<tr class="memitem:a84c915c9895f2e36b9246f4f6f7b616b" id="r_a84c915c9895f2e36b9246f4f6f7b616b"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classjpp_1_1io_1_1IWriteFile.html">IWriteFile</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#a84c915c9895f2e36b9246f4f6f7b616b">createMemoryWriteFile</a> (void *memory, <a class="el" href="namespacejpp.html#a0ba67f63a64d4da5e6996fb8501bc674">s32</a> len, const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;fileName, bool deleteMemoryWhenDropped=false)=0</td></tr>
 <tr class="memdesc:a84c915c9895f2e36b9246f4f6f7b616b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an <a class="el" href="classjpp_1_1io_1_1IWriteFile.html" title="Interface providing write access to a file.">IWriteFile</a> interface for accessing memory like a file.  <br /></td></tr>
 <tr class="separator:a84c915c9895f2e36b9246f4f6f7b616b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8e6d02e740f030b4ac6075c566bdb28" id="r_ab8e6d02e740f030b4ac6075c566bdb28"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classjpp_1_1io_1_1IWriteFile.html">IWriteFile</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#ab8e6d02e740f030b4ac6075c566bdb28">createAndWriteFile</a> (const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;filename, bool append=false)=0</td></tr>
+<tr class="memitem:ab8e6d02e740f030b4ac6075c566bdb28" id="r_ab8e6d02e740f030b4ac6075c566bdb28"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classjpp_1_1io_1_1IWriteFile.html">IWriteFile</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#ab8e6d02e740f030b4ac6075c566bdb28">createAndWriteFile</a> (const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;filename, bool append=false)=0</td></tr>
 <tr class="memdesc:ab8e6d02e740f030b4ac6075c566bdb28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens a file for write access.  <br /></td></tr>
 <tr class="separator:ab8e6d02e740f030b4ac6075c566bdb28"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5cf6abefa6b23248ccda73f58ca6e20" id="r_aa5cf6abefa6b23248ccda73f58ca6e20"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#aa5cf6abefa6b23248ccda73f58ca6e20">addFileArchive</a> (const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;filename, bool ignoreCase=true, bool ignorePaths=true, <a class="el" href="namespacejpp_1_1io.html#ae401fe3585ffe7bdcb0028b52d35d3c7">E_FILE_ARCHIVE_TYPE</a> archiveType=<a class="el" href="namespacejpp_1_1io.html#ae401fe3585ffe7bdcb0028b52d35d3c7a7815a1f0383060f7c5f4bab2a50edd1a">EFAT_UNKNOWN</a>, const <a class="el" href="namespacejpp_1_1core.html#a97698a25d1ec7977ced56c610a0747c9">core::ustring</a> &amp;password=&quot;&quot;, <a class="el" href="classjpp_1_1io_1_1IFileArchive.html">IFileArchive</a> **retArchive=0)=0</td></tr>
-<tr class="memdesc:aa5cf6abefa6b23248ccda73f58ca6e20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an archive to the file system.  <br /></td></tr>
-<tr class="separator:aa5cf6abefa6b23248ccda73f58ca6e20"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae69f87b79457429ed905ceb052892c52" id="r_ae69f87b79457429ed905ceb052892c52"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#ae69f87b79457429ed905ceb052892c52">addFileArchive</a> (<a class="el" href="classjpp_1_1io_1_1IReadFile.html">IReadFile</a> *file, bool ignoreCase=true, bool ignorePaths=true, <a class="el" href="namespacejpp_1_1io.html#ae401fe3585ffe7bdcb0028b52d35d3c7">E_FILE_ARCHIVE_TYPE</a> archiveType=<a class="el" href="namespacejpp_1_1io.html#ae401fe3585ffe7bdcb0028b52d35d3c7a7815a1f0383060f7c5f4bab2a50edd1a">EFAT_UNKNOWN</a>, const <a class="el" href="namespacejpp_1_1core.html#a97698a25d1ec7977ced56c610a0747c9">core::ustring</a> &amp;password=&quot;&quot;, <a class="el" href="classjpp_1_1io_1_1IFileArchive.html">IFileArchive</a> **retArchive=0)=0</td></tr>
-<tr class="memdesc:ae69f87b79457429ed905ceb052892c52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an archive to the file system.  <br /></td></tr>
-<tr class="separator:ae69f87b79457429ed905ceb052892c52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ef6ce7e3f6d4a159b58740caef0c624" id="r_a5ef6ce7e3f6d4a159b58740caef0c624"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#a5ef6ce7e3f6d4a159b58740caef0c624">addFileArchive</a> (const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;filename, bool ignoreCase=true, bool ignorePaths=true, <a class="el" href="namespacejpp_1_1io.html#ae401fe3585ffe7bdcb0028b52d35d3c7">E_FILE_ARCHIVE_TYPE</a> archiveType=<a class="el" href="namespacejpp_1_1io.html#ae401fe3585ffe7bdcb0028b52d35d3c7a7815a1f0383060f7c5f4bab2a50edd1a">EFAT_UNKNOWN</a>, const <a class="el" href="namespacejpp_1_1core.html#a195892c7e54c95c9ac122986b88ddab1">core::string</a> &amp;password=&quot;&quot;, <a class="el" href="classjpp_1_1io_1_1IFileArchive.html">IFileArchive</a> **retArchive=0)=0</td></tr>
+<tr class="memdesc:a5ef6ce7e3f6d4a159b58740caef0c624"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an archive to the file system.  <br /></td></tr>
+<tr class="separator:a5ef6ce7e3f6d4a159b58740caef0c624"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a826fa4ce6a8896a766765bace1017816" id="r_a826fa4ce6a8896a766765bace1017816"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#a826fa4ce6a8896a766765bace1017816">addFileArchive</a> (<a class="el" href="classjpp_1_1io_1_1IReadFile.html">IReadFile</a> *file, bool ignoreCase=true, bool ignorePaths=true, <a class="el" href="namespacejpp_1_1io.html#ae401fe3585ffe7bdcb0028b52d35d3c7">E_FILE_ARCHIVE_TYPE</a> archiveType=<a class="el" href="namespacejpp_1_1io.html#ae401fe3585ffe7bdcb0028b52d35d3c7a7815a1f0383060f7c5f4bab2a50edd1a">EFAT_UNKNOWN</a>, const <a class="el" href="namespacejpp_1_1core.html#a195892c7e54c95c9ac122986b88ddab1">core::string</a> &amp;password=&quot;&quot;, <a class="el" href="classjpp_1_1io_1_1IFileArchive.html">IFileArchive</a> **retArchive=0)=0</td></tr>
+<tr class="memdesc:a826fa4ce6a8896a766765bace1017816"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an archive to the file system.  <br /></td></tr>
+<tr class="separator:a826fa4ce6a8896a766765bace1017816"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa63e2df6d5d31845e816b0284f4ba97" id="r_afa63e2df6d5d31845e816b0284f4ba97"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#afa63e2df6d5d31845e816b0284f4ba97">addFileArchive</a> (<a class="el" href="classjpp_1_1io_1_1IFileArchive.html">IFileArchive</a> *archive)=0</td></tr>
 <tr class="memdesc:afa63e2df6d5d31845e816b0284f4ba97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an archive to the file system.  <br /></td></tr>
 <tr class="separator:afa63e2df6d5d31845e816b0284f4ba97"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -156,7 +156,7 @@ virtual <a class="el" href="namespacejpp.html#a458eda8ea0feeace1f6bf12fd8f80db4"
 <tr class="memitem:a6c163fbc79afb35259f1739c5f398e2f" id="r_a6c163fbc79afb35259f1739c5f398e2f"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#a6c163fbc79afb35259f1739c5f398e2f">removeFileArchive</a> (<a class="el" href="namespacejpp.html#a458eda8ea0feeace1f6bf12fd8f80db4">u32</a> index)=0</td></tr>
 <tr class="memdesc:a6c163fbc79afb35259f1739c5f398e2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes an archive from the file system.  <br /></td></tr>
 <tr class="separator:a6c163fbc79afb35259f1739c5f398e2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf01a83912159ea08b0bfd067e6cc3bc" id="r_adf01a83912159ea08b0bfd067e6cc3bc"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#adf01a83912159ea08b0bfd067e6cc3bc">removeFileArchive</a> (const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;filename)=0</td></tr>
+<tr class="memitem:adf01a83912159ea08b0bfd067e6cc3bc" id="r_adf01a83912159ea08b0bfd067e6cc3bc"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#adf01a83912159ea08b0bfd067e6cc3bc">removeFileArchive</a> (const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;filename)=0</td></tr>
 <tr class="memdesc:adf01a83912159ea08b0bfd067e6cc3bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes an archive from the file system.  <br /></td></tr>
 <tr class="separator:adf01a83912159ea08b0bfd067e6cc3bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16c3afaaddd35cf4184923107d1e0894" id="r_a16c3afaaddd35cf4184923107d1e0894"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#a16c3afaaddd35cf4184923107d1e0894">removeFileArchive</a> (const <a class="el" href="classjpp_1_1io_1_1IFileArchive.html">IFileArchive</a> *archive)=0</td></tr>
@@ -188,61 +188,61 @@ virtual <a class="el" href="namespacejpp.html#a458eda8ea0feeace1f6bf12fd8f80db4"
 <tr class="memitem:a21c14fd0a8dc3ba4c21c9a5feb1a4360" id="r_a21c14fd0a8dc3ba4c21c9a5feb1a4360"><td class="memItemLeft" align="right" valign="top">virtual JPP_DEPRECATED bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#a21c14fd0a8dc3ba4c21c9a5feb1a4360">addPakFileArchive</a> (const <a class="el" href="namespacejpp.html#aff7ffd8a11e7e210bf8e33748c7db11d">c8</a> *filename, bool ignoreCase=true, bool ignorePaths=true)</td></tr>
 <tr class="memdesc:a21c14fd0a8dc3ba4c21c9a5feb1a4360"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a pak archive to the file system.  <br /></td></tr>
 <tr class="separator:a21c14fd0a8dc3ba4c21c9a5feb1a4360"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a289128dfae6f5e06f5c258dec5305e6e" id="r_a289128dfae6f5e06f5c258dec5305e6e"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#a289128dfae6f5e06f5c258dec5305e6e">getWorkingDirectory</a> ()=0</td></tr>
+<tr class="memitem:a289128dfae6f5e06f5c258dec5305e6e" id="r_a289128dfae6f5e06f5c258dec5305e6e"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#a289128dfae6f5e06f5c258dec5305e6e">getWorkingDirectory</a> ()=0</td></tr>
 <tr class="memdesc:a289128dfae6f5e06f5c258dec5305e6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current working directory.  <br /></td></tr>
 <tr class="separator:a289128dfae6f5e06f5c258dec5305e6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27fa7d5aae323055726d314962463489" id="r_a27fa7d5aae323055726d314962463489"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#a27fa7d5aae323055726d314962463489">changeWorkingDirectoryTo</a> (const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;newDirectory)=0</td></tr>
+<tr class="memitem:a27fa7d5aae323055726d314962463489" id="r_a27fa7d5aae323055726d314962463489"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#a27fa7d5aae323055726d314962463489">changeWorkingDirectoryTo</a> (const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;newDirectory)=0</td></tr>
 <tr class="memdesc:a27fa7d5aae323055726d314962463489"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the current working directory.  <br /></td></tr>
 <tr class="separator:a27fa7d5aae323055726d314962463489"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a09b3f8da3332effc269b4deddb12c957" id="r_a09b3f8da3332effc269b4deddb12c957"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#a09b3f8da3332effc269b4deddb12c957">getAbsolutePath</a> (const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;filename) const =0</td></tr>
+<tr class="memitem:a09b3f8da3332effc269b4deddb12c957" id="r_a09b3f8da3332effc269b4deddb12c957"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#a09b3f8da3332effc269b4deddb12c957">getAbsolutePath</a> (const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;filename) const =0</td></tr>
 <tr class="memdesc:a09b3f8da3332effc269b4deddb12c957"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a relative path to an absolute (unique) path, resolving symbolic links if required.  <br /></td></tr>
 <tr class="separator:a09b3f8da3332effc269b4deddb12c957"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae231cef364103efdc6b738eb6ed4c9a8" id="r_ae231cef364103efdc6b738eb6ed4c9a8"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#ae231cef364103efdc6b738eb6ed4c9a8">getFileDir</a> (const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;filename) const =0</td></tr>
+<tr class="memitem:ae231cef364103efdc6b738eb6ed4c9a8" id="r_ae231cef364103efdc6b738eb6ed4c9a8"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#ae231cef364103efdc6b738eb6ed4c9a8">getFileDir</a> (const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;filename) const =0</td></tr>
 <tr class="memdesc:ae231cef364103efdc6b738eb6ed4c9a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the directory a file is located in.  <br /></td></tr>
 <tr class="separator:ae231cef364103efdc6b738eb6ed4c9a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca5ee9a39dfbafa77629af45b3190242" id="r_aca5ee9a39dfbafa77629af45b3190242"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#aca5ee9a39dfbafa77629af45b3190242">getFileBasename</a> (const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;filename, bool keepExtension=true) const =0</td></tr>
+<tr class="memitem:aca5ee9a39dfbafa77629af45b3190242" id="r_aca5ee9a39dfbafa77629af45b3190242"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#aca5ee9a39dfbafa77629af45b3190242">getFileBasename</a> (const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;filename, bool keepExtension=true) const =0</td></tr>
 <tr class="memdesc:aca5ee9a39dfbafa77629af45b3190242"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the base part of a filename, i.e. the name without the directory part.  <br /></td></tr>
 <tr class="separator:aca5ee9a39dfbafa77629af45b3190242"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af11fb9dae3103030fa6b65774ed7f228" id="r_af11fb9dae3103030fa6b65774ed7f228"><td class="memItemLeft" align="right" valign="top"><a id="af11fb9dae3103030fa6b65774ed7f228" name="af11fb9dae3103030fa6b65774ed7f228"></a>
-virtual <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>flattenFilename</b> (<a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;directory, const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;root=&quot;/&quot;) const =0</td></tr>
+virtual <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>flattenFilename</b> (<a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;directory, const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;root=&quot;/&quot;) const =0</td></tr>
 <tr class="memdesc:af11fb9dae3103030fa6b65774ed7f228"><td class="mdescLeft">&#160;</td><td class="mdescRight">flatten a path and file name for example: "/you/me/../." becomes "/you" <br /></td></tr>
 <tr class="separator:af11fb9dae3103030fa6b65774ed7f228"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a237b6e59d261480589460ce02ad4af67" id="r_a237b6e59d261480589460ce02ad4af67"><td class="memItemLeft" align="right" valign="top"><a id="a237b6e59d261480589460ce02ad4af67" name="a237b6e59d261480589460ce02ad4af67"></a>
-virtual <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getRelativeFilename</b> (const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;filename, const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;directory) const =0</td></tr>
+virtual <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getRelativeFilename</b> (const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;filename, const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;directory) const =0</td></tr>
 <tr class="memdesc:a237b6e59d261480589460ce02ad4af67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the relative filename, relative to the given directory. <br /></td></tr>
 <tr class="separator:a237b6e59d261480589460ce02ad4af67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca9fb92df5ba84c4313ec47a831d8cef" id="r_aca9fb92df5ba84c4313ec47a831d8cef"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classjpp_1_1io_1_1IFileList.html">IFileList</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#aca9fb92df5ba84c4313ec47a831d8cef">createFileList</a> ()=0</td></tr>
 <tr class="memdesc:aca9fb92df5ba84c4313ec47a831d8cef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a list of files and directories in the current working directory and returns it.  <br /></td></tr>
 <tr class="separator:aca9fb92df5ba84c4313ec47a831d8cef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acca8ca61f39fd78655a14b15a93953af" id="r_acca8ca61f39fd78655a14b15a93953af"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classjpp_1_1io_1_1IFileList.html">IFileList</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#acca8ca61f39fd78655a14b15a93953af">createEmptyFileList</a> (const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">io::path</a> &amp;<a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a>, bool ignoreCase, bool ignorePaths)=0</td></tr>
+<tr class="memitem:acca8ca61f39fd78655a14b15a93953af" id="r_acca8ca61f39fd78655a14b15a93953af"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classjpp_1_1io_1_1IFileList.html">IFileList</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#acca8ca61f39fd78655a14b15a93953af">createEmptyFileList</a> (const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">io::path</a> &amp;<a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a>, bool ignoreCase, bool ignorePaths)=0</td></tr>
 <tr class="memdesc:acca8ca61f39fd78655a14b15a93953af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an empty filelist.  <br /></td></tr>
 <tr class="separator:acca8ca61f39fd78655a14b15a93953af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a5033d00a0b35eb7b4975e7f2dc1dff" id="r_a3a5033d00a0b35eb7b4975e7f2dc1dff"><td class="memItemLeft" align="right" valign="top"><a id="a3a5033d00a0b35eb7b4975e7f2dc1dff" name="a3a5033d00a0b35eb7b4975e7f2dc1dff"></a>
 virtual <a class="el" href="namespacejpp_1_1io.html#ac9cac0936865f67435dd4e41e421e967">EFileSystemType</a>&#160;</td><td class="memItemRight" valign="bottom"><b>setFileListSystem</b> (<a class="el" href="namespacejpp_1_1io.html#ac9cac0936865f67435dd4e41e421e967">EFileSystemType</a> listType)=0</td></tr>
 <tr class="memdesc:a3a5033d00a0b35eb7b4975e7f2dc1dff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the active type of file system. <br /></td></tr>
 <tr class="separator:a3a5033d00a0b35eb7b4975e7f2dc1dff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6b0310879ca7d8d5aae1d354996588e" id="r_ab6b0310879ca7d8d5aae1d354996588e"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#ab6b0310879ca7d8d5aae1d354996588e">existFile</a> (const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;filename) const =0</td></tr>
+<tr class="memitem:ab6b0310879ca7d8d5aae1d354996588e" id="r_ab6b0310879ca7d8d5aae1d354996588e"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#ab6b0310879ca7d8d5aae1d354996588e">existFile</a> (const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;filename) const =0</td></tr>
 <tr class="memdesc:ab6b0310879ca7d8d5aae1d354996588e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if a file exists and could be opened.  <br /></td></tr>
 <tr class="separator:ab6b0310879ca7d8d5aae1d354996588e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef74b3f23b9d950a7d891cc795b433bd" id="r_aef74b3f23b9d950a7d891cc795b433bd"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacejpp_1_1io.html#aa4b705a83362027a056494170ff9c855">IXMLReader</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#aef74b3f23b9d950a7d891cc795b433bd">createXMLReader</a> (const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;filename)=0</td></tr>
+<tr class="memitem:aef74b3f23b9d950a7d891cc795b433bd" id="r_aef74b3f23b9d950a7d891cc795b433bd"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacejpp_1_1io.html#aa4b705a83362027a056494170ff9c855">IXMLReader</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#aef74b3f23b9d950a7d891cc795b433bd">createXMLReader</a> (const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;filename)=0</td></tr>
 <tr class="memdesc:aef74b3f23b9d950a7d891cc795b433bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a XML Reader from a file which returns all parsed strings as wide characters (wchar_t*).  <br /></td></tr>
 <tr class="separator:aef74b3f23b9d950a7d891cc795b433bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3dcee1f803c30903bc75f1db423ff435" id="r_a3dcee1f803c30903bc75f1db423ff435"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacejpp_1_1io.html#aa4b705a83362027a056494170ff9c855">IXMLReader</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#a3dcee1f803c30903bc75f1db423ff435">createXMLReader</a> (<a class="el" href="classjpp_1_1io_1_1IReadFile.html">IReadFile</a> *file)=0</td></tr>
 <tr class="memdesc:a3dcee1f803c30903bc75f1db423ff435"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a XML Reader from a file which returns all parsed strings as wide characters (wchar_t*).  <br /></td></tr>
 <tr class="separator:a3dcee1f803c30903bc75f1db423ff435"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa0d086d1462e91dfd04b7b2ecad4089" id="r_afa0d086d1462e91dfd04b7b2ecad4089"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacejpp_1_1io.html#a2e26972851ff0f74c967b4225a6e3a63">IXMLReaderUTF8</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#afa0d086d1462e91dfd04b7b2ecad4089">createXMLReaderUTF8</a> (const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;filename)=0</td></tr>
+<tr class="memitem:afa0d086d1462e91dfd04b7b2ecad4089" id="r_afa0d086d1462e91dfd04b7b2ecad4089"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacejpp_1_1io.html#a2e26972851ff0f74c967b4225a6e3a63">IXMLReaderUTF8</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#afa0d086d1462e91dfd04b7b2ecad4089">createXMLReaderUTF8</a> (const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;filename)=0</td></tr>
 <tr class="memdesc:afa0d086d1462e91dfd04b7b2ecad4089"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a XML Reader from a file which returns all parsed strings as ASCII/UTF-8 characters (char*).  <br /></td></tr>
 <tr class="separator:afa0d086d1462e91dfd04b7b2ecad4089"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2579f90093ca8eaae3242a307ec8709f" id="r_a2579f90093ca8eaae3242a307ec8709f"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacejpp_1_1io.html#a2e26972851ff0f74c967b4225a6e3a63">IXMLReaderUTF8</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#a2579f90093ca8eaae3242a307ec8709f">createXMLReaderUTF8</a> (<a class="el" href="classjpp_1_1io_1_1IReadFile.html">IReadFile</a> *file)=0</td></tr>
 <tr class="memdesc:a2579f90093ca8eaae3242a307ec8709f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a XML Reader from a file which returns all parsed strings as ASCII/UTF-8 characters (char*).  <br /></td></tr>
 <tr class="separator:a2579f90093ca8eaae3242a307ec8709f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a313e94fa8e572912c7c31ea2c821a164" id="r_a313e94fa8e572912c7c31ea2c821a164"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacejpp_1_1io.html#a576996f860a7a1ce5b8b563ff9fb7bbf">IXMLWriterUTF8</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#a313e94fa8e572912c7c31ea2c821a164">createXMLWriterUTF8</a> (const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;filename)=0</td></tr>
+<tr class="memitem:a313e94fa8e572912c7c31ea2c821a164" id="r_a313e94fa8e572912c7c31ea2c821a164"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacejpp_1_1io.html#a576996f860a7a1ce5b8b563ff9fb7bbf">IXMLWriterUTF8</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#a313e94fa8e572912c7c31ea2c821a164">createXMLWriterUTF8</a> (const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;filename)=0</td></tr>
 <tr class="memdesc:a313e94fa8e572912c7c31ea2c821a164"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a XML Writer from a file which will write ASCII/UTF-8 characters (char*).  <br /></td></tr>
 <tr class="separator:a313e94fa8e572912c7c31ea2c821a164"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a722befd34dd9779e9aab4abcc9e04360" id="r_a722befd34dd9779e9aab4abcc9e04360"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacejpp_1_1io.html#a576996f860a7a1ce5b8b563ff9fb7bbf">IXMLWriterUTF8</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#a722befd34dd9779e9aab4abcc9e04360">createXMLWriterUTF8</a> (<a class="el" href="classjpp_1_1io_1_1IWriteFile.html">IWriteFile</a> *file)=0</td></tr>
 <tr class="memdesc:a722befd34dd9779e9aab4abcc9e04360"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a XML Writer from a file which will write ASCII/UTF-8 characters (char*).  <br /></td></tr>
 <tr class="separator:a722befd34dd9779e9aab4abcc9e04360"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc164e926b3ef2dd94b7ac3db647c126" id="r_afc164e926b3ef2dd94b7ac3db647c126"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacejpp_1_1io.html#a99e1e11e9d7c12a811c90b068597e5e4">IXMLWriter</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#afc164e926b3ef2dd94b7ac3db647c126">createXMLWriter</a> (const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;filename)=0</td></tr>
+<tr class="memitem:afc164e926b3ef2dd94b7ac3db647c126" id="r_afc164e926b3ef2dd94b7ac3db647c126"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacejpp_1_1io.html#a99e1e11e9d7c12a811c90b068597e5e4">IXMLWriter</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#afc164e926b3ef2dd94b7ac3db647c126">createXMLWriter</a> (const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;filename)=0</td></tr>
 <tr class="memdesc:afc164e926b3ef2dd94b7ac3db647c126"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a XML Writer from a file.  <br /></td></tr>
 <tr class="separator:afc164e926b3ef2dd94b7ac3db647c126"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a528d6617d95e8f662fc80d96030e1d51" id="r_a528d6617d95e8f662fc80d96030e1d51"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacejpp_1_1io.html#a99e1e11e9d7c12a811c90b068597e5e4">IXMLWriter</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileSystem.html#a528d6617d95e8f662fc80d96030e1d51">createXMLWriter</a> (<a class="el" href="classjpp_1_1io_1_1IWriteFile.html">IWriteFile</a> *file)=0</td></tr>
@@ -313,8 +313,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="aa5cf6abefa6b23248ccda73f58ca6e20" name="aa5cf6abefa6b23248ccda73f58ca6e20"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa5cf6abefa6b23248ccda73f58ca6e20">&#9670;&#160;</a></span>addFileArchive() <span class="overload">[1/3]</span></h2>
+<a id="a5ef6ce7e3f6d4a159b58740caef0c624" name="a5ef6ce7e3f6d4a159b58740caef0c624"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ef6ce7e3f6d4a159b58740caef0c624">&#9670;&#160;</a></span>addFileArchive() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -325,7 +325,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">virtual bool jpp::io::IFileSystem::addFileArchive </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;&#160;</td>
           <td class="paramname"><em>filename</em>, </td>
         </tr>
         <tr>
@@ -349,7 +349,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespacejpp_1_1core.html#a97698a25d1ec7977ced56c610a0747c9">core::ustring</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacejpp_1_1core.html#a195892c7e54c95c9ac122986b88ddab1">core::string</a> &amp;&#160;</td>
           <td class="paramname"><em>password</em> = <code>&quot;&quot;</code>, </td>
         </tr>
         <tr>
@@ -422,8 +422,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="ae69f87b79457429ed905ceb052892c52" name="ae69f87b79457429ed905ceb052892c52"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae69f87b79457429ed905ceb052892c52">&#9670;&#160;</a></span>addFileArchive() <span class="overload">[3/3]</span></h2>
+<a id="a826fa4ce6a8896a766765bace1017816" name="a826fa4ce6a8896a766765bace1017816"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a826fa4ce6a8896a766765bace1017816">&#9670;&#160;</a></span>addFileArchive() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -458,7 +458,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespacejpp_1_1core.html#a97698a25d1ec7977ced56c610a0747c9">core::ustring</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacejpp_1_1core.html#a195892c7e54c95c9ac122986b88ddab1">core::string</a> &amp;&#160;</td>
           <td class="paramname"><em>password</em> = <code>&quot;&quot;</code>, </td>
         </tr>
         <tr>
@@ -670,7 +670,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">virtual bool jpp::io::IFileSystem::changeWorkingDirectoryTo </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;&#160;</td>
           <td class="paramname"><em>newDirectory</em></td><td>)</td>
           <td></td>
         </tr>
@@ -705,7 +705,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">virtual <a class="el" href="classjpp_1_1io_1_1IReadFile.html">IReadFile</a> * jpp::io::IFileSystem::createAndOpenFile </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;&#160;</td>
           <td class="paramname"><em>filename</em></td><td>)</td>
           <td></td>
         </tr>
@@ -740,7 +740,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">virtual <a class="el" href="classjpp_1_1io_1_1IWriteFile.html">IWriteFile</a> * jpp::io::IFileSystem::createAndWriteFile </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;&#160;</td>
           <td class="paramname"><em>filename</em>, </td>
         </tr>
         <tr>
@@ -821,7 +821,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">virtual <a class="el" href="classjpp_1_1io_1_1IFileList.html">IFileList</a> * jpp::io::IFileSystem::createEmptyFileList </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">io::path</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">io::path</a> &amp;&#160;</td>
           <td class="paramname"><em>path</em>, </td>
         </tr>
         <tr>
@@ -894,7 +894,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">virtual <a class="el" href="classjpp_1_1io_1_1IReadFile.html">IReadFile</a> * jpp::io::IFileSystem::createLimitReadFile </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;&#160;</td>
           <td class="paramname"><em>fileName</em>, </td>
         </tr>
         <tr>
@@ -966,7 +966,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;&#160;</td>
           <td class="paramname"><em>fileName</em>, </td>
         </tr>
         <tr>
@@ -1026,7 +1026,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;&#160;</td>
           <td class="paramname"><em>fileName</em>, </td>
         </tr>
         <tr>
@@ -1074,7 +1074,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">virtual <a class="el" href="namespacejpp_1_1io.html#aa4b705a83362027a056494170ff9c855">IXMLReader</a> * jpp::io::IFileSystem::createXMLReader </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;&#160;</td>
           <td class="paramname"><em>filename</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1132,7 +1132,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">virtual <a class="el" href="namespacejpp_1_1io.html#a2e26972851ff0f74c967b4225a6e3a63">IXMLReaderUTF8</a> * jpp::io::IFileSystem::createXMLReaderUTF8 </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;&#160;</td>
           <td class="paramname"><em>filename</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1190,7 +1190,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">virtual <a class="el" href="namespacejpp_1_1io.html#a99e1e11e9d7c12a811c90b068597e5e4">IXMLWriter</a> * jpp::io::IFileSystem::createXMLWriter </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;&#160;</td>
           <td class="paramname"><em>filename</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1248,7 +1248,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">virtual <a class="el" href="namespacejpp_1_1io.html#a576996f860a7a1ce5b8b563ff9fb7bbf">IXMLWriterUTF8</a> * jpp::io::IFileSystem::createXMLWriterUTF8 </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;&#160;</td>
           <td class="paramname"><em>filename</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1306,7 +1306,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">virtual bool jpp::io::IFileSystem::existFile </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;&#160;</td>
           <td class="paramname"><em>filename</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -1339,9 +1339,9 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> jpp::io::IFileSystem::getAbsolutePath </td>
+          <td class="memname">virtual <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> jpp::io::IFileSystem::getAbsolutePath </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;&#160;</td>
           <td class="paramname"><em>filename</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -1409,9 +1409,9 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> jpp::io::IFileSystem::getFileBasename </td>
+          <td class="memname">virtual <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> jpp::io::IFileSystem::getFileBasename </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;&#160;</td>
           <td class="paramname"><em>filename</em>, </td>
         </tr>
         <tr>
@@ -1454,9 +1454,9 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> jpp::io::IFileSystem::getFileDir </td>
+          <td class="memname">virtual <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> jpp::io::IFileSystem::getFileDir </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;&#160;</td>
           <td class="paramname"><em>filename</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -1489,7 +1489,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp; jpp::io::IFileSystem::getWorkingDirectory </td>
+          <td class="memname">virtual const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp; jpp::io::IFileSystem::getWorkingDirectory </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -1599,7 +1599,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">virtual bool jpp::io::IFileSystem::removeFileArchive </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;&#160;</td>
           <td class="paramname"><em>filename</em></td><td>)</td>
           <td></td>
         </tr>

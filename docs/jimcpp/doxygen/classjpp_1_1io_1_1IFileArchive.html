@@ -118,15 +118,17 @@ Collaboration diagram for jpp::io::IFileArchive:</div>
 <div class="dyncontent">
 <div class="center"><img src="classjpp_1_1io_1_1IFileArchive__coll__graph.png" border="0" usemap="#ajpp_1_1io_1_1IFileArchive_coll__map" alt="Collaboration graph"/></div>
 <map name="ajpp_1_1io_1_1IFileArchive_coll__map" id="ajpp_1_1io_1_1IFileArchive_coll__map">
-<area shape="rect" title="The FileArchive manages archives and provides access to files inside them." alt="" coords="19,79,166,104"/>
-<area shape="rect" href="classjpp_1_1IReferenceCounted.html" title="Base class of most objects of the Jimcpp Engine." alt="" coords="5,5,180,31"/>
-<area shape="poly" title=" " alt="" coords="95,44,95,79,90,79,90,44"/>
+<area shape="rect" title="The FileArchive manages archives and provides access to files inside them." alt="" coords="115,108,262,133"/>
+<area shape="rect" href="classjpp_1_1IReferenceCounted.html" title="Base class of most objects of the Jimcpp Engine." alt="" coords="5,13,180,38"/>
+<area shape="poly" title=" " alt="" coords="116,46,179,106,175,110,112,49"/>
+<area shape="rect" href="classjpp_1_1core_1_1basic__string.html" title=" " alt="" coords="204,5,368,45"/>
+<area shape="poly" title=" " alt="" coords="258,57,203,110,199,106,255,53"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6ac8cd68649fa3e63f492be622271904" id="r_a6ac8cd68649fa3e63f492be622271904"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classjpp_1_1io_1_1IReadFile.html">IReadFile</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileArchive.html#a6ac8cd68649fa3e63f492be622271904">createAndOpenFile</a> (const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;filename)=0</td></tr>
+<tr class="memitem:a6ac8cd68649fa3e63f492be622271904" id="r_a6ac8cd68649fa3e63f492be622271904"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classjpp_1_1io_1_1IReadFile.html">IReadFile</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileArchive.html#a6ac8cd68649fa3e63f492be622271904">createAndOpenFile</a> (const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;filename)=0</td></tr>
 <tr class="memdesc:a6ac8cd68649fa3e63f492be622271904"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens a file based on its name.  <br /></td></tr>
 <tr class="separator:a6ac8cd68649fa3e63f492be622271904"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4356ab46a57e04964495321e81355730" id="r_a4356ab46a57e04964495321e81355730"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classjpp_1_1io_1_1IReadFile.html">IReadFile</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileArchive.html#a4356ab46a57e04964495321e81355730">createAndOpenFile</a> (<a class="el" href="namespacejpp.html#a458eda8ea0feeace1f6bf12fd8f80db4">u32</a> index)=0</td></tr>
@@ -140,7 +142,7 @@ virtual <a class="el" href="namespacejpp_1_1io.html#ae401fe3585ffe7bdcb0028b52d3
 <tr class="memdesc:a66a659708491638d879cc0a4567311ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the archive type <br /></td></tr>
 <tr class="separator:a66a659708491638d879cc0a4567311ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58c8de455651987bb3a6c963bb20a295" id="r_a58c8de455651987bb3a6c963bb20a295"><td class="memItemLeft" align="right" valign="top"><a id="a58c8de455651987bb3a6c963bb20a295" name="a58c8de455651987bb3a6c963bb20a295"></a>
-virtual const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">io::path</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getArchiveName</b> () const =0</td></tr>
+virtual const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">io::path</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getArchiveName</b> () const =0</td></tr>
 <tr class="memdesc:a58c8de455651987bb3a6c963bb20a295"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the name (id) of the file Archive <br /></td></tr>
 <tr class="separator:a58c8de455651987bb3a6c963bb20a295"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classjpp_1_1IReferenceCounted"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classjpp_1_1IReferenceCounted')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classjpp_1_1IReferenceCounted.html">jpp::IReferenceCounted</a></td></tr>
@@ -167,9 +169,9 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~IReferenceCounted
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a3ca22e6eeee47bc0fd06a64c244bc67d" id="r_a3ca22e6eeee47bc0fd06a64c244bc67d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacejpp_1_1core.html#a97698a25d1ec7977ced56c610a0747c9">core::ustring</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileArchive.html#a3ca22e6eeee47bc0fd06a64c244bc67d">Password</a></td></tr>
-<tr class="memdesc:a3ca22e6eeee47bc0fd06a64c244bc67d"><td class="mdescLeft">&#160;</td><td class="mdescRight">An optionally used password string.  <br /></td></tr>
-<tr class="separator:a3ca22e6eeee47bc0fd06a64c244bc67d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fd0387b0f9584ef1ea82df6667b0a1e" id="r_a5fd0387b0f9584ef1ea82df6667b0a1e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacejpp_1_1core.html#a195892c7e54c95c9ac122986b88ddab1">core::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjpp_1_1io_1_1IFileArchive.html#a5fd0387b0f9584ef1ea82df6667b0a1e">Password</a></td></tr>
+<tr class="memdesc:a5fd0387b0f9584ef1ea82df6667b0a1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">An optionally used password string.  <br /></td></tr>
+<tr class="separator:a5fd0387b0f9584ef1ea82df6667b0a1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -193,7 +195,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">virtual <a class="el" href="classjpp_1_1io_1_1IReadFile.html">IReadFile</a> * jpp::io::IFileArchive::createAndOpenFile </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacejpp_1_1io.html#a755dc932ec79c9a94645f5e20e0ffbf1">path</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacejpp_1_1io.html#a4c882aa6e12e045dfefb2550550307c7">path</a> &amp;&#160;</td>
           <td class="paramname"><em>filename</em></td><td>)</td>
           <td></td>
         </tr>
@@ -280,14 +282,14 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a3ca22e6eeee47bc0fd06a64c244bc67d" name="a3ca22e6eeee47bc0fd06a64c244bc67d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3ca22e6eeee47bc0fd06a64c244bc67d">&#9670;&#160;</a></span>Password</h2>
+<a id="a5fd0387b0f9584ef1ea82df6667b0a1e" name="a5fd0387b0f9584ef1ea82df6667b0a1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fd0387b0f9584ef1ea82df6667b0a1e">&#9670;&#160;</a></span>Password</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacejpp_1_1core.html#a97698a25d1ec7977ced56c610a0747c9">core::ustring</a> jpp::io::IFileArchive::Password</td>
+          <td class="memname"><a class="el" href="namespacejpp_1_1core.html#a195892c7e54c95c9ac122986b88ddab1">core::string</a> jpp::io::IFileArchive::Password</td>
         </tr>
       </table>
 </div><div class="memdoc">

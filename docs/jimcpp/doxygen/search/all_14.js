@@ -23,6 +23,5 @@ var searchData=
   ['useperformancetimer_20',['UsePerformanceTimer',['../classjpp_1_1SJimcppCreationParameters.html#a37fbc6d675013d8aff8c46480416f174',1,'jpp::SJimcppCreationParameters']]],
   ['userdata1_21',['UserData1',['../classjpp_1_1SEvent_1_1SUserEvent.html#a89475a3d4b6bea80d745d3716d6ea77a',1,'jpp::SEvent::SUserEvent']]],
   ['userdata2_22',['UserData2',['../classjpp_1_1SEvent_1_1SUserEvent.html#aa25a3e43eb205c04902a95d3a9eb1519',1,'jpp::SEvent::SUserEvent']]],
-  ['ustring_23',['ustring',['../namespacejpp_1_1core.html#a97698a25d1ec7977ced56c610a0747c9',1,'jpp::core']]],
-  ['utf8towchar_24',['utf8ToWchar',['../namespacejpp_1_1core.html#a40b1c80ee209d24d33e960da0be0dd96',1,'jpp::core']]]
+  ['utf8towchar_23',['utf8ToWchar',['../namespacejpp_1_1core.html#a40b1c80ee209d24d33e960da0be0dd96',1,'jpp::core']]]
 ];

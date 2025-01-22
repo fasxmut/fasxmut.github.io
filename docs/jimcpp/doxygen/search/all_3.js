@@ -3,7 +3,7 @@ var searchData=
   ['d_0',['D',['../classjpp_1_1core_1_1plane3d.html#a00ed26d4eae48a47fbfb00baa01612d3',1,'jpp::core::plane3d']]],
   ['d3d9_1',['D3D9',['../classjpp_1_1video_1_1SExposedVideoData_1_1SD3D9.html#aae8c7379a831912dbd6858d66d911466',1,'jpp::video::SExposedVideoData::SD3D9']]],
   ['d3ddev9_2',['D3DDev9',['../classjpp_1_1video_1_1SExposedVideoData_1_1SD3D9.html#add0c03039a19a3524b10c0094a90463e',1,'jpp::video::SExposedVideoData::SD3D9']]],
-  ['data_3',['data',['../classjpp_1_1core_1_1string.html#af922541a367370aeb68a59c66e33aab9',1,'jpp::core::string']]],
+  ['data_3',['data',['../classjpp_1_1core_1_1basic__string.html#a7e66de68ec8b4eda1e822bc9eac3315b',1,'jpp::core::basic_string']]],
   ['deallocate_4',['deallocate',['../classjpp_1_1core_1_1irrAllocator.html#af5c8271b41073c863761d9e4da7a568d',1,'jpp::core::irrAllocator::deallocate()'],['../classjpp_1_1core_1_1irrAllocatorFast.html#aaae9798df104a70aa78e2ed3fb5191b8',1,'jpp::core::irrAllocatorFast::deallocate()']]],
   ['debug_5fnormal_5fcolor_5',['DEBUG_NORMAL_COLOR',['../namespacejpp_1_1scene.html#aff2a9ac190169688faeb821c46cabec9',1,'jpp::scene']]],
   ['debug_5fnormal_5flength_6',['DEBUG_NORMAL_LENGTH',['../namespacejpp_1_1scene.html#af838865a39cb15d593de4a462011290d',1,'jpp::scene']]],

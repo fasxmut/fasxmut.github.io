@@ -18,7 +18,7 @@ var searchData=
   ['toa1r5g5b5_15',['toA1R5G5B5',['../classjpp_1_1video_1_1SColor.html#ad7037a34fd5192d4016809bc572c277f',1,'jpp::video::SColor']]],
   ['toangleaxis_16',['toAngleAxis',['../classjpp_1_1core_1_1quaternion.html#ad0cab04d65f3c9a3d7a4ffa1b81f3bc3',1,'jpp::core::quaternion']]],
   ['toeuler_17',['toEuler',['../classjpp_1_1core_1_1quaternion.html#aa1ec2eac5fc918586361c389a582a11b',1,'jpp::core::quaternion']]],
-  ['toncname_18',['toNCName',['../classjpp_1_1scene_1_1IColladaMeshWriter.html#aa3fe421d404020edc1622a0ac3b44bb2',1,'jpp::scene::IColladaMeshWriter']]],
+  ['toncname_18',['toNCName',['../classjpp_1_1scene_1_1IColladaMeshWriter.html#a934b280645d0e59cd4b16c501f62a8d6',1,'jpp::scene::IColladaMeshWriter']]],
   ['tooltiptext_19',['ToolTipText',['../classjpp_1_1gui_1_1IGUIElement.html#a83ea5827a7c5047281cc296d4009a601',1,'jpp::gui::IGUIElement']]],
   ['toopenglcolor_20',['toOpenGLColor',['../classjpp_1_1video_1_1SColor.html#af2864b552c4574cbe32c9736a941c776',1,'jpp::video::SColor']]],
   ['toscolor_21',['toSColor',['../classjpp_1_1video_1_1SColorf.html#a77e09e9895e2fed238fa31c980ec5ead',1,'jpp::video::SColorf']]],
@@ -37,7 +37,7 @@ var searchData=
   ['triangle3di_34',['triangle3di',['../namespacejpp_1_1core.html#a14bcf0dfc5548f9abb29535af8d8938f',1,'jpp::core']]],
   ['triangleselector_35',['triangleselector',['../classjpp_1_1scene_1_1ISceneNode.html#a349da761c2933330c68cc23882e0f71e',1,'jpp::scene::ISceneNode::TriangleSelector'],['../classjpp_1_1scene_1_1SCollisionHit.html#a15f8625c6573a03ec3f945436c7c69e6',1,'jpp::scene::SCollisionHit::TriangleSelector']]],
   ['trilinearfilter_36',['TrilinearFilter',['../classjpp_1_1video_1_1SMaterialLayer.html#af3a010d6b1668a0c9233f2d8ee9a227b',1,'jpp::video::SMaterialLayer']]],
-  ['trim_37',['trim',['../classjpp_1_1core_1_1string.html#a73a586476a29142796e20b2a9ab53f9d',1,'jpp::core::string']]],
+  ['trim_37',['trim',['../classjpp_1_1core_1_1basic__string.html#a3558bae6f7f5d12a64a843b04b44175f',1,'jpp::core::basic_string']]],
   ['turnlighton_38',['turnLightOn',['../classjpp_1_1video_1_1IVideoDriver.html#a78de8027782ff48519559875fa71bffc',1,'jpp::video::IVideoDriver']]],
   ['type_39',['type',['../classjpp_1_1video_1_1SLight.html#a5d06057aff6296a105504267a5d7baa0',1,'jpp::video::SLight::Type'],['../classjpp_1_1scene_1_1SAnimatedMesh.html#a282423d364b808fe83d770ed0976f2df',1,'jpp::scene::SAnimatedMesh::Type'],['../classjpp_1_1gui_1_1IGUIElement.html#a86420c264e53dcacaf2ce3eb46a712b8',1,'jpp::gui::IGUIElement::Type']]]
 ];

@@ -252,7 +252,7 @@ $(document).ready(function(){initNavTree('IAnimatedMeshMD3_8hpp_source.html','')
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        <a class="code hl_class" href="classjpp_1_1scene_1_1SMD3MeshHeader.html">SMD3MeshHeader</a> MeshHeader;</div>
 <div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        <a class="code hl_class" href="classjpp_1_1core_1_1aabbox3d.html">core::ustring</a> Shader;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        <a class="code hl_class" href="classjpp_1_1core_1_1basic__string.html">core::string</a> Shader;</div>
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        <a class="code hl_class" href="classjpp_1_1core_1_1aabbox3d.html">core::array &lt; s32 &gt;</a> Indices;</div>
 <div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        <a class="code hl_class" href="classjpp_1_1core_1_1aabbox3d.html">core::array &lt; SMD3Vertex &gt;</a> Vertices;</div>
 <div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        <a class="code hl_class" href="classjpp_1_1core_1_1aabbox3d.html">core::array &lt; SMD3TexCoord &gt;</a> Tex;</div>
@@ -265,7 +265,7 @@ $(document).ready(function(){initNavTree('IAnimatedMeshMD3_8hpp_source.html','')
 <div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    {</div>
 <div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        <span class="comment">// construct for searching</span></div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        <a class="code hl_class" href="classjpp_1_1scene_1_1SMD3QuaternionTag.html">SMD3QuaternionTag</a>( <span class="keyword">const</span> <a class="code hl_class" href="classjpp_1_1core_1_1aabbox3d.html">core::ustring</a>&amp; name )</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        <a class="code hl_class" href="classjpp_1_1scene_1_1SMD3QuaternionTag.html">SMD3QuaternionTag</a>( <span class="keyword">const</span> <a class="code hl_class" href="classjpp_1_1core_1_1basic__string.html">core::string</a>&amp; name )</div>
 <div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>            : Name ( name ) {}</div>
 <div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
 <div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        <span class="comment">// construct from a position and euler angles in degrees</span></div>
@@ -283,7 +283,7 @@ $(document).ready(function(){initNavTree('IAnimatedMeshMD3_8hpp_source.html','')
 <div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>            <span class="keywordflow">return</span> Name == other.Name;</div>
 <div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        }</div>
 <div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        <a class="code hl_class" href="classjpp_1_1core_1_1aabbox3d.html">core::ustring</a> Name;</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        <a class="code hl_class" href="classjpp_1_1core_1_1basic__string.html">core::string</a> Name;</div>
 <div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        <a class="code hl_class" href="classjpp_1_1core_1_1vector3d.html">core::vector3df</a> position;</div>
 <div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        <a class="code hl_class" href="classjpp_1_1core_1_1quaternion.html">core::quaternion</a> rotation;</div>
 <div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    };</div>
@@ -298,7 +298,7 @@ $(document).ready(function(){initNavTree('IAnimatedMeshMD3_8hpp_source.html','')
 <div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>            Container.setAllocStrategy(core::ALLOC_STRATEGY_SAFE);</div>
 <div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        }</div>
 <div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        <a class="code hl_class" href="classjpp_1_1scene_1_1SMD3QuaternionTag.html">SMD3QuaternionTag</a>* get(<span class="keyword">const</span> <a class="code hl_class" href="classjpp_1_1core_1_1aabbox3d.html">core::ustring</a>&amp; name)</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        <a class="code hl_class" href="classjpp_1_1scene_1_1SMD3QuaternionTag.html">SMD3QuaternionTag</a>* get(<span class="keyword">const</span> <a class="code hl_class" href="classjpp_1_1core_1_1basic__string.html">core::string</a>&amp; name)</div>
 <div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>        {</div>
 <div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>            <a class="code hl_class" href="classjpp_1_1scene_1_1SMD3QuaternionTag.html">SMD3QuaternionTag</a> search ( name );</div>
 <div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>            <span class="keyword">const</span> <a class="code hl_typedef" href="namespacejpp.html#a0ba67f63a64d4da5e6996fb8501bc674">s32</a> index = Container.linear_search ( search );</div>
@@ -359,7 +359,7 @@ $(document).ready(function(){initNavTree('IAnimatedMeshMD3_8hpp_source.html','')
 <div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>                Buffer[i]-&gt;<a class="code hl_function" href="classjpp_1_1IReferenceCounted.html#a8c68f50a2b4f9e5132bb2a678d550d23">drop</a>();</div>
 <div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>        }</div>
 <div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span> </div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>        <a class="code hl_class" href="classjpp_1_1core_1_1aabbox3d.html">core::ustring</a> Name;</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>        <a class="code hl_class" href="classjpp_1_1core_1_1basic__string.html">core::string</a> Name;</div>
 <div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        <a class="code hl_class" href="classjpp_1_1core_1_1aabbox3d.html">core::array&lt;SMD3MeshBuffer*&gt;</a> Buffer;</div>
 <div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>        <a class="code hl_class" href="classjpp_1_1scene_1_1SMD3QuaternionTagList.html">SMD3QuaternionTagList</a> TagList;</div>
 <div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>        <a class="code hl_class" href="classjpp_1_1scene_1_1SMD3Header.html">SMD3Header</a> MD3Header;</div>
@@ -388,6 +388,7 @@ $(document).ready(function(){initNavTree('IAnimatedMeshMD3_8hpp_source.html','')
 <div class="ttc" id="aclassjpp_1_1IReferenceCounted_html_a8c68f50a2b4f9e5132bb2a678d550d23"><div class="ttname"><a href="classjpp_1_1IReferenceCounted.html#a8c68f50a2b4f9e5132bb2a678d550d23">jpp::IReferenceCounted::drop</a></div><div class="ttdeci">bool drop() const</div><div class="ttdoc">Drops the object. Decrements the reference counter by one.</div><div class="ttdef"><b>Definition</b> IReferenceCounted.hpp:126</div></div>
 <div class="ttc" id="aclassjpp_1_1core_1_1CMatrix4_html"><div class="ttname"><a href="classjpp_1_1core_1_1CMatrix4.html">jpp::core::CMatrix4</a></div><div class="ttdoc">4x4 matrix. Mostly used as transformation matrix for 3d calculations.</div><div class="ttdef"><b>Definition</b> matrix4.hpp:49</div></div>
 <div class="ttc" id="aclassjpp_1_1core_1_1aabbox3d_html"><div class="ttname"><a href="classjpp_1_1core_1_1aabbox3d.html">jpp::core::aabbox3d</a></div><div class="ttdoc">Axis aligned bounding box in 3d dimensional space.</div><div class="ttdef"><b>Definition</b> aabbox3d.hpp:22</div></div>
+<div class="ttc" id="aclassjpp_1_1core_1_1basic__string_html"><div class="ttname"><a href="classjpp_1_1core_1_1basic__string.html">jpp::core::basic_string&lt; c8 &gt;</a></div></div>
 <div class="ttc" id="aclassjpp_1_1core_1_1quaternion_html"><div class="ttname"><a href="classjpp_1_1core_1_1quaternion.html">jpp::core::quaternion</a></div><div class="ttdoc">Quaternion class for representing rotations.</div><div class="ttdef"><b>Definition</b> quaternion.hpp:32</div></div>
 <div class="ttc" id="aclassjpp_1_1core_1_1quaternion_html_a91350d69bd07609c1928ecf68f3f4b1f"><div class="ttname"><a href="classjpp_1_1core_1_1quaternion.html#a91350d69bd07609c1928ecf68f3f4b1f">jpp::core::quaternion::getMatrix</a></div><div class="ttdeci">matrix4 getMatrix() const</div><div class="ttdoc">Creates a matrix from this quaternion.</div><div class="ttdef"><b>Definition</b> quaternion.hpp:348</div></div>
 <div class="ttc" id="aclassjpp_1_1core_1_1vector3d_html"><div class="ttname"><a href="classjpp_1_1core_1_1vector3d.html">jpp::core::vector3d&lt; f32 &gt;</a></div></div>

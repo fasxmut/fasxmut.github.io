@@ -6,7 +6,7 @@ var searchData=
   ['toa1r5g5b5_3',['toA1R5G5B5',['../classjpp_1_1video_1_1SColor.html#ad7037a34fd5192d4016809bc572c277f',1,'jpp::video::SColor']]],
   ['toangleaxis_4',['toAngleAxis',['../classjpp_1_1core_1_1quaternion.html#ad0cab04d65f3c9a3d7a4ffa1b81f3bc3',1,'jpp::core::quaternion']]],
   ['toeuler_5',['toEuler',['../classjpp_1_1core_1_1quaternion.html#aa1ec2eac5fc918586361c389a582a11b',1,'jpp::core::quaternion']]],
-  ['toncname_6',['toNCName',['../classjpp_1_1scene_1_1IColladaMeshWriter.html#aa3fe421d404020edc1622a0ac3b44bb2',1,'jpp::scene::IColladaMeshWriter']]],
+  ['toncname_6',['toNCName',['../classjpp_1_1scene_1_1IColladaMeshWriter.html#a934b280645d0e59cd4b16c501f62a8d6',1,'jpp::scene::IColladaMeshWriter']]],
   ['toopenglcolor_7',['toOpenGLColor',['../classjpp_1_1video_1_1SColor.html#af2864b552c4574cbe32c9736a941c776',1,'jpp::video::SColor']]],
   ['toscolor_8',['toSColor',['../classjpp_1_1video_1_1SColorf.html#a77e09e9895e2fed238fa31c980ec5ead',1,'jpp::video::SColorf']]],
   ['transform_9',['transform',['../classjpp_1_1scene_1_1IMeshManipulator.html#a8dbc09b393d0d00314ff858f48a8d9c2',1,'jpp::scene::IMeshManipulator::transform()'],['../classjpp_1_1scene_1_1SViewFrustum.html#a6bbc4817b514d11a66ecb1089bb6c474',1,'jpp::scene::SViewFrustum::transform()'],['../classjpp_1_1scene_1_1IMeshManipulator.html#a0ebb1ad48d2798e967268b08b12ce46b',1,'jpp::scene::IMeshManipulator::transform()']]],
@@ -19,6 +19,6 @@ var searchData=
   ['transformvect_16',['transformvect',['../classjpp_1_1core_1_1CMatrix4.html#accdcf5053fe433b2733e696115cc06b8',1,'jpp::core::CMatrix4::transformVect(vector3df &amp;vect) const'],['../classjpp_1_1core_1_1CMatrix4.html#ae877d5b0e8c8034950fe62934ec54d10',1,'jpp::core::CMatrix4::transformVect(vector3df &amp;out, const vector3df &amp;in) const'],['../classjpp_1_1core_1_1CMatrix4.html#ab71d9cf880f764985c8e112cf78a4cb6',1,'jpp::core::CMatrix4::transformVect(T *out, const core::vector3df &amp;in) const']]],
   ['translatevect_17',['translateVect',['../classjpp_1_1core_1_1CMatrix4.html#accc1c13bcc48b8841baa51934d6aea3a',1,'jpp::core::CMatrix4']]],
   ['triangle3d_18',['triangle3d',['../classjpp_1_1core_1_1triangle3d.html#a65a03f5a950f717317216fb7db82b13f',1,'jpp::core::triangle3d::triangle3d()'],['../classjpp_1_1core_1_1triangle3d.html#a057ed7f47b40d524312b5560d000144a',1,'jpp::core::triangle3d::triangle3d(const vector3d&lt; T &gt; &amp;v1, const vector3d&lt; T &gt; &amp;v2, const vector3d&lt; T &gt; &amp;v3)']]],
-  ['trim_19',['trim',['../classjpp_1_1core_1_1string.html#a73a586476a29142796e20b2a9ab53f9d',1,'jpp::core::string']]],
+  ['trim_19',['trim',['../classjpp_1_1core_1_1basic__string.html#a3558bae6f7f5d12a64a843b04b44175f',1,'jpp::core::basic_string']]],
   ['turnlighton_20',['turnLightOn',['../classjpp_1_1video_1_1IVideoDriver.html#a78de8027782ff48519559875fa71bffc',1,'jpp::video::IVideoDriver']]]
 ];

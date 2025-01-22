@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['lastchar_0',['lastChar',['../classjpp_1_1core_1_1string.html#a81b5085ded9963b6c748d62c4681ccf5',1,'jpp::core::string']]],
+  ['lastchar_0',['lastChar',['../classjpp_1_1core_1_1basic__string.html#a2a9d122a7dd5d7e02e157e85ecd8eda0',1,'jpp::core::basic_string']]],
   ['lastparentrect_1',['LastParentRect',['../classjpp_1_1gui_1_1IGUIElement.html#ae07234a2953083111054a41f805304b9',1,'jpp::gui::IGUIElement']]],
   ['layer_20api_20documentation_2',['Jimcpp core layer API documentation',['../index.html',1,'']]],
   ['lerp_3',['lerp',['../classjpp_1_1core_1_1quaternion.html#a8eeddc11835180696fa0e710c84de712',1,'jpp::core::quaternion::lerp()'],['../namespacejpp_1_1core.html#a5c2760d7811299f8abb6904bfb52faac',1,'jpp::core::lerp()']]],
@@ -30,13 +30,13 @@ var searchData=
   ['loadimage_27',['loadImage',['../classjpp_1_1video_1_1IImageLoader.html#ae14933904b2dac2d13449ac28edd8ccb',1,'jpp::video::IImageLoader']]],
   ['loadimages_28',['loadImages',['../classjpp_1_1video_1_1IImageLoader.html#a379c5e38b0ba7b28dd557a08ac248693',1,'jpp::video::IImageLoader']]],
   ['loadscene_29',['loadscene',['../classjpp_1_1scene_1_1ISceneManager.html#a8f5a7ac71781b4f6538a9bed8fa4b22c',1,'jpp::scene::ISceneManager::loadScene()'],['../classjpp_1_1scene_1_1ISceneLoader.html#a3addce6d3a4096231d742d32b01d5eac',1,'jpp::scene::ISceneLoader::loadScene()'],['../classjpp_1_1scene_1_1ISceneManager.html#a5bb42669f6e7134c735c9e3882ed3f80',1,'jpp::scene::ISceneManager::loadScene()']]],
-  ['locale_5fdecimal_5fpoints_30',['LOCALE_DECIMAL_POINTS',['../namespacejpp_1_1core.html#a088fddf88328ad35a6982eea7e6c7119',1,'jpp::core']]],
+  ['locale_5fdecimal_5fpoints_30',['LOCALE_DECIMAL_POINTS',['../namespacejpp_1_1core.html#ac941e9b68e6da8a11b8df64f6fe53e3e',1,'jpp::core']]],
   ['localmatrix_31',['LocalMatrix',['../classjpp_1_1scene_1_1ISkinnedMesh_1_1SJoint.html#ac95f39f4622df097ef10f9c39f3f1c4a',1,'jpp::scene::ISkinnedMesh::SJoint']]],
   ['lock_32',['lock',['../classjpp_1_1video_1_1IImage.html#a6f70b88aafda94b58d00612a64360623',1,'jpp::video::IImage::lock()'],['../classjpp_1_1video_1_1ITexture.html#a7986e5116679dd8af673f9342ed17d2d',1,'jpp::video::ITexture::lock()']]],
   ['lodbias_33',['LODBias',['../classjpp_1_1video_1_1SMaterialLayer.html#a872900168d56ee255b857c6f6c24d823',1,'jpp::video::SMaterialLayer']]],
   ['log_34',['log',['../classjpp_1_1ILogger.html#ae8f3f20de6fa02d017473c4f44b8aa52',1,'jpp::ILogger::log(const wchar_t *text, ELOG_LEVEL ll=ELL_INFORMATION)=0'],['../classjpp_1_1ILogger.html#ae390b10db71b9a3cea6673dbd75e8825',1,'jpp::ILogger::log(const wchar_t *text, const wchar_t *hint, ELOG_LEVEL ll=ELL_INFORMATION)=0'],['../classjpp_1_1ILogger.html#ae8ff1b1ffa579b401534543caf2c053a',1,'jpp::ILogger::log(const c8 *text, const c8 *hint, ELOG_LEVEL ll=ELL_INFORMATION)=0'],['../classjpp_1_1ILogger.html#aecd464f645313f8a3f187c417c421a29',1,'jpp::ILogger::log(const c8 *text, ELOG_LEVEL ll=ELL_INFORMATION)=0']]],
   ['logginglevel_35',['LoggingLevel',['../classjpp_1_1SJimcppCreationParameters.html#aa89efb35749871f7b8b7a4e2ff43c98c',1,'jpp::SJimcppCreationParameters']]],
   ['looping_36',['looping',['../classjpp_1_1scene_1_1SMD3AnimationInfo.html#abeeb3a85a8dd13d6659d9ab6c4e9ad93',1,'jpp::scene::SMD3AnimationInfo']]],
-  ['lower_5fignore_5fcase_37',['lower_ignore_case',['../classjpp_1_1core_1_1string.html#a0b5f1e793f3d37f033ed5c8bffc681d3',1,'jpp::core::string']]],
+  ['lower_5fignore_5fcase_37',['lower_ignore_case',['../classjpp_1_1core_1_1basic__string.html#a8a71b1069bb398f697916e20e86a762e',1,'jpp::core::basic_string']]],
   ['lowerrightcorner_38',['LowerRightCorner',['../classjpp_1_1core_1_1rect.html#aef22bd93db74d0878b0b009530c99d3e',1,'jpp::core::rect']]]
 ];

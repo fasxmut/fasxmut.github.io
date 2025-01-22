@@ -1,23 +1,27 @@
 <map id="jpp::gui::IGUIProfiler" name="jpp::gui::IGUIProfiler">
-<area shape="rect" id="Node000001" title="Element to display profiler information." alt="" coords="837,154,989,179"/>
-<area shape="rect" id="Node000002" href="$classjpp_1_1gui_1_1IGUIElement.html" title="Base class of all GUI elements." alt="" coords="628,154,788,179"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="802,164,837,164,837,169,802,169"/>
-<area shape="poly" id="edge6_Node000002_Node000002" title=" " alt="" coords="687,139,693,131,708,127,721,130,728,136,730,146,727,155,722,153,725,145,724,139,718,135,708,133,696,135,691,142"/>
+<area shape="rect" id="Node000001" title="Element to display profiler information." alt="" coords="837,258,989,283"/>
+<area shape="rect" id="Node000002" href="$classjpp_1_1gui_1_1IGUIElement.html" title="Base class of all GUI elements." alt="" coords="628,258,788,283"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="802,268,837,268,837,273,802,273"/>
+<area shape="poly" id="edge6_Node000002_Node000002" title=" " alt="" coords="687,243,693,235,708,231,721,234,728,240,730,250,727,259,722,257,725,249,724,243,718,239,708,237,696,239,691,246"/>
 <area shape="rect" id="Node000003" href="$classjpp_1_1io_1_1IAttributeExchangingObject.html" title="An object which is able to serialize and deserialize its attributes into an attributes object." alt="" coords="229,5,436,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="451,35,528,52,605,80,633,96,658,116,697,152,693,156,655,120,630,101,603,85,527,57,450,40"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="450,15,490,18,530,26,570,39,606,59,630,81,650,106,680,163,698,217,707,257,702,258,693,219,675,165,646,109,626,84,602,64,567,44,529,31,489,23,449,20"/>
 <area shape="rect" id="Node000004" href="$classjpp_1_1IReferenceCounted.html" title="Base class of most objects of the Jimcpp Engine." alt="" coords="5,42,180,67"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="193,40,229,35,229,41,194,45"/>
-<area shape="rect" id="Node000010" href="$classjpp_1_1gui_1_1IGUIEnvironment.html" title="GUI Environment. Used as factory and manager of all other GUI elements." alt="" coords="238,70,427,95"/>
-<area shape="poly" id="edge11_Node000010_Node000004" title=" " alt="" coords="194,64,238,69,238,74,193,69"/>
+<area shape="rect" id="Node000012" href="$classjpp_1_1gui_1_1IGUIEnvironment.html" title="GUI Environment. Used as factory and manager of all other GUI elements." alt="" coords="238,70,427,95"/>
+<area shape="poly" id="edge13_Node000012_Node000004" title=" " alt="" coords="194,64,238,69,238,74,193,69"/>
 <area shape="rect" id="Node000005" href="$classjpp_1_1IEventReceiver.html" title="Interface of an object which can receive events." alt="" coords="259,119,407,145"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="421,136,604,152,628,155,627,160,604,157,420,141"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="421,122,465,123,512,127,560,138,605,155,638,177,665,205,702,256,697,259,661,209,634,181,603,160,559,143,512,133,465,128,421,127"/>
 <area shape="rect" id="Node000006" href="$classjpp_1_1core_1_1list.html" title=" " alt="" coords="249,169,416,209"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="430,181,628,169,628,174,430,186"/>
-<area shape="rect" id="Node000007" href="$classjpp_1_1core_1_1rect.html" title=" " alt="" coords="251,257,415,282"/>
-<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="429,280,515,279,560,272,603,259,633,242,659,220,696,178,700,181,663,224,636,247,605,264,561,277,516,284,429,285"/>
-<area shape="rect" id="Node000008" href="$classjpp_1_1core_1_1rect.html" title=" " alt="" coords="251,306,414,331"/>
-<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="427,330,470,331,515,328,561,319,603,302,638,275,666,240,686,206,699,178,704,181,691,208,670,243,642,279,605,306,562,324,516,333,470,336,427,335"/>
-<area shape="rect" id="Node000009" href="$classjpp_1_1core_1_1dimension2d.html" title=" " alt="" coords="247,357,418,397"/>
-<area shape="poly" id="edge9_Node000002_Node000009" title=" " alt="" coords="432,394,475,397,519,394,563,384,603,366,626,347,646,324,675,270,693,218,702,179,707,180,698,219,680,272,650,327,630,351,605,370,564,389,520,399,475,402,432,400"/>
-<area shape="poly" id="edge10_Node000002_Node000010" title=" " alt="" coords="440,95,521,109,605,128,676,151,674,156,603,133,520,114,439,100"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="430,175,516,176,561,182,605,193,633,206,658,223,696,256,692,260,655,227,630,211,603,199,560,187,516,182,430,181"/>
+<area shape="rect" id="Node000007" href="$classjpp_1_1core_1_1rect.html" title=" " alt="" coords="251,254,415,279"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="428,266,460,267,628,268,628,273,460,272,428,271"/>
+<area shape="rect" id="Node000008" href="$classjpp_1_1core_1_1rect.html" title=" " alt="" coords="251,303,414,329"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="428,307,604,288,646,281,647,286,604,293,428,312"/>
+<area shape="rect" id="Node000009" href="$classjpp_1_1core_1_1dimension2d.html" title=" " alt="" coords="247,355,418,395"/>
+<area shape="poly" id="edge9_Node000002_Node000009" title=" " alt="" coords="432,371,517,361,561,352,603,339,653,311,691,282,694,286,656,316,605,344,562,357,518,367,432,376"/>
+<area shape="rect" id="Node000010" href="$classjpp_1_1core_1_1basic__string.html" title=" " alt="" coords="251,419,415,459"/>
+<area shape="poly" id="edge10_Node000002_Node000010" title=" " alt="" coords="428,443,471,441,516,435,561,423,603,404,637,377,665,343,686,309,699,282,704,285,690,312,669,346,641,381,605,409,563,428,517,440,472,446,428,448"/>
+<area shape="rect" id="Node000011" href="$classjpp_1_1core_1_1basic__string.html" title=" " alt="" coords="251,483,415,523"/>
+<area shape="poly" id="edge11_Node000002_Node000011" title=" " alt="" coords="428,507,472,505,517,497,562,484,602,462,625,443,644,420,673,369,692,320,701,283,707,284,697,321,678,371,648,423,628,447,606,466,564,488,519,502,472,510,428,512"/>
+<area shape="poly" id="edge12_Node000002_Node000012" title=" " alt="" coords="442,77,482,80,525,88,567,101,605,120,642,152,671,190,692,228,704,257,699,259,687,230,666,193,638,155,603,125,565,106,524,93,482,86,441,82"/>
 </map>

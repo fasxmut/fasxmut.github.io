@@ -28,6 +28,10 @@ var hierarchy =
     [ "jpp::core::array< s32 >", "classjpp_1_1core_1_1array.html", null ],
     [ "jpp::core::array< u16 >", "classjpp_1_1core_1_1array.html", null ],
     [ "jpp::core::array< u32 >", "classjpp_1_1core_1_1array.html", null ],
+    [ "jpp::core::basic_string< T, TAlloc >", "classjpp_1_1core_1_1basic__string.html", null ],
+    [ "jpp::core::basic_string< c8 >", "classjpp_1_1core_1_1basic__string.html", null ],
+    [ "jpp::core::basic_string< fschar_t >", "classjpp_1_1core_1_1basic__string.html", null ],
+    [ "jpp::core::basic_string< wchar_t >", "classjpp_1_1core_1_1basic__string.html", null ],
     [ "jpp::core::CMatrix4< T >", "classjpp_1_1core_1_1CMatrix4.html", null ],
     [ "jpp::core::list< T >::ConstIterator", "classjpp_1_1core_1_1list_1_1ConstIterator.html", null ],
     [ "jpp::core::map< KeyType, ValueType >::ConstIterator", "classjpp_1_1core_1_1map_1_1ConstIterator.html", null ],
@@ -316,8 +320,6 @@ var hierarchy =
     [ "jpp::scene::ISkinnedMesh::SRotationKey", "classjpp_1_1scene_1_1ISkinnedMesh_1_1SRotationKey.html", null ],
     [ "jpp::scene::ISkinnedMesh::SScaleKey", "classjpp_1_1scene_1_1ISkinnedMesh_1_1SScaleKey.html", null ],
     [ "jpp::SEvent::STouchInput", "classjpp_1_1SEvent_1_1STouchInput.html", null ],
-    [ "jpp::core::string< T, TAlloc >", "classjpp_1_1core_1_1string.html", null ],
-    [ "jpp::core::string< fschar_t >", "classjpp_1_1core_1_1string.html", null ],
     [ "super_class", null, [
       [ "jpp::io::IIrrXMLReader< char_type, super_class >", "classjpp_1_1io_1_1IIrrXMLReader.html", null ],
       [ "jpp::io::IIrrXMLWriter< char_type, super_class >", "classjpp_1_1io_1_1IIrrXMLWriter.html", null ]
