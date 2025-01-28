@@ -1,0 +1,15 @@
+[article c++ programs
+	[id cpp-programs]
+	[quickbook 1.7]
+]
+
+c++ programs: cpp-programs
+
+It is a project containg many interesting c++ programs.
+
+[h1:back [role cyan Back]]
+
+[@. Up]
+
+[include ../../share/foot-links.inc.qbk]
+
