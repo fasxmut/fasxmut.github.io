@@ -1,7 +1,0 @@
-<map id="jpp::io::IFileArchive" name="jpp::io::IFileArchive">
-<area shape="rect" id="Node000001" title="The FileArchive manages archives and provides access to files inside them." alt="" coords="115,108,262,133"/>
-<area shape="rect" id="Node000002" href="$classjpp_1_1IReferenceCounted.html" title="Base class of most objects of the Jimcpp Engine." alt="" coords="5,13,180,38"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,46,179,106,175,110,112,49"/>
-<area shape="rect" id="Node000003" href="$classjpp_1_1core_1_1basic__string.html" title=" " alt="" coords="204,5,368,45"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="258,57,203,110,199,106,255,53"/>
-</map>

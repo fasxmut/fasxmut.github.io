@@ -1,5 +1,0 @@
-<map id="jpp::video::S3DVertexTangents" name="jpp::video::S3DVertexTangents">
-<area shape="rect" id="Node000001" title="Vertex with a tangent and binormal vector." alt="" coords="5,79,225,104"/>
-<area shape="rect" id="Node000002" href="$classjpp_1_1video_1_1S3DVertex.html" title="standard vertex used by the Jimcpp engine." alt="" coords="34,5,197,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,44,118,79,113,79,113,44"/>
-</map>

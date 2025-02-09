@@ -1,7 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$classjpp_1_1video_1_1S3DVertex.html" title="standard vertex used by the Jimcpp engine." alt="" coords="5,31,168,56"/>
-<area shape="rect" id="Node000001" href="$classjpp_1_1video_1_1S3DVertex2TCoords.html" title="Vertex with two texture coordinates." alt="" coords="216,5,439,31"/>
-<area shape="poly" id="edge152_Node000000_Node000001" title=" " alt="" coords="182,31,216,27,216,32,182,36"/>
-<area shape="rect" id="Node000002" href="$classjpp_1_1video_1_1S3DVertexTangents.html" title="Vertex with a tangent and binormal vector." alt="" coords="217,55,437,80"/>
-<area shape="poly" id="edge153_Node000000_Node000002" title=" " alt="" coords="182,50,217,54,217,59,182,55"/>
-</map>

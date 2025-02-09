@@ -1,5 +1,0 @@
-<map id="jpp::SJoystickInfo" name="jpp::SJoystickInfo">
-<area shape="rect" id="Node000001" title="Information on a joystick, returned from jpp::JimcppDevice::activateJoysticks()" alt="" coords="20,108,155,133"/>
-<area shape="rect" id="Node000002" href="$classjpp_1_1core_1_1basic__string.html" title=" " alt="" coords="5,5,169,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,59,90,108,85,108,85,59"/>
-</map>

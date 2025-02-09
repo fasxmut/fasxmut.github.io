@@ -1,9 +1,0 @@
-<map id="jpp::scene::SMD3QuaternionTag" name="jpp::scene::SMD3QuaternionTag">
-<area shape="rect" id="Node000001" title="hold a tag info for connecting meshes" alt="" coords="151,108,379,133"/>
-<area shape="rect" id="Node000002" href="$classjpp_1_1core_1_1basic__string.html" title=" " alt="" coords="5,5,169,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,49,244,106,242,110,134,54"/>
-<area shape="rect" id="Node000003" href="$classjpp_1_1core_1_1vector3d.html" title=" " alt="" coords="193,5,336,45"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="267,59,267,108,262,108,262,59"/>
-<area shape="rect" id="Node000004" href="$classjpp_1_1core_1_1quaternion.html" title="Quaternion class for representing rotations." alt="" coords="360,13,516,38"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="406,47,287,110,285,106,404,42"/>
-</map>

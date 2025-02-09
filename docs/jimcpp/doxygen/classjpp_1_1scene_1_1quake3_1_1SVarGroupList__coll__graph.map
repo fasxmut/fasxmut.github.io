@@ -1,7 +1,0 @@
-<map id="jpp::scene::quake3::SVarGroupList" name="jpp::scene::quake3::SVarGroupList">
-<area shape="rect" id="Node000001" title="holding a group a variable" alt="" coords="131,108,273,148"/>
-<area shape="rect" id="Node000002" href="$classjpp_1_1IReferenceCounted.html" title="Base class of most objects of the Jimcpp Engine." alt="" coords="5,13,180,38"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="117,46,183,106,180,110,114,50"/>
-<area shape="rect" id="Node000003" href="$classjpp_1_1core_1_1array.html" title=" " alt="" coords="204,5,419,45"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="282,57,224,110,221,106,279,53"/>
-</map>

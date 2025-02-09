@@ -1,9 +1,0 @@
-<map id="jpp::scene::IParticleMeshEmitter" name="jpp::scene::IParticleMeshEmitter">
-<area shape="rect" id="Node000001" title="A particle emitter which emits from vertices of a mesh." alt="" coords="17,240,200,280"/>
-<area shape="rect" id="Node000002" href="$classjpp_1_1scene_1_1IParticleEmitter.html" title="A particle emitter for using with particle systems." alt="" coords="11,167,207,192"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,206,111,240,106,240,106,206"/>
-<area shape="rect" id="Node000003" href="$classjpp_1_1io_1_1IAttributeExchangingObject.html" title="An object which is able to serialize and deserialize its attributes into an attributes object." alt="" coords="5,79,212,119"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="111,132,111,166,106,166,106,132"/>
-<area shape="rect" id="Node000004" href="$classjpp_1_1IReferenceCounted.html" title="Base class of most objects of the Jimcpp Engine." alt="" coords="21,5,196,31"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="111,44,111,79,106,79,106,44"/>
-</map>
