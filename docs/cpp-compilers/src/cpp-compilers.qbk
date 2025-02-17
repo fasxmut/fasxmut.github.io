@@ -4,6 +4,7 @@
 ]
 
 [include microsoft-visualcpp.qbk]
+[include serenityos-gcc.qbk]
 [include haiku-gcc.qbk]
 
 [h2 Back]
