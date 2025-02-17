@@ -1,0 +1,82 @@
+project-list =
+	apps-case
+	boost
+	botan-cpp
+	cpp
+	cpp-compilers
+	dig-botan
+	dig-haiku
+	giac
+	haiku
+	learn-cpp-in-days
+	logs
+	projects
+	selam
+	serenityos
+	silice
+	not-found-test
+	sycl
+;
+
+path-constant my-dir : . ;
+
+import path ;
+
+###########################################################################
+
+argv = [ modules.peek : ARGV ] ;
+
+if [ MATCH ^(clean)$ : $(argv) ]
+{
+	echo "clean ...\n\n" ;
+	for project in $(project-list)
+	{
+		src = $(my-dir)/../$(project)/src ;
+		echo "clean project: $(project)" ;
+		if ! [ path.exists $(src) ]
+		{
+			echo "  $(src) does not exist. skip" ;
+			continue ;
+		}
+		# else
+		echo "  bash -c 'cd $(src); b2 clean'" ;
+		SHELL "bash -c 'cd $(src); b2 clean'" ;
+	}
+	exit ;
+}
+
+if [ MATCH ^(cleanall)$ : $(argv) ]
+{
+	echo "cleanall ...\n\n" ;
+	for project in $(project-list)
+	{
+		src = $(my-dir)/../$(project)/src ;
+		echo "cleanall project: $(project)" ;
+		if ! [ path.exists $(src) ]
+		{
+			echo "  $(src) does not exist. skip" ;
+			continue ;
+		}
+		# else
+		echo "  bash -c 'cd $(src); b2 cleanall'" ;
+		SHELL "bash -c 'cd $(src); b2 cleanall'" ;
+	}
+	exit ;
+}
+
+###########################################################################
+
+for project in $(project-list)
+{
+	echo "Project: $(project)" ;
+
+	src = $(my-dir)/../$(project)/src ;
+	if ! [ path.exists $(src) ]
+	{
+		echo "  $(src) does not exist. skip" ;
+		continue ;
+	}
+	# else
+	build-project $(src) ;
+}
+
