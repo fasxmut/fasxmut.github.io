@@ -1,0 +1,227 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>dcpp::nub::wstring</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Duckcpp Engine">
+<link rel="up" href="dcpp-nub.html" title="dcpp::nub::">
+<link rel="prev" href="dcpp-nub-string.html" title="dcpp::nub::string">
+<link rel="next" href="dcpp-nub-basic_string.html" title="dcpp::nub::basic_string">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="dcpp-nub-string.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="dcpp-nub.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="dcpp-nub-basic_string.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="dcpp-nub-wstring"></a>dcpp::nub::wstring</h2></div></div>
+<hr>
+</div>
+<p>
+          dcpp::nub::wstring is the wchar_t based string using alias of dcpp::nub::basic_string.
+        </p>
+<p>
+          Duckcpp forks irrlicht.<br> dcpp::nub::wstring is renamed from irr::core::stringw.
+        </p>
+<h2>
+<a name="dcpp-nub-wstring.h0"></a>
+          <span class="phrase"><a name="dcpp-nub-wstring.method-data"></a></span><a class="link" href="dcpp-nub-wstring.html#dcpp-nub-wstring.method-data"><span class="cyan">Method: .data()</span></a>
+        </h2>
+<p>
+          Return the c++ raw string: <span class="ddred">const char *</span> or
+          <span class="ddred">const wchar_t *</span>
+        </p>
+<h2>
+<a name="dcpp-nub-wstring.h1"></a>
+          <span class="phrase"><a name="dcpp-nub-wstring.method-str"></a></span><a class="link" href="dcpp-nub-wstring.html#dcpp-nub-wstring.method-str"><span class="cyan">Method: .str()</span></a>
+        </h2>
+<p>
+          Return the c++ standard string: std::string or std::wstring.
+        </p>
+<h2>
+<a name="dcpp-nub-wstring.h2"></a>
+          <span class="phrase"><a name="dcpp-nub-wstring.method-operator-string"></a></span><a class="link" href="dcpp-nub-wstring.html#dcpp-nub-wstring.method-operator-string"><span class="cyan">Method: .operator string</span></a>
+        </h2>
+<p>
+          Return The c++ standard string: std::string or std::wstring.
+        </p>
+<p>
+          It is marked explicit.
+        </p>
+<h2>
+<a name="dcpp-nub-wstring.h3"></a>
+          <span class="phrase"><a name="dcpp-nub-wstring.other-methods"></a></span><a class="link" href="dcpp-nub-wstring.html#dcpp-nub-wstring.other-methods"><span class="cyan">Other Methods</span></a>
+        </h2>
+<p>
+          Constructors
+        </p>
+<p>
+          Destructor
+        </p>
+<p>
+          ___________________________________________________________________________
+        </p>
+<p>
+          .operator=
+        </p>
+<p>
+          .operator+
+        </p>
+<p>
+          .operator+=
+        </p>
+<p>
+          .operator[]
+        </p>
+<p>
+          .operator==
+        </p>
+<p>
+          .operator&lt;
+        </p>
+<p>
+          .operator!=
+        </p>
+<p>
+          ___________________________________________________________________________
+        </p>
+<p>
+          dcpp::u32 .size() const
+        </p>
+<p>
+          bool .empty() const
+        </p>
+<p>
+          void .clear(releaseMemory = true)
+        </p>
+<p>
+          self_type &amp; .make_lower()
+        </p>
+<p>
+          self_type &amp; .make_upper()
+        </p>
+<p>
+          bool .equals_ignore_case(other) const
+        </p>
+<p>
+          bool .equals_substring_ignore_case(other, sourcePos = 0) const
+        </p>
+<p>
+          bool .lower_ignore_case(other) const
+        </p>
+<p>
+          bool .equalsn(other, n) const
+        </p>
+<p>
+          bool .equalsn(str, n) const
+        </p>
+<p>
+          self_type &amp; .append(character)
+        </p>
+<p>
+          self_type &amp; .append(other)
+        </p>
+<p>
+          self_type &amp; .append(str, length = 0xffffffff)
+        </p>
+<p>
+          self_type &amp; .insert(pos, str, n)
+        </p>
+<p>
+          void .reserve(count)
+        </p>
+<p>
+          dcpp::i32 .findFirst(character) const
+        </p>
+<p>
+          dcpp::i32 .findFirstChar(str, count) const
+        </p>
+<p>
+          dcpp::i32 .findFirstCharNotInList(str, count=1) const
+        </p>
+<p>
+          dcpp::i32 .findLastCharNotInList(str, count=1) const
+        </p>
+<p>
+          dcpp::i32 .findNext(character, startPos) const
+        </p>
+<p>
+          dcpp::i32 .findLast(character, start = -1) const
+        </p>
+<p>
+          dcpp::i32 .findLastChar(str, count=1) const
+        </p>
+<p>
+          dcpp::i32 .find(str, start = 0) const
+        </p>
+<p>
+          self_type .subString(begin, length, make_lower = false) const
+        </p>
+<p>
+          self_type &amp; .replace(toReplace, replaceWith)
+        </p>
+<p>
+          self_type &amp; .remove(toRemove)
+        </p>
+<p>
+          self_type &amp; .removeChars(toRemove)
+        </p>
+<p>
+          self_type &amp; .trim<code class="computeroutput"><span class="special">(</span><span class="identifier">whitespace</span>
+          <span class="special">=</span> <span class="string">" \t\n\r"</span><span class="special">)</span></code>
+        </p>
+<p>
+          self_type &amp; .eraseTrailingFloatZeros(decimalPoint='.')
+        </p>
+<p>
+          self_type &amp; .erase(index)
+        </p>
+<p>
+          self_type &amp; .validate()
+        </p>
+<p>
+          T .lastChar() const
+        </p>
+<p>
+          dcpp::u32 .split(ret, delimiter, countDelimiters=1, ignoreEmptyTokens=true,
+          keepSeparators=false) const
+        </p>
+<h2>
+<a name="dcpp-nub-wstring.h4"></a>
+          <span class="phrase"><a name="dcpp-nub-wstring.see-also"></a></span><a class="link" href="dcpp-nub-wstring.html#dcpp-nub-wstring.see-also"><span class="cyan">See Also</span></a>
+        </h2>
+<p>
+          <a class="link" href="dcpp-nub-string.html" title="dcpp::nub::string">dcpp::nub::string</a>
+        </p>
+<h2>
+<a name="dcpp-nub-wstring.h5"></a>
+          <span class="phrase"><a name="dcpp-nub-wstring.back"></a></span><a class="link" href="dcpp-nub-wstring.html#dcpp-nub-wstring.back"><span class="cyan">Back</span></a>
+        </h2>
+<p>
+          <a class="link" href="dcpp-nub.html" title="dcpp::nub::">Up</a>
+        </p>
+<h2>
+<a name="dcpp-nub-wstring.h6"></a>
+          <span class="phrase"><a name="dcpp-nub-wstring.cpp"></a></span><a class="link" href="dcpp-nub-wstring.html#dcpp-nub-wstring.cpp"><span class="cyan">c++</span></a>
+        </h2>
+<p>
+          <a href="https://cppfx.xyz/duckcpp" target="_top">Duckcpp</a>
+        </p>
+<p>
+          <a href="https://cppfx.xyz" target="_top">cppfx.xyz</a>
+        </p>
+</div>
+<div class="copyright-footer">Copyright © 2023, 2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="dcpp-nub-string.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="dcpp-nub.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="dcpp-nub-basic_string.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,383 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>dcpp::DuckcppDevice</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Duckcpp Engine">
+<link rel="up" href="dcpp.html" title="dcpp::">
+<link rel="prev" href="dcpp.html" title="dcpp::">
+<link rel="next" href="dcpp-createDevice.html" title="dcpp::createDevice">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="dcpp.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="dcpp.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="dcpp-createDevice.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="dcpp-DuckcppDevice"></a>dcpp::DuckcppDevice</h2></div></div>
+<hr>
+</div>
+<p>
+          dcpp::DuckcppDevice is the most important class of duckcpp engine. You
+          can access everything in the engine if you have a pointer to an instance
+          of this class.
+        </p>
+<p>
+          There should be only one instance of this class at any time.
+        </p>
+<p>
+          Duckcpp forks irrlicht, dcpp::DuckcppDevice is renamed from irr::IrrlichtDevice.
+        </p>
+<h2>
+<a name="dcpp-DuckcppDevice.h0"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.what-can"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.what-can"><span class="cyan">What can be taken out of the instance of dcpp::DuckcppDevice
+          ?</span></a>
+        </h2>
+<h3>
+<a name="dcpp-DuckcppDevice.h1"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.video_driver"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.video_driver">Video
+          Driver</a>
+        </h3>
+<pre class="programlisting"><span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">video</span><span class="special">::</span><span class="identifier">IVideoDriver</span> <span class="special">*</span> <span class="identifier">video_driver</span> <span class="special">=</span> <span class="identifier">device</span><span class="special">-&gt;</span><span class="identifier">getVideoDriver</span><span class="special">();</span>
+</pre>
+<h3>
+<a name="dcpp-DuckcppDevice.h2"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.file_system"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.file_system">File
+          System</a>
+        </h3>
+<pre class="programlisting"><span class="special">[</span><span class="identifier">h2</span> <span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">io</span><span class="special">::</span><span class="identifier">IFileSystem</span> <span class="special">*</span> <span class="identifier">file_system</span> <span class="special">=</span> <span class="identifier">device</span><span class="special">-&gt;</span><span class="identifier">getFileSystem</span><span class="special">();</span>
+</pre>
+<h3>
+<a name="dcpp-DuckcppDevice.h3"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.gui_environment"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.gui_environment">GUI
+          Environment</a>
+        </h3>
+<pre class="programlisting"><span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">gui</span><span class="special">::</span><span class="identifier">IGUIEnvironment</span> <span class="special">*</span> <span class="identifier">gui</span> <span class="special">=</span> <span class="identifier">device</span><span class="special">-&gt;</span><span class="identifier">getGUIEnvironment</span><span class="special">();</span>
+</pre>
+<h3>
+<a name="dcpp-DuckcppDevice.h4"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.scene_manager"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.scene_manager">Scene
+          Manager</a>
+        </h3>
+<pre class="programlisting"><span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">scene</span><span class="special">::</span><span class="identifier">ISceneManager</span> <span class="special">*</span> <span class="identifier">scene</span> <span class="special">=</span> <span class="identifier">device</span><span class="special">-&gt;</span><span class="identifier">getSceneManager</span><span class="special">();</span>
+</pre>
+<h3>
+<a name="dcpp-DuckcppDevice.h5"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.cursor_control"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.cursor_control">Cursor
+          Control</a>
+        </h3>
+<pre class="programlisting"><span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">gui</span><span class="special">::</span><span class="identifier">ICursorControl</span> <span class="special">*</span> <span class="identifier">cursor</span> <span class="special">=</span> <span class="identifier">device</span><span class="special">-&gt;</span><span class="identifier">getCursorControl</span><span class="special">();</span>
+</pre>
+<h3>
+<a name="dcpp-DuckcppDevice.h6"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.logger"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.logger">Logger</a>
+        </h3>
+<pre class="programlisting"><span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">ILogger</span> <span class="special">*</span> <span class="identifier">logger</span> <span class="special">=</span> <span class="identifier">device</span><span class="special">-&gt;</span><span class="identifier">getLogger</span><span class="special">();</span>
+</pre>
+<h3>
+<a name="dcpp-DuckcppDevice.h7"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.video_mode_list"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.video_mode_list">Video
+          Mode List</a>
+        </h3>
+<pre class="programlisting"><span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">video</span><span class="special">::</span><span class="identifier">IVideoModeList</span> <span class="special">*</span> <span class="identifier">video_mode_list</span> <span class="special">=</span> <span class="identifier">device</span><span class="special">-&gt;</span><span class="identifier">getVideoModeList</span><span class="special">();</span>
+</pre>
+<h3>
+<a name="dcpp-DuckcppDevice.h8"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.context_manager"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.context_manager">Context
+          Manager</a>
+        </h3>
+<pre class="programlisting"><span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">video</span><span class="special">::</span><span class="identifier">IContextManager</span> <span class="special">*</span> <span class="identifier">context_manager</span> <span class="special">=</span> <span class="identifier">device</span><span class="special">-&gt;</span><span class="identifier">getContextManager</span><span class="special">();</span>
+</pre>
+<h3>
+<a name="dcpp-DuckcppDevice.h9"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.os_operator"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.os_operator">OS
+          Operator</a>
+        </h3>
+<pre class="programlisting"><span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">IOSOperator</span> <span class="special">*</span> <span class="identifier">os_operator</span> <span class="special">=</span> <span class="identifier">device</span><span class="special">-&gt;</span><span class="identifier">getOSOperator</span><span class="special">();</span>
+</pre>
+<h3>
+<a name="dcpp-DuckcppDevice.h10"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.timer"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.timer">Timer</a>
+        </h3>
+<pre class="programlisting"><span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">ITimer</span> <span class="special">*</span> <span class="identifier">timer</span> <span class="special">=</span> <span class="identifier">device</span><span class="special">-&gt;</span><span class="identifier">getTimer</span><span class="special">();</span>
+</pre>
+<h3>
+<a name="dcpp-DuckcppDevice.h11"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.randomizer"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.randomizer">Randomizer</a>
+        </h3>
+<pre class="programlisting"><span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">IRandomizer</span> <span class="special">*</span> <span class="identifier">randomizer</span> <span class="special">=</span> <span class="identifier">device</span><span class="special">-&gt;</span><span class="identifier">getRandomizer</span><span class="special">();</span>
+</pre>
+<h3>
+<a name="dcpp-DuckcppDevice.h12"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.event_receiver"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.event_receiver">Event
+          Receiver</a>
+        </h3>
+<pre class="programlisting"><span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">IEventReceiver</span> <span class="special">*</span> <span class="identifier">event_receiver</span> <span class="special">=</span> <span class="identifier">device</span><span class="special">-&gt;</span><span class="identifier">getEventReceiver</span><span class="special">();</span>
+</pre>
+<h3>
+<a name="dcpp-DuckcppDevice.h13"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.window_posiiton"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.window_posiiton">Window
+          Posiiton</a>
+        </h3>
+<pre class="programlisting"><span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">nub</span><span class="special">::</span><span class="identifier">position2di</span> <span class="identifier">window_position</span> <span class="special">=</span> <span class="identifier">device</span><span class="special">-&gt;</span><span class="identifier">getWindowPosition</span><span class="special">();</span>
+</pre>
+<h3>
+<a name="dcpp-DuckcppDevice.h14"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.color_format"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.color_format">Color
+          Format</a>
+        </h3>
+<pre class="programlisting"><span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">video</span><span class="special">::</span><span class="identifier">ECOLOR_FORMAT</span> <span class="identifier">color_format</span> <span class="special">=</span> <span class="identifier">device</span><span class="special">-&gt;</span><span class="identifier">getColorFormat</span><span class="special">();</span>
+</pre>
+<h3>
+<a name="dcpp-DuckcppDevice.h15"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.double_click_time"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.double_click_time">Double-Click
+          Time</a>
+        </h3>
+<pre class="programlisting"><span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="identifier">double_click_time</span> <span class="special">=</span> <span class="identifier">device</span><span class="special">-&gt;</span><span class="identifier">getDoubleClickTime</span><span class="special">();</span>
+</pre>
+<h3>
+<a name="dcpp-DuckcppDevice.h16"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.version"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.version">Version</a>
+        </h3>
+<pre class="programlisting"><span class="keyword">const</span> <span class="keyword">char</span> <span class="special">*</span> <span class="identifier">version</span> <span class="special">=</span> <span class="identifier">device</span><span class="special">-&gt;</span><span class="identifier">getVersion</span><span class="special">();</span>
+</pre>
+<h3>
+<a name="dcpp-DuckcppDevice.h17"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.device_type"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.device_type">Device
+          Type</a>
+        </h3>
+<pre class="programlisting"><span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">E_DEVICE_TYPE</span> <span class="identifier">device_type</span> <span class="special">=</span> <span class="identifier">device</span><span class="special">-&gt;</span><span class="identifier">getType</span><span class="special">();</span>
+</pre>
+<h3>
+<a name="dcpp-DuckcppDevice.h18"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.gamma_ramp"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.gamma_ramp">Gamma
+          Ramp</a>
+        </h3>
+<pre class="programlisting"><span class="keyword">bool</span> <span class="identifier">success</span> <span class="special">=</span> <span class="identifier">device</span><span class="special">-&gt;</span><span class="identifier">getGammaRamp</span><span class="special">(</span><span class="identifier">red_ref</span><span class="special">,</span> <span class="identifier">green_ref</span><span class="special">,</span> <span class="identifier">blue_ref</span><span class="special">,</span> <span class="identifier">brightness_ref</span><span class="special">,</span> <span class="identifier">contrast_ref</span><span class="special">);</span>
+</pre>
+<h2>
+<a name="dcpp-DuckcppDevice.h19"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.other-methods"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.other-methods"><span class="cyan">Other Methods</span></a>
+        </h2>
+<h3>
+<a name="dcpp-DuckcppDevice.h20"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.run"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.run">Run</a>
+        </h3>
+<p>
+          Run rendering and return run status.
+        </p>
+<pre class="programlisting"><span class="keyword">bool</span> <span class="special">.</span><span class="identifier">run</span><span class="special">();</span>
+</pre>
+<h3>
+<a name="dcpp-DuckcppDevice.h21"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.yield"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.yield">Yield</a>
+        </h3>
+<p>
+          Yield window.
+        </p>
+<pre class="programlisting"><span class="keyword">void</span> <span class="special">.</span><span class="identifier">yield</span><span class="special">();</span>
+</pre>
+<h3>
+<a name="dcpp-DuckcppDevice.h22"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.sleep"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.sleep">Sleep</a>
+        </h3>
+<p>
+          Pause execution
+        </p>
+<pre class="programlisting"><span class="keyword">void</span> <span class="special">.</span><span class="identifier">sleep</span><span class="special">(</span><span class="identifier">time_ms</span><span class="special">,</span> <span class="identifier">pause_tmer</span> <span class="special">=</span> <span class="keyword">false</span><span class="special">);</span>
+</pre>
+<h3>
+<a name="dcpp-DuckcppDevice.h23"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.set_randomizer"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.set_randomizer">Set
+          Randomizer</a>
+        </h3>
+<p>
+          Set a new randomizer
+        </p>
+<pre class="programlisting"><span class="keyword">void</span> <span class="special">.</span><span class="identifier">setRandomizer</span><span class="special">(</span><span class="identifier">randomizer</span><span class="special">);</span>
+</pre>
+<h3>
+<a name="dcpp-DuckcppDevice.h24"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.create_default_randomizer"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.create_default_randomizer">Create
+          Default Randomizer</a>
+        </h3>
+<p>
+          Creates a new default randomizer.
+        </p>
+<pre class="programlisting"><span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">IRandomizer</span> <span class="special">*</span> <span class="special">.</span><span class="identifier">createDefaultRandomizer</span><span class="special">()</span> <span class="keyword">const</span><span class="special">;</span>
+</pre>
+<h3>
+<a name="dcpp-DuckcppDevice.h25"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.set_window_caption"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.set_window_caption">Set
+          Window Caption</a>
+        </h3>
+<p>
+          Set window title
+        </p>
+<pre class="programlisting"><span class="keyword">void</span> <span class="special">.</span><span class="identifier">setWindowCaption</span><span class="special">(</span><span class="identifier">wstr_text</span><span class="special">);</span>
+</pre>
+<h3>
+<a name="dcpp-DuckcppDevice.h26"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.is_window_active"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.is_window_active">Is
+          Window Active</a>
+        </h3>
+<pre class="programlisting"><span class="keyword">bool</span> <span class="special">.</span><span class="identifier">isWindowActive</span><span class="special">()</span> <span class="keyword">const</span><span class="special">;</span>
+</pre>
+<h3>
+<a name="dcpp-DuckcppDevice.h27"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.is_fullscreen"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.is_fullscreen">Is
+          Fullscreen</a>
+        </h3>
+<pre class="programlisting"><span class="keyword">bool</span> <span class="special">.</span><span class="identifier">isFullscreen</span><span class="special">()</span> <span class="keyword">const</span><span class="special">;</span>
+</pre>
+<h3>
+<a name="dcpp-DuckcppDevice.h28"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.close_device"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.close_device">Close
+          Device</a>
+        </h3>
+<pre class="programlisting"><span class="keyword">void</span> <span class="special">.</span><span class="identifier">closeDevice</span><span class="special">();</span>
+</pre>
+<h3>
+<a name="dcpp-DuckcppDevice.h29"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.set_event_receiver"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.set_event_receiver">Set
+          Event Receiver</a>
+        </h3>
+<pre class="programlisting"><span class="keyword">void</span> <span class="special">.</span><span class="identifier">setEventReceiver</span><span class="special">(</span><span class="identifier">receiver</span><span class="special">);</span>
+</pre>
+<h3>
+<a name="dcpp-DuckcppDevice.h30"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.post_event_from_user"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.post_event_from_user">Post
+          Event From User</a>
+        </h3>
+<pre class="programlisting"><span class="keyword">bool</span> <span class="special">.</span><span class="identifier">postEventFromUer</span><span class="special">(</span><span class="identifier">event</span><span class="special">);</span>
+</pre>
+<h3>
+<a name="dcpp-DuckcppDevice.h31"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.set_input_receiving_scene_manage"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.set_input_receiving_scene_manage">Set Input
+          Receiving Scene Manager</a>
+        </h3>
+<pre class="programlisting"><span class="keyword">void</span> <span class="special">.</span><span class="identifier">setInputReceivingSceneManager</span><span class="special">(</span><span class="identifier">scene_manager</span><span class="special">);</span>
+</pre>
+<h3>
+<a name="dcpp-DuckcppDevice.h32"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.set_resizable"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.set_resizable">Set
+          Resizable</a>
+        </h3>
+<pre class="programlisting"><span class="keyword">void</span> <span class="special">.</span><span class="identifier">setResizable</span><span class="special">(</span><span class="identifier">resizable</span> <span class="special">=</span> <span class="keyword">false</span><span class="special">);</span>
+</pre>
+<h3>
+<a name="dcpp-DuckcppDevice.h33"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.set_window_size"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.set_window_size">Set
+          Window Size</a>
+        </h3>
+<pre class="programlisting"><span class="keyword">void</span> <span class="special">.</span><span class="identifier">setWindowSize</span><span class="special">(</span><span class="identifier">dimension_2d_u_size</span><span class="special">);</span>
+</pre>
+<h3>
+<a name="dcpp-DuckcppDevice.h34"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.minimize_window"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.minimize_window">Minimize
+          Window</a>
+        </h3>
+<pre class="programlisting"><span class="keyword">void</span> <span class="special">.</span><span class="identifier">minimizeWindow</span><span class="special">();</span>
+</pre>
+<h3>
+<a name="dcpp-DuckcppDevice.h35"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.maximize_window"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.maximize_window">Maximize
+          Window</a>
+        </h3>
+<pre class="programlisting"><span class="keyword">void</span> <span class="special">.</span><span class="identifier">maximizeWindow</span><span class="special">();</span>
+</pre>
+<h3>
+<a name="dcpp-DuckcppDevice.h36"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.restore_window"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.restore_window">Restore
+          Window</a>
+        </h3>
+<pre class="programlisting"><span class="keyword">void</span> <span class="special">.</span><span class="identifier">restoreWindow</span><span class="special">()</span>
+</pre>
+<h3>
+<a name="dcpp-DuckcppDevice.h37"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.activate_joysticks"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.activate_joysticks">Activate
+          Joysticks</a>
+        </h3>
+<pre class="programlisting"><span class="keyword">bool</span> <span class="special">.</span><span class="identifier">activateJoysticks</span><span class="special">(</span><span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">nub</span><span class="special">::</span><span class="identifier">array</span><span class="special">&lt;</span><span class="identifier">SJoystickInfo</span><span class="special">&gt;&amp;</span> <span class="identifier">joystickInfo</span><span class="special">);</span>
+</pre>
+<h3>
+<a name="dcpp-DuckcppDevice.h38"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.set_gamma_ramp"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.set_gamma_ramp">Set
+          Gamma Ramp</a>
+        </h3>
+<pre class="programlisting"><span class="keyword">bool</span> <span class="special">.</span><span class="identifier">setGammaRamp</span><span class="special">(</span><span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">f32</span> <span class="identifier">red</span><span class="special">,</span> <span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">f32</span> <span class="identifier">green</span><span class="special">,</span> <span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">f32</span> <span class="identifier">blue</span><span class="special">,</span>
+	<span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">f32</span> <span class="identifier">relativebrightness</span><span class="special">,</span> <span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">relativecontrast</span><span class="special">);</span>
+</pre>
+<h3>
+<a name="dcpp-DuckcppDevice.h39"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.set_double_click_time"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.set_double_click_time">Set
+          Double-click Time</a>
+        </h3>
+<pre class="programlisting"><span class="keyword">void</span> <span class="identifier">setDoubleClickTime</span><span class="special">(</span><span class="identifier">time_ms</span><span class="special">);</span>
+</pre>
+<h3>
+<a name="dcpp-DuckcppDevice.h40"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.is_driver_supported"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.is_driver_supported">Is
+          Driver Supported</a>
+        </h3>
+<p>
+          static
+        </p>
+<p>
+          bool
+        </p>
+<p>
+          dcpp::DuckcppDevice::isDriverSupported
+        </p>
+<pre class="programlisting"><span class="keyword">static</span> <span class="keyword">bool</span> <span class="special">.</span><span class="identifier">isDriverSupported</span><span class="special">(</span><span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">video</span><span class="special">::</span><span class="identifier">E_DRIVER_TYPE</span> <span class="identifier">driver</span><span class="special">);</span>
+</pre>
+<h2>
+<a name="dcpp-DuckcppDevice.h41"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.drop"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.drop"><span class="cyan">Drop</span></a>
+        </h2>
+<p>
+          Calling device-&gt;drop() to destroy the instance of dcpp::DuckcppDevice
+          .
+        </p>
+<h2>
+<a name="dcpp-DuckcppDevice.h42"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.see-also"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.see-also"><span class="cyan">See Also</span></a>
+        </h2>
+<p>
+          <a class="link" href="dcpp-createDevice.html" title="dcpp::createDevice">dcpp::createDevice</a>
+        </p>
+<p>
+          <a class="link" href="dcpp-createDeviceEx.html" title="dcpp::createDeviceEx">dcpp::createDeviceEx</a>
+        </p>
+<h2>
+<a name="dcpp-DuckcppDevice.h43"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.back"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.back"><span class="cyan">Back</span></a>
+        </h2>
+<p>
+          <a class="link" href="dcpp.html" title="dcpp::">Up</a>
+        </p>
+<h2>
+<a name="dcpp-DuckcppDevice.h44"></a>
+          <span class="phrase"><a name="dcpp-DuckcppDevice.cpp"></a></span><a class="link" href="dcpp-DuckcppDevice.html#dcpp-DuckcppDevice.cpp"><span class="cyan">c++</span></a>
+        </h2>
+<p>
+          <a href="https://cppfx.xyz/duckcpp" target="_top">Duckcpp</a>
+        </p>
+<p>
+          <a href="https://cppfx.xyz" target="_top">cppfx.xyz</a>
+        </p>
+</div>
+<div class="copyright-footer">Copyright © 2023, 2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="dcpp.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="dcpp.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="dcpp-createDevice.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

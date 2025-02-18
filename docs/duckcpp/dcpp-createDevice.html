@@ -1,0 +1,114 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>dcpp::createDevice</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Duckcpp Engine">
+<link rel="up" href="dcpp.html" title="dcpp::">
+<link rel="prev" href="dcpp-DuckcppDevice.html" title="dcpp::DuckcppDevice">
+<link rel="next" href="dcpp-createDeviceEx.html" title="dcpp::createDeviceEx">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="dcpp-DuckcppDevice.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="dcpp.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="dcpp-createDeviceEx.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="dcpp-createDevice"></a>dcpp::createDevice</h2></div></div>
+<hr>
+</div>
+<p>
+          dcpp::createDevice is used to create duckcpp engine device.
+        </p>
+<h3>
+<a name="dcpp-createDevice.h0"></a>
+          <span class="phrase"><a name="dcpp-createDevice.calling_sig"></a></span><a class="link" href="dcpp-createDevice.html#dcpp-createDevice.calling_sig">Calling
+          Sig</a>
+        </h3>
+<pre class="programlisting"><span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">DuckcppDevice</span> <span class="special">*</span> <span class="identifier">device</span> <span class="special">=</span> <span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">createDevice</span><span class="special">(</span>
+	<span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">video</span><span class="special">::</span><span class="identifier">EDT_BURNINGSVIDEO</span><span class="special">,</span>	<span class="comment">// Select driver type:	dcpp::video::E_DRIVER_TYPE</span>
+	<span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">nub</span><span class="special">::</span><span class="identifier">dimension2du</span><span class="special">{</span><span class="number">2560</span><span class="special">,</span> <span class="number">1440</span><span class="special">},</span>	<span class="comment">// Set window size</span>
+	<span class="number">32u</span><span class="special">,</span>		<span class="comment">// Set bits per pixel in fullscreen mode, ignored if windowed.</span>
+	<span class="keyword">true</span><span class="special">,</span>		<span class="comment">// fullscreen ?</span>
+	<span class="keyword">true</span><span class="special">,</span>		<span class="comment">// stencilbuffer ? Set true if you want to enable shadow feature.</span>
+	<span class="keyword">true</span><span class="special">,</span>		<span class="comment">// vsync ?</span>
+	<span class="identifier">event_receiver</span>	<span class="comment">// dcpp::IEventReceiver * : Event Receiver Pointer, set nullptr if no reveiver yet</span>
+<span class="special">);</span>
+</pre>
+<h2>
+<a name="dcpp-createDevice.h1"></a>
+          <span class="phrase"><a name="dcpp-createDevice.cpp-example"></a></span><a class="link" href="dcpp-createDevice.html#dcpp-createDevice.cpp-example"><span class="cyan">c++ Example</span></a>
+        </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">duckcpp</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">DuckcppDevice</span> <span class="special">*</span> <span class="identifier">device</span> <span class="special">=</span> <span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">createDevice</span><span class="special">(</span>
+		<span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">video</span><span class="special">::</span><span class="identifier">EDT_BURNINGSVIDEO</span><span class="special">,</span>
+		<span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">nub</span><span class="special">::</span><span class="identifier">dimension2du</span><span class="special">{</span><span class="number">2560</span><span class="special">,</span> <span class="number">1440</span><span class="special">},</span>
+		<span class="number">32</span><span class="special">,</span>
+		<span class="keyword">false</span><span class="special">,</span>
+		<span class="keyword">true</span><span class="special">,</span>
+		<span class="keyword">false</span><span class="special">,</span>
+		<span class="keyword">nullptr</span>
+	<span class="special">);</span>
+	<span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">video</span><span class="special">::</span><span class="identifier">IVideoDriver</span> <span class="special">*</span> <span class="identifier">video</span> <span class="special">=</span> <span class="identifier">device</span><span class="special">-&gt;</span><span class="identifier">getVideoDriver</span><span class="special">();</span>
+	<span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">scene</span><span class="special">::</span><span class="identifier">ISceneManager</span> <span class="special">*</span> <span class="identifier">scene</span> <span class="special">=</span> <span class="identifier">device</span><span class="special">-&gt;</span><span class="identifier">getSceneManager</span><span class="special">();</span>
+	<span class="keyword">while</span> <span class="special">(</span><span class="identifier">device</span><span class="special">-&gt;</span><span class="identifier">run</span><span class="special">()))</span>
+	<span class="special">{</span>
+		<span class="keyword">if</span> <span class="special">(</span><span class="identifier">device</span><span class="special">-&gt;</span><span class="identifier">isWindowActive</span><span class="special">())</span>
+		<span class="special">{</span>
+			<span class="identifier">video</span><span class="special">-&gt;</span><span class="identifier">beginScene</span><span class="special">(</span><span class="keyword">true</span><span class="special">,</span> <span class="keyword">true</span><span class="special">,</span> <span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">video</span><span class="special">::</span><span class="identifier">SColor</span><span class="special">{</span><span class="number">0xff32779a</span><span class="special">});</span>
+			<span class="identifier">scene</span><span class="special">-&gt;</span><span class="identifier">drawAll</span><span class="special">();</span>
+			<span class="identifier">video</span><span class="special">-&gt;</span><span class="identifier">endScene</span><span class="special">();</span>
+		<span class="special">}</span>
+		<span class="keyword">else</span>
+		<span class="special">{</span>
+			<span class="identifier">device</span><span class="special">-&gt;</span><span class="identifier">yield</span><span class="special">();</span>
+		<span class="special">}</span>
+	<span class="special">}</span>
+	<span class="identifier">device</span><span class="special">-&gt;</span><span class="identifier">drop</span><span class="special">();</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="dcpp-createDevice.h2"></a>
+          <span class="phrase"><a name="dcpp-createDevice.see-also"></a></span><a class="link" href="dcpp-createDevice.html#dcpp-createDevice.see-also"><span class="cyan">See Also</span></a>
+        </h2>
+<p>
+          <a class="link" href="dcpp-createDeviceEx.html" title="dcpp::createDeviceEx">dcpp::createDeviceEx</a>
+        </p>
+<p>
+          <a class="link" href="dcpp-DuckcppDevice.html" title="dcpp::DuckcppDevice">dcpp::DuckcppDevice</a>
+        </p>
+<h2>
+<a name="dcpp-createDevice.h3"></a>
+          <span class="phrase"><a name="dcpp-createDevice.back"></a></span><a class="link" href="dcpp-createDevice.html#dcpp-createDevice.back"><span class="cyan">Back</span></a>
+        </h2>
+<p>
+          <a class="link" href="dcpp.html" title="dcpp::">Up</a>
+        </p>
+<h2>
+<a name="dcpp-createDevice.h4"></a>
+          <span class="phrase"><a name="dcpp-createDevice.cpp"></a></span><a class="link" href="dcpp-createDevice.html#dcpp-createDevice.cpp"><span class="cyan">c++</span></a>
+        </h2>
+<p>
+          <a href="https://cppfx.xyz/duckcpp" target="_top">Duckcpp</a>
+        </p>
+<p>
+          <a href="https://cppfx.xyz" target="_top">cppfx.xyz</a>
+        </p>
+</div>
+<div class="copyright-footer">Copyright © 2023, 2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="dcpp-DuckcppDevice.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="dcpp.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="dcpp-createDeviceEx.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
