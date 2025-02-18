@@ -405,6 +405,20 @@ $	end of line anchor
 (?#...)	comments ... are ignored
 ```
 
+[h1 [role cyan File Type]]
+
+[h2 --cpp]
+
+Search c++ file type.
+
+[h2 --file-type=cpp]
+
+Search c++ file type, including .cpp, .hpp, ..., etc.
+
+[h2 -O cpp,hpp,ipp]
+
+Search file type .cpp, .hpp, .ipp
+
 [h1 [role cyan ugrep outputs matched string only]]
 
 ugrep outputs matched string, with --format and --replace option.
