@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['r_0',['r',['../classdcpp_1_1video_1_1SColorf.html#a6f1fad009bce22268cafcdeb5761ce3d',1,'dcpp::video::SColorf']]],
+  ['radius_1',['Radius',['../classdcpp_1_1video_1_1SLight.html#a049af883dd8bbf72d68b1c965b7765c9',1,'dcpp::video::SLight']]],
+  ['radtodeg_2',['RADTODEG',['../namespacedcpp_1_1nub.html#a8e6a038ed77a7f3f6a9e9eda2cadd052',1,'dcpp::nub']]],
+  ['radtodeg64_3',['RADTODEG64',['../namespacedcpp_1_1nub.html#a1a492da455910a0ff13dd67d33ee6e0c',1,'dcpp::nub']]],
+  ['rangesize_4',['RangeSize',['../classdcpp_1_1scene_1_1SCollisionTriangleRange.html#a26a9b889bdb259b6e1658add406d52d1',1,'dcpp::scene::SCollisionTriangleRange']]],
+  ['rangestart_5',['RangeStart',['../classdcpp_1_1scene_1_1SCollisionTriangleRange.html#aee8e6d308015874cf71ed2f8cf7b4ea7',1,'dcpp::scene::SCollisionTriangleRange']]],
+  ['reciprocal_5fpi_6',['RECIPROCAL_PI',['../namespacedcpp_1_1nub.html#a190bd7694abc2cb55f5bb062ab479f40',1,'dcpp::nub']]],
+  ['reciprocal_5fpi64_7',['RECIPROCAL_PI64',['../namespacedcpp_1_1nub.html#ada1251e04a23b358c09f7f4f2914d56d',1,'dcpp::nub']]],
+  ['rectnumber_8',['rectNumber',['../classdcpp_1_1gui_1_1SGUISpriteFrame.html#a7b3386b61097ade699be06908b6fe91f',1,'dcpp::gui::SGUISpriteFrame']]],
+  ['relativerect_9',['RelativeRect',['../classdcpp_1_1gui_1_1IGUIElement.html#a23e8b8b737d838a159fb3fe8d52fe424',1,'dcpp::gui::IGUIElement']]],
+  ['relativerotation_10',['RelativeRotation',['../classdcpp_1_1scene_1_1ISceneNode.html#acbb6c583297d0371d4c2fa0cd388b79b',1,'dcpp::scene::ISceneNode']]],
+  ['relativescale_11',['RelativeScale',['../classdcpp_1_1scene_1_1ISceneNode.html#a6fa0f6afe271159735326bff28993160',1,'dcpp::scene::ISceneNode']]],
+  ['relativetranslation_12',['RelativeTranslation',['../classdcpp_1_1scene_1_1ISceneNode.html#a70e9c60839c5256ff95dfff8fff838ab',1,'dcpp::scene::ISceneNode']]],
+  ['replacement_13',['Replacement',['../classdcpp_1_1video_1_1SOverrideMaterial_1_1SMaterialTypeReplacement.html#a73ea29df97429350affab7190b9fd4f4',1,'dcpp::video::SOverrideMaterial::SMaterialTypeReplacement']]],
+  ['rotationkeys_14',['RotationKeys',['../classdcpp_1_1scene_1_1ISkinnedMesh_1_1SJoint.html#a46e5defc9742882e1167444dbdbfcbe5',1,'dcpp::scene::ISkinnedMesh::SJoint']]],
+  ['rounding_5ferror_5fi32_15',['ROUNDING_ERROR_I32',['../namespacedcpp_1_1nub.html#a1cf60790235bb4841cff0c9bd4d1fbd7',1,'dcpp::nub']]]
+];
