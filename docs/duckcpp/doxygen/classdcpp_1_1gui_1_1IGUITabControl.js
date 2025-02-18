@@ -1,0 +1,25 @@
+var classdcpp_1_1gui_1_1IGUITabControl =
+[
+    [ "IGUITabControl", "classdcpp_1_1gui_1_1IGUITabControl.html#afafb5a81915d60088de2e54efe1e4099", null ],
+    [ "addTab", "classdcpp_1_1gui_1_1IGUITabControl.html#a1a0496f710232c826135f3ff5e28c0d1", null ],
+    [ "addTab", "classdcpp_1_1gui_1_1IGUITabControl.html#a6dc72706900c3f0bc25ab23080643b28", null ],
+    [ "clear", "classdcpp_1_1gui_1_1IGUITabControl.html#ab065721b8ea596f532823bfbc7225508", null ],
+    [ "getActiveTab", "classdcpp_1_1gui_1_1IGUITabControl.html#a475ba17c4da5ee9772cd7a0d4a765605", null ],
+    [ "getTab", "classdcpp_1_1gui_1_1IGUITabControl.html#aad7e6bca4f77cb0f94f3c7023f653388", null ],
+    [ "getTabAt", "classdcpp_1_1gui_1_1IGUITabControl.html#a4040e1df0c2c613bf3fa49630f8f3ea0", null ],
+    [ "getTabCount", "classdcpp_1_1gui_1_1IGUITabControl.html#a1a4b9a0440afb00156ba439aa711282e", null ],
+    [ "getTabExtraWidth", "classdcpp_1_1gui_1_1IGUITabControl.html#a9f452bc349caaf41dcd0777a50a9cf3a", null ],
+    [ "getTabHeight", "classdcpp_1_1gui_1_1IGUITabControl.html#a93c793bfa3c745a967f957703e609670", null ],
+    [ "getTabIndex", "classdcpp_1_1gui_1_1IGUITabControl.html#abfa3337ac54253a5c8924f849ad46378", null ],
+    [ "getTabMaxWidth", "classdcpp_1_1gui_1_1IGUITabControl.html#a6160cb00d0554b6866629641a2b7577a", null ],
+    [ "getTabVerticalAlignment", "classdcpp_1_1gui_1_1IGUITabControl.html#a389fd78edb70092b74ee3e544ee5b9e7", null ],
+    [ "insertTab", "classdcpp_1_1gui_1_1IGUITabControl.html#a608a6cad0658b5f51b1ddc6d3d6c5f9a", null ],
+    [ "insertTab", "classdcpp_1_1gui_1_1IGUITabControl.html#aab19d39ee4e1c6cd8e67e44ea1bc14c4", null ],
+    [ "removeTab", "classdcpp_1_1gui_1_1IGUITabControl.html#a7a931e3cc181e567e8d596f59ca1be85", null ],
+    [ "setActiveTab", "classdcpp_1_1gui_1_1IGUITabControl.html#a19eecce7bb4c4a3f19bddcd19735347c", null ],
+    [ "setActiveTab", "classdcpp_1_1gui_1_1IGUITabControl.html#a0ce3352ce65c6da51fea81630111e86d", null ],
+    [ "setTabExtraWidth", "classdcpp_1_1gui_1_1IGUITabControl.html#a5bd063e88338b827ed3866636603e700", null ],
+    [ "setTabHeight", "classdcpp_1_1gui_1_1IGUITabControl.html#a51fcbae354c88f8126d03b3b56ae701c", null ],
+    [ "setTabMaxWidth", "classdcpp_1_1gui_1_1IGUITabControl.html#a028139833515a74c63e08aa629c8f78a", null ],
+    [ "setTabVerticalAlignment", "classdcpp_1_1gui_1_1IGUITabControl.html#af7fc760ffdd7dcf3f4b8a96acf7e95de", null ]
+];

@@ -1,0 +1,15 @@
+<map id="dcpp::scene::IMeshBuffer" name="dcpp::scene::IMeshBuffer">
+<area shape="rect" id="Node000001" title="Class for holding a mesh with a single material." alt="" coords="239,99,424,125"/>
+<area shape="rect" id="Node000003" href="$classdcpp_1_1scene_1_1IDynamicMeshBuffer.html" title=" " alt="" coords="483,5,687,45"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="376,92,471,56,512,43,514,48,473,61,378,97"/>
+<area shape="rect" id="Node000005" href="$classdcpp_1_1scene_1_1PMeshBuffer.html" title="Template implementation of the IMeshBuffer interface for 16&#45;bit buffers." alt="" coords="472,70,699,95"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="437,97,475,93,475,98,438,102"/>
+<area shape="rect" id="Node000006" href="$classdcpp_1_1scene_1_1SSharedMeshBuffer.html" title="Implementation of the IMeshBuffer interface with shared vertex list." alt="" coords="488,120,683,160"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="438,121,488,127,488,132,437,126"/>
+<area shape="rect" id="Node000007" href="$classdcpp_1_1scene_1_1SSkinMeshBuffer.html" title="A mesh buffer able to choose between S3DVertex2TCoords, S3DVertex and S3DVertexTangents at runtime." alt="" coords="477,185,694,210"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="372,128,419,149,473,169,519,182,518,187,471,175,417,154,369,133"/>
+<area shape="rect" id="Node000002" href="$classdcpp_1_1IReferenceCounted.html" title="Base class of most objects of the Duckcpp Engine." alt="" coords="5,99,191,125"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,109,238,109,238,115,205,115"/>
+<area shape="rect" id="Node000004" href="$classdcpp_1_1scene_1_1PDynamicMeshBuffer.html" title="Implementation of the IMeshBuffer interface for which can work with 16 and 32 bit indices as well as ..." alt="" coords="747,5,955,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="701,23,747,23,747,28,701,28"/>
+</map>

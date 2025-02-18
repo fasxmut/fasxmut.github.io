@@ -1,0 +1,5 @@
+<map id="dcpp::scene::IAnimationEndCallBack" name="dcpp::scene::IAnimationEndCallBack">
+<area shape="rect" id="Node000001" title="Callback interface for catching events of ended animations." alt="" coords="5,79,208,119"/>
+<area shape="rect" id="Node000002" href="$classdcpp_1_1IReferenceCounted.html" title="Base class of most objects of the Duckcpp Engine." alt="" coords="14,5,199,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,44,109,79,104,79,104,44"/>
+</map>

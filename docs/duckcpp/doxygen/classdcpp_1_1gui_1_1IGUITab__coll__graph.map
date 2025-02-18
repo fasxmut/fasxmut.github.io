@@ -1,0 +1,27 @@
+<map id="dcpp::gui::IGUITab" name="dcpp::gui::IGUITab">
+<area shape="rect" id="Node000001" title="A tab&#45;page, onto which other gui elements could be added." alt="" coords="869,258,1008,283"/>
+<area shape="rect" id="Node000002" href="$classdcpp_1_1gui_1_1IGUIElement.html" title="Base class of all GUI elements." alt="" coords="649,258,820,283"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="834,268,869,268,869,273,834,273"/>
+<area shape="poly" id="edge6_Node000002_Node000002" title=" " alt="" coords="712,243,719,235,735,231,748,234,756,240,758,250,754,259,749,257,752,249,751,243,746,239,735,237,722,239,717,246"/>
+<area shape="rect" id="Node000003" href="$classdcpp_1_1io_1_1IAttributeExchangingObject.html" title="An object which is able to serialize and deserialize its attributes into an attributes object." alt="" coords="240,5,457,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="471,15,511,19,552,27,591,40,627,60,652,82,672,107,704,163,723,218,733,257,728,258,718,219,699,166,668,110,648,85,624,65,589,45,550,32,510,24,471,21"/>
+<area shape="rect" id="Node000004" href="$classdcpp_1_1IReferenceCounted.html" title="Base class of most objects of the Duckcpp Engine." alt="" coords="5,42,191,67"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="204,40,239,35,240,41,205,45"/>
+<area shape="rect" id="Node000012" href="$classdcpp_1_1gui_1_1IGUIEnvironment.html" title="GUI Environment. Used as factory and manager of all other GUI elements." alt="" coords="249,70,449,95"/>
+<area shape="poly" id="edge13_Node000012_Node000004" title=" " alt="" coords="205,64,249,69,248,74,204,69"/>
+<area shape="rect" id="Node000005" href="$classdcpp_1_1IEventReceiver.html" title="Interface of an object which can receive events." alt="" coords="269,119,428,145"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="442,122,486,123,533,128,581,138,627,155,661,177,690,205,728,256,724,260,686,209,657,181,624,160,580,143,533,133,486,128,441,127"/>
+<area shape="rect" id="Node000006" href="$classdcpp_1_1nub_1_1list.html" title=" " alt="" coords="265,169,432,209"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="446,176,534,176,581,182,626,193,655,206,682,223,722,256,718,260,678,227,652,211,624,199,580,188,534,182,446,181"/>
+<area shape="rect" id="Node000007" href="$classdcpp_1_1nub_1_1rect.html" title=" " alt="" coords="265,254,433,279"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="447,266,481,267,649,268,649,273,481,272,447,271"/>
+<area shape="rect" id="Node000008" href="$classdcpp_1_1nub_1_1rect.html" title=" " alt="" coords="264,303,433,329"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="447,307,625,288,670,281,671,286,626,293,447,312"/>
+<area shape="rect" id="Node000009" href="$classdcpp_1_1nub_1_1dimension2d.html" title=" " alt="" coords="260,355,437,395"/>
+<area shape="poly" id="edge9_Node000002_Node000009" title=" " alt="" coords="451,371,537,361,582,352,624,339,677,311,717,281,720,286,680,316,626,344,583,357,538,366,452,376"/>
+<area shape="rect" id="Node000010" href="$classdcpp_1_1nub_1_1basic__string.html" title=" " alt="" coords="263,419,434,459"/>
+<area shape="poly" id="edge10_Node000002_Node000010" title=" " alt="" coords="448,442,491,440,537,433,582,421,624,403,660,376,689,342,711,309,725,282,730,285,715,311,693,345,663,380,627,408,584,426,538,438,492,445,448,447"/>
+<area shape="rect" id="Node000011" href="$classdcpp_1_1nub_1_1basic__string.html" title=" " alt="" coords="263,483,434,523"/>
+<area shape="poly" id="edge11_Node000002_Node000011" title=" " alt="" coords="448,507,492,504,538,497,583,483,624,462,647,443,666,420,697,369,717,320,728,283,733,284,722,321,702,372,670,423,650,447,627,466,585,488,539,502,492,510,448,512"/>
+<area shape="poly" id="edge12_Node000002_Node000012" title=" " alt="" coords="463,78,504,82,546,90,588,103,627,122,664,153,695,191,717,228,730,257,726,259,712,230,690,194,661,157,624,126,586,108,545,95,503,87,462,83"/>
+</map>

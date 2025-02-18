@@ -1,0 +1,22 @@
+<map id="dcpp::scene::IAnimatedMeshSceneNode" name="dcpp::scene::IAnimatedMeshSceneNode">
+<area shape="rect" id="Node000001" title="Scene node capable of displaying an animated mesh." alt="" coords="869,147,1079,187"/>
+<area shape="rect" id="Node000002" href="$classdcpp_1_1scene_1_1ISceneNode.html" title="Scene node interface." alt="" coords="636,154,820,179"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="834,164,869,164,869,169,834,169"/>
+<area shape="poly" id="edge5_Node000002_Node000002" title=" " alt="" coords="705,139,712,131,728,127,742,130,750,136,752,146,748,155,743,153,747,145,745,139,740,135,728,133,715,135,709,143"/>
+<area shape="rect" id="Node000003" href="$classdcpp_1_1io_1_1IAttributeExchangingObject.html" title="An object which is able to serialize and deserialize its attributes into an attributes object." alt="" coords="251,5,468,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="482,42,548,59,613,83,671,117,714,152,711,156,668,122,611,88,547,64,481,47"/>
+<area shape="rect" id="Node000004" href="$classdcpp_1_1IReferenceCounted.html" title="Base class of most objects of the Duckcpp Engine." alt="" coords="5,70,191,95"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="169,64,267,43,268,48,170,70"/>
+<area shape="rect" id="Node000008" href="$classdcpp_1_1scene_1_1ISceneManager.html" title="The Scene Manager manages scene nodes, mesh resources, cameras and all the other stuff." alt="" coords="256,70,463,95"/>
+<area shape="poly" id="edge9_Node000008_Node000004" title=" " alt="" coords="204,80,256,80,256,85,204,85"/>
+<area shape="rect" id="Node000009" href="$classdcpp_1_1scene_1_1ITriangleSelector.html" title="Interface to return triangles with specific properties." alt="" coords="252,119,467,145"/>
+<area shape="poly" id="edge11_Node000009_Node000004" title=" " alt="" coords="180,95,292,117,291,122,179,101"/>
+<area shape="rect" id="Node000005" href="$classdcpp_1_1nub_1_1basic__string.html" title=" " alt="" coords="274,169,445,209"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="459,187,612,180,643,177,644,182,612,185,459,192"/>
+<area shape="rect" id="Node000006" href="$classdcpp_1_1nub_1_1list.html" title=" " alt="" coords="270,233,449,273"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="462,237,536,224,611,207,696,177,698,182,613,212,537,229,463,243"/>
+<area shape="rect" id="Node000007" href="$classdcpp_1_1nub_1_1list.html" title=" " alt="" coords="240,297,479,337"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="492,292,552,274,611,251,669,214,712,178,715,182,672,218,613,256,554,279,493,297"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="469,95,613,124,695,151,694,156,611,129,468,100"/>
+<area shape="poly" id="edge10_Node000002_Node000009" title=" " alt="" coords="481,141,636,155,635,161,480,146"/>
+</map>

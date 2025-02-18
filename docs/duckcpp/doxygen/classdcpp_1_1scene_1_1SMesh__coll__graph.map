@@ -1,0 +1,13 @@
+<map id="dcpp::scene::SMesh" name="dcpp::scene::SMesh">
+<area shape="rect" id="Node000001" title="Simple implementation of the IMesh interface." alt="" coords="623,63,773,88"/>
+<area shape="rect" id="Node000002" href="$classdcpp_1_1scene_1_1IMesh.html" title="Class which holds the geometry of an object." alt="" coords="321,5,467,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="480,30,599,53,636,60,635,65,598,58,479,36"/>
+<area shape="rect" id="Node000003" href="$classdcpp_1_1IReferenceCounted.html" title="Base class of most objects of the Duckcpp Engine." alt="" coords="5,5,191,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="204,15,320,15,320,21,204,21"/>
+<area shape="rect" id="Node000004" href="$classdcpp_1_1nub_1_1array.html" title=" " alt="" coords="304,55,484,95"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="498,73,622,73,622,78,498,78"/>
+<area shape="rect" id="Node000005" href="$classdcpp_1_1nub_1_1aabbox3d.html" title=" " alt="" coords="315,119,473,159"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="486,117,636,85,637,91,487,123"/>
+<area shape="rect" id="Node000006" href="$classdcpp_1_1nub_1_1vector3d.html" title=" " alt="" coords="23,119,173,159"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="187,137,315,137,315,142,187,142"/>
+</map>

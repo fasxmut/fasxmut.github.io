@@ -1,0 +1,17 @@
+<map id="dcpp::scene::IAnimatedMesh" name="dcpp::scene::IAnimatedMesh">
+<area shape="rect" id="Node000001" title="Interface for an animated mesh." alt="" coords="433,104,643,129"/>
+<area shape="rect" id="Node000004" href="$classdcpp_1_1scene_1_1IAnimatedMeshMD2.html" title="Interface for using some special functions of MD2 meshes." alt="" coords="691,5,929,31"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="571,95,626,66,690,39,730,28,732,33,692,45,628,71,574,100"/>
+<area shape="rect" id="Node000005" href="$classdcpp_1_1scene_1_1IAnimatedMeshMD3.html" title="Interface for using some special functions of MD3 meshes." alt="" coords="691,55,929,80"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="622,99,739,77,740,83,623,104"/>
+<area shape="rect" id="Node000006" href="$classdcpp_1_1scene_1_1IQ3LevelMesh.html" title="Interface for a Mesh which can be loaded directly from a Quake3 .bsp&#45;file." alt="" coords="711,104,909,129"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="656,114,710,114,710,119,656,119"/>
+<area shape="rect" id="Node000007" href="$classdcpp_1_1scene_1_1ISkinnedMesh.html" title="Interface for using some special functions of Skinned meshes." alt="" coords="711,153,909,179"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="623,129,740,151,739,156,622,134"/>
+<area shape="rect" id="Node000008" href="$classdcpp_1_1scene_1_1SAnimatedMesh.html" title="Simple implementation of the IAnimatedMesh interface." alt="" coords="703,203,917,228"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="574,134,628,162,692,189,732,200,730,205,690,194,626,167,571,138"/>
+<area shape="rect" id="Node000002" href="$classdcpp_1_1scene_1_1IMesh.html" title="Class which holds the geometry of an object." alt="" coords="239,104,385,129"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="399,114,433,114,433,119,399,119"/>
+<area shape="rect" id="Node000003" href="$classdcpp_1_1IReferenceCounted.html" title="Base class of most objects of the Duckcpp Engine." alt="" coords="5,104,191,129"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="204,114,238,114,238,119,204,119"/>
+</map>

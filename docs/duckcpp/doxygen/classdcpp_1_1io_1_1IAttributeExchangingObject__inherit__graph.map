@@ -1,0 +1,99 @@
+<map id="dcpp::io::IAttributeExchangingObject" name="dcpp::io::IAttributeExchangingObject">
+<area shape="rect" id="Node000001" title="An object which is able to serialize and deserialize its attributes into an attributes object." alt="" coords="239,1346,456,1386"/>
+<area shape="rect" id="Node000003" href="$classdcpp_1_1gui_1_1IGUIElement.html" title="Base class of all GUI elements." alt="" coords="541,540,711,565"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="357,1332,618,565,623,566,362,1334"/>
+<area shape="rect" id="Node000025" href="$classdcpp_1_1gui_1_1IGUISkin.html" title="A skin modifies the look of the GUI elements." alt="" coords="553,1176,699,1201"/>
+<area shape="poly" id="edge24_Node000001_Node000025" title=" " alt="" coords="369,1333,425,1270,462,1237,503,1210,552,1193,554,1198,505,1215,465,1242,428,1274,373,1337"/>
+<area shape="rect" id="Node000026" href="$classdcpp_1_1scene_1_1IParticleAffector.html" title="A particle affector modifies particles." alt="" coords="521,1225,731,1251"/>
+<area shape="poly" id="edge25_Node000001_Node000026" title=" " alt="" coords="403,1338,596,1248,598,1253,405,1343"/>
+<area shape="rect" id="Node000031" href="$classdcpp_1_1scene_1_1IParticleEmitter.html" title="A particle emitter for using with particle systems." alt="" coords="523,1449,729,1475"/>
+<area shape="poly" id="edge30_Node000001_Node000031" title=" " alt="" coords="420,1388,589,1447,587,1452,418,1393"/>
+<area shape="rect" id="Node000038" href="$classdcpp_1_1scene_1_1ISceneNode.html" title="Scene node interface." alt="" coords="534,1889,718,1915"/>
+<area shape="poly" id="edge37_Node000001_Node000038" title=" " alt="" coords="368,1397,620,1888,616,1890,363,1400"/>
+<area shape="rect" id="Node000053" href="$classdcpp_1_1scene_1_1ISceneNodeAnimator.html" title="Animates a scene node. Can animate position, rotation, material, and so on." alt="" coords="504,1939,748,1964"/>
+<area shape="poly" id="edge48_Node000001_Node000053" title=" " alt="" coords="356,1399,375,1518,407,1677,428,1756,452,1828,478,1887,506,1925,521,1936,518,1941,502,1929,473,1889,447,1830,423,1758,402,1678,370,1519,351,1400"/>
+<area shape="rect" id="Node000002" href="$classdcpp_1_1IReferenceCounted.html" title="Base class of most objects of the Duckcpp Engine." alt="" coords="5,1353,191,1379"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="204,1363,238,1363,238,1369,204,1369"/>
+<area shape="rect" id="Node000004" href="$classdcpp_1_1gui_1_1IGUIButton.html" title="GUI Button interface." alt="" coords="847,5,1007,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="625,526,631,433,639,370,653,301,674,230,704,160,743,95,767,66,794,40,819,25,846,17,847,22,821,30,798,44,771,70,748,99,709,162,679,231,658,302,644,371,636,433,630,526"/>
+<area shape="rect" id="Node000005" href="$classdcpp_1_1gui_1_1IGUICheckBox.html" title="GUI Check box interface." alt="" coords="835,55,1018,80"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="626,526,635,441,645,384,660,323,682,259,710,197,748,140,794,91,813,78,834,70,836,75,816,83,798,95,752,143,715,200,687,261,665,324,650,386,640,442,631,527"/>
+<area shape="rect" id="Node000006" href="$classdcpp_1_1gui_1_1IGUIColorSelectDialog.html" title="Standard color chooser dialog." alt="" coords="831,105,1022,145"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="628,526,641,452,670,351,692,298,720,245,753,197,794,155,830,135,833,139,798,159,757,200,724,248,697,300,675,353,647,453,633,526"/>
+<area shape="rect" id="Node000007" href="$classdcpp_1_1gui_1_1IGUIComboBox.html" title="Combobox widget." alt="" coords="833,169,1021,195"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="629,526,645,460,675,372,697,325,724,280,756,239,794,204,831,186,834,191,798,208,760,243,728,283,702,328,680,374,650,461,634,527"/>
+<area shape="rect" id="Node000008" href="$classdcpp_1_1gui_1_1IGUIContextMenu.html" title="GUI Context menu interface." alt="" coords="825,219,1029,244"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="631,526,650,469,682,394,704,355,730,317,760,283,795,253,823,239,826,243,797,258,764,286,734,320,709,358,687,396,655,470,636,528"/>
+<area shape="rect" id="Node000009" href="$classdcpp_1_1gui_1_1IGUIEditBox.html" title="Single line edit box for editing simple text." alt="" coords="843,268,1010,293"/>
+<area shape="poly" id="edge8_Node000003_Node000009" title=" " alt="" coords="634,526,656,477,690,416,736,354,764,326,795,302,818,291,843,283,844,288,820,296,797,307,767,330,740,357,694,419,661,480,639,528"/>
+<area shape="rect" id="Node000010" href="$classdcpp_1_1gui_1_1IGUIFileOpenDialog.html" title="Standard file chooser dialog." alt="" coords="819,317,1035,343"/>
+<area shape="poly" id="edge9_Node000003_Node000010" title=" " alt="" coords="638,527,663,487,698,439,742,391,795,352,820,340,822,345,797,356,746,395,702,443,667,490,643,529"/>
+<area shape="rect" id="Node000011" href="$classdcpp_1_1gui_1_1IGUIImage.html" title="GUI element displaying an image." alt="" coords="847,367,1006,392"/>
+<area shape="poly" id="edge10_Node000003_Node000011" title=" " alt="" coords="645,527,707,463,748,429,795,401,846,384,848,389,797,406,752,433,710,467,648,531"/>
+<area shape="rect" id="Node000012" href="$classdcpp_1_1gui_1_1IGUIInOutFader.html" title="Element for fading out or in." alt="" coords="833,416,1020,441"/>
+<area shape="poly" id="edge11_Node000003_Node000012" title=" " alt="" coords="654,529,717,489,755,468,795,450,833,439,835,444,797,455,758,473,720,493,657,534"/>
+<area shape="rect" id="Node000013" href="$classdcpp_1_1gui_1_1IGUIListBox.html" title="Default list box GUI element." alt="" coords="844,465,1009,491"/>
+<area shape="poly" id="edge12_Node000003_Node000013" title=" " alt="" coords="678,533,795,499,849,488,850,493,797,505,680,538"/>
+<area shape="rect" id="Node000014" href="$classdcpp_1_1gui_1_1IGUIMeshViewer.html" title="3d mesh viewing GUI element." alt="" coords="828,515,1025,540"/>
+<area shape="poly" id="edge13_Node000003_Node000014" title=" " alt="" coords="725,542,827,533,828,538,725,547"/>
+<area shape="rect" id="Node000015" href="$classdcpp_1_1gui_1_1IGUIProfiler.html" title="Element to display profiler information." alt="" coords="845,564,1008,589"/>
+<area shape="poly" id="edge14_Node000003_Node000015" title=" " alt="" coords="725,558,845,568,845,573,725,563"/>
+<area shape="rect" id="Node000016" href="$classdcpp_1_1gui_1_1IGUIScrollBar.html" title="Default scroll bar GUI element." alt="" coords="839,613,1014,639"/>
+<area shape="poly" id="edge15_Node000003_Node000016" title=" " alt="" coords="682,567,797,598,856,611,854,616,795,603,681,572"/>
+<area shape="rect" id="Node000017" href="$classdcpp_1_1gui_1_1IGUISpinBox.html" title="Single line edit box + spin buttons." alt="" coords="841,663,1012,688"/>
+<area shape="poly" id="edge16_Node000003_Node000017" title=" " alt="" coords="658,571,720,610,797,648,842,660,840,666,795,652,717,615,655,576"/>
+<area shape="rect" id="Node000018" href="$classdcpp_1_1gui_1_1IGUIStaticText.html" title="Multi or single line text label." alt="" coords="836,712,1017,737"/>
+<area shape="poly" id="edge17_Node000003_Node000018" title=" " alt="" coords="649,574,711,637,752,670,797,697,837,711,835,716,795,702,749,674,707,641,645,578"/>
+<area shape="rect" id="Node000019" href="$classdcpp_1_1gui_1_1IGUITab.html" title="A tab&#45;page, onto which other gui elements could be added." alt="" coords="857,761,996,787"/>
+<area shape="poly" id="edge18_Node000003_Node000019" title=" " alt="" coords="643,576,668,615,702,661,746,708,797,746,827,759,858,767,857,772,825,764,795,751,743,712,698,665,663,618,639,579"/>
+<area shape="rect" id="Node000020" href="$classdcpp_1_1gui_1_1IGUITabControl.html" title="A standard tab control." alt="" coords="833,811,1020,836"/>
+<area shape="poly" id="edge19_Node000003_Node000020" title=" " alt="" coords="639,577,661,625,695,685,740,746,768,773,797,796,834,812,832,817,795,800,764,777,736,749,690,688,656,627,635,579"/>
+<area shape="rect" id="Node000021" href="$classdcpp_1_1gui_1_1IGUITable.html" title="Default list box GUI element." alt="" coords="851,860,1002,885"/>
+<area shape="poly" id="edge20_Node000003_Node000021" title=" " alt="" coords="637,578,656,635,688,708,709,746,735,783,764,817,797,845,823,859,852,867,850,872,821,864,795,850,760,820,731,786,705,749,683,710,651,637,632,580"/>
+<area shape="rect" id="Node000022" href="$classdcpp_1_1gui_1_1IGUIToolBar.html" title="Stays at the top of its parent like the menu bar and contains tool buttons." alt="" coords="844,909,1009,935"/>
+<area shape="poly" id="edge21_Node000003_Node000022" title=" " alt="" coords="635,578,650,643,681,730,702,776,729,820,760,860,798,895,820,907,845,915,843,920,818,912,794,899,757,864,724,823,698,778,676,732,645,645,629,579"/>
+<area shape="rect" id="Node000023" href="$classdcpp_1_1gui_1_1IGUITreeView.html" title="Default tree view GUI element." alt="" coords="839,959,1015,984"/>
+<area shape="poly" id="edge22_Node000003_Node000023" title=" " alt="" coords="633,579,646,652,674,752,696,805,723,856,757,904,798,944,817,956,839,964,838,969,815,961,794,948,753,907,719,859,691,807,669,754,641,653,628,579"/>
+<area shape="rect" id="Node000024" href="$classdcpp_1_1gui_1_1IGUIWindow.html" title="Default moveable window GUI element with border, caption and close icons." alt="" coords="842,1008,1011,1033"/>
+<area shape="poly" id="edge23_Node000003_Node000024" title=" " alt="" coords="632,579,642,661,652,715,668,774,689,834,717,893,753,947,798,993,819,1006,843,1014,841,1020,816,1011,794,997,749,950,713,895,684,836,663,775,647,716,636,662,626,579"/>
+<area shape="rect" id="Node000027" href="$classdcpp_1_1scene_1_1IParticleAttractionAffector.html" title="A particle affector which attracts or detracts particles." alt="" coords="815,1058,1038,1098"/>
+<area shape="poly" id="edge26_Node000026_Node000027" title=" " alt="" coords="738,1217,746,1211,758,1199,764,1187,770,1161,775,1134,782,1121,794,1108,814,1095,817,1100,798,1112,787,1124,780,1136,775,1162,769,1189,762,1202,750,1215,741,1221"/>
+<area shape="rect" id="Node000028" href="$classdcpp_1_1scene_1_1IParticleFadeOutAffector.html" title="A particle affector which fades out the particles." alt="" coords="832,1122,1021,1162"/>
+<area shape="poly" id="edge27_Node000026_Node000028" title=" " alt="" coords="725,1219,747,1210,761,1201,770,1192,780,1181,795,1172,831,1157,833,1162,797,1176,783,1186,774,1195,764,1205,749,1215,727,1224"/>
+<area shape="rect" id="Node000029" href="$classdcpp_1_1scene_1_1IParticleGravityAffector.html" title="A particle affector which applies gravity to particles." alt="" coords="823,1186,1030,1226"/>
+<area shape="poly" id="edge28_Node000026_Node000029" title=" " alt="" coords="745,1223,823,1214,823,1220,745,1228"/>
+<area shape="rect" id="Node000030" href="$classdcpp_1_1scene_1_1IParticleRotationAffector.html" title="A particle affector which rotates the particle system." alt="" coords="819,1250,1034,1290"/>
+<area shape="poly" id="edge29_Node000026_Node000030" title=" " alt="" coords="745,1248,819,1256,819,1261,745,1253"/>
+<area shape="rect" id="Node000032" href="$classdcpp_1_1scene_1_1IParticleAnimatedMeshSceneNodeEmitter.html" title="A particle emitter which emits particles from mesh vertices." alt="" coords="815,1314,1038,1354"/>
+<area shape="poly" id="edge31_Node000031_Node000032" title=" " alt="" coords="656,1439,718,1401,795,1364,830,1352,832,1357,797,1368,721,1406,659,1444"/>
+<area shape="rect" id="Node000033" href="$classdcpp_1_1scene_1_1IParticleBoxEmitter.html" title="A particle emitter which emits particles from a box shaped space." alt="" coords="835,1378,1019,1418"/>
+<area shape="poly" id="edge32_Node000031_Node000033" title=" " alt="" coords="699,1444,834,1415,835,1420,700,1449"/>
+<area shape="rect" id="Node000034" href="$classdcpp_1_1scene_1_1IParticleCylinderEmitter.html" title="A particle emitter which emits from a cylindrically shaped space." alt="" coords="820,1442,1033,1482"/>
+<area shape="poly" id="edge33_Node000031_Node000034" title=" " alt="" coords="743,1459,820,1459,820,1465,743,1465"/>
+<area shape="rect" id="Node000035" href="$classdcpp_1_1scene_1_1IParticleMeshEmitter.html" title="A particle emitter which emits from vertices of a mesh." alt="" coords="829,1506,1024,1546"/>
+<area shape="poly" id="edge34_Node000031_Node000035" title=" " alt="" coords="700,1475,833,1503,832,1509,699,1480"/>
+<area shape="rect" id="Node000036" href="$classdcpp_1_1scene_1_1IParticleRingEmitter.html" title="A particle emitter which emits particles along a ring shaped area." alt="" coords="833,1570,1021,1610"/>
+<area shape="poly" id="edge35_Node000031_Node000036" title=" " alt="" coords="659,1480,721,1518,797,1556,833,1568,832,1573,795,1560,718,1523,656,1485"/>
+<area shape="rect" id="Node000037" href="$classdcpp_1_1scene_1_1IParticleSphereEmitter.html" title="A particle emitter which emits from a spherical space." alt="" coords="825,1634,1029,1674"/>
+<area shape="poly" id="edge36_Node000031_Node000037" title=" " alt="" coords="647,1484,709,1552,751,1589,797,1620,826,1632,823,1637,795,1624,748,1593,705,1555,643,1487"/>
+<area shape="rect" id="Node000039" href="$classdcpp_1_1scene_1_1IAnimatedMeshSceneNode.html" title="Scene node capable of displaying an animated mesh." alt="" coords="822,1698,1031,1738"/>
+<area shape="poly" id="edge38_Node000038_Node000039" title=" " alt="" coords="645,1877,707,1813,749,1778,795,1749,826,1736,828,1741,797,1754,752,1783,711,1817,649,1881"/>
+<area shape="rect" id="Node000040" href="$classdcpp_1_1scene_1_1IBillboardSceneNode.html" title="A billboard scene node." alt="" coords="805,1763,1048,1788"/>
+<area shape="poly" id="edge39_Node000038_Node000040" title=" " alt="" coords="654,1879,716,1838,755,1816,795,1798,837,1786,839,1791,797,1803,757,1821,719,1842,657,1883"/>
+<area shape="rect" id="Node000042" href="$classdcpp_1_1scene_1_1IBoneSceneNode.html" title="Interface for bones used for skeletal animation." alt="" coords="818,1812,1035,1837"/>
+<area shape="poly" id="edge40_Node000038_Node000042" title=" " alt="" coords="677,1882,795,1847,853,1835,854,1840,797,1853,678,1888"/>
+<area shape="rect" id="Node000043" href="$classdcpp_1_1scene_1_1ICameraSceneNode.html" title="Scene Node which is a (controllable) camera." alt="" coords="809,1861,1044,1887"/>
+<area shape="poly" id="edge41_Node000038_Node000043" title=" " alt="" coords="731,1890,809,1882,809,1888,732,1895"/>
+<area shape="rect" id="Node000044" href="$classdcpp_1_1scene_1_1IDummyTransformationSceneNode.html" title="Dummy scene node for adding additional transformations to the scene graph." alt="" coords="796,1911,1057,1951"/>
+<area shape="poly" id="edge42_Node000038_Node000044" title=" " alt="" coords="732,1910,796,1916,796,1921,732,1915"/>
+<area shape="rect" id="Node000045" href="$classdcpp_1_1scene_1_1ILightSceneNode.html" title="Scene node which is a dynamic light." alt="" coords="819,1976,1035,2001"/>
+<area shape="poly" id="edge43_Node000038_Node000045" title=" " alt="" coords="726,1916,749,1925,764,1934,774,1943,783,1953,797,1961,834,1973,832,1978,795,1966,780,1957,770,1947,761,1938,747,1930,724,1921"/>
+<area shape="rect" id="Node000046" href="$classdcpp_1_1scene_1_1IMeshSceneNode.html" title="A scene node displaying a static mesh." alt="" coords="817,2025,1036,2051"/>
+<area shape="poly" id="edge44_Node000038_Node000046" title=" " alt="" coords="732,1915,750,1925,768,1947,774,1970,781,1992,798,2012,818,2023,816,2028,794,2016,776,1995,769,1972,763,1950,746,1929,729,1920"/>
+<area shape="rect" id="Node000048" href="$classdcpp_1_1scene_1_1IParticleSystemSceneNode.html" title=" " alt="" coords="823,2075,1031,2115"/>
+<area shape="poly" id="edge45_Node000038_Node000048" title=" " alt="" coords="732,1914,750,1925,764,1942,772,1960,775,1995,778,2029,785,2045,798,2061,824,2078,821,2082,794,2065,780,2048,773,2030,770,1995,767,1961,760,1945,746,1929,729,1918"/>
+<area shape="rect" id="Node000049" href="$classdcpp_1_1scene_1_1IShadowVolumeSceneNode.html" title="Scene node for rendering a shadow volume into a stencil buffer." alt="" coords="821,2139,1032,2179"/>
+<area shape="poly" id="edge46_Node000038_Node000049" title=" " alt="" coords="732,1913,750,1925,769,1950,777,1976,778,2002,775,2027,772,2052,773,2077,781,2102,798,2125,822,2143,819,2147,794,2129,776,2104,768,2078,767,2052,770,2027,772,2001,771,1977,764,1953,746,1929,729,1917"/>
+<area shape="rect" id="Node000050" href="$classdcpp_1_1scene_1_1ITerrainSceneNode.html" title="A scene node for displaying terrain using the geo mip map algorithm." alt="" coords="813,2204,1041,2229"/>
+<area shape="poly" id="edge47_Node000038_Node000050" title=" " alt="" coords="733,1912,750,1925,773,1959,781,1992,780,2026,774,2060,769,2093,768,2126,776,2158,798,2189,814,2202,811,2206,794,2193,771,2160,762,2127,763,2093,769,2059,775,2026,776,1993,768,1961,746,1929,729,1917"/>
+</map>

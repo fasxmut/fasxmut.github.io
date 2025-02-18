@@ -1,0 +1,24 @@
+<map id="dcpp::scene::ICameraSceneNode" name="dcpp::scene::ICameraSceneNode">
+<area shape="rect" id="Node000001" title="Scene Node which is a (controllable) camera." alt="" coords="869,185,1104,210"/>
+<area shape="rect" id="Node000002" href="$classdcpp_1_1scene_1_1ISceneNode.html" title="Scene node interface." alt="" coords="636,151,820,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="834,175,888,182,887,187,833,180"/>
+<area shape="poly" id="edge5_Node000002_Node000002" title=" " alt="" coords="705,136,712,128,728,125,742,127,750,134,752,143,748,152,743,150,747,142,745,136,740,132,728,130,715,133,709,140"/>
+<area shape="rect" id="Node000003" href="$classdcpp_1_1io_1_1IAttributeExchangingObject.html" title="An object which is able to serialize and deserialize its attributes into an attributes object." alt="" coords="251,5,468,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="482,41,548,58,613,82,671,115,714,149,711,153,668,120,611,86,547,63,481,46"/>
+<area shape="rect" id="Node000004" href="$classdcpp_1_1IReferenceCounted.html" title="Base class of most objects of the Duckcpp Engine." alt="" coords="5,70,191,95"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="169,64,267,43,268,48,170,70"/>
+<area shape="rect" id="Node000008" href="$classdcpp_1_1scene_1_1ISceneManager.html" title="The Scene Manager manages scene nodes, mesh resources, cameras and all the other stuff." alt="" coords="256,70,463,95"/>
+<area shape="poly" id="edge9_Node000008_Node000004" title=" " alt="" coords="204,80,256,80,256,85,204,85"/>
+<area shape="rect" id="Node000009" href="$classdcpp_1_1scene_1_1ITriangleSelector.html" title="Interface to return triangles with specific properties." alt="" coords="252,119,467,145"/>
+<area shape="poly" id="edge11_Node000009_Node000004" title=" " alt="" coords="180,95,292,117,291,122,179,101"/>
+<area shape="rect" id="Node000005" href="$classdcpp_1_1nub_1_1basic__string.html" title=" " alt="" coords="274,169,445,209"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="459,187,612,180,658,174,659,179,612,185,459,192"/>
+<area shape="rect" id="Node000006" href="$classdcpp_1_1nub_1_1list.html" title=" " alt="" coords="270,233,449,273"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="462,246,537,232,575,222,611,207,622,197,635,186,662,174,664,179,637,190,626,201,613,212,577,227,538,238,463,251"/>
+<area shape="rect" id="Node000007" href="$classdcpp_1_1nub_1_1list.html" title=" " alt="" coords="240,297,479,337"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="492,311,555,293,584,279,610,260,620,243,622,225,623,205,634,186,651,175,654,179,638,190,628,207,627,225,625,244,614,263,587,283,557,298,493,316"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="471,95,613,123,694,149,693,154,611,128,470,100"/>
+<area shape="poly" id="edge10_Node000002_Node000009" title=" " alt="" coords="481,140,636,153,635,159,480,145"/>
+<area shape="rect" id="Node000010" href="$classdcpp_1_1IEventReceiver.html" title="Interface of an object which can receive events." alt="" coords="649,201,807,226"/>
+<area shape="poly" id="edge12_Node000001_Node000010" title=" " alt="" coords="821,205,869,202,869,207,821,210"/>
+</map>

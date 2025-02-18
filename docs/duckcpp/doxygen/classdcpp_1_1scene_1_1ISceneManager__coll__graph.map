@@ -1,0 +1,5 @@
+<map id="dcpp::scene::ISceneManager" name="dcpp::scene::ISceneManager">
+<area shape="rect" id="Node000001" title="The Scene Manager manages scene nodes, mesh resources, cameras and all the other stuff." alt="" coords="5,79,212,104"/>
+<area shape="rect" id="Node000002" href="$classdcpp_1_1IReferenceCounted.html" title="Base class of most objects of the Duckcpp Engine." alt="" coords="16,5,201,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,44,111,79,106,79,106,44"/>
+</map>

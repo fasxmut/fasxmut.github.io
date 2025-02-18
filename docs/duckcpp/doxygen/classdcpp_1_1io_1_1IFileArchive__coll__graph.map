@@ -1,0 +1,7 @@
+<map id="dcpp::io::IFileArchive" name="dcpp::io::IFileArchive">
+<area shape="rect" id="Node000001" title="The FileArchive manages archives and provides access to files inside them." alt="" coords="121,108,278,133"/>
+<area shape="rect" id="Node000002" href="$classdcpp_1_1IReferenceCounted.html" title="Base class of most objects of the Duckcpp Engine." alt="" coords="5,13,191,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,45,189,106,185,110,119,49"/>
+<area shape="rect" id="Node000003" href="$classdcpp_1_1nub_1_1basic__string.html" title=" " alt="" coords="215,5,386,45"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="272,57,214,110,210,106,268,53"/>
+</map>

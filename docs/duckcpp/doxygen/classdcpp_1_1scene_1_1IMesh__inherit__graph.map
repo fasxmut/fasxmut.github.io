@@ -1,0 +1,19 @@
+<map id="dcpp::scene::IMesh" name="dcpp::scene::IMesh">
+<area shape="rect" id="Node000001" title="Class which holds the geometry of an object." alt="" coords="239,129,385,155"/>
+<area shape="rect" id="Node000003" href="$classdcpp_1_1scene_1_1IAnimatedMesh.html" title="Interface for an animated mesh." alt="" coords="433,104,643,129"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="399,130,433,126,434,131,400,135"/>
+<area shape="rect" id="Node000009" href="$classdcpp_1_1scene_1_1SMesh.html" title="Simple implementation of the IMesh interface." alt="" coords="463,153,613,179"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="400,149,463,155,462,161,399,154"/>
+<area shape="rect" id="Node000002" href="$classdcpp_1_1IReferenceCounted.html" title="Base class of most objects of the Duckcpp Engine." alt="" coords="5,129,191,155"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="204,139,238,139,238,145,204,145"/>
+<area shape="rect" id="Node000004" href="$classdcpp_1_1scene_1_1IAnimatedMeshMD2.html" title="Interface for using some special functions of MD2 meshes." alt="" coords="691,5,929,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="571,95,626,66,690,39,730,28,732,33,692,45,628,71,574,100"/>
+<area shape="rect" id="Node000005" href="$classdcpp_1_1scene_1_1IAnimatedMeshMD3.html" title="Interface for using some special functions of MD3 meshes." alt="" coords="691,55,929,80"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="622,99,739,77,740,83,623,104"/>
+<area shape="rect" id="Node000006" href="$classdcpp_1_1scene_1_1IQ3LevelMesh.html" title="Interface for a Mesh which can be loaded directly from a Quake3 .bsp&#45;file." alt="" coords="711,104,909,129"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="656,114,710,114,710,119,656,119"/>
+<area shape="rect" id="Node000007" href="$classdcpp_1_1scene_1_1ISkinnedMesh.html" title="Interface for using some special functions of Skinned meshes." alt="" coords="711,153,909,179"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="623,129,740,151,739,156,622,134"/>
+<area shape="rect" id="Node000008" href="$classdcpp_1_1scene_1_1SAnimatedMesh.html" title="Simple implementation of the IAnimatedMesh interface." alt="" coords="703,203,917,228"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="631,132,644,138,660,151,669,165,677,177,692,189,718,200,716,205,689,194,674,181,664,168,656,155,641,143,629,137"/>
+</map>

@@ -1,0 +1,27 @@
+var classdcpp_1_1gui_1_1IGUIStaticText =
+[
+    [ "IGUIStaticText", "classdcpp_1_1gui_1_1IGUIStaticText.html#a293e1190d04c8ab9a02ff3e50040e40e", null ],
+    [ "enableOverrideColor", "classdcpp_1_1gui_1_1IGUIStaticText.html#a583ede0486c15e9d50d90baff22476ed", null ],
+    [ "getActiveColor", "classdcpp_1_1gui_1_1IGUIStaticText.html#aac253031934bb56ee2ef91337227884d", null ],
+    [ "getActiveFont", "classdcpp_1_1gui_1_1IGUIStaticText.html#a43832a57f746baa57a8bd5651695ddda", null ],
+    [ "getBackgroundColor", "classdcpp_1_1gui_1_1IGUIStaticText.html#ad433b3c040dcb394b316ad4a0a5c019c", null ],
+    [ "getOverrideColor", "classdcpp_1_1gui_1_1IGUIStaticText.html#ae90a129641ec4c934dbff5f8ac8b9ce6", null ],
+    [ "getOverrideFont", "classdcpp_1_1gui_1_1IGUIStaticText.html#a3fe7179e91271c0c1122e21c014ff2a5", null ],
+    [ "getTextHeight", "classdcpp_1_1gui_1_1IGUIStaticText.html#a1953dab2f93b86f66548e4121db7e1aa", null ],
+    [ "getTextWidth", "classdcpp_1_1gui_1_1IGUIStaticText.html#a8d979b43d846d2da7df63d46bb21781d", null ],
+    [ "isDrawBackgroundEnabled", "classdcpp_1_1gui_1_1IGUIStaticText.html#a7954f3a9de0b1885e23723f0b65126a4", null ],
+    [ "isDrawBorderEnabled", "classdcpp_1_1gui_1_1IGUIStaticText.html#a853c7a987066d1d1754e0d36c9bdd69d", null ],
+    [ "isOverrideColorEnabled", "classdcpp_1_1gui_1_1IGUIStaticText.html#af154313c539af6e1d7a7202884a2d161", null ],
+    [ "isRightToLeft", "classdcpp_1_1gui_1_1IGUIStaticText.html#a4a1ec9e1f8f2501a5e9a224a2d950e82", null ],
+    [ "isTextRestrainedInside", "classdcpp_1_1gui_1_1IGUIStaticText.html#ab03b05e1eaed2659db213eff04bf4537", null ],
+    [ "isWordWrapEnabled", "classdcpp_1_1gui_1_1IGUIStaticText.html#a76be5a4afedf5b63a03b9a1e4a96789a", null ],
+    [ "setBackgroundColor", "classdcpp_1_1gui_1_1IGUIStaticText.html#a247b0e445e7b17cf8912f8245941524b", null ],
+    [ "setDrawBackground", "classdcpp_1_1gui_1_1IGUIStaticText.html#a53c855aba31d8af8f14e7d6fae69d5f7", null ],
+    [ "setDrawBorder", "classdcpp_1_1gui_1_1IGUIStaticText.html#a8a01831c054e73091140e13c4ce26f21", null ],
+    [ "setOverrideColor", "classdcpp_1_1gui_1_1IGUIStaticText.html#a4448e62e8fe4ec0b8c36b8802dfc3c7b", null ],
+    [ "setOverrideFont", "classdcpp_1_1gui_1_1IGUIStaticText.html#a87d9d059dcae188c8220dfd4acba618d", null ],
+    [ "setRightToLeft", "classdcpp_1_1gui_1_1IGUIStaticText.html#aafb761917eec41f8e382205473693302", null ],
+    [ "setTextAlignment", "classdcpp_1_1gui_1_1IGUIStaticText.html#ad4ab8650c771f9a29e5dd68395de72e9", null ],
+    [ "setTextRestrainedInside", "classdcpp_1_1gui_1_1IGUIStaticText.html#ac59457520b2f169c69313881566abced", null ],
+    [ "setWordWrap", "classdcpp_1_1gui_1_1IGUIStaticText.html#affe530bab0fa6e4631fb5327d8cc18f4", null ]
+];

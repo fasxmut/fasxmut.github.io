@@ -1,0 +1,5 @@
+<map id="dcpp::SJoystickInfo" name="dcpp::SJoystickInfo">
+<area shape="rect" id="Node000001" title="Information on a joystick, returned from dcpp::DuckcppDevice::activateJoysticks()" alt="" coords="18,108,163,133"/>
+<area shape="rect" id="Node000002" href="$classdcpp_1_1nub_1_1basic__string.html" title=" " alt="" coords="5,5,176,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,59,93,108,88,108,88,59"/>
+</map>

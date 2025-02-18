@@ -1,0 +1,9 @@
+<map id="dcpp::video::IImage" name="dcpp::video::IImage">
+<area shape="rect" id="Node000001" title="Interface for software image data." alt="" coords="301,63,452,88"/>
+<area shape="rect" id="Node000002" href="$classdcpp_1_1IReferenceCounted.html" title="Base class of most objects of the Duckcpp Engine." alt="" coords="5,5,191,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,31,315,60,314,65,173,36"/>
+<area shape="rect" id="Node000003" href="$classdcpp_1_1nub_1_1dimension2d.html" title=" " alt="" coords="9,55,187,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="201,73,301,73,301,78,201,78"/>
+<area shape="rect" id="Node000004" href="$classdcpp_1_1nub_1_1irrAllocator.html" title=" " alt="" coords="15,119,181,159"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="194,115,320,85,321,91,195,120"/>
+</map>

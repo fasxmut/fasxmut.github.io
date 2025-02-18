@@ -1,0 +1,5 @@
+<map id="dcpp::video::S3DVertexTangents" name="dcpp::video::S3DVertexTangents">
+<area shape="rect" id="Node000001" title="Vertex with a tangent and binormal vector." alt="" coords="5,79,236,104"/>
+<area shape="rect" id="Node000002" href="$classdcpp_1_1video_1_1S3DVertex.html" title="standard vertex used by the Duckcpp engine." alt="" coords="34,5,207,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,44,123,79,118,79,118,44"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="dcpp::scene::SVertexColorScaleManipulator" name="dcpp::scene::SVertexColorScaleManipulator">
+<area shape="rect" id="Node000001" title="Vertex manipulator which scales the color values." alt="" coords="25,79,216,119"/>
+<area shape="rect" id="Node000002" href="$classdcpp_1_1scene_1_1IVertexManipulator.html" title="Interface for vertex manipulators." alt="" coords="5,5,236,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,44,123,79,118,79,118,44"/>
+</map>

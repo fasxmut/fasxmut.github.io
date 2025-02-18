@@ -1,0 +1,5 @@
+<map id="dcpp::video::ITexture" name="dcpp::video::ITexture">
+<area shape="rect" id="Node000001" title="Interface of a Video Driver dependent Texture." alt="" coords="19,79,177,104"/>
+<area shape="rect" id="Node000002" href="$classdcpp_1_1IReferenceCounted.html" title="Base class of most objects of the Duckcpp Engine." alt="" coords="5,5,191,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,44,101,79,95,79,95,44"/>
+</map>
