@@ -4,7 +4,7 @@ var searchData=
   ['r5g6b5toa1r5g5b5_1',['R5G6B5toA1R5G5B5',['../namespacedcpp_1_1video.html#aafc8997d62472b541a327fb891fe4db2',1,'dcpp::video']]],
   ['r5g6b5toa8r8g8b8_2',['R5G6B5toA8R8G8B8',['../namespacedcpp_1_1video.html#a80dea3048aaa7c003a803cf1a55fbb0d',1,'dcpp::video']]],
   ['radius_3',['Radius',['../classdcpp_1_1video_1_1SLight.html#a049af883dd8bbf72d68b1c965b7765c9',1,'dcpp::video::SLight']]],
-  ['radtodeg_4',['radtodeg',['../namespacedcpp_1_1nub.html#a49f827fa8dd67e39ec63f48149959c11',1,'dcpp::nub::radToDeg(f64 radians)'],['../namespacedcpp_1_1nub.html#a8e6a038ed77a7f3f6a9e9eda2cadd052',1,'dcpp::nub::RADTODEG'],['../namespacedcpp_1_1nub.html#a31f37de8ecbc10194ba7c460e0993807',1,'dcpp::nub::radToDeg(f32 radians)']]],
+  ['radtodeg_4',['radtodeg',['../namespacedcpp_1_1nub.html#a31f37de8ecbc10194ba7c460e0993807',1,'dcpp::nub::radToDeg(f32 radians)'],['../namespacedcpp_1_1nub.html#a49f827fa8dd67e39ec63f48149959c11',1,'dcpp::nub::radToDeg(f64 radians)'],['../namespacedcpp_1_1nub.html#a8e6a038ed77a7f3f6a9e9eda2cadd052',1,'dcpp::nub::RADTODEG']]],
   ['radtodeg64_5',['RADTODEG64',['../namespacedcpp_1_1nub.html#a1a492da455910a0ff13dd67d33ee6e0c',1,'dcpp::nub']]],
   ['rand_6',['rand',['../classdcpp_1_1IRandomizer.html#ab11e078a08d68f5906827df90af57d20',1,'dcpp::IRandomizer']]],
   ['randmax_7',['randMax',['../classdcpp_1_1IRandomizer.html#ae9719b0f7d5bc0ade92fe6019ce5fef5',1,'dcpp::IRandomizer']]],

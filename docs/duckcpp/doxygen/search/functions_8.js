@@ -92,7 +92,7 @@ var searchData=
   ['isfloatingpointformat_89',['isFloatingPointFormat',['../classdcpp_1_1video_1_1IImage.html#ab18a179b69418512b9348d87bde0873c',1,'dcpp::video::IImage']]],
   ['isfrontfacing_90',['isfrontfacing',['../classdcpp_1_1nub_1_1triangle3d.html#a14750b6c9f288d6b5ce221d0835b1175',1,'dcpp::nub::triangle3d::isFrontFacing()'],['../classdcpp_1_1nub_1_1plane3d.html#ac835bd812d0907cf85754fce64349cc9',1,'dcpp::nub::plane3d::isFrontFacing()']]],
   ['isfullinside_91',['isFullInside',['../classdcpp_1_1nub_1_1aabbox3d.html#aa2d0ae96ca908a404629416696d5fdb4',1,'dcpp::nub::aabbox3d']]],
-  ['isfullscreen_92',['isFullscreen',['../classdcpp_1_1DuckcppDevice.html#a80de9b47c43c28d7be0e991f413ef147',1,'dcpp::DuckcppDevice']]],
+  ['isfullscreen_92',['isFullScreen',['../classdcpp_1_1DuckcppDevice.html#ad926fa23143bb0d28a31219bbc244c87',1,'dcpp::DuckcppDevice']]],
   ['ishadowvolumescenenode_93',['IShadowVolumeSceneNode',['../classdcpp_1_1scene_1_1IShadowVolumeSceneNode.html#a9aa8a6e0d3ee57ac4c8ed18f855bcaf9',1,'dcpp::scene::IShadowVolumeSceneNode']]],
   ['isidentity_94',['isIdentity',['../classdcpp_1_1nub_1_1PMatrix4.html#aeebe9291f08cff7f10f71418be292d3a',1,'dcpp::nub::PMatrix4']]],
   ['isidentity_5finteger_5fbase_95',['isIdentity_integer_base',['../classdcpp_1_1nub_1_1PMatrix4.html#a16642544d9fb4c2232d9b8eb70b26737',1,'dcpp::nub::PMatrix4']]],

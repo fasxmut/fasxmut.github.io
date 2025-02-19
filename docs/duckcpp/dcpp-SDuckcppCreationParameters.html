@@ -55,16 +55,16 @@
 	<span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">nub</span><span class="special">::</span><span class="identifier">position2di</span> <span class="identifier">WindowPosition</span> <span class="special">=</span> <span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">nub</span><span class="special">::</span><span class="identifier">position2di</span><span class="special">{-</span><span class="number">1</span><span class="special">,</span> <span class="special">-</span><span class="number">1</span><span class="special">};</span>
 	<span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">u8</span> <span class="identifier">Bits</span> <span class="special">=</span> <span class="number">32u</span><span class="special">;</span>
 	<span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">u8</span> <span class="identifier">ZBufferBits</span> <span class="special">=</span> <span class="number">24u</span><span class="special">;</span>
-	<span class="keyword">bool</span> <span class="identifier">Fullscreen</span> <span class="special">=</span> <span class="keyword">false</span><span class="special">;</span>
+	<span class="keyword">bool</span> <span class="identifier">FullScreen</span> <span class="special">=</span> <span class="keyword">false</span><span class="special">;</span>
 	<span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">u8</span> <span class="identifier">WindowResizable</span> <span class="special">=</span> <span class="number">2u</span><span class="special">;</span>
-	<span class="keyword">bool</span> <span class="identifier">Stencilbuffer</span> <span class="special">=</span> <span class="keyword">true</span><span class="special">;</span>
+	<span class="keyword">bool</span> <span class="identifier">StencilBuffer</span> <span class="special">=</span> <span class="keyword">true</span><span class="special">;</span>
 	<span class="keyword">bool</span> <span class="identifier">Vsync</span> <span class="special">=</span> <span class="keyword">false</span><span class="special">;</span>
 	<span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">u8</span> <span class="identifier">AntiAlias</span> <span class="special">=</span> <span class="number">0</span><span class="special">;</span>
 	<span class="keyword">bool</span> <span class="identifier">HandleSRGB</span> <span class="special">=</span> <span class="keyword">false</span><span class="special">;</span>
 	<span class="keyword">bool</span> <span class="identifier">WithAlphaChannel</span> <span class="special">=</span> <span class="keyword">false</span><span class="special">;</span>
-	<span class="keyword">bool</span> <span class="identifier">Doublebuffer</span> <span class="special">=</span> <span class="keyword">true</span><span class="special">;</span>
+	<span class="keyword">bool</span> <span class="identifier">DoubleBuffer</span> <span class="special">=</span> <span class="keyword">true</span><span class="special">;</span>
 	<span class="keyword">bool</span> <span class="identifier">IgnoreInput</span> <span class="special">=</span> <span class="keyword">false</span><span class="special">;</span>
-	<span class="keyword">bool</span> <span class="identifier">Stereobuffer</span> <span class="special">=</span> <span class="keyword">false</span><span class="special">;</span>
+	<span class="keyword">bool</span> <span class="identifier">StereoBuffer</span> <span class="special">=</span> <span class="keyword">false</span><span class="special">;</span>
 	<span class="keyword">bool</span> <span class="identifier">HighPrecisionFPU</span> <span class="special">=</span> <span class="keyword">false</span><span class="special">;</span>
 	<span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">IEventReceiver</span><span class="special">*</span> <span class="identifier">EventReceiver</span> <span class="special">=</span> <span class="keyword">nullptr</span><span class="special">;</span>
 	<span class="keyword">void</span><span class="special">*</span> <span class="identifier">WindowId</span> <span class="special">=</span> <span class="keyword">nullptr</span><span class="special">;</span>
@@ -97,7 +97,7 @@
 <pre class="programlisting"><span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">SDuckcppCreationParamters</span> <span class="identifier">params</span><span class="special">{</span>
 	<span class="special">.</span><span class="identifier">DriverType</span> <span class="special">=</span> <span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">video</span><span class="special">::</span><span class="identifier">EDT_SOFTWARE</span><span class="special">,</span>
 	<span class="special">.</span><span class="identifier">WindowSize</span> <span class="special">=</span> <span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">dimension2du</span><span class="special">{</span><span class="number">2560</span><span class="special">,</span> <span class="number">1600</span><span class="special">},</span>
-	<span class="special">.</span><span class="identifier">Fullscreen</span> <span class="special">=</span> <span class="keyword">true</span>
+	<span class="special">.</span><span class="identifier">FullScreen</span> <span class="special">=</span> <span class="keyword">true</span>
 <span class="special">};</span>
 </pre>
 <h3>
@@ -149,8 +149,8 @@
 		<span class="special">.</span><span class="identifier">DriverType</span> <span class="special">=</span> <span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">video</span><span class="special">::</span><span class="identifier">EDT_SOFTWARE</span><span class="special">,</span>
 		<span class="special">.</span><span class="identifier">WindowSize</span> <span class="special">=</span> <span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">nub</span><span class="special">::</span><span class="identifier">dimension2du</span><span class="special">{</span><span class="number">1280u</span><span class="special">,</span> <span class="number">800u</span><span class="special">},</span>
 		<span class="special">.</span><span class="identifier">Bits</span> <span class="special">=</span> <span class="number">32</span><span class="special">,</span>
-		<span class="special">.</span><span class="identifier">Fullscreen</span> <span class="special">=</span> <span class="keyword">false</span><span class="special">,</span>
-		<span class="special">.</span><span class="identifier">Stencilbuffer</span> <span class="special">=</span> <span class="keyword">true</span><span class="special">,</span>
+		<span class="special">.</span><span class="identifier">FullScreen</span> <span class="special">=</span> <span class="keyword">false</span><span class="special">,</span>
+		<span class="special">.</span><span class="identifier">StencilBuffer</span> <span class="special">=</span> <span class="keyword">true</span><span class="special">,</span>
 		<span class="special">.</span><span class="identifier">EventReceiver</span> <span class="special">=</span> <span class="keyword">nullptr</span>
 	<span class="special">};</span>
 	<span class="identifier">params</span><span class="special">.</span><span class="identifier">ZBufferBits</span> <span class="special">=</span> <span class="number">24u</span><span class="special">;</span>

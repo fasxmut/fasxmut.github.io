@@ -22,7 +22,7 @@ var classdcpp_1_1DuckcppDevice =
     [ "getVideoDriver", "classdcpp_1_1DuckcppDevice.html#a69288ad2df45a47f025dc88492619332", null ],
     [ "getVideoModeList", "classdcpp_1_1DuckcppDevice.html#a266524f1fd1c369462aefe03a1666c27", null ],
     [ "getWindowPosition", "classdcpp_1_1DuckcppDevice.html#a0148a621ff1be108959222233301c997", null ],
-    [ "isFullscreen", "classdcpp_1_1DuckcppDevice.html#a80de9b47c43c28d7be0e991f413ef147", null ],
+    [ "isFullScreen", "classdcpp_1_1DuckcppDevice.html#ad926fa23143bb0d28a31219bbc244c87", null ],
     [ "isWindowActive", "classdcpp_1_1DuckcppDevice.html#a1735d958ce29029bee4a303bbe464103", null ],
     [ "isWindowFocused", "classdcpp_1_1DuckcppDevice.html#a3927eab13d5c4e00628af456b8e37020", null ],
     [ "isWindowMinimized", "classdcpp_1_1DuckcppDevice.html#a465afde45c6119fe777663cb086ad48e", null ],

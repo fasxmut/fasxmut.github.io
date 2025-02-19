@@ -209,7 +209,7 @@ var searchData=
   ['isfloatingpointformat_206',['isFloatingPointFormat',['../classdcpp_1_1video_1_1IImage.html#ab18a179b69418512b9348d87bde0873c',1,'dcpp::video::IImage']]],
   ['isfrontfacing_207',['isfrontfacing',['../classdcpp_1_1nub_1_1triangle3d.html#a14750b6c9f288d6b5ce221d0835b1175',1,'dcpp::nub::triangle3d::isFrontFacing()'],['../classdcpp_1_1nub_1_1plane3d.html#ac835bd812d0907cf85754fce64349cc9',1,'dcpp::nub::plane3d::isFrontFacing()']]],
   ['isfullinside_208',['isFullInside',['../classdcpp_1_1nub_1_1aabbox3d.html#aa2d0ae96ca908a404629416696d5fdb4',1,'dcpp::nub::aabbox3d']]],
-  ['isfullscreen_209',['isFullscreen',['../classdcpp_1_1DuckcppDevice.html#a80de9b47c43c28d7be0e991f413ef147',1,'dcpp::DuckcppDevice']]],
+  ['isfullscreen_209',['isFullScreen',['../classdcpp_1_1DuckcppDevice.html#ad926fa23143bb0d28a31219bbc244c87',1,'dcpp::DuckcppDevice']]],
   ['ishader_210',['IShader',['../classdcpp_1_1scene_1_1quake3_1_1IShader.html',1,'dcpp::scene::quake3']]],
   ['ishaderconstantsetcallback_211',['IShaderConstantSetCallBack',['../classdcpp_1_1video_1_1IShaderConstantSetCallBack.html',1,'dcpp::video']]],
   ['ishadermanager_212',['IShaderManager',['../classdcpp_1_1scene_1_1quake3_1_1IShaderManager.html',1,'dcpp::scene::quake3']]],

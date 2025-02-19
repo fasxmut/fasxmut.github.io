@@ -19,7 +19,7 @@ var searchData=
   ['dmf_5fflip_5falpha_5ftextures_16',['DMF_FLIP_ALPHA_TEXTURES',['../namespacedcpp_1_1scene.html#a7a62f08b030a9d99bffd9d1387cf9c39',1,'dcpp::scene']]],
   ['dmf_5fignore_5fmaterials_5fdirs_17',['DMF_IGNORE_MATERIALS_DIRS',['../namespacedcpp_1_1scene.html#a9e00bfb726b89ef1f1a4d985e111a322',1,'dcpp::scene']]],
   ['dmf_5ftexture_5fpath_18',['DMF_TEXTURE_PATH',['../namespacedcpp_1_1scene.html#a4ccf91c7676522e123caa5dd72c4645a',1,'dcpp::scene']]],
-  ['doublebuffer_19',['Doublebuffer',['../classdcpp_1_1SDuckcppCreationParameters.html#a9ba77992f684d681b6e6c8084000943e',1,'dcpp::SDuckcppCreationParameters']]],
+  ['doublebuffer_19',['DoubleBuffer',['../classdcpp_1_1SDuckcppCreationParameters.html#a20c822bdc0498240786abf7656ad2d0d',1,'dcpp::SDuckcppCreationParameters']]],
   ['drivermultithreaded_20',['DriverMultithreaded',['../classdcpp_1_1SDuckcppCreationParameters.html#a0be606297130aa00df1c6c19aebd496e',1,'dcpp::SDuckcppCreationParameters']]],
   ['drivertype_21',['drivertype',['../classdcpp_1_1video_1_1IRenderTarget.html#a7a6fdf467cab717210ff46761cc49bb5',1,'dcpp::video::IRenderTarget::DriverType'],['../classdcpp_1_1SDuckcppCreationParameters.html#a952c5486cc241e3f6dfb6d8902e70fc2',1,'dcpp::SDuckcppCreationParameters::DriverType']]]
 ];

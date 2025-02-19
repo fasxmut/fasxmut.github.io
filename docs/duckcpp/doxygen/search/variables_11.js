@@ -18,7 +18,7 @@ var searchData=
   ['startsize_15',['startSize',['../classdcpp_1_1scene_1_1SParticle.html#ac1c5c962bd652b33b9e94d67dda772b7',1,'dcpp::scene::SParticle']]],
   ['starttime_16',['starttime',['../classdcpp_1_1scene_1_1SParticle.html#a215fe639f16ad3ee07be1333f9d16260',1,'dcpp::scene::SParticle::startTime'],['../classdcpp_1_1scene_1_1ISceneNodeAnimator.html#a3ffa28fae8f521cb15d5903c18bcfadd',1,'dcpp::scene::ISceneNodeAnimator::StartTime']]],
   ['startvector_17',['startVector',['../classdcpp_1_1scene_1_1SParticle.html#ab0a8d020c141486e23ef5317a3c1b655',1,'dcpp::scene::SParticle']]],
-  ['stencilbuffer_18',['Stencilbuffer',['../classdcpp_1_1SDuckcppCreationParameters.html#a7b993f46cf74907e5b981493b8424f3b',1,'dcpp::SDuckcppCreationParameters']]],
-  ['stereobuffer_19',['Stereobuffer',['../classdcpp_1_1SDuckcppCreationParameters.html#a955a79439e497ef7619d6384d47ee64f',1,'dcpp::SDuckcppCreationParameters']]],
+  ['stencilbuffer_18',['StencilBuffer',['../classdcpp_1_1SDuckcppCreationParameters.html#a263430745a204eb97c3b88450e222d6c',1,'dcpp::SDuckcppCreationParameters']]],
+  ['stereobuffer_19',['StereoBuffer',['../classdcpp_1_1SDuckcppCreationParameters.html#a0672fffa4cfa514ee094412f6eb1b256',1,'dcpp::SDuckcppCreationParameters']]],
   ['strength_20',['strength',['../classdcpp_1_1scene_1_1ISkinnedMesh_1_1SWeight.html#a1ddc8182b066833ca04792e124492a58',1,'dcpp::scene::ISkinnedMesh::SWeight']]]
 ];

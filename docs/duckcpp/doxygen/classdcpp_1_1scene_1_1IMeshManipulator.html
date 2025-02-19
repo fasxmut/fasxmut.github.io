@@ -227,7 +227,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:abfe41297824f1ede3de68e7810384911"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a27d4a7e032e350f828337da9946616" id="r_a1a27d4a7e032e350f828337da9946616"><td class="memTemplParams" colspan="2">template&lt;typename Functor &gt; </td></tr>
 <tr class="memitem:a1a27d4a7e032e350f828337da9946616"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IMeshManipulator.html#a1a27d4a7e032e350f828337da9946616">apply</a> (const Functor &amp;func, <a class="el" href="classdcpp_1_1scene_1_1IMeshBuffer.html">IMeshBuffer</a> *buffer, bool boundingBoxUpdate=false) const</td></tr>
-<tr class="memdesc:a1a27d4a7e032e350f828337da9946616"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a manipulator on the Meshbuffer.  <br /></td></tr>
+<tr class="memdesc:a1a27d4a7e032e350f828337da9946616"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a manipulator on the MeshBuffer.  <br /></td></tr>
 <tr class="separator:a1a27d4a7e032e350f828337da9946616"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a188dbda540f52b309dc0d9be2c56f941" id="r_a188dbda540f52b309dc0d9be2c56f941"><td class="memTemplParams" colspan="2">template&lt;typename Functor &gt; </td></tr>
 <tr class="memitem:a188dbda540f52b309dc0d9be2c56f941"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IMeshManipulator.html#a188dbda540f52b309dc0d9be2c56f941">apply</a> (const Functor &amp;func, <a class="el" href="classdcpp_1_1scene_1_1IMesh.html">IMesh</a> *mesh, bool boundingBoxUpdate=false) const</td></tr>
@@ -367,11 +367,11 @@ template&lt;typename Functor &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Apply a manipulator on the Meshbuffer. </p>
+<p>Apply a manipulator on the MeshBuffer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">func</td><td>A functor defining the mesh manipulation. </td></tr>
-    <tr><td class="paramname">buffer</td><td>The Meshbuffer to apply the manipulator to. </td></tr>
+    <tr><td class="paramname">buffer</td><td>The MeshBuffer to apply the manipulator to. </td></tr>
     <tr><td class="paramname">boundingBoxUpdate</td><td>Specifies if the bounding box should be updated during manipulation. </td></tr>
   </table>
   </dd>
@@ -432,7 +432,7 @@ template&lt;typename Functor &gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">func</td><td>A functor defining the mesh manipulation. </td></tr>
-    <tr><td class="paramname">buffer</td><td>The Meshbuffer to apply the manipulator to. </td></tr>
+    <tr><td class="paramname">buffer</td><td>The MeshBuffer to apply the manipulator to. </td></tr>
     <tr><td class="paramname">boundingBoxUpdate</td><td>Specifies if the bounding box should be updated during manipulation. </td></tr>
     <tr><td class="paramname">typeTest</td><td>Unused parameter, which handles the proper call selection based on the type of the Functor which is passed in two times. </td></tr>
   </table>
@@ -973,7 +973,7 @@ template&lt;typename Functor &gt; </div>
 <p>This function is thread-safe. Remember to weld afterward - this function only moves vertices, it does not weld.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">mb</td><td>Meshbuffer to operate on. </td></tr>
+    <tr><td class="paramname">mb</td><td>MeshBuffer to operate on. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1414,7 +1414,7 @@ template&lt;typename Functor &gt; </div>
 <p>Recalculates tangents, requires a tangent mesh buffer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">buffer</td><td>Meshbuffer on which the operation is performed. </td></tr>
+    <tr><td class="paramname">buffer</td><td>MeshBuffer on which the operation is performed. </td></tr>
     <tr><td class="paramname">recalculateNormals</td><td>If the normals shall be recalculated, otherwise original normals of the buffer are used unchanged. </td></tr>
     <tr><td class="paramname">smooth</td><td>If the normals shall be smoothed. </td></tr>
     <tr><td class="paramname">angleWeighted</td><td>If the normals shall be smoothed in relation to their angles. More expensive, but also higher precision. </td></tr>
@@ -1506,7 +1506,7 @@ template&lt;typename Functor &gt; </div>
 <p>Scales the actual meshbuffer, not a scene node. </p>
 <p>Note: When your scale are not uniform then prefer the transform function to have correct normals. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">buffer</td><td>Meshbuffer on which the operation is performed. </td></tr>
+    <tr><td class="paramname">buffer</td><td>MeshBuffer on which the operation is performed. </td></tr>
     <tr><td class="paramname">factor</td><td>Scale factor for each axis. </td></tr>
   </table>
   </dd>
@@ -1655,7 +1655,7 @@ template&lt;typename Functor &gt; </div>
 <p>Scale the texture coords of a meshbuffer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">buffer</td><td>Meshbuffer on which the operation is performed. </td></tr>
+    <tr><td class="paramname">buffer</td><td>MeshBuffer on which the operation is performed. </td></tr>
     <tr><td class="paramname">factor</td><td>Vector which defines the scale for each axis. </td></tr>
     <tr><td class="paramname">level</td><td>Number of texture coord, starting from 1. Support for level 2 exists for LightMap buffers. </td></tr>
   </table>
@@ -1746,7 +1746,7 @@ template&lt;typename Functor &gt; </div>
 <p>Sets the alpha vertex color value of the whole mesh to a new value. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">buffer</td><td>Meshbuffer on which the operation is performed. </td></tr>
+    <tr><td class="paramname">buffer</td><td>MeshBuffer on which the operation is performed. </td></tr>
     <tr><td class="paramname">alpha</td><td>New alpha value. Must be a value between 0 and 255. </td></tr>
   </table>
   </dd>
@@ -1836,7 +1836,7 @@ template&lt;typename Functor &gt; </div>
 <p>Sets the colors of all vertices to one color. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">buffer</td><td>Meshbuffer on which the operation is performed. </td></tr>
+    <tr><td class="paramname">buffer</td><td>MeshBuffer on which the operation is performed. </td></tr>
     <tr><td class="paramname">color</td><td>New color. </td></tr>
   </table>
   </dd>
@@ -1952,7 +1952,7 @@ template&lt;typename Functor &gt; </div>
 <p>Applies a transformation to a meshbuffer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">buffer</td><td>Meshbuffer on which the operation is performed. </td></tr>
+    <tr><td class="paramname">buffer</td><td>MeshBuffer on which the operation is performed. </td></tr>
     <tr><td class="paramname">m</td><td>transformation matrix. </td></tr>
     <tr><td class="paramname">normalsUpdate</td><td>When 0 - don't update normals. When 1 - update normals with inner 3x3 matrix of the inverse transposed of the transformation matrix should be set when the matrix has rotation or non-uniform scaling </td></tr>
     <tr><td class="paramname">normalizeNormals</td><td>When true it normalizes all normals again. Recommended to set this when normalsUpdate is 1 and there is any scaling </td></tr>
