@@ -1,4 +1,5 @@
-[article Happ cpp sycl examples
+[article Happy c++ sycl examples
+	[id happy-cpp-sycl-examples]
 	[quickbook 1.7]
 ]
 
@@ -8,10 +9,8 @@ Happy c++ sycl examples
 
 Code: [@https://github.com/fasxmut/happy-cpp-sycl-examples]
 
-[h1 [role cyan Home]]
+[h1:back [role cyan Back]]
 
-https://cppfx.xyz
-
-
+[@. Up]
 
 [include ../../share/foot-links.inc.qbk]

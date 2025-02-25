@@ -31,10 +31,8 @@ cxxflags="-include /sand/include/testpub/core.hpp" \
 linkflags=-ltestpub-core
 ```
 
-[h1 [role cyan Home]]
+[h1:back [role cyan Back]]
 
-Home: [@https://cppfx.xyz]
-
-
+[@. Up]
 
 [include ../../share/foot-links.inc.qbk]
