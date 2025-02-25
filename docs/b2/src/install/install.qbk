@@ -1,0 +1,15 @@
+[article Install B2 Build
+	[id install]
+	[quickbook 1.7]
+]
+
+[include haiku.qbk]
+
+Install B2 Build
+
+[h1:back [role cyan Back]]
+
+[@. Up]
+
+[include ../../../share/foot-links.inc.qbk]
+

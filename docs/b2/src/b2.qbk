@@ -3,6 +3,8 @@
 	[quickbook 1.7]
 ]
 
+[include install/install.qbk]
+
 B2 is an exellent build system for c++ projects.
 
 [@https://www.bfgroup.xyz/b2]

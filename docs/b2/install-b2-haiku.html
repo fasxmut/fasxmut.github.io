@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>B2 Build Haiku, Build and Install</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="B2 Build">
+<link rel="up" href="install.html" title="Install B2 Build">
+<link rel="prev" href="install.html" title="Install B2 Build">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="install.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="install.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="install-b2-haiku"></a>B2 Build Haiku, Build and Install</h2></div></div>
+<hr>
+</div>
+<p>
+        B2 Build Home:
+      </p>
+<p>
+        <a href="https://www.bfgroup.xyz/b2" target="_top">https://www.bfgroup.xyz/b2</a>
+      </p>
+<p>
+        On Haiku OS:
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+            Requires gnu c++ compiler: gcc
+          </li></ul></div>
+<pre class="programlisting">&gt; g++ --version
+</pre>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+            Get b2 source:
+          </li></ul></div>
+<pre class="programlisting">&gt; git clone --depth=1 https://github.com/bfgroup/b2
+</pre>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+            Build B2
+          </li></ul></div>
+<pre class="programlisting">&gt; cd b2
+&gt; ./bootstrap.sh
+</pre>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+            Install B2
+          </li></ul></div>
+<pre class="programlisting">&gt; ./b2 install --prefix=/boot/home/sand
+</pre>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            Add <span class="underline"><em class="replaceable"><code>/boot/home/sand/bin</code></em></span>
+            to your system bin path.
+          </li>
+<li class="listitem">
+            Create and Build c++ project
+          </li>
+</ul></div>
+<p>
+        Init project:
+      </p>
+<pre class="programlisting">&gt; mkdir my-project
+&gt; cd my-project
+&gt; kak hello-world.cpp
+&gt; kak jamroot
+</pre>
+<p>
+        hello-world.cpp :
+      </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Hello, c++!"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<p>
+        jamroot :
+      </p>
+<pre class="programlisting">exe hello-world : hello-world.cpp : : &lt;cxxstd&gt;23 ;
+</pre>
+<p>
+        Build project:
+      </p>
+<pre class="programlisting">&gt; b2
+
+...updated 6 targets...
+</pre>
+<p>
+        Run program:
+      </p>
+<pre class="programlisting">&gt; ./bin/gcc-13/debug/cxxstd-23-iso/hell-world
+Hello, c++!
+</pre>
+<h2>
+<a name="install-b2-haiku.h0"></a>
+        <span class="phrase"><a name="install-b2-haiku.back"></a></span><a class="link" href="install-b2-haiku.html#install-b2-haiku.back"><span class="cyan">Back</span></a>
+      </h2>
+<p>
+        <a class="link" href="install.html" title="Install B2 Build">Up</a>
+      </p>
+<h2>
+<a name="install-b2-haiku.h1"></a>
+        <span class="phrase"><a name="install-b2-haiku.cpp-lang"></a></span><a class="link" href="install-b2-haiku.html#install-b2-haiku.cpp-lang"><span class="cyan">cpp/c++</span></a>
+      </h2>
+<p>
+        c++ std::exception:
+      </p>
+<p>
+        std::cout.write(err.data(), err.size());
+      </p>
+<p>
+        std::cout &lt;&lt; std::endl;
+      </p>
+<p>
+        <span class="purple">caught:</span>
+      </p>
+<pre class="programlisting">  ===================================
+  #  The c++ programming language.  #
+  #                                 #
+  #  Join c++ Discord: yZcauUAUyC   #
+  #  Deck                           #
+  ===================================
+</pre>
+<p>
+        <a href="https://cppfx.xyz" target="_top">Home: cppfx.xyz</a>
+      </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="install.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="install.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+</body>
+</html>
