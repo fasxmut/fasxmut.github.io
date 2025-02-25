@@ -13,5 +13,5 @@ var searchData=
   ['normal_10',['normal',['../classdcpp_1_1nub_1_1plane3d.html#a5f5c9d1d3ff460c26dfede75c8fcde27',1,'dcpp::nub::plane3d::Normal'],['../classdcpp_1_1video_1_1S3DVertex.html#af38f8dca0b3de0f891180ac2fb3bfcc7',1,'dcpp::video::S3DVertex::Normal']]],
   ['normalize_11',['normalize',['../classdcpp_1_1nub_1_1vector3d.html#a941fceaff8450f3259f68730c64e88a4',1,'dcpp::nub::vector3d::normalize()'],['../classdcpp_1_1nub_1_1vector2d.html#a818f19b0d4f84e57120ff93675ea9cc2',1,'dcpp::nub::vector2d::normalize()'],['../classdcpp_1_1nub_1_1quaternion.html#a0511846695bad17500c6488eefeb771d',1,'dcpp::nub::quaternion::normalize()']]],
   ['normalizenormals_12',['NormalizeNormals',['../classdcpp_1_1video_1_1SMaterial.html#a7e2c2579783392d46acc964aa0e8ccc2',1,'dcpp::video::SMaterial']]],
-  ['num_13',['num',['../classdcpp_1_1scene_1_1SMD3AnimationInfo.html#aa5a3b159a9f52df5026220bdd5da3a26',1,'dcpp::scene::SMD3AnimationInfo']]]
+  ['num_13',['num',['../classdcpp_1_1scene_1_1SMD3AnimationInfo.html#aac9c0ef22a45bbdccdeece245723416a',1,'dcpp::scene::SMD3AnimationInfo']]]
 ];

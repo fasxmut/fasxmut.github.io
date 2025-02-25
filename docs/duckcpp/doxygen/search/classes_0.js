@@ -1,7 +1,7 @@
 var searchData=
 [
   ['aabbox3d_0',['aabbox3d',['../classdcpp_1_1nub_1_1aabbox3d.html',1,'dcpp::nub']]],
-  ['aabbox3d_3c_20f32_20_3e_1',['aabbox3d&lt; f32 &gt;',['../classdcpp_1_1nub_1_1aabbox3d.html',1,'dcpp::nub']]],
+  ['aabbox3d_3c_20float32_5fkt_20_3e_1',['aabbox3d&lt; float32_kt &gt;',['../classdcpp_1_1nub_1_1aabbox3d.html',1,'dcpp::nub']]],
   ['accessclass_2',['AccessClass',['../classdcpp_1_1nub_1_1map_1_1AccessClass.html',1,'dcpp::nub::map']]],
   ['array_3',['array',['../classdcpp_1_1nub_1_1array.html',1,'dcpp::nub']]],
   ['array_3c_20dcpp_3a_3agui_3a_3asguispriteframe_20_3e_4',['array&lt; dcpp::gui::SGUISpriteFrame &gt;',['../classdcpp_1_1nub_1_1array.html',1,'dcpp::nub']]],
@@ -25,7 +25,7 @@ var searchData=
   ['array_3c_20dcpp_3a_3avideo_3a_3as3dvertextangents_20_3e_22',['array&lt; dcpp::video::S3DVertexTangents &gt;',['../classdcpp_1_1nub_1_1array.html',1,'dcpp::nub']]],
   ['array_3c_20dcpp_3a_3avideo_3a_3asoverridematerial_3a_3asmaterialtypereplacement_20_3e_23',['array&lt; dcpp::video::SOverrideMaterial::SMaterialTypeReplacement &gt;',['../classdcpp_1_1nub_1_1array.html',1,'dcpp::nub']]],
   ['array_3c_20e_5fcube_5fsurface_20_3e_24',['array&lt; E_CUBE_SURFACE &gt;',['../classdcpp_1_1nub_1_1array.html',1,'dcpp::nub']]],
-  ['array_3c_20i32_20_3e_25',['array&lt; i32 &gt;',['../classdcpp_1_1nub_1_1array.html',1,'dcpp::nub']]],
-  ['array_3c_20u16_20_3e_26',['array&lt; u16 &gt;',['../classdcpp_1_1nub_1_1array.html',1,'dcpp::nub']]],
-  ['array_3c_20u32_20_3e_27',['array&lt; u32 &gt;',['../classdcpp_1_1nub_1_1array.html',1,'dcpp::nub']]]
+  ['array_3c_20int32_5fkt_20_3e_25',['array&lt; int32_kt &gt;',['../classdcpp_1_1nub_1_1array.html',1,'dcpp::nub']]],
+  ['array_3c_20uint16_5fkt_20_3e_26',['array&lt; uint16_kt &gt;',['../classdcpp_1_1nub_1_1array.html',1,'dcpp::nub']]],
+  ['array_3c_20uint32_5fkt_20_3e_27',['array&lt; uint32_kt &gt;',['../classdcpp_1_1nub_1_1array.html',1,'dcpp::nub']]]
 ];

@@ -1,17 +1,17 @@
 var classdcpp_1_1gui_1_1IGUISpinBox =
 [
-    [ "IGUISpinBox", "classdcpp_1_1gui_1_1IGUISpinBox.html#afb56877b893afa5bf423ca55fe7c9645", null ],
+    [ "IGUISpinBox", "classdcpp_1_1gui_1_1IGUISpinBox.html#a5b0312c72cedaff7a3a524b0e6f3f1f4", null ],
     [ "getEditBox", "classdcpp_1_1gui_1_1IGUISpinBox.html#a9cbd43ffa3763cd69bd7fe4e46efe534", null ],
-    [ "getMax", "classdcpp_1_1gui_1_1IGUISpinBox.html#afc3151ae382cd05bfff24271f0b81346", null ],
-    [ "getMin", "classdcpp_1_1gui_1_1IGUISpinBox.html#ad9cad93e1a3aa69b038e650cdec71a7c", null ],
-    [ "getOldValue", "classdcpp_1_1gui_1_1IGUISpinBox.html#a62aa071408671af3449f1e421ab2eb5f", null ],
-    [ "getStepSize", "classdcpp_1_1gui_1_1IGUISpinBox.html#a8b18637864932c01b323faa773ab7c81", null ],
-    [ "getValidateOn", "classdcpp_1_1gui_1_1IGUISpinBox.html#acd7c730bd0583b06943ea88071d3d725", null ],
-    [ "getValue", "classdcpp_1_1gui_1_1IGUISpinBox.html#af2a843d3cc34acb591a0ec94dbd48e85", null ],
-    [ "getValueFor", "classdcpp_1_1gui_1_1IGUISpinBox.html#a4b5b51e326b7aa0d32fe09e03ccd632a", null ],
-    [ "setDecimalPlaces", "classdcpp_1_1gui_1_1IGUISpinBox.html#a463ec7f8aebe4d009f9474bd073d1182", null ],
-    [ "setRange", "classdcpp_1_1gui_1_1IGUISpinBox.html#a05285da7ed5b46c0bf734c14c99a36a0", null ],
-    [ "setStepSize", "classdcpp_1_1gui_1_1IGUISpinBox.html#aa6026a04570a21cbb2edf1393226722e", null ],
-    [ "setValidateOn", "classdcpp_1_1gui_1_1IGUISpinBox.html#ad06eee3355d7bc0fc8db92e3a574012b", null ],
-    [ "setValue", "classdcpp_1_1gui_1_1IGUISpinBox.html#a30becb50ba79e8900023b584f66318ac", null ]
+    [ "getMax", "classdcpp_1_1gui_1_1IGUISpinBox.html#a617181b3e18df2973cb46b9039cf81cb", null ],
+    [ "getMin", "classdcpp_1_1gui_1_1IGUISpinBox.html#a0e2f75f91e895088a1948d5c333cc04a", null ],
+    [ "getOldValue", "classdcpp_1_1gui_1_1IGUISpinBox.html#a6370ee631dbb807df874892ac56c6c30", null ],
+    [ "getStepSize", "classdcpp_1_1gui_1_1IGUISpinBox.html#a79342ca29c411faf5e1293b8dc5d5442", null ],
+    [ "getValidateOn", "classdcpp_1_1gui_1_1IGUISpinBox.html#ae5f8fb29bd42e3b6525ac8e35b8c0687", null ],
+    [ "getValue", "classdcpp_1_1gui_1_1IGUISpinBox.html#aab896d79adcaf67f7acd76d6ce2ca6dc", null ],
+    [ "getValueFor", "classdcpp_1_1gui_1_1IGUISpinBox.html#a78581dcd5874345272b1677e5cb420c6", null ],
+    [ "setDecimalPlaces", "classdcpp_1_1gui_1_1IGUISpinBox.html#a873559ee563e1d8860bb5ac2a63501a9", null ],
+    [ "setRange", "classdcpp_1_1gui_1_1IGUISpinBox.html#ac4e4b8d998c475ad4c04888eee3325b8", null ],
+    [ "setStepSize", "classdcpp_1_1gui_1_1IGUISpinBox.html#af69b4371d5a8f329c006e3d893a31ca4", null ],
+    [ "setValidateOn", "classdcpp_1_1gui_1_1IGUISpinBox.html#a8a7a993a9f7e6712671e2f99fdf48f24", null ],
+    [ "setValue", "classdcpp_1_1gui_1_1IGUISpinBox.html#a84c09e244f93d454f16c48dc08f9bdee", null ]
 ];

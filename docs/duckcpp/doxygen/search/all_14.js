@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['u16_0',['u16',['../namespacedcpp.html#a127c22e9ebe342401a20adbca65f2b8d',1,'dcpp']]],
-  ['u32_1',['u32',['../namespacedcpp.html#aeecd24e00a9087a0c8ccdc5252fda7d4',1,'dcpp']]],
-  ['u8_2',['u8',['../namespacedcpp.html#a7d4842ab828656c4b75e97daa1acf18f',1,'dcpp']]],
+  ['uint16_5fkt_0',['uint16_kt',['../namespacedcpp.html#a96ad8c99421042319c4f39b34a00812b',1,'dcpp']]],
+  ['uint32_5fkt_1',['uint32_kt',['../namespacedcpp.html#a912c88731e6a39387d877830a2684fed',1,'dcpp']]],
+  ['uint8_5fkt_2',['uint8_kt',['../namespacedcpp.html#a4ee5e3a443a073623fd269e105ec79ac',1,'dcpp']]],
   ['unlock_3',['unlock',['../classdcpp_1_1video_1_1IImage.html#a68ebe5e8cd0a540bd88c9278070be934',1,'dcpp::video::IImage::unlock()'],['../classdcpp_1_1video_1_1ITexture.html#a47436aeed83a2f9b9ddfda276d001d25',1,'dcpp::video::ITexture::unlock()']]],
-  ['unpack_5ftextureblendfunc_4',['unpack_textureBlendFunc',['../namespacedcpp_1_1video.html#a3bbd21d9354d95830f8fcfccb8922dc9',1,'dcpp::video']]],
-  ['unpack_5ftextureblendfuncseparate_5',['unpack_textureBlendFuncSeparate',['../namespacedcpp_1_1video.html#ab74276af4187b843c84c3d723a70b6d0',1,'dcpp::video']]],
+  ['unpack_5ftextureblendfunc_4',['unpack_textureBlendFunc',['../namespacedcpp_1_1video.html#a094693913c7b96d1c50766ffe5413213',1,'dcpp::video']]],
+  ['unpack_5ftextureblendfuncseparate_5',['unpack_textureBlendFuncSeparate',['../namespacedcpp_1_1video.html#a0351ca68911da5084fbb8b6d4317ac65',1,'dcpp::video']]],
   ['updateabsoluteposbehavior_6',['UpdateAbsolutePosBehavior',['../classdcpp_1_1scene_1_1ISceneNode.html#ae124ab87ff0d94bf14865a199f7df65e',1,'dcpp::scene::ISceneNode']]],
   ['updateabsoluteposition_7',['updateabsoluteposition',['../classdcpp_1_1gui_1_1IGUIElement.html#a1035a8b05547a179fdf084cd1a5e35aa',1,'dcpp::gui::IGUIElement::updateAbsolutePosition()'],['../classdcpp_1_1scene_1_1ISceneNode.html#a7bf9e75508f6b1c2681f1655bc12163d',1,'dcpp::scene::ISceneNode::updateAbsolutePosition()']]],
   ['updateabsolutepositionofallchildren_8',['updateAbsolutePositionOfAllChildren',['../classdcpp_1_1scene_1_1IBoneSceneNode.html#ae3644a7c629f1a27a9c9ab8e88c92ab4',1,'dcpp::scene::IBoneSceneNode']]],
@@ -23,5 +23,5 @@ var searchData=
   ['useperformancetimer_20',['UsePerformanceTimer',['../classdcpp_1_1SDuckcppCreationParameters.html#af9324ea36dc49e237dd49b8cf8e2c8e2',1,'dcpp::SDuckcppCreationParameters']]],
   ['userdata1_21',['UserData1',['../classdcpp_1_1SEvent_1_1SUserEvent.html#a4506453c59c8be17d13e41d88d136844',1,'dcpp::SEvent::SUserEvent']]],
   ['userdata2_22',['UserData2',['../classdcpp_1_1SEvent_1_1SUserEvent.html#a749d800feaa53e6e6427cee0dee32165',1,'dcpp::SEvent::SUserEvent']]],
-  ['utf8towchar_23',['utf8ToWchar',['../namespacedcpp_1_1nub.html#adbc6b5fd56701d3a77da85ee39525dba',1,'dcpp::nub']]]
+  ['utf8towchar_23',['utf8ToWchar',['../namespacedcpp_1_1nub.html#a9fa53f22779f08634446621f7ec26b69',1,'dcpp::nub']]]
 ];

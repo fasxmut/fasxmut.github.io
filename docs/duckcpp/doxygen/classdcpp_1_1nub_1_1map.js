@@ -20,6 +20,6 @@ var classdcpp_1_1nub_1_1map =
     [ "remove", "classdcpp_1_1nub_1_1map.html#a5ecc816a80d55e4866a8c20bdf9030eb", null ],
     [ "remove", "classdcpp_1_1nub_1_1map.html#ad11703aac42e315956f3f90b81b74d49", null ],
     [ "set", "classdcpp_1_1nub_1_1map.html#a7f6f3d9c96537ae8140f93041ace14a9", null ],
-    [ "size", "classdcpp_1_1nub_1_1map.html#a119a1b8ffa07535838ae9b5fa888a01b", null ],
+    [ "size", "classdcpp_1_1nub_1_1map.html#a7b9fe560ce13760861f89592e9ac462a", null ],
     [ "swap", "classdcpp_1_1nub_1_1map.html#a08eb64996e74dcc1d7f95e6dc4933bdc", null ]
 ];

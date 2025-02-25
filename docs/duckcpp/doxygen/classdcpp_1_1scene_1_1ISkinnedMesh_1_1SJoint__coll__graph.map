@@ -1,19 +1,19 @@
 <map id="dcpp::scene::ISkinnedMesh::SJoint" name="dcpp::scene::ISkinnedMesh::SJoint">
-<area shape="rect" id="Node000001" title="Joints." alt="" coords="353,245,552,285"/>
-<area shape="rect" id="Node000002" href="$classdcpp_1_1nub_1_1basic__string.html" title=" " alt="" coords="11,5,181,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,42,265,66,299,82,331,102,369,136,401,175,443,243,439,246,396,178,365,139,328,106,297,87,263,71,194,47"/>
-<area shape="rect" id="Node000003" href="$classdcpp_1_1nub_1_1array.html" title=" " alt="" coords="9,70,183,125"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="197,116,264,137,331,166,388,204,433,243,429,247,385,208,328,170,262,142,195,121"/>
-<area shape="rect" id="Node000004" href="$classdcpp_1_1nub_1_1array.html" title=" " alt="" coords="5,149,187,174"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="171,174,330,216,404,243,402,248,329,221,170,180"/>
-<area shape="rect" id="Node000005" href="$classdcpp_1_1nub_1_1array.html" title=" " alt="" coords="9,198,183,253"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="197,234,354,252,353,257,196,239"/>
-<area shape="rect" id="Node000006" href="$classdcpp_1_1nub_1_1array.html" title=" " alt="" coords="9,277,183,331"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="196,291,353,273,354,279,197,296"/>
-<area shape="rect" id="Node000007" href="$classdcpp_1_1nub_1_1array.html" title=" " alt="" coords="9,355,183,410"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="196,352,328,309,400,283,402,288,330,315,197,357"/>
-<area shape="rect" id="Node000008" href="$classdcpp_1_1nub_1_1array.html" title=" " alt="" coords="9,434,183,489"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="195,428,262,401,328,367,385,325,430,284,434,288,389,329,331,372,264,406,197,433"/>
-<area shape="rect" id="Node000009" href="$classdcpp_1_1nub_1_1quaternion.html" title="Quaternion class for representing rotations." alt="" coords="15,513,177,538"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="187,507,260,483,295,465,328,443,366,405,399,361,440,284,445,287,403,364,370,408,331,447,298,470,262,488,188,512"/>
+<area shape="rect" id="Node000001" title="Joints." alt="" coords="391,245,589,285"/>
+<area shape="rect" id="Node000002" href="$classdcpp_1_1nub_1_1basic__string.html" title=" " alt="" coords="29,5,200,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="214,41,293,66,332,85,368,107,405,140,437,177,480,244,476,247,433,181,401,144,365,111,329,89,291,71,213,46"/>
+<area shape="rect" id="Node000003" href="$classdcpp_1_1nub_1_1array.html" title=" " alt="" coords="28,70,201,125"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="216,115,292,138,368,170,424,206,469,243,466,247,421,210,365,174,290,143,214,121"/>
+<area shape="rect" id="Node000004" href="$classdcpp_1_1nub_1_1array.html" title=" " alt="" coords="5,149,224,174"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="189,174,225,183,296,199,367,219,437,243,435,248,366,224,295,204,223,188,188,180"/>
+<area shape="rect" id="Node000005" href="$classdcpp_1_1nub_1_1array.html" title=" " alt="" coords="28,198,201,253"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="215,233,391,252,390,257,215,239"/>
+<area shape="rect" id="Node000006" href="$classdcpp_1_1nub_1_1array.html" title=" " alt="" coords="28,277,201,331"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="215,291,390,273,391,278,215,296"/>
+<area shape="rect" id="Node000007" href="$classdcpp_1_1nub_1_1array.html" title=" " alt="" coords="28,355,201,410"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="214,353,366,307,434,283,436,288,367,312,216,358"/>
+<area shape="rect" id="Node000008" href="$classdcpp_1_1nub_1_1array.html" title=" " alt="" coords="28,434,201,489"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="202,427,223,419,296,395,327,383,365,363,422,323,466,284,470,288,425,327,368,368,330,388,298,400,225,424,204,432"/>
+<area shape="rect" id="Node000009" href="$classdcpp_1_1nub_1_1quaternion.html" title="Quaternion class for representing rotations." alt="" coords="33,513,196,538"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="200,507,285,479,327,458,365,431,402,395,433,354,476,284,481,287,437,358,406,399,368,435,329,462,287,484,202,512"/>
 </map>

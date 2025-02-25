@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['u16_0',['u16',['../namespacedcpp.html#a127c22e9ebe342401a20adbca65f2b8d',1,'dcpp']]],
-  ['u32_1',['u32',['../namespacedcpp.html#aeecd24e00a9087a0c8ccdc5252fda7d4',1,'dcpp']]],
-  ['u8_2',['u8',['../namespacedcpp.html#a7d4842ab828656c4b75e97daa1acf18f',1,'dcpp']]]
+  ['triangle3df_0',['triangle3df',['../namespacedcpp_1_1nub.html#a3623a4d3b19accd2cf8a22f1d49d6b30',1,'dcpp::nub']]],
+  ['triangle3di_1',['triangle3di',['../namespacedcpp_1_1nub.html#a2a9241d20a00dd6c534745e09d6182d7',1,'dcpp::nub']]]
 ];

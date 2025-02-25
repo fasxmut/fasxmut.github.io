@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['joystick_0',['joystick',['../classdcpp_1_1SEvent_1_1SJoystickEvent.html#a231ddc8dfad52a31e3ce376c8cc02b96',1,'dcpp::SEvent::SJoystickEvent::Joystick'],['../classdcpp_1_1SJoystickInfo.html#a23d74bf55aeb95303948067888ff03d2',1,'dcpp::SJoystickInfo::Joystick']]],
-  ['jump_1',['jump',['../classdcpp_1_1scene_1_1ISceneNodeAnimatorCollisionResponse.html#a56db787c8ceccd9882ffae7a5a73ddc1',1,'dcpp::scene::ISceneNodeAnimatorCollisionResponse']]]
+  ['joystick_0',['joystick',['../classdcpp_1_1SEvent_1_1SJoystickEvent.html#a4ba293b3885a026ea8c225bfe262520c',1,'dcpp::SEvent::SJoystickEvent::Joystick'],['../classdcpp_1_1SJoystickInfo.html#ac3f2bc499e7e5ce20cc602c3e30138cc',1,'dcpp::SJoystickInfo::Joystick']]],
+  ['jump_1',['jump',['../classdcpp_1_1scene_1_1ISceneNodeAnimatorCollisionResponse.html#a610d65c234ccfbeb1075e798375bc9dc',1,'dcpp::scene::ISceneNodeAnimatorCollisionResponse']]]
 ];

@@ -21,15 +21,6 @@ the_cpp_engine is not placed here.
 
 [h2 Build q3viewer]
 
-```
-cd q3viewer/
-b2 -q -j7 \
-define=api=the_cpp_engine \
-define=engine_device=the_cpp_engine::device \
-cxxflags="-include the_cpp_engine/core.hpp" \
-linkflags=-lthe_cpp_engine
-```
-
 [!teletype]
 ```
 cd q3viewer/
