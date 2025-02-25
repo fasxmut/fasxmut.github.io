@@ -16,6 +16,7 @@ project-list =
 	silice
 	not-found-test
 	sycl
+	b2
 ;
 
 path-constant my-dir : . ;
