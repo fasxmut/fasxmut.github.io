@@ -30,6 +30,16 @@ cxxflags="-include the_cpp_engine/core.hpp" \
 linkflags=-lthe_cpp_engine
 ```
 
+[!teletype]
+```
+cd q3viewer/
+b2 -q -j7 \
+define=api=testp \
+define=engine_device=testp::TestpubDevice \
+cxxflags="-include /sand/include/testpub/core.hpp \
+linkflags=-ltestpub-core
+```
+
 [h1 [role cyan Home]]
 
 Home: [@https://cppfx.xyz]
