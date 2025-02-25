@@ -55,18 +55,11 @@
       <span class="phrase"><a name="q3viewer.build_q3viewer"></a></span><a class="link" href="q3viewer.html#q3viewer.build_q3viewer">Build
       q3viewer</a>
     </h3>
-<pre class="programlisting"><span class="identifier">cd</span> <span class="identifier">q3viewer</span><span class="special">/</span>
-<span class="identifier">b2</span> <span class="special">-</span><span class="identifier">q</span> <span class="special">-</span><span class="identifier">j7</span> <span class="special">\</span>
-<span class="identifier">define</span><span class="special">=</span><span class="identifier">api</span><span class="special">=</span><span class="identifier">the_cpp_engine</span> <span class="special">\</span>
-<span class="identifier">define</span><span class="special">=</span><span class="identifier">engine_device</span><span class="special">=</span><span class="identifier">the_cpp_engine</span><span class="special">::</span><span class="identifier">device</span> <span class="special">\</span>
-<span class="identifier">cxxflags</span><span class="special">=</span><span class="string">"-include the_cpp_engine/core.hpp"</span> <span class="special">\</span>
-<span class="identifier">linkflags</span><span class="special">=-</span><span class="identifier">lthe_cpp_engine</span>
-</pre>
 <pre class="programlisting">cd q3viewer/
 b2 -q -j7 \
 define=api=testp \
 define=engine_device=testp::TestpubDevice \
-cxxflags="-include /sand/include/testpub/core.hpp \
+cxxflags="-include /sand/include/testpub/core.hpp" \
 linkflags=-ltestpub-core
 </pre>
 <h2>
