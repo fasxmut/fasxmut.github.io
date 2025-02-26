@@ -3,6 +3,7 @@
 	[quickbook 1.7]
 ]
 
+[include cross-thread-exception.qbk]
 [include stdfloat.qbk]
 
 [h1:back [role cyan Back]]
