@@ -1,27 +1,27 @@
 <map id="dcpp::gui::IGUIContextMenu" name="dcpp::gui::IGUIContextMenu">
-<area shape="rect" id="Node000001" title="GUI Context menu interface." alt="" coords="869,258,1073,283"/>
-<area shape="rect" id="Node000002" href="$classdcpp_1_1gui_1_1IGUIElement.html" title="Base class of all GUI elements." alt="" coords="649,258,820,283"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="834,268,869,268,869,273,834,273"/>
-<area shape="poly" id="edge6_Node000002_Node000002" title=" " alt="" coords="712,243,719,235,735,231,748,234,756,240,758,250,754,259,749,257,752,249,751,243,746,239,735,237,722,239,717,246"/>
+<area shape="rect" id="Node000001" title="GUI Context menu interface." alt="" coords="869,259,1073,285"/>
+<area shape="rect" id="Node000002" href="$classdcpp_1_1gui_1_1IGUIElement.html" title="Base class of all GUI elements." alt="" coords="649,259,820,285"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="834,269,869,269,869,275,834,275"/>
+<area shape="poly" id="edge6_Node000002_Node000002" title=" " alt="" coords="712,244,719,236,735,233,748,235,756,242,758,251,754,260,749,258,752,250,751,244,746,240,735,238,722,241,717,248"/>
 <area shape="rect" id="Node000003" href="$classdcpp_1_1io_1_1IAttributeExchangingObject.html" title="An object which is able to serialize and deserialize its attributes into an attributes object." alt="" coords="240,5,457,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="471,15,511,19,552,27,591,40,627,60,652,82,672,107,704,163,723,218,733,257,728,258,718,219,699,166,668,110,648,85,624,65,589,45,550,32,510,24,471,21"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="471,15,511,19,552,27,591,40,627,60,652,82,673,107,704,164,724,219,734,258,728,260,718,220,699,166,668,110,648,86,624,65,589,45,550,32,510,24,471,21"/>
 <area shape="rect" id="Node000004" href="$classdcpp_1_1IReferenceCounted.html" title="Base class of most objects of the Duckcpp Engine." alt="" coords="5,42,191,67"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="204,40,239,35,240,41,205,45"/>
 <area shape="rect" id="Node000012" href="$classdcpp_1_1gui_1_1IGUIEnvironment.html" title="GUI Environment. Used as factory and manager of all other GUI elements." alt="" coords="249,70,449,95"/>
 <area shape="poly" id="edge13_Node000012_Node000004" title=" " alt="" coords="205,64,249,69,248,74,204,69"/>
 <area shape="rect" id="Node000005" href="$classdcpp_1_1IEventReceiver.html" title="Interface of an object which can receive events." alt="" coords="269,119,428,145"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="442,122,486,123,533,128,581,138,627,155,661,177,690,205,728,256,724,260,686,209,657,181,624,160,580,143,533,133,486,128,441,127"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="442,123,486,124,533,129,581,139,627,156,660,178,689,206,728,257,723,261,685,210,657,183,624,161,580,144,533,134,486,129,441,128"/>
 <area shape="rect" id="Node000006" href="$classdcpp_1_1nub_1_1list.html" title=" " alt="" coords="265,169,432,209"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="446,176,534,176,581,182,626,193,655,206,682,223,722,256,718,260,678,227,652,211,624,199,580,188,534,182,446,181"/>
-<area shape="rect" id="Node000007" href="$classdcpp_1_1nub_1_1rect.html" title=" " alt="" coords="248,254,449,279"/>
-<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="463,266,481,267,649,268,649,273,481,272,463,272"/>
-<area shape="rect" id="Node000008" href="$classdcpp_1_1nub_1_1rect.html" title=" " alt="" coords="242,303,455,329"/>
-<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="469,305,625,288,670,281,671,286,626,293,469,310"/>
-<area shape="rect" id="Node000009" href="$classdcpp_1_1nub_1_1dimension2d.html" title=" " alt="" coords="260,355,437,395"/>
-<area shape="poly" id="edge9_Node000002_Node000009" title=" " alt="" coords="451,371,537,361,582,352,624,339,677,311,717,281,720,286,680,316,626,344,583,357,538,366,452,376"/>
-<area shape="rect" id="Node000010" href="$classdcpp_1_1nub_1_1basic__string.html" title=" " alt="" coords="263,419,434,459"/>
-<area shape="poly" id="edge10_Node000002_Node000010" title=" " alt="" coords="448,442,491,440,537,433,582,421,624,403,660,376,689,342,711,309,725,282,730,285,715,311,693,345,663,380,627,408,584,426,538,438,492,445,448,447"/>
-<area shape="rect" id="Node000011" href="$classdcpp_1_1nub_1_1basic__string.html" title=" " alt="" coords="263,483,434,523"/>
-<area shape="poly" id="edge11_Node000002_Node000011" title=" " alt="" coords="448,507,492,504,538,497,583,483,624,462,647,443,666,420,697,369,717,320,728,283,733,284,722,321,702,372,670,423,650,447,627,466,585,488,539,502,492,510,448,512"/>
-<area shape="poly" id="edge12_Node000002_Node000012" title=" " alt="" coords="463,78,504,82,546,90,588,103,627,122,664,153,695,191,717,228,730,257,726,259,712,230,690,194,661,157,624,126,586,108,545,95,503,87,462,83"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="446,176,534,177,581,183,626,195,655,207,682,224,722,257,718,261,678,228,652,212,624,200,580,189,534,183,446,182"/>
+<area shape="rect" id="Node000007" href="$classdcpp_1_1nub_1_1rect.html" title=" " alt="" coords="267,233,431,273"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="444,265,481,268,649,272,649,277,481,273,444,270"/>
+<area shape="rect" id="Node000008" href="$classdcpp_1_1nub_1_1rect.html" title=" " alt="" coords="267,297,431,337"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="444,310,532,303,625,292,679,282,680,287,626,297,533,308,445,315"/>
+<area shape="rect" id="Node000009" href="$classdcpp_1_1nub_1_1dimension2d.html" title=" " alt="" coords="260,361,437,401"/>
+<area shape="poly" id="edge9_Node000002_Node000009" title=" " alt="" coords="451,377,537,366,582,356,624,343,652,330,677,314,718,283,721,287,680,318,654,335,626,348,583,362,538,371,451,382"/>
+<area shape="rect" id="Node000010" href="$classdcpp_1_1nub_1_1basic__string.html" title=" " alt="" coords="263,425,434,465"/>
+<area shape="poly" id="edge10_Node000002_Node000010" title=" " alt="" coords="447,449,491,447,537,440,582,428,624,410,660,381,689,346,711,311,725,284,730,286,716,314,694,349,664,385,627,414,584,433,538,446,491,452,448,454"/>
+<area shape="rect" id="Node000011" href="$classdcpp_1_1nub_1_1basic__string.html" title=" " alt="" coords="263,489,434,529"/>
+<area shape="poly" id="edge11_Node000002_Node000011" title=" " alt="" coords="448,514,492,511,538,504,583,490,624,468,647,449,667,425,698,373,717,322,728,284,733,286,723,323,702,375,671,429,651,453,627,473,585,495,539,509,492,517,448,519"/>
+<area shape="poly" id="edge12_Node000002_Node000012" title=" " alt="" coords="463,77,504,82,546,90,588,103,627,122,665,153,695,191,717,229,731,258,726,260,712,231,690,194,661,157,624,126,586,108,545,95,503,87,463,83"/>
 </map>

@@ -19,6 +19,6 @@ var classdcpp_1_1nub_1_1list =
     [ "operator=", "classdcpp_1_1nub_1_1list.html#afd00a45a4e3341d7985f96726a74d004", null ],
     [ "push_back", "classdcpp_1_1nub_1_1list.html#a2e1df0621cb25451de8cc34177999f1c", null ],
     [ "push_front", "classdcpp_1_1nub_1_1list.html#aaefac8de211718444c171871e0789ad5", null ],
-    [ "size", "classdcpp_1_1nub_1_1list.html#ab4e244b54ef8de0111703ace914c0a78", null ],
+    [ "size", "classdcpp_1_1nub_1_1list.html#a1adce84bf0a8caae2cad7af93ded618c", null ],
     [ "swap", "classdcpp_1_1nub_1_1list.html#ad5a100c1b4197feef397dcde243fc001", null ]
 ];

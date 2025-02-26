@@ -22,9 +22,9 @@ var namespacedcpp_1_1io =
     [ "IrrXMLReaderUTF16", "namespacedcpp_1_1io.html#ad1328d2c96e1f191c1c96c68b8e92cc1", null ],
     [ "IrrXMLReaderUTF32", "namespacedcpp_1_1io.html#ad88571e67625eb4a32c7b83def1b8a4a", null ],
     [ "IXMLReader", "namespacedcpp_1_1io.html#a2f8f8d122dc562487fd93f805d750b4c", null ],
-    [ "IXMLReaderUTF8", "namespacedcpp_1_1io.html#ae46f05832a91b418cb83cbdab39d715c", null ],
+    [ "IXMLReaderUTF8", "namespacedcpp_1_1io.html#a101e57bf7ffaa6e379f003ff3e916f65", null ],
     [ "IXMLWriter", "namespacedcpp_1_1io.html#a8186697b3bc103215a9a226a74a4133f", null ],
-    [ "IXMLWriterUTF8", "namespacedcpp_1_1io.html#ad20c05e0db34499071607f693bdb224b", null ],
+    [ "IXMLWriterUTF8", "namespacedcpp_1_1io.html#a4a391f39c39269d006a9d2bbaf7018a0", null ],
     [ "path", "namespacedcpp_1_1io.html#af5613643d5b69bec29a18218e6321d66", null ],
     [ "E_ATTRIBUTE_READ_WRITE_FLAGS", "namespacedcpp_1_1io.html#a98a4ca86626d7f87a300b76e045c08f9", [
       [ "EARWF_FOR_FILE", "namespacedcpp_1_1io.html#a98a4ca86626d7f87a300b76e045c08f9aca619cb9e34c6a23b85849ec29ccd290", null ],

@@ -305,14 +305,14 @@ var namespacedcpp_1_1gui =
       [ "EMBF_NO", "namespacedcpp_1_1gui.html#a1f0f5727c2dfe635eb042c9a79a74243a44b3a7157b5386c76f8fa9cfba6dd54e", null ],
       [ "EMBF_FORCE_32BIT", "namespacedcpp_1_1gui.html#a1f0f5727c2dfe635eb042c9a79a74243a53e9ef173eb298c0c5ff0fb75c9964f4", null ]
     ] ],
-    [ "GUIAlignmentNames", "namespacedcpp_1_1gui.html#a8632b0d4fc4b52b75b067a40efc2896f", null ],
-    [ "GUIButtonImageStateNames", "namespacedcpp_1_1gui.html#a5683aff1493598acf8eb69b46ca33d8b", null ],
-    [ "GUIButtonStateNames", "namespacedcpp_1_1gui.html#aecc18b515ce4bc522aa4a086e9f69fd8", null ],
-    [ "GUIColumnOrderingNames", "namespacedcpp_1_1gui.html#a36e8093c7c4e9b72c87bdf41cc2c1b66", null ],
-    [ "GUICursorIconNames", "namespacedcpp_1_1gui.html#ada0ba9718f539d0478f78c696a9c0a2d", null ],
-    [ "GUIElementTypeNames", "namespacedcpp_1_1gui.html#a548426e19b7fb212bc5b089c8a4ca222", null ],
-    [ "GUISkinColorNames", "namespacedcpp_1_1gui.html#a12734797619c96969af4a0c810630575", null ],
-    [ "GUISkinSizeNames", "namespacedcpp_1_1gui.html#ab649e789527479bc0d83ee601062a211", null ],
-    [ "GUISkinTextNames", "namespacedcpp_1_1gui.html#a50f8253da69a0c0b122304b1fd0cb44e", null ],
-    [ "GUISkinTypeNames", "namespacedcpp_1_1gui.html#a0f3851f0d4cc882b026905003e14bd74", null ]
+    [ "GUIAlignmentNames", "namespacedcpp_1_1gui.html#acee6edf0b5052f03c01d71c91e59d5fe", null ],
+    [ "GUIButtonImageStateNames", "namespacedcpp_1_1gui.html#a54fa165c46a410b2edd6a7ac28d0d667", null ],
+    [ "GUIButtonStateNames", "namespacedcpp_1_1gui.html#abcc1d5ad301fb0a57b8f41b993fc19dc", null ],
+    [ "GUIColumnOrderingNames", "namespacedcpp_1_1gui.html#ac28a05a4c0490caed1d1664c0ebfd4e8", null ],
+    [ "GUICursorIconNames", "namespacedcpp_1_1gui.html#a3a1873532a41a6c38d8451e484788970", null ],
+    [ "GUIElementTypeNames", "namespacedcpp_1_1gui.html#a98e64fa075075caef3266b5b1413804a", null ],
+    [ "GUISkinColorNames", "namespacedcpp_1_1gui.html#a75cb9b4df43d1b1723738fe54d249b01", null ],
+    [ "GUISkinSizeNames", "namespacedcpp_1_1gui.html#a96595f21e354fe2486eb383b94e9a9b2", null ],
+    [ "GUISkinTextNames", "namespacedcpp_1_1gui.html#a3565f4724549ab90f6d0c30e2b8e3b9e", null ],
+    [ "GUISkinTypeNames", "namespacedcpp_1_1gui.html#a1f446c6ac12a0fcdab77d671eeb5b077", null ]
 ];

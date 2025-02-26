@@ -128,22 +128,22 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9e9bbe884273175aa7fb955d46f6e180" id="r_a9e9bbe884273175aa7fb955d46f6e180"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneNodeFactory.html#a9e9bbe884273175aa7fb955d46f6e180">addSceneNode</a> (<a class="el" href="namespacedcpp_1_1scene.html#a78efb13e2d8e615d86b921419ac70d6a">ESCENE_NODE_TYPE</a> type, <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> *parent=0)=0</td></tr>
 <tr class="memdesc:a9e9bbe884273175aa7fb955d46f6e180"><td class="mdescLeft">&#160;</td><td class="mdescRight">adds a scene node to the scene graph based on its type id  <br /></td></tr>
 <tr class="separator:a9e9bbe884273175aa7fb955d46f6e180"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36404b5251361aaab6adfd305ea5fc20" id="r_a36404b5251361aaab6adfd305ea5fc20"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneNodeFactory.html#a36404b5251361aaab6adfd305ea5fc20">addSceneNode</a> (const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">byte8_kt</a> *typeName, <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> *parent=0)=0</td></tr>
-<tr class="memdesc:a36404b5251361aaab6adfd305ea5fc20"><td class="mdescLeft">&#160;</td><td class="mdescRight">adds a scene node to the scene graph based on its type name  <br /></td></tr>
-<tr class="separator:a36404b5251361aaab6adfd305ea5fc20"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ecdb88bef8b3de73065631b5757c188" id="r_a4ecdb88bef8b3de73065631b5757c188"><td class="memItemLeft" align="right" valign="top"><a id="a4ecdb88bef8b3de73065631b5757c188" name="a4ecdb88bef8b3de73065631b5757c188"></a>
-virtual <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">uint32_kt</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getCreatableSceneNodeTypeCount</b> () const =0</td></tr>
-<tr class="memdesc:a4ecdb88bef8b3de73065631b5757c188"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns amount of scene node types this factory is able to create <br /></td></tr>
-<tr class="separator:a4ecdb88bef8b3de73065631b5757c188"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1185c81a4cfdcd30bd4b14d6bfc71bf8" id="r_a1185c81a4cfdcd30bd4b14d6bfc71bf8"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedcpp_1_1scene.html#a78efb13e2d8e615d86b921419ac70d6a">ESCENE_NODE_TYPE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneNodeFactory.html#a1185c81a4cfdcd30bd4b14d6bfc71bf8">getCreateableSceneNodeType</a> (<a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">uint32_kt</a> idx) const =0</td></tr>
-<tr class="memdesc:a1185c81a4cfdcd30bd4b14d6bfc71bf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns type of a creatable scene node type  <br /></td></tr>
-<tr class="separator:a1185c81a4cfdcd30bd4b14d6bfc71bf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7fcf26bae189ba0eff3babf03d1bcca3" id="r_a7fcf26bae189ba0eff3babf03d1bcca3"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">byte8_kt</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneNodeFactory.html#a7fcf26bae189ba0eff3babf03d1bcca3">getCreateableSceneNodeTypeName</a> (<a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">uint32_kt</a> idx) const =0</td></tr>
-<tr class="memdesc:a7fcf26bae189ba0eff3babf03d1bcca3"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns type name of a creatable scene node type by index  <br /></td></tr>
-<tr class="separator:a7fcf26bae189ba0eff3babf03d1bcca3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada65146d01ff701e8ff9a48edd0a8ee9" id="r_ada65146d01ff701e8ff9a48edd0a8ee9"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">byte8_kt</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneNodeFactory.html#ada65146d01ff701e8ff9a48edd0a8ee9">getCreateableSceneNodeTypeName</a> (<a class="el" href="namespacedcpp_1_1scene.html#a78efb13e2d8e615d86b921419ac70d6a">ESCENE_NODE_TYPE</a> type) const =0</td></tr>
-<tr class="memdesc:ada65146d01ff701e8ff9a48edd0a8ee9"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns type name of a creatable scene node type  <br /></td></tr>
-<tr class="separator:ada65146d01ff701e8ff9a48edd0a8ee9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad703ddaba80fd023aad668bc13a8bb2e" id="r_ad703ddaba80fd023aad668bc13a8bb2e"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneNodeFactory.html#ad703ddaba80fd023aad668bc13a8bb2e">addSceneNode</a> (const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">dcpp::byte8_kt</a> *typeName, <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> *parent=0)=0</td></tr>
+<tr class="memdesc:ad703ddaba80fd023aad668bc13a8bb2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">adds a scene node to the scene graph based on its type name  <br /></td></tr>
+<tr class="separator:ad703ddaba80fd023aad668bc13a8bb2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55e676fbdd8c92a9c6c0d0865c85308a" id="r_a55e676fbdd8c92a9c6c0d0865c85308a"><td class="memItemLeft" align="right" valign="top"><a id="a55e676fbdd8c92a9c6c0d0865c85308a" name="a55e676fbdd8c92a9c6c0d0865c85308a"></a>
+virtual <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getCreatableSceneNodeTypeCount</b> () const =0</td></tr>
+<tr class="memdesc:a55e676fbdd8c92a9c6c0d0865c85308a"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns amount of scene node types this factory is able to create <br /></td></tr>
+<tr class="separator:a55e676fbdd8c92a9c6c0d0865c85308a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2e9459e3f2e7564e91b5363701edc19" id="r_af2e9459e3f2e7564e91b5363701edc19"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedcpp_1_1scene.html#a78efb13e2d8e615d86b921419ac70d6a">ESCENE_NODE_TYPE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneNodeFactory.html#af2e9459e3f2e7564e91b5363701edc19">getCreateableSceneNodeType</a> (<a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> idx) const =0</td></tr>
+<tr class="memdesc:af2e9459e3f2e7564e91b5363701edc19"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns type of a creatable scene node type  <br /></td></tr>
+<tr class="separator:af2e9459e3f2e7564e91b5363701edc19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c3381f4086d70c06896b35ce779eccf" id="r_a8c3381f4086d70c06896b35ce779eccf"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">dcpp::byte8_kt</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneNodeFactory.html#a8c3381f4086d70c06896b35ce779eccf">getCreateableSceneNodeTypeName</a> (<a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> idx) const =0</td></tr>
+<tr class="memdesc:a8c3381f4086d70c06896b35ce779eccf"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns type name of a creatable scene node type by index  <br /></td></tr>
+<tr class="separator:a8c3381f4086d70c06896b35ce779eccf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a895783b6e94d9b89249bc0e5d92587ed" id="r_a895783b6e94d9b89249bc0e5d92587ed"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">dcpp::byte8_kt</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneNodeFactory.html#a895783b6e94d9b89249bc0e5d92587ed">getCreateableSceneNodeTypeName</a> (<a class="el" href="namespacedcpp_1_1scene.html#a78efb13e2d8e615d86b921419ac70d6a">ESCENE_NODE_TYPE</a> type) const =0</td></tr>
+<tr class="memdesc:a895783b6e94d9b89249bc0e5d92587ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns type name of a creatable scene node type  <br /></td></tr>
+<tr class="separator:a895783b6e94d9b89249bc0e5d92587ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classdcpp_1_1IReferenceCounted"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classdcpp_1_1IReferenceCounted')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classdcpp_1_1IReferenceCounted.html">dcpp::IReferenceCounted</a></td></tr>
 <tr class="memitem:a6aa4e18369165d6b993c69d15835757b inherit pub_methods_classdcpp_1_1IReferenceCounted" id="r_a6aa4e18369165d6b993c69d15835757b"><td class="memItemLeft" align="right" valign="top">
 &#160;</td><td class="memItemRight" valign="bottom"><b>IReferenceCounted</b> ()</td></tr>
@@ -159,26 +159,26 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~IReferenceCounted
 <tr class="memitem:a354018f03484e10dbef6f9162510f022 inherit pub_methods_classdcpp_1_1IReferenceCounted" id="r_a354018f03484e10dbef6f9162510f022"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IReferenceCounted.html#a354018f03484e10dbef6f9162510f022">drop</a> () const</td></tr>
 <tr class="memdesc:a354018f03484e10dbef6f9162510f022 inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drops the object. Decrements the reference counter by one.  <br /></td></tr>
 <tr class="separator:a354018f03484e10dbef6f9162510f022 inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ad874b8ef2b3bd7ca2afbf03480f32c inherit pub_methods_classdcpp_1_1IReferenceCounted" id="r_a0ad874b8ef2b3bd7ca2afbf03480f32c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IReferenceCounted.html#a0ad874b8ef2b3bd7ca2afbf03480f32c">getReferenceCount</a> () const</td></tr>
-<tr class="memdesc:a0ad874b8ef2b3bd7ca2afbf03480f32c inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the reference count.  <br /></td></tr>
-<tr class="separator:a0ad874b8ef2b3bd7ca2afbf03480f32c inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aabbe65c1cda09c97fd5f1d2fd2750250 inherit pub_methods_classdcpp_1_1IReferenceCounted" id="r_aabbe65c1cda09c97fd5f1d2fd2750250"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">byte8_kt</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IReferenceCounted.html#aabbe65c1cda09c97fd5f1d2fd2750250">getDebugName</a> () const</td></tr>
-<tr class="memdesc:aabbe65c1cda09c97fd5f1d2fd2750250 inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the debug name of the object.  <br /></td></tr>
-<tr class="separator:aabbe65c1cda09c97fd5f1d2fd2750250 inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a584dda95ccad6a90009eb42ebdccdede inherit pub_methods_classdcpp_1_1IReferenceCounted" id="r_a584dda95ccad6a90009eb42ebdccdede"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IReferenceCounted.html#a584dda95ccad6a90009eb42ebdccdede">getReferenceCount</a> () const</td></tr>
+<tr class="memdesc:a584dda95ccad6a90009eb42ebdccdede inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the reference count.  <br /></td></tr>
+<tr class="separator:a584dda95ccad6a90009eb42ebdccdede inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa470f15a1523b7800d86432c0076476c inherit pub_methods_classdcpp_1_1IReferenceCounted" id="r_aa470f15a1523b7800d86432c0076476c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">dcpp::byte8_kt</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IReferenceCounted.html#aa470f15a1523b7800d86432c0076476c">getDebugName</a> () const</td></tr>
+<tr class="memdesc:aa470f15a1523b7800d86432c0076476c inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the debug name of the object.  <br /></td></tr>
+<tr class="separator:aa470f15a1523b7800d86432c0076476c inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_methods_classdcpp_1_1IReferenceCounted"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classdcpp_1_1IReferenceCounted')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classdcpp_1_1IReferenceCounted.html">dcpp::IReferenceCounted</a></td></tr>
-<tr class="memitem:a1eb3daac6c756cb672d3cfd1df8f324e inherit pro_methods_classdcpp_1_1IReferenceCounted" id="r_a1eb3daac6c756cb672d3cfd1df8f324e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IReferenceCounted.html#a1eb3daac6c756cb672d3cfd1df8f324e">setDebugName</a> (const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">byte8_kt</a> *newName)</td></tr>
-<tr class="memdesc:a1eb3daac6c756cb672d3cfd1df8f324e inherit pro_methods_classdcpp_1_1IReferenceCounted"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the debug name of the object.  <br /></td></tr>
-<tr class="separator:a1eb3daac6c756cb672d3cfd1df8f324e inherit pro_methods_classdcpp_1_1IReferenceCounted"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d6bc70988cc8579790e48434268e84e inherit pro_methods_classdcpp_1_1IReferenceCounted" id="r_a2d6bc70988cc8579790e48434268e84e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IReferenceCounted.html#a2d6bc70988cc8579790e48434268e84e">setDebugName</a> (const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">dcpp::byte8_kt</a> *newName)</td></tr>
+<tr class="memdesc:a2d6bc70988cc8579790e48434268e84e inherit pro_methods_classdcpp_1_1IReferenceCounted"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the debug name of the object.  <br /></td></tr>
+<tr class="separator:a2d6bc70988cc8579790e48434268e84e inherit pro_methods_classdcpp_1_1IReferenceCounted"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Interface for dynamic creation of scene nodes. </p>
 <p>To be able to add custom scene nodes to Duckcpp and to make it possible for the scene manager to save and load those external scene nodes, simply implement this interface and register it in you scene manager via <a class="el" href="classdcpp_1_1scene_1_1ISceneManager.html#a97a6b007550c8faab70bda92fffcf776" title="Adds a scene node factory to the scene manager.">ISceneManager::registerSceneNodeFactory</a>. Note: When implementing your own scene node factory, don't call ISceneNodeManager::grab() to increase the reference counter of the scene node manager. This is not necessary because the scene node manager will <a class="el" href="classdcpp_1_1IReferenceCounted.html#a7e00c7631ceef68b855813363b6b5366" title="Grabs the object. Increments the reference counter by one.">grab()</a> the factory anyway, and otherwise cyclic references will be created and the scene manager and all its nodes won't get deallocated. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a36404b5251361aaab6adfd305ea5fc20" name="a36404b5251361aaab6adfd305ea5fc20"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a36404b5251361aaab6adfd305ea5fc20">&#9670;&#160;</a></span>addSceneNode() <span class="overload">[1/2]</span></h2>
+<a id="ad703ddaba80fd023aad668bc13a8bb2e" name="ad703ddaba80fd023aad668bc13a8bb2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad703ddaba80fd023aad668bc13a8bb2e">&#9670;&#160;</a></span>addSceneNode() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -189,7 +189,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">virtual <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> * dcpp::scene::ISceneNodeFactory::addSceneNode </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">byte8_kt</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">dcpp::byte8_kt</a> *&#160;</td>
           <td class="paramname"><em>typeName</em>, </td>
         </tr>
         <tr>
@@ -269,8 +269,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a1185c81a4cfdcd30bd4b14d6bfc71bf8" name="a1185c81a4cfdcd30bd4b14d6bfc71bf8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1185c81a4cfdcd30bd4b14d6bfc71bf8">&#9670;&#160;</a></span>getCreateableSceneNodeType()</h2>
+<a id="af2e9459e3f2e7564e91b5363701edc19" name="af2e9459e3f2e7564e91b5363701edc19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2e9459e3f2e7564e91b5363701edc19">&#9670;&#160;</a></span>getCreateableSceneNodeType()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -281,7 +281,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">virtual <a class="el" href="namespacedcpp_1_1scene.html#a78efb13e2d8e615d86b921419ac70d6a">ESCENE_NODE_TYPE</a> dcpp::scene::ISceneNodeFactory::getCreateableSceneNodeType </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">uint32_kt</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a>&#160;</td>
           <td class="paramname"><em>idx</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -296,15 +296,15 @@ Additional Inherited Members</h2></td></tr>
 <p>returns type of a creatable scene node type </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">idx</td><td>Index of scene node type in this factory. Must be a value between 0 and <a class="el" href="classdcpp_1_1scene_1_1ISceneNodeFactory.html#a4ecdb88bef8b3de73065631b5757c188" title="returns amount of scene node types this factory is able to create">getCreatableSceneNodeTypeCount()</a> </td></tr>
+    <tr><td class="paramname">idx</td><td>Index of scene node type in this factory. Must be a value between 0 and <a class="el" href="classdcpp_1_1scene_1_1ISceneNodeFactory.html#a55e676fbdd8c92a9c6c0d0865c85308a" title="returns amount of scene node types this factory is able to create">getCreatableSceneNodeTypeCount()</a> </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="ada65146d01ff701e8ff9a48edd0a8ee9" name="ada65146d01ff701e8ff9a48edd0a8ee9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada65146d01ff701e8ff9a48edd0a8ee9">&#9670;&#160;</a></span>getCreateableSceneNodeTypeName() <span class="overload">[1/2]</span></h2>
+<a id="a8c3381f4086d70c06896b35ce779eccf" name="a8c3381f4086d70c06896b35ce779eccf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c3381f4086d70c06896b35ce779eccf">&#9670;&#160;</a></span>getCreateableSceneNodeTypeName() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -313,7 +313,41 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">byte8_kt</a> * dcpp::scene::ISceneNodeFactory::getCreateableSceneNodeTypeName </td>
+          <td class="memname">virtual const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">dcpp::byte8_kt</a> * dcpp::scene::ISceneNodeFactory::getCreateableSceneNodeTypeName </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a>&#160;</td>
+          <td class="paramname"><em>idx</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>returns type name of a creatable scene node type by index </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>Index of scene node type in this factory. Must be a value between 0 and <a class="el" href="classdcpp_1_1scene_1_1ISceneNodeFactory.html#a55e676fbdd8c92a9c6c0d0865c85308a" title="returns amount of scene node types this factory is able to create">getCreatableSceneNodeTypeCount()</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a895783b6e94d9b89249bc0e5d92587ed" name="a895783b6e94d9b89249bc0e5d92587ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a895783b6e94d9b89249bc0e5d92587ed">&#9670;&#160;</a></span>getCreateableSceneNodeTypeName() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">dcpp::byte8_kt</a> * dcpp::scene::ISceneNodeFactory::getCreateableSceneNodeTypeName </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="namespacedcpp_1_1scene.html#a78efb13e2d8e615d86b921419ac70d6a">ESCENE_NODE_TYPE</a>&#160;</td>
           <td class="paramname"><em>type</em></td><td>)</td>
@@ -335,40 +369,6 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>: Returns name of scene node type if this factory can create the type, otherwise 0. </dd></dl>
-
-</div>
-</div>
-<a id="a7fcf26bae189ba0eff3babf03d1bcca3" name="a7fcf26bae189ba0eff3babf03d1bcca3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7fcf26bae189ba0eff3babf03d1bcca3">&#9670;&#160;</a></span>getCreateableSceneNodeTypeName() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">byte8_kt</a> * dcpp::scene::ISceneNodeFactory::getCreateableSceneNodeTypeName </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">uint32_kt</a>&#160;</td>
-          <td class="paramname"><em>idx</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>returns type name of a creatable scene node type by index </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">idx</td><td>Index of scene node type in this factory. Must be a value between 0 and <a class="el" href="classdcpp_1_1scene_1_1ISceneNodeFactory.html#a4ecdb88bef8b3de73065631b5757c188" title="returns amount of scene node types this factory is able to create">getCreatableSceneNodeTypeCount()</a> </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>

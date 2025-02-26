@@ -112,50 +112,50 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~IMaterialRenderer
 <tr class="memitem:abbe90ff291a12ae51194964ed5b9d5eb" id="r_abbe90ff291a12ae51194964ed5b9d5eb"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IMaterialRendererServices.html#abbe90ff291a12ae51194964ed5b9d5eb">setBasicRenderStates</a> (const <a class="el" href="classdcpp_1_1video_1_1SMaterial.html">SMaterial</a> &amp;material, const <a class="el" href="classdcpp_1_1video_1_1SMaterial.html">SMaterial</a> &amp;lastMaterial, bool resetAllRenderstates)=0</td></tr>
 <tr class="memdesc:abbe90ff291a12ae51194964ed5b9d5eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Can be called by an <a class="el" href="classdcpp_1_1video_1_1IMaterialRenderer.html" title="Interface for material rendering.">IMaterialRenderer</a> to make its work easier.  <br /></td></tr>
 <tr class="separator:abbe90ff291a12ae51194964ed5b9d5eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a556e05f12e7b4779faf52a6b4d2309cc" id="r_a556e05f12e7b4779faf52a6b4d2309cc"><td class="memItemLeft" align="right" valign="top"><a id="a556e05f12e7b4779faf52a6b4d2309cc" name="a556e05f12e7b4779faf52a6b4d2309cc"></a>
-virtual <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getVertexShaderConstantID</b> (const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">byte8_kt</a> *name)=0</td></tr>
-<tr class="memdesc:a556e05f12e7b4779faf52a6b4d2309cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return an index constant for the vertex shader based on a name. <br /></td></tr>
-<tr class="separator:a556e05f12e7b4779faf52a6b4d2309cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0eb5c6e6fefbde9da4d07a56d3380814" id="r_a0eb5c6e6fefbde9da4d07a56d3380814"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IMaterialRendererServices.html#a0eb5c6e6fefbde9da4d07a56d3380814">setVertexShaderConstant</a> (<a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a> index, const <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">float32_kt</a> *floats, int count)=0</td></tr>
-<tr class="memdesc:a0eb5c6e6fefbde9da4d07a56d3380814"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a constant for the vertex shader based on a name.  <br /></td></tr>
-<tr class="separator:a0eb5c6e6fefbde9da4d07a56d3380814"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a943fc8da196d645fe0808a9909c26e82" id="r_a943fc8da196d645fe0808a9909c26e82"><td class="memItemLeft" align="right" valign="top"><a id="a943fc8da196d645fe0808a9909c26e82" name="a943fc8da196d645fe0808a9909c26e82"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>setVertexShaderConstant</b> (<a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a> index, const <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a> *ints, int count)=0</td></tr>
-<tr class="memdesc:a943fc8da196d645fe0808a9909c26e82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Int interface for the above. <br /></td></tr>
-<tr class="separator:a943fc8da196d645fe0808a9909c26e82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79b72c1c771666ddbb9c4ccb5e61a8f6" id="r_a79b72c1c771666ddbb9c4ccb5e61a8f6"><td class="memItemLeft" align="right" valign="top"><a id="a79b72c1c771666ddbb9c4ccb5e61a8f6" name="a79b72c1c771666ddbb9c4ccb5e61a8f6"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>setVertexShaderConstant</b> (<a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a> index, const <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">uint32_kt</a> *ints, int count)=0</td></tr>
-<tr class="memdesc:a79b72c1c771666ddbb9c4ccb5e61a8f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uint interface for the above. <br /></td></tr>
-<tr class="separator:a79b72c1c771666ddbb9c4ccb5e61a8f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a473faab41ca65c831de0c029fe664d9f" id="r_a473faab41ca65c831de0c029fe664d9f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IMaterialRendererServices.html#a473faab41ca65c831de0c029fe664d9f">setVertexShaderConstant</a> (const <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">float32_kt</a> *data, <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a> startRegister, <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a> constantAmount=1)=0</td></tr>
-<tr class="memdesc:a473faab41ca65c831de0c029fe664d9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a vertex shader constant.  <br /></td></tr>
-<tr class="separator:a473faab41ca65c831de0c029fe664d9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a083620bb3856d3f459b8f26c7ce6b9ec" id="r_a083620bb3856d3f459b8f26c7ce6b9ec"><td class="memItemLeft" align="right" valign="top"><a id="a083620bb3856d3f459b8f26c7ce6b9ec" name="a083620bb3856d3f459b8f26c7ce6b9ec"></a>
-virtual <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getPixelShaderConstantID</b> (const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">byte8_kt</a> *name)=0</td></tr>
-<tr class="memdesc:a083620bb3856d3f459b8f26c7ce6b9ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return an index constant for the pixel shader based on a name. <br /></td></tr>
-<tr class="separator:a083620bb3856d3f459b8f26c7ce6b9ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a021eec1f6dc619a632af5a1dd0f6ebdd" id="r_a021eec1f6dc619a632af5a1dd0f6ebdd"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IMaterialRendererServices.html#a021eec1f6dc619a632af5a1dd0f6ebdd">setPixelShaderConstant</a> (<a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a> index, const <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">float32_kt</a> *floats, int count)=0</td></tr>
-<tr class="memdesc:a021eec1f6dc619a632af5a1dd0f6ebdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a constant for the pixel shader based on a name.  <br /></td></tr>
-<tr class="separator:a021eec1f6dc619a632af5a1dd0f6ebdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae62234cb0fb789b5a6ab87ff5f22176e" id="r_ae62234cb0fb789b5a6ab87ff5f22176e"><td class="memItemLeft" align="right" valign="top"><a id="ae62234cb0fb789b5a6ab87ff5f22176e" name="ae62234cb0fb789b5a6ab87ff5f22176e"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>setPixelShaderConstant</b> (<a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a> index, const <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a> *ints, int count)=0</td></tr>
-<tr class="memdesc:ae62234cb0fb789b5a6ab87ff5f22176e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Int interface for the above. <br /></td></tr>
-<tr class="separator:ae62234cb0fb789b5a6ab87ff5f22176e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada0693e87850f4e62abd9346b6318e94" id="r_ada0693e87850f4e62abd9346b6318e94"><td class="memItemLeft" align="right" valign="top"><a id="ada0693e87850f4e62abd9346b6318e94" name="ada0693e87850f4e62abd9346b6318e94"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>setPixelShaderConstant</b> (<a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a> index, const <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">uint32_kt</a> *ints, int count)=0</td></tr>
-<tr class="memdesc:ada0693e87850f4e62abd9346b6318e94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uint interface for the above. <br /></td></tr>
-<tr class="separator:ada0693e87850f4e62abd9346b6318e94"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80adf9e5c6313399d3e0cd52c3ba5c07" id="r_a80adf9e5c6313399d3e0cd52c3ba5c07"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IMaterialRendererServices.html#a80adf9e5c6313399d3e0cd52c3ba5c07">setPixelShaderConstant</a> (const <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">float32_kt</a> *data, <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a> startRegister, <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a> constantAmount=1)=0</td></tr>
-<tr class="memdesc:a80adf9e5c6313399d3e0cd52c3ba5c07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a pixel shader constant.  <br /></td></tr>
-<tr class="separator:a80adf9e5c6313399d3e0cd52c3ba5c07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac13ca88ab8b70cc8bee3e1fac3a3c0af" id="r_ac13ca88ab8b70cc8bee3e1fac3a3c0af"><td class="memItemLeft" align="right" valign="top">DCPP_DEPRECATED bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IMaterialRendererServices.html#ac13ca88ab8b70cc8bee3e1fac3a3c0af">setVertexShaderConstant</a> (const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">byte8_kt</a> *name, const <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">float32_kt</a> *floats, int count)</td></tr>
-<tr class="separator:ac13ca88ab8b70cc8bee3e1fac3a3c0af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b52e76fd2b41b7fdc4c0fcf3a3474c6" id="r_a4b52e76fd2b41b7fdc4c0fcf3a3474c6"><td class="memItemLeft" align="right" valign="top">DCPP_DEPRECATED bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IMaterialRendererServices.html#a4b52e76fd2b41b7fdc4c0fcf3a3474c6">setVertexShaderConstant</a> (const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">byte8_kt</a> *name, const <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a> *ints, int count)</td></tr>
-<tr class="separator:a4b52e76fd2b41b7fdc4c0fcf3a3474c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5130833b82ba631bdb016caf1e40d75a" id="r_a5130833b82ba631bdb016caf1e40d75a"><td class="memItemLeft" align="right" valign="top">DCPP_DEPRECATED bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IMaterialRendererServices.html#a5130833b82ba631bdb016caf1e40d75a">setPixelShaderConstant</a> (const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">byte8_kt</a> *name, const <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">float32_kt</a> *floats, int count)</td></tr>
-<tr class="separator:a5130833b82ba631bdb016caf1e40d75a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7014ff2a6c1c51eba872c9c45d56b2b7" id="r_a7014ff2a6c1c51eba872c9c45d56b2b7"><td class="memItemLeft" align="right" valign="top">DCPP_DEPRECATED bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IMaterialRendererServices.html#a7014ff2a6c1c51eba872c9c45d56b2b7">setPixelShaderConstant</a> (const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">byte8_kt</a> *name, const <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a> *ints, int count)</td></tr>
-<tr class="separator:a7014ff2a6c1c51eba872c9c45d56b2b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af61dbc74eb2ab5f106c68f348a5898bd" id="r_af61dbc74eb2ab5f106c68f348a5898bd"><td class="memItemLeft" align="right" valign="top"><a id="af61dbc74eb2ab5f106c68f348a5898bd" name="af61dbc74eb2ab5f106c68f348a5898bd"></a>
+virtual <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getVertexShaderConstantID</b> (const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">dcpp::byte8_kt</a> *name)=0</td></tr>
+<tr class="memdesc:af61dbc74eb2ab5f106c68f348a5898bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return an index constant for the vertex shader based on a name. <br /></td></tr>
+<tr class="separator:af61dbc74eb2ab5f106c68f348a5898bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a181059ec787390c08a5f5a431697608a" id="r_a181059ec787390c08a5f5a431697608a"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IMaterialRendererServices.html#a181059ec787390c08a5f5a431697608a">setVertexShaderConstant</a> (<a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> index, const <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> *floats, int count)=0</td></tr>
+<tr class="memdesc:a181059ec787390c08a5f5a431697608a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a constant for the vertex shader based on a name.  <br /></td></tr>
+<tr class="separator:a181059ec787390c08a5f5a431697608a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4031b5014273b3aeb9a45003b6b731a" id="r_ad4031b5014273b3aeb9a45003b6b731a"><td class="memItemLeft" align="right" valign="top"><a id="ad4031b5014273b3aeb9a45003b6b731a" name="ad4031b5014273b3aeb9a45003b6b731a"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>setVertexShaderConstant</b> (<a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> index, const <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> *ints, int count)=0</td></tr>
+<tr class="memdesc:ad4031b5014273b3aeb9a45003b6b731a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Int interface for the above. <br /></td></tr>
+<tr class="separator:ad4031b5014273b3aeb9a45003b6b731a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb3dd765aed91107667c234ce87acf04" id="r_afb3dd765aed91107667c234ce87acf04"><td class="memItemLeft" align="right" valign="top"><a id="afb3dd765aed91107667c234ce87acf04" name="afb3dd765aed91107667c234ce87acf04"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>setVertexShaderConstant</b> (<a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> index, const <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> *ints, int count)=0</td></tr>
+<tr class="memdesc:afb3dd765aed91107667c234ce87acf04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uint interface for the above. <br /></td></tr>
+<tr class="separator:afb3dd765aed91107667c234ce87acf04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9af504a2c72b9d437fe2b4fd7006abed" id="r_a9af504a2c72b9d437fe2b4fd7006abed"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IMaterialRendererServices.html#a9af504a2c72b9d437fe2b4fd7006abed">setVertexShaderConstant</a> (const <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> *data, <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> startRegister, <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> constantAmount=1)=0</td></tr>
+<tr class="memdesc:a9af504a2c72b9d437fe2b4fd7006abed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a vertex shader constant.  <br /></td></tr>
+<tr class="separator:a9af504a2c72b9d437fe2b4fd7006abed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad637b20c137c81543de63d9f27914c4d" id="r_ad637b20c137c81543de63d9f27914c4d"><td class="memItemLeft" align="right" valign="top"><a id="ad637b20c137c81543de63d9f27914c4d" name="ad637b20c137c81543de63d9f27914c4d"></a>
+virtual <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getPixelShaderConstantID</b> (const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">dcpp::byte8_kt</a> *name)=0</td></tr>
+<tr class="memdesc:ad637b20c137c81543de63d9f27914c4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return an index constant for the pixel shader based on a name. <br /></td></tr>
+<tr class="separator:ad637b20c137c81543de63d9f27914c4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4f4d1e5577ad3b4d4f762ea1066cc6f" id="r_ae4f4d1e5577ad3b4d4f762ea1066cc6f"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IMaterialRendererServices.html#ae4f4d1e5577ad3b4d4f762ea1066cc6f">setPixelShaderConstant</a> (<a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> index, const <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> *floats, int count)=0</td></tr>
+<tr class="memdesc:ae4f4d1e5577ad3b4d4f762ea1066cc6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a constant for the pixel shader based on a name.  <br /></td></tr>
+<tr class="separator:ae4f4d1e5577ad3b4d4f762ea1066cc6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96cf187d3f14c535d4da22199864ce49" id="r_a96cf187d3f14c535d4da22199864ce49"><td class="memItemLeft" align="right" valign="top"><a id="a96cf187d3f14c535d4da22199864ce49" name="a96cf187d3f14c535d4da22199864ce49"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>setPixelShaderConstant</b> (<a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> index, const <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> *ints, int count)=0</td></tr>
+<tr class="memdesc:a96cf187d3f14c535d4da22199864ce49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Int interface for the above. <br /></td></tr>
+<tr class="separator:a96cf187d3f14c535d4da22199864ce49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57e081865b5bbf7f7ab5b8b57534137f" id="r_a57e081865b5bbf7f7ab5b8b57534137f"><td class="memItemLeft" align="right" valign="top"><a id="a57e081865b5bbf7f7ab5b8b57534137f" name="a57e081865b5bbf7f7ab5b8b57534137f"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>setPixelShaderConstant</b> (<a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> index, const <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> *ints, int count)=0</td></tr>
+<tr class="memdesc:a57e081865b5bbf7f7ab5b8b57534137f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uint interface for the above. <br /></td></tr>
+<tr class="separator:a57e081865b5bbf7f7ab5b8b57534137f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbfa70a854a32de93e62cc3bcd893f22" id="r_adbfa70a854a32de93e62cc3bcd893f22"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IMaterialRendererServices.html#adbfa70a854a32de93e62cc3bcd893f22">setPixelShaderConstant</a> (const <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> *data, <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> startRegister, <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> constantAmount=1)=0</td></tr>
+<tr class="memdesc:adbfa70a854a32de93e62cc3bcd893f22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a pixel shader constant.  <br /></td></tr>
+<tr class="separator:adbfa70a854a32de93e62cc3bcd893f22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab98dea2fd941ddefeb5de01e3425ea02" id="r_ab98dea2fd941ddefeb5de01e3425ea02"><td class="memItemLeft" align="right" valign="top">DCPP_DEPRECATED bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IMaterialRendererServices.html#ab98dea2fd941ddefeb5de01e3425ea02">setVertexShaderConstant</a> (const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">dcpp::byte8_kt</a> *name, const <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> *floats, int count)</td></tr>
+<tr class="separator:ab98dea2fd941ddefeb5de01e3425ea02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5e58fab1de26b57cc6ebc922963bafc" id="r_ae5e58fab1de26b57cc6ebc922963bafc"><td class="memItemLeft" align="right" valign="top">DCPP_DEPRECATED bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IMaterialRendererServices.html#ae5e58fab1de26b57cc6ebc922963bafc">setVertexShaderConstant</a> (const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">dcpp::byte8_kt</a> *name, const <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> *ints, int count)</td></tr>
+<tr class="separator:ae5e58fab1de26b57cc6ebc922963bafc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b1545ce40fc4bb688744f90d6b49125" id="r_a8b1545ce40fc4bb688744f90d6b49125"><td class="memItemLeft" align="right" valign="top">DCPP_DEPRECATED bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IMaterialRendererServices.html#a8b1545ce40fc4bb688744f90d6b49125">setPixelShaderConstant</a> (const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">dcpp::byte8_kt</a> *name, const <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> *floats, int count)</td></tr>
+<tr class="separator:a8b1545ce40fc4bb688744f90d6b49125"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab47f870ff1b2032696fbff166bb00fa9" id="r_ab47f870ff1b2032696fbff166bb00fa9"><td class="memItemLeft" align="right" valign="top">DCPP_DEPRECATED bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IMaterialRendererServices.html#ab47f870ff1b2032696fbff166bb00fa9">setPixelShaderConstant</a> (const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">dcpp::byte8_kt</a> *name, const <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> *ints, int count)</td></tr>
+<tr class="separator:ab47f870ff1b2032696fbff166bb00fa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac336d184057ed2ba2897dd426ccbd6f0" id="r_ac336d184057ed2ba2897dd426ccbd6f0"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html">IVideoDriver</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IMaterialRendererServices.html#ac336d184057ed2ba2897dd426ccbd6f0">getVideoDriver</a> ()=0</td></tr>
 <tr class="memdesc:ac336d184057ed2ba2897dd426ccbd6f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get pointer to the <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html" title="Interface to driver which is able to perform 2d and 3d graphics functions.">IVideoDriver</a> interface.  <br /></td></tr>
 <tr class="separator:ac336d184057ed2ba2897dd426ccbd6f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -243,8 +243,8 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>setPixelShade
 
 </div>
 </div>
-<a id="a5130833b82ba631bdb016caf1e40d75a" name="a5130833b82ba631bdb016caf1e40d75a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5130833b82ba631bdb016caf1e40d75a">&#9670;&#160;</a></span>setPixelShaderConstant() <span class="overload">[1/4]</span></h2>
+<a id="a8b1545ce40fc4bb688744f90d6b49125" name="a8b1545ce40fc4bb688744f90d6b49125"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b1545ce40fc4bb688744f90d6b49125">&#9670;&#160;</a></span>setPixelShaderConstant() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -255,13 +255,13 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>setPixelShade
         <tr>
           <td class="memname">DCPP_DEPRECATED bool dcpp::video::IMaterialRendererServices::setPixelShaderConstant </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">byte8_kt</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">dcpp::byte8_kt</a> *&#160;</td>
           <td class="paramname"><em>name</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">float32_kt</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> *&#160;</td>
           <td class="paramname"><em>floats</em>, </td>
         </tr>
         <tr>
@@ -286,8 +286,8 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>setPixelShade
 
 </div>
 </div>
-<a id="a7014ff2a6c1c51eba872c9c45d56b2b7" name="a7014ff2a6c1c51eba872c9c45d56b2b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7014ff2a6c1c51eba872c9c45d56b2b7">&#9670;&#160;</a></span>setPixelShaderConstant() <span class="overload">[2/4]</span></h2>
+<a id="ab47f870ff1b2032696fbff166bb00fa9" name="ab47f870ff1b2032696fbff166bb00fa9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab47f870ff1b2032696fbff166bb00fa9">&#9670;&#160;</a></span>setPixelShaderConstant() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -298,13 +298,13 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>setPixelShade
         <tr>
           <td class="memname">DCPP_DEPRECATED bool dcpp::video::IMaterialRendererServices::setPixelShaderConstant </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">byte8_kt</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">dcpp::byte8_kt</a> *&#160;</td>
           <td class="paramname"><em>name</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> *&#160;</td>
           <td class="paramname"><em>ints</em>, </td>
         </tr>
         <tr>
@@ -329,8 +329,8 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>setPixelShade
 
 </div>
 </div>
-<a id="a80adf9e5c6313399d3e0cd52c3ba5c07" name="a80adf9e5c6313399d3e0cd52c3ba5c07"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a80adf9e5c6313399d3e0cd52c3ba5c07">&#9670;&#160;</a></span>setPixelShaderConstant() <span class="overload">[3/4]</span></h2>
+<a id="adbfa70a854a32de93e62cc3bcd893f22" name="adbfa70a854a32de93e62cc3bcd893f22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbfa70a854a32de93e62cc3bcd893f22">&#9670;&#160;</a></span>setPixelShaderConstant() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -341,19 +341,19 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>setPixelShade
         <tr>
           <td class="memname">virtual void dcpp::video::IMaterialRendererServices::setPixelShaderConstant </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">float32_kt</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> *&#160;</td>
           <td class="paramname"><em>data</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a>&#160;</td>
           <td class="paramname"><em>startRegister</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a>&#160;</td>
           <td class="paramname"><em>constantAmount</em> = <code>1</code>&#160;</td>
         </tr>
         <tr>
@@ -381,8 +381,8 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>setPixelShade
 
 </div>
 </div>
-<a id="a021eec1f6dc619a632af5a1dd0f6ebdd" name="a021eec1f6dc619a632af5a1dd0f6ebdd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a021eec1f6dc619a632af5a1dd0f6ebdd">&#9670;&#160;</a></span>setPixelShaderConstant() <span class="overload">[4/4]</span></h2>
+<a id="ae4f4d1e5577ad3b4d4f762ea1066cc6f" name="ae4f4d1e5577ad3b4d4f762ea1066cc6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4f4d1e5577ad3b4d4f762ea1066cc6f">&#9670;&#160;</a></span>setPixelShaderConstant() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -393,13 +393,13 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>setPixelShade
         <tr>
           <td class="memname">virtual bool dcpp::video::IMaterialRendererServices::setPixelShaderConstant </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a>&#160;</td>
           <td class="paramname"><em>index</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">float32_kt</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> *&#160;</td>
           <td class="paramname"><em>floats</em>, </td>
         </tr>
         <tr>
@@ -422,7 +422,7 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>setPixelShade
 </div><div class="memdoc">
 
 <p>Sets a constant for the pixel shader based on a name. </p>
-<p>This can be used if you used a high level shader language like GLSL or HLSL to create a shader. See <a class="el" href="classdcpp_1_1video_1_1IMaterialRendererServices.html#a0eb5c6e6fefbde9da4d07a56d3380814" title="Sets a constant for the vertex shader based on a name.">setVertexShaderConstant()</a> for an example on how to use this. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>This can be used if you used a high level shader language like GLSL or HLSL to create a shader. See <a class="el" href="classdcpp_1_1video_1_1IMaterialRendererServices.html#a181059ec787390c08a5f5a431697608a" title="Sets a constant for the vertex shader based on a name.">setVertexShaderConstant()</a> for an example on how to use this. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">index</td><td>Index of the variable </td></tr>
     <tr><td class="paramname">floats</td><td>Pointer to array of floats </td></tr>
@@ -434,8 +434,8 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>setPixelShade
 
 </div>
 </div>
-<a id="ac13ca88ab8b70cc8bee3e1fac3a3c0af" name="ac13ca88ab8b70cc8bee3e1fac3a3c0af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac13ca88ab8b70cc8bee3e1fac3a3c0af">&#9670;&#160;</a></span>setVertexShaderConstant() <span class="overload">[1/4]</span></h2>
+<a id="ab98dea2fd941ddefeb5de01e3425ea02" name="ab98dea2fd941ddefeb5de01e3425ea02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab98dea2fd941ddefeb5de01e3425ea02">&#9670;&#160;</a></span>setVertexShaderConstant() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -446,13 +446,13 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>setPixelShade
         <tr>
           <td class="memname">DCPP_DEPRECATED bool dcpp::video::IMaterialRendererServices::setVertexShaderConstant </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">byte8_kt</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">dcpp::byte8_kt</a> *&#160;</td>
           <td class="paramname"><em>name</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">float32_kt</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> *&#160;</td>
           <td class="paramname"><em>floats</em>, </td>
         </tr>
         <tr>
@@ -477,8 +477,8 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>setPixelShade
 
 </div>
 </div>
-<a id="a4b52e76fd2b41b7fdc4c0fcf3a3474c6" name="a4b52e76fd2b41b7fdc4c0fcf3a3474c6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b52e76fd2b41b7fdc4c0fcf3a3474c6">&#9670;&#160;</a></span>setVertexShaderConstant() <span class="overload">[2/4]</span></h2>
+<a id="ae5e58fab1de26b57cc6ebc922963bafc" name="ae5e58fab1de26b57cc6ebc922963bafc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5e58fab1de26b57cc6ebc922963bafc">&#9670;&#160;</a></span>setVertexShaderConstant() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -489,13 +489,13 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>setPixelShade
         <tr>
           <td class="memname">DCPP_DEPRECATED bool dcpp::video::IMaterialRendererServices::setVertexShaderConstant </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">byte8_kt</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">dcpp::byte8_kt</a> *&#160;</td>
           <td class="paramname"><em>name</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> *&#160;</td>
           <td class="paramname"><em>ints</em>, </td>
         </tr>
         <tr>
@@ -520,8 +520,8 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>setPixelShade
 
 </div>
 </div>
-<a id="a473faab41ca65c831de0c029fe664d9f" name="a473faab41ca65c831de0c029fe664d9f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a473faab41ca65c831de0c029fe664d9f">&#9670;&#160;</a></span>setVertexShaderConstant() <span class="overload">[3/4]</span></h2>
+<a id="a9af504a2c72b9d437fe2b4fd7006abed" name="a9af504a2c72b9d437fe2b4fd7006abed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9af504a2c72b9d437fe2b4fd7006abed">&#9670;&#160;</a></span>setVertexShaderConstant() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -532,19 +532,19 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>setPixelShade
         <tr>
           <td class="memname">virtual void dcpp::video::IMaterialRendererServices::setVertexShaderConstant </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">float32_kt</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> *&#160;</td>
           <td class="paramname"><em>data</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a>&#160;</td>
           <td class="paramname"><em>startRegister</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a>&#160;</td>
           <td class="paramname"><em>constantAmount</em> = <code>1</code>&#160;</td>
         </tr>
         <tr>
@@ -572,8 +572,8 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>setPixelShade
 
 </div>
 </div>
-<a id="a0eb5c6e6fefbde9da4d07a56d3380814" name="a0eb5c6e6fefbde9da4d07a56d3380814"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0eb5c6e6fefbde9da4d07a56d3380814">&#9670;&#160;</a></span>setVertexShaderConstant() <span class="overload">[4/4]</span></h2>
+<a id="a181059ec787390c08a5f5a431697608a" name="a181059ec787390c08a5f5a431697608a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a181059ec787390c08a5f5a431697608a">&#9670;&#160;</a></span>setVertexShaderConstant() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -584,13 +584,13 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>setPixelShade
         <tr>
           <td class="memname">virtual bool dcpp::video::IMaterialRendererServices::setVertexShaderConstant </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a>&#160;</td>
           <td class="paramname"><em>index</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">float32_kt</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> *&#160;</td>
           <td class="paramname"><em>floats</em>, </td>
         </tr>
         <tr>
@@ -613,21 +613,21 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>setPixelShade
 </div><div class="memdoc">
 
 <p>Sets a constant for the vertex shader based on a name. </p>
-<p>This can be used if you used a high level shader language like GLSL or HLSL to create a shader. Example: If you created a shader which has variables named 'mWorldViewProj' (containing the WorldViewProjection matrix) and another one named 'fTime' containing one float, you can set them in your <a class="el" href="classdcpp_1_1video_1_1IShaderConstantSetCallBack.html" title="Interface making it possible to set constants for gpu programs every frame.">IShaderConstantSetCallBack</a> derived class like this: </p><div class="fragment"><div class="line"><span class="keyword">virtual</span> <span class="keywordtype">void</span> OnSetConstants(<a class="code hl_class" href="classdcpp_1_1video_1_1IMaterialRendererServices.html">video::IMaterialRendererServices</a>* services, <a class="code hl_typedef" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a> userData)</div>
+<p>This can be used if you used a high level shader language like GLSL or HLSL to create a shader. Example: If you created a shader which has variables named 'mWorldViewProj' (containing the WorldViewProjection matrix) and another one named 'fTime' containing one float, you can set them in your <a class="el" href="classdcpp_1_1video_1_1IShaderConstantSetCallBack.html" title="Interface making it possible to set constants for gpu programs every frame.">IShaderConstantSetCallBack</a> derived class like this: </p><div class="fragment"><div class="line"><span class="keyword">virtual</span> <span class="keywordtype">void</span> OnSetConstants(<a class="code hl_class" href="classdcpp_1_1video_1_1IMaterialRendererServices.html">video::IMaterialRendererServices</a>* services, <a class="code hl_typedef" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> userData)</div>
 <div class="line">{</div>
 <div class="line">    <a class="code hl_class" href="classdcpp_1_1video_1_1IVideoDriver.html">video::IVideoDriver</a>* driver = services-&gt;<a class="code hl_function" href="classdcpp_1_1video_1_1IMaterialRendererServices.html#ac336d184057ed2ba2897dd426ccbd6f0">getVideoDriver</a>();</div>
 <div class="line"> </div>
-<div class="line">    <a class="code hl_typedef" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">float32_kt</a> time = (<a class="code hl_typedef" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">float32_kt</a>)os::Timer::getTime()/100000.0f;</div>
-<div class="line">    services-&gt;<a class="code hl_function" href="classdcpp_1_1video_1_1IMaterialRendererServices.html#a0eb5c6e6fefbde9da4d07a56d3380814">setVertexShaderConstant</a>(<span class="stringliteral">&quot;fTime&quot;</span>, &amp;time, 1);</div>
+<div class="line">    <a class="code hl_typedef" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> time = (<a class="code hl_typedef" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a>)os::Timer::getTime()/100000.0f;</div>
+<div class="line">    services-&gt;<a class="code hl_function" href="classdcpp_1_1video_1_1IMaterialRendererServices.html#a181059ec787390c08a5f5a431697608a">setVertexShaderConstant</a>(<span class="stringliteral">&quot;fTime&quot;</span>, &amp;time, 1);</div>
 <div class="line"> </div>
 <div class="line">    <a class="code hl_class" href="classdcpp_1_1nub_1_1PMatrix4.html">nub::matrix4</a> worldViewProj(driver-&gt;<a class="code hl_function" href="classdcpp_1_1video_1_1IVideoDriver.html#a300de19128da94fcd8fed1536a5be58e">getTransform</a>(<a class="code hl_enumvalue" href="namespacedcpp_1_1video.html#ad9103fbe8fce431e559099c438a20866a34f8e4593b301f848cd6d6c2fe341a9a">video::ETS_PROJECTION</a>));</div>
 <div class="line">    worldViewProj *= driver-&gt;<a class="code hl_function" href="classdcpp_1_1video_1_1IVideoDriver.html#a300de19128da94fcd8fed1536a5be58e">getTransform</a>(<a class="code hl_enumvalue" href="namespacedcpp_1_1video.html#ad9103fbe8fce431e559099c438a20866a4c044197bd5f42e95f411929b5d934e0">video::ETS_VIEW</a>);</div>
 <div class="line">    worldViewProj *= driver-&gt;<a class="code hl_function" href="classdcpp_1_1video_1_1IVideoDriver.html#a300de19128da94fcd8fed1536a5be58e">getTransform</a>(<a class="code hl_enumvalue" href="namespacedcpp_1_1video.html#ad9103fbe8fce431e559099c438a20866a69f60ea773d16f751f97504d01171ec1">video::ETS_WORLD</a>);</div>
-<div class="line">    services-&gt;<a class="code hl_function" href="classdcpp_1_1video_1_1IMaterialRendererServices.html#a0eb5c6e6fefbde9da4d07a56d3380814">setVertexShaderConstant</a>(<span class="stringliteral">&quot;mWorldViewProj&quot;</span>, worldViewProj.M, 16);</div>
+<div class="line">    services-&gt;<a class="code hl_function" href="classdcpp_1_1video_1_1IMaterialRendererServices.html#a181059ec787390c08a5f5a431697608a">setVertexShaderConstant</a>(<span class="stringliteral">&quot;mWorldViewProj&quot;</span>, worldViewProj.M, 16);</div>
 <div class="line">}</div>
 <div class="ttc" id="aclassdcpp_1_1nub_1_1PMatrix4_html"><div class="ttname"><a href="classdcpp_1_1nub_1_1PMatrix4.html">dcpp::nub::PMatrix4</a></div><div class="ttdoc">4x4 matrix. Mostly used as transformation matrix for 3d calculations.</div><div class="ttdef"><b>Definition</b> matrix4.hpp:49</div></div>
 <div class="ttc" id="aclassdcpp_1_1video_1_1IMaterialRendererServices_html"><div class="ttname"><a href="classdcpp_1_1video_1_1IMaterialRendererServices.html">dcpp::video::IMaterialRendererServices</a></div><div class="ttdoc">Interface providing some methods for changing advanced, internal states of a IVideoDriver.</div><div class="ttdef"><b>Definition</b> IMaterialRendererServices.hpp:21</div></div>
-<div class="ttc" id="aclassdcpp_1_1video_1_1IMaterialRendererServices_html_a0eb5c6e6fefbde9da4d07a56d3380814"><div class="ttname"><a href="classdcpp_1_1video_1_1IMaterialRendererServices.html#a0eb5c6e6fefbde9da4d07a56d3380814">dcpp::video::IMaterialRendererServices::setVertexShaderConstant</a></div><div class="ttdeci">virtual bool setVertexShaderConstant(int32_kt index, const float32_kt *floats, int count)=0</div><div class="ttdoc">Sets a constant for the vertex shader based on a name.</div></div>
+<div class="ttc" id="aclassdcpp_1_1video_1_1IMaterialRendererServices_html_a181059ec787390c08a5f5a431697608a"><div class="ttname"><a href="classdcpp_1_1video_1_1IMaterialRendererServices.html#a181059ec787390c08a5f5a431697608a">dcpp::video::IMaterialRendererServices::setVertexShaderConstant</a></div><div class="ttdeci">virtual bool setVertexShaderConstant(dcpp::int32_kt index, const dcpp::float32_kt *floats, int count)=0</div><div class="ttdoc">Sets a constant for the vertex shader based on a name.</div></div>
 <div class="ttc" id="aclassdcpp_1_1video_1_1IMaterialRendererServices_html_ac336d184057ed2ba2897dd426ccbd6f0"><div class="ttname"><a href="classdcpp_1_1video_1_1IMaterialRendererServices.html#ac336d184057ed2ba2897dd426ccbd6f0">dcpp::video::IMaterialRendererServices::getVideoDriver</a></div><div class="ttdeci">virtual IVideoDriver * getVideoDriver()=0</div><div class="ttdoc">Get pointer to the IVideoDriver interface.</div></div>
 <div class="ttc" id="aclassdcpp_1_1video_1_1IVideoDriver_html"><div class="ttname"><a href="classdcpp_1_1video_1_1IVideoDriver.html">dcpp::video::IVideoDriver</a></div><div class="ttdoc">Interface to driver which is able to perform 2d and 3d graphics functions.</div><div class="ttdef"><b>Definition</b> IVideoDriver.hpp:152</div></div>
 <div class="ttc" id="aclassdcpp_1_1video_1_1IVideoDriver_html_a300de19128da94fcd8fed1536a5be58e"><div class="ttname"><a href="classdcpp_1_1video_1_1IVideoDriver.html#a300de19128da94fcd8fed1536a5be58e">dcpp::video::IVideoDriver::getTransform</a></div><div class="ttdeci">virtual const nub::matrix4 &amp; getTransform(E_TRANSFORMATION_STATE state) const =0</div><div class="ttdoc">Returns the transformation set by setTransform.</div></div>

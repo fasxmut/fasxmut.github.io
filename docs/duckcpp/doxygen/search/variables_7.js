@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['half_5fpi_0',['HALF_PI',['../namespacedcpp_1_1nub.html#a63fed3563553cdc6220210eea2542675',1,'dcpp::nub']]],
+  ['half_5fpi_0',['HALF_PI',['../namespacedcpp_1_1nub.html#a1a41c843cbe99f280c44da6c1ebf6174',1,'dcpp::nub']]],
   ['handlesrgb_1',['HandleSRGB',['../classdcpp_1_1SDuckcppCreationParameters.html#a014de461fd9304661dc87dfa369b9ac4',1,'dcpp::SDuckcppCreationParameters']]],
   ['hdc_2',['HDc',['../classdcpp_1_1video_1_1SExposedVideoData_1_1SOpenGLWin32.html#a44244ad0d26a53aa62943b5301f7005c',1,'dcpp::video::SExposedVideoData::SOpenGLWin32']]],
   ['height_3',['Height',['../classdcpp_1_1nub_1_1dimension2d.html#a428e25151909d0e0079dc52fa4e69000',1,'dcpp::nub::dimension2d']]],

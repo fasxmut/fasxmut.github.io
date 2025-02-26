@@ -6,11 +6,11 @@ var searchData=
   ['hasfileextension_3',['hasFileExtension',['../namespacedcpp_1_1nub.html#aa2c94a142e6b7963d4acce48ee6aaef1',1,'dcpp::nub']]],
   ['hasfinished_4',['hasFinished',['../classdcpp_1_1scene_1_1ISceneNodeAnimator.html#aa6759d2e495aa96ffd2fb287eec900a4',1,'dcpp::scene::ISceneNodeAnimator']]],
   ['hasfocus_5',['hasFocus',['../classdcpp_1_1gui_1_1IGUIEnvironment.html#ad6c0e20da4ed469773e6d21a6f261c1a',1,'dcpp::gui::IGUIEnvironment']]],
-  ['hasitemoverridecolor_6',['hasItemOverrideColor',['../classdcpp_1_1gui_1_1IGUIListBox.html#ae5e27661c982ffc44295639f08185c59',1,'dcpp::gui::IGUIListBox']]],
+  ['hasitemoverridecolor_6',['hasItemOverrideColor',['../classdcpp_1_1gui_1_1IGUIListBox.html#aa57df35f877e42d34f294b354a3f1725',1,'dcpp::gui::IGUIListBox']]],
   ['hasmipmaps_7',['hasmipmaps',['../classdcpp_1_1video_1_1ITexture.html#a86ce29bf50e2b4cf72746aa3230efc8f',1,'dcpp::video::ITexture::hasMipMaps()'],['../classdcpp_1_1video_1_1IImage.html#a94c0828bab6949f5f68c87516755966d',1,'dcpp::video::IImage::hasMipMaps()']]],
   ['hasresizablecolumns_8',['hasResizableColumns',['../classdcpp_1_1gui_1_1IGUITable.html#af696d18cf71580ac502ae9f12fad8156',1,'dcpp::gui::IGUITable']]],
   ['hastype_9',['hasType',['../classdcpp_1_1gui_1_1IGUIElement.html#a2a06fd9823aac54d8c222f498d3d1d89',1,'dcpp::gui::IGUIElement']]],
-  ['heapsink_10',['heapsink',['../namespacedcpp_1_1nub.html#ac094754c2d63603cbb4092a3b16bb998',1,'dcpp::nub']]],
-  ['heapsort_11',['heapsort',['../namespacedcpp_1_1nub.html#ab94e05a0e5488ddffbb73d961f43f3ca',1,'dcpp::nub']]],
-  ['heightmapoptimizemesh_12',['heightmapoptimizemesh',['../classdcpp_1_1scene_1_1IMeshManipulator.html#ac5efa7cc2868cdcc448961c590b126bd',1,'dcpp::scene::IMeshManipulator::heightmapOptimizeMesh(IMesh *const mesh, const float32_kt tolerance=nub::ROUNDING_ERROR_Float32) const =0'],['../classdcpp_1_1scene_1_1IMeshManipulator.html#a32c6af378f75139a822b0be6f2143271',1,'dcpp::scene::IMeshManipulator::heightmapOptimizeMesh(IMeshBuffer *const mb, const float32_kt tolerance=nub::ROUNDING_ERROR_Float32) const =0']]]
+  ['heapsink_10',['heapsink',['../namespacedcpp_1_1nub.html#a14a5313ecc0245259ce2b8716910d5db',1,'dcpp::nub']]],
+  ['heapsort_11',['heapsort',['../namespacedcpp_1_1nub.html#a847c86e4ef4b780be28423ffd61baa1b',1,'dcpp::nub']]],
+  ['heightmapoptimizemesh_12',['heightmapoptimizemesh',['../classdcpp_1_1scene_1_1IMeshManipulator.html#aaf40e104b7ae8186991cb26c333c050b',1,'dcpp::scene::IMeshManipulator::heightmapOptimizeMesh(IMesh *const mesh, const dcpp::float32_kt tolerance=nub::ROUNDING_ERROR_Float32) const =0'],['../classdcpp_1_1scene_1_1IMeshManipulator.html#acdb59159dc867d5e092301a55f107da4',1,'dcpp::scene::IMeshManipulator::heightmapOptimizeMesh(IMeshBuffer *const mb, const dcpp::float32_kt tolerance=nub::ROUNDING_ERROR_Float32) const =0']]]
 ];

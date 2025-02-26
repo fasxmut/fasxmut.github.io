@@ -1,6 +1,6 @@
 var classdcpp_1_1video_1_1IMaterialRenderer =
 [
-    [ "getRenderCapability", "classdcpp_1_1video_1_1IMaterialRenderer.html#aef10cafdf6738aca3fdea42ee076055d", null ],
+    [ "getRenderCapability", "classdcpp_1_1video_1_1IMaterialRenderer.html#acac9a61f943b294978b219097dea2ffe", null ],
     [ "getShaderConstantSetCallBack", "classdcpp_1_1video_1_1IMaterialRenderer.html#a5c154635563f9993a74759214c854f8e", null ],
     [ "isTransparent", "classdcpp_1_1video_1_1IMaterialRenderer.html#a9c799f046d83aaeef838b8ff17b0f8aa", null ],
     [ "OnRender", "classdcpp_1_1video_1_1IMaterialRenderer.html#ac4c0398b4f326dca5dce0769ae5341eb", null ],

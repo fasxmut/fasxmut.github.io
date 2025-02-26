@@ -3,12 +3,12 @@ var searchData=
   ['mappinghint_5fvertex_0',['MappingHint_Vertex',['../classdcpp_1_1scene_1_1PMeshBuffer.html#aac0a10d6edafd098f045aed47b69844a',1,'dcpp::scene::PMeshBuffer']]],
   ['mappinghintvertex_1',['MappingHintVertex',['../classdcpp_1_1scene_1_1SSharedMeshBuffer.html#ac71b98d9a2f378c427fdf54ac9cedabd',1,'dcpp::scene::SSharedMeshBuffer']]],
   ['material_2',['material',['../classdcpp_1_1scene_1_1SSharedMeshBuffer.html#a78f3321da8269134909e4379b970621a',1,'dcpp::scene::SSharedMeshBuffer::Material'],['../classdcpp_1_1video_1_1SOverrideMaterial.html#a48dbaec3cd72be7d27a73137f3eecff5',1,'dcpp::video::SOverrideMaterial::Material'],['../classdcpp_1_1scene_1_1PMeshBuffer.html#ade4eeaf917a31b7ec96399e51375b2eb',1,'dcpp::scene::PMeshBuffer::Material']]],
-  ['material_5fmax_5ftextures_3',['MATERIAL_MAX_TEXTURES',['../namespacedcpp_1_1video.html#ad9474ebf53d1e288277ea6631be5b6a8',1,'dcpp::video']]],
-  ['material_5fmax_5ftextures_5fused_4',['MATERIAL_MAX_TEXTURES_USED',['../namespacedcpp_1_1video.html#a9465797405eac177ca51da78bae114c4',1,'dcpp::video']]],
+  ['material_5fmax_5ftextures_3',['MATERIAL_MAX_TEXTURES',['../namespacedcpp_1_1video.html#aadbce5b24f53c7536f785fea65b1e13e',1,'dcpp::video']]],
+  ['material_5fmax_5ftextures_5fused_4',['MATERIAL_MAX_TEXTURES_USED',['../namespacedcpp_1_1video.html#ab1be7f600a5b2c30c131dbed3f47c9a1',1,'dcpp::video']]],
   ['materialindex_5',['materialindex',['../classdcpp_1_1scene_1_1SCollisionTriangleRange.html#ad7fcc403ee64bfc9ab433213eaf5a44a',1,'dcpp::scene::SCollisionTriangleRange::MaterialIndex'],['../classdcpp_1_1scene_1_1SCollisionHit.html#a903114c47ebec68c54620b6c66487fee',1,'dcpp::scene::SCollisionHit::MaterialIndex']]],
   ['materialtype_6',['MaterialType',['../classdcpp_1_1video_1_1SMaterial.html#a3ddf8a727253f9961e8eddb2d6a8356d',1,'dcpp::video::SMaterial']]],
-  ['materialtypeparam_7',['MaterialTypeParam',['../classdcpp_1_1video_1_1SMaterial.html#a806ce2eb7c789dd8a9a39a9cd6e9b80c',1,'dcpp::video::SMaterial']]],
-  ['materialtypeparam2_8',['MaterialTypeParam2',['../classdcpp_1_1video_1_1SMaterial.html#a91fdb9272d0076db8b0b52104ecc0f47',1,'dcpp::video::SMaterial']]],
+  ['materialtypeparam_7',['MaterialTypeParam',['../classdcpp_1_1video_1_1SMaterial.html#a4c5753afae194c3f4c033bbe01b5e01a',1,'dcpp::video::SMaterial']]],
+  ['materialtypeparam2_8',['MaterialTypeParam2',['../classdcpp_1_1video_1_1SMaterial.html#a68eb7ccfbd8493a950359ae8363e83e2',1,'dcpp::video::SMaterial']]],
   ['materialtypes_9',['MaterialTypes',['../classdcpp_1_1video_1_1SOverrideMaterial.html#a0200732b93ff4178532234df5847b68a',1,'dcpp::video::SOverrideMaterial']]],
   ['maxedge_10',['MaxEdge',['../classdcpp_1_1nub_1_1aabbox3d.html#a84478733ef514d5fab76af4107cfdf2c',1,'dcpp::nub::aabbox3d']]],
   ['maxsize_11',['MaxSize',['../classdcpp_1_1gui_1_1IGUIElement.html#a8f4639d6ddf5812b388ff9407a6d87b4',1,'dcpp::gui::IGUIElement']]],
@@ -16,5 +16,5 @@ var searchData=
   ['meshbuffers_13',['MeshBuffers',['../classdcpp_1_1scene_1_1SMesh.html#a40b25ef5302d9245eb4da2f1cd67cd41',1,'dcpp::scene::SMesh']]],
   ['meshes_14',['Meshes',['../classdcpp_1_1scene_1_1SAnimatedMesh.html#a19b242c3f2b98819a50d6900ec177db2',1,'dcpp::scene::SAnimatedMesh']]],
   ['minedge_15',['MinEdge',['../classdcpp_1_1nub_1_1aabbox3d.html#af0493508f40d1586bd8c02bea02d4645',1,'dcpp::nub::aabbox3d']]],
-  ['my3d_5ftexture_5fpath_16',['MY3D_TEXTURE_PATH',['../namespacedcpp_1_1scene.html#a61719d061cf13e8470a95889cd3e0236',1,'dcpp::scene']]]
+  ['my3d_5ftexture_5fpath_16',['MY3D_TEXTURE_PATH',['../namespacedcpp_1_1scene.html#a57fa34cfc16741093d5d914323275840',1,'dcpp::scene']]]
 ];

@@ -7,7 +7,7 @@ var classdcpp_1_1nub_1_1plane3d =
     [ "getIntersectionWithLine", "classdcpp_1_1nub_1_1plane3d.html#acfe87303da716b74e2aa40a7694053f3", null ],
     [ "getIntersectionWithPlane", "classdcpp_1_1nub_1_1plane3d.html#af8005b3c92c122b71596707fcefc6243", null ],
     [ "getIntersectionWithPlanes", "classdcpp_1_1nub_1_1plane3d.html#a348ae88ad48f901d711174e34db6b6a0", null ],
-    [ "getKnownIntersectionWithLine", "classdcpp_1_1nub_1_1plane3d.html#a32fc6dad10b93ce7c7fac99370fe5506", null ],
+    [ "getKnownIntersectionWithLine", "classdcpp_1_1nub_1_1plane3d.html#afa442b61deb0b19be141529eb96f6440", null ],
     [ "getMemberPoint", "classdcpp_1_1nub_1_1plane3d.html#a91f80d72735298c8c437fb63e859331e", null ],
     [ "isFrontFacing", "classdcpp_1_1nub_1_1plane3d.html#ac835bd812d0907cf85754fce64349cc9", null ],
     [ "recalculateD", "classdcpp_1_1nub_1_1plane3d.html#af10b1d7dbc6efb51a5e43374aba82161", null ],

@@ -2,8 +2,8 @@
 <area shape="rect" id="Node000001" title="hold a tag info for connecting meshes" alt="" coords="281,77,520,102"/>
 <area shape="rect" id="Node000002" href="$classdcpp_1_1nub_1_1basic__string.html" title=" " alt="" coords="5,5,176,45"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="190,43,339,74,337,79,189,48"/>
-<area shape="rect" id="Node000003" href="$classdcpp_1_1nub_1_1vector3d.html" title=" " alt="" coords="15,69,166,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="180,87,281,87,281,92,180,92"/>
+<area shape="rect" id="Node000003" href="$classdcpp_1_1nub_1_1vector3d.html" title=" " alt="" coords="13,69,169,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="182,87,281,87,281,92,182,92"/>
 <area shape="rect" id="Node000004" href="$classdcpp_1_1nub_1_1quaternion.html" title="Quaternion class for representing rotations." alt="" coords="9,134,172,159"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="173,129,331,99,332,105,174,134"/>
 </map>

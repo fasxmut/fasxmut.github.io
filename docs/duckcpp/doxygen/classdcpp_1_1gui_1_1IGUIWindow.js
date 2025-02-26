@@ -1,7 +1,7 @@
 var classdcpp_1_1gui_1_1IGUIWindow =
 [
-    [ "IGUIWindow", "classdcpp_1_1gui_1_1IGUIWindow.html#a2547031e3894eb9c14e9c7bba145a280", null ],
-    [ "getClientRect", "classdcpp_1_1gui_1_1IGUIWindow.html#aec8f7ed935fd8f20bd396d404ba9081d", null ],
+    [ "IGUIWindow", "classdcpp_1_1gui_1_1IGUIWindow.html#ad64b622c0a75a6ec65fed2fe6425a049", null ],
+    [ "getClientRect", "classdcpp_1_1gui_1_1IGUIWindow.html#a666a5f185f05e4787ea9d3850879a6f0", null ],
     [ "getCloseButton", "classdcpp_1_1gui_1_1IGUIWindow.html#a0a7ba65968b955af9b487edc8184c27f", null ],
     [ "getDrawBackground", "classdcpp_1_1gui_1_1IGUIWindow.html#a096d5d0ce910efde79854a2743f90e7b", null ],
     [ "getDrawTitlebar", "classdcpp_1_1gui_1_1IGUIWindow.html#ab17da308439d30c28d99a446df98d496", null ],

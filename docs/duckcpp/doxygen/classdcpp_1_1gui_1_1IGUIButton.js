@@ -1,6 +1,6 @@
 var classdcpp_1_1gui_1_1IGUIButton =
 [
-    [ "IGUIButton", "classdcpp_1_1gui_1_1IGUIButton.html#a24566de4a468c25bb21a6146430116cc", null ],
+    [ "IGUIButton", "classdcpp_1_1gui_1_1IGUIButton.html#a930beaf579c0d79591a8c4bf41bbd062", null ],
     [ "enableOverrideColor", "classdcpp_1_1gui_1_1IGUIButton.html#a84859c861c8c81e891079f19ead29cb0", null ],
     [ "getActiveColor", "classdcpp_1_1gui_1_1IGUIButton.html#a8879963307cb5330eab9eebaba812ade", null ],
     [ "getActiveFont", "classdcpp_1_1gui_1_1IGUIButton.html#a981199a14b41c221ef9e93c2cfd88e70", null ],
@@ -9,7 +9,7 @@ var classdcpp_1_1gui_1_1IGUIButton =
     [ "getOverrideColor", "classdcpp_1_1gui_1_1IGUIButton.html#a08e5f172d37bef737bc7d96cbe156aa7", null ],
     [ "getOverrideFont", "classdcpp_1_1gui_1_1IGUIButton.html#afffd19b256fece4c0a9c6e22b7cc9eae", null ],
     [ "getSpriteColor", "classdcpp_1_1gui_1_1IGUIButton.html#a06083ccd622d8b1861c3fbfb22852f49", null ],
-    [ "getSpriteIndex", "classdcpp_1_1gui_1_1IGUIButton.html#a87dec0df50290245f0fa7f84c3de07ab", null ],
+    [ "getSpriteIndex", "classdcpp_1_1gui_1_1IGUIButton.html#acd10f56be7c0da1e6f82984a1b3aa16d", null ],
     [ "getSpriteLoop", "classdcpp_1_1gui_1_1IGUIButton.html#aa40f108baf63e4a31ca260a02c81b1d7", null ],
     [ "getSpriteScale", "classdcpp_1_1gui_1_1IGUIButton.html#ae423e20f03b7aa8efe17b700af37b434", null ],
     [ "isAlphaChannelUsed", "classdcpp_1_1gui_1_1IGUIButton.html#aa1772109f627d794c933dc544e240226", null ],
@@ -19,17 +19,17 @@ var classdcpp_1_1gui_1_1IGUIButton =
     [ "isPushButton", "classdcpp_1_1gui_1_1IGUIButton.html#af9ed665e8cdef3c5c1013ad06055eb11", null ],
     [ "isScalingImage", "classdcpp_1_1gui_1_1IGUIButton.html#aa12f6fb52e846de180ff9c8018d42db6", null ],
     [ "setDrawBorder", "classdcpp_1_1gui_1_1IGUIButton.html#aa536107d589531a7ec3a3c83f1a524d0", null ],
-    [ "setImage", "classdcpp_1_1gui_1_1IGUIButton.html#a4e18cae177d237041fef8c4ef907fc03", null ],
-    [ "setImage", "classdcpp_1_1gui_1_1IGUIButton.html#aa72a05cbb1e315fb6bdf207f07611cf4", null ],
+    [ "setImage", "classdcpp_1_1gui_1_1IGUIButton.html#a3be9f03925f2d858d9fb52c3a2c4e984", null ],
+    [ "setImage", "classdcpp_1_1gui_1_1IGUIButton.html#aa7dedc96273a597aead90be84f6b41d4", null ],
     [ "setImage", "classdcpp_1_1gui_1_1IGUIButton.html#a7e1964aebf82d25ba6c408f3372b834e", null ],
     [ "setIsPushButton", "classdcpp_1_1gui_1_1IGUIButton.html#a04db39fd196f4c13432a656b741905dd", null ],
     [ "setOverrideColor", "classdcpp_1_1gui_1_1IGUIButton.html#ae3ac7085468803fdf6b00105d6a5524f", null ],
     [ "setOverrideFont", "classdcpp_1_1gui_1_1IGUIButton.html#a3c42973e573a5aea0df4dc517941f213", null ],
     [ "setPressed", "classdcpp_1_1gui_1_1IGUIButton.html#ae97bdef416b5bf36957e9e3073242e13", null ],
-    [ "setPressedImage", "classdcpp_1_1gui_1_1IGUIButton.html#a9a42d70fd0278ecaef146c17171dc144", null ],
+    [ "setPressedImage", "classdcpp_1_1gui_1_1IGUIButton.html#adc91cd55a7de5058c66fe6a5bcf51a8e", null ],
     [ "setPressedImage", "classdcpp_1_1gui_1_1IGUIButton.html#a2d12183938b8acbc240d110965343a67", null ],
     [ "setScaleImage", "classdcpp_1_1gui_1_1IGUIButton.html#acd6d61d28a86f14ab6ba6c699e337a17", null ],
-    [ "setSprite", "classdcpp_1_1gui_1_1IGUIButton.html#a34032ea225fcd6242f9f10b2164e8ae1", null ],
+    [ "setSprite", "classdcpp_1_1gui_1_1IGUIButton.html#ab60199d69996b292023559c15d216d9f", null ],
     [ "setSpriteBank", "classdcpp_1_1gui_1_1IGUIButton.html#ac966869011359e08b0de200d29acc337", null ],
     [ "setUseAlphaChannel", "classdcpp_1_1gui_1_1IGUIButton.html#a0f2a09be507b8c541681d50645c50cbb", null ]
 ];

@@ -1,7 +1,7 @@
 <map id="dcpp::scene::SCollisionHit" name="dcpp::scene::SCollisionHit">
 <area shape="rect" id="Node000001" title=" " alt="" coords="1025,103,1216,129"/>
-<area shape="rect" id="Node000002" href="$classdcpp_1_1nub_1_1vector3d.html" title=" " alt="" coords="729,5,879,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="894,37,1002,63,1052,81,1095,101,1093,106,1050,86,1001,68,892,42"/>
+<area shape="rect" id="Node000002" href="$classdcpp_1_1nub_1_1vector3d.html" title=" " alt="" coords="726,5,882,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="896,37,1002,63,1052,81,1095,101,1093,106,1050,86,1001,68,895,42"/>
 <area shape="rect" id="Node000003" href="$classdcpp_1_1scene_1_1ITriangleSelector.html" title="Interface to return triangles with specific properties." alt="" coords="252,73,467,98"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="480,88,1025,110,1025,115,480,93"/>
 <area shape="rect" id="Node000005" href="$classdcpp_1_1scene_1_1ISceneNode.html" title="Scene node interface." alt="" coords="712,197,896,222"/>

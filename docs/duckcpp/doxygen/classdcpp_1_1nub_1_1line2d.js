@@ -4,7 +4,7 @@ var classdcpp_1_1nub_1_1line2d =
     [ "line2d", "classdcpp_1_1nub_1_1line2d.html#a258e1875bf8021cc0e2c0fbd0ef2d642", null ],
     [ "line2d", "classdcpp_1_1nub_1_1line2d.html#aea852e385ecd60f675eb782213ee5678", null ],
     [ "fastLinesIntersection", "classdcpp_1_1nub_1_1line2d.html#acd9bd0e5f0406a715cf1449781a3b5dc", null ],
-    [ "getAngleWith", "classdcpp_1_1nub_1_1line2d.html#acbbaf5dfcd926618fcc84c1a197b2076", null ],
+    [ "getAngleWith", "classdcpp_1_1nub_1_1line2d.html#a96f1f1ce26270b1aa7cb57a3fc75e394", null ],
     [ "getClosestPoint", "classdcpp_1_1nub_1_1line2d.html#a554f37f3252c87d02048ce2aad3a11db", null ],
     [ "getLength", "classdcpp_1_1nub_1_1line2d.html#a2a7a1e41c55611f7c7d48a74cc8aaf18", null ],
     [ "getLengthSQ", "classdcpp_1_1nub_1_1line2d.html#a8960ab6b4753e16c09c53d17aec9ff8f", null ],

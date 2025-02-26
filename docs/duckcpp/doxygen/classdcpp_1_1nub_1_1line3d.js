@@ -4,7 +4,7 @@ var classdcpp_1_1nub_1_1line3d =
     [ "line3d", "classdcpp_1_1nub_1_1line3d.html#a2caeb45a6fadb59a173280e2b5a01b91", null ],
     [ "line3d", "classdcpp_1_1nub_1_1line3d.html#a0dca6cb17b77cd652b4b356a1e514e18", null ],
     [ "getClosestPoint", "classdcpp_1_1nub_1_1line3d.html#ae3b7c40595ba91482386316773c00c9d", null ],
-    [ "getIntersectionWithSphere", "classdcpp_1_1nub_1_1line3d.html#ab1617b96c9bc17f450c4ac3be8193f6b", null ],
+    [ "getIntersectionWithSphere", "classdcpp_1_1nub_1_1line3d.html#af62052497fc14143e4e348bec2f1fa27", null ],
     [ "getLength", "classdcpp_1_1nub_1_1line3d.html#a9d5f55a21e243f9a21992d29cf3e2b6d", null ],
     [ "getLengthSQ", "classdcpp_1_1nub_1_1line3d.html#ab136e5292559b9b75d71969dbafd40c6", null ],
     [ "getMiddle", "classdcpp_1_1nub_1_1line3d.html#a7f95b40d06f73ead2df2cff95e5b232d", null ],

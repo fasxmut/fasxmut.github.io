@@ -23,7 +23,7 @@ var namespacedcpp =
     [ "float32_kt", "namespacedcpp.html#a93cc7c2898084f21ecea75013793af08", null ],
     [ "float64_kt", "namespacedcpp.html#a4d7e709a703740af826ce0b505108736", null ],
     [ "fschar_t", "namespacedcpp.html#a0b4009d1b3c1d2dbaaddaecf40b7e7f7", null ],
-    [ "funcptr_createDevice", "namespacedcpp.html#a8da9b281604a786a747e82f6840e26f4", null ],
+    [ "funcptr_createDevice", "namespacedcpp.html#af094e7d91da189a669a7609335f53b18", null ],
     [ "funcptr_createDeviceEx", "namespacedcpp.html#a8c9329f0d932ad88250cb066e385e1bd", null ],
     [ "int16_kt", "namespacedcpp.html#ac84ab16593e727adca22f37a18f1f795", null ],
     [ "int32_kt", "namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d", null ],
@@ -101,7 +101,7 @@ var namespacedcpp =
       [ "ETIE_MOVED", "namespacedcpp.html#af0110623fb9056db00b0f9e213b91a62ae08a4c41cb36e9624a51205b111441c3", null ],
       [ "ETIE_COUNT", "namespacedcpp.html#af0110623fb9056db00b0f9e213b91a62a35340dad842cfedc6c2aba5ad48c52c8", null ]
     ] ],
-    [ "createDevice", "namespacedcpp.html#adbcc39ab38178ecdb698cbc07499b627", null ],
+    [ "createDevice", "namespacedcpp.html#aa21bbed754c818ce993a706dc325355b", null ],
     [ "createDeviceEx", "namespacedcpp.html#a7e9f43c9ca4f2a4a5e9c19ab25544e3c", null ],
     [ "getProfiler", "namespacedcpp.html#aff98c1938e9c8a06d9af9dd7493fb5eb", null ]
 ];

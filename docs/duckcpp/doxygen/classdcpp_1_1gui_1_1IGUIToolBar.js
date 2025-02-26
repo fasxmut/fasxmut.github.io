@@ -1,5 +1,5 @@
 var classdcpp_1_1gui_1_1IGUIToolBar =
 [
-    [ "IGUIToolBar", "classdcpp_1_1gui_1_1IGUIToolBar.html#ab70a927942d89802751a2c7af004e35e", null ],
-    [ "addButton", "classdcpp_1_1gui_1_1IGUIToolBar.html#aae1610436dc1c0e3cdd23d3289ef819a", null ]
+    [ "IGUIToolBar", "classdcpp_1_1gui_1_1IGUIToolBar.html#a6e8c2ec1491bedcbdf2723bc5390c2ce", null ],
+    [ "addButton", "classdcpp_1_1gui_1_1IGUIToolBar.html#ad17fb35b147900cdb49372f50ab764e4", null ]
 ];

@@ -8,7 +8,7 @@ var classdcpp_1_1video_1_1IRenderTarget =
     [ "setTexture", "classdcpp_1_1video_1_1IRenderTarget.html#af4f42f7643bc546eee5f7a3078afe1c6", null ],
     [ "setTexture", "classdcpp_1_1video_1_1IRenderTarget.html#af8d754445f995ed2eb05e841fbf0b4e4", null ],
     [ "setTexture", "classdcpp_1_1video_1_1IRenderTarget.html#ad5271da0d483df0bfd7ab53cca0b10db", null ],
-    [ "setTextures", "classdcpp_1_1video_1_1IRenderTarget.html#ace590455bb3c1201e4fe6c94d36ce17e", null ],
+    [ "setTextures", "classdcpp_1_1video_1_1IRenderTarget.html#a0e76d5b5eac8c08b386ee61b81f0d6b7", null ],
     [ "CubeSurfaces", "classdcpp_1_1video_1_1IRenderTarget.html#aee59b0b25aa53b4d169a766b7dc89301", null ],
     [ "DepthStencil", "classdcpp_1_1video_1_1IRenderTarget.html#a13417c499592f43b7d3d85f72bbeb51d", null ],
     [ "DriverType", "classdcpp_1_1video_1_1IRenderTarget.html#a7a6fdf467cab717210ff46761cc49bb5", null ],

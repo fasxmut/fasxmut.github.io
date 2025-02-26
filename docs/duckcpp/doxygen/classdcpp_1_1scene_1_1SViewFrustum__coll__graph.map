@@ -1,11 +1,11 @@
 <map id="dcpp::scene::SViewFrustum" name="dcpp::scene::SViewFrustum">
-<area shape="rect" id="Node000001" title="Defines the view frustum. That&#39;s the space visible by the camera." alt="" coords="564,45,764,70"/>
-<area shape="rect" id="Node000002" href="$classdcpp_1_1nub_1_1vector3d.html" title=" " alt="" coords="5,37,156,77"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="169,36,180,35,280,20,360,17,439,22,540,35,589,42,588,47,540,40,439,27,360,22,281,26,180,40,170,42"/>
-<area shape="rect" id="Node000003" href="$classdcpp_1_1nub_1_1plane3d.html" title=" " alt="" coords="275,37,421,77"/>
-<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="169,55,275,55,275,60,169,60"/>
-<area shape="rect" id="Node000004" href="$classdcpp_1_1nub_1_1aabbox3d.html" title=" " alt="" coords="269,101,427,141"/>
-<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="147,79,181,89,269,108,268,113,179,95,146,84"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="435,55,564,55,564,60,435,60"/>
-<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="440,100,600,67,601,73,441,105"/>
+<area shape="rect" id="Node000001" title="Defines the view frustum. That&#39;s the space visible by the camera." alt="" coords="569,45,769,70"/>
+<area shape="rect" id="Node000002" href="$classdcpp_1_1nub_1_1vector3d.html" title=" " alt="" coords="5,37,161,77"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,37,185,35,286,21,365,17,445,22,546,35,595,42,594,47,545,40,444,27,365,22,286,26,186,40,175,42"/>
+<area shape="rect" id="Node000003" href="$classdcpp_1_1nub_1_1plane3d.html" title=" " alt="" coords="275,37,431,77"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="175,55,275,55,275,60,175,60"/>
+<area shape="rect" id="Node000004" href="$classdcpp_1_1nub_1_1aabbox3d.html" title=" " alt="" coords="275,101,432,141"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="151,79,186,89,275,108,274,113,185,95,150,84"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="445,55,569,55,569,60,445,60"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="445,100,605,67,606,73,446,105"/>
 </map>

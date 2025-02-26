@@ -1,14 +1,14 @@
 var classdcpp_1_1gui_1_1IGUIStaticText =
 [
-    [ "IGUIStaticText", "classdcpp_1_1gui_1_1IGUIStaticText.html#a8b821e8820151e0f38694504145fb7f2", null ],
+    [ "IGUIStaticText", "classdcpp_1_1gui_1_1IGUIStaticText.html#a780904deec36fadcfb3805f6c29ef743", null ],
     [ "enableOverrideColor", "classdcpp_1_1gui_1_1IGUIStaticText.html#a583ede0486c15e9d50d90baff22476ed", null ],
     [ "getActiveColor", "classdcpp_1_1gui_1_1IGUIStaticText.html#aac253031934bb56ee2ef91337227884d", null ],
     [ "getActiveFont", "classdcpp_1_1gui_1_1IGUIStaticText.html#a43832a57f746baa57a8bd5651695ddda", null ],
     [ "getBackgroundColor", "classdcpp_1_1gui_1_1IGUIStaticText.html#ad433b3c040dcb394b316ad4a0a5c019c", null ],
     [ "getOverrideColor", "classdcpp_1_1gui_1_1IGUIStaticText.html#ae90a129641ec4c934dbff5f8ac8b9ce6", null ],
     [ "getOverrideFont", "classdcpp_1_1gui_1_1IGUIStaticText.html#a3fe7179e91271c0c1122e21c014ff2a5", null ],
-    [ "getTextHeight", "classdcpp_1_1gui_1_1IGUIStaticText.html#a433b9ff9b39af81d0978c927ae410a8d", null ],
-    [ "getTextWidth", "classdcpp_1_1gui_1_1IGUIStaticText.html#ab1e3bdf3de882ae36901b1e31b36202d", null ],
+    [ "getTextHeight", "classdcpp_1_1gui_1_1IGUIStaticText.html#a3c54552d145de23a7b055c007669728e", null ],
+    [ "getTextWidth", "classdcpp_1_1gui_1_1IGUIStaticText.html#af3708fe776d36bc38aff6747ab9373f1", null ],
     [ "isDrawBackgroundEnabled", "classdcpp_1_1gui_1_1IGUIStaticText.html#a7954f3a9de0b1885e23723f0b65126a4", null ],
     [ "isDrawBorderEnabled", "classdcpp_1_1gui_1_1IGUIStaticText.html#a853c7a987066d1d1754e0d36c9bdd69d", null ],
     [ "isOverrideColorEnabled", "classdcpp_1_1gui_1_1IGUIStaticText.html#af154313c539af6e1d7a7202884a2d161", null ],

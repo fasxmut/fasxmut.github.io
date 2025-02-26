@@ -12,7 +12,7 @@ var classdcpp_1_1nub_1_1aabbox3d =
     [ "getCenter", "classdcpp_1_1nub_1_1aabbox3d.html#ab4de329b05149c090d8a8131c34ccd29", null ],
     [ "getEdges", "classdcpp_1_1nub_1_1aabbox3d.html#ac223e2aab075b986ffd71682c96645bb", null ],
     [ "getExtent", "classdcpp_1_1nub_1_1aabbox3d.html#a4c977061d2e75ea4057b7eaa926eae42", null ],
-    [ "getInterpolated", "classdcpp_1_1nub_1_1aabbox3d.html#a3dc8b5d0efd867542938d1e443c08714", null ],
+    [ "getInterpolated", "classdcpp_1_1nub_1_1aabbox3d.html#a316c0d5b313a142f5d05f3578a2b2b6c", null ],
     [ "getRadius", "classdcpp_1_1nub_1_1aabbox3d.html#ab4416f1b7e6726388b5f03db38e9e66d", null ],
     [ "getVolume", "classdcpp_1_1nub_1_1aabbox3d.html#a2d2bcc13e9fae74f3d3519f3109548d1", null ],
     [ "intersect", "classdcpp_1_1nub_1_1aabbox3d.html#a8a50bb890006e81ffb29fb88994ae7c5", null ],

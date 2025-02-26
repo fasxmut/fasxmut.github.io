@@ -1,8 +1,8 @@
 var classdcpp_1_1SEvent_1_1SJoystickEvent =
 [
-    [ "IsButtonPressed", "classdcpp_1_1SEvent_1_1SJoystickEvent.html#ade279dbf9682f16113eb7138ad881bd5", null ],
-    [ "Axis", "classdcpp_1_1SEvent_1_1SJoystickEvent.html#a3d4225007e8caef99562e1a8b822eb5c", null ],
-    [ "ButtonStates", "classdcpp_1_1SEvent_1_1SJoystickEvent.html#a4ae5e6b96117ea6838b33a782b25b4ed", null ],
-    [ "Joystick", "classdcpp_1_1SEvent_1_1SJoystickEvent.html#a4ba293b3885a026ea8c225bfe262520c", null ],
-    [ "POV", "classdcpp_1_1SEvent_1_1SJoystickEvent.html#a1ec06a247c05c5d8b065c50caf573911", null ]
+    [ "IsButtonPressed", "classdcpp_1_1SEvent_1_1SJoystickEvent.html#a86653b94219c4f17e9daeafc674da520", null ],
+    [ "Axis", "classdcpp_1_1SEvent_1_1SJoystickEvent.html#ae6d4fc67bb7e2d6874554ee45ed10b4a", null ],
+    [ "ButtonStates", "classdcpp_1_1SEvent_1_1SJoystickEvent.html#a3d2f9a28a67f28353a8a1b1678dc512e", null ],
+    [ "Joystick", "classdcpp_1_1SEvent_1_1SJoystickEvent.html#a4d45d8bed95b28e02b8a8d133c3828a8", null ],
+    [ "POV", "classdcpp_1_1SEvent_1_1SJoystickEvent.html#ab79af0058893fb8790e9bda9351f762d", null ]
 ];

@@ -1,11 +1,11 @@
 var classdcpp_1_1gui_1_1IGUIEditBox =
 [
-    [ "IGUIEditBox", "classdcpp_1_1gui_1_1IGUIEditBox.html#a234c625bf6573da8aaa46176fcaac573", null ],
+    [ "IGUIEditBox", "classdcpp_1_1gui_1_1IGUIEditBox.html#a84f7de4c304da830c59070cecfc2fd7f", null ],
     [ "enableOverrideColor", "classdcpp_1_1gui_1_1IGUIEditBox.html#af43aa8b75bcc0417f219888583b446b0", null ],
     [ "getActiveFont", "classdcpp_1_1gui_1_1IGUIEditBox.html#aecc62a35f05f16dfdcb4dcfeda53a62b", null ],
     [ "getCursorBlinkTime", "classdcpp_1_1gui_1_1IGUIEditBox.html#a92642bbe12af6e50a87e9eaf64f38583", null ],
     [ "getCursorChar", "classdcpp_1_1gui_1_1IGUIEditBox.html#a2ed4b368dbdb887fa8d000409c878297", null ],
-    [ "getMax", "classdcpp_1_1gui_1_1IGUIEditBox.html#a5b042609d66580a8c209fa46f8c23f0b", null ],
+    [ "getMax", "classdcpp_1_1gui_1_1IGUIEditBox.html#ac4328c8ee57ce22563d678d032e490b4", null ],
     [ "getOverrideColor", "classdcpp_1_1gui_1_1IGUIEditBox.html#ae4b798dfd9611d128f956e7cf4de675f", null ],
     [ "getOverrideFont", "classdcpp_1_1gui_1_1IGUIEditBox.html#a9776a7e68c5bc52f31a9e61cdfb70c92", null ],
     [ "getTextDimension", "classdcpp_1_1gui_1_1IGUIEditBox.html#abbee0e5977ea10290a0a8ef7e6841073", null ],
@@ -21,7 +21,7 @@ var classdcpp_1_1gui_1_1IGUIEditBox =
     [ "setCursorChar", "classdcpp_1_1gui_1_1IGUIEditBox.html#a5eb5b9b8b7823aa94b0305d6bd99950f", null ],
     [ "setDrawBackground", "classdcpp_1_1gui_1_1IGUIEditBox.html#aabf4f889c3587e4a57b2993d9501be79", null ],
     [ "setDrawBorder", "classdcpp_1_1gui_1_1IGUIEditBox.html#ab18df8bc81929b77b8e6d6178fad94e9", null ],
-    [ "setMax", "classdcpp_1_1gui_1_1IGUIEditBox.html#acd6e821551d1da47f7da5563a6b9162d", null ],
+    [ "setMax", "classdcpp_1_1gui_1_1IGUIEditBox.html#adb1a974f2fb37f297ae973e20e11133b", null ],
     [ "setMultiLine", "classdcpp_1_1gui_1_1IGUIEditBox.html#a596b1ddf0b9457093f3582fe1e090e7b", null ],
     [ "setOverrideColor", "classdcpp_1_1gui_1_1IGUIEditBox.html#ac786b2ab2fe0ac23d0805a634697261a", null ],
     [ "setOverrideFont", "classdcpp_1_1gui_1_1IGUIEditBox.html#ac54060bdaeb13b6bc96c1ee139aecd39", null ],

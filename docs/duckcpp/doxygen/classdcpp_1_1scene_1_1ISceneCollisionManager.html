@@ -125,36 +125,36 @@ Collaboration diagram for dcpp::scene::ISceneCollisionManager:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aaddf5ee6780a93fccf560be23a643405" id="r_aaddf5ee6780a93fccf560be23a643405"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneCollisionManager.html#aaddf5ee6780a93fccf560be23a643405">getCollisionPoint</a> (<a class="el" href="classdcpp_1_1scene_1_1SCollisionHit.html">SCollisionHit</a> &amp;hitResult, const <a class="el" href="classdcpp_1_1nub_1_1line3d.html">nub::line3d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">float32_kt</a> &gt; &amp;ray, <a class="el" href="classdcpp_1_1scene_1_1ITriangleSelector.html">ITriangleSelector</a> *selector)=0</td></tr>
-<tr class="memdesc:aaddf5ee6780a93fccf560be23a643405"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the nearest collision point of a line and lots of triangles, if there is one.  <br /></td></tr>
-<tr class="separator:aaddf5ee6780a93fccf560be23a643405"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab195e29904825448d525c1d0934b20c9" id="r_ab195e29904825448d525c1d0934b20c9"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneCollisionManager.html#ab195e29904825448d525c1d0934b20c9">getCollisionPoint</a> (const <a class="el" href="classdcpp_1_1nub_1_1line3d.html">nub::line3d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">float32_kt</a> &gt; &amp;ray, <a class="el" href="classdcpp_1_1scene_1_1ITriangleSelector.html">ITriangleSelector</a> *selector, <a class="el" href="namespacedcpp_1_1nub.html#af73093b1875036b48143a19817b9f6c7">nub::vector3df</a> &amp;outCollisionPoint, <a class="el" href="namespacedcpp_1_1nub.html#a3623a4d3b19accd2cf8a22f1d49d6b30">nub::triangle3df</a> &amp;outTriangle, <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> *&amp;outNode)</td></tr>
-<tr class="memdesc:ab195e29904825448d525c1d0934b20c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the nearest collision point of a line and lots of triangles, if there is one.  <br /></td></tr>
-<tr class="separator:ab195e29904825448d525c1d0934b20c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a596abedf3ab816911bfe6c0b362af7fa" id="r_a596abedf3ab816911bfe6c0b362af7fa"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedcpp_1_1nub.html#af73093b1875036b48143a19817b9f6c7">nub::vector3df</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneCollisionManager.html#a596abedf3ab816911bfe6c0b362af7fa">getCollisionResultPosition</a> (<a class="el" href="classdcpp_1_1scene_1_1ITriangleSelector.html">ITriangleSelector</a> *selector, const <a class="el" href="namespacedcpp_1_1nub.html#af73093b1875036b48143a19817b9f6c7">nub::vector3df</a> &amp;ellipsoidPosition, const <a class="el" href="namespacedcpp_1_1nub.html#af73093b1875036b48143a19817b9f6c7">nub::vector3df</a> &amp;ellipsoidRadius, const <a class="el" href="namespacedcpp_1_1nub.html#af73093b1875036b48143a19817b9f6c7">nub::vector3df</a> &amp;ellipsoidDirectionAndSpeed, <a class="el" href="namespacedcpp_1_1nub.html#a3623a4d3b19accd2cf8a22f1d49d6b30">nub::triangle3df</a> &amp;triout, <a class="el" href="namespacedcpp_1_1nub.html#af73093b1875036b48143a19817b9f6c7">nub::vector3df</a> &amp;hitPosition, bool &amp;outFalling, <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> *&amp;outNode, <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">float32_kt</a> slidingSpeed=0.0005f, const <a class="el" href="namespacedcpp_1_1nub.html#af73093b1875036b48143a19817b9f6c7">nub::vector3df</a> &amp;gravityDirectionAndSpeed=<a class="el" href="namespacedcpp_1_1nub.html#af73093b1875036b48143a19817b9f6c7">nub::vector3df</a>(0.0f, 0.0f, 0.0f))=0</td></tr>
-<tr class="memdesc:a596abedf3ab816911bfe6c0b362af7fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collides a moving ellipsoid with a 3d world with gravity and returns the resulting new position of the ellipsoid.  <br /></td></tr>
-<tr class="separator:a596abedf3ab816911bfe6c0b362af7fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a934270beb5dab7c4bd32f9461f297f" id="r_a7a934270beb5dab7c4bd32f9461f297f"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1nub_1_1line3d.html">nub::line3d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">float32_kt</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneCollisionManager.html#a7a934270beb5dab7c4bd32f9461f297f">getRayFromScreenCoordinates</a> (const nub::position2d&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a> &gt; &amp;pos, const <a class="el" href="classdcpp_1_1scene_1_1ICameraSceneNode.html">ICameraSceneNode</a> *camera=0)=0</td></tr>
-<tr class="memdesc:a7a934270beb5dab7c4bd32f9461f297f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a 3d ray which would go through the 2d screen coordinates.  <br /></td></tr>
-<tr class="separator:a7a934270beb5dab7c4bd32f9461f297f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e73e7935f6ee721518785d44375cad9" id="r_a0e73e7935f6ee721518785d44375cad9"><td class="memItemLeft" align="right" valign="top">virtual nub::position2d&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneCollisionManager.html#a0e73e7935f6ee721518785d44375cad9">getScreenCoordinatesFrom3DPosition</a> (const <a class="el" href="namespacedcpp_1_1nub.html#af73093b1875036b48143a19817b9f6c7">nub::vector3df</a> &amp;pos, const <a class="el" href="classdcpp_1_1scene_1_1ICameraSceneNode.html">ICameraSceneNode</a> *camera=0, bool useViewPort=false)=0</td></tr>
-<tr class="memdesc:a0e73e7935f6ee721518785d44375cad9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates 2d screen position from a 3d position.  <br /></td></tr>
-<tr class="separator:a0e73e7935f6ee721518785d44375cad9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2c6928ce215a6b1bc1e90a55543e08d" id="r_ab2c6928ce215a6b1bc1e90a55543e08d"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneCollisionManager.html#ab2c6928ce215a6b1bc1e90a55543e08d">getSceneNodeFromScreenCoordinatesBB</a> (const nub::position2d&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a> &gt; &amp;pos, <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a> idBitMask=0, bool bNoDebugObjects=false, <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> *root=0)=0</td></tr>
-<tr class="memdesc:ab2c6928ce215a6b1bc1e90a55543e08d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the scene node, which is currently visible under the given screen coordinates, viewed from the currently active camera.  <br /></td></tr>
-<tr class="separator:ab2c6928ce215a6b1bc1e90a55543e08d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed94d28ac7d43db32265133555581d6d" id="r_aed94d28ac7d43db32265133555581d6d"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneCollisionManager.html#aed94d28ac7d43db32265133555581d6d">getSceneNodeFromRayBB</a> (const <a class="el" href="classdcpp_1_1nub_1_1line3d.html">nub::line3d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">float32_kt</a> &gt; &amp;ray, <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a> idBitMask=0, bool bNoDebugObjects=false, <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> *root=0)=0</td></tr>
-<tr class="memdesc:aed94d28ac7d43db32265133555581d6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the nearest scene node which collides with a 3d ray and whose id matches a bitmask.  <br /></td></tr>
-<tr class="separator:aed94d28ac7d43db32265133555581d6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada566fec0f15b003907f17711bad6d2d" id="r_ada566fec0f15b003907f17711bad6d2d"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneCollisionManager.html#ada566fec0f15b003907f17711bad6d2d">getSceneNodeFromCameraBB</a> (const <a class="el" href="classdcpp_1_1scene_1_1ICameraSceneNode.html">ICameraSceneNode</a> *camera, <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a> idBitMask=0, bool bNoDebugObjects=false)=0</td></tr>
-<tr class="memdesc:ada566fec0f15b003907f17711bad6d2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the scene node, which the given camera is looking at and whose id matches the bitmask.  <br /></td></tr>
-<tr class="separator:ada566fec0f15b003907f17711bad6d2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae282347d521f1fa91f20640edf52e017" id="r_ae282347d521f1fa91f20640edf52e017"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneCollisionManager.html#ae282347d521f1fa91f20640edf52e017">getSceneNodeAndCollisionPointFromRay</a> (<a class="el" href="classdcpp_1_1scene_1_1SCollisionHit.html">SCollisionHit</a> &amp;hitResult, const <a class="el" href="namespacedcpp_1_1nub.html#a99a16af27234659006afc76b42e70d9f">nub::line3df</a> &amp;ray, <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a> idBitMask=0, <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> *collisionRootNode=0, bool noDebugObjects=false)=0</td></tr>
-<tr class="memdesc:ae282347d521f1fa91f20640edf52e017"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform a ray/box and ray/triangle collision check on a hierarchy of scene nodes.  <br /></td></tr>
-<tr class="separator:ae282347d521f1fa91f20640edf52e017"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac784b5c720eb50393a0e96001a25203b" id="r_ac784b5c720eb50393a0e96001a25203b"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneCollisionManager.html#ac784b5c720eb50393a0e96001a25203b">getSceneNodeAndCollisionPointFromRay</a> (const <a class="el" href="namespacedcpp_1_1nub.html#a99a16af27234659006afc76b42e70d9f">nub::line3df</a> &amp;ray, <a class="el" href="namespacedcpp_1_1nub.html#af73093b1875036b48143a19817b9f6c7">nub::vector3df</a> &amp;outCollisionPoint, <a class="el" href="namespacedcpp_1_1nub.html#a3623a4d3b19accd2cf8a22f1d49d6b30">nub::triangle3df</a> &amp;outTriangle, <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a> idBitMask=0, <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> *collisionRootNode=0, bool noDebugObjects=false)</td></tr>
-<tr class="memdesc:ac784b5c720eb50393a0e96001a25203b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform a ray/box and ray/triangle collision check on a hierarchy of scene nodes.  <br /></td></tr>
-<tr class="separator:ac784b5c720eb50393a0e96001a25203b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a8041fd7c729865b7c820e7c5cc8184" id="r_a1a8041fd7c729865b7c820e7c5cc8184"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneCollisionManager.html#a1a8041fd7c729865b7c820e7c5cc8184">getCollisionPoint</a> (<a class="el" href="classdcpp_1_1scene_1_1SCollisionHit.html">SCollisionHit</a> &amp;hitResult, const <a class="el" href="classdcpp_1_1nub_1_1line3d.html">nub::line3d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt; &amp;ray, <a class="el" href="classdcpp_1_1scene_1_1ITriangleSelector.html">ITriangleSelector</a> *selector)=0</td></tr>
+<tr class="memdesc:a1a8041fd7c729865b7c820e7c5cc8184"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the nearest collision point of a line and lots of triangles, if there is one.  <br /></td></tr>
+<tr class="separator:a1a8041fd7c729865b7c820e7c5cc8184"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c00b0648c9ddd76ba6b454a5cf767f1" id="r_a1c00b0648c9ddd76ba6b454a5cf767f1"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneCollisionManager.html#a1c00b0648c9ddd76ba6b454a5cf767f1">getCollisionPoint</a> (const <a class="el" href="classdcpp_1_1nub_1_1line3d.html">nub::line3d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt; &amp;ray, <a class="el" href="classdcpp_1_1scene_1_1ITriangleSelector.html">ITriangleSelector</a> *selector, <a class="el" href="namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752">nub::vector3df</a> &amp;outCollisionPoint, <a class="el" href="namespacedcpp_1_1nub.html#ae7a90e9adde42a8433f8a5864037d292">nub::triangle3df</a> &amp;outTriangle, <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> *&amp;outNode)</td></tr>
+<tr class="memdesc:a1c00b0648c9ddd76ba6b454a5cf767f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the nearest collision point of a line and lots of triangles, if there is one.  <br /></td></tr>
+<tr class="separator:a1c00b0648c9ddd76ba6b454a5cf767f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a426ae25717131c98d2af14f97385f18a" id="r_a426ae25717131c98d2af14f97385f18a"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752">nub::vector3df</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneCollisionManager.html#a426ae25717131c98d2af14f97385f18a">getCollisionResultPosition</a> (<a class="el" href="classdcpp_1_1scene_1_1ITriangleSelector.html">ITriangleSelector</a> *selector, const <a class="el" href="namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752">nub::vector3df</a> &amp;ellipsoidPosition, const <a class="el" href="namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752">nub::vector3df</a> &amp;ellipsoidRadius, const <a class="el" href="namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752">nub::vector3df</a> &amp;ellipsoidDirectionAndSpeed, <a class="el" href="namespacedcpp_1_1nub.html#ae7a90e9adde42a8433f8a5864037d292">nub::triangle3df</a> &amp;triout, <a class="el" href="namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752">nub::vector3df</a> &amp;hitPosition, bool &amp;outFalling, <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> *&amp;outNode, <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> slidingSpeed=0.0005f, const <a class="el" href="namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752">nub::vector3df</a> &amp;gravityDirectionAndSpeed=<a class="el" href="namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752">nub::vector3df</a>(0.0f, 0.0f, 0.0f))=0</td></tr>
+<tr class="memdesc:a426ae25717131c98d2af14f97385f18a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collides a moving ellipsoid with a 3d world with gravity and returns the resulting new position of the ellipsoid.  <br /></td></tr>
+<tr class="separator:a426ae25717131c98d2af14f97385f18a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e3f45fa671773ca05ab16eaf6139b1d" id="r_a7e3f45fa671773ca05ab16eaf6139b1d"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1nub_1_1line3d.html">nub::line3d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneCollisionManager.html#a7e3f45fa671773ca05ab16eaf6139b1d">getRayFromScreenCoordinates</a> (const nub::position2d&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &amp;pos, const <a class="el" href="classdcpp_1_1scene_1_1ICameraSceneNode.html">ICameraSceneNode</a> *camera=0)=0</td></tr>
+<tr class="memdesc:a7e3f45fa671773ca05ab16eaf6139b1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a 3d ray which would go through the 2d screen coordinates.  <br /></td></tr>
+<tr class="separator:a7e3f45fa671773ca05ab16eaf6139b1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac74e1f6e4b99ebe3c23c1c1dbc4bf428" id="r_ac74e1f6e4b99ebe3c23c1c1dbc4bf428"><td class="memItemLeft" align="right" valign="top">virtual nub::position2d&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneCollisionManager.html#ac74e1f6e4b99ebe3c23c1c1dbc4bf428">getScreenCoordinatesFrom3DPosition</a> (const <a class="el" href="namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752">nub::vector3df</a> &amp;pos, const <a class="el" href="classdcpp_1_1scene_1_1ICameraSceneNode.html">ICameraSceneNode</a> *camera=0, bool useViewPort=false)=0</td></tr>
+<tr class="memdesc:ac74e1f6e4b99ebe3c23c1c1dbc4bf428"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates 2d screen position from a 3d position.  <br /></td></tr>
+<tr class="separator:ac74e1f6e4b99ebe3c23c1c1dbc4bf428"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e9cda9e73c031badd1ee4400ca7242a" id="r_a7e9cda9e73c031badd1ee4400ca7242a"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneCollisionManager.html#a7e9cda9e73c031badd1ee4400ca7242a">getSceneNodeFromScreenCoordinatesBB</a> (const nub::position2d&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &amp;pos, <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> idBitMask=0, bool bNoDebugObjects=false, <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> *root=0)=0</td></tr>
+<tr class="memdesc:a7e9cda9e73c031badd1ee4400ca7242a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the scene node, which is currently visible under the given screen coordinates, viewed from the currently active camera.  <br /></td></tr>
+<tr class="separator:a7e9cda9e73c031badd1ee4400ca7242a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6b6081bd3b1d53e38699bb234c8cc5b" id="r_ad6b6081bd3b1d53e38699bb234c8cc5b"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneCollisionManager.html#ad6b6081bd3b1d53e38699bb234c8cc5b">getSceneNodeFromRayBB</a> (const <a class="el" href="classdcpp_1_1nub_1_1line3d.html">nub::line3d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt; &amp;ray, <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> idBitMask=0, bool bNoDebugObjects=false, <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> *root=0)=0</td></tr>
+<tr class="memdesc:ad6b6081bd3b1d53e38699bb234c8cc5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the nearest scene node which collides with a 3d ray and whose id matches a bitmask.  <br /></td></tr>
+<tr class="separator:ad6b6081bd3b1d53e38699bb234c8cc5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1e0cba5cde15303b01b26b163fb30ab" id="r_aa1e0cba5cde15303b01b26b163fb30ab"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneCollisionManager.html#aa1e0cba5cde15303b01b26b163fb30ab">getSceneNodeFromCameraBB</a> (const <a class="el" href="classdcpp_1_1scene_1_1ICameraSceneNode.html">ICameraSceneNode</a> *camera, <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> idBitMask=0, bool bNoDebugObjects=false)=0</td></tr>
+<tr class="memdesc:aa1e0cba5cde15303b01b26b163fb30ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the scene node, which the given camera is looking at and whose id matches the bitmask.  <br /></td></tr>
+<tr class="separator:aa1e0cba5cde15303b01b26b163fb30ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3529897c214ab0773f9c347f8af30dfc" id="r_a3529897c214ab0773f9c347f8af30dfc"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneCollisionManager.html#a3529897c214ab0773f9c347f8af30dfc">getSceneNodeAndCollisionPointFromRay</a> (<a class="el" href="classdcpp_1_1scene_1_1SCollisionHit.html">SCollisionHit</a> &amp;hitResult, const <a class="el" href="namespacedcpp_1_1nub.html#af940b9c399f7cb81663fbdbd45e601ee">nub::line3df</a> &amp;ray, <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> idBitMask=0, <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> *collisionRootNode=0, bool noDebugObjects=false)=0</td></tr>
+<tr class="memdesc:a3529897c214ab0773f9c347f8af30dfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform a ray/box and ray/triangle collision check on a hierarchy of scene nodes.  <br /></td></tr>
+<tr class="separator:a3529897c214ab0773f9c347f8af30dfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac420f00d76b2ee14824ee6043afe8220" id="r_ac420f00d76b2ee14824ee6043afe8220"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneCollisionManager.html#ac420f00d76b2ee14824ee6043afe8220">getSceneNodeAndCollisionPointFromRay</a> (const <a class="el" href="namespacedcpp_1_1nub.html#af940b9c399f7cb81663fbdbd45e601ee">nub::line3df</a> &amp;ray, <a class="el" href="namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752">nub::vector3df</a> &amp;outCollisionPoint, <a class="el" href="namespacedcpp_1_1nub.html#ae7a90e9adde42a8433f8a5864037d292">nub::triangle3df</a> &amp;outTriangle, <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> idBitMask=0, <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> *collisionRootNode=0, bool noDebugObjects=false)</td></tr>
+<tr class="memdesc:ac420f00d76b2ee14824ee6043afe8220"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform a ray/box and ray/triangle collision check on a hierarchy of scene nodes.  <br /></td></tr>
+<tr class="separator:ac420f00d76b2ee14824ee6043afe8220"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classdcpp_1_1IReferenceCounted"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classdcpp_1_1IReferenceCounted')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classdcpp_1_1IReferenceCounted.html">dcpp::IReferenceCounted</a></td></tr>
 <tr class="memitem:a6aa4e18369165d6b993c69d15835757b inherit pub_methods_classdcpp_1_1IReferenceCounted" id="r_a6aa4e18369165d6b993c69d15835757b"><td class="memItemLeft" align="right" valign="top">
 &#160;</td><td class="memItemRight" valign="bottom"><b>IReferenceCounted</b> ()</td></tr>
@@ -170,25 +170,25 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~IReferenceCounted
 <tr class="memitem:a354018f03484e10dbef6f9162510f022 inherit pub_methods_classdcpp_1_1IReferenceCounted" id="r_a354018f03484e10dbef6f9162510f022"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IReferenceCounted.html#a354018f03484e10dbef6f9162510f022">drop</a> () const</td></tr>
 <tr class="memdesc:a354018f03484e10dbef6f9162510f022 inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drops the object. Decrements the reference counter by one.  <br /></td></tr>
 <tr class="separator:a354018f03484e10dbef6f9162510f022 inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ad874b8ef2b3bd7ca2afbf03480f32c inherit pub_methods_classdcpp_1_1IReferenceCounted" id="r_a0ad874b8ef2b3bd7ca2afbf03480f32c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IReferenceCounted.html#a0ad874b8ef2b3bd7ca2afbf03480f32c">getReferenceCount</a> () const</td></tr>
-<tr class="memdesc:a0ad874b8ef2b3bd7ca2afbf03480f32c inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the reference count.  <br /></td></tr>
-<tr class="separator:a0ad874b8ef2b3bd7ca2afbf03480f32c inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aabbe65c1cda09c97fd5f1d2fd2750250 inherit pub_methods_classdcpp_1_1IReferenceCounted" id="r_aabbe65c1cda09c97fd5f1d2fd2750250"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">byte8_kt</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IReferenceCounted.html#aabbe65c1cda09c97fd5f1d2fd2750250">getDebugName</a> () const</td></tr>
-<tr class="memdesc:aabbe65c1cda09c97fd5f1d2fd2750250 inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the debug name of the object.  <br /></td></tr>
-<tr class="separator:aabbe65c1cda09c97fd5f1d2fd2750250 inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a584dda95ccad6a90009eb42ebdccdede inherit pub_methods_classdcpp_1_1IReferenceCounted" id="r_a584dda95ccad6a90009eb42ebdccdede"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IReferenceCounted.html#a584dda95ccad6a90009eb42ebdccdede">getReferenceCount</a> () const</td></tr>
+<tr class="memdesc:a584dda95ccad6a90009eb42ebdccdede inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the reference count.  <br /></td></tr>
+<tr class="separator:a584dda95ccad6a90009eb42ebdccdede inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa470f15a1523b7800d86432c0076476c inherit pub_methods_classdcpp_1_1IReferenceCounted" id="r_aa470f15a1523b7800d86432c0076476c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">dcpp::byte8_kt</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IReferenceCounted.html#aa470f15a1523b7800d86432c0076476c">getDebugName</a> () const</td></tr>
+<tr class="memdesc:aa470f15a1523b7800d86432c0076476c inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the debug name of the object.  <br /></td></tr>
+<tr class="separator:aa470f15a1523b7800d86432c0076476c inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_methods_classdcpp_1_1IReferenceCounted"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classdcpp_1_1IReferenceCounted')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classdcpp_1_1IReferenceCounted.html">dcpp::IReferenceCounted</a></td></tr>
-<tr class="memitem:a1eb3daac6c756cb672d3cfd1df8f324e inherit pro_methods_classdcpp_1_1IReferenceCounted" id="r_a1eb3daac6c756cb672d3cfd1df8f324e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IReferenceCounted.html#a1eb3daac6c756cb672d3cfd1df8f324e">setDebugName</a> (const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">byte8_kt</a> *newName)</td></tr>
-<tr class="memdesc:a1eb3daac6c756cb672d3cfd1df8f324e inherit pro_methods_classdcpp_1_1IReferenceCounted"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the debug name of the object.  <br /></td></tr>
-<tr class="separator:a1eb3daac6c756cb672d3cfd1df8f324e inherit pro_methods_classdcpp_1_1IReferenceCounted"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d6bc70988cc8579790e48434268e84e inherit pro_methods_classdcpp_1_1IReferenceCounted" id="r_a2d6bc70988cc8579790e48434268e84e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IReferenceCounted.html#a2d6bc70988cc8579790e48434268e84e">setDebugName</a> (const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">dcpp::byte8_kt</a> *newName)</td></tr>
+<tr class="memdesc:a2d6bc70988cc8579790e48434268e84e inherit pro_methods_classdcpp_1_1IReferenceCounted"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the debug name of the object.  <br /></td></tr>
+<tr class="separator:a2d6bc70988cc8579790e48434268e84e inherit pro_methods_classdcpp_1_1IReferenceCounted"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The Scene Collision Manager provides methods for performing collision tests and picking on scene nodes. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab195e29904825448d525c1d0934b20c9" name="ab195e29904825448d525c1d0934b20c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab195e29904825448d525c1d0934b20c9">&#9670;&#160;</a></span>getCollisionPoint() <span class="overload">[1/2]</span></h2>
+<a id="a1c00b0648c9ddd76ba6b454a5cf767f1" name="a1c00b0648c9ddd76ba6b454a5cf767f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c00b0648c9ddd76ba6b454a5cf767f1">&#9670;&#160;</a></span>getCollisionPoint() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -199,7 +199,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">virtual bool dcpp::scene::ISceneCollisionManager::getCollisionPoint </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1line3d.html">nub::line3d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">float32_kt</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1line3d.html">nub::line3d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>ray</em>, </td>
         </tr>
         <tr>
@@ -211,13 +211,13 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespacedcpp_1_1nub.html#af73093b1875036b48143a19817b9f6c7">nub::vector3df</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752">nub::vector3df</a> &amp;&#160;</td>
           <td class="paramname"><em>outCollisionPoint</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespacedcpp_1_1nub.html#a3623a4d3b19accd2cf8a22f1d49d6b30">nub::triangle3df</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacedcpp_1_1nub.html#ae7a90e9adde42a8433f8a5864037d292">nub::triangle3df</a> &amp;&#160;</td>
           <td class="paramname"><em>outTriangle</em>, </td>
         </tr>
         <tr>
@@ -254,8 +254,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="aaddf5ee6780a93fccf560be23a643405" name="aaddf5ee6780a93fccf560be23a643405"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaddf5ee6780a93fccf560be23a643405">&#9670;&#160;</a></span>getCollisionPoint() <span class="overload">[2/2]</span></h2>
+<a id="a1a8041fd7c729865b7c820e7c5cc8184" name="a1a8041fd7c729865b7c820e7c5cc8184"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a8041fd7c729865b7c820e7c5cc8184">&#9670;&#160;</a></span>getCollisionPoint() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -272,7 +272,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1line3d.html">nub::line3d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">float32_kt</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1line3d.html">nub::line3d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>ray</em>, </td>
         </tr>
         <tr>
@@ -308,8 +308,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a596abedf3ab816911bfe6c0b362af7fa" name="a596abedf3ab816911bfe6c0b362af7fa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a596abedf3ab816911bfe6c0b362af7fa">&#9670;&#160;</a></span>getCollisionResultPosition()</h2>
+<a id="a426ae25717131c98d2af14f97385f18a" name="a426ae25717131c98d2af14f97385f18a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a426ae25717131c98d2af14f97385f18a">&#9670;&#160;</a></span>getCollisionResultPosition()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -318,7 +318,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="namespacedcpp_1_1nub.html#af73093b1875036b48143a19817b9f6c7">nub::vector3df</a> dcpp::scene::ISceneCollisionManager::getCollisionResultPosition </td>
+          <td class="memname">virtual <a class="el" href="namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752">nub::vector3df</a> dcpp::scene::ISceneCollisionManager::getCollisionResultPosition </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classdcpp_1_1scene_1_1ITriangleSelector.html">ITriangleSelector</a> *&#160;</td>
           <td class="paramname"><em>selector</em>, </td>
@@ -326,31 +326,31 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#af73093b1875036b48143a19817b9f6c7">nub::vector3df</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752">nub::vector3df</a> &amp;&#160;</td>
           <td class="paramname"><em>ellipsoidPosition</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#af73093b1875036b48143a19817b9f6c7">nub::vector3df</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752">nub::vector3df</a> &amp;&#160;</td>
           <td class="paramname"><em>ellipsoidRadius</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#af73093b1875036b48143a19817b9f6c7">nub::vector3df</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752">nub::vector3df</a> &amp;&#160;</td>
           <td class="paramname"><em>ellipsoidDirectionAndSpeed</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespacedcpp_1_1nub.html#a3623a4d3b19accd2cf8a22f1d49d6b30">nub::triangle3df</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacedcpp_1_1nub.html#ae7a90e9adde42a8433f8a5864037d292">nub::triangle3df</a> &amp;&#160;</td>
           <td class="paramname"><em>triout</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespacedcpp_1_1nub.html#af73093b1875036b48143a19817b9f6c7">nub::vector3df</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752">nub::vector3df</a> &amp;&#160;</td>
           <td class="paramname"><em>hitPosition</em>, </td>
         </tr>
         <tr>
@@ -368,14 +368,14 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">float32_kt</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a>&#160;</td>
           <td class="paramname"><em>slidingSpeed</em> = <code>0.0005f</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#af73093b1875036b48143a19817b9f6c7">nub::vector3df</a> &amp;&#160;</td>
-          <td class="paramname"><em>gravityDirectionAndSpeed</em> = <code><a class="el" href="namespacedcpp_1_1nub.html#af73093b1875036b48143a19817b9f6c7">nub::vector3df</a>(0.0f,&#160;0.0f,&#160;0.0f)</code>&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752">nub::vector3df</a> &amp;&#160;</td>
+          <td class="paramname"><em>gravityDirectionAndSpeed</em> = <code><a class="el" href="namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752">nub::vector3df</a>(0.0f,&#160;0.0f,&#160;0.0f)</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -411,8 +411,8 @@ Response" by Kasper Fauerby. </p><dl class="params"><dt>Parameters</dt><dd>
 
 </div>
 </div>
-<a id="a7a934270beb5dab7c4bd32f9461f297f" name="a7a934270beb5dab7c4bd32f9461f297f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7a934270beb5dab7c4bd32f9461f297f">&#9670;&#160;</a></span>getRayFromScreenCoordinates()</h2>
+<a id="a7e3f45fa671773ca05ab16eaf6139b1d" name="a7e3f45fa671773ca05ab16eaf6139b1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e3f45fa671773ca05ab16eaf6139b1d">&#9670;&#160;</a></span>getRayFromScreenCoordinates()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -421,9 +421,9 @@ Response" by Kasper Fauerby. </p><dl class="params"><dt>Parameters</dt><dd>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="classdcpp_1_1nub_1_1line3d.html">nub::line3d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">float32_kt</a> &gt; dcpp::scene::ISceneCollisionManager::getRayFromScreenCoordinates </td>
+          <td class="memname">virtual <a class="el" href="classdcpp_1_1nub_1_1line3d.html">nub::line3d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt; dcpp::scene::ISceneCollisionManager::getRayFromScreenCoordinates </td>
           <td>(</td>
-          <td class="paramtype">const nub::position2d&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const nub::position2d&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>pos</em>, </td>
         </tr>
         <tr>
@@ -457,8 +457,8 @@ Response" by Kasper Fauerby. </p><dl class="params"><dt>Parameters</dt><dd>
 
 </div>
 </div>
-<a id="ac784b5c720eb50393a0e96001a25203b" name="ac784b5c720eb50393a0e96001a25203b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac784b5c720eb50393a0e96001a25203b">&#9670;&#160;</a></span>getSceneNodeAndCollisionPointFromRay() <span class="overload">[1/2]</span></h2>
+<a id="ac420f00d76b2ee14824ee6043afe8220" name="ac420f00d76b2ee14824ee6043afe8220"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac420f00d76b2ee14824ee6043afe8220">&#9670;&#160;</a></span>getSceneNodeAndCollisionPointFromRay() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -469,25 +469,25 @@ Response" by Kasper Fauerby. </p><dl class="params"><dt>Parameters</dt><dd>
         <tr>
           <td class="memname">virtual <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> * dcpp::scene::ISceneCollisionManager::getSceneNodeAndCollisionPointFromRay </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#a99a16af27234659006afc76b42e70d9f">nub::line3df</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#af940b9c399f7cb81663fbdbd45e601ee">nub::line3df</a> &amp;&#160;</td>
           <td class="paramname"><em>ray</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespacedcpp_1_1nub.html#af73093b1875036b48143a19817b9f6c7">nub::vector3df</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752">nub::vector3df</a> &amp;&#160;</td>
           <td class="paramname"><em>outCollisionPoint</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespacedcpp_1_1nub.html#a3623a4d3b19accd2cf8a22f1d49d6b30">nub::triangle3df</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacedcpp_1_1nub.html#ae7a90e9adde42a8433f8a5864037d292">nub::triangle3df</a> &amp;&#160;</td>
           <td class="paramname"><em>outTriangle</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a>&#160;</td>
           <td class="paramname"><em>idBitMask</em> = <code>0</code>, </td>
         </tr>
         <tr>
@@ -531,8 +531,8 @@ Response" by Kasper Fauerby. </p><dl class="params"><dt>Parameters</dt><dd>
 
 </div>
 </div>
-<a id="ae282347d521f1fa91f20640edf52e017" name="ae282347d521f1fa91f20640edf52e017"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae282347d521f1fa91f20640edf52e017">&#9670;&#160;</a></span>getSceneNodeAndCollisionPointFromRay() <span class="overload">[2/2]</span></h2>
+<a id="a3529897c214ab0773f9c347f8af30dfc" name="a3529897c214ab0773f9c347f8af30dfc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3529897c214ab0773f9c347f8af30dfc">&#9670;&#160;</a></span>getSceneNodeAndCollisionPointFromRay() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -549,13 +549,13 @@ Response" by Kasper Fauerby. </p><dl class="params"><dt>Parameters</dt><dd>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#a99a16af27234659006afc76b42e70d9f">nub::line3df</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#af940b9c399f7cb81663fbdbd45e601ee">nub::line3df</a> &amp;&#160;</td>
           <td class="paramname"><em>ray</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a>&#160;</td>
           <td class="paramname"><em>idBitMask</em> = <code>0</code>, </td>
         </tr>
         <tr>
@@ -601,8 +601,8 @@ Response" by Kasper Fauerby. </p><dl class="params"><dt>Parameters</dt><dd>
 
 </div>
 </div>
-<a id="ada566fec0f15b003907f17711bad6d2d" name="ada566fec0f15b003907f17711bad6d2d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada566fec0f15b003907f17711bad6d2d">&#9670;&#160;</a></span>getSceneNodeFromCameraBB()</h2>
+<a id="aa1e0cba5cde15303b01b26b163fb30ab" name="aa1e0cba5cde15303b01b26b163fb30ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1e0cba5cde15303b01b26b163fb30ab">&#9670;&#160;</a></span>getSceneNodeFromCameraBB()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -619,7 +619,7 @@ Response" by Kasper Fauerby. </p><dl class="params"><dt>Parameters</dt><dd>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a>&#160;</td>
           <td class="paramname"><em>idBitMask</em> = <code>0</code>, </td>
         </tr>
         <tr>
@@ -654,8 +654,8 @@ Response" by Kasper Fauerby. </p><dl class="params"><dt>Parameters</dt><dd>
 
 </div>
 </div>
-<a id="aed94d28ac7d43db32265133555581d6d" name="aed94d28ac7d43db32265133555581d6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aed94d28ac7d43db32265133555581d6d">&#9670;&#160;</a></span>getSceneNodeFromRayBB()</h2>
+<a id="ad6b6081bd3b1d53e38699bb234c8cc5b" name="ad6b6081bd3b1d53e38699bb234c8cc5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6b6081bd3b1d53e38699bb234c8cc5b">&#9670;&#160;</a></span>getSceneNodeFromRayBB()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -666,13 +666,13 @@ Response" by Kasper Fauerby. </p><dl class="params"><dt>Parameters</dt><dd>
         <tr>
           <td class="memname">virtual <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> * dcpp::scene::ISceneCollisionManager::getSceneNodeFromRayBB </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1line3d.html">nub::line3d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">float32_kt</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1line3d.html">nub::line3d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>ray</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a>&#160;</td>
           <td class="paramname"><em>idBitMask</em> = <code>0</code>, </td>
         </tr>
         <tr>
@@ -714,8 +714,8 @@ Response" by Kasper Fauerby. </p><dl class="params"><dt>Parameters</dt><dd>
 
 </div>
 </div>
-<a id="ab2c6928ce215a6b1bc1e90a55543e08d" name="ab2c6928ce215a6b1bc1e90a55543e08d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2c6928ce215a6b1bc1e90a55543e08d">&#9670;&#160;</a></span>getSceneNodeFromScreenCoordinatesBB()</h2>
+<a id="a7e9cda9e73c031badd1ee4400ca7242a" name="a7e9cda9e73c031badd1ee4400ca7242a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e9cda9e73c031badd1ee4400ca7242a">&#9670;&#160;</a></span>getSceneNodeFromScreenCoordinatesBB()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -726,13 +726,13 @@ Response" by Kasper Fauerby. </p><dl class="params"><dt>Parameters</dt><dd>
         <tr>
           <td class="memname">virtual <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> * dcpp::scene::ISceneCollisionManager::getSceneNodeFromScreenCoordinatesBB </td>
           <td>(</td>
-          <td class="paramtype">const nub::position2d&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const nub::position2d&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>pos</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a>&#160;</td>
           <td class="paramname"><em>idBitMask</em> = <code>0</code>, </td>
         </tr>
         <tr>
@@ -774,8 +774,8 @@ Response" by Kasper Fauerby. </p><dl class="params"><dt>Parameters</dt><dd>
 
 </div>
 </div>
-<a id="a0e73e7935f6ee721518785d44375cad9" name="a0e73e7935f6ee721518785d44375cad9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e73e7935f6ee721518785d44375cad9">&#9670;&#160;</a></span>getScreenCoordinatesFrom3DPosition()</h2>
+<a id="ac74e1f6e4b99ebe3c23c1c1dbc4bf428" name="ac74e1f6e4b99ebe3c23c1c1dbc4bf428"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac74e1f6e4b99ebe3c23c1c1dbc4bf428">&#9670;&#160;</a></span>getScreenCoordinatesFrom3DPosition()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -784,9 +784,9 @@ Response" by Kasper Fauerby. </p><dl class="params"><dt>Parameters</dt><dd>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual nub::position2d&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a> &gt; dcpp::scene::ISceneCollisionManager::getScreenCoordinatesFrom3DPosition </td>
+          <td class="memname">virtual nub::position2d&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; dcpp::scene::ISceneCollisionManager::getScreenCoordinatesFrom3DPosition </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#af73093b1875036b48143a19817b9f6c7">nub::vector3df</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752">nub::vector3df</a> &amp;&#160;</td>
           <td class="paramname"><em>pos</em>, </td>
         </tr>
         <tr>

@@ -9,7 +9,7 @@ var searchData=
   ['iscenenodeanimatorlist_6',['ISceneNodeAnimatorList',['../namespacedcpp_1_1scene.html#aa4733c45e406c282f29d732b823c3eff',1,'dcpp::scene']]],
   ['iscenenodelist_7',['ISceneNodeList',['../namespacedcpp_1_1scene.html#a133f4aebabf4298994760dd404ea9520',1,'dcpp::scene']]],
   ['ixmlreader_8',['IXMLReader',['../namespacedcpp_1_1io.html#a2f8f8d122dc562487fd93f805d750b4c',1,'dcpp::io']]],
-  ['ixmlreaderutf8_9',['IXMLReaderUTF8',['../namespacedcpp_1_1io.html#ae46f05832a91b418cb83cbdab39d715c',1,'dcpp::io']]],
+  ['ixmlreaderutf8_9',['IXMLReaderUTF8',['../namespacedcpp_1_1io.html#a101e57bf7ffaa6e379f003ff3e916f65',1,'dcpp::io']]],
   ['ixmlwriter_10',['IXMLWriter',['../namespacedcpp_1_1io.html#a8186697b3bc103215a9a226a74a4133f',1,'dcpp::io']]],
-  ['ixmlwriterutf8_11',['IXMLWriterUTF8',['../namespacedcpp_1_1io.html#ad20c05e0db34499071607f693bdb224b',1,'dcpp::io']]]
+  ['ixmlwriterutf8_11',['IXMLWriterUTF8',['../namespacedcpp_1_1io.html#a4a391f39c39269d006a9d2bbaf7018a0',1,'dcpp::io']]]
 ];

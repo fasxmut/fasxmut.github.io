@@ -125,67 +125,67 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>IProfiler</b> ()</td></tr>
 <tr class="memdesc:a66f16a40e49094cd87357edf9987d90b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. You could use this to create a new profiler, but usually <a class="el" href="namespacedcpp.html#aff98c1938e9c8a06d9af9dd7493fb5eb" title="Access the Duckcpp profiler object.">getProfiler()</a> is used to access the global instance. <br /></td></tr>
 <tr class="separator:a66f16a40e49094cd87357edf9987d90b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a532014d72b2b67b5fdd560628e68814f" id="r_a532014d72b2b67b5fdd560628e68814f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IProfiler.html#a532014d72b2b67b5fdd560628e68814f">add</a> (<a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a> id, const <a class="el" href="namespacedcpp_1_1nub.html#ad9eecbc33ee690c909d79e6befaf07bc">nub::wstring</a> &amp;name, const <a class="el" href="namespacedcpp_1_1nub.html#ad9eecbc33ee690c909d79e6befaf07bc">nub::wstring</a> &amp;groupName)</td></tr>
-<tr class="memdesc:a532014d72b2b67b5fdd560628e68814f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add an id with given name and group which can be used for profiling with start/stop.  <br /></td></tr>
-<tr class="separator:a532014d72b2b67b5fdd560628e68814f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e04bead61de9d9ea52ebb205bad56d1" id="r_a3e04bead61de9d9ea52ebb205bad56d1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IProfiler.html#a3e04bead61de9d9ea52ebb205bad56d1">add</a> (const <a class="el" href="namespacedcpp_1_1nub.html#ad9eecbc33ee690c909d79e6befaf07bc">nub::wstring</a> &amp;name, const <a class="el" href="namespacedcpp_1_1nub.html#ad9eecbc33ee690c909d79e6befaf07bc">nub::wstring</a> &amp;groupName)</td></tr>
-<tr class="memdesc:a3e04bead61de9d9ea52ebb205bad56d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add an automatically generated for the given name and group which can be used for profiling with start/stop.  <br /></td></tr>
-<tr class="separator:a3e04bead61de9d9ea52ebb205bad56d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa985402e32a17db0bc423178302d8650" id="r_aa985402e32a17db0bc423178302d8650"><td class="memItemLeft" align="right" valign="top"><a id="aa985402e32a17db0bc423178302d8650" name="aa985402e32a17db0bc423178302d8650"></a>
-<a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">uint32_kt</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getProfileDataCount</b> () const</td></tr>
-<tr class="memdesc:aa985402e32a17db0bc423178302d8650"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the number of profile data blocks. There is one for each id. <br /></td></tr>
-<tr class="separator:aa985402e32a17db0bc423178302d8650"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5baf3d9f731e501f378cfd8ab5c913cd" id="r_a5baf3d9f731e501f378cfd8ab5c913cd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IProfiler.html#a5baf3d9f731e501f378cfd8ab5c913cd">findDataIndex</a> (<a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">uint32_kt</a> &amp;result, const <a class="el" href="namespacedcpp_1_1nub.html#ad9eecbc33ee690c909d79e6befaf07bc">nub::wstring</a> &amp;name) const</td></tr>
-<tr class="memdesc:a5baf3d9f731e501f378cfd8ab5c913cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Search for the index of the profile data by name.  <br /></td></tr>
-<tr class="separator:a5baf3d9f731e501f378cfd8ab5c913cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49937d7bdc24c3722e01b5843d25002d" id="r_a49937d7bdc24c3722e01b5843d25002d"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classdcpp_1_1SProfileData.html">SProfileData</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IProfiler.html#a49937d7bdc24c3722e01b5843d25002d">getProfileDataByIndex</a> (<a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">uint32_kt</a> index) const</td></tr>
-<tr class="memdesc:a49937d7bdc24c3722e01b5843d25002d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the profile data.  <br /></td></tr>
-<tr class="separator:a49937d7bdc24c3722e01b5843d25002d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42942f0e52adcd1add1261c4ff832552" id="r_a42942f0e52adcd1add1261c4ff832552"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classdcpp_1_1SProfileData.html">SProfileData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IProfiler.html#a42942f0e52adcd1add1261c4ff832552">getProfileDataById</a> (<a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">uint32_kt</a> id)</td></tr>
-<tr class="memdesc:a42942f0e52adcd1add1261c4ff832552"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the profile data.  <br /></td></tr>
-<tr class="separator:a42942f0e52adcd1add1261c4ff832552"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92bb66baff1d321441a8da2e843f71d5" id="r_a92bb66baff1d321441a8da2e843f71d5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">uint32_kt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IProfiler.html#a92bb66baff1d321441a8da2e843f71d5">getGroupCount</a> () const</td></tr>
-<tr class="memdesc:a92bb66baff1d321441a8da2e843f71d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of profile groups. Will be at least 1.  <br /></td></tr>
-<tr class="separator:a92bb66baff1d321441a8da2e843f71d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a803fcec1845a53db7e362add6a4e6399" id="r_a803fcec1845a53db7e362add6a4e6399"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classdcpp_1_1SProfileData.html">SProfileData</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IProfiler.html#a803fcec1845a53db7e362add6a4e6399">getGroupData</a> (<a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">uint32_kt</a> index) const</td></tr>
-<tr class="memdesc:a803fcec1845a53db7e362add6a4e6399"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get profile data for a group.  <br /></td></tr>
-<tr class="separator:a803fcec1845a53db7e362add6a4e6399"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c023c7cb9b95f7f325b7742864542ae" id="r_a4c023c7cb9b95f7f325b7742864542ae"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IProfiler.html#a4c023c7cb9b95f7f325b7742864542ae">findGroupIndex</a> (<a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">uint32_kt</a> &amp;result, const <a class="el" href="namespacedcpp_1_1nub.html#ad9eecbc33ee690c909d79e6befaf07bc">nub::wstring</a> &amp;name) const</td></tr>
-<tr class="memdesc:a4c023c7cb9b95f7f325b7742864542ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the group index by the group-name.  <br /></td></tr>
-<tr class="separator:a4c023c7cb9b95f7f325b7742864542ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9502a50dd2d8b046f3a9ef64c83cd46d" id="r_a9502a50dd2d8b046f3a9ef64c83cd46d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IProfiler.html#a9502a50dd2d8b046f3a9ef64c83cd46d">start</a> (<a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a> id)</td></tr>
-<tr class="memdesc:a9502a50dd2d8b046f3a9ef64c83cd46d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start profile-timing for the given id.  <br /></td></tr>
-<tr class="separator:a9502a50dd2d8b046f3a9ef64c83cd46d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb8ae4714cb453fdad506a4c8ad9861a" id="r_acb8ae4714cb453fdad506a4c8ad9861a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IProfiler.html#acb8ae4714cb453fdad506a4c8ad9861a">stop</a> (<a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a> id)</td></tr>
-<tr class="memdesc:acb8ae4714cb453fdad506a4c8ad9861a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop profile-timing for the given id.  <br /></td></tr>
-<tr class="separator:acb8ae4714cb453fdad506a4c8ad9861a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9921b8f849ec4805f0c3ac825e18b22" id="r_ad9921b8f849ec4805f0c3ac825e18b22"><td class="memItemLeft" align="right" valign="top"><a id="ad9921b8f849ec4805f0c3ac825e18b22" name="ad9921b8f849ec4805f0c3ac825e18b22"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>resetDataById</b> (<a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a> id)</td></tr>
-<tr class="memdesc:ad9921b8f849ec4805f0c3ac825e18b22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset profile data for the given id. <br /></td></tr>
-<tr class="separator:ad9921b8f849ec4805f0c3ac825e18b22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77c4f37266a39d467b6ec0a2923c96bb" id="r_a77c4f37266a39d467b6ec0a2923c96bb"><td class="memItemLeft" align="right" valign="top"><a id="a77c4f37266a39d467b6ec0a2923c96bb" name="a77c4f37266a39d467b6ec0a2923c96bb"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>resetDataByIndex</b> (<a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">uint32_kt</a> index)</td></tr>
-<tr class="memdesc:a77c4f37266a39d467b6ec0a2923c96bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset profile data for the given index. <br /></td></tr>
-<tr class="separator:a77c4f37266a39d467b6ec0a2923c96bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a782ba00de99378936dce00e7aaa95e9e" id="r_a782ba00de99378936dce00e7aaa95e9e"><td class="memItemLeft" align="right" valign="top"><a id="a782ba00de99378936dce00e7aaa95e9e" name="a782ba00de99378936dce00e7aaa95e9e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>resetGroup</b> (<a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">uint32_kt</a> index)</td></tr>
-<tr class="memdesc:a782ba00de99378936dce00e7aaa95e9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset profile data for a whole group. <br /></td></tr>
-<tr class="separator:a782ba00de99378936dce00e7aaa95e9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc812c207af87efd612894a7e91cade0" id="r_afc812c207af87efd612894a7e91cade0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IProfiler.html#afc812c207af87efd612894a7e91cade0">add</a> (<a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> id, const <a class="el" href="namespacedcpp_1_1nub.html#ad9eecbc33ee690c909d79e6befaf07bc">nub::wstring</a> &amp;name, const <a class="el" href="namespacedcpp_1_1nub.html#ad9eecbc33ee690c909d79e6befaf07bc">nub::wstring</a> &amp;groupName)</td></tr>
+<tr class="memdesc:afc812c207af87efd612894a7e91cade0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add an id with given name and group which can be used for profiling with start/stop.  <br /></td></tr>
+<tr class="separator:afc812c207af87efd612894a7e91cade0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ae0ce8f239e2ddd8d9fb434309058d7" id="r_a7ae0ce8f239e2ddd8d9fb434309058d7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IProfiler.html#a7ae0ce8f239e2ddd8d9fb434309058d7">add</a> (const <a class="el" href="namespacedcpp_1_1nub.html#ad9eecbc33ee690c909d79e6befaf07bc">nub::wstring</a> &amp;name, const <a class="el" href="namespacedcpp_1_1nub.html#ad9eecbc33ee690c909d79e6befaf07bc">nub::wstring</a> &amp;groupName)</td></tr>
+<tr class="memdesc:a7ae0ce8f239e2ddd8d9fb434309058d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add an automatically generated for the given name and group which can be used for profiling with start/stop.  <br /></td></tr>
+<tr class="separator:a7ae0ce8f239e2ddd8d9fb434309058d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07bd7eb4b0664b4f6a141ae2f6d69b2d" id="r_a07bd7eb4b0664b4f6a141ae2f6d69b2d"><td class="memItemLeft" align="right" valign="top"><a id="a07bd7eb4b0664b4f6a141ae2f6d69b2d" name="a07bd7eb4b0664b4f6a141ae2f6d69b2d"></a>
+<a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getProfileDataCount</b> () const</td></tr>
+<tr class="memdesc:a07bd7eb4b0664b4f6a141ae2f6d69b2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the number of profile data blocks. There is one for each id. <br /></td></tr>
+<tr class="separator:a07bd7eb4b0664b4f6a141ae2f6d69b2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1c70e2e7021f7c10fbf150b3a3b5edc" id="r_aa1c70e2e7021f7c10fbf150b3a3b5edc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IProfiler.html#aa1c70e2e7021f7c10fbf150b3a3b5edc">findDataIndex</a> (<a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &amp;result, const <a class="el" href="namespacedcpp_1_1nub.html#ad9eecbc33ee690c909d79e6befaf07bc">nub::wstring</a> &amp;name) const</td></tr>
+<tr class="memdesc:aa1c70e2e7021f7c10fbf150b3a3b5edc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Search for the index of the profile data by name.  <br /></td></tr>
+<tr class="separator:aa1c70e2e7021f7c10fbf150b3a3b5edc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3d92b4225f8dac1835f9c810a6aa2da" id="r_ac3d92b4225f8dac1835f9c810a6aa2da"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classdcpp_1_1SProfileData.html">SProfileData</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IProfiler.html#ac3d92b4225f8dac1835f9c810a6aa2da">getProfileDataByIndex</a> (<a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> index) const</td></tr>
+<tr class="memdesc:ac3d92b4225f8dac1835f9c810a6aa2da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the profile data.  <br /></td></tr>
+<tr class="separator:ac3d92b4225f8dac1835f9c810a6aa2da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0ca0bb4ed675c8d8dd7479f8840339c" id="r_aa0ca0bb4ed675c8d8dd7479f8840339c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classdcpp_1_1SProfileData.html">SProfileData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IProfiler.html#aa0ca0bb4ed675c8d8dd7479f8840339c">getProfileDataById</a> (<a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> id)</td></tr>
+<tr class="memdesc:aa0ca0bb4ed675c8d8dd7479f8840339c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the profile data.  <br /></td></tr>
+<tr class="separator:aa0ca0bb4ed675c8d8dd7479f8840339c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82bd5e0c1573106b2a6b597c293bd58f" id="r_a82bd5e0c1573106b2a6b597c293bd58f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IProfiler.html#a82bd5e0c1573106b2a6b597c293bd58f">getGroupCount</a> () const</td></tr>
+<tr class="memdesc:a82bd5e0c1573106b2a6b597c293bd58f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of profile groups. Will be at least 1.  <br /></td></tr>
+<tr class="separator:a82bd5e0c1573106b2a6b597c293bd58f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeec70f9553129cc6800d0cf61a774da4" id="r_aeec70f9553129cc6800d0cf61a774da4"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classdcpp_1_1SProfileData.html">SProfileData</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IProfiler.html#aeec70f9553129cc6800d0cf61a774da4">getGroupData</a> (<a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> index) const</td></tr>
+<tr class="memdesc:aeec70f9553129cc6800d0cf61a774da4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get profile data for a group.  <br /></td></tr>
+<tr class="separator:aeec70f9553129cc6800d0cf61a774da4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc332b39d372a441505d6fe79bfe972f" id="r_acc332b39d372a441505d6fe79bfe972f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IProfiler.html#acc332b39d372a441505d6fe79bfe972f">findGroupIndex</a> (<a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &amp;result, const <a class="el" href="namespacedcpp_1_1nub.html#ad9eecbc33ee690c909d79e6befaf07bc">nub::wstring</a> &amp;name) const</td></tr>
+<tr class="memdesc:acc332b39d372a441505d6fe79bfe972f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the group index by the group-name.  <br /></td></tr>
+<tr class="separator:acc332b39d372a441505d6fe79bfe972f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20ecd63a7d5441d35a74f7167d411b93" id="r_a20ecd63a7d5441d35a74f7167d411b93"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IProfiler.html#a20ecd63a7d5441d35a74f7167d411b93">start</a> (<a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> id)</td></tr>
+<tr class="memdesc:a20ecd63a7d5441d35a74f7167d411b93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start profile-timing for the given id.  <br /></td></tr>
+<tr class="separator:a20ecd63a7d5441d35a74f7167d411b93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e47146b4d47597edbbcbba6be0e943a" id="r_a7e47146b4d47597edbbcbba6be0e943a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IProfiler.html#a7e47146b4d47597edbbcbba6be0e943a">stop</a> (<a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> id)</td></tr>
+<tr class="memdesc:a7e47146b4d47597edbbcbba6be0e943a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop profile-timing for the given id.  <br /></td></tr>
+<tr class="separator:a7e47146b4d47597edbbcbba6be0e943a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adef8884b87db76c11250a2831054300f" id="r_adef8884b87db76c11250a2831054300f"><td class="memItemLeft" align="right" valign="top"><a id="adef8884b87db76c11250a2831054300f" name="adef8884b87db76c11250a2831054300f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>resetDataById</b> (<a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> id)</td></tr>
+<tr class="memdesc:adef8884b87db76c11250a2831054300f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset profile data for the given id. <br /></td></tr>
+<tr class="separator:adef8884b87db76c11250a2831054300f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af304e7fb21a1beed9cf63f192cd67b9a" id="r_af304e7fb21a1beed9cf63f192cd67b9a"><td class="memItemLeft" align="right" valign="top"><a id="af304e7fb21a1beed9cf63f192cd67b9a" name="af304e7fb21a1beed9cf63f192cd67b9a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>resetDataByIndex</b> (<a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> index)</td></tr>
+<tr class="memdesc:af304e7fb21a1beed9cf63f192cd67b9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset profile data for the given index. <br /></td></tr>
+<tr class="separator:af304e7fb21a1beed9cf63f192cd67b9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53a43e22fdde98b3327279a4eb4172ed" id="r_a53a43e22fdde98b3327279a4eb4172ed"><td class="memItemLeft" align="right" valign="top"><a id="a53a43e22fdde98b3327279a4eb4172ed" name="a53a43e22fdde98b3327279a4eb4172ed"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>resetGroup</b> (<a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> index)</td></tr>
+<tr class="memdesc:a53a43e22fdde98b3327279a4eb4172ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset profile data for a whole group. <br /></td></tr>
+<tr class="separator:a53a43e22fdde98b3327279a4eb4172ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0e257573fa605b54221248f7d5f34b5" id="r_ac0e257573fa605b54221248f7d5f34b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IProfiler.html#ac0e257573fa605b54221248f7d5f34b5">resetAll</a> ()</td></tr>
 <tr class="memdesc:ac0e257573fa605b54221248f7d5f34b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset all profile data.  <br /></td></tr>
 <tr class="separator:ac0e257573fa605b54221248f7d5f34b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a149d574b6192072c08deb6876ca463ad" id="r_a149d574b6192072c08deb6876ca463ad"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IProfiler.html#a149d574b6192072c08deb6876ca463ad">printAll</a> (<a class="el" href="namespacedcpp_1_1nub.html#ad9eecbc33ee690c909d79e6befaf07bc">nub::wstring</a> &amp;result, bool includeOverview=false, bool suppressUncalled=true) const =0</td></tr>
 <tr class="memdesc:a149d574b6192072c08deb6876ca463ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write all profile-data into a string.  <br /></td></tr>
 <tr class="separator:a149d574b6192072c08deb6876ca463ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a535e3490e6ed3d77aee6aae2a824fb63" id="r_a535e3490e6ed3d77aee6aae2a824fb63"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IProfiler.html#a535e3490e6ed3d77aee6aae2a824fb63">printGroup</a> (<a class="el" href="namespacedcpp_1_1nub.html#ad9eecbc33ee690c909d79e6befaf07bc">nub::wstring</a> &amp;result, <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">uint32_kt</a> groupIndex, bool suppressUncalled) const =0</td></tr>
-<tr class="memdesc:a535e3490e6ed3d77aee6aae2a824fb63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the profile data of one group into a string.  <br /></td></tr>
-<tr class="separator:a535e3490e6ed3d77aee6aae2a824fb63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af14446821542353c2822e94a173bf488" id="r_af14446821542353c2822e94a173bf488"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IProfiler.html#af14446821542353c2822e94a173bf488">printGroup</a> (<a class="el" href="namespacedcpp_1_1nub.html#ad9eecbc33ee690c909d79e6befaf07bc">nub::wstring</a> &amp;result, <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> groupIndex, bool suppressUncalled) const =0</td></tr>
+<tr class="memdesc:af14446821542353c2822e94a173bf488"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the profile data of one group into a string.  <br /></td></tr>
+<tr class="separator:af14446821542353c2822e94a173bf488"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a5bbe8efa88e6d605a00aa28735a66f3e" id="r_a5bbe8efa88e6d605a00aa28735a66f3e"><td class="memItemLeft" align="right" valign="top"><a id="a5bbe8efa88e6d605a00aa28735a66f3e" name="a5bbe8efa88e6d605a00aa28735a66f3e"></a>
-<a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">uint32_kt</a>&#160;</td><td class="memItemRight" valign="bottom"><b>addGroup</b> (const <a class="el" href="namespacedcpp_1_1nub.html#ad9eecbc33ee690c909d79e6befaf07bc">nub::wstring</a> &amp;name)</td></tr>
-<tr class="separator:a5bbe8efa88e6d605a00aa28735a66f3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f892f056f52453bed035562b9e794a6" id="r_a5f892f056f52453bed035562b9e794a6"><td class="memItemLeft" align="right" valign="top"><a id="a5f892f056f52453bed035562b9e794a6" name="a5f892f056f52453bed035562b9e794a6"></a>
+<a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a>&#160;</td><td class="memItemRight" valign="bottom"><b>addGroup</b> (const <a class="el" href="namespacedcpp_1_1nub.html#ad9eecbc33ee690c909d79e6befaf07bc">nub::wstring</a> &amp;name)</td></tr>
+<tr class="separator:a5f892f056f52453bed035562b9e794a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -202,8 +202,8 @@ Protected Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Code-profiler. Please check the example in the Duckcpp examples folder about how to use it. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a3e04bead61de9d9ea52ebb205bad56d1" name="a3e04bead61de9d9ea52ebb205bad56d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3e04bead61de9d9ea52ebb205bad56d1">&#9670;&#160;</a></span>add() <span class="overload">[1/2]</span></h2>
+<a id="a7ae0ce8f239e2ddd8d9fb434309058d7" name="a7ae0ce8f239e2ddd8d9fb434309058d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ae0ce8f239e2ddd8d9fb434309058d7">&#9670;&#160;</a></span>add() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -212,7 +212,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a> dcpp::IProfiler::add </td>
+          <td class="memname"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> dcpp::IProfiler::add </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#ad9eecbc33ee690c909d79e6befaf07bc">nub::wstring</a> &amp;&#160;</td>
           <td class="paramname"><em>name</em>, </td>
@@ -248,8 +248,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a532014d72b2b67b5fdd560628e68814f" name="a532014d72b2b67b5fdd560628e68814f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a532014d72b2b67b5fdd560628e68814f">&#9670;&#160;</a></span>add() <span class="overload">[2/2]</span></h2>
+<a id="afc812c207af87efd612894a7e91cade0" name="afc812c207af87efd612894a7e91cade0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc812c207af87efd612894a7e91cade0">&#9670;&#160;</a></span>add() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -260,7 +260,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">void dcpp::IProfiler::add </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a>&#160;</td>
           <td class="paramname"><em>id</em>, </td>
         </tr>
         <tr>
@@ -300,8 +300,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a5baf3d9f731e501f378cfd8ab5c913cd" name="a5baf3d9f731e501f378cfd8ab5c913cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5baf3d9f731e501f378cfd8ab5c913cd">&#9670;&#160;</a></span>findDataIndex()</h2>
+<a id="aa1c70e2e7021f7c10fbf150b3a3b5edc" name="aa1c70e2e7021f7c10fbf150b3a3b5edc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1c70e2e7021f7c10fbf150b3a3b5edc">&#9670;&#160;</a></span>findDataIndex()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -312,7 +312,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">bool dcpp::IProfiler::findDataIndex </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">uint32_kt</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &amp;&#160;</td>
           <td class="paramname"><em>result</em>, </td>
         </tr>
         <tr>
@@ -346,8 +346,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a4c023c7cb9b95f7f325b7742864542ae" name="a4c023c7cb9b95f7f325b7742864542ae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c023c7cb9b95f7f325b7742864542ae">&#9670;&#160;</a></span>findGroupIndex()</h2>
+<a id="acc332b39d372a441505d6fe79bfe972f" name="acc332b39d372a441505d6fe79bfe972f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc332b39d372a441505d6fe79bfe972f">&#9670;&#160;</a></span>findGroupIndex()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -358,7 +358,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">bool dcpp::IProfiler::findGroupIndex </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">uint32_kt</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &amp;&#160;</td>
           <td class="paramname"><em>result</em>, </td>
         </tr>
         <tr>
@@ -392,8 +392,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a92bb66baff1d321441a8da2e843f71d5" name="a92bb66baff1d321441a8da2e843f71d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a92bb66baff1d321441a8da2e843f71d5">&#9670;&#160;</a></span>getGroupCount()</h2>
+<a id="a82bd5e0c1573106b2a6b597c293bd58f" name="a82bd5e0c1573106b2a6b597c293bd58f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82bd5e0c1573106b2a6b597c293bd58f">&#9670;&#160;</a></span>getGroupCount()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -402,7 +402,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">uint32_kt</a> dcpp::IProfiler::getGroupCount </td>
+          <td class="memname"><a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> dcpp::IProfiler::getGroupCount </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -420,8 +420,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a803fcec1845a53db7e362add6a4e6399" name="a803fcec1845a53db7e362add6a4e6399"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a803fcec1845a53db7e362add6a4e6399">&#9670;&#160;</a></span>getGroupData()</h2>
+<a id="aeec70f9553129cc6800d0cf61a774da4" name="aeec70f9553129cc6800d0cf61a774da4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeec70f9553129cc6800d0cf61a774da4">&#9670;&#160;</a></span>getGroupData()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -432,7 +432,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">const <a class="el" href="classdcpp_1_1SProfileData.html">SProfileData</a> &amp; dcpp::IProfiler::getGroupData </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">uint32_kt</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a>&#160;</td>
           <td class="paramname"><em>index</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -449,8 +449,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a42942f0e52adcd1add1261c4ff832552" name="a42942f0e52adcd1add1261c4ff832552"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a42942f0e52adcd1add1261c4ff832552">&#9670;&#160;</a></span>getProfileDataById()</h2>
+<a id="aa0ca0bb4ed675c8d8dd7479f8840339c" name="aa0ca0bb4ed675c8d8dd7479f8840339c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0ca0bb4ed675c8d8dd7479f8840339c">&#9670;&#160;</a></span>getProfileDataById()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -461,7 +461,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">const <a class="el" href="classdcpp_1_1SProfileData.html">SProfileData</a> * dcpp::IProfiler::getProfileDataById </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">uint32_kt</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a>&#160;</td>
           <td class="paramname"><em>id</em></td><td>)</td>
           <td></td>
         </tr>
@@ -476,7 +476,7 @@ Protected Attributes</h2></td></tr>
 <p>Get the profile data. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">id</td><td>Same value as used in <a class="el" href="classdcpp_1_1IProfiler.html#a532014d72b2b67b5fdd560628e68814f" title="Add an id with given name and group which can be used for profiling with start/stop.">add</a> </td></tr>
+    <tr><td class="paramname">id</td><td>Same value as used in <a class="el" href="classdcpp_1_1IProfiler.html#afc812c207af87efd612894a7e91cade0" title="Add an id with given name and group which can be used for profiling with start/stop.">add</a> </td></tr>
   </table>
   </dd>
 </dl>
@@ -485,8 +485,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a49937d7bdc24c3722e01b5843d25002d" name="a49937d7bdc24c3722e01b5843d25002d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49937d7bdc24c3722e01b5843d25002d">&#9670;&#160;</a></span>getProfileDataByIndex()</h2>
+<a id="ac3d92b4225f8dac1835f9c810a6aa2da" name="ac3d92b4225f8dac1835f9c810a6aa2da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3d92b4225f8dac1835f9c810a6aa2da">&#9670;&#160;</a></span>getProfileDataByIndex()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -497,7 +497,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">const <a class="el" href="classdcpp_1_1SProfileData.html">SProfileData</a> &amp; dcpp::IProfiler::getProfileDataByIndex </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">uint32_kt</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a>&#160;</td>
           <td class="paramname"><em>index</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -512,7 +512,7 @@ Protected Attributes</h2></td></tr>
 <p>Get the profile data. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">index</td><td>A value between 0 and <a class="el" href="classdcpp_1_1IProfiler.html#aa985402e32a17db0bc423178302d8650" title="Return the number of profile data blocks. There is one for each id.">getProfileDataCount()</a>-1. Indices can change when new id's are added. </td></tr>
+    <tr><td class="paramname">index</td><td>A value between 0 and <a class="el" href="classdcpp_1_1IProfiler.html#a07bd7eb4b0664b4f6a141ae2f6d69b2d" title="Return the number of profile data blocks. There is one for each id.">getProfileDataCount()</a>-1. Indices can change when new id's are added. </td></tr>
   </table>
   </dd>
 </dl>
@@ -571,8 +571,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a535e3490e6ed3d77aee6aae2a824fb63" name="a535e3490e6ed3d77aee6aae2a824fb63"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a535e3490e6ed3d77aee6aae2a824fb63">&#9670;&#160;</a></span>printGroup()</h2>
+<a id="af14446821542353c2822e94a173bf488" name="af14446821542353c2822e94a173bf488"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af14446821542353c2822e94a173bf488">&#9670;&#160;</a></span>printGroup()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -589,7 +589,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">uint32_kt</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a>&#160;</td>
           <td class="paramname"><em>groupIndex</em>, </td>
         </tr>
         <tr>
@@ -651,8 +651,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a9502a50dd2d8b046f3a9ef64c83cd46d" name="a9502a50dd2d8b046f3a9ef64c83cd46d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9502a50dd2d8b046f3a9ef64c83cd46d">&#9670;&#160;</a></span>start()</h2>
+<a id="a20ecd63a7d5441d35a74f7167d411b93" name="a20ecd63a7d5441d35a74f7167d411b93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20ecd63a7d5441d35a74f7167d411b93">&#9670;&#160;</a></span>start()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -663,7 +663,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">void dcpp::IProfiler::start </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a>&#160;</td>
           <td class="paramname"><em>id</em></td><td>)</td>
           <td></td>
         </tr>
@@ -676,12 +676,12 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Start profile-timing for the given id. </p>
-<p>This increases an internal run-counter for the given id. It will profile as long as that counter is &gt; 0. NOTE: you have to add the id first with one of the <a class="el" href="classdcpp_1_1IProfiler.html#a532014d72b2b67b5fdd560628e68814f" title="Add an id with given name and group which can be used for profiling with start/stop.">add</a> functions </p>
+<p>This increases an internal run-counter for the given id. It will profile as long as that counter is &gt; 0. NOTE: you have to add the id first with one of the <a class="el" href="classdcpp_1_1IProfiler.html#afc812c207af87efd612894a7e91cade0" title="Add an id with given name and group which can be used for profiling with start/stop.">add</a> functions </p>
 
 </div>
 </div>
-<a id="acb8ae4714cb453fdad506a4c8ad9861a" name="acb8ae4714cb453fdad506a4c8ad9861a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acb8ae4714cb453fdad506a4c8ad9861a">&#9670;&#160;</a></span>stop()</h2>
+<a id="a7e47146b4d47597edbbcbba6be0e943a" name="a7e47146b4d47597edbbcbba6be0e943a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e47146b4d47597edbbcbba6be0e943a">&#9670;&#160;</a></span>stop()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -692,7 +692,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">void dcpp::IProfiler::stop </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">int32_kt</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a>&#160;</td>
           <td class="paramname"><em>id</em></td><td>)</td>
           <td></td>
         </tr>

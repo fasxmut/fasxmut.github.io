@@ -1,9 +1,9 @@
 var classdcpp_1_1video_1_1IVideoModeList =
 [
-    [ "getDesktopDepth", "classdcpp_1_1video_1_1IVideoModeList.html#acffd42b9720f21e9dd000fc60dd9b007", null ],
-    [ "getDesktopResolution", "classdcpp_1_1video_1_1IVideoModeList.html#a765fe6f144edb1869261078a9791254e", null ],
-    [ "getVideoModeCount", "classdcpp_1_1video_1_1IVideoModeList.html#a2f87476521c4832da61c7221d73096bd", null ],
-    [ "getVideoModeDepth", "classdcpp_1_1video_1_1IVideoModeList.html#a8407eba866188e82bc8a3798648eb472", null ],
-    [ "getVideoModeResolution", "classdcpp_1_1video_1_1IVideoModeList.html#a799a2c21ccd5c3980c3a52e138a80d44", null ],
-    [ "getVideoModeResolution", "classdcpp_1_1video_1_1IVideoModeList.html#acca9c7bfa3fea4a11ec7ac7f59d84145", null ]
+    [ "getDesktopDepth", "classdcpp_1_1video_1_1IVideoModeList.html#a7c57bb81e97053f7ebe155bae1516caa", null ],
+    [ "getDesktopResolution", "classdcpp_1_1video_1_1IVideoModeList.html#a7bcf23756237dc0798525e3d168cafb9", null ],
+    [ "getVideoModeCount", "classdcpp_1_1video_1_1IVideoModeList.html#a5b37c39f7ba189a924f649ceae32e64a", null ],
+    [ "getVideoModeDepth", "classdcpp_1_1video_1_1IVideoModeList.html#a11c81a7dea2cd4126d161514e225150f", null ],
+    [ "getVideoModeResolution", "classdcpp_1_1video_1_1IVideoModeList.html#abb6637bb18fb503c78ceab58403e2c9a", null ],
+    [ "getVideoModeResolution", "classdcpp_1_1video_1_1IVideoModeList.html#a89e31c183b85ea7d0c330973c3fc50cb", null ]
 ];
