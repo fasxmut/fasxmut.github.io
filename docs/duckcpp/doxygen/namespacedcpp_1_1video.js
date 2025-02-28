@@ -111,7 +111,7 @@ var namespacedcpp_1_1video =
       [ "EDT_BURNINGSVIDEO", "namespacedcpp_1_1video.html#a6ffe075a6fa7733a41e2aa743930b218a7b0851e5b8539959bd1fe8d8b5f3473e", null ],
       [ "DEPRECATED_EDT_DIRECT3D8_NO_LONGER_EXISTS", "namespacedcpp_1_1video.html#a6ffe075a6fa7733a41e2aa743930b218a1bbb7d5f85600d5623912edec38dccf5", null ],
       [ "EDT_DIRECT3D9", "namespacedcpp_1_1video.html#a6ffe075a6fa7733a41e2aa743930b218a309c331f7277bf3367fa7caa54638021", null ],
-      [ "EDT_OPENGL", "namespacedcpp_1_1video.html#a6ffe075a6fa7733a41e2aa743930b218a9d02889e66df55cc6743ed9abade16ee", null ],
+      [ "EDT_EGXU", "namespacedcpp_1_1video.html#a6ffe075a6fa7733a41e2aa743930b218ad93ade498a9521e5abfad03d04b38ce8", null ],
       [ "EDT_COUNT", "namespacedcpp_1_1video.html#a6ffe075a6fa7733a41e2aa743930b218a2a7a1da465e4808f7e5c8cf70894fcc3", null ]
     ] ],
     [ "E_FOG_TYPE", "namespacedcpp_1_1video.html#acf50d73aec8c11807e57ac2dd40ceef2", [
