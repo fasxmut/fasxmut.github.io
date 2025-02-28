@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>decoder.decode(...)</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Azvzl">
+<link rel="up" href="decode.html" title="Decode">
+<link rel="prev" href="azvzl-az_decoder.html" title="azvzl::az_decoder">
+<link rel="next" href="decoder-decode_data_size.html" title="decoder.decode_data_size()">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="azvzl-az_decoder.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="decode.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="decoder-decode_data_size.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div>
+<div><h2 class="title">
+<a name="decoder-decode"></a>decoder.decode(...)</h2></div>
+<div><div class="authorgroup"><div class="author"><h3 class="author">
+<span class="firstname">Fas</span> <span class="surname">Xmut</span>
+</h3></div></div></div>
+<div><p class="copyright">Copyright © 2025 cppfx.xyz</p></div>
+<div><div class="legalnotice">
+<a name="decoder-decode.legal"></a><p>
+            Distributed under the Boost Software License, Version 1.0. (See accompanying
+            file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+          </p>
+</div></div>
+</div>
+<hr>
+</div>
+<p>
+        decoder.decode(...) is a method of the azvzl::az_decoder class, it is the
+        main methods to decode compressed data.
+      </p>
+<p>
+        <span class="bold"><strong>Calling Sig:</strong></span>
+      </p>
+<p>
+        (overload-1)
+      </p>
+<pre class="programlisting"><span class="identifier">decoder</span><span class="special">.</span><span class="identifier">decode</span><span class="special">(</span>
+	<span class="identifier">input__</span><span class="special">,</span>			<span class="comment">// const ptr, unsigned one byte type</span>
+	<span class="identifier">input_size__</span><span class="special">,</span>		<span class="comment">// const size</span>
+	<span class="identifier">prop_size__</span>			<span class="comment">// const size</span>
+<span class="special">);</span>
+</pre>
+<p>
+        The output data, and data size will be stored at the <span class="bold"><strong>data
+        member</strong></span> of the azvzl::az_decoder object.
+      </p>
+<p>
+        Return void
+      </p>
+<p>
+        <span class="bold"><strong>Calling Sig:</strong></span>
+      </p>
+<p>
+        (overload-2)
+      </p>
+<pre class="programlisting"><span class="identifier">decoder</span><span class="special">.</span><span class="identifier">decode</span><span class="special">(</span>
+	<span class="identifier">input__</span><span class="special">,</span>		<span class="comment">// const ptr, unsigned one byte type</span>
+	<span class="identifier">input_size__</span><span class="special">,</span>		<span class="comment">// const size</span>
+	<span class="identifier">prop_size__</span><span class="special">,</span>			<span class="comment">// const size</span>
+	<span class="identifier">output__</span><span class="special">,</span>		<span class="comment">// ptr, unsigned one byte type</span>
+	<span class="identifier">output_size__</span>		<span class="comment">// non-const Lvalue reference</span>
+<span class="special">);</span>
+</pre>
+<p>
+        The output data and size will be stored at the <span class="bold"><strong>parameters</strong></span>
+        <em class="replaceable"><code>output__</code></em> and <em class="replaceable"><code>output_size__</code></em>
+        .
+      </p>
+<p>
+        output__ must be allocated by caller explicitly.
+      </p>
+<p>
+        <span class="bold"><strong>Note:</strong></span>
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            When entering calling decoder.decode(...), both (overload-1) and (overload-2)
+            will reset internal __output to nullptr, __output_size to zero.
+          </li>
+<li class="listitem">
+            When leaving calling decoder.decode(...),<br> (overload-1) will store
+            the output data and output data size to internal __output and __output_size;<br>
+            (overload-2) will store the output data and output data size to its parameters
+            output__ and output_size__, and reset internal __output to nullptr, __output_size
+            to zero again.
+          </li>
+<li class="listitem">
+            Generally speaking, (overload-1) is for lazy case, and it is more efficiant
+            than (overload-2) in memory usage.<br> (overload-1) is the recommanded
+            overload method.<br> (overload-1) uses automatically memory allocation
+            and release by using new/delete internally.
+          </li>
+<li class="listitem">
+            Sometimes, the caller's code have to preallocate its own memory, for
+            this case, use (overload-2).
+          </li>
+</ul></div>
+<h2>
+<a name="decoder-decode.h0"></a>
+        <span class="phrase"><a name="decoder-decode.back"></a></span><a class="link" href="decoder-decode.html#decoder-decode.back"><span class="cyan">Back</span></a>
+      </h2>
+<p>
+        <a class="link" href="decode.html" title="Decode">Up</a>
+      </p>
+<h2>
+<a name="decoder-decode.h1"></a>
+        <span class="phrase"><a name="decoder-decode.deck"></a></span><a class="link" href="decoder-decode.html#decoder-decode.deck"><span class="cyan">Deck</span></a>
+      </h2>
+<p>
+        <a href="https://cppfx.xyz/azvzl" target="_top">Azvzl c++ library</a>
+      </p>
+</div>
+<div class="copyright-footer">Copyright © 2025 cppfx.xyz<br>Copyright © 2025 cppfx.xyz<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+<p>
+          Distributed under the Boost Software License, Version 1.0. (See accompanying
+          file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+        </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="azvzl-az_decoder.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="decode.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="decoder-decode_data_size.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
