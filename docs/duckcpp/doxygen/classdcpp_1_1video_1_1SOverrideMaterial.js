@@ -11,5 +11,5 @@ var classdcpp_1_1video_1_1SOverrideMaterial =
     [ "EnablePasses", "classdcpp_1_1video_1_1SOverrideMaterial.html#abd617352cf98350c6b4ec9d2d69e3573", null ],
     [ "EnableTextures", "classdcpp_1_1video_1_1SOverrideMaterial.html#af9f230aefbf93b4bfd815dc996bd4225", null ],
     [ "Material", "classdcpp_1_1video_1_1SOverrideMaterial.html#a48dbaec3cd72be7d27a73137f3eecff5", null ],
-    [ "MaterialTypes", "classdcpp_1_1video_1_1SOverrideMaterial.html#a0200732b93ff4178532234df5847b68a", null ]
+    [ "MaterialTypes", "classdcpp_1_1video_1_1SOverrideMaterial.html#af983ce9d916aeec6fc76940204ebf3da", null ]
 ];

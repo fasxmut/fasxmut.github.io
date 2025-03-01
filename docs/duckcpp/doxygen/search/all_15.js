@@ -1,7 +1,7 @@
 var searchData=
 [
   ['validate_0',['validate',['../classdcpp_1_1nub_1_1basic__string.html#af43ee5b538d24af83cdc548bbf73d636',1,'dcpp::nub::basic_string']]],
-  ['vector_1',['vector',['../classdcpp_1_1scene_1_1SParticle.html#a4c47828ef8a14f82fd81232bf47218c5',1,'dcpp::scene::SParticle']]],
+  ['vector_1',['vector',['../classdcpp_1_1scene_1_1SParticle.html#a2fd9c436504463a6fa733845b63682dc',1,'dcpp::scene::SParticle']]],
   ['vector2d_2',['vector2d',['../classdcpp_1_1nub_1_1vector2d.html',1,'dcpp::nub::vector2d&lt; T &gt;'],['../classdcpp_1_1nub_1_1vector2d.html#a04fe30cad6739a6ce3d9cf87ec023fcb',1,'dcpp::nub::vector2d::vector2d(T n)'],['../classdcpp_1_1nub_1_1vector2d.html#acc16f9f89b8594ddf87c4f1b7fcccd04',1,'dcpp::nub::vector2d::vector2d()'],['../classdcpp_1_1nub_1_1vector2d.html#a4cb4c07ae6ef760743c3a4a41075f265',1,'dcpp::nub::vector2d::vector2d(T nx, T ny)']]],
   ['vector2d_3c_20dcpp_3a_3afloat32_5fkt_20_3e_3',['vector2d&lt; dcpp::float32_kt &gt;',['../classdcpp_1_1nub_1_1vector2d.html',1,'dcpp::nub']]],
   ['vector2df_4',['vector2df',['../namespacedcpp_1_1nub.html#a57040187c41013ed6359bf041723c0a7',1,'dcpp::nub']]],
@@ -11,8 +11,8 @@ var searchData=
   ['vector3df_8',['vector3df',['../namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752',1,'dcpp::nub']]],
   ['vector3di_9',['vector3di',['../namespacedcpp_1_1nub.html#a612fdb78ec3c1417c4c32d4eebbdcd70',1,'dcpp::nub']]],
   ['vertex_5fid_10',['vertex_id',['../classdcpp_1_1scene_1_1ISkinnedMesh_1_1SWeight.html#aecf72c258560d70d36da2de537004b48',1,'dcpp::scene::ISkinnedMesh::SWeight']]],
-  ['vertex_5fshader_5ftype_5fnames_11',['VERTEX_SHADER_TYPE_NAMES',['../namespacedcpp_1_1video.html#a10e2a8bfe32c3014835129f3b210c391',1,'dcpp::video']]],
-  ['vertices_12',['vertices',['../classdcpp_1_1scene_1_1PMeshBuffer.html#a29e1c139150dc1d4355d3be24817061e',1,'dcpp::scene::PMeshBuffer::Vertices'],['../classdcpp_1_1scene_1_1SSharedMeshBuffer.html#a329b0ff20b2c91c12cc46b69868047a4',1,'dcpp::scene::SSharedMeshBuffer::Vertices']]],
+  ['vertex_5fshader_5ftype_5fnames_11',['VERTEX_SHADER_TYPE_NAMES',['../namespacedcpp_1_1video.html#a0e06152ba8b5ef074f777dddddce291c',1,'dcpp::video']]],
+  ['vertices_12',['vertices',['../classdcpp_1_1scene_1_1PMeshBuffer.html#a9f79236ee848e9763a577d6586bd59a1',1,'dcpp::scene::PMeshBuffer::Vertices'],['../classdcpp_1_1scene_1_1SSharedMeshBuffer.html#a143160acf309629b80fda61b1fe05167',1,'dcpp::scene::SSharedMeshBuffer::Vertices']]],
   ['vf_5fbottom_5fplane_13',['VF_BOTTOM_PLANE',['../classdcpp_1_1scene_1_1SViewFrustum.html#a8a13f6021dc7926e0c960a4e199d1af8ae8641e09ad7c0d594e3fcc577aba200e',1,'dcpp::scene::SViewFrustum']]],
   ['vf_5ffar_5fplane_14',['VF_FAR_PLANE',['../classdcpp_1_1scene_1_1SViewFrustum.html#a8a13f6021dc7926e0c960a4e199d1af8a37686cd34e7b24bc8a692a41d22c0caa',1,'dcpp::scene::SViewFrustum']]],
   ['vf_5fleft_5fplane_15',['VF_LEFT_PLANE',['../classdcpp_1_1scene_1_1SViewFrustum.html#a8a13f6021dc7926e0c960a4e199d1af8a22f7820ff611b86a32d5b0b2422848a7',1,'dcpp::scene::SViewFrustum']]],

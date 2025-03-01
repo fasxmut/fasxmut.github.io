@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['uint16_5fkt_0',['uint16_kt',['../namespacedcpp.html#a96ad8c99421042319c4f39b34a00812b',1,'dcpp']]],
-  ['uint32_5fkt_1',['uint32_kt',['../namespacedcpp.html#a912c88731e6a39387d877830a2684fed',1,'dcpp']]],
-  ['uint8_5fkt_2',['uint8_kt',['../namespacedcpp.html#a4ee5e3a443a073623fd269e105ec79ac',1,'dcpp']]]
+  ['vector2df_0',['vector2df',['../namespacedcpp_1_1nub.html#a57040187c41013ed6359bf041723c0a7',1,'dcpp::nub']]],
+  ['vector2di_1',['vector2di',['../namespacedcpp_1_1nub.html#a31a90d4f9cc97c16dbff59b21032cd4d',1,'dcpp::nub']]],
+  ['vector3df_2',['vector3df',['../namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752',1,'dcpp::nub']]],
+  ['vector3di_3',['vector3di',['../namespacedcpp_1_1nub.html#a612fdb78ec3c1417c4c32d4eebbdcd70',1,'dcpp::nub']]]
 ];

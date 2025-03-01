@@ -1,6 +1,6 @@
 var classdcpp_1_1gui_1_1IGUITable =
 [
-    [ "IGUITable", "classdcpp_1_1gui_1_1IGUITable.html#abae1da3e5940d45ea7fb09a973c886a8", null ],
+    [ "IGUITable", "classdcpp_1_1gui_1_1IGUITable.html#a52af87680e52004d0f63a5d8244720c7", null ],
     [ "addColumn", "classdcpp_1_1gui_1_1IGUITable.html#a9665379297057b0938180b4b3dfd28fe", null ],
     [ "addRow", "classdcpp_1_1gui_1_1IGUITable.html#a8e8fd6d574567d789928953e7ee895d3", null ],
     [ "clear", "classdcpp_1_1gui_1_1IGUITable.html#a752690468675917308b8c9c7d200c90e", null ],
@@ -25,10 +25,10 @@ var classdcpp_1_1gui_1_1IGUITable =
     [ "removeColumn", "classdcpp_1_1gui_1_1IGUITable.html#adafab87e5db9ec1edddb8c728889aecc", null ],
     [ "removeRow", "classdcpp_1_1gui_1_1IGUITable.html#a4e554b087ec46bc7442297c429dd0686", null ],
     [ "setActiveColumn", "classdcpp_1_1gui_1_1IGUITable.html#ae61a8cc2d32c9705e42ec3d4f229bca8", null ],
-    [ "setCellColor", "classdcpp_1_1gui_1_1IGUITable.html#a800ede5086a81f7537007ac3506bf9c5", null ],
+    [ "setCellColor", "classdcpp_1_1gui_1_1IGUITable.html#a4e91ec854bb803a9fe84f457ab44ab2b", null ],
     [ "setCellData", "classdcpp_1_1gui_1_1IGUITable.html#a8fa1569ae16e63ca77c12fee0f958a43", null ],
-    [ "setCellText", "classdcpp_1_1gui_1_1IGUITable.html#a8f5d810add6eada2e7d148c772e9d824", null ],
-    [ "setCellText", "classdcpp_1_1gui_1_1IGUITable.html#a9bd96f7806379b98d6cede48d9ecd630", null ],
+    [ "setCellText", "classdcpp_1_1gui_1_1IGUITable.html#aa9f8d2c88ee4dd28683182f00398590a", null ],
+    [ "setCellText", "classdcpp_1_1gui_1_1IGUITable.html#a1905bdf128dd33c1914691c0e12b7fbf", null ],
     [ "setColumnOrdering", "classdcpp_1_1gui_1_1IGUITable.html#ac1fb3c098f98e0969cfd2f8ae91a8025", null ],
     [ "setColumnWidth", "classdcpp_1_1gui_1_1IGUITable.html#a42b4673daca1f66dbfe7ba1edd3ffdea", null ],
     [ "setDrawBackground", "classdcpp_1_1gui_1_1IGUITable.html#aac7170d8734472330c4cd91c7548a753", null ],

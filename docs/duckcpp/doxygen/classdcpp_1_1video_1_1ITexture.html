@@ -131,10 +131,10 @@ Collaboration diagram for dcpp::video::ITexture:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a55fd1fe6a31f00508b25026ba6ed8aa7" id="r_a55fd1fe6a31f00508b25026ba6ed8aa7"><td class="memItemLeft" align="right" valign="top"><a id="a55fd1fe6a31f00508b25026ba6ed8aa7" name="a55fd1fe6a31f00508b25026ba6ed8aa7"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ITexture</b> (const <a class="el" href="namespacedcpp_1_1io.html#af5613643d5b69bec29a18218e6321d66">io::path</a> &amp;name, <a class="el" href="namespacedcpp_1_1video.html#abde4b0f645893f08573b816ee0484ecc">E_TEXTURE_TYPE</a> type)</td></tr>
-<tr class="memdesc:a55fd1fe6a31f00508b25026ba6ed8aa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor <br /></td></tr>
-<tr class="separator:a55fd1fe6a31f00508b25026ba6ed8aa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a01619cd5aff351025e4570023ca3f3" id="r_a9a01619cd5aff351025e4570023ca3f3"><td class="memItemLeft" align="right" valign="top"><a id="a9a01619cd5aff351025e4570023ca3f3" name="a9a01619cd5aff351025e4570023ca3f3"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>ITexture</b> (const <a class="el" href="namespacedcpp_1_1io.html#a1d9a4b38a466b80d39629320bafd581d">dcpp::io::path</a> &amp;name, <a class="el" href="namespacedcpp_1_1video.html#abde4b0f645893f08573b816ee0484ecc">E_TEXTURE_TYPE</a> type)</td></tr>
+<tr class="memdesc:a9a01619cd5aff351025e4570023ca3f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor <br /></td></tr>
+<tr class="separator:a9a01619cd5aff351025e4570023ca3f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96d96e323008b0dff9957f6c69b8c5c7" id="r_a96d96e323008b0dff9957f6c69b8c5c7"><td class="memItemLeft" align="right" valign="top">virtual void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1ITexture.html#a96d96e323008b0dff9957f6c69b8c5c7">lock</a> (<a class="el" href="namespacedcpp_1_1video.html#abf77306919b0053c977e78bda6507a34">E_TEXTURE_LOCK_MODE</a> mode=<a class="el" href="namespacedcpp_1_1video.html#abf77306919b0053c977e78bda6507a34a79c30954ef75a36cce4eee293912d11b">ETLM_READ_WRITE</a>, <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> mipmapLevel=0, <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> layer=0, <a class="el" href="namespacedcpp_1_1video.html#a5374575d220b6b490ca4cab4eb4ac8c3">E_TEXTURE_LOCK_FLAGS</a> lockFlags=<a class="el" href="namespacedcpp_1_1video.html#a5374575d220b6b490ca4cab4eb4ac8c3a9e22bc8d578acf67eb72e8c058d9fc55">ETLF_FLIP_Y_UP_RTT</a>)=0</td></tr>
 <tr class="memdesc:a96d96e323008b0dff9957f6c69b8c5c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lock function.  <br /></td></tr>
 <tr class="separator:a96d96e323008b0dff9957f6c69b8c5c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -144,12 +144,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3aa5d7878938d40614d1d349dd7bf71d" id="r_a3aa5d7878938d40614d1d349dd7bf71d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1ITexture.html#a3aa5d7878938d40614d1d349dd7bf71d">regenerateMipMapLevels</a> (void *data=0, <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> layer=0)=0</td></tr>
 <tr class="memdesc:a3aa5d7878938d40614d1d349dd7bf71d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Regenerates the mip map levels of the texture.  <br /></td></tr>
 <tr class="separator:a3aa5d7878938d40614d1d349dd7bf71d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a95843444ede9a44b2b908fb0d82633" id="r_a7a95843444ede9a44b2b908fb0d82633"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1ITexture.html#a7a95843444ede9a44b2b908fb0d82633">getOriginalSize</a> () const</td></tr>
-<tr class="memdesc:a7a95843444ede9a44b2b908fb0d82633"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get original size of the texture.  <br /></td></tr>
-<tr class="separator:a7a95843444ede9a44b2b908fb0d82633"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b294fea42acdbd8887fb7d51629ef15" id="r_a9b294fea42acdbd8887fb7d51629ef15"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1ITexture.html#a9b294fea42acdbd8887fb7d51629ef15">getSize</a> () const</td></tr>
-<tr class="memdesc:a9b294fea42acdbd8887fb7d51629ef15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get dimension (=size) of the texture.  <br /></td></tr>
-<tr class="separator:a9b294fea42acdbd8887fb7d51629ef15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44c7e2d216d8d98416c01babc927217a" id="r_a44c7e2d216d8d98416c01babc927217a"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1ITexture.html#a44c7e2d216d8d98416c01babc927217a">getOriginalSize</a> () const</td></tr>
+<tr class="memdesc:a44c7e2d216d8d98416c01babc927217a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get original size of the texture.  <br /></td></tr>
+<tr class="separator:a44c7e2d216d8d98416c01babc927217a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5da88dccd02b1b522683c054709e79f3" id="r_a5da88dccd02b1b522683c054709e79f3"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1ITexture.html#a5da88dccd02b1b522683c054709e79f3">getSize</a> () const</td></tr>
+<tr class="memdesc:a5da88dccd02b1b522683c054709e79f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get dimension (=size) of the texture.  <br /></td></tr>
+<tr class="separator:a5da88dccd02b1b522683c054709e79f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6aabc61b99eb4d837bf43b452232868a" id="r_a6aabc61b99eb4d837bf43b452232868a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacedcpp_1_1video.html#a6ffe075a6fa7733a41e2aa743930b218">E_DRIVER_TYPE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1ITexture.html#a6aabc61b99eb4d837bf43b452232868a">getDriverType</a> () const</td></tr>
 <tr class="memdesc:a6aabc61b99eb4d837bf43b452232868a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get driver type of texture.  <br /></td></tr>
 <tr class="separator:a6aabc61b99eb4d837bf43b452232868a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -168,17 +168,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a46a53fdc30db18fb2752e15457f9201f" id="r_a46a53fdc30db18fb2752e15457f9201f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1ITexture.html#a46a53fdc30db18fb2752e15457f9201f">isRenderTarget</a> () const</td></tr>
 <tr class="memdesc:a46a53fdc30db18fb2752e15457f9201f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether the texture is a render target.  <br /></td></tr>
 <tr class="separator:a46a53fdc30db18fb2752e15457f9201f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d5d962d54f9431bda527fd94c823829" id="r_a5d5d962d54f9431bda527fd94c823829"><td class="memItemLeft" align="right" valign="top"><a id="a5d5d962d54f9431bda527fd94c823829" name="a5d5d962d54f9431bda527fd94c823829"></a>
-const <a class="el" href="classdcpp_1_1io_1_1SNamedPath.html">io::SNamedPath</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getName</b> () const</td></tr>
-<tr class="memdesc:a5d5d962d54f9431bda527fd94c823829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get name of texture (in most cases this is the filename) <br /></td></tr>
-<tr class="separator:a5d5d962d54f9431bda527fd94c823829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afedbeed75d64805b2dd12ce81a453438" id="r_afedbeed75d64805b2dd12ce81a453438"><td class="memItemLeft" align="right" valign="top"><a id="afedbeed75d64805b2dd12ce81a453438" name="afedbeed75d64805b2dd12ce81a453438"></a>
+const <a class="el" href="classdcpp_1_1io_1_1SNamedPath.html">dcpp::io::SNamedPath</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getName</b> () const</td></tr>
+<tr class="memdesc:afedbeed75d64805b2dd12ce81a453438"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get name of texture (in most cases this is the filename) <br /></td></tr>
+<tr class="separator:afedbeed75d64805b2dd12ce81a453438"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7b708de2562d6232f787eade24a7cbe" id="r_ae7b708de2562d6232f787eade24a7cbe"><td class="memItemLeft" align="right" valign="top"><a id="ae7b708de2562d6232f787eade24a7cbe" name="ae7b708de2562d6232f787eade24a7cbe"></a>
 <a class="el" href="namespacedcpp_1_1video.html#a731bb5bb0027272405b078f8b62678bb">E_TEXTURE_SOURCE</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getSource</b> () const</td></tr>
-<tr class="memdesc:ae7b708de2562d6232f787eade24a7cbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check where the last <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a3205359f9415aee4bc8dc7770e70e9f8" title="Get access to a named texture.">IVideoDriver::getTexture</a> found this texture. <br /></td></tr>
+<tr class="memdesc:ae7b708de2562d6232f787eade24a7cbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check where the last <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#ac176e16a1c288e5a619f4d02f998a78a" title="Get access to a named texture.">IVideoDriver::getTexture</a> found this texture. <br /></td></tr>
 <tr class="separator:ae7b708de2562d6232f787eade24a7cbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a113b6658015b639462e292ac52dbfe62" id="r_a113b6658015b639462e292ac52dbfe62"><td class="memItemLeft" align="right" valign="top"><a id="a113b6658015b639462e292ac52dbfe62" name="a113b6658015b639462e292ac52dbfe62"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>updateSource</b> (<a class="el" href="namespacedcpp_1_1video.html#a731bb5bb0027272405b078f8b62678bb">E_TEXTURE_SOURCE</a> source)</td></tr>
-<tr class="memdesc:a113b6658015b639462e292ac52dbfe62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used internally by the engine to update Source status on <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a3205359f9415aee4bc8dc7770e70e9f8" title="Get access to a named texture.">IVideoDriver::getTexture</a> calls. <br /></td></tr>
+<tr class="memdesc:a113b6658015b639462e292ac52dbfe62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used internally by the engine to update Source status on <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#ac176e16a1c288e5a619f4d02f998a78a" title="Get access to a named texture.">IVideoDriver::getTexture</a> calls. <br /></td></tr>
 <tr class="separator:a113b6658015b639462e292ac52dbfe62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c6510c9c710356396b7d626d6c4d210" id="r_a6c6510c9c710356396b7d626d6c4d210"><td class="memItemLeft" align="right" valign="top"><a id="a6c6510c9c710356396b7d626d6c4d210" name="a6c6510c9c710356396b7d626d6c4d210"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasAlpha</b> () const</td></tr>
@@ -206,9 +206,9 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~IReferenceCounted
 <tr class="memitem:a584dda95ccad6a90009eb42ebdccdede inherit pub_methods_classdcpp_1_1IReferenceCounted" id="r_a584dda95ccad6a90009eb42ebdccdede"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IReferenceCounted.html#a584dda95ccad6a90009eb42ebdccdede">getReferenceCount</a> () const</td></tr>
 <tr class="memdesc:a584dda95ccad6a90009eb42ebdccdede inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the reference count.  <br /></td></tr>
 <tr class="separator:a584dda95ccad6a90009eb42ebdccdede inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa470f15a1523b7800d86432c0076476c inherit pub_methods_classdcpp_1_1IReferenceCounted" id="r_aa470f15a1523b7800d86432c0076476c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">dcpp::byte8_kt</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IReferenceCounted.html#aa470f15a1523b7800d86432c0076476c">getDebugName</a> () const</td></tr>
-<tr class="memdesc:aa470f15a1523b7800d86432c0076476c inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the debug name of the object.  <br /></td></tr>
-<tr class="separator:aa470f15a1523b7800d86432c0076476c inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac048b2ba8e33c49c2b1a5ceee3ba3847 inherit pub_methods_classdcpp_1_1IReferenceCounted" id="r_ac048b2ba8e33c49c2b1a5ceee3ba3847"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacedcpp.html#a2a2d2e2601f3d260acd0ce9ac878b282">dcpp::char_kt</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IReferenceCounted.html#ac048b2ba8e33c49c2b1a5ceee3ba3847">getDebugName</a> () const</td></tr>
+<tr class="memdesc:ac048b2ba8e33c49c2b1a5ceee3ba3847 inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the debug name of the object.  <br /></td></tr>
+<tr class="separator:ac048b2ba8e33c49c2b1a5ceee3ba3847 inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -216,21 +216,21 @@ Protected Member Functions</h2></td></tr>
 <tr class="memdesc:a9de1855cbab430fd2205f6394ea8a8f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function, helps to get the desired texture creation format from the flags.  <br /></td></tr>
 <tr class="separator:a9de1855cbab430fd2205f6394ea8a8f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classdcpp_1_1IReferenceCounted"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classdcpp_1_1IReferenceCounted')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classdcpp_1_1IReferenceCounted.html">dcpp::IReferenceCounted</a></td></tr>
-<tr class="memitem:a2d6bc70988cc8579790e48434268e84e inherit pro_methods_classdcpp_1_1IReferenceCounted" id="r_a2d6bc70988cc8579790e48434268e84e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IReferenceCounted.html#a2d6bc70988cc8579790e48434268e84e">setDebugName</a> (const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">dcpp::byte8_kt</a> *newName)</td></tr>
-<tr class="memdesc:a2d6bc70988cc8579790e48434268e84e inherit pro_methods_classdcpp_1_1IReferenceCounted"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the debug name of the object.  <br /></td></tr>
-<tr class="separator:a2d6bc70988cc8579790e48434268e84e inherit pro_methods_classdcpp_1_1IReferenceCounted"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94a97d313e5aa78265ad87024b91d9c0 inherit pro_methods_classdcpp_1_1IReferenceCounted" id="r_a94a97d313e5aa78265ad87024b91d9c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IReferenceCounted.html#a94a97d313e5aa78265ad87024b91d9c0">setDebugName</a> (const <a class="el" href="namespacedcpp.html#a2a2d2e2601f3d260acd0ce9ac878b282">dcpp::char_kt</a> *newName)</td></tr>
+<tr class="memdesc:a94a97d313e5aa78265ad87024b91d9c0 inherit pro_methods_classdcpp_1_1IReferenceCounted"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the debug name of the object.  <br /></td></tr>
+<tr class="separator:a94a97d313e5aa78265ad87024b91d9c0 inherit pro_methods_classdcpp_1_1IReferenceCounted"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:ab75a06512e1d854b600003549faad1b2" id="r_ab75a06512e1d854b600003549faad1b2"><td class="memItemLeft" align="right" valign="top"><a id="ab75a06512e1d854b600003549faad1b2" name="ab75a06512e1d854b600003549faad1b2"></a>
-<a class="el" href="classdcpp_1_1io_1_1SNamedPath.html">io::SNamedPath</a>&#160;</td><td class="memItemRight" valign="bottom"><b>NamedPath</b></td></tr>
-<tr class="separator:ab75a06512e1d854b600003549faad1b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c854e195cadf5f1f697066d2f55193c" id="r_a8c854e195cadf5f1f697066d2f55193c"><td class="memItemLeft" align="right" valign="top"><a id="a8c854e195cadf5f1f697066d2f55193c" name="a8c854e195cadf5f1f697066d2f55193c"></a>
-<a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>OriginalSize</b></td></tr>
-<tr class="separator:a8c854e195cadf5f1f697066d2f55193c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a032fb1bdf1d002b8897b9cb04e56f6f2" id="r_a032fb1bdf1d002b8897b9cb04e56f6f2"><td class="memItemLeft" align="right" valign="top"><a id="a032fb1bdf1d002b8897b9cb04e56f6f2" name="a032fb1bdf1d002b8897b9cb04e56f6f2"></a>
-<a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Size</b></td></tr>
-<tr class="separator:a032fb1bdf1d002b8897b9cb04e56f6f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf71e57317392c21c58a97d785d99e76" id="r_aaf71e57317392c21c58a97d785d99e76"><td class="memItemLeft" align="right" valign="top"><a id="aaf71e57317392c21c58a97d785d99e76" name="aaf71e57317392c21c58a97d785d99e76"></a>
+<a class="el" href="classdcpp_1_1io_1_1SNamedPath.html">dcpp::io::SNamedPath</a>&#160;</td><td class="memItemRight" valign="bottom"><b>NamedPath</b></td></tr>
+<tr class="separator:aaf71e57317392c21c58a97d785d99e76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81c73aa2a181cf0cb13d67536bcaff5e" id="r_a81c73aa2a181cf0cb13d67536bcaff5e"><td class="memItemLeft" align="right" valign="top"><a id="a81c73aa2a181cf0cb13d67536bcaff5e" name="a81c73aa2a181cf0cb13d67536bcaff5e"></a>
+<a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>OriginalSize</b></td></tr>
+<tr class="separator:a81c73aa2a181cf0cb13d67536bcaff5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9c33df8a666e9ea2bfc1862bca1168a" id="r_ae9c33df8a666e9ea2bfc1862bca1168a"><td class="memItemLeft" align="right" valign="top"><a id="ae9c33df8a666e9ea2bfc1862bca1168a" name="ae9c33df8a666e9ea2bfc1862bca1168a"></a>
+<a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Size</b></td></tr>
+<tr class="separator:ae9c33df8a666e9ea2bfc1862bca1168a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00796e12eab39cf68c2e8f6a3f4679d3" id="r_a00796e12eab39cf68c2e8f6a3f4679d3"><td class="memItemLeft" align="right" valign="top"><a id="a00796e12eab39cf68c2e8f6a3f4679d3" name="a00796e12eab39cf68c2e8f6a3f4679d3"></a>
 <a class="el" href="namespacedcpp_1_1video.html#a6ffe075a6fa7733a41e2aa743930b218">E_DRIVER_TYPE</a>&#160;</td><td class="memItemRight" valign="bottom"><b>DriverType</b></td></tr>
 <tr class="separator:a00796e12eab39cf68c2e8f6a3f4679d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -258,7 +258,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsRenderTarget</b></t
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Interface of a Video Driver dependent Texture. </p>
-<p>An <a class="el" href="classdcpp_1_1video_1_1ITexture.html" title="Interface of a Video Driver dependent Texture.">ITexture</a> is created by an <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html" title="Interface to driver which is able to perform 2d and 3d graphics functions.">IVideoDriver</a> by using <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a75f98aaa5f7fb7b89a1b7adafba71ec9" title="Creates an empty texture of specified size.">IVideoDriver::addTexture</a> or <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a3205359f9415aee4bc8dc7770e70e9f8" title="Get access to a named texture.">IVideoDriver::getTexture</a>. After that, the texture may only be used by this VideoDriver. As you can imagine, textures of the DirectX and the OpenGL device will, e.g., not be compatible. An exception is the Software device and the NULL device, their textures are compatible. If you try to use a texture created by one device with an other device, the device will refuse to do that and write a warning or an error message to the output buffer. </p>
+<p>An <a class="el" href="classdcpp_1_1video_1_1ITexture.html" title="Interface of a Video Driver dependent Texture.">ITexture</a> is created by an <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html" title="Interface to driver which is able to perform 2d and 3d graphics functions.">IVideoDriver</a> by using <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a3223ab06643cd107410c7274ea4959fe" title="Creates an empty texture of specified size.">IVideoDriver::addTexture</a> or <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#ac176e16a1c288e5a619f4d02f998a78a" title="Get access to a named texture.">IVideoDriver::getTexture</a>. After that, the texture may only be used by this VideoDriver. As you can imagine, textures of the DirectX and the OpenGL device will, e.g., not be compatible. An exception is the Software device and the NULL device, their textures are compatible. If you try to use a texture created by one device with an other device, the device will refuse to do that and write a warning or an error message to the output buffer. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a0d3601bbdba2f46bbbc9ef00711a282c" name="a0d3601bbdba2f46bbbc9ef00711a282c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0d3601bbdba2f46bbbc9ef00711a282c">&#9670;&#160;</a></span>getColorFormat()</h2>
@@ -345,8 +345,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsRenderTarget</b></t
 
 </div>
 </div>
-<a id="a7a95843444ede9a44b2b908fb0d82633" name="a7a95843444ede9a44b2b908fb0d82633"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7a95843444ede9a44b2b908fb0d82633">&#9670;&#160;</a></span>getOriginalSize()</h2>
+<a id="a44c7e2d216d8d98416c01babc927217a" name="a44c7e2d216d8d98416c01babc927217a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44c7e2d216d8d98416c01babc927217a">&#9670;&#160;</a></span>getOriginalSize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -355,7 +355,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsRenderTarget</b></t
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp; dcpp::video::ITexture::getOriginalSize </td>
+          <td class="memname">const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp; dcpp::video::ITexture::getOriginalSize </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -369,7 +369,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsRenderTarget</b></t
 </div><div class="memdoc">
 
 <p>Get original size of the texture. </p>
-<p>The texture is usually scaled, if it was created with an unoptimal size. For example if the size was not a power of two. This method returns the size of the texture it had before it was scaled. Can be useful when drawing 2d images on the screen, which should have the exact size of the original texture. Use <a class="el" href="classdcpp_1_1video_1_1ITexture.html#a9b294fea42acdbd8887fb7d51629ef15" title="Get dimension (=size) of the texture.">ITexture::getSize()</a> if you want to know the real size it has now stored in the system. </p><dl class="section return"><dt>Returns</dt><dd>The original size of the texture. </dd></dl>
+<p>The texture is usually scaled, if it was created with an unoptimal size. For example if the size was not a power of two. This method returns the size of the texture it had before it was scaled. Can be useful when drawing 2d images on the screen, which should have the exact size of the original texture. Use <a class="el" href="classdcpp_1_1video_1_1ITexture.html#a5da88dccd02b1b522683c054709e79f3" title="Get dimension (=size) of the texture.">ITexture::getSize()</a> if you want to know the real size it has now stored in the system. </p><dl class="section return"><dt>Returns</dt><dd>The original size of the texture. </dd></dl>
 
 </div>
 </div>
@@ -401,8 +401,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsRenderTarget</b></t
 
 </div>
 </div>
-<a id="a9b294fea42acdbd8887fb7d51629ef15" name="a9b294fea42acdbd8887fb7d51629ef15"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9b294fea42acdbd8887fb7d51629ef15">&#9670;&#160;</a></span>getSize()</h2>
+<a id="a5da88dccd02b1b522683c054709e79f3" name="a5da88dccd02b1b522683c054709e79f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5da88dccd02b1b522683c054709e79f3">&#9670;&#160;</a></span>getSize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -411,7 +411,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsRenderTarget</b></t
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp; dcpp::video::ITexture::getSize </td>
+          <td class="memname">const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp; dcpp::video::ITexture::getSize </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -561,7 +561,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsRenderTarget</b></t
 </div><div class="memdoc">
 
 <p>Lock function. </p>
-<p>Locks the Texture and returns a pointer to access the pixels. After <a class="el" href="classdcpp_1_1video_1_1ITexture.html#a96d96e323008b0dff9957f6c69b8c5c7" title="Lock function.">lock()</a> has been called and all operations on the pixels are done, you must call <a class="el" href="classdcpp_1_1video_1_1ITexture.html#a47436aeed83a2f9b9ddfda276d001d25" title="Unlock function. Must be called after a lock() to the texture.">unlock()</a>. Locks are not accumulating, hence one unlock will do for an arbitrary number of previous locks. You should avoid locking different levels without unlocking in between, though, because only the last level locked will be unlocked. The size of the i-th mipmap level is defined as max(<a class="el" href="classdcpp_1_1video_1_1ITexture.html#a9b294fea42acdbd8887fb7d51629ef15" title="Get dimension (=size) of the texture.">getSize()</a>.Width&gt;&gt;i,1) and max(<a class="el" href="classdcpp_1_1video_1_1ITexture.html#a9b294fea42acdbd8887fb7d51629ef15" title="Get dimension (=size) of the texture.">getSize()</a>.Height&gt;&gt;i,1) </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Locks the Texture and returns a pointer to access the pixels. After <a class="el" href="classdcpp_1_1video_1_1ITexture.html#a96d96e323008b0dff9957f6c69b8c5c7" title="Lock function.">lock()</a> has been called and all operations on the pixels are done, you must call <a class="el" href="classdcpp_1_1video_1_1ITexture.html#a47436aeed83a2f9b9ddfda276d001d25" title="Unlock function. Must be called after a lock() to the texture.">unlock()</a>. Locks are not accumulating, hence one unlock will do for an arbitrary number of previous locks. You should avoid locking different levels without unlocking in between, though, because only the last level locked will be unlocked. The size of the i-th mipmap level is defined as max(<a class="el" href="classdcpp_1_1video_1_1ITexture.html#a5da88dccd02b1b522683c054709e79f3" title="Get dimension (=size) of the texture.">getSize()</a>.Width&gt;&gt;i,1) and max(<a class="el" href="classdcpp_1_1video_1_1ITexture.html#a5da88dccd02b1b522683c054709e79f3" title="Get dimension (=size) of the texture.">getSize()</a>.Height&gt;&gt;i,1) </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">mode</td><td>Specifies what kind of changes to the locked texture are allowed. Unspecified behavior will arise if texture is written in read only mode or read from in write only mode. Support for this feature depends on the driver, so don't rely on the texture being write-protected when locking with read-only, etc. </td></tr>
     <tr><td class="paramname">mipmapLevel</td><td>NOTE: Currently broken, sorry, we try if we can repair it for 1.9 release. Number of the mipmapLevel to lock. 0 is main texture. Non-existing levels will silently fail and return 0. </td></tr>

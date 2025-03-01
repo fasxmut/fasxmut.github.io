@@ -2,8 +2,8 @@ var classdcpp_1_1scene_1_1IBoneSceneNode =
 [
     [ "getAnimationMode", "classdcpp_1_1scene_1_1IBoneSceneNode.html#a5ca2b8923f810b477f2ff430cc846fd7", null ],
     [ "getBoneIndex", "classdcpp_1_1scene_1_1IBoneSceneNode.html#a1fccfdb47f16a08e650b63dc702896ea", null ],
-    [ "getBoneName", "classdcpp_1_1scene_1_1IBoneSceneNode.html#aef3880b10630a3cd826950b2e2a95847", null ],
-    [ "getBoundingBox", "classdcpp_1_1scene_1_1IBoneSceneNode.html#a13215b7711c0cd720934059c0cadf885", null ],
+    [ "getBoneName", "classdcpp_1_1scene_1_1IBoneSceneNode.html#a38b0cc3e14970a22700d8d275d6dea4c", null ],
+    [ "getBoundingBox", "classdcpp_1_1scene_1_1IBoneSceneNode.html#a277215813d8a53d218d526ee7fac7f05", null ],
     [ "getSkinningSpace", "classdcpp_1_1scene_1_1IBoneSceneNode.html#a871ba8bc3cb7e337d1f5beefba0cbcd4", null ],
     [ "OnAnimate", "classdcpp_1_1scene_1_1IBoneSceneNode.html#a68332cce294307b22c0011d3e81cffd5", null ],
     [ "render", "classdcpp_1_1scene_1_1IBoneSceneNode.html#a72a4292eef110d3b74af4e0a52bd0f19", null ],

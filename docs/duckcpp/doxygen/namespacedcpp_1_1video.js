@@ -109,7 +109,6 @@ var namespacedcpp_1_1video =
       [ "EDT_NULL", "namespacedcpp_1_1video.html#a6ffe075a6fa7733a41e2aa743930b218ae4609f285483b7bb9bdfee039ee33f4c", null ],
       [ "EDT_SOFTWARE", "namespacedcpp_1_1video.html#a6ffe075a6fa7733a41e2aa743930b218a9d58775d9dc89fe6a7040944b661c1f6", null ],
       [ "EDT_BURNINGSVIDEO", "namespacedcpp_1_1video.html#a6ffe075a6fa7733a41e2aa743930b218a7b0851e5b8539959bd1fe8d8b5f3473e", null ],
-      [ "DEPRECATED_EDT_DIRECT3D8_NO_LONGER_EXISTS", "namespacedcpp_1_1video.html#a6ffe075a6fa7733a41e2aa743930b218a1bbb7d5f85600d5623912edec38dccf5", null ],
       [ "EDT_DIRECT3D9", "namespacedcpp_1_1video.html#a6ffe075a6fa7733a41e2aa743930b218a309c331f7277bf3367fa7caa54638021", null ],
       [ "EDT_EGXU", "namespacedcpp_1_1video.html#a6ffe075a6fa7733a41e2aa743930b218ad93ade498a9521e5abfad03d04b38ce8", null ],
       [ "EDT_COUNT", "namespacedcpp_1_1video.html#a6ffe075a6fa7733a41e2aa743930b218a2a7a1da465e4808f7e5c8cf70894fcc3", null ]
@@ -387,16 +386,16 @@ var namespacedcpp_1_1video =
     [ "unpack_textureBlendFunc", "namespacedcpp_1_1video.html#a07af311b8d34a745b9e7d931b68319d2", null ],
     [ "unpack_textureBlendFuncSeparate", "namespacedcpp_1_1video.html#ae7ee0dcb7a0d845bd49afeb8d911d682", null ],
     [ "X8R8G8B8toA1R5G5B5", "namespacedcpp_1_1video.html#aa25747846de4428b5f6c97d2eed16cd9", null ],
-    [ "ColorFormatNames", "namespacedcpp_1_1video.html#af565e37435592e19d847d46580381c5b", null ],
-    [ "GEOMETRY_SHADER_TYPE_NAMES", "namespacedcpp_1_1video.html#a44025402b601e068a3ff2c7b27bfd552", null ],
+    [ "ColorFormatNames", "namespacedcpp_1_1video.html#a443e1508c5c324043ba13fc68c7c02cc", null ],
+    [ "GEOMETRY_SHADER_TYPE_NAMES", "namespacedcpp_1_1video.html#a81c7adee459df10180aeeaa5a6fe9cf2", null ],
     [ "IdentityMaterial", "namespacedcpp_1_1video.html#a0fa241f476b293b86a6acf455c2844b8", null ],
-    [ "LightTypeNames", "namespacedcpp_1_1video.html#ad479d9a684f0914c58d92acdd895e173", null ],
+    [ "LightTypeNames", "namespacedcpp_1_1video.html#a1a7cc02a1e78be60105f7b613d5df0ee", null ],
     [ "MATERIAL_MAX_TEXTURES", "namespacedcpp_1_1video.html#aadbce5b24f53c7536f785fea65b1e13e", null ],
     [ "MATERIAL_MAX_TEXTURES_USED", "namespacedcpp_1_1video.html#ab1be7f600a5b2c30c131dbed3f47c9a1", null ],
-    [ "PIXEL_SHADER_TYPE_NAMES", "namespacedcpp_1_1video.html#aaed28d0ddc486903b2d9a3c5aca8c875", null ],
-    [ "PolygonOffsetDirectionNames", "namespacedcpp_1_1video.html#a6b3751a393cc1c758e1d834d59f3f555", null ],
+    [ "PIXEL_SHADER_TYPE_NAMES", "namespacedcpp_1_1video.html#a73eb96d55e26ffd92137ef536faf107d", null ],
+    [ "PolygonOffsetDirectionNames", "namespacedcpp_1_1video.html#add8ed3df2f8d374ad9202bf1c8718c7b", null ],
     [ "sBuiltInMaterialTypeNames", "namespacedcpp_1_1video.html#a9ecfff035481fbf851aa75cd0cd5d528", null ],
     [ "sBuiltInVertexTypeNames", "namespacedcpp_1_1video.html#a8e45883d65e1b072036477b51b95432a", null ],
-    [ "VERTEX_SHADER_TYPE_NAMES", "namespacedcpp_1_1video.html#a10e2a8bfe32c3014835129f3b210c391", null ],
-    [ "ZWriteNames", "namespacedcpp_1_1video.html#ae2e2c1e8849d37dc114be16bb94f4fce", null ]
+    [ "VERTEX_SHADER_TYPE_NAMES", "namespacedcpp_1_1video.html#a0e06152ba8b5ef074f777dddddce291c", null ],
+    [ "ZWriteNames", "namespacedcpp_1_1video.html#a3df7f90906cd7cf18a0eb885b2f709f0", null ]
 ];

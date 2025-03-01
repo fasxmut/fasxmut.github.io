@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['path_0',['path',['../namespacedcpp_1_1io.html#af5613643d5b69bec29a18218e6321d66',1,'dcpp::io']]],
-  ['plane3df_1',['plane3df',['../namespacedcpp_1_1nub.html#aa80fffcbbda4cd9b495806527d086f66',1,'dcpp::nub']]],
-  ['plane3di_2',['plane3di',['../namespacedcpp_1_1nub.html#a721a619b3e5593867f124076fd696b57',1,'dcpp::nub']]],
-  ['position2df_3',['position2df',['../namespacedcpp_1_1nub.html#aba57fc1498ae48ca3229d59103954db2',1,'dcpp::nub']]],
-  ['position2di_4',['position2di',['../namespacedcpp_1_1nub.html#a28021dd2953876aa9b4b4c66aace0756',1,'dcpp::nub']]]
+  ['rectf_0',['rectf',['../namespacedcpp_1_1nub.html#ae7a0c101809d9b4e5e114da9ed141533',1,'dcpp::nub']]],
+  ['recti_1',['recti',['../namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb',1,'dcpp::nub']]]
 ];

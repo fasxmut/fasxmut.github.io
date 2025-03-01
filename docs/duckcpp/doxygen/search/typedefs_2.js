@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['char16_0',['char16',['../namespacedcpp_1_1io.html#aaf5e47c067c3d3eb2f6a10a5a953ff48',1,'dcpp::io']]],
-  ['char32_1',['char32',['../namespacedcpp_1_1io.html#a2290f477b9f0e17bdff2c9e37ead7463',1,'dcpp::io']]]
+  ['dimension2df_0',['dimension2df',['../namespacedcpp_1_1nub.html#a33c6c1632c9f5816cd896561ef619a17',1,'dcpp::nub']]],
+  ['dimension2di_1',['dimension2di',['../namespacedcpp_1_1nub.html#a551ac8e6417b5de016a12dc94d00d04a',1,'dcpp::nub']]],
+  ['dimension2du_2',['dimension2du',['../namespacedcpp_1_1nub.html#a04c84e82c13a5b10f7546a753f8a5334',1,'dcpp::nub']]]
 ];

@@ -19,11 +19,11 @@ var namespacedcpp =
     [ "SJoystickInfo", "classdcpp_1_1SJoystickInfo.html", "classdcpp_1_1SJoystickInfo" ],
     [ "SKeyMap", "classdcpp_1_1SKeyMap.html", null ],
     [ "SProfileData", "classdcpp_1_1SProfileData.html", "classdcpp_1_1SProfileData" ],
-    [ "byte8_kt", "namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a", null ],
+    [ "char_kt", "namespacedcpp.html#a2a2d2e2601f3d260acd0ce9ac878b282", null ],
     [ "float32_kt", "namespacedcpp.html#a93cc7c2898084f21ecea75013793af08", null ],
     [ "float64_kt", "namespacedcpp.html#a4d7e709a703740af826ce0b505108736", null ],
-    [ "fschar_t", "namespacedcpp.html#a0b4009d1b3c1d2dbaaddaecf40b7e7f7", null ],
-    [ "funcptr_createDevice", "namespacedcpp.html#af094e7d91da189a669a7609335f53b18", null ],
+    [ "fschar_kt", "namespacedcpp.html#a2e7a4fe6b9f3c82197a2d6a363800a50", null ],
+    [ "funcptr_createDevice", "namespacedcpp.html#a0358e65f56baa1927c8e429219443102", null ],
     [ "funcptr_createDeviceEx", "namespacedcpp.html#a8c9329f0d932ad88250cb066e385e1bd", null ],
     [ "int16_kt", "namespacedcpp.html#ac84ab16593e727adca22f37a18f1f795", null ],
     [ "int32_kt", "namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d", null ],
@@ -101,7 +101,7 @@ var namespacedcpp =
       [ "ETIE_MOVED", "namespacedcpp.html#af0110623fb9056db00b0f9e213b91a62ae08a4c41cb36e9624a51205b111441c3", null ],
       [ "ETIE_COUNT", "namespacedcpp.html#af0110623fb9056db00b0f9e213b91a62a35340dad842cfedc6c2aba5ad48c52c8", null ]
     ] ],
-    [ "createDevice", "namespacedcpp.html#aa21bbed754c818ce993a706dc325355b", null ],
+    [ "createDevice", "namespacedcpp.html#a98877e780e0fc45c8dcd60e52c0c1811", null ],
     [ "createDeviceEx", "namespacedcpp.html#a7e9f43c9ca4f2a4a5e9c19ab25544e3c", null ],
     [ "getProfiler", "namespacedcpp.html#aff98c1938e9c8a06d9af9dd7493fb5eb", null ]
 ];

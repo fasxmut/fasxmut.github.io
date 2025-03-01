@@ -125,39 +125,39 @@ Collaboration diagram for dcpp::scene::IGeometryCreator:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a45523a3b347a7b174361c60fd8ca0a44" id="r_a45523a3b347a7b174361c60fd8ca0a44"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1scene_1_1IMesh.html">IMesh</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IGeometryCreator.html#a45523a3b347a7b174361c60fd8ca0a44">createCubeMesh</a> (const <a class="el" href="namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752">nub::vector3df</a> &amp;size=<a class="el" href="namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752">nub::vector3df</a>(5.f, 5.f, 5.f), <a class="el" href="namespacedcpp_1_1scene.html#a4a4fa89587287656766e8c9cc0511069">ECUBE_MESH_TYPE</a> type=<a class="el" href="namespacedcpp_1_1scene.html#a4a4fa89587287656766e8c9cc0511069aff57a157c76fdbc17f1776ffb54f1ee8">ECMT_1BUF_12VTX_NA</a>) const =0</td></tr>
-<tr class="memdesc:a45523a3b347a7b174361c60fd8ca0a44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a simple cube mesh.  <br /></td></tr>
-<tr class="separator:a45523a3b347a7b174361c60fd8ca0a44"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a040b8e187ff3e4cc531700c7aa88e722" id="r_a040b8e187ff3e4cc531700c7aa88e722"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1scene_1_1IMesh.html">IMesh</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IGeometryCreator.html#a040b8e187ff3e4cc531700c7aa88e722">createHillPlaneMesh</a> (const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt; &amp;tileSize, const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp;tileCount, <a class="el" href="classdcpp_1_1video_1_1SMaterial.html">video::SMaterial</a> *material, <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> hillHeight, const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt; &amp;countHills, const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt; &amp;textureRepeatCount) const =0</td></tr>
-<tr class="memdesc:a040b8e187ff3e4cc531700c7aa88e722"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a pseudo-random mesh representing a hilly terrain.  <br /></td></tr>
-<tr class="separator:a040b8e187ff3e4cc531700c7aa88e722"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7231add5a3d2e963fd1001c8caee94d3" id="r_a7231add5a3d2e963fd1001c8caee94d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdcpp_1_1scene_1_1IMesh.html">IMesh</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IGeometryCreator.html#a7231add5a3d2e963fd1001c8caee94d3">createPlaneMesh</a> (const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt; &amp;tileSize, const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp;tileCount=<a class="el" href="namespacedcpp_1_1nub.html#a04c84e82c13a5b10f7546a753f8a5334">nub::dimension2du</a>(1, 1), <a class="el" href="classdcpp_1_1video_1_1SMaterial.html">video::SMaterial</a> *material=0, const <a class="el" href="namespacedcpp_1_1nub.html#a33c6c1632c9f5816cd896561ef619a17">nub::dimension2df</a> &amp;textureRepeatCount=<a class="el" href="namespacedcpp_1_1nub.html#a33c6c1632c9f5816cd896561ef619a17">nub::dimension2df</a>(1.f, 1.f)) const</td></tr>
-<tr class="memdesc:a7231add5a3d2e963fd1001c8caee94d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a simple rectangular textured plane mesh.  <br /></td></tr>
-<tr class="separator:a7231add5a3d2e963fd1001c8caee94d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab13e794880f576f7f97c4caf449f9f5d" id="r_ab13e794880f576f7f97c4caf449f9f5d"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1scene_1_1IMesh.html">IMesh</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IGeometryCreator.html#ab13e794880f576f7f97c4caf449f9f5d">createCubeMesh</a> (const <a class="el" href="namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752">dcpp::nub::vector3df</a> &amp;size=<a class="el" href="namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752">dcpp::nub::vector3df</a>(5.f, 5.f, 5.f), <a class="el" href="namespacedcpp_1_1scene.html#a4a4fa89587287656766e8c9cc0511069">ECUBE_MESH_TYPE</a> type=<a class="el" href="namespacedcpp_1_1scene.html#a4a4fa89587287656766e8c9cc0511069aff57a157c76fdbc17f1776ffb54f1ee8">ECMT_1BUF_12VTX_NA</a>) const =0</td></tr>
+<tr class="memdesc:ab13e794880f576f7f97c4caf449f9f5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a simple cube mesh.  <br /></td></tr>
+<tr class="separator:ab13e794880f576f7f97c4caf449f9f5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7585c117b228968c1998d37ae0f671bf" id="r_a7585c117b228968c1998d37ae0f671bf"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1scene_1_1IMesh.html">IMesh</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IGeometryCreator.html#a7585c117b228968c1998d37ae0f671bf">createHillPlaneMesh</a> (const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt; &amp;tileSize, const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp;tileCount, <a class="el" href="classdcpp_1_1video_1_1SMaterial.html">dcpp::video::SMaterial</a> *material, <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> hillHeight, const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt; &amp;countHills, const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt; &amp;textureRepeatCount) const =0</td></tr>
+<tr class="memdesc:a7585c117b228968c1998d37ae0f671bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a pseudo-random mesh representing a hilly terrain.  <br /></td></tr>
+<tr class="separator:a7585c117b228968c1998d37ae0f671bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5628efb173acf5be16a6dee8ec03988f" id="r_a5628efb173acf5be16a6dee8ec03988f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdcpp_1_1scene_1_1IMesh.html">IMesh</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IGeometryCreator.html#a5628efb173acf5be16a6dee8ec03988f">createPlaneMesh</a> (const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt; &amp;tileSize, const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp;tileCount=<a class="el" href="namespacedcpp_1_1nub.html#a04c84e82c13a5b10f7546a753f8a5334">dcpp::nub::dimension2du</a>(1, 1), <a class="el" href="classdcpp_1_1video_1_1SMaterial.html">dcpp::video::SMaterial</a> *material=0, const <a class="el" href="namespacedcpp_1_1nub.html#a33c6c1632c9f5816cd896561ef619a17">dcpp::nub::dimension2df</a> &amp;textureRepeatCount=<a class="el" href="namespacedcpp_1_1nub.html#a33c6c1632c9f5816cd896561ef619a17">dcpp::nub::dimension2df</a>(1.f, 1.f)) const</td></tr>
+<tr class="memdesc:a5628efb173acf5be16a6dee8ec03988f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a simple rectangular textured plane mesh.  <br /></td></tr>
+<tr class="separator:a5628efb173acf5be16a6dee8ec03988f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea22105f4d6e15d629b3084473310960" id="r_aea22105f4d6e15d629b3084473310960"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1scene_1_1IMesh.html">IMesh</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IGeometryCreator.html#aea22105f4d6e15d629b3084473310960">createGeoplaneMesh</a> (<a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> radius=5.f, <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> rows=16, <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> columns=16) const =0</td></tr>
 <tr class="memdesc:aea22105f4d6e15d629b3084473310960"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a geoplane.  <br /></td></tr>
 <tr class="separator:aea22105f4d6e15d629b3084473310960"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af23a7795331bad8ca4cb2f5680c71827" id="r_af23a7795331bad8ca4cb2f5680c71827"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1scene_1_1IMesh.html">IMesh</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IGeometryCreator.html#af23a7795331bad8ca4cb2f5680c71827">createTerrainMesh</a> (<a class="el" href="classdcpp_1_1video_1_1IImage.html">video::IImage</a> *texture, <a class="el" href="classdcpp_1_1video_1_1IImage.html">video::IImage</a> *heightmap, const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt; &amp;stretchSize, <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> maxHeight, <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html">video::IVideoDriver</a> *driver, const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp;defaultVertexBlockSize, bool debugBorders=false) const =0</td></tr>
-<tr class="memdesc:af23a7795331bad8ca4cb2f5680c71827"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a terrain mesh from an image representing a heightfield.  <br /></td></tr>
-<tr class="separator:af23a7795331bad8ca4cb2f5680c71827"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab515d75902ab2d661a2908971c5841b0" id="r_ab515d75902ab2d661a2908971c5841b0"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1scene_1_1IMesh.html">IMesh</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IGeometryCreator.html#ab515d75902ab2d661a2908971c5841b0">createArrowMesh</a> (const <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> tesselationCylinder=4, const <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> tesselationCone=8, const <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> height=1.f, const <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> cylinderHeight=0.6f, const <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> widthCylinder=0.05f, const <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> widthCone=0.3f, const <a class="el" href="classdcpp_1_1video_1_1SColor.html">video::SColor</a> colorCylinder=0xFFFFFFFF, const <a class="el" href="classdcpp_1_1video_1_1SColor.html">video::SColor</a> colorCone=0xFFFFFFFF) const =0</td></tr>
-<tr class="memdesc:ab515d75902ab2d661a2908971c5841b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an arrow mesh, composed of a cylinder and a cone.  <br /></td></tr>
-<tr class="separator:ab515d75902ab2d661a2908971c5841b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9faff600d3f96b36c5c675bafdab1e77" id="r_a9faff600d3f96b36c5c675bafdab1e77"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1scene_1_1IMesh.html">IMesh</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IGeometryCreator.html#a9faff600d3f96b36c5c675bafdab1e77">createTerrainMesh</a> (<a class="el" href="classdcpp_1_1video_1_1IImage.html">dcpp::video::IImage</a> *texture, <a class="el" href="classdcpp_1_1video_1_1IImage.html">dcpp::video::IImage</a> *heightmap, const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt; &amp;stretchSize, <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> maxHeight, <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html">dcpp::video::IVideoDriver</a> *driver, const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp;defaultVertexBlockSize, bool debugBorders=false) const =0</td></tr>
+<tr class="memdesc:a9faff600d3f96b36c5c675bafdab1e77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a terrain mesh from an image representing a heightfield.  <br /></td></tr>
+<tr class="separator:a9faff600d3f96b36c5c675bafdab1e77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1782f5f4809e35839e03666032d374e3" id="r_a1782f5f4809e35839e03666032d374e3"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1scene_1_1IMesh.html">IMesh</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IGeometryCreator.html#a1782f5f4809e35839e03666032d374e3">createArrowMesh</a> (const <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> tesselationCylinder=4, const <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> tesselationCone=8, const <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> height=1.f, const <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> cylinderHeight=0.6f, const <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> widthCylinder=0.05f, const <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> widthCone=0.3f, const <a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a> colorCylinder=0xFFFFFFFF, const <a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a> colorCone=0xFFFFFFFF) const =0</td></tr>
+<tr class="memdesc:a1782f5f4809e35839e03666032d374e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an arrow mesh, composed of a cylinder and a cone.  <br /></td></tr>
+<tr class="separator:a1782f5f4809e35839e03666032d374e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04b4a1000440333d7a9bd89bd9239330" id="r_a04b4a1000440333d7a9bd89bd9239330"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1scene_1_1IMesh.html">IMesh</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IGeometryCreator.html#a04b4a1000440333d7a9bd89bd9239330">createSphereMesh</a> (<a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> radius=5.f, <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> polyCountX=16, <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> polyCountY=16) const =0</td></tr>
 <tr class="memdesc:a04b4a1000440333d7a9bd89bd9239330"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a sphere mesh.  <br /></td></tr>
 <tr class="separator:a04b4a1000440333d7a9bd89bd9239330"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d1f6fd0f699428989e42ce2f03b7aa1" id="r_a2d1f6fd0f699428989e42ce2f03b7aa1"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1scene_1_1IMesh.html">IMesh</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IGeometryCreator.html#a2d1f6fd0f699428989e42ce2f03b7aa1">createCylinderMesh</a> (<a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> radius, <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> length, <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> tesselation, const <a class="el" href="classdcpp_1_1video_1_1SColor.html">video::SColor</a> &amp;color=<a class="el" href="classdcpp_1_1video_1_1SColor.html">video::SColor</a>(0xffffffff), bool closeTop=true, <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> oblique=0.f, <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> normalType=0) const =0</td></tr>
-<tr class="memdesc:a2d1f6fd0f699428989e42ce2f03b7aa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a cylinder mesh.  <br /></td></tr>
-<tr class="separator:a2d1f6fd0f699428989e42ce2f03b7aa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adcf2e55c90d5ff91a6cc9dff7ed276bc" id="r_adcf2e55c90d5ff91a6cc9dff7ed276bc"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1scene_1_1IMesh.html">IMesh</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IGeometryCreator.html#adcf2e55c90d5ff91a6cc9dff7ed276bc">createConeMesh</a> (<a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> radius, <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> length, <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> tesselation, const <a class="el" href="classdcpp_1_1video_1_1SColor.html">video::SColor</a> &amp;colorTop=<a class="el" href="classdcpp_1_1video_1_1SColor.html">video::SColor</a>(0xffffffff), const <a class="el" href="classdcpp_1_1video_1_1SColor.html">video::SColor</a> &amp;colorBottom=<a class="el" href="classdcpp_1_1video_1_1SColor.html">video::SColor</a>(0xffffffff), <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> oblique=0.f) const =0</td></tr>
-<tr class="memdesc:adcf2e55c90d5ff91a6cc9dff7ed276bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a cone mesh.  <br /></td></tr>
-<tr class="separator:adcf2e55c90d5ff91a6cc9dff7ed276bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a836bee4fac7b192adb1a2ffeb97748e8" id="r_a836bee4fac7b192adb1a2ffeb97748e8"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1scene_1_1IMesh.html">IMesh</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IGeometryCreator.html#a836bee4fac7b192adb1a2ffeb97748e8">createCylinderMesh</a> (<a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> radius, <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> length, <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> tesselation, const <a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a> &amp;color=<a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a>(0xffffffff), bool closeTop=true, <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> oblique=0.f, <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> normalType=0) const =0</td></tr>
+<tr class="memdesc:a836bee4fac7b192adb1a2ffeb97748e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a cylinder mesh.  <br /></td></tr>
+<tr class="separator:a836bee4fac7b192adb1a2ffeb97748e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a941a7fa0791919005ca237d9047f2412" id="r_a941a7fa0791919005ca237d9047f2412"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1scene_1_1IMesh.html">IMesh</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IGeometryCreator.html#a941a7fa0791919005ca237d9047f2412">createConeMesh</a> (<a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> radius, <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> length, <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> tesselation, const <a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a> &amp;colorTop=<a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a>(0xffffffff), const <a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a> &amp;colorBottom=<a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a>(0xffffffff), <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> oblique=0.f) const =0</td></tr>
+<tr class="memdesc:a941a7fa0791919005ca237d9047f2412"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a cone mesh.  <br /></td></tr>
+<tr class="separator:a941a7fa0791919005ca237d9047f2412"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7059034b79790381e0ff311e0ac43a78" id="r_a7059034b79790381e0ff311e0ac43a78"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1scene_1_1IMesh.html">IMesh</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IGeometryCreator.html#a7059034b79790381e0ff311e0ac43a78">createTorusMesh</a> (<a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> majorRadius, <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> minorRadius, <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> majorSegments=32, <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> minorSegments=16, <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> angleStart=0.f, <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> angleEnd=360.f, int capEnds=0) const =0</td></tr>
 <tr class="memdesc:a7059034b79790381e0ff311e0ac43a78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a torus mesh.  <br /></td></tr>
 <tr class="separator:a7059034b79790381e0ff311e0ac43a78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20bd99b7515ca80ef98f483526690053" id="r_a20bd99b7515ca80ef98f483526690053"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1scene_1_1IMesh.html">IMesh</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IGeometryCreator.html#a20bd99b7515ca80ef98f483526690053">createVolumeLightMesh</a> (const <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> subdivideU=32, const <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> subdivideV=32, const <a class="el" href="classdcpp_1_1video_1_1SColor.html">video::SColor</a> footColor=0xffffffff, const <a class="el" href="classdcpp_1_1video_1_1SColor.html">video::SColor</a> tailColor=0xffffffff, const <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> lpDistance=8.f, const <a class="el" href="namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752">nub::vector3df</a> &amp;lightDim=<a class="el" href="namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752">nub::vector3df</a>(1.f, 1.2f, 1.f)) const =0</td></tr>
-<tr class="memdesc:a20bd99b7515ca80ef98f483526690053"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a volume light mesh.  <br /></td></tr>
-<tr class="separator:a20bd99b7515ca80ef98f483526690053"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67b50501b125db86929f5d43e4550a53" id="r_a67b50501b125db86929f5d43e4550a53"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1scene_1_1IMesh.html">IMesh</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IGeometryCreator.html#a67b50501b125db86929f5d43e4550a53">createVolumeLightMesh</a> (const <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> subdivideU=32, const <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> subdivideV=32, const <a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a> footColor=0xffffffff, const <a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a> tailColor=0xffffffff, const <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> lpDistance=8.f, const <a class="el" href="namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752">dcpp::nub::vector3df</a> &amp;lightDim=<a class="el" href="namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752">dcpp::nub::vector3df</a>(1.f, 1.2f, 1.f)) const =0</td></tr>
+<tr class="memdesc:a67b50501b125db86929f5d43e4550a53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a volume light mesh.  <br /></td></tr>
+<tr class="separator:a67b50501b125db86929f5d43e4550a53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classdcpp_1_1IReferenceCounted"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classdcpp_1_1IReferenceCounted')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classdcpp_1_1IReferenceCounted.html">dcpp::IReferenceCounted</a></td></tr>
 <tr class="memitem:a6aa4e18369165d6b993c69d15835757b inherit pub_methods_classdcpp_1_1IReferenceCounted" id="r_a6aa4e18369165d6b993c69d15835757b"><td class="memItemLeft" align="right" valign="top">
 &#160;</td><td class="memItemRight" valign="bottom"><b>IReferenceCounted</b> ()</td></tr>
@@ -176,23 +176,23 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~IReferenceCounted
 <tr class="memitem:a584dda95ccad6a90009eb42ebdccdede inherit pub_methods_classdcpp_1_1IReferenceCounted" id="r_a584dda95ccad6a90009eb42ebdccdede"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IReferenceCounted.html#a584dda95ccad6a90009eb42ebdccdede">getReferenceCount</a> () const</td></tr>
 <tr class="memdesc:a584dda95ccad6a90009eb42ebdccdede inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the reference count.  <br /></td></tr>
 <tr class="separator:a584dda95ccad6a90009eb42ebdccdede inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa470f15a1523b7800d86432c0076476c inherit pub_methods_classdcpp_1_1IReferenceCounted" id="r_aa470f15a1523b7800d86432c0076476c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">dcpp::byte8_kt</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IReferenceCounted.html#aa470f15a1523b7800d86432c0076476c">getDebugName</a> () const</td></tr>
-<tr class="memdesc:aa470f15a1523b7800d86432c0076476c inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the debug name of the object.  <br /></td></tr>
-<tr class="separator:aa470f15a1523b7800d86432c0076476c inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac048b2ba8e33c49c2b1a5ceee3ba3847 inherit pub_methods_classdcpp_1_1IReferenceCounted" id="r_ac048b2ba8e33c49c2b1a5ceee3ba3847"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacedcpp.html#a2a2d2e2601f3d260acd0ce9ac878b282">dcpp::char_kt</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IReferenceCounted.html#ac048b2ba8e33c49c2b1a5ceee3ba3847">getDebugName</a> () const</td></tr>
+<tr class="memdesc:ac048b2ba8e33c49c2b1a5ceee3ba3847 inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the debug name of the object.  <br /></td></tr>
+<tr class="separator:ac048b2ba8e33c49c2b1a5ceee3ba3847 inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_methods_classdcpp_1_1IReferenceCounted"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classdcpp_1_1IReferenceCounted')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classdcpp_1_1IReferenceCounted.html">dcpp::IReferenceCounted</a></td></tr>
-<tr class="memitem:a2d6bc70988cc8579790e48434268e84e inherit pro_methods_classdcpp_1_1IReferenceCounted" id="r_a2d6bc70988cc8579790e48434268e84e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IReferenceCounted.html#a2d6bc70988cc8579790e48434268e84e">setDebugName</a> (const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">dcpp::byte8_kt</a> *newName)</td></tr>
-<tr class="memdesc:a2d6bc70988cc8579790e48434268e84e inherit pro_methods_classdcpp_1_1IReferenceCounted"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the debug name of the object.  <br /></td></tr>
-<tr class="separator:a2d6bc70988cc8579790e48434268e84e inherit pro_methods_classdcpp_1_1IReferenceCounted"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94a97d313e5aa78265ad87024b91d9c0 inherit pro_methods_classdcpp_1_1IReferenceCounted" id="r_a94a97d313e5aa78265ad87024b91d9c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IReferenceCounted.html#a94a97d313e5aa78265ad87024b91d9c0">setDebugName</a> (const <a class="el" href="namespacedcpp.html#a2a2d2e2601f3d260acd0ce9ac878b282">dcpp::char_kt</a> *newName)</td></tr>
+<tr class="memdesc:a94a97d313e5aa78265ad87024b91d9c0 inherit pro_methods_classdcpp_1_1IReferenceCounted"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the debug name of the object.  <br /></td></tr>
+<tr class="separator:a94a97d313e5aa78265ad87024b91d9c0 inherit pro_methods_classdcpp_1_1IReferenceCounted"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Helper class for creating geometry on the fly. </p>
 <p>You can get an instance of this class through <a class="el" href="classdcpp_1_1scene_1_1ISceneManager.html#a57cfe7bf728dee396c76d0b55ec0e7a6" title="Get an instance of a geometry creator.">ISceneManager::getGeometryCreator()</a> </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab515d75902ab2d661a2908971c5841b0" name="ab515d75902ab2d661a2908971c5841b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab515d75902ab2d661a2908971c5841b0">&#9670;&#160;</a></span>createArrowMesh()</h2>
+<a id="a1782f5f4809e35839e03666032d374e3" name="a1782f5f4809e35839e03666032d374e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1782f5f4809e35839e03666032d374e3">&#9670;&#160;</a></span>createArrowMesh()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -239,13 +239,13 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1video_1_1SColor.html">video::SColor</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a>&#160;</td>
           <td class="paramname"><em>colorCylinder</em> = <code>0xFFFFFFFF</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1video_1_1SColor.html">video::SColor</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a>&#160;</td>
           <td class="paramname"><em>colorCone</em> = <code>0xFFFFFFFF</code>&#160;</td>
         </tr>
         <tr>
@@ -279,8 +279,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="adcf2e55c90d5ff91a6cc9dff7ed276bc" name="adcf2e55c90d5ff91a6cc9dff7ed276bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adcf2e55c90d5ff91a6cc9dff7ed276bc">&#9670;&#160;</a></span>createConeMesh()</h2>
+<a id="a941a7fa0791919005ca237d9047f2412" name="a941a7fa0791919005ca237d9047f2412"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a941a7fa0791919005ca237d9047f2412">&#9670;&#160;</a></span>createConeMesh()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -309,14 +309,14 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1video_1_1SColor.html">video::SColor</a> &amp;&#160;</td>
-          <td class="paramname"><em>colorTop</em> = <code><a class="el" href="classdcpp_1_1video_1_1SColor.html">video::SColor</a>(0xffffffff)</code>, </td>
+          <td class="paramtype">const <a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a> &amp;&#160;</td>
+          <td class="paramname"><em>colorTop</em> = <code><a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a>(0xffffffff)</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1video_1_1SColor.html">video::SColor</a> &amp;&#160;</td>
-          <td class="paramname"><em>colorBottom</em> = <code><a class="el" href="classdcpp_1_1video_1_1SColor.html">video::SColor</a>(0xffffffff)</code>, </td>
+          <td class="paramtype">const <a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a> &amp;&#160;</td>
+          <td class="paramname"><em>colorBottom</em> = <code><a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a>(0xffffffff)</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -353,8 +353,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a45523a3b347a7b174361c60fd8ca0a44" name="a45523a3b347a7b174361c60fd8ca0a44"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a45523a3b347a7b174361c60fd8ca0a44">&#9670;&#160;</a></span>createCubeMesh()</h2>
+<a id="ab13e794880f576f7f97c4caf449f9f5d" name="ab13e794880f576f7f97c4caf449f9f5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab13e794880f576f7f97c4caf449f9f5d">&#9670;&#160;</a></span>createCubeMesh()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -365,8 +365,8 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">virtual <a class="el" href="classdcpp_1_1scene_1_1IMesh.html">IMesh</a> * dcpp::scene::IGeometryCreator::createCubeMesh </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752">nub::vector3df</a> &amp;&#160;</td>
-          <td class="paramname"><em>size</em> = <code><a class="el" href="namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752">nub::vector3df</a>(5.f,&#160;5.f,&#160;5.f)</code>, </td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752">dcpp::nub::vector3df</a> &amp;&#160;</td>
+          <td class="paramname"><em>size</em> = <code><a class="el" href="namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752">dcpp::nub::vector3df</a>(5.f,&#160;5.f,&#160;5.f)</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -399,8 +399,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a2d1f6fd0f699428989e42ce2f03b7aa1" name="a2d1f6fd0f699428989e42ce2f03b7aa1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d1f6fd0f699428989e42ce2f03b7aa1">&#9670;&#160;</a></span>createCylinderMesh()</h2>
+<a id="a836bee4fac7b192adb1a2ffeb97748e8" name="a836bee4fac7b192adb1a2ffeb97748e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a836bee4fac7b192adb1a2ffeb97748e8">&#9670;&#160;</a></span>createCylinderMesh()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -429,8 +429,8 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1video_1_1SColor.html">video::SColor</a> &amp;&#160;</td>
-          <td class="paramname"><em>color</em> = <code><a class="el" href="classdcpp_1_1video_1_1SColor.html">video::SColor</a>(0xffffffff)</code>, </td>
+          <td class="paramtype">const <a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a> &amp;&#160;</td>
+          <td class="paramname"><em>color</em> = <code><a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a>(0xffffffff)</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -472,7 +472,7 @@ Additional Inherited Members</h2></td></tr>
     <tr><td class="paramname">color</td><td>The color of the cylinder. </td></tr>
     <tr><td class="paramname">closeTop</td><td>If true, close the ends of the cylinder, otherwise leave them open. </td></tr>
     <tr><td class="paramname">oblique</td><td>X-offset (shear) of top compared to bottom. </td></tr>
-    <tr><td class="paramname">normalType</td><td>When 0 side normals are radial from origin. Note that origin is at the bottom. When 1 side normals are flat along top/bottom polygons. NOTE: To get normals which are perpendicular to the side of an oblique cylinder, don't use the oblique parameter. Instead set normalType to 1 and create a cylinder with oblique set to 0. Then use <a class="el" href="classdcpp_1_1scene_1_1IMeshManipulator.html#a2c63b810c22e2ddc593c89df6f072a7f" title="Applies a transformation to a mesh.">IMeshManipulator::transform</a> with a shear matrix on the returned mesh. You get a shear matrix for an identical effect of this oblique parameter when you set the 4th element of an identity matrix to (oblique/length). </td></tr>
+    <tr><td class="paramname">normalType</td><td>When 0 side normals are radial from origin. Note that origin is at the bottom. When 1 side normals are flat along top/bottom polygons. NOTE: To get normals which are perpendicular to the side of an oblique cylinder, don't use the oblique parameter. Instead set normalType to 1 and create a cylinder with oblique set to 0. Then use <a class="el" href="classdcpp_1_1scene_1_1IMeshManipulator.html#a1b58587564b7f524b82b0d3c66b53169" title="Applies a transformation to a mesh.">IMeshManipulator::transform</a> with a shear matrix on the returned mesh. You get a shear matrix for an identical effect of this oblique parameter when you set the 4th element of an identity matrix to (oblique/length). </td></tr>
   </table>
   </dd>
 </dl>
@@ -533,8 +533,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a040b8e187ff3e4cc531700c7aa88e722" name="a040b8e187ff3e4cc531700c7aa88e722"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a040b8e187ff3e4cc531700c7aa88e722">&#9670;&#160;</a></span>createHillPlaneMesh()</h2>
+<a id="a7585c117b228968c1998d37ae0f671bf" name="a7585c117b228968c1998d37ae0f671bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7585c117b228968c1998d37ae0f671bf">&#9670;&#160;</a></span>createHillPlaneMesh()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -545,19 +545,19 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">virtual <a class="el" href="classdcpp_1_1scene_1_1IMesh.html">IMesh</a> * dcpp::scene::IGeometryCreator::createHillPlaneMesh </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>tileSize</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>tileCount</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classdcpp_1_1video_1_1SMaterial.html">video::SMaterial</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="classdcpp_1_1video_1_1SMaterial.html">dcpp::video::SMaterial</a> *&#160;</td>
           <td class="paramname"><em>material</em>, </td>
         </tr>
         <tr>
@@ -569,13 +569,13 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>countHills</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>textureRepeatCount</em>&#160;</td>
         </tr>
         <tr>
@@ -607,8 +607,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a7231add5a3d2e963fd1001c8caee94d3" name="a7231add5a3d2e963fd1001c8caee94d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7231add5a3d2e963fd1001c8caee94d3">&#9670;&#160;</a></span>createPlaneMesh()</h2>
+<a id="a5628efb173acf5be16a6dee8ec03988f" name="a5628efb173acf5be16a6dee8ec03988f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5628efb173acf5be16a6dee8ec03988f">&#9670;&#160;</a></span>createPlaneMesh()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -619,26 +619,26 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="classdcpp_1_1scene_1_1IMesh.html">IMesh</a> * dcpp::scene::IGeometryCreator::createPlaneMesh </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>tileSize</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>tileCount</em> = <code><a class="el" href="namespacedcpp_1_1nub.html#a04c84e82c13a5b10f7546a753f8a5334">nub::dimension2du</a>(1,1)</code>, </td>
+          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>tileCount</em> = <code><a class="el" href="namespacedcpp_1_1nub.html#a04c84e82c13a5b10f7546a753f8a5334">dcpp::nub::dimension2du</a>(1,1)</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classdcpp_1_1video_1_1SMaterial.html">video::SMaterial</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="classdcpp_1_1video_1_1SMaterial.html">dcpp::video::SMaterial</a> *&#160;</td>
           <td class="paramname"><em>material</em> = <code>0</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#a33c6c1632c9f5816cd896561ef619a17">nub::dimension2df</a> &amp;&#160;</td>
-          <td class="paramname"><em>textureRepeatCount</em> = <code><a class="el" href="namespacedcpp_1_1nub.html#a33c6c1632c9f5816cd896561ef619a17">nub::dimension2df</a>(1.f,1.f)</code>&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#a33c6c1632c9f5816cd896561ef619a17">dcpp::nub::dimension2df</a> &amp;&#160;</td>
+          <td class="paramname"><em>textureRepeatCount</em> = <code><a class="el" href="namespacedcpp_1_1nub.html#a33c6c1632c9f5816cd896561ef619a17">dcpp::nub::dimension2df</a>(1.f,1.f)</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -720,8 +720,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="af23a7795331bad8ca4cb2f5680c71827" name="af23a7795331bad8ca4cb2f5680c71827"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af23a7795331bad8ca4cb2f5680c71827">&#9670;&#160;</a></span>createTerrainMesh()</h2>
+<a id="a9faff600d3f96b36c5c675bafdab1e77" name="a9faff600d3f96b36c5c675bafdab1e77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9faff600d3f96b36c5c675bafdab1e77">&#9670;&#160;</a></span>createTerrainMesh()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -732,19 +732,19 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">virtual <a class="el" href="classdcpp_1_1scene_1_1IMesh.html">IMesh</a> * dcpp::scene::IGeometryCreator::createTerrainMesh </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classdcpp_1_1video_1_1IImage.html">video::IImage</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="classdcpp_1_1video_1_1IImage.html">dcpp::video::IImage</a> *&#160;</td>
           <td class="paramname"><em>texture</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classdcpp_1_1video_1_1IImage.html">video::IImage</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="classdcpp_1_1video_1_1IImage.html">dcpp::video::IImage</a> *&#160;</td>
           <td class="paramname"><em>heightmap</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>stretchSize</em>, </td>
         </tr>
         <tr>
@@ -756,13 +756,13 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html">video::IVideoDriver</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html">dcpp::video::IVideoDriver</a> *&#160;</td>
           <td class="paramname"><em>driver</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>defaultVertexBlockSize</em>, </td>
         </tr>
         <tr>
@@ -881,8 +881,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a20bd99b7515ca80ef98f483526690053" name="a20bd99b7515ca80ef98f483526690053"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a20bd99b7515ca80ef98f483526690053">&#9670;&#160;</a></span>createVolumeLightMesh()</h2>
+<a id="a67b50501b125db86929f5d43e4550a53" name="a67b50501b125db86929f5d43e4550a53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67b50501b125db86929f5d43e4550a53">&#9670;&#160;</a></span>createVolumeLightMesh()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -905,13 +905,13 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1video_1_1SColor.html">video::SColor</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a>&#160;</td>
           <td class="paramname"><em>footColor</em> = <code>0xffffffff</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1video_1_1SColor.html">video::SColor</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a>&#160;</td>
           <td class="paramname"><em>tailColor</em> = <code>0xffffffff</code>, </td>
         </tr>
         <tr>
@@ -923,8 +923,8 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752">nub::vector3df</a> &amp;&#160;</td>
-          <td class="paramname"><em>lightDim</em> = <code><a class="el" href="namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752">nub::vector3df</a>(1.f,&#160;1.2f,&#160;1.f)</code>&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752">dcpp::nub::vector3df</a> &amp;&#160;</td>
+          <td class="paramname"><em>lightDim</em> = <code><a class="el" href="namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752">dcpp::nub::vector3df</a>(1.f,&#160;1.2f,&#160;1.f)</code>&#160;</td>
         </tr>
         <tr>
           <td></td>

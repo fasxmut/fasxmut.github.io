@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['element_0',['Element',['../classdcpp_1_1SEvent_1_1SGUIEvent.html#a08476267d4665f661b1e46a35fb9fa1f',1,'dcpp::SEvent::SGUIEvent']]],
+  ['element_0',['Element',['../classdcpp_1_1SEvent_1_1SGUIEvent.html#a6dcf533d50361625fe30a75ec200c586',1,'dcpp::SEvent::SGUIEvent']]],
   ['emissivecolor_1',['EmissiveColor',['../classdcpp_1_1video_1_1SMaterial.html#ae3210fc9a15026cde00126d46cf268e2',1,'dcpp::video::SMaterial']]],
   ['enabled_2',['Enabled',['../classdcpp_1_1video_1_1SOverrideMaterial.html#a747f7c154edf931383dcc89d582213c5',1,'dcpp::video::SOverrideMaterial']]],
   ['enableflags_3',['EnableFlags',['../classdcpp_1_1video_1_1SOverrideMaterial.html#a1495cf3937e7d1c1fdd72a27bf3bac0d',1,'dcpp::video::SOverrideMaterial']]],
@@ -13,5 +13,5 @@ var searchData=
   ['environment_10',['Environment',['../classdcpp_1_1gui_1_1IGUIElement.html#a21ca97e6483ffb1eb68a4183d5107a3d',1,'dcpp::gui::IGUIElement']]],
   ['event_11',['event',['../classdcpp_1_1SEvent_1_1STouchInput.html#a9c4d0d92e531ce4fa79dcf61f68738fd',1,'dcpp::SEvent::STouchInput::Event'],['../classdcpp_1_1SEvent_1_1SMouseInput.html#a309637ade016e7dcec8ffa0a03e5e815',1,'dcpp::SEvent::SMouseInput::Event']]],
   ['eventreceiver_12',['EventReceiver',['../classdcpp_1_1SDuckcppCreationParameters.html#abccc2fe3f5e4eb55c81a0e4b4887a028',1,'dcpp::SDuckcppCreationParameters']]],
-  ['eventtype_13',['EventType',['../classdcpp_1_1SEvent_1_1SGUIEvent.html#a9efd0ddb63e5d0a00bd49f0f8e490b8f',1,'dcpp::SEvent::SGUIEvent']]]
+  ['eventtype_13',['EventType',['../classdcpp_1_1SEvent_1_1SGUIEvent.html#a1acc0d181536ac421f7e2d1b898e4f12',1,'dcpp::SEvent::SGUIEvent']]]
 ];

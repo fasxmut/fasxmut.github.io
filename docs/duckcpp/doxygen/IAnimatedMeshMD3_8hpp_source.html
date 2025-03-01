@@ -181,7 +181,7 @@ $(document).ready(function(){initNavTree('IAnimatedMeshMD3_8hpp_source.html','')
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="classdcpp_1_1scene_1_1SMD3Header.html">   82</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classdcpp_1_1scene_1_1SMD3Header.html">SMD3Header</a></div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    {</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <a class="code hl_typedef" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">dcpp::byte8_kt</a> headerID[4]; <span class="comment">//id of file, always &quot;IDP3&quot;</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <a class="code hl_typedef" href="namespacedcpp.html#a2a2d2e2601f3d260acd0ce9ac878b282">dcpp::char_kt</a> headerID[4];  <span class="comment">//id of file, always &quot;IDP3&quot;</span></div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <a class="code hl_typedef" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> Version; <span class="comment">//this is a version number, always 15</span></div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <a class="code hl_typedef" href="namespacedcpp.html#a1656eabf4d8013118e5c760b25b9e413">dcpp::int8_kt</a> fileName[68];<span class="comment">//sometimes left Blank... 65 chars, 32bit aligned == 68 chars</span></div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <a class="code hl_typedef" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> numFrames;   <span class="comment">//number of KeyFrames</span></div>
@@ -199,8 +199,8 @@ $(document).ready(function(){initNavTree('IAnimatedMeshMD3_8hpp_source.html','')
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="classdcpp_1_1scene_1_1SMD3MeshHeader.html">   99</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classdcpp_1_1scene_1_1SMD3MeshHeader.html">SMD3MeshHeader</a></div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    {</div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <a class="code hl_typedef" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">dcpp::byte8_kt</a> meshID[4];       <span class="comment">//id, must be IDP3</span></div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        <a class="code hl_typedef" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">dcpp::byte8_kt</a> meshName[68];    <span class="comment">//name of mesh 65 chars, 32 bit aligned == 68 chars</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <a class="code hl_typedef" href="namespacedcpp.html#a2a2d2e2601f3d260acd0ce9ac878b282">dcpp::char_kt</a> meshID[4];        <span class="comment">//id, must be IDP3</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        <a class="code hl_typedef" href="namespacedcpp.html#a2a2d2e2601f3d260acd0ce9ac878b282">dcpp::char_kt</a> meshName[68]; <span class="comment">//name of mesh 65 chars, 32 bit aligned == 68 chars</span></div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        <a class="code hl_typedef" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> numFrames;       <span class="comment">//number of meshframes in mesh</span></div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        <a class="code hl_typedef" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> numShader;       <span class="comment">//number of skins in mesh</span></div>
@@ -252,10 +252,10 @@ $(document).ready(function(){initNavTree('IAnimatedMeshMD3_8hpp_source.html','')
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        <a class="code hl_class" href="classdcpp_1_1scene_1_1SMD3MeshHeader.html">SMD3MeshHeader</a> MeshHeader;</div>
 <div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        <a class="code hl_class" href="classdcpp_1_1nub_1_1basic__string.html">nub::string</a> Shader;</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        <a class="code hl_class" href="classdcpp_1_1nub_1_1aabbox3d.html">nub::array &lt; dcpp::int32_kt &gt;</a> Indices;</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        <a class="code hl_class" href="classdcpp_1_1nub_1_1aabbox3d.html">nub::array &lt; SMD3Vertex &gt;</a> Vertices;</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        <a class="code hl_class" href="classdcpp_1_1nub_1_1aabbox3d.html">nub::array &lt; SMD3TexCoord &gt;</a> Tex;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        <a class="code hl_class" href="classdcpp_1_1nub_1_1basic__string.html">dcpp::nub::string</a> Shader;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        <a class="code hl_class" href="classdcpp_1_1nub_1_1aabbox3d.html">dcpp::nub::array &lt; dcpp::int32_kt &gt;</a> Indices;</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        <a class="code hl_class" href="classdcpp_1_1nub_1_1aabbox3d.html">dcpp::nub::array &lt; SMD3Vertex &gt;</a> Vertices;</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        <a class="code hl_class" href="classdcpp_1_1nub_1_1aabbox3d.html">dcpp::nub::array &lt; SMD3TexCoord &gt;</a> Tex;</div>
 <div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    };</div>
 </div>
 <div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
@@ -265,15 +265,15 @@ $(document).ready(function(){initNavTree('IAnimatedMeshMD3_8hpp_source.html','')
 <div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    {</div>
 <div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        <span class="comment">// construct for searching</span></div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        <a class="code hl_class" href="classdcpp_1_1scene_1_1SMD3QuaternionTag.html">SMD3QuaternionTag</a>( <span class="keyword">const</span> <a class="code hl_class" href="classdcpp_1_1nub_1_1basic__string.html">nub::string</a>&amp; name )</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        <a class="code hl_class" href="classdcpp_1_1scene_1_1SMD3QuaternionTag.html">SMD3QuaternionTag</a>( <span class="keyword">const</span> <a class="code hl_class" href="classdcpp_1_1nub_1_1basic__string.html">dcpp::nub::string</a>&amp; name )</div>
 <div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>            : Name ( name ) {}</div>
 <div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
 <div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        <span class="comment">// construct from a position and euler angles in degrees</span></div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>        <a class="code hl_class" href="classdcpp_1_1scene_1_1SMD3QuaternionTag.html">SMD3QuaternionTag</a> ( <span class="keyword">const</span> <a class="code hl_class" href="classdcpp_1_1nub_1_1vector3d.html">nub::vector3df</a> &amp;pos, <span class="keyword">const</span> <a class="code hl_class" href="classdcpp_1_1nub_1_1vector3d.html">nub::vector3df</a> &amp;angle )</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>            : position(pos), rotation(angle * <a class="code hl_variable" href="namespacedcpp_1_1nub.html#a9875eb89b6289956e4f8b52931068c1d">nub::DEGTORAD</a>) {}</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>        <a class="code hl_class" href="classdcpp_1_1scene_1_1SMD3QuaternionTag.html">SMD3QuaternionTag</a> ( <span class="keyword">const</span> <a class="code hl_class" href="classdcpp_1_1nub_1_1vector3d.html">dcpp::nub::vector3df</a> &amp;pos, <span class="keyword">const</span> <a class="code hl_class" href="classdcpp_1_1nub_1_1vector3d.html">dcpp::nub::vector3df</a> &amp;angle )</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>            : position(pos), rotation(angle * <a class="code hl_variable" href="namespacedcpp_1_1nub.html#a9875eb89b6289956e4f8b52931068c1d">dcpp::nub::DEGTORAD</a>) {}</div>
 <div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
 <div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        <span class="comment">// set to matrix</span></div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        <span class="keywordtype">void</span> setto ( <a class="code hl_class" href="classdcpp_1_1nub_1_1PMatrix4.html">nub::matrix4</a> &amp;m )</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        <span class="keywordtype">void</span> setto ( <a class="code hl_class" href="classdcpp_1_1nub_1_1PMatrix4.html">dcpp::nub::matrix4</a> &amp;m )</div>
 <div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        {</div>
 <div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>            rotation.<a class="code hl_function" href="classdcpp_1_1nub_1_1quaternion.html#a4201325eb65e36096a06934a6f96c868">getMatrix</a> ( m, position );</div>
 <div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        }</div>
@@ -283,9 +283,9 @@ $(document).ready(function(){initNavTree('IAnimatedMeshMD3_8hpp_source.html','')
 <div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>            <span class="keywordflow">return</span> Name == other.Name;</div>
 <div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        }</div>
 <div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        <a class="code hl_class" href="classdcpp_1_1nub_1_1basic__string.html">nub::string</a> Name;</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        <a class="code hl_class" href="classdcpp_1_1nub_1_1vector3d.html">nub::vector3df</a> position;</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        <a class="code hl_class" href="classdcpp_1_1nub_1_1quaternion.html">nub::quaternion</a> rotation;</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        <a class="code hl_class" href="classdcpp_1_1nub_1_1basic__string.html">dcpp::nub::string</a> Name;</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        <a class="code hl_class" href="classdcpp_1_1nub_1_1vector3d.html">dcpp::nub::vector3df</a> position;</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        <a class="code hl_class" href="classdcpp_1_1nub_1_1quaternion.html">dcpp::nub::quaternion</a> rotation;</div>
 <div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    };</div>
 </div>
 <div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
@@ -295,10 +295,10 @@ $(document).ready(function(){initNavTree('IAnimatedMeshMD3_8hpp_source.html','')
 <div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        <a class="code hl_class" href="classdcpp_1_1scene_1_1SMD3QuaternionTagList.html">SMD3QuaternionTagList</a>()</div>
 <div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>        {</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>            Container.setAllocStrategy(nub::ALLOC_STRATEGY_SAFE);</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>            Container.setAllocStrategy(dcpp::nub::ALLOC_STRATEGY_SAFE);</div>
 <div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        }</div>
 <div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        <a class="code hl_class" href="classdcpp_1_1scene_1_1SMD3QuaternionTag.html">SMD3QuaternionTag</a>* get(<span class="keyword">const</span> <a class="code hl_class" href="classdcpp_1_1nub_1_1basic__string.html">nub::string</a>&amp; name)</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        <a class="code hl_class" href="classdcpp_1_1scene_1_1SMD3QuaternionTag.html">SMD3QuaternionTag</a>* get(<span class="keyword">const</span> <a class="code hl_class" href="classdcpp_1_1nub_1_1basic__string.html">dcpp::nub::string</a>&amp; name)</div>
 <div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>        {</div>
 <div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>            <a class="code hl_class" href="classdcpp_1_1scene_1_1SMD3QuaternionTag.html">SMD3QuaternionTag</a> search ( name );</div>
 <div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>            <span class="keyword">const</span> <a class="code hl_typedef" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> index = Container.linear_search ( search );</div>
@@ -339,7 +339,7 @@ $(document).ready(function(){initNavTree('IAnimatedMeshMD3_8hpp_source.html','')
 <div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>        }</div>
 <div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span> </div>
 <div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        <a class="code hl_class" href="classdcpp_1_1nub_1_1aabbox3d.html">nub::array &lt; SMD3QuaternionTag &gt;</a> Container;</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        <a class="code hl_class" href="classdcpp_1_1nub_1_1aabbox3d.html">dcpp::nub::array &lt; SMD3QuaternionTag &gt;</a> Container;</div>
 <div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    };</div>
 </div>
 <div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span> </div>
@@ -359,8 +359,8 @@ $(document).ready(function(){initNavTree('IAnimatedMeshMD3_8hpp_source.html','')
 <div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>                Buffer[i]-&gt;<a class="code hl_function" href="classdcpp_1_1IReferenceCounted.html#a354018f03484e10dbef6f9162510f022">drop</a>();</div>
 <div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>        }</div>
 <div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span> </div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>        <a class="code hl_class" href="classdcpp_1_1nub_1_1basic__string.html">nub::string</a> Name;</div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        <a class="code hl_class" href="classdcpp_1_1nub_1_1aabbox3d.html">nub::array&lt;SMD3MeshBuffer*&gt;</a> Buffer;</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>        <a class="code hl_class" href="classdcpp_1_1nub_1_1basic__string.html">dcpp::nub::string</a> Name;</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        <a class="code hl_class" href="classdcpp_1_1nub_1_1aabbox3d.html">dcpp::nub::array&lt;SMD3MeshBuffer*&gt;</a> Buffer;</div>
 <div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>        <a class="code hl_class" href="classdcpp_1_1scene_1_1SMD3QuaternionTagList.html">SMD3QuaternionTagList</a> TagList;</div>
 <div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>        <a class="code hl_class" href="classdcpp_1_1scene_1_1SMD3Header.html">SMD3Header</a> MD3Header;</div>
 <div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    };</div>
@@ -388,7 +388,7 @@ $(document).ready(function(){initNavTree('IAnimatedMeshMD3_8hpp_source.html','')
 <div class="ttc" id="aclassdcpp_1_1IReferenceCounted_html_a354018f03484e10dbef6f9162510f022"><div class="ttname"><a href="classdcpp_1_1IReferenceCounted.html#a354018f03484e10dbef6f9162510f022">dcpp::IReferenceCounted::drop</a></div><div class="ttdeci">bool drop() const</div><div class="ttdoc">Drops the object. Decrements the reference counter by one.</div><div class="ttdef"><b>Definition</b> IReferenceCounted.hpp:126</div></div>
 <div class="ttc" id="aclassdcpp_1_1nub_1_1PMatrix4_html"><div class="ttname"><a href="classdcpp_1_1nub_1_1PMatrix4.html">dcpp::nub::PMatrix4</a></div><div class="ttdoc">4x4 matrix. Mostly used as transformation matrix for 3d calculations.</div><div class="ttdef"><b>Definition</b> matrix4.hpp:49</div></div>
 <div class="ttc" id="aclassdcpp_1_1nub_1_1aabbox3d_html"><div class="ttname"><a href="classdcpp_1_1nub_1_1aabbox3d.html">dcpp::nub::aabbox3d</a></div><div class="ttdoc">Axis aligned bounding box in 3d dimensional space.</div><div class="ttdef"><b>Definition</b> aabbox3d.hpp:22</div></div>
-<div class="ttc" id="aclassdcpp_1_1nub_1_1basic__string_html"><div class="ttname"><a href="classdcpp_1_1nub_1_1basic__string.html">dcpp::nub::basic_string&lt; dcpp::byte8_kt &gt;</a></div></div>
+<div class="ttc" id="aclassdcpp_1_1nub_1_1basic__string_html"><div class="ttname"><a href="classdcpp_1_1nub_1_1basic__string.html">dcpp::nub::basic_string&lt; dcpp::char_kt &gt;</a></div></div>
 <div class="ttc" id="aclassdcpp_1_1nub_1_1quaternion_html"><div class="ttname"><a href="classdcpp_1_1nub_1_1quaternion.html">dcpp::nub::quaternion</a></div><div class="ttdoc">Quaternion class for representing rotations.</div><div class="ttdef"><b>Definition</b> quaternion.hpp:32</div></div>
 <div class="ttc" id="aclassdcpp_1_1nub_1_1quaternion_html_a4201325eb65e36096a06934a6f96c868"><div class="ttname"><a href="classdcpp_1_1nub_1_1quaternion.html#a4201325eb65e36096a06934a6f96c868">dcpp::nub::quaternion::getMatrix</a></div><div class="ttdeci">matrix4 getMatrix() const</div><div class="ttdoc">Creates a matrix from this quaternion.</div><div class="ttdef"><b>Definition</b> quaternion.hpp:348</div></div>
 <div class="ttc" id="aclassdcpp_1_1nub_1_1vector3d_html"><div class="ttname"><a href="classdcpp_1_1nub_1_1vector3d.html">dcpp::nub::vector3d&lt; dcpp::float32_kt &gt;</a></div></div>
@@ -416,7 +416,7 @@ $(document).ready(function(){initNavTree('IAnimatedMeshMD3_8hpp_source.html','')
 <div class="ttc" id="anamespacedcpp_1_1scene_html_a4af077e7ec09d271cf954e4a1f771cd0a69cc1dc454a2f6f3fd94d08247c06077"><div class="ttname"><a href="namespacedcpp_1_1scene.html#a4af077e7ec09d271cf954e4a1f771cd0a69cc1dc454a2f6f3fd94d08247c06077">dcpp::scene::EMD3_ANIMATION_COUNT</a></div><div class="ttdeci">@ EMD3_ANIMATION_COUNT</div><div class="ttdoc">Not an animation, but amount of animation types.</div><div class="ttdef"><b>Definition</b> IAnimatedMeshMD3.hpp:61</div></div>
 <div class="ttc" id="anamespacedcpp_html"><div class="ttname"><a href="namespacedcpp.html">dcpp</a></div><div class="ttdoc">As of Duckcpp 1.6, position2d is a synonym for vector2d.</div><div class="ttdef"><b>Definition</b> vector3d.hpp:11</div></div>
 <div class="ttc" id="anamespacedcpp_html_a1656eabf4d8013118e5c760b25b9e413"><div class="ttname"><a href="namespacedcpp.html#a1656eabf4d8013118e5c760b25b9e413">dcpp::int8_kt</a></div><div class="ttdeci">signed char int8_kt</div><div class="ttdoc">8 bit signed variable.</div><div class="ttdef"><b>Definition</b> irrTypes.hpp:32</div></div>
-<div class="ttc" id="anamespacedcpp_html_a408133811e8c56ef0d89d20315d6788a"><div class="ttname"><a href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">dcpp::byte8_kt</a></div><div class="ttdeci">char byte8_kt</div><div class="ttdoc">8 bit character variable.</div><div class="ttdef"><b>Definition</b> irrTypes.hpp:37</div></div>
+<div class="ttc" id="anamespacedcpp_html_a2a2d2e2601f3d260acd0ce9ac878b282"><div class="ttname"><a href="namespacedcpp.html#a2a2d2e2601f3d260acd0ce9ac878b282">dcpp::char_kt</a></div><div class="ttdeci">char char_kt</div><div class="ttdoc">8 bit character variable.</div><div class="ttdef"><b>Definition</b> irrTypes.hpp:37</div></div>
 <div class="ttc" id="anamespacedcpp_html_a4ee5e3a443a073623fd269e105ec79ac"><div class="ttname"><a href="namespacedcpp.html#a4ee5e3a443a073623fd269e105ec79ac">dcpp::uint8_kt</a></div><div class="ttdeci">unsigned char uint8_kt</div><div class="ttdoc">8 bit unsigned variable.</div><div class="ttdef"><b>Definition</b> irrTypes.hpp:24</div></div>
 <div class="ttc" id="anamespacedcpp_html_a912c88731e6a39387d877830a2684fed"><div class="ttname"><a href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a></div><div class="ttdeci">unsigned int uint32_kt</div><div class="ttdoc">32 bit unsigned variable.</div><div class="ttdef"><b>Definition</b> irrTypes.hpp:64</div></div>
 <div class="ttc" id="anamespacedcpp_html_a93cc7c2898084f21ecea75013793af08"><div class="ttname"><a href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a></div><div class="ttdeci">float float32_kt</div><div class="ttdoc">32 bit floating point variable.</div><div class="ttdef"><b>Definition</b> irrTypes.hpp:108</div></div>

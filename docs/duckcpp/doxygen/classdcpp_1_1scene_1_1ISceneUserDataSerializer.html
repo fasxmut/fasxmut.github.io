@@ -109,19 +109,19 @@ Public Member Functions</h2></td></tr>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>OnCreateNode</b> (<a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> *node)=0</td></tr>
 <tr class="memdesc:ad7d8c3bb6d1342e0931f232bfc8abee7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the scene manager create a scene node while loading a file. <br /></td></tr>
 <tr class="separator:ad7d8c3bb6d1342e0931f232bfc8abee7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49656b1b9acf66ec257362f9d00b7d69" id="r_a49656b1b9acf66ec257362f9d00b7d69"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneUserDataSerializer.html#a49656b1b9acf66ec257362f9d00b7d69">OnReadUserData</a> (<a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> *forSceneNode, <a class="el" href="classdcpp_1_1io_1_1IAttributes.html">io::IAttributes</a> *userData)=0</td></tr>
-<tr class="memdesc:a49656b1b9acf66ec257362f9d00b7d69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the scene manager read a scene node while loading a file.  <br /></td></tr>
-<tr class="separator:a49656b1b9acf66ec257362f9d00b7d69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10eeafddc08b2438331aac534541487e" id="r_a10eeafddc08b2438331aac534541487e"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1io_1_1IAttributes.html">io::IAttributes</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneUserDataSerializer.html#a10eeafddc08b2438331aac534541487e">createUserData</a> (<a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> *forSceneNode)=0</td></tr>
-<tr class="memdesc:a10eeafddc08b2438331aac534541487e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the scene manager is writing a scene node to an xml file for example.  <br /></td></tr>
-<tr class="separator:a10eeafddc08b2438331aac534541487e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebb5bcf6b5c854e1ff354705fc363bfa" id="r_aebb5bcf6b5c854e1ff354705fc363bfa"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneUserDataSerializer.html#aebb5bcf6b5c854e1ff354705fc363bfa">OnReadUserData</a> (<a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> *forSceneNode, <a class="el" href="classdcpp_1_1io_1_1IAttributes.html">dcpp::io::IAttributes</a> *userData)=0</td></tr>
+<tr class="memdesc:aebb5bcf6b5c854e1ff354705fc363bfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the scene manager read a scene node while loading a file.  <br /></td></tr>
+<tr class="separator:aebb5bcf6b5c854e1ff354705fc363bfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d8d92f910fa4bbef1cd095ff6b9359e" id="r_a2d8d92f910fa4bbef1cd095ff6b9359e"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1io_1_1IAttributes.html">dcpp::io::IAttributes</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneUserDataSerializer.html#a2d8d92f910fa4bbef1cd095ff6b9359e">createUserData</a> (<a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> *forSceneNode)=0</td></tr>
+<tr class="memdesc:a2d8d92f910fa4bbef1cd095ff6b9359e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the scene manager is writing a scene node to an xml file for example.  <br /></td></tr>
+<tr class="separator:a2d8d92f910fa4bbef1cd095ff6b9359e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Interface to read and write user data to and from .irr files. </p>
-<p>This interface is to be implemented by the user, to make it possible to read and write user data when reading or writing .irr files via <a class="el" href="classdcpp_1_1scene_1_1ISceneManager.html" title="The Scene Manager manages scene nodes, mesh resources, cameras and all the other stuff.">ISceneManager</a>. To be used with <a class="el" href="classdcpp_1_1scene_1_1ISceneManager.html#ac99153d31033fcf6149cfc69afa1e800" title="Loads a scene. Note that the current scene is not cleared before.">ISceneManager::loadScene()</a> and <a class="el" href="classdcpp_1_1scene_1_1ISceneManager.html#a7d9dc672a79982d5aec200c162b5cf9c" title="Saves the current scene into a file.">ISceneManager::saveScene()</a> </p>
+<p>This interface is to be implemented by the user, to make it possible to read and write user data when reading or writing .irr files via <a class="el" href="classdcpp_1_1scene_1_1ISceneManager.html" title="The Scene Manager manages scene nodes, mesh resources, cameras and all the other stuff.">ISceneManager</a>. To be used with <a class="el" href="classdcpp_1_1scene_1_1ISceneManager.html#aea8f7e994d9a8fc24d03084983c90099" title="Loads a scene. Note that the current scene is not cleared before.">ISceneManager::loadScene()</a> and <a class="el" href="classdcpp_1_1scene_1_1ISceneManager.html#af61c259c1b33727524c3b77f70ac79a9" title="Saves the current scene into a file.">ISceneManager::saveScene()</a> </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a10eeafddc08b2438331aac534541487e" name="a10eeafddc08b2438331aac534541487e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a10eeafddc08b2438331aac534541487e">&#9670;&#160;</a></span>createUserData()</h2>
+<a id="a2d8d92f910fa4bbef1cd095ff6b9359e" name="a2d8d92f910fa4bbef1cd095ff6b9359e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d8d92f910fa4bbef1cd095ff6b9359e">&#9670;&#160;</a></span>createUserData()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -130,7 +130,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>OnCreateNode<
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="classdcpp_1_1io_1_1IAttributes.html">io::IAttributes</a> * dcpp::scene::ISceneUserDataSerializer::createUserData </td>
+          <td class="memname">virtual <a class="el" href="classdcpp_1_1io_1_1IAttributes.html">dcpp::io::IAttributes</a> * dcpp::scene::ISceneUserDataSerializer::createUserData </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> *&#160;</td>
           <td class="paramname"><em>forSceneNode</em></td><td>)</td>
@@ -149,8 +149,8 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>OnCreateNode<
 
 </div>
 </div>
-<a id="a49656b1b9acf66ec257362f9d00b7d69" name="a49656b1b9acf66ec257362f9d00b7d69"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49656b1b9acf66ec257362f9d00b7d69">&#9670;&#160;</a></span>OnReadUserData()</h2>
+<a id="aebb5bcf6b5c854e1ff354705fc363bfa" name="aebb5bcf6b5c854e1ff354705fc363bfa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebb5bcf6b5c854e1ff354705fc363bfa">&#9670;&#160;</a></span>OnReadUserData()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -167,7 +167,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>OnCreateNode<
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classdcpp_1_1io_1_1IAttributes.html">io::IAttributes</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="classdcpp_1_1io_1_1IAttributes.html">dcpp::io::IAttributes</a> *&#160;</td>
           <td class="paramname"><em>userData</em>&#160;</td>
         </tr>
         <tr>

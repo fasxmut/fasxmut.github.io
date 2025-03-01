@@ -1,6 +1,6 @@
 var classdcpp_1_1gui_1_1IGUITabControl =
 [
-    [ "IGUITabControl", "classdcpp_1_1gui_1_1IGUITabControl.html#ad966e6306a27be2230a64c9575171fa2", null ],
+    [ "IGUITabControl", "classdcpp_1_1gui_1_1IGUITabControl.html#a70de03320ce0cbeef07052d51b27248f", null ],
     [ "addTab", "classdcpp_1_1gui_1_1IGUITabControl.html#ac7724d3aea92c7adb2e62d3f8ca073c7", null ],
     [ "addTab", "classdcpp_1_1gui_1_1IGUITabControl.html#a1e2d223d231b1f176e7aae91bb206553", null ],
     [ "clear", "classdcpp_1_1gui_1_1IGUITabControl.html#ab065721b8ea596f532823bfbc7225508", null ],
@@ -12,7 +12,7 @@ var classdcpp_1_1gui_1_1IGUITabControl =
     [ "getTabHeight", "classdcpp_1_1gui_1_1IGUITabControl.html#a27591a3202e0fe1731dce480295f8026", null ],
     [ "getTabIndex", "classdcpp_1_1gui_1_1IGUITabControl.html#a83533f6b56daa80c2d367be917fddbc9", null ],
     [ "getTabMaxWidth", "classdcpp_1_1gui_1_1IGUITabControl.html#a0c2088476dfecdc509180ab3c7af8167", null ],
-    [ "getTabVerticalAlignment", "classdcpp_1_1gui_1_1IGUITabControl.html#a389fd78edb70092b74ee3e544ee5b9e7", null ],
+    [ "getTabVerticalAlignment", "classdcpp_1_1gui_1_1IGUITabControl.html#a3670134de28d411e33fa14bcc8a06d02", null ],
     [ "insertTab", "classdcpp_1_1gui_1_1IGUITabControl.html#a4705b44e80c469af1d42857aaaa08421", null ],
     [ "insertTab", "classdcpp_1_1gui_1_1IGUITabControl.html#ac9797a48962093bbe37462f8746acda1", null ],
     [ "removeTab", "classdcpp_1_1gui_1_1IGUITabControl.html#aae164274511f638f23a742251b579625", null ],
@@ -21,5 +21,5 @@ var classdcpp_1_1gui_1_1IGUITabControl =
     [ "setTabExtraWidth", "classdcpp_1_1gui_1_1IGUITabControl.html#a349477a6ddd80589e98a7d095d9ee786", null ],
     [ "setTabHeight", "classdcpp_1_1gui_1_1IGUITabControl.html#a73a5d861b691abdf2884e9bf0a4fd9dd", null ],
     [ "setTabMaxWidth", "classdcpp_1_1gui_1_1IGUITabControl.html#ade45825aa674404bfb32168cfa3a2c87", null ],
-    [ "setTabVerticalAlignment", "classdcpp_1_1gui_1_1IGUITabControl.html#af7fc760ffdd7dcf3f4b8a96acf7e95de", null ]
+    [ "setTabVerticalAlignment", "classdcpp_1_1gui_1_1IGUITabControl.html#a681e57c0e1e44016b3c5818e061f4061", null ]
 ];

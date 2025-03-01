@@ -137,10 +137,10 @@ Public Member Functions</h2></td></tr>
 virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~IColladaMeshWriter</b> ()</td></tr>
 <tr class="memdesc:a0cd146cbb0f9b27f25964ab4c9464b1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br /></td></tr>
 <tr class="separator:a0cd146cbb0f9b27f25964ab4c9464b1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34e9ef6900b4f5b456f12f782c339f88" id="r_a34e9ef6900b4f5b456f12f782c339f88"><td class="memItemLeft" align="right" valign="top"><a id="a34e9ef6900b4f5b456f12f782c339f88" name="a34e9ef6900b4f5b456f12f782c339f88"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>writeScene</b> (<a class="el" href="classdcpp_1_1io_1_1IWriteFile.html">io::IWriteFile</a> *file, <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">scene::ISceneNode</a> *root, int writeRoot=1)=0</td></tr>
-<tr class="memdesc:a34e9ef6900b4f5b456f12f782c339f88"><td class="mdescLeft">&#160;</td><td class="mdescRight">writes a scene starting with the given node <br /></td></tr>
-<tr class="separator:a34e9ef6900b4f5b456f12f782c339f88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f31a4dd564f7d978571f2e6e6f7a2d0" id="r_a8f31a4dd564f7d978571f2e6e6f7a2d0"><td class="memItemLeft" align="right" valign="top"><a id="a8f31a4dd564f7d978571f2e6e6f7a2d0" name="a8f31a4dd564f7d978571f2e6e6f7a2d0"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>writeScene</b> (<a class="el" href="classdcpp_1_1io_1_1IWriteFile.html">dcpp::io::IWriteFile</a> *file, <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">dcpp::scene::ISceneNode</a> *root, int writeRoot=1)=0</td></tr>
+<tr class="memdesc:a8f31a4dd564f7d978571f2e6e6f7a2d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">writes a scene starting with the given node <br /></td></tr>
+<tr class="separator:a8f31a4dd564f7d978571f2e6e6f7a2d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97f072c0033f9bffe906dbe3dce147fd" id="r_a97f072c0033f9bffe906dbe3dce147fd"><td class="memItemLeft" align="right" valign="top"><a id="a97f072c0033f9bffe906dbe3dce147fd" name="a97f072c0033f9bffe906dbe3dce147fd"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setWriteTextures</b> (bool write)</td></tr>
 <tr class="memdesc:a97f072c0033f9bffe906dbe3dce147fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set if texture information should be written. <br /></td></tr>
@@ -156,15 +156,15 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>getWriteTextu
 virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>getWriteDefaultScene</b> () const</td></tr>
 <tr class="memdesc:ada66ba293bfe15b87b88c2bf491d90bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get if a default scene should be written. <br /></td></tr>
 <tr class="separator:ada66ba293bfe15b87b88c2bf491d90bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af711308d0b1502f7dfa740c4164bfaaf" id="r_af711308d0b1502f7dfa740c4164bfaaf"><td class="memItemLeft" align="right" valign="top"><a id="af711308d0b1502f7dfa740c4164bfaaf" name="af711308d0b1502f7dfa740c4164bfaaf"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setAmbientLight</b> (const <a class="el" href="classdcpp_1_1video_1_1SColorf.html">video::SColorf</a> &amp;ambientColor)</td></tr>
-<tr class="memdesc:af711308d0b1502f7dfa740c4164bfaaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets ambient color of the scene to write. <br /></td></tr>
-<tr class="separator:af711308d0b1502f7dfa740c4164bfaaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc01d4f52d3579e6b38f68515701f935" id="r_abc01d4f52d3579e6b38f68515701f935"><td class="memItemLeft" align="right" valign="top"><a id="abc01d4f52d3579e6b38f68515701f935" name="abc01d4f52d3579e6b38f68515701f935"></a>
-virtual <a class="el" href="classdcpp_1_1video_1_1SColorf.html">video::SColorf</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getAmbientLight</b> () const</td></tr>
-<tr class="memdesc:abc01d4f52d3579e6b38f68515701f935"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return ambient light of the scene which is written. <br /></td></tr>
-<tr class="separator:abc01d4f52d3579e6b38f68515701f935"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a787db61e89f3b955e4f3064bbea010fb" id="r_a787db61e89f3b955e4f3064bbea010fb"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IColladaMeshWriter.html#a787db61e89f3b955e4f3064bbea010fb">setUnit</a> (<a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> meter, const <a class="el" href="namespacedcpp_1_1nub.html#af7935531e0d8e63e8cb0806f26b137d5">dcpp::nub::string</a> &amp;name)</td></tr>
+<tr class="memitem:a5d5d14822adcd47c33fa66e74940ea97" id="r_a5d5d14822adcd47c33fa66e74940ea97"><td class="memItemLeft" align="right" valign="top"><a id="a5d5d14822adcd47c33fa66e74940ea97" name="a5d5d14822adcd47c33fa66e74940ea97"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setAmbientLight</b> (const <a class="el" href="classdcpp_1_1video_1_1SColorf.html">dcpp::video::SColorf</a> &amp;ambientColor)</td></tr>
+<tr class="memdesc:a5d5d14822adcd47c33fa66e74940ea97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets ambient color of the scene to write. <br /></td></tr>
+<tr class="separator:a5d5d14822adcd47c33fa66e74940ea97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada68f99620c0ba625eb55d48816e7811" id="r_ada68f99620c0ba625eb55d48816e7811"><td class="memItemLeft" align="right" valign="top"><a id="ada68f99620c0ba625eb55d48816e7811" name="ada68f99620c0ba625eb55d48816e7811"></a>
+virtual <a class="el" href="classdcpp_1_1video_1_1SColorf.html">dcpp::video::SColorf</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getAmbientLight</b> () const</td></tr>
+<tr class="memdesc:ada68f99620c0ba625eb55d48816e7811"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return ambient light of the scene which is written. <br /></td></tr>
+<tr class="separator:ada68f99620c0ba625eb55d48816e7811"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a787db61e89f3b955e4f3064bbea010fb" id="r_a787db61e89f3b955e4f3064bbea010fb"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IColladaMeshWriter.html#a787db61e89f3b955e4f3064bbea010fb">setUnit</a> (<a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> meter, const <a class="el" href="namespacedcpp_1_1nub.html#a5bb45461ea1f4f9276b51b0789466891">dcpp::nub::string</a> &amp;name)</td></tr>
 <tr class="memdesc:a787db61e89f3b955e4f3064bbea010fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the unit distances for all elements and objects.  <br /></td></tr>
 <tr class="separator:a787db61e89f3b955e4f3064bbea010fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acbb24b84d2a3baa050dd4b4a7dec5dff" id="r_acbb24b84d2a3baa050dd4b4a7dec5dff"><td class="memItemLeft" align="right" valign="top"><a id="acbb24b84d2a3baa050dd4b4a7dec5dff" name="acbb24b84d2a3baa050dd4b4a7dec5dff"></a>
@@ -172,7 +172,7 @@ virtual <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08
 <tr class="memdesc:acbb24b84d2a3baa050dd4b4a7dec5dff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return real world meters to use per unit for all elements and objects. <br /></td></tr>
 <tr class="separator:acbb24b84d2a3baa050dd4b4a7dec5dff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a157a6535bc303e6aa4ff467beac25bfd" id="r_a157a6535bc303e6aa4ff467beac25bfd"><td class="memItemLeft" align="right" valign="top"><a id="a157a6535bc303e6aa4ff467beac25bfd" name="a157a6535bc303e6aa4ff467beac25bfd"></a>
-virtual <a class="el" href="namespacedcpp_1_1nub.html#af7935531e0d8e63e8cb0806f26b137d5">dcpp::nub::string</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getUnitName</b> () const</td></tr>
+virtual <a class="el" href="namespacedcpp_1_1nub.html#a5bb45461ea1f4f9276b51b0789466891">dcpp::nub::string</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getUnitName</b> () const</td></tr>
 <tr class="memdesc:a157a6535bc303e6aa4ff467beac25bfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return name to use for distance units. Like p.E. "meter". <br /></td></tr>
 <tr class="separator:a157a6535bc303e6aa4ff467beac25bfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61bba2fd40f9017dd7e72942b740b086" id="r_a61bba2fd40f9017dd7e72942b740b086"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IColladaMeshWriter.html#a61bba2fd40f9017dd7e72942b740b086">setGeometryWriting</a> (<a class="el" href="namespacedcpp_1_1scene.html#ad80ac1cb51f8ddff0c1951c8e3483e6c">E_COLLADA_GEOMETRY_WRITING</a> writeStyle)</td></tr>
@@ -209,15 +209,15 @@ virtual <a class="el" href="classdcpp_1_1scene_1_1IColladaMeshWriterNames.html">
 <tr class="memitem:a3049d777e612a462b5b2e627acd5239e" id="r_a3049d777e612a462b5b2e627acd5239e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdcpp_1_1scene_1_1IColladaMeshWriterNames.html">IColladaMeshWriterNames</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IColladaMeshWriter.html#a3049d777e612a462b5b2e627acd5239e">getDefaultNameGenerator</a> () const</td></tr>
 <tr class="memdesc:a3049d777e612a462b5b2e627acd5239e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the original default name generator of the writer.  <br /></td></tr>
 <tr class="separator:a3049d777e612a462b5b2e627acd5239e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab83f44cbb0729eaa4cad3d371bb5418c" id="r_ab83f44cbb0729eaa4cad3d371bb5418c"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedcpp_1_1nub.html#af7935531e0d8e63e8cb0806f26b137d5">dcpp::nub::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IColladaMeshWriter.html#ab83f44cbb0729eaa4cad3d371bb5418c">toNCName</a> (const <a class="el" href="namespacedcpp_1_1nub.html#af7935531e0d8e63e8cb0806f26b137d5">dcpp::nub::string</a> &amp;oldString, const <a class="el" href="namespacedcpp_1_1nub.html#af7935531e0d8e63e8cb0806f26b137d5">dcpp::nub::string</a> &amp;prefix=<a class="el" href="namespacedcpp_1_1nub.html#af7935531e0d8e63e8cb0806f26b137d5">dcpp::nub::string</a>(&quot;_NC_&quot;)) const =0</td></tr>
+<tr class="memitem:ab83f44cbb0729eaa4cad3d371bb5418c" id="r_ab83f44cbb0729eaa4cad3d371bb5418c"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedcpp_1_1nub.html#a5bb45461ea1f4f9276b51b0789466891">dcpp::nub::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IColladaMeshWriter.html#ab83f44cbb0729eaa4cad3d371bb5418c">toNCName</a> (const <a class="el" href="namespacedcpp_1_1nub.html#a5bb45461ea1f4f9276b51b0789466891">dcpp::nub::string</a> &amp;oldString, const <a class="el" href="namespacedcpp_1_1nub.html#a5bb45461ea1f4f9276b51b0789466891">dcpp::nub::string</a> &amp;prefix=<a class="el" href="namespacedcpp_1_1nub.html#a5bb45461ea1f4f9276b51b0789466891">dcpp::nub::string</a>(&quot;_NC_&quot;)) const =0</td></tr>
 <tr class="memdesc:ab83f44cbb0729eaa4cad3d371bb5418c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restrict the characters of oldString a set of allowed characters in xs:NCName and add the prefix.  <br /></td></tr>
 <tr class="separator:ab83f44cbb0729eaa4cad3d371bb5418c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa2ee0bfb3314159ad5e6e96cffdc798" id="r_aaa2ee0bfb3314159ad5e6e96cffdc798"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="namespacedcpp_1_1nub.html#af7935531e0d8e63e8cb0806f26b137d5">dcpp::nub::string</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IColladaMeshWriter.html#aaa2ee0bfb3314159ad5e6e96cffdc798">findGeometryNameForNode</a> (<a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> *node)=0</td></tr>
+<tr class="memitem:aaa2ee0bfb3314159ad5e6e96cffdc798" id="r_aaa2ee0bfb3314159ad5e6e96cffdc798"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="namespacedcpp_1_1nub.html#a5bb45461ea1f4f9276b51b0789466891">dcpp::nub::string</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IColladaMeshWriter.html#aaa2ee0bfb3314159ad5e6e96cffdc798">findGeometryNameForNode</a> (<a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> *node)=0</td></tr>
 <tr class="memdesc:aaa2ee0bfb3314159ad5e6e96cffdc798"><td class="mdescLeft">&#160;</td><td class="mdescRight">After export you can find out which name had been used for writing the geometry for this node.  <br /></td></tr>
 <tr class="separator:aaa2ee0bfb3314159ad5e6e96cffdc798"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68e4ed1717ba033e8d098982547d37d2" id="r_a68e4ed1717ba033e8d098982547d37d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IColladaMeshWriter.html#a68e4ed1717ba033e8d098982547d37d2">SetParamNamesUV</a> (const <a class="el" href="namespacedcpp_1_1nub.html#af7935531e0d8e63e8cb0806f26b137d5">nub::string</a> &amp;u, const <a class="el" href="namespacedcpp_1_1nub.html#af7935531e0d8e63e8cb0806f26b137d5">nub::string</a> &amp;v)</td></tr>
-<tr class="memdesc:a68e4ed1717ba033e8d098982547d37d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change param name used for UV's.  <br /></td></tr>
-<tr class="separator:a68e4ed1717ba033e8d098982547d37d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ae0cb8d6e1003b43d828084c6653a57" id="r_a1ae0cb8d6e1003b43d828084c6653a57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IColladaMeshWriter.html#a1ae0cb8d6e1003b43d828084c6653a57">SetParamNamesUV</a> (const <a class="el" href="namespacedcpp_1_1nub.html#a5bb45461ea1f4f9276b51b0789466891">dcpp::nub::string</a> &amp;u, const <a class="el" href="namespacedcpp_1_1nub.html#a5bb45461ea1f4f9276b51b0789466891">dcpp::nub::string</a> &amp;v)</td></tr>
+<tr class="memdesc:a1ae0cb8d6e1003b43d828084c6653a57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change param name used for UV's.  <br /></td></tr>
+<tr class="separator:a1ae0cb8d6e1003b43d828084c6653a57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classdcpp_1_1scene_1_1IMeshWriter"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classdcpp_1_1scene_1_1IMeshWriter')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classdcpp_1_1scene_1_1IMeshWriter.html">dcpp::scene::IMeshWriter</a></td></tr>
 <tr class="memitem:a28170b2b51725a25c69e5f4079cf9079 inherit pub_methods_classdcpp_1_1scene_1_1IMeshWriter" id="r_a28170b2b51725a25c69e5f4079cf9079"><td class="memItemLeft" align="right" valign="top">
 virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~IMeshWriter</b> ()</td></tr>
@@ -226,9 +226,9 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~IMeshWriter</b> (
 <tr class="memitem:a685374809964ea1517626faed1046639 inherit pub_methods_classdcpp_1_1scene_1_1IMeshWriter" id="r_a685374809964ea1517626faed1046639"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedcpp_1_1scene.html#af535227ddcc951941da271d2733a7f0d">EMESH_WRITER_TYPE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IMeshWriter.html#a685374809964ea1517626faed1046639">getType</a> () const =0</td></tr>
 <tr class="memdesc:a685374809964ea1517626faed1046639 inherit pub_methods_classdcpp_1_1scene_1_1IMeshWriter"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the type of the mesh writer.  <br /></td></tr>
 <tr class="separator:a685374809964ea1517626faed1046639 inherit pub_methods_classdcpp_1_1scene_1_1IMeshWriter"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1b478230f6e2a77f6e5771323e4cc84 inherit pub_methods_classdcpp_1_1scene_1_1IMeshWriter" id="r_af1b478230f6e2a77f6e5771323e4cc84"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IMeshWriter.html#af1b478230f6e2a77f6e5771323e4cc84">writeMesh</a> (<a class="el" href="classdcpp_1_1io_1_1IWriteFile.html">io::IWriteFile</a> *file, <a class="el" href="classdcpp_1_1scene_1_1IMesh.html">scene::IMesh</a> *mesh, <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> flags=<a class="el" href="namespacedcpp_1_1scene.html#aa027d0247f4a61c100b7a290671872f4a89b0d06135151cdba4c02a188ad4a67c">EMWF_NONE</a>)=0</td></tr>
-<tr class="memdesc:af1b478230f6e2a77f6e5771323e4cc84 inherit pub_methods_classdcpp_1_1scene_1_1IMeshWriter"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a static mesh.  <br /></td></tr>
-<tr class="separator:af1b478230f6e2a77f6e5771323e4cc84 inherit pub_methods_classdcpp_1_1scene_1_1IMeshWriter"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab923fe63e5b1877b7bb4debd8d5cfd8f inherit pub_methods_classdcpp_1_1scene_1_1IMeshWriter" id="r_ab923fe63e5b1877b7bb4debd8d5cfd8f"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IMeshWriter.html#ab923fe63e5b1877b7bb4debd8d5cfd8f">writeMesh</a> (<a class="el" href="classdcpp_1_1io_1_1IWriteFile.html">dcpp::io::IWriteFile</a> *file, <a class="el" href="classdcpp_1_1scene_1_1IMesh.html">dcpp::scene::IMesh</a> *mesh, <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> flags=<a class="el" href="namespacedcpp_1_1scene.html#aa027d0247f4a61c100b7a290671872f4a89b0d06135151cdba4c02a188ad4a67c">EMWF_NONE</a>)=0</td></tr>
+<tr class="memdesc:ab923fe63e5b1877b7bb4debd8d5cfd8f inherit pub_methods_classdcpp_1_1scene_1_1IMeshWriter"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a static mesh.  <br /></td></tr>
+<tr class="separator:ab923fe63e5b1877b7bb4debd8d5cfd8f inherit pub_methods_classdcpp_1_1scene_1_1IMeshWriter"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classdcpp_1_1IReferenceCounted"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classdcpp_1_1IReferenceCounted')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classdcpp_1_1IReferenceCounted.html">dcpp::IReferenceCounted</a></td></tr>
 <tr class="memitem:a6aa4e18369165d6b993c69d15835757b inherit pub_methods_classdcpp_1_1IReferenceCounted" id="r_a6aa4e18369165d6b993c69d15835757b"><td class="memItemLeft" align="right" valign="top">
 &#160;</td><td class="memItemRight" valign="bottom"><b>IReferenceCounted</b> ()</td></tr>
@@ -247,9 +247,9 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~IReferenceCounted
 <tr class="memitem:a584dda95ccad6a90009eb42ebdccdede inherit pub_methods_classdcpp_1_1IReferenceCounted" id="r_a584dda95ccad6a90009eb42ebdccdede"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IReferenceCounted.html#a584dda95ccad6a90009eb42ebdccdede">getReferenceCount</a> () const</td></tr>
 <tr class="memdesc:a584dda95ccad6a90009eb42ebdccdede inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the reference count.  <br /></td></tr>
 <tr class="separator:a584dda95ccad6a90009eb42ebdccdede inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa470f15a1523b7800d86432c0076476c inherit pub_methods_classdcpp_1_1IReferenceCounted" id="r_aa470f15a1523b7800d86432c0076476c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">dcpp::byte8_kt</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IReferenceCounted.html#aa470f15a1523b7800d86432c0076476c">getDebugName</a> () const</td></tr>
-<tr class="memdesc:aa470f15a1523b7800d86432c0076476c inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the debug name of the object.  <br /></td></tr>
-<tr class="separator:aa470f15a1523b7800d86432c0076476c inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac048b2ba8e33c49c2b1a5ceee3ba3847 inherit pub_methods_classdcpp_1_1IReferenceCounted" id="r_ac048b2ba8e33c49c2b1a5ceee3ba3847"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacedcpp.html#a2a2d2e2601f3d260acd0ce9ac878b282">dcpp::char_kt</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IReferenceCounted.html#ac048b2ba8e33c49c2b1a5ceee3ba3847">getDebugName</a> () const</td></tr>
+<tr class="memdesc:ac048b2ba8e33c49c2b1a5ceee3ba3847 inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the debug name of the object.  <br /></td></tr>
+<tr class="separator:ac048b2ba8e33c49c2b1a5ceee3ba3847 inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -260,14 +260,14 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setDefaultPro
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setDefaultNameGenerator</b> (<a class="el" href="classdcpp_1_1scene_1_1IColladaMeshWriterNames.html">IColladaMeshWriterNames</a> *p)</td></tr>
 <tr class="separator:aec17f08cfd0533053cd2cfce6999d154"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classdcpp_1_1IReferenceCounted"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classdcpp_1_1IReferenceCounted')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classdcpp_1_1IReferenceCounted.html">dcpp::IReferenceCounted</a></td></tr>
-<tr class="memitem:a2d6bc70988cc8579790e48434268e84e inherit pro_methods_classdcpp_1_1IReferenceCounted" id="r_a2d6bc70988cc8579790e48434268e84e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IReferenceCounted.html#a2d6bc70988cc8579790e48434268e84e">setDebugName</a> (const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">dcpp::byte8_kt</a> *newName)</td></tr>
-<tr class="memdesc:a2d6bc70988cc8579790e48434268e84e inherit pro_methods_classdcpp_1_1IReferenceCounted"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the debug name of the object.  <br /></td></tr>
-<tr class="separator:a2d6bc70988cc8579790e48434268e84e inherit pro_methods_classdcpp_1_1IReferenceCounted"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94a97d313e5aa78265ad87024b91d9c0 inherit pro_methods_classdcpp_1_1IReferenceCounted" id="r_a94a97d313e5aa78265ad87024b91d9c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IReferenceCounted.html#a94a97d313e5aa78265ad87024b91d9c0">setDebugName</a> (const <a class="el" href="namespacedcpp.html#a2a2d2e2601f3d260acd0ce9ac878b282">dcpp::char_kt</a> *newName)</td></tr>
+<tr class="memdesc:a94a97d313e5aa78265ad87024b91d9c0 inherit pro_methods_classdcpp_1_1IReferenceCounted"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the debug name of the object.  <br /></td></tr>
+<tr class="separator:a94a97d313e5aa78265ad87024b91d9c0 inherit pro_methods_classdcpp_1_1IReferenceCounted"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a8cce3c81bcbe32f34a53402f631ddc38" id="r_a8cce3c81bcbe32f34a53402f631ddc38"><td class="memItemLeft" align="right" valign="top"><a id="a8cce3c81bcbe32f34a53402f631ddc38" name="a8cce3c81bcbe32f34a53402f631ddc38"></a>
-<a class="el" href="namespacedcpp_1_1nub.html#af7935531e0d8e63e8cb0806f26b137d5">dcpp::nub::string</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ParamNamesUV</b> [2]</td></tr>
+<a class="el" href="namespacedcpp_1_1nub.html#a5bb45461ea1f4f9276b51b0789466891">dcpp::nub::string</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ParamNamesUV</b> [2]</td></tr>
 <tr class="separator:a8cce3c81bcbe32f34a53402f631ddc38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -283,7 +283,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual const <a class="el" href="namespacedcpp_1_1nub.html#af7935531e0d8e63e8cb0806f26b137d5">dcpp::nub::string</a> * dcpp::scene::IColladaMeshWriter::findGeometryNameForNode </td>
+          <td class="memname">virtual const <a class="el" href="namespacedcpp_1_1nub.html#a5bb45461ea1f4f9276b51b0789466891">dcpp::nub::string</a> * dcpp::scene::IColladaMeshWriter::findGeometryNameForNode </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">ISceneNode</a> *&#160;</td>
           <td class="paramname"><em>node</em></td><td>)</td>
@@ -298,7 +298,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>After export you can find out which name had been used for writing the geometry for this node. </p>
-<p>The name comes from <a class="el" href="classdcpp_1_1scene_1_1IColladaMeshWriterNames.html#a4e07f8bbc84646828f92f6306d4f90b9" title="Return a unique name for the given mesh.">IColladaMeshWriterNames::nameForMesh</a>, but you can't access the node there. </p><dl class="section return"><dt>Returns</dt><dd>Either a pointer to the name or NULL </dd></dl>
+<p>The name comes from <a class="el" href="classdcpp_1_1scene_1_1IColladaMeshWriterNames.html#aa0c85dd67643e2c541fc9f0fb61c6175" title="Return a unique name for the given mesh.">IColladaMeshWriterNames::nameForMesh</a>, but you can't access the node there. </p><dl class="section return"><dt>Returns</dt><dd>Either a pointer to the name or NULL </dd></dl>
 
 </div>
 </div>
@@ -383,7 +383,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Make certain there is only one collada material generated per Duckcpp material. </p>
-<p>Checks before creating a collada material-name if an identical dcpp:::video::SMaterial has been exported already. If so don't export it with another name. This is set by default and leads to way smaller .dae files. Note that if you need to disable this flag for some reason you can still get a similar effect using the <a class="el" href="classdcpp_1_1scene_1_1IColladaMeshWriterNames.html#adc625b5d87461851f444f2dfee7af5a4" title="Return a name for the material.">IColladaMeshWriterNames::nameForMaterial</a> by returning identical names for identical materials there. </p>
+<p>Checks before creating a collada material-name if an identical dcpp:<a class="el" href="classdcpp_1_1video_1_1SMaterial.html" title="Class for holding parameters for a material renderer.">dcpp::video::SMaterial</a> has been exported already. If so don't export it with another name. This is set by default and leads to way smaller .dae files. Note that if you need to disable this flag for some reason you can still get a similar effect using the <a class="el" href="classdcpp_1_1scene_1_1IColladaMeshWriterNames.html#abbea84bbcf24a664dee825441c23af87" title="Return a name for the material.">IColladaMeshWriterNames::nameForMaterial</a> by returning identical names for identical materials there. </p>
 
 </div>
 </div>
@@ -421,8 +421,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a68e4ed1717ba033e8d098982547d37d2" name="a68e4ed1717ba033e8d098982547d37d2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68e4ed1717ba033e8d098982547d37d2">&#9670;&#160;</a></span>SetParamNamesUV()</h2>
+<a id="a1ae0cb8d6e1003b43d828084c6653a57" name="a1ae0cb8d6e1003b43d828084c6653a57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ae0cb8d6e1003b43d828084c6653a57">&#9670;&#160;</a></span>SetParamNamesUV()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -433,13 +433,13 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">void dcpp::scene::IColladaMeshWriter::SetParamNamesUV </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#af7935531e0d8e63e8cb0806f26b137d5">nub::string</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#a5bb45461ea1f4f9276b51b0789466891">dcpp::nub::string</a> &amp;&#160;</td>
           <td class="paramname"><em>u</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#af7935531e0d8e63e8cb0806f26b137d5">nub::string</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#a5bb45461ea1f4f9276b51b0789466891">dcpp::nub::string</a> &amp;&#160;</td>
           <td class="paramname"><em>v</em>&#160;</td>
         </tr>
         <tr>
@@ -507,7 +507,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#af7935531e0d8e63e8cb0806f26b137d5">dcpp::nub::string</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#a5bb45461ea1f4f9276b51b0789466891">dcpp::nub::string</a> &amp;&#160;</td>
           <td class="paramname"><em>name</em>&#160;</td>
         </tr>
         <tr>
@@ -573,16 +573,16 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="namespacedcpp_1_1nub.html#af7935531e0d8e63e8cb0806f26b137d5">dcpp::nub::string</a> dcpp::scene::IColladaMeshWriter::toNCName </td>
+          <td class="memname">virtual <a class="el" href="namespacedcpp_1_1nub.html#a5bb45461ea1f4f9276b51b0789466891">dcpp::nub::string</a> dcpp::scene::IColladaMeshWriter::toNCName </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#af7935531e0d8e63e8cb0806f26b137d5">dcpp::nub::string</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#a5bb45461ea1f4f9276b51b0789466891">dcpp::nub::string</a> &amp;&#160;</td>
           <td class="paramname"><em>oldString</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#af7935531e0d8e63e8cb0806f26b137d5">dcpp::nub::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>prefix</em> = <code><a class="el" href="namespacedcpp_1_1nub.html#af7935531e0d8e63e8cb0806f26b137d5">dcpp::nub::string</a>(&quot;_NC_&quot;)</code>&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#a5bb45461ea1f4f9276b51b0789466891">dcpp::nub::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>prefix</em> = <code><a class="el" href="namespacedcpp_1_1nub.html#a5bb45461ea1f4f9276b51b0789466891">dcpp::nub::string</a>(&quot;_NC_&quot;)</code>&#160;</td>
         </tr>
         <tr>
           <td></td>

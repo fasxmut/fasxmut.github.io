@@ -125,38 +125,38 @@ Collaboration diagram for dcpp::scene::IColladaMeshWriterProperties:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad1dd45db3766695b374d011113aa43bf" id="r_ad1dd45db3766695b374d011113aa43bf"><td class="memItemLeft" align="right" valign="top"><a id="ad1dd45db3766695b374d011113aa43bf" name="ad1dd45db3766695b374d011113aa43bf"></a>
-virtual <a class="el" href="namespacedcpp_1_1scene.html#a7a72fbff8f827fccf9b10d364cb57e13">E_COLLADA_TECHNIQUE_FX</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getTechniqueFx</b> (const <a class="el" href="classdcpp_1_1video_1_1SMaterial.html">video::SMaterial</a> &amp;material) const =0</td></tr>
-<tr class="memdesc:ad1dd45db3766695b374d011113aa43bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Which lighting model should be used in the technique (FX) section when exporting effects (materials) <br /></td></tr>
-<tr class="separator:ad1dd45db3766695b374d011113aa43bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a332b477a63e87646ffad5f4598b9bd0a" id="r_a332b477a63e87646ffad5f4598b9bd0a"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IColladaMeshWriterProperties.html#a332b477a63e87646ffad5f4598b9bd0a">getTextureIdx</a> (const <a class="el" href="classdcpp_1_1video_1_1SMaterial.html">video::SMaterial</a> &amp;material, <a class="el" href="namespacedcpp_1_1scene.html#ac39d6b0276b55e30d04f23cb82b201b9">E_COLLADA_COLOR_SAMPLER</a> cs) const =0</td></tr>
-<tr class="memdesc:a332b477a63e87646ffad5f4598b9bd0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Which texture index should be used when writing the texture of the given sampler color.  <br /></td></tr>
-<tr class="separator:a332b477a63e87646ffad5f4598b9bd0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34982c7418a3d7fd602aaebb38b88574" id="r_a34982c7418a3d7fd602aaebb38b88574"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedcpp_1_1scene.html#a53b7f50f183306739895764d9c16716d">E_COLLADA_DCPP_COLOR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IColladaMeshWriterProperties.html#a34982c7418a3d7fd602aaebb38b88574">getColorMapping</a> (const <a class="el" href="classdcpp_1_1video_1_1SMaterial.html">video::SMaterial</a> &amp;material, <a class="el" href="namespacedcpp_1_1scene.html#ac39d6b0276b55e30d04f23cb82b201b9">E_COLLADA_COLOR_SAMPLER</a> cs) const =0</td></tr>
-<tr class="memdesc:a34982c7418a3d7fd602aaebb38b88574"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return which color from Duckcpp should be used for the color requested by collada.  <br /></td></tr>
-<tr class="separator:a34982c7418a3d7fd602aaebb38b88574"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c7a542cf9f67f7100526c5055ffa959" id="r_a6c7a542cf9f67f7100526c5055ffa959"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1video_1_1SColor.html">video::SColor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IColladaMeshWriterProperties.html#a6c7a542cf9f67f7100526c5055ffa959">getCustomColor</a> (const <a class="el" href="classdcpp_1_1video_1_1SMaterial.html">video::SMaterial</a> &amp;material, <a class="el" href="namespacedcpp_1_1scene.html#ac39d6b0276b55e30d04f23cb82b201b9">E_COLLADA_COLOR_SAMPLER</a> cs) const =0</td></tr>
-<tr class="memdesc:a6c7a542cf9f67f7100526c5055ffa959"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return custom colors for certain color types requested by collada.  <br /></td></tr>
-<tr class="separator:a6c7a542cf9f67f7100526c5055ffa959"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3832b057c50710952b6b0b46cf5245cf" id="r_a3832b057c50710952b6b0b46cf5245cf"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedcpp_1_1scene.html#af49fb909be61823c5661ab43e9287e46">E_COLLADA_TRANSPARENT_FX</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IColladaMeshWriterProperties.html#a3832b057c50710952b6b0b46cf5245cf">getTransparentFx</a> (const <a class="el" href="classdcpp_1_1video_1_1SMaterial.html">video::SMaterial</a> &amp;material) const =0</td></tr>
-<tr class="memdesc:a3832b057c50710952b6b0b46cf5245cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the transparence color interpretation.  <br /></td></tr>
-<tr class="separator:a3832b057c50710952b6b0b46cf5245cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00da3c467030bca553d0caf82fadf636" id="r_a00da3c467030bca553d0caf82fadf636"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IColladaMeshWriterProperties.html#a00da3c467030bca553d0caf82fadf636">getTransparency</a> (const <a class="el" href="classdcpp_1_1video_1_1SMaterial.html">video::SMaterial</a> &amp;material) const =0</td></tr>
-<tr class="memdesc:a00da3c467030bca553d0caf82fadf636"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transparency value for that material.  <br /></td></tr>
-<tr class="separator:a00da3c467030bca553d0caf82fadf636"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add4ba9d63d7bd4c36d0538bc6e0d08b8" id="r_add4ba9d63d7bd4c36d0538bc6e0d08b8"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IColladaMeshWriterProperties.html#add4ba9d63d7bd4c36d0538bc6e0d08b8">getReflectivity</a> (const <a class="el" href="classdcpp_1_1video_1_1SMaterial.html">video::SMaterial</a> &amp;material) const =0</td></tr>
-<tr class="memdesc:add4ba9d63d7bd4c36d0538bc6e0d08b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reflectivity value for that material.  <br /></td></tr>
-<tr class="separator:add4ba9d63d7bd4c36d0538bc6e0d08b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4386c0cee448feb1e01d861149cab3b2" id="r_a4386c0cee448feb1e01d861149cab3b2"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IColladaMeshWriterProperties.html#a4386c0cee448feb1e01d861149cab3b2">getIndexOfRefraction</a> (const <a class="el" href="classdcpp_1_1video_1_1SMaterial.html">video::SMaterial</a> &amp;material) const =0</td></tr>
-<tr class="memdesc:a4386c0cee448feb1e01d861149cab3b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return index of refraction for that material.  <br /></td></tr>
-<tr class="separator:a4386c0cee448feb1e01d861149cab3b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0347b0bae32b77cd2977866b4a24c1ce" id="r_a0347b0bae32b77cd2977866b4a24c1ce"><td class="memItemLeft" align="right" valign="top"><a id="a0347b0bae32b77cd2977866b4a24c1ce" name="a0347b0bae32b77cd2977866b4a24c1ce"></a>
+virtual <a class="el" href="namespacedcpp_1_1scene.html#a7a72fbff8f827fccf9b10d364cb57e13">E_COLLADA_TECHNIQUE_FX</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getTechniqueFx</b> (const <a class="el" href="classdcpp_1_1video_1_1SMaterial.html">dcpp::video::SMaterial</a> &amp;material) const =0</td></tr>
+<tr class="memdesc:a0347b0bae32b77cd2977866b4a24c1ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Which lighting model should be used in the technique (FX) section when exporting effects (materials) <br /></td></tr>
+<tr class="separator:a0347b0bae32b77cd2977866b4a24c1ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27cf86cffdb443a61ccbe9d84e0373d0" id="r_a27cf86cffdb443a61ccbe9d84e0373d0"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IColladaMeshWriterProperties.html#a27cf86cffdb443a61ccbe9d84e0373d0">getTextureIdx</a> (const <a class="el" href="classdcpp_1_1video_1_1SMaterial.html">dcpp::video::SMaterial</a> &amp;material, <a class="el" href="namespacedcpp_1_1scene.html#ac39d6b0276b55e30d04f23cb82b201b9">E_COLLADA_COLOR_SAMPLER</a> cs) const =0</td></tr>
+<tr class="memdesc:a27cf86cffdb443a61ccbe9d84e0373d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Which texture index should be used when writing the texture of the given sampler color.  <br /></td></tr>
+<tr class="separator:a27cf86cffdb443a61ccbe9d84e0373d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d2fb5bf8794343696ebb0409f57f8b3" id="r_a4d2fb5bf8794343696ebb0409f57f8b3"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedcpp_1_1scene.html#a53b7f50f183306739895764d9c16716d">E_COLLADA_DCPP_COLOR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IColladaMeshWriterProperties.html#a4d2fb5bf8794343696ebb0409f57f8b3">getColorMapping</a> (const <a class="el" href="classdcpp_1_1video_1_1SMaterial.html">dcpp::video::SMaterial</a> &amp;material, <a class="el" href="namespacedcpp_1_1scene.html#ac39d6b0276b55e30d04f23cb82b201b9">E_COLLADA_COLOR_SAMPLER</a> cs) const =0</td></tr>
+<tr class="memdesc:a4d2fb5bf8794343696ebb0409f57f8b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return which color from Duckcpp should be used for the color requested by collada.  <br /></td></tr>
+<tr class="separator:a4d2fb5bf8794343696ebb0409f57f8b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5aaf729998401dd775a4b3417b90d55a" id="r_a5aaf729998401dd775a4b3417b90d55a"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IColladaMeshWriterProperties.html#a5aaf729998401dd775a4b3417b90d55a">getCustomColor</a> (const <a class="el" href="classdcpp_1_1video_1_1SMaterial.html">dcpp::video::SMaterial</a> &amp;material, <a class="el" href="namespacedcpp_1_1scene.html#ac39d6b0276b55e30d04f23cb82b201b9">E_COLLADA_COLOR_SAMPLER</a> cs) const =0</td></tr>
+<tr class="memdesc:a5aaf729998401dd775a4b3417b90d55a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return custom colors for certain color types requested by collada.  <br /></td></tr>
+<tr class="separator:a5aaf729998401dd775a4b3417b90d55a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e1ca4cdeb14278095790e293b367a5a" id="r_a0e1ca4cdeb14278095790e293b367a5a"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedcpp_1_1scene.html#af49fb909be61823c5661ab43e9287e46">E_COLLADA_TRANSPARENT_FX</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IColladaMeshWriterProperties.html#a0e1ca4cdeb14278095790e293b367a5a">getTransparentFx</a> (const <a class="el" href="classdcpp_1_1video_1_1SMaterial.html">dcpp::video::SMaterial</a> &amp;material) const =0</td></tr>
+<tr class="memdesc:a0e1ca4cdeb14278095790e293b367a5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the transparence color interpretation.  <br /></td></tr>
+<tr class="separator:a0e1ca4cdeb14278095790e293b367a5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af375b7406a675831f39b5dbc98717f48" id="r_af375b7406a675831f39b5dbc98717f48"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IColladaMeshWriterProperties.html#af375b7406a675831f39b5dbc98717f48">getTransparency</a> (const <a class="el" href="classdcpp_1_1video_1_1SMaterial.html">dcpp::video::SMaterial</a> &amp;material) const =0</td></tr>
+<tr class="memdesc:af375b7406a675831f39b5dbc98717f48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transparency value for that material.  <br /></td></tr>
+<tr class="separator:af375b7406a675831f39b5dbc98717f48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac037978a54d9f0224b8ba3ac588178cd" id="r_ac037978a54d9f0224b8ba3ac588178cd"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IColladaMeshWriterProperties.html#ac037978a54d9f0224b8ba3ac588178cd">getReflectivity</a> (const <a class="el" href="classdcpp_1_1video_1_1SMaterial.html">dcpp::video::SMaterial</a> &amp;material) const =0</td></tr>
+<tr class="memdesc:ac037978a54d9f0224b8ba3ac588178cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reflectivity value for that material.  <br /></td></tr>
+<tr class="separator:ac037978a54d9f0224b8ba3ac588178cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6a45f2bf0d7fd4d0336ee5439fb3624" id="r_ab6a45f2bf0d7fd4d0336ee5439fb3624"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IColladaMeshWriterProperties.html#ab6a45f2bf0d7fd4d0336ee5439fb3624">getIndexOfRefraction</a> (const <a class="el" href="classdcpp_1_1video_1_1SMaterial.html">dcpp::video::SMaterial</a> &amp;material) const =0</td></tr>
+<tr class="memdesc:ab6a45f2bf0d7fd4d0336ee5439fb3624"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return index of refraction for that material.  <br /></td></tr>
+<tr class="separator:ab6a45f2bf0d7fd4d0336ee5439fb3624"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d61e1a16f144a95a44aac44a30b4ca9" id="r_a1d61e1a16f144a95a44aac44a30b4ca9"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IColladaMeshWriterProperties.html#a1d61e1a16f144a95a44aac44a30b4ca9">isExportable</a> (const <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">dcpp::scene::ISceneNode</a> *node) const =0</td></tr>
 <tr class="separator:a1d61e1a16f144a95a44aac44a30b4ca9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e28bb03ab1891e6b39a62ee7a0847a5" id="r_a2e28bb03ab1891e6b39a62ee7a0847a5"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1scene_1_1IMesh.html">IMesh</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IColladaMeshWriterProperties.html#a2e28bb03ab1891e6b39a62ee7a0847a5">getMesh</a> (<a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">dcpp::scene::ISceneNode</a> *node)=0</td></tr>
 <tr class="separator:a2e28bb03ab1891e6b39a62ee7a0847a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5bb5b3b24503eb26d838ddf1b1c293fe" id="r_a5bb5b3b24503eb26d838ddf1b1c293fe"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IColladaMeshWriterProperties.html#a5bb5b3b24503eb26d838ddf1b1c293fe">useNodeMaterial</a> (const <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">scene::ISceneNode</a> *node) const =0</td></tr>
-<tr class="memdesc:a5bb5b3b24503eb26d838ddf1b1c293fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return if the node has it's own material overwriting the mesh-materials.  <br /></td></tr>
-<tr class="separator:a5bb5b3b24503eb26d838ddf1b1c293fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb3422331db07fb5d306f77a7dd16e13" id="r_acb3422331db07fb5d306f77a7dd16e13"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IColladaMeshWriterProperties.html#acb3422331db07fb5d306f77a7dd16e13">useNodeMaterial</a> (const <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">dcpp::scene::ISceneNode</a> *node) const =0</td></tr>
+<tr class="memdesc:acb3422331db07fb5d306f77a7dd16e13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return if the node has it's own material overwriting the mesh-materials.  <br /></td></tr>
+<tr class="separator:acb3422331db07fb5d306f77a7dd16e13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classdcpp_1_1IReferenceCounted"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classdcpp_1_1IReferenceCounted')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classdcpp_1_1IReferenceCounted.html">dcpp::IReferenceCounted</a></td></tr>
 <tr class="memitem:a6aa4e18369165d6b993c69d15835757b inherit pub_methods_classdcpp_1_1IReferenceCounted" id="r_a6aa4e18369165d6b993c69d15835757b"><td class="memItemLeft" align="right" valign="top">
 &#160;</td><td class="memItemRight" valign="bottom"><b>IReferenceCounted</b> ()</td></tr>
@@ -175,22 +175,22 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~IReferenceCounted
 <tr class="memitem:a584dda95ccad6a90009eb42ebdccdede inherit pub_methods_classdcpp_1_1IReferenceCounted" id="r_a584dda95ccad6a90009eb42ebdccdede"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IReferenceCounted.html#a584dda95ccad6a90009eb42ebdccdede">getReferenceCount</a> () const</td></tr>
 <tr class="memdesc:a584dda95ccad6a90009eb42ebdccdede inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the reference count.  <br /></td></tr>
 <tr class="separator:a584dda95ccad6a90009eb42ebdccdede inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa470f15a1523b7800d86432c0076476c inherit pub_methods_classdcpp_1_1IReferenceCounted" id="r_aa470f15a1523b7800d86432c0076476c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">dcpp::byte8_kt</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IReferenceCounted.html#aa470f15a1523b7800d86432c0076476c">getDebugName</a> () const</td></tr>
-<tr class="memdesc:aa470f15a1523b7800d86432c0076476c inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the debug name of the object.  <br /></td></tr>
-<tr class="separator:aa470f15a1523b7800d86432c0076476c inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac048b2ba8e33c49c2b1a5ceee3ba3847 inherit pub_methods_classdcpp_1_1IReferenceCounted" id="r_ac048b2ba8e33c49c2b1a5ceee3ba3847"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacedcpp.html#a2a2d2e2601f3d260acd0ce9ac878b282">dcpp::char_kt</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IReferenceCounted.html#ac048b2ba8e33c49c2b1a5ceee3ba3847">getDebugName</a> () const</td></tr>
+<tr class="memdesc:ac048b2ba8e33c49c2b1a5ceee3ba3847 inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the debug name of the object.  <br /></td></tr>
+<tr class="separator:ac048b2ba8e33c49c2b1a5ceee3ba3847 inherit pub_methods_classdcpp_1_1IReferenceCounted"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_methods_classdcpp_1_1IReferenceCounted"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classdcpp_1_1IReferenceCounted')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classdcpp_1_1IReferenceCounted.html">dcpp::IReferenceCounted</a></td></tr>
-<tr class="memitem:a2d6bc70988cc8579790e48434268e84e inherit pro_methods_classdcpp_1_1IReferenceCounted" id="r_a2d6bc70988cc8579790e48434268e84e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IReferenceCounted.html#a2d6bc70988cc8579790e48434268e84e">setDebugName</a> (const <a class="el" href="namespacedcpp.html#a408133811e8c56ef0d89d20315d6788a">dcpp::byte8_kt</a> *newName)</td></tr>
-<tr class="memdesc:a2d6bc70988cc8579790e48434268e84e inherit pro_methods_classdcpp_1_1IReferenceCounted"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the debug name of the object.  <br /></td></tr>
-<tr class="separator:a2d6bc70988cc8579790e48434268e84e inherit pro_methods_classdcpp_1_1IReferenceCounted"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94a97d313e5aa78265ad87024b91d9c0 inherit pro_methods_classdcpp_1_1IReferenceCounted" id="r_a94a97d313e5aa78265ad87024b91d9c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1IReferenceCounted.html#a94a97d313e5aa78265ad87024b91d9c0">setDebugName</a> (const <a class="el" href="namespacedcpp.html#a2a2d2e2601f3d260acd0ce9ac878b282">dcpp::char_kt</a> *newName)</td></tr>
+<tr class="memdesc:a94a97d313e5aa78265ad87024b91d9c0 inherit pro_methods_classdcpp_1_1IReferenceCounted"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the debug name of the object.  <br /></td></tr>
+<tr class="separator:a94a97d313e5aa78265ad87024b91d9c0 inherit pro_methods_classdcpp_1_1IReferenceCounted"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Callback interface for properties which can be used to influence collada writing. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a34982c7418a3d7fd602aaebb38b88574" name="a34982c7418a3d7fd602aaebb38b88574"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a34982c7418a3d7fd602aaebb38b88574">&#9670;&#160;</a></span>getColorMapping()</h2>
+<a id="a4d2fb5bf8794343696ebb0409f57f8b3" name="a4d2fb5bf8794343696ebb0409f57f8b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d2fb5bf8794343696ebb0409f57f8b3">&#9670;&#160;</a></span>getColorMapping()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -201,7 +201,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">virtual <a class="el" href="namespacedcpp_1_1scene.html#a53b7f50f183306739895764d9c16716d">E_COLLADA_DCPP_COLOR</a> dcpp::scene::IColladaMeshWriterProperties::getColorMapping </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1video_1_1SMaterial.html">video::SMaterial</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classdcpp_1_1video_1_1SMaterial.html">dcpp::video::SMaterial</a> &amp;&#160;</td>
           <td class="paramname"><em>material</em>, </td>
         </tr>
         <tr>
@@ -228,8 +228,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a6c7a542cf9f67f7100526c5055ffa959" name="a6c7a542cf9f67f7100526c5055ffa959"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c7a542cf9f67f7100526c5055ffa959">&#9670;&#160;</a></span>getCustomColor()</h2>
+<a id="a5aaf729998401dd775a4b3417b90d55a" name="a5aaf729998401dd775a4b3417b90d55a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5aaf729998401dd775a4b3417b90d55a">&#9670;&#160;</a></span>getCustomColor()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -238,9 +238,9 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="classdcpp_1_1video_1_1SColor.html">video::SColor</a> dcpp::scene::IColladaMeshWriterProperties::getCustomColor </td>
+          <td class="memname">virtual <a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a> dcpp::scene::IColladaMeshWriterProperties::getCustomColor </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1video_1_1SMaterial.html">video::SMaterial</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classdcpp_1_1video_1_1SMaterial.html">dcpp::video::SMaterial</a> &amp;&#160;</td>
           <td class="paramname"><em>material</em>, </td>
         </tr>
         <tr>
@@ -267,8 +267,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a4386c0cee448feb1e01d861149cab3b2" name="a4386c0cee448feb1e01d861149cab3b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4386c0cee448feb1e01d861149cab3b2">&#9670;&#160;</a></span>getIndexOfRefraction()</h2>
+<a id="ab6a45f2bf0d7fd4d0336ee5439fb3624" name="ab6a45f2bf0d7fd4d0336ee5439fb3624"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6a45f2bf0d7fd4d0336ee5439fb3624">&#9670;&#160;</a></span>getIndexOfRefraction()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -279,7 +279,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">virtual <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> dcpp::scene::IColladaMeshWriterProperties::getIndexOfRefraction </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1video_1_1SMaterial.html">video::SMaterial</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classdcpp_1_1video_1_1SMaterial.html">dcpp::video::SMaterial</a> &amp;&#160;</td>
           <td class="paramname"><em>material</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -323,8 +323,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="add4ba9d63d7bd4c36d0538bc6e0d08b8" name="add4ba9d63d7bd4c36d0538bc6e0d08b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add4ba9d63d7bd4c36d0538bc6e0d08b8">&#9670;&#160;</a></span>getReflectivity()</h2>
+<a id="ac037978a54d9f0224b8ba3ac588178cd" name="ac037978a54d9f0224b8ba3ac588178cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac037978a54d9f0224b8ba3ac588178cd">&#9670;&#160;</a></span>getReflectivity()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -335,7 +335,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">virtual <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> dcpp::scene::IColladaMeshWriterProperties::getReflectivity </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1video_1_1SMaterial.html">video::SMaterial</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classdcpp_1_1video_1_1SMaterial.html">dcpp::video::SMaterial</a> &amp;&#160;</td>
           <td class="paramname"><em>material</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -352,8 +352,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a332b477a63e87646ffad5f4598b9bd0a" name="a332b477a63e87646ffad5f4598b9bd0a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a332b477a63e87646ffad5f4598b9bd0a">&#9670;&#160;</a></span>getTextureIdx()</h2>
+<a id="a27cf86cffdb443a61ccbe9d84e0373d0" name="a27cf86cffdb443a61ccbe9d84e0373d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27cf86cffdb443a61ccbe9d84e0373d0">&#9670;&#160;</a></span>getTextureIdx()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -364,7 +364,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">virtual <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> dcpp::scene::IColladaMeshWriterProperties::getTextureIdx </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1video_1_1SMaterial.html">video::SMaterial</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classdcpp_1_1video_1_1SMaterial.html">dcpp::video::SMaterial</a> &amp;&#160;</td>
           <td class="paramname"><em>material</em>, </td>
         </tr>
         <tr>
@@ -392,8 +392,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a00da3c467030bca553d0caf82fadf636" name="a00da3c467030bca553d0caf82fadf636"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a00da3c467030bca553d0caf82fadf636">&#9670;&#160;</a></span>getTransparency()</h2>
+<a id="af375b7406a675831f39b5dbc98717f48" name="af375b7406a675831f39b5dbc98717f48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af375b7406a675831f39b5dbc98717f48">&#9670;&#160;</a></span>getTransparency()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -404,7 +404,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">virtual <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> dcpp::scene::IColladaMeshWriterProperties::getTransparency </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1video_1_1SMaterial.html">video::SMaterial</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classdcpp_1_1video_1_1SMaterial.html">dcpp::video::SMaterial</a> &amp;&#160;</td>
           <td class="paramname"><em>material</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -421,8 +421,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a3832b057c50710952b6b0b46cf5245cf" name="a3832b057c50710952b6b0b46cf5245cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3832b057c50710952b6b0b46cf5245cf">&#9670;&#160;</a></span>getTransparentFx()</h2>
+<a id="a0e1ca4cdeb14278095790e293b367a5a" name="a0e1ca4cdeb14278095790e293b367a5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e1ca4cdeb14278095790e293b367a5a">&#9670;&#160;</a></span>getTransparentFx()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -433,7 +433,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">virtual <a class="el" href="namespacedcpp_1_1scene.html#af49fb909be61823c5661ab43e9287e46">E_COLLADA_TRANSPARENT_FX</a> dcpp::scene::IColladaMeshWriterProperties::getTransparentFx </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1video_1_1SMaterial.html">video::SMaterial</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classdcpp_1_1video_1_1SMaterial.html">dcpp::video::SMaterial</a> &amp;&#160;</td>
           <td class="paramname"><em>material</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -477,8 +477,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a5bb5b3b24503eb26d838ddf1b1c293fe" name="a5bb5b3b24503eb26d838ddf1b1c293fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5bb5b3b24503eb26d838ddf1b1c293fe">&#9670;&#160;</a></span>useNodeMaterial()</h2>
+<a id="acb3422331db07fb5d306f77a7dd16e13" name="acb3422331db07fb5d306f77a7dd16e13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb3422331db07fb5d306f77a7dd16e13">&#9670;&#160;</a></span>useNodeMaterial()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -489,7 +489,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">virtual bool dcpp::scene::IColladaMeshWriterProperties::useNodeMaterial </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">scene::ISceneNode</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html">dcpp::scene::ISceneNode</a> *&#160;</td>
           <td class="paramname"><em>node</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -502,7 +502,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Return if the node has it's own material overwriting the mesh-materials. </p>
-<p>Usually true except for mesh-nodes which have isReadOnlyMaterials set. This is mostly important for naming (as <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html#a08894af29bcddf69745c9f3a5c269eb9" title="Returns the material based on the zero based index i.">ISceneNode::getMaterial()</a> already returns the correct material). You have to override it when exporting custom scenenodes with own materials. </p><dl class="section return"><dt>Returns</dt><dd>true =&gt; The node's own material is used, false =&gt; ignore node material and use the one from the mesh </dd></dl>
+<p>Usually true except for mesh-nodes which have isReadOnlyMaterials set. This is mostly important for naming (as <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html#a1c26e7a680b20a89b2d5dbebd7b42084" title="Returns the material based on the zero based index i.">ISceneNode::getMaterial()</a> already returns the correct material). You have to override it when exporting custom scenenodes with own materials. </p><dl class="section return"><dt>Returns</dt><dd>true =&gt; The node's own material is used, false =&gt; ignore node material and use the one from the mesh </dd></dl>
 
 </div>
 </div>

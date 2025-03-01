@@ -9,7 +9,7 @@ var classdcpp_1_1scene_1_1IIndexBuffer =
     [ "push_back", "classdcpp_1_1scene_1_1IIndexBuffer.html#a8f5a6f2a0624bad0f1e66391d7f3e839", null ],
     [ "setDirty", "classdcpp_1_1scene_1_1IIndexBuffer.html#a64acb6954e4ce61e6a7b2f22b33ba0dc", null ],
     [ "setHardwareMappingHint", "classdcpp_1_1scene_1_1IIndexBuffer.html#ad7a1f636ee13f0a281c3d1c115956b5e", null ],
-    [ "setType", "classdcpp_1_1scene_1_1IIndexBuffer.html#ab5f62fa04676c40c89ee4597635fee7f", null ],
+    [ "setType", "classdcpp_1_1scene_1_1IIndexBuffer.html#af0640e19cd5f63da7170ce370ab166c7", null ],
     [ "setValue", "classdcpp_1_1scene_1_1IIndexBuffer.html#a0f6d703b2b911ba3946734947e5e8fda", null ],
     [ "size", "classdcpp_1_1scene_1_1IIndexBuffer.html#a87c4faf8d5fb0eaefdb161efb4ce9516", null ],
     [ "stride", "classdcpp_1_1scene_1_1IIndexBuffer.html#a7b44bab92ef4f609c93a22a410098efe", null ]

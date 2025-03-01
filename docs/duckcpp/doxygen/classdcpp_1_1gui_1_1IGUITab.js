@@ -1,11 +1,11 @@
 var classdcpp_1_1gui_1_1IGUITab =
 [
-    [ "IGUITab", "classdcpp_1_1gui_1_1IGUITab.html#a9c7f4210535c402a0c8b0554435c3269", null ],
-    [ "getBackgroundColor", "classdcpp_1_1gui_1_1IGUITab.html#adedecbc1e1b1de66282c2a32682c19e9", null ],
+    [ "IGUITab", "classdcpp_1_1gui_1_1IGUITab.html#a13fd50631077c909b1415883598298f6", null ],
+    [ "getBackgroundColor", "classdcpp_1_1gui_1_1IGUITab.html#aeff254ca7c85d0563d36a1fa84ddfb56", null ],
     [ "getNumber", "classdcpp_1_1gui_1_1IGUITab.html#ad7f482339ba684c30412c8cf026964dd", null ],
-    [ "getTextColor", "classdcpp_1_1gui_1_1IGUITab.html#aca2f88b13682383d6593d058013725fd", null ],
+    [ "getTextColor", "classdcpp_1_1gui_1_1IGUITab.html#aa7870e0387cced32ed9d295bdf51047a", null ],
     [ "isDrawingBackground", "classdcpp_1_1gui_1_1IGUITab.html#ab5ebe2613010984fb064bbe07a6a90c7", null ],
-    [ "setBackgroundColor", "classdcpp_1_1gui_1_1IGUITab.html#a07125ae8244fb70e5f4650a5e569d513", null ],
+    [ "setBackgroundColor", "classdcpp_1_1gui_1_1IGUITab.html#ae05714ec87f4adad515ac54c0ed55006", null ],
     [ "setDrawBackground", "classdcpp_1_1gui_1_1IGUITab.html#abcc48b2879e66cfa189041cb5e7aba03", null ],
-    [ "setTextColor", "classdcpp_1_1gui_1_1IGUITab.html#ab38acf8a48fe702023505723386ac143", null ]
+    [ "setTextColor", "classdcpp_1_1gui_1_1IGUITab.html#a3a6fef667087f60774b994581a3fc6e8", null ]
 ];

@@ -8,7 +8,7 @@ var classdcpp_1_1scene_1_1PIndexBuffer =
     [ "push_back", "classdcpp_1_1scene_1_1PIndexBuffer.html#a2d895eb3feacaf25a69df13270c66f15", null ],
     [ "setDirty", "classdcpp_1_1scene_1_1PIndexBuffer.html#a008d43563a70721be74d75bcee845a5c", null ],
     [ "setHardwareMappingHint", "classdcpp_1_1scene_1_1PIndexBuffer.html#a8a0fd5701989cbc8dc0b7347966933a1", null ],
-    [ "setType", "classdcpp_1_1scene_1_1PIndexBuffer.html#a53f35c9e13fec55d93a215361e47893b", null ],
+    [ "setType", "classdcpp_1_1scene_1_1PIndexBuffer.html#a82add882f87697339c4ab1ac1b531815", null ],
     [ "setValue", "classdcpp_1_1scene_1_1PIndexBuffer.html#a57dba177469aa66212ceccf9bf5a4458", null ],
     [ "size", "classdcpp_1_1scene_1_1PIndexBuffer.html#acc239c1be926623d8e1213c8176dd68c", null ],
     [ "stride", "classdcpp_1_1scene_1_1PIndexBuffer.html#ad939c4fb26509909252fd090730b7337", null ]

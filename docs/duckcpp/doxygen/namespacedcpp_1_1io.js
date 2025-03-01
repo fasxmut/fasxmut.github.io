@@ -22,10 +22,10 @@ var namespacedcpp_1_1io =
     [ "IrrXMLReaderUTF16", "namespacedcpp_1_1io.html#ad1328d2c96e1f191c1c96c68b8e92cc1", null ],
     [ "IrrXMLReaderUTF32", "namespacedcpp_1_1io.html#ad88571e67625eb4a32c7b83def1b8a4a", null ],
     [ "IXMLReader", "namespacedcpp_1_1io.html#a2f8f8d122dc562487fd93f805d750b4c", null ],
-    [ "IXMLReaderUTF8", "namespacedcpp_1_1io.html#a101e57bf7ffaa6e379f003ff3e916f65", null ],
+    [ "IXMLReaderUTF8", "namespacedcpp_1_1io.html#ac73da2c10fb09fc66f8abba2f6fa2c2c", null ],
     [ "IXMLWriter", "namespacedcpp_1_1io.html#a8186697b3bc103215a9a226a74a4133f", null ],
-    [ "IXMLWriterUTF8", "namespacedcpp_1_1io.html#a4a391f39c39269d006a9d2bbaf7018a0", null ],
-    [ "path", "namespacedcpp_1_1io.html#af5613643d5b69bec29a18218e6321d66", null ],
+    [ "IXMLWriterUTF8", "namespacedcpp_1_1io.html#a56b4aca550d4e3d787c830132e492ec0", null ],
+    [ "path", "namespacedcpp_1_1io.html#a1d9a4b38a466b80d39629320bafd581d", null ],
     [ "E_ATTRIBUTE_READ_WRITE_FLAGS", "namespacedcpp_1_1io.html#a98a4ca86626d7f87a300b76e045c08f9", [
       [ "EARWF_FOR_FILE", "namespacedcpp_1_1io.html#a98a4ca86626d7f87a300b76e045c08f9aca619cb9e34c6a23b85849ec29ccd290", null ],
       [ "EARWF_FOR_EDITOR", "namespacedcpp_1_1io.html#a98a4ca86626d7f87a300b76e045c08f9ae123cc10af61ded6d31c3eb9673880eb", null ],
@@ -97,5 +97,5 @@ var namespacedcpp_1_1io =
       [ "EXN_CDATA", "namespacedcpp_1_1io.html#a16fcb818d6aa6f1ace23bb4fe07bf0aaa4a76115c4931ac8aa5f79a45604e4ca4", null ],
       [ "EXN_UNKNOWN", "namespacedcpp_1_1io.html#a16fcb818d6aa6f1ace23bb4fe07bf0aaae1fa33fd46756a5ee9ff3458785d7a0e", null ]
     ] ],
-    [ "createLimitReadFile", "namespacedcpp_1_1io.html#abba368037160f76de3f3432c1364a5e4", null ]
+    [ "createLimitReadFile", "namespacedcpp_1_1io.html#a292eb0e08dd816b6ccc15893358a5881", null ]
 ];
