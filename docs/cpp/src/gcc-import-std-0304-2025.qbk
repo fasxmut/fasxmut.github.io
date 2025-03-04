@@ -1,0 +1,78 @@
+[article gcc import std; c++ modules (03-04, 2025)
+	[id gcc-import-std-0304-2025]
+	[quickbook 1.7]
+]
+
+Run import std; with gcc successfully.
+
+[h2:p \:\-\) P]
+
+First I followed this link to get gcc import std; c++ working, [@https://gcc.gnu.org/onlinedocs/gcc/C_002b_002b-Modules.html], but oops, when I removed the gcm.cache dir to test it, and repeated steps again, it did not work.
+
+Then I found this link [@https://stackoverflow.com/questions/76154680/how-to-use-module-std-with-gcc], after I removed gcm.cache and did the steps again, it still worked.
+
+Great, I can import std; with gcc now.
+
+[h2:install-gcc Build and install gcc from source]
+
+[!teletype]
+```
+git clone --depth=1 git://gcc.gnu.org/git/gcc.git SomeLocalDir
+```
+
+[h2:alias-gpp alias gpp]
+
+Make an lazy alias gpp to the built & installed g++ program.
+
+alias gpp=/path/to/g++
+
+[h2:first-time Compile c++ modules program (std) at the first time]
+
+// test.cpp
+
+[!c++]
+```
+import std;
+
+int main()
+{
+	std::cout << "Hello c++!" << std::endl;
+}
+```
+
+Compile:
+
+[!teletype]
+```
+gpp -fmodules -fsearch-include-path bits/std.cc test.cpp -std=c++26 -o test
+```
+
+It is a little slow at the first time.
+
+[h2:not-first-time Compile c++ modules program (std) not at the first time]
+
+Compile:
+
+[!teletype]
+```
+gpp -fmodules test.cpp -std=c++26 -o test
+```
+
+It is much more fast by not specifying -fsearch-include-path bits/std.cc, when running not at the first time.
+
+[h2:test P.]
+
+Remove gcm.cache and repeat above steps, it still works!
+
+[br][br][br]
+[br][br][br]
+[br][br][br]
+
+Mar 04, 2025
+
+[h1:back [role cyan Back]]
+
+[@. Up]
+
+[include ../../share/foot-links.inc.qbk]
+

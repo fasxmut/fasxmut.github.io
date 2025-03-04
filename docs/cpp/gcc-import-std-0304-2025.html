@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>gcc import std; c++ modules (03-04, 2025)</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="cpp/c++">
+<link rel="up" href="index.html" title="cpp/c++">
+<link rel="prev" href="cpp-stdfloat.html" title="c++ stdfloat: &lt;stdfloat&gt;">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="cpp-stdfloat.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="gcc-import-std-0304-2025"></a>gcc import std; c++ modules (03-04, 2025)</h1></div></div>
+<hr>
+</div>
+<p>
+      Run import std; with gcc successfully.
+    </p>
+<h3>
+<a name="gcc-import-std-0304-2025.h0"></a>
+      <span class="phrase"><a name="gcc-import-std-0304-2025.p"></a></span><a class="link" href="gcc-import-std-0304-2025.html#gcc-import-std-0304-2025.p">:-)
+      P</a>
+    </h3>
+<p>
+      First I followed this link to get gcc import std; c++ working, <a href="https://gcc.gnu.org/onlinedocs/gcc/C_002b_002b-Modules.html" target="_top">https://gcc.gnu.org/onlinedocs/gcc/C_002b_002b-Modules.html</a>,
+      but oops, when I removed the gcm.cache dir to test it, and repeated steps again,
+      it did not work.
+    </p>
+<p>
+      Then I found this link <a href="https://stackoverflow.com/questions/76154680/how-to-use-module-std-with-gcc" target="_top">https://stackoverflow.com/questions/76154680/how-to-use-module-std-with-gcc</a>,
+      after I removed gcm.cache and did the steps again, it still worked.
+    </p>
+<p>
+      Great, I can import std; with gcc now.
+    </p>
+<h3>
+<a name="gcc-import-std-0304-2025.h1"></a>
+      <span class="phrase"><a name="gcc-import-std-0304-2025.install-gcc"></a></span><a class="link" href="gcc-import-std-0304-2025.html#gcc-import-std-0304-2025.install-gcc">Build
+      and install gcc from source</a>
+    </h3>
+<pre class="programlisting">git clone --depth=1 git://gcc.gnu.org/git/gcc.git SomeLocalDir
+</pre>
+<h3>
+<a name="gcc-import-std-0304-2025.h2"></a>
+      <span class="phrase"><a name="gcc-import-std-0304-2025.alias-gpp"></a></span><a class="link" href="gcc-import-std-0304-2025.html#gcc-import-std-0304-2025.alias-gpp">alias
+      gpp</a>
+    </h3>
+<p>
+      Make an lazy alias gpp to the built &amp; installed g++ program.
+    </p>
+<p>
+      alias gpp=/path/to/g++
+    </p>
+<h3>
+<a name="gcc-import-std-0304-2025.h3"></a>
+      <span class="phrase"><a name="gcc-import-std-0304-2025.first-time"></a></span><a class="link" href="gcc-import-std-0304-2025.html#gcc-import-std-0304-2025.first-time">Compile
+      c++ modules program (std) at the first time</a>
+    </h3>
+<p>
+      // test.cpp
+    </p>
+<pre class="programlisting"><span class="identifier">import</span> <span class="identifier">std</span><span class="special">;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Hello c++!"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<p>
+      Compile:
+    </p>
+<pre class="programlisting">gpp -fmodules -fsearch-include-path bits/std.cc test.cpp -std=c++26 -o test
+</pre>
+<p>
+      It is a little slow at the first time.
+    </p>
+<h3>
+<a name="gcc-import-std-0304-2025.h4"></a>
+      <span class="phrase"><a name="gcc-import-std-0304-2025.not-first-time"></a></span><a class="link" href="gcc-import-std-0304-2025.html#gcc-import-std-0304-2025.not-first-time">Compile
+      c++ modules program (std) not at the first time</a>
+    </h3>
+<p>
+      Compile:
+    </p>
+<pre class="programlisting">gpp -fmodules test.cpp -std=c++26 -o test
+</pre>
+<p>
+      It is much more fast by not specifying -fsearch-include-path bits/std.cc, when
+      running not at the first time.
+    </p>
+<h3>
+<a name="gcc-import-std-0304-2025.h5"></a>
+      <span class="phrase"><a name="gcc-import-std-0304-2025.test"></a></span><a class="link" href="gcc-import-std-0304-2025.html#gcc-import-std-0304-2025.test">P.</a>
+    </h3>
+<p>
+      Remove gcm.cache and repeat above steps, it still works!
+    </p>
+<p>
+      <br> <br> <br> <br> <br> <br> <br> <br> <br>
+    </p>
+<p>
+      Mar 04, 2025
+    </p>
+<h2>
+<a name="gcc-import-std-0304-2025.h6"></a>
+      <span class="phrase"><a name="gcc-import-std-0304-2025.back"></a></span><a class="link" href="gcc-import-std-0304-2025.html#gcc-import-std-0304-2025.back"><span class="cyan">Back</span></a>
+    </h2>
+<p>
+      <a href="." target="_top">Up</a>
+    </p>
+<h2>
+<a name="gcc-import-std-0304-2025.h7"></a>
+      <span class="phrase"><a name="gcc-import-std-0304-2025.cpp-lang"></a></span><a class="link" href="gcc-import-std-0304-2025.html#gcc-import-std-0304-2025.cpp-lang"><span class="cyan">cpp/c++</span></a>
+    </h2>
+<p>
+      c++ std::exception:
+    </p>
+<p>
+      std::cout.write(err.data(), err.size());
+    </p>
+<p>
+      std::cout &lt;&lt; std::endl;
+    </p>
+<p>
+      <span class="purple">caught:</span>
+    </p>
+<pre class="programlisting">  ===================================
+  #  The c++ programming language.  #
+  #                                 #
+  #  Join c++ Discord: yZcauUAUyC   #
+  #  Deck                           #
+  ===================================
+</pre>
+<p>
+      <a href="https://cppfx.xyz" target="_top">Home: cppfx.xyz</a>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="cpp-stdfloat.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+</body>
+</html>

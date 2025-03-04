@@ -5,6 +5,7 @@
 
 [include cross-thread-exception.qbk]
 [include stdfloat.qbk]
+[include gcc-import-std-0304-2025.qbk]
 
 [h1:back [role cyan Back]]
 
