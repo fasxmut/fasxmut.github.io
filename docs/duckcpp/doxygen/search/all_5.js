@@ -44,7 +44,5 @@ var searchData=
   ['fromangleaxis_41',['fromAngleAxis',['../classdcpp_1_1nub_1_1quaternion.html#a577aa2326a64edfbe908ae3ccec81b57',1,'dcpp::nub::quaternion']]],
   ['frontfaceculling_42',['FrontfaceCulling',['../classdcpp_1_1video_1_1SMaterial.html#a88c9235ab9bb122f4f7ee02c1bdf9752',1,'dcpp::video::SMaterial']]],
   ['fschar_5fkt_43',['fschar_kt',['../namespacedcpp.html#a2e7a4fe6b9f3c82197a2d6a363800a50',1,'dcpp']]],
-  ['fullscreen_44',['FullScreen',['../classdcpp_1_1SDuckcppCreationParameters.html#a3cc0b8558b30d4422be8468232de5644',1,'dcpp::SDuckcppCreationParameters']]],
-  ['funcptr_5fcreatedevice_45',['funcptr_createDevice',['../namespacedcpp.html#a0358e65f56baa1927c8e429219443102',1,'dcpp']]],
-  ['funcptr_5fcreatedeviceex_46',['funcptr_createDeviceEx',['../namespacedcpp.html#a8c9329f0d932ad88250cb066e385e1bd',1,'dcpp']]]
+  ['fullscreen_44',['FullScreen',['../classdcpp_1_1SDuckcppCreationParameters.html#a3cc0b8558b30d4422be8468232de5644',1,'dcpp::SDuckcppCreationParameters']]]
 ];

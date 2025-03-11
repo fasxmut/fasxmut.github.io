@@ -299,7 +299,7 @@ $(document).ready(function(){initNavTree('duckcpp_8hpp_source.html',''); initRes
 <div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedcpp.html">dcpp</a></div>
 <div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>{</div>
 <div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span> </div>
-<div class="line"><a id="l00329" name="l00329"></a><span class="lineno"><a class="line" href="namespacedcpp.html#a98877e780e0fc45c8dcd60e52c0c1811">  329</a></span>    DUCKCPP_API <a class="code hl_class" href="classdcpp_1_1DuckcppDevice.html">DuckcppDevice</a>* IRRCALLCONV <a class="code hl_function" href="namespacedcpp.html#a98877e780e0fc45c8dcd60e52c0c1811">createDevice</a>(</div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno"><a class="line" href="namespacedcpp.html#a559d0bc4da1521afaa0978943491af28">  329</a></span>    DUCKCPP_API <a class="code hl_class" href="classdcpp_1_1DuckcppDevice.html">dcpp::DuckcppDevice</a> * IRRCALLCONV <a class="code hl_function" href="namespacedcpp.html#a559d0bc4da1521afaa0978943491af28">createDevice</a>(</div>
 <div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>        <a class="code hl_enumeration" href="namespacedcpp_1_1video.html#a6ffe075a6fa7733a41e2aa743930b218">dcpp::video::E_DRIVER_TYPE</a> driverType = <a class="code hl_enumvalue" href="namespacedcpp_1_1video.html#a6ffe075a6fa7733a41e2aa743930b218a9d58775d9dc89fe6a7040944b661c1f6">dcpp::video::EDT_SOFTWARE</a>,</div>
 <div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>        <span class="comment">// parentheses are necessary for some compilers</span></div>
 <div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>        <span class="keyword">const</span> <a class="code hl_class" href="classdcpp_1_1nub_1_1aabbox3d.html">dcpp::nub::dimension2d&lt;dcpp::uint32_kt&gt;</a>&amp; windowSize = (<a class="code hl_class" href="classdcpp_1_1nub_1_1aabbox3d.html">dcpp::nub::dimension2d&lt;dcpp::uint32_kt&gt;</a>(1280, 800)),</div>
@@ -307,57 +307,44 @@ $(document).ready(function(){initNavTree('duckcpp_8hpp_source.html',''); initRes
 <div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>        <span class="keywordtype">bool</span> fullscreen = <span class="keyword">false</span>,</div>
 <div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>        <span class="keywordtype">bool</span> stencilbuffer = <span class="keyword">true</span>,</div>
 <div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>        <span class="keywordtype">bool</span> vsync = <span class="keyword">false</span>,</div>
-<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>        <a class="code hl_class" href="classdcpp_1_1IEventReceiver.html">IEventReceiver</a>* receiver = 0);</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>        <a class="code hl_class" href="classdcpp_1_1IEventReceiver.html">dcpp::IEventReceiver</a>* receiver = 0);</div>
 <div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span> </div>
-<div class="line"><a id="l00340" name="l00340"></a><span class="lineno"><a class="line" href="namespacedcpp.html#a0358e65f56baa1927c8e429219443102">  340</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="namespacedcpp.html#a0358e65f56baa1927c8e429219443102">funcptr_createDevice</a> = <a class="code hl_class" href="classdcpp_1_1DuckcppDevice.html">DuckcppDevice</a>* (IRRCALLCONV *)(</div>
-<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>            <a class="code hl_enumeration" href="namespacedcpp_1_1video.html#a6ffe075a6fa7733a41e2aa743930b218">dcpp::video::E_DRIVER_TYPE</a> driverType,</div>
-<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>            <span class="keyword">const</span> <a class="code hl_class" href="classdcpp_1_1nub_1_1aabbox3d.html">dcpp::nub::dimension2d&lt;dcpp::uint32_kt&gt;</a>&amp; windowSize,</div>
-<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>            <a class="code hl_typedef" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> bits,</div>
-<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>            <span class="keywordtype">bool</span> fullscreen,</div>
-<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>            <span class="keywordtype">bool</span> stencilbuffer,</div>
-<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>            <span class="keywordtype">bool</span> vsync,</div>
-<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>            <a class="code hl_class" href="classdcpp_1_1IEventReceiver.html">IEventReceiver</a>* receiver);</div>
-<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span> </div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span> </div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno"><a class="line" href="namespacedcpp.html#ae27275c6a92cf7f08b437db43dc5098e">  347</a></span>    DUCKCPP_API <a class="code hl_class" href="classdcpp_1_1DuckcppDevice.html">dcpp::DuckcppDevice</a> * IRRCALLCONV <a class="code hl_function" href="namespacedcpp.html#ae27275c6a92cf7f08b437db43dc5098e">createDeviceEx</a>(</div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>        <span class="keyword">const</span> <a class="code hl_class" href="classdcpp_1_1SDuckcppCreationParameters.html">dcpp::SDuckcppCreationParameters</a> &amp; parameters);</div>
 <div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span> </div>
-<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span> </div>
-<div class="line"><a id="l00358" name="l00358"></a><span class="lineno"><a class="line" href="namespacedcpp.html#a7e9f43c9ca4f2a4a5e9c19ab25544e3c">  358</a></span>    DUCKCPP_API <a class="code hl_class" href="classdcpp_1_1DuckcppDevice.html">DuckcppDevice</a>* IRRCALLCONV <a class="code hl_function" href="namespacedcpp.html#a7e9f43c9ca4f2a4a5e9c19ab25544e3c">createDeviceEx</a>(</div>
-<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>        <span class="keyword">const</span> <a class="code hl_class" href="classdcpp_1_1SDuckcppCreationParameters.html">SDuckcppCreationParameters</a>&amp; parameters);</div>
-<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span> </div>
-<div class="line"><a id="l00362" name="l00362"></a><span class="lineno"><a class="line" href="namespacedcpp.html#a8c9329f0d932ad88250cb066e385e1bd">  362</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="namespacedcpp.html#a8c9329f0d932ad88250cb066e385e1bd">funcptr_createDeviceEx</a> = <a class="code hl_class" href="classdcpp_1_1DuckcppDevice.html">DuckcppDevice</a>* (IRRCALLCONV *)( <span class="keyword">const</span> <a class="code hl_class" href="classdcpp_1_1SDuckcppCreationParameters.html">SDuckcppCreationParameters</a>&amp; parameters );</div>
-<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span> </div>
-<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span> </div>
-<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>    <span class="comment">// THE FOLLOWING IS AN EMPTY LIST OF ALL SUB NAMESPACES</span></div>
-<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>    <span class="comment">// EXISTING ONLY FOR THE DOCUMENTATION SOFTWARE DOXYGEN.</span></div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>    <span class="comment">// THE FOLLOWING IS AN EMPTY LIST OF ALL SUB NAMESPACES</span></div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>    <span class="comment">// EXISTING ONLY FOR THE DOCUMENTATION SOFTWARE DOXYGEN.</span></div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span> </div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>    <span class="keyword">namespace </span>nub</div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>    {</div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>    }</div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span> </div>
+<div class="foldopen" id="foldopen00359" data-start="{" data-end="}">
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno"><a class="line" href="namespacedcpp_1_1gui.html">  359</a></span>    <span class="keyword">namespace </span>gui</div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>    {</div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>    }</div>
+</div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span> </div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>    <span class="keyword">namespace </span>io</div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>    {</div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>    }</div>
 <div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span> </div>
-<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>    <span class="keyword">namespace </span>nub</div>
+<div class="foldopen" id="foldopen00369" data-start="{" data-end="}">
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno"><a class="line" href="namespacedcpp_1_1scene.html">  369</a></span>    <span class="keyword">namespace </span>scene</div>
 <div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>    {</div>
 <div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>    }</div>
+</div>
 <div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span> </div>
 <div class="foldopen" id="foldopen00374" data-start="{" data-end="}">
-<div class="line"><a id="l00374" name="l00374"></a><span class="lineno"><a class="line" href="namespacedcpp_1_1gui.html">  374</a></span>    <span class="keyword">namespace </span>gui</div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno"><a class="line" href="namespacedcpp_1_1video.html">  374</a></span>    <span class="keyword">namespace </span>video</div>
 <div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>    {</div>
 <div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>    }</div>
 </div>
-<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span> </div>
-<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>    <span class="keyword">namespace </span>io</div>
-<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>    {</div>
-<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span>    }</div>
-<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span> </div>
-<div class="foldopen" id="foldopen00384" data-start="{" data-end="}">
-<div class="line"><a id="l00384" name="l00384"></a><span class="lineno"><a class="line" href="namespacedcpp_1_1scene.html">  384</a></span>    <span class="keyword">namespace </span>scene</div>
-<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span>    {</div>
-<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>    }</div>
-</div>
-<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span> </div>
-<div class="foldopen" id="foldopen00389" data-start="{" data-end="}">
-<div class="line"><a id="l00389" name="l00389"></a><span class="lineno"><a class="line" href="namespacedcpp_1_1video.html">  389</a></span>    <span class="keyword">namespace </span>video</div>
-<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span>    {</div>
-<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span>    }</div>
-</div>
-<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>}</div>
-<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span> </div>
-<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span><span class="preprocessor">#endif  </span><span class="comment">// __duckcpp_core_engine_duckcpp_hpp__</span></div>
-<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span> </div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>}</div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span> </div>
+<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span><span class="preprocessor">#endif  </span><span class="comment">// __duckcpp_core_engine_duckcpp_hpp__</span></div>
+<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span> </div>
 <div class="ttc" id="aclassdcpp_1_1DuckcppDevice_html"><div class="ttname"><a href="classdcpp_1_1DuckcppDevice.html">dcpp::DuckcppDevice</a></div><div class="ttdoc">The Duckcpp device. You can create it with createDevice() or createDeviceEx().</div><div class="ttdef"><b>Definition</b> DuckcppDevice.hpp:48</div></div>
 <div class="ttc" id="aclassdcpp_1_1IEventReceiver_html"><div class="ttname"><a href="classdcpp_1_1IEventReceiver.html">dcpp::IEventReceiver</a></div><div class="ttdoc">Interface of an object which can receive events.</div><div class="ttdef"><b>Definition</b> IEventReceiver.hpp:484</div></div>
 <div class="ttc" id="aclassdcpp_1_1SDuckcppCreationParameters_html"><div class="ttname"><a href="classdcpp_1_1SDuckcppCreationParameters.html">dcpp::SDuckcppCreationParameters</a></div><div class="ttdoc">Class for holding Duckcpp Device creation parameters.</div><div class="ttdef"><b>Definition</b> SDuckcppCreationParameters.hpp:21</div></div>
@@ -365,11 +352,9 @@ $(document).ready(function(){initNavTree('duckcpp_8hpp_source.html',''); initRes
 <div class="ttc" id="anamespacedcpp_1_1video_html_a6ffe075a6fa7733a41e2aa743930b218"><div class="ttname"><a href="namespacedcpp_1_1video.html#a6ffe075a6fa7733a41e2aa743930b218">dcpp::video::E_DRIVER_TYPE</a></div><div class="ttdeci">E_DRIVER_TYPE</div><div class="ttdoc">An enum for all types of drivers the Duckcpp Engine supports.</div><div class="ttdef"><b>Definition</b> EDriverTypes.hpp:17</div></div>
 <div class="ttc" id="anamespacedcpp_1_1video_html_a6ffe075a6fa7733a41e2aa743930b218a9d58775d9dc89fe6a7040944b661c1f6"><div class="ttname"><a href="namespacedcpp_1_1video.html#a6ffe075a6fa7733a41e2aa743930b218a9d58775d9dc89fe6a7040944b661c1f6">dcpp::video::EDT_SOFTWARE</a></div><div class="ttdeci">@ EDT_SOFTWARE</div><div class="ttdoc">dcpp::video::EDT_SOFTWARE</div><div class="ttdef"><b>Definition</b> EDriverTypes.hpp:30</div></div>
 <div class="ttc" id="anamespacedcpp_html"><div class="ttname"><a href="namespacedcpp.html">dcpp</a></div><div class="ttdoc">As of Duckcpp 1.6, position2d is a synonym for vector2d.</div><div class="ttdef"><b>Definition</b> vector3d.hpp:11</div></div>
-<div class="ttc" id="anamespacedcpp_html_a0358e65f56baa1927c8e429219443102"><div class="ttname"><a href="namespacedcpp.html#a0358e65f56baa1927c8e429219443102">dcpp::funcptr_createDevice</a></div><div class="ttdeci">DuckcppDevice *(IRRCALLCONV *)(dcpp::video::E_DRIVER_TYPE driverType, const dcpp::nub::dimension2d&lt; dcpp::uint32_kt &gt; &amp;windowSize, dcpp::uint32_kt bits, bool fullscreen, bool stencilbuffer, bool vsync, IEventReceiver *receiver) funcptr_createDevice</div><div class="ttdoc">using type alias for Function Pointer</div><div class="ttdef"><b>Definition</b> duckcpp.hpp:347</div></div>
-<div class="ttc" id="anamespacedcpp_html_a7e9f43c9ca4f2a4a5e9c19ab25544e3c"><div class="ttname"><a href="namespacedcpp.html#a7e9f43c9ca4f2a4a5e9c19ab25544e3c">dcpp::createDeviceEx</a></div><div class="ttdeci">DUCKCPP_API DuckcppDevice *IRRCALLCONV createDeviceEx(const SDuckcppCreationParameters &amp;parameters)</div><div class="ttdoc">Creates an Duckcpp device with the option to specify advanced parameters.</div></div>
-<div class="ttc" id="anamespacedcpp_html_a8c9329f0d932ad88250cb066e385e1bd"><div class="ttname"><a href="namespacedcpp.html#a8c9329f0d932ad88250cb066e385e1bd">dcpp::funcptr_createDeviceEx</a></div><div class="ttdeci">DuckcppDevice *(IRRCALLCONV *)(const SDuckcppCreationParameters &amp;parameters) funcptr_createDeviceEx</div><div class="ttdoc">using type alias for Function Pointer</div><div class="ttdef"><b>Definition</b> duckcpp.hpp:362</div></div>
+<div class="ttc" id="anamespacedcpp_html_a559d0bc4da1521afaa0978943491af28"><div class="ttname"><a href="namespacedcpp.html#a559d0bc4da1521afaa0978943491af28">dcpp::createDevice</a></div><div class="ttdeci">DUCKCPP_API dcpp::DuckcppDevice *IRRCALLCONV createDevice(dcpp::video::E_DRIVER_TYPE driverType=dcpp::video::EDT_SOFTWARE, const dcpp::nub::dimension2d&lt; dcpp::uint32_kt &gt; &amp;windowSize=(dcpp::nub::dimension2d&lt; dcpp::uint32_kt &gt;(1280, 800)), dcpp::uint32_kt bits=32, bool fullscreen=false, bool stencilbuffer=true, bool vsync=false, dcpp::IEventReceiver *receiver=0)</div><div class="ttdoc">Creates an Duckcpp device. The Duckcpp device is the root object for using the engine.</div></div>
 <div class="ttc" id="anamespacedcpp_html_a912c88731e6a39387d877830a2684fed"><div class="ttname"><a href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a></div><div class="ttdeci">unsigned int uint32_kt</div><div class="ttdoc">32 bit unsigned variable.</div><div class="ttdef"><b>Definition</b> irrTypes.hpp:64</div></div>
-<div class="ttc" id="anamespacedcpp_html_a98877e780e0fc45c8dcd60e52c0c1811"><div class="ttname"><a href="namespacedcpp.html#a98877e780e0fc45c8dcd60e52c0c1811">dcpp::createDevice</a></div><div class="ttdeci">DUCKCPP_API DuckcppDevice *IRRCALLCONV createDevice(dcpp::video::E_DRIVER_TYPE driverType=dcpp::video::EDT_SOFTWARE, const dcpp::nub::dimension2d&lt; dcpp::uint32_kt &gt; &amp;windowSize=(dcpp::nub::dimension2d&lt; dcpp::uint32_kt &gt;(1280, 800)), dcpp::uint32_kt bits=32, bool fullscreen=false, bool stencilbuffer=true, bool vsync=false, IEventReceiver *receiver=0)</div><div class="ttdoc">Creates an Duckcpp device. The Duckcpp device is the root object for using the engine.</div></div>
+<div class="ttc" id="anamespacedcpp_html_ae27275c6a92cf7f08b437db43dc5098e"><div class="ttname"><a href="namespacedcpp.html#ae27275c6a92cf7f08b437db43dc5098e">dcpp::createDeviceEx</a></div><div class="ttdeci">DUCKCPP_API dcpp::DuckcppDevice *IRRCALLCONV createDeviceEx(const dcpp::SDuckcppCreationParameters &amp;parameters)</div><div class="ttdoc">Creates an Duckcpp device with the option to specify advanced parameters.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <hr />
