@@ -5,7 +5,7 @@ var classdcpp_1_1scene_1_1SSharedMeshBuffer =
     [ "append", "classdcpp_1_1scene_1_1SSharedMeshBuffer.html#a115d65e6a641542c6d98b01b7b732ba9", null ],
     [ "append", "classdcpp_1_1scene_1_1SSharedMeshBuffer.html#a8c6df96a1aa24c36b6a4a38d25e08044", null ],
     [ "createClone", "classdcpp_1_1scene_1_1SSharedMeshBuffer.html#a23951651135ab43c0a45d1b3ee6ea77e", null ],
-    [ "getBoundingBox", "classdcpp_1_1scene_1_1SSharedMeshBuffer.html#a9f9cf22f3503fb5d7ef32e57ce657d51", null ],
+    [ "getBoundingBox", "classdcpp_1_1scene_1_1SSharedMeshBuffer.html#af782ba4dab9435e8bd2bfc04d96072ae", null ],
     [ "getChangedID_Index", "classdcpp_1_1scene_1_1SSharedMeshBuffer.html#a7672c563789e30658b1b62dfd08a0cc6", null ],
     [ "getChangedID_Vertex", "classdcpp_1_1scene_1_1SSharedMeshBuffer.html#a4b00cc3663fde36d62adb5db2d903225", null ],
     [ "getColor", "classdcpp_1_1scene_1_1SSharedMeshBuffer.html#a5e0d26552f1ec96d4312cd5f75060d40", null ],

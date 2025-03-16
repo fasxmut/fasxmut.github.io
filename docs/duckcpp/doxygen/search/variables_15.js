@@ -7,7 +7,7 @@ var searchData=
   ['windowid_4',['WindowId',['../classdcpp_1_1SDuckcppCreationParameters.html#a670ea1ca3fee0d95c0b2e868a4704638',1,'dcpp::SDuckcppCreationParameters']]],
   ['windowposition_5',['WindowPosition',['../classdcpp_1_1SDuckcppCreationParameters.html#acf6adec4a3c99ebdfc85a5a3ca3bdabf',1,'dcpp::SDuckcppCreationParameters']]],
   ['windowresizable_6',['WindowResizable',['../classdcpp_1_1SDuckcppCreationParameters.html#aaa9ac9ad85ca4d167ff1ad96e5f0a656',1,'dcpp::SDuckcppCreationParameters']]],
-  ['windowsize_7',['WindowSize',['../classdcpp_1_1SDuckcppCreationParameters.html#ab1d2f34afb4cc4f37410026dbd0bd700',1,'dcpp::SDuckcppCreationParameters']]],
+  ['windowsize_7',['WindowSize',['../classdcpp_1_1SDuckcppCreationParameters.html#ae4d2b51cc429afb25f625e643ee87f34',1,'dcpp::SDuckcppCreationParameters']]],
   ['wireframe_8',['Wireframe',['../classdcpp_1_1video_1_1SMaterial.html#adef0e1de4f13c75429c315743cd51bb7',1,'dcpp::video::SMaterial']]],
   ['withalphachannel_9',['WithAlphaChannel',['../classdcpp_1_1SDuckcppCreationParameters.html#a7dd7f286c9c7eb66130275b752d04561',1,'dcpp::SDuckcppCreationParameters']]]
 ];

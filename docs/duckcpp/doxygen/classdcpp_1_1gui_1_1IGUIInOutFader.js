@@ -1,6 +1,6 @@
 var classdcpp_1_1gui_1_1IGUIInOutFader =
 [
-    [ "IGUIInOutFader", "classdcpp_1_1gui_1_1IGUIInOutFader.html#a015ae491bfb642a9aa33a422d058f02d", null ],
+    [ "IGUIInOutFader", "classdcpp_1_1gui_1_1IGUIInOutFader.html#a659f0f54c0045814fb9bb079294dd5db", null ],
     [ "fadeIn", "classdcpp_1_1gui_1_1IGUIInOutFader.html#a8e9f09348169da956301986c34981cf3", null ],
     [ "fadeOut", "classdcpp_1_1gui_1_1IGUIInOutFader.html#a35e632c7d47236886e9e00730a7893ec", null ],
     [ "getColor", "classdcpp_1_1gui_1_1IGUIInOutFader.html#ad6ec19f200a8e147bbfaf1319ae50887", null ],

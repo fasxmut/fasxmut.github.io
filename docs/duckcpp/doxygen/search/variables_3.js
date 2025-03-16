@@ -10,7 +10,7 @@ var searchData=
   ['degtorad_7',['DEGTORAD',['../namespacedcpp_1_1nub.html#a9875eb89b6289956e4f8b52931068c1d',1,'dcpp::nub']]],
   ['degtorad64_8',['DEGTORAD64',['../namespacedcpp_1_1nub.html#a8be2cb33daab745e8114be7331ca5771',1,'dcpp::nub']]],
   ['depthstencil_9',['DepthStencil',['../classdcpp_1_1video_1_1IRenderTarget.html#a13417c499592f43b7d3d85f72bbeb51d',1,'dcpp::video::IRenderTarget']]],
-  ['desiredrect_10',['DesiredRect',['../classdcpp_1_1gui_1_1IGUIElement.html#a5d5565d7b37c8a9ee3ebd1f7ce2aee9c',1,'dcpp::gui::IGUIElement']]],
+  ['desiredrect_10',['DesiredRect',['../classdcpp_1_1gui_1_1IGUIElement.html#a862a472a64ba90ff4d9febeb452b1e40',1,'dcpp::gui::IGUIElement']]],
   ['devicetype_11',['DeviceType',['../classdcpp_1_1SDuckcppCreationParameters.html#a190c3674970d8e6ce3760215fd17897e',1,'dcpp::SDuckcppCreationParameters']]],
   ['diffusecolor_12',['diffusecolor',['../classdcpp_1_1video_1_1SLight.html#a405ff48f17242b2dd21907ebaf7a3afe',1,'dcpp::video::SLight::DiffuseColor'],['../classdcpp_1_1video_1_1SMaterial.html#aafd03fb638ef21436962552426efc94c',1,'dcpp::video::SMaterial::DiffuseColor']]],
   ['direction_13',['Direction',['../classdcpp_1_1video_1_1SLight.html#a765311c16fa4a626408512463991e722',1,'dcpp::video::SLight']]],

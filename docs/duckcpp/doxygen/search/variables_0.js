@@ -1,8 +1,8 @@
 var searchData=
 [
   ['a_0',['a',['../classdcpp_1_1video_1_1SColorf.html#a87d2335dc0f578c2f7acee58cb9fca41',1,'dcpp::video::SColorf']]],
-  ['absoluteclippingrect_1',['AbsoluteClippingRect',['../classdcpp_1_1gui_1_1IGUIElement.html#a005f72544bedf188910684cc80538c86',1,'dcpp::gui::IGUIElement']]],
-  ['absoluterect_2',['AbsoluteRect',['../classdcpp_1_1gui_1_1IGUIElement.html#adc385d513ffdabe20d054f6a0d5408de',1,'dcpp::gui::IGUIElement']]],
+  ['absoluteclippingrect_1',['AbsoluteClippingRect',['../classdcpp_1_1gui_1_1IGUIElement.html#a2f8a1ea20ac89bf3b24303ec691c7d4d',1,'dcpp::gui::IGUIElement']]],
+  ['absoluterect_2',['AbsoluteRect',['../classdcpp_1_1gui_1_1IGUIElement.html#abf02f7af1039eae7139fdb20b0c0b320',1,'dcpp::gui::IGUIElement']]],
   ['absolutetransformation_3',['AbsoluteTransformation',['../classdcpp_1_1scene_1_1ISceneNode.html#ae8b751f48fcd40e38ab170846d4618a3',1,'dcpp::scene::ISceneNode']]],
   ['alignleft_4',['AlignLeft',['../classdcpp_1_1gui_1_1IGUIElement.html#abaf55934bf1f9bad6091ac8eaba41abb',1,'dcpp::gui::IGUIElement']]],
   ['allow_5fzwrite_5fon_5ftransparent_5',['ALLOW_ZWRITE_ON_TRANSPARENT',['../namespacedcpp_1_1scene.html#a43549ee59f28cf80f29b14f9440b42ca',1,'dcpp::scene']]],

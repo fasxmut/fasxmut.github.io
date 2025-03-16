@@ -38,7 +38,7 @@ var classdcpp_1_1DuckcppDevice =
     [ "setRandomizer", "classdcpp_1_1DuckcppDevice.html#afb70dc25ee9afccbc2cea708999c4ae7", null ],
     [ "setResizable", "classdcpp_1_1DuckcppDevice.html#a372e0022d962f5898c1a5a01129b070c", null ],
     [ "setWindowCaption", "classdcpp_1_1DuckcppDevice.html#a1ef3ccc050482cbe852452aaca7f3cae", null ],
-    [ "setWindowSize", "classdcpp_1_1DuckcppDevice.html#ae5dc7b82ea3943a048c944e19fbf35a4", null ],
+    [ "setWindowSize", "classdcpp_1_1DuckcppDevice.html#a85f617e17f9766af05be54c3ea571437", null ],
     [ "sleep", "classdcpp_1_1DuckcppDevice.html#a0d2ddaa5102febfa4017c1abbd5ef806", null ],
     [ "yield", "classdcpp_1_1DuckcppDevice.html#a89e42b5b8b919be396ed7e6dd4b01d18", null ]
 ];

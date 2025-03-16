@@ -1,8 +1,8 @@
 var classdcpp_1_1gui_1_1IGUIFont =
 [
-    [ "draw", "classdcpp_1_1gui_1_1IGUIFont.html#a78a6bd5ef5508fcdea0f9d1d921e3948", null ],
+    [ "draw", "classdcpp_1_1gui_1_1IGUIFont.html#a53025d410ac5267a02f21068c5434a2d", null ],
     [ "getCharacterFromPos", "classdcpp_1_1gui_1_1IGUIFont.html#a9a5fdcf06541afbb3900200d6b994d04", null ],
-    [ "getDimension", "classdcpp_1_1gui_1_1IGUIFont.html#a1189adddc7c354213495ce37e69b9f7d", null ],
+    [ "getDimension", "classdcpp_1_1gui_1_1IGUIFont.html#a08d886c0b80a3c35f2c8f6870ab9653d", null ],
     [ "getKerningHeight", "classdcpp_1_1gui_1_1IGUIFont.html#a8d0b794b16c5bdc4b9d4d721ecb4dfe5", null ],
     [ "getKerningWidth", "classdcpp_1_1gui_1_1IGUIFont.html#afc44a832a712cfc8e98729d33f99fc92", null ],
     [ "getType", "classdcpp_1_1gui_1_1IGUIFont.html#a98d4b0de2739edaa04df75b7680bffcc", null ],

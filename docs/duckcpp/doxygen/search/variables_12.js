@@ -2,8 +2,8 @@ var searchData=
 [
   ['taborder_0',['TabOrder',['../classdcpp_1_1gui_1_1IGUIElement.html#a45c44f83b093847166a4402c6961fed5',1,'dcpp::gui::IGUIElement']]],
   ['tangent_1',['Tangent',['../classdcpp_1_1video_1_1S3DVertexTangents.html#ada2eacb26061d6f27cbcadd149325189',1,'dcpp::video::S3DVertexTangents']]],
-  ['tcoords_2',['TCoords',['../classdcpp_1_1video_1_1S3DVertex.html#a0bbcd4b59405535370076b175acf079a',1,'dcpp::video::S3DVertex']]],
-  ['tcoords2_3',['TCoords2',['../classdcpp_1_1video_1_1S3DVertex2TCoords.html#a3d730ac21b446cae75292607b3ca5279',1,'dcpp::video::S3DVertex2TCoords']]],
+  ['tcoords_2',['TCoords',['../classdcpp_1_1video_1_1S3DVertex.html#a30f7e792cd4855aed00afd9717ab6f5f',1,'dcpp::video::S3DVertex']]],
+  ['tcoords2_3',['TCoords2',['../classdcpp_1_1video_1_1S3DVertex2TCoords.html#a89632255b1dc4bd3dd73d6628fff7018',1,'dcpp::video::S3DVertex2TCoords']]],
   ['text_4',['text',['../classdcpp_1_1gui_1_1IGUIElement.html#a3d1adb865ae43dcb25a1aff364bda07f',1,'dcpp::gui::IGUIElement::Text'],['../classdcpp_1_1SEvent_1_1SLogEvent.html#a04d2f529cd0391643cf6484e5e683930',1,'dcpp::SEvent::SLogEvent::Text']]],
   ['texture_5',['Texture',['../classdcpp_1_1video_1_1SMaterialLayer.html#a420d11a49f2d081aabe850dde5920ad5',1,'dcpp::video::SMaterialLayer']]],
   ['texturelayer_6',['TextureLayer',['../classdcpp_1_1video_1_1SMaterial.html#a3864bbd259c054222c3e315c1bf6fc64',1,'dcpp::video::SMaterial']]],

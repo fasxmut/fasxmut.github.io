@@ -1,6 +1,6 @@
 var classdcpp_1_1gui_1_1IGUITab =
 [
-    [ "IGUITab", "classdcpp_1_1gui_1_1IGUITab.html#a13fd50631077c909b1415883598298f6", null ],
+    [ "IGUITab", "classdcpp_1_1gui_1_1IGUITab.html#ae2a774c704520f5d971fd8922e31555b", null ],
     [ "getBackgroundColor", "classdcpp_1_1gui_1_1IGUITab.html#aeff254ca7c85d0563d36a1fa84ddfb56", null ],
     [ "getNumber", "classdcpp_1_1gui_1_1IGUITab.html#ad7f482339ba684c30412c8cf026964dd", null ],
     [ "getTextColor", "classdcpp_1_1gui_1_1IGUITab.html#aa7870e0387cced32ed9d295bdf51047a", null ],

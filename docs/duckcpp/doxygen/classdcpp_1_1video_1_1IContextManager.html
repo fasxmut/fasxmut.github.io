@@ -220,7 +220,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Change render context, disable old and activate new defined by videoData. </p>
-<p>This is mostly used internally by <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a3acfba299210433642cda3be6147fa2a" title="Applications must call this method before performing any rendering.">IVideoDriver::beginScene()</a>. But if you want to switch threads which access your OpenGL driver you will have to call this function as follows: Old thread gives up context with: activateContext(dcpp::video::SExposedVideoData()); New thread takes over context with: activateContext(videoDriver-&gt;getExposedVideoData()); Note that only 1 thread at a time may access an OpenGL context. </p>
+<p>This is mostly used internally by <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#ac0bab8eb0c21dfbda28ad34452978618" title="Applications must call this method before performing any rendering.">IVideoDriver::beginScene()</a>. But if you want to switch threads which access your OpenGL driver you will have to call this function as follows: Old thread gives up context with: activateContext(dcpp::video::SExposedVideoData()); New thread takes over context with: activateContext(videoDriver-&gt;getExposedVideoData()); Note that only 1 thread at a time may access an OpenGL context. </p>
 
 </div>
 </div>

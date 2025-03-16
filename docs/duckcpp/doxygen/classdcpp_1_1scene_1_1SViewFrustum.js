@@ -11,8 +11,8 @@ var classdcpp_1_1scene_1_1SViewFrustum =
     ] ],
     [ "SViewFrustum", "classdcpp_1_1scene_1_1SViewFrustum.html#a3eebb91a37ecd4dcdb64508d066c5980", null ],
     [ "SViewFrustum", "classdcpp_1_1scene_1_1SViewFrustum.html#a558e499b27fd558796370e001031ae78", null ],
-    [ "clipLine", "classdcpp_1_1scene_1_1SViewFrustum.html#a9c4ee7f03d1757f013e3bd31e35b6786", null ],
-    [ "getBoundingBox", "classdcpp_1_1scene_1_1SViewFrustum.html#a68aa406c6fe0cdd22a904d190e7a5fd6", null ],
+    [ "clipLine", "classdcpp_1_1scene_1_1SViewFrustum.html#a4e57f96d02962e46e4378803a9ef0ed5", null ],
+    [ "getBoundingBox", "classdcpp_1_1scene_1_1SViewFrustum.html#ab600004d7c6a19844844a4d334b83525", null ],
     [ "getBoundingCenter", "classdcpp_1_1scene_1_1SViewFrustum.html#a19c36990540dca46b72d87ae7c3fadfd", null ],
     [ "getBoundingRadius", "classdcpp_1_1scene_1_1SViewFrustum.html#ad5fe8fc8f5c3a8c676cc4b5431adf66e", null ],
     [ "getFarLeftDown", "classdcpp_1_1scene_1_1SViewFrustum.html#a199feed40e24ea9e033cfb0b5bdd0ac5", null ],
@@ -29,7 +29,7 @@ var classdcpp_1_1scene_1_1SViewFrustum =
     [ "setFarNearDistance", "classdcpp_1_1scene_1_1SViewFrustum.html#aaedafc288402a0b3fb6041eee0b2e9ac", null ],
     [ "setFrom", "classdcpp_1_1scene_1_1SViewFrustum.html#a7e1feb032162066394b18bfa86610be2", null ],
     [ "transform", "classdcpp_1_1scene_1_1SViewFrustum.html#a6adf1ce71578e41471db6e1af2b0dcaa", null ],
-    [ "boundingBox", "classdcpp_1_1scene_1_1SViewFrustum.html#ad5559af8cadb724c112743af2faaeaa7", null ],
+    [ "boundingBox", "classdcpp_1_1scene_1_1SViewFrustum.html#adfbb08ebc43d6413f0b0fffbd2cbab81", null ],
     [ "cameraPosition", "classdcpp_1_1scene_1_1SViewFrustum.html#ab565fe7b8e092350639cf4f7c083a775", null ],
-    [ "planes", "classdcpp_1_1scene_1_1SViewFrustum.html#a54ec2169065e225f899f5a1b95d695e0", null ]
+    [ "planes", "classdcpp_1_1scene_1_1SViewFrustum.html#a825973392f6eb670224b119f47e9a1ad", null ]
 ];

@@ -1,6 +1,6 @@
 var classdcpp_1_1gui_1_1IGUISpinBox =
 [
-    [ "IGUISpinBox", "classdcpp_1_1gui_1_1IGUISpinBox.html#a4fbadac2ea34782b01772ebac343d0d3", null ],
+    [ "IGUISpinBox", "classdcpp_1_1gui_1_1IGUISpinBox.html#a81d3ba37558db002e1221c33233e2ab9", null ],
     [ "getEditBox", "classdcpp_1_1gui_1_1IGUISpinBox.html#a9cbd43ffa3763cd69bd7fe4e46efe534", null ],
     [ "getMax", "classdcpp_1_1gui_1_1IGUISpinBox.html#a0a41a346af8157e72423c575d2168558", null ],
     [ "getMin", "classdcpp_1_1gui_1_1IGUISpinBox.html#aed60e91ce24ce5545a09822125bcf99d", null ],

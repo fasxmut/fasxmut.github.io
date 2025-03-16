@@ -164,9 +164,9 @@ virtual <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed
 virtual <a class="el" href="namespacedcpp_1_1scene.html#a8abfe886cea91f367064c821142532e0">E_BONE_ANIMATION_MODE</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getAnimationMode</b> () const =0</td></tr>
 <tr class="memdesc:a5ca2b8923f810b477f2ff430cc846fd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current animation mode of the bone. <br /></td></tr>
 <tr class="separator:a5ca2b8923f810b477f2ff430cc846fd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a277215813d8a53d218d526ee7fac7f05" id="r_a277215813d8a53d218d526ee7fac7f05"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classdcpp_1_1nub_1_1aabbox3d.html">dcpp::nub::aabbox3d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IBoneSceneNode.html#a277215813d8a53d218d526ee7fac7f05">getBoundingBox</a> () const override=0</td></tr>
-<tr class="memdesc:a277215813d8a53d218d526ee7fac7f05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the axis aligned bounding box of this node.  <br /></td></tr>
-<tr class="separator:a277215813d8a53d218d526ee7fac7f05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af309410110a466dca58e33ba915eef49" id="r_af309410110a466dca58e33ba915eef49"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="namespacedcpp_1_1nub.html#af9a25c6526e16dcbe178b2ac1dc7494e">dcpp::nub::aabbox3df</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IBoneSceneNode.html#af309410110a466dca58e33ba915eef49">getBoundingBox</a> () const override=0</td></tr>
+<tr class="memdesc:af309410110a466dca58e33ba915eef49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the axis aligned bounding box of this node.  <br /></td></tr>
+<tr class="separator:af309410110a466dca58e33ba915eef49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68332cce294307b22c0011d3e81cffd5" id="r_a68332cce294307b22c0011d3e81cffd5"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IBoneSceneNode.html#a68332cce294307b22c0011d3e81cffd5">OnAnimate</a> (<a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> timeMs) override=0</td></tr>
 <tr class="memdesc:a68332cce294307b22c0011d3e81cffd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the relative transformation of the scene node.  <br /></td></tr>
 <tr class="separator:a68332cce294307b22c0011d3e81cffd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -206,11 +206,11 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~ISceneNode</b> ()
 <tr class="memitem:a936cd5f04227de557cbc8bca61e92527 inherit pub_methods_classdcpp_1_1scene_1_1ISceneNode" id="r_a936cd5f04227de557cbc8bca61e92527"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html#a936cd5f04227de557cbc8bca61e92527">setName</a> (const <a class="el" href="namespacedcpp_1_1nub.html#a5bb45461ea1f4f9276b51b0789466891">dcpp::nub::string</a> &amp;name)</td></tr>
 <tr class="memdesc:a936cd5f04227de557cbc8bca61e92527 inherit pub_methods_classdcpp_1_1scene_1_1ISceneNode"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the name of the node.  <br /></td></tr>
 <tr class="separator:a936cd5f04227de557cbc8bca61e92527 inherit pub_methods_classdcpp_1_1scene_1_1ISceneNode"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68da0f9c0e5ae0f924589c08b992791b inherit pub_methods_classdcpp_1_1scene_1_1ISceneNode" id="r_a68da0f9c0e5ae0f924589c08b992791b"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classdcpp_1_1nub_1_1aabbox3d.html">dcpp::nub::aabbox3d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html#a68da0f9c0e5ae0f924589c08b992791b">getTransformedBoundingBox</a> () const</td></tr>
-<tr class="memdesc:a68da0f9c0e5ae0f924589c08b992791b inherit pub_methods_classdcpp_1_1scene_1_1ISceneNode"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the axis aligned, transformed and animated absolute bounding box of this node.  <br /></td></tr>
-<tr class="separator:a68da0f9c0e5ae0f924589c08b992791b inherit pub_methods_classdcpp_1_1scene_1_1ISceneNode"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2d09e17907ee1b82864372cf1dbe996 inherit pub_methods_classdcpp_1_1scene_1_1ISceneNode" id="r_af2d09e17907ee1b82864372cf1dbe996"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html#af2d09e17907ee1b82864372cf1dbe996">getTransformedBoundingBoxEdges</a> (<a class="el" href="classdcpp_1_1nub_1_1array.html">dcpp::nub::array</a>&lt; <a class="el" href="classdcpp_1_1nub_1_1vector3d.html">dcpp::nub::vector3d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt; &gt; &amp;edges) const</td></tr>
-<tr class="separator:af2d09e17907ee1b82864372cf1dbe996 inherit pub_methods_classdcpp_1_1scene_1_1ISceneNode"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48913c902a74b2a67389c06fb7564380 inherit pub_methods_classdcpp_1_1scene_1_1ISceneNode" id="r_a48913c902a74b2a67389c06fb7564380"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="namespacedcpp_1_1nub.html#af9a25c6526e16dcbe178b2ac1dc7494e">dcpp::nub::aabbox3df</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html#a48913c902a74b2a67389c06fb7564380">getTransformedBoundingBox</a> () const</td></tr>
+<tr class="memdesc:a48913c902a74b2a67389c06fb7564380 inherit pub_methods_classdcpp_1_1scene_1_1ISceneNode"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the axis aligned, transformed and animated absolute bounding box of this node.  <br /></td></tr>
+<tr class="separator:a48913c902a74b2a67389c06fb7564380 inherit pub_methods_classdcpp_1_1scene_1_1ISceneNode"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a833c2816dd2ff59caa737ff83a69b978 inherit pub_methods_classdcpp_1_1scene_1_1ISceneNode" id="r_a833c2816dd2ff59caa737ff83a69b978"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html#a833c2816dd2ff59caa737ff83a69b978">getTransformedBoundingBoxEdges</a> (<a class="el" href="classdcpp_1_1nub_1_1array.html">dcpp::nub::array</a>&lt; <a class="el" href="namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752">dcpp::nub::vector3df</a> &gt; &amp;edges) const</td></tr>
+<tr class="separator:a833c2816dd2ff59caa737ff83a69b978 inherit pub_methods_classdcpp_1_1scene_1_1ISceneNode"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18267e426007deccd54c5e69fa3f0c42 inherit pub_methods_classdcpp_1_1scene_1_1ISceneNode" id="r_a18267e426007deccd54c5e69fa3f0c42"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="namespacedcpp_1_1nub.html#a9c1f289d933363c18b1b8db6727f5f1c">dcpp::nub::matrix4</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html#a18267e426007deccd54c5e69fa3f0c42">getAbsoluteTransformation</a> () const</td></tr>
 <tr class="memdesc:a18267e426007deccd54c5e69fa3f0c42 inherit pub_methods_classdcpp_1_1scene_1_1ISceneNode"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the absolute transformation of the node. Is recalculated every <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html#aeeef332737404e4211e869fc74ec4edc" title="OnAnimate() is called just before rendering the whole scene.">OnAnimate()</a>-call.  <br /></td></tr>
 <tr class="separator:a18267e426007deccd54c5e69fa3f0c42 inherit pub_methods_classdcpp_1_1scene_1_1ISceneNode"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -495,8 +495,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsDebugObject</b></td
 
 </div>
 </div>
-<a id="a277215813d8a53d218d526ee7fac7f05" name="a277215813d8a53d218d526ee7fac7f05"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a277215813d8a53d218d526ee7fac7f05">&#9670;&#160;</a></span>getBoundingBox()</h2>
+<a id="af309410110a466dca58e33ba915eef49" name="af309410110a466dca58e33ba915eef49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af309410110a466dca58e33ba915eef49">&#9670;&#160;</a></span>getBoundingBox()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -505,7 +505,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsDebugObject</b></td
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual const <a class="el" href="classdcpp_1_1nub_1_1aabbox3d.html">dcpp::nub::aabbox3d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt; &amp; dcpp::scene::IBoneSceneNode::getBoundingBox </td>
+          <td class="memname">virtual const <a class="el" href="namespacedcpp_1_1nub.html#af9a25c6526e16dcbe178b2ac1dc7494e">dcpp::nub::aabbox3df</a> &amp; dcpp::scene::IBoneSceneNode::getBoundingBox </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -520,7 +520,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsDebugObject</b></td
 
 <p>Get the axis aligned bounding box of this node. </p>
 
-<p>Implements <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html#a7b941080a2de2e43a2f16a0183b26f7e">dcpp::scene::ISceneNode</a>.</p>
+<p>Implements <a class="el" href="classdcpp_1_1scene_1_1ISceneNode.html#abb8210a0e0d40598fdf1ad5ef9672b94">dcpp::scene::ISceneNode</a>.</p>
 
 </div>
 </div>

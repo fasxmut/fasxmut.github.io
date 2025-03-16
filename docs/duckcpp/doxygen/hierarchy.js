@@ -1,7 +1,6 @@
 var hierarchy =
 [
     [ "dcpp::nub::aabbox3d< T >", "classdcpp_1_1nub_1_1aabbox3d.html", null ],
-    [ "dcpp::nub::aabbox3d< dcpp::float32_kt >", "classdcpp_1_1nub_1_1aabbox3d.html", null ],
     [ "dcpp::nub::map< KeyType, ValueType >::AccessClass", "classdcpp_1_1nub_1_1map_1_1AccessClass.html", null ],
     [ "dcpp::nub::array< T, TAlloc >", "classdcpp_1_1nub_1_1array.html", null ],
     [ "dcpp::nub::array< dcpp::gui::SGUISpriteFrame >", "classdcpp_1_1nub_1_1array.html", null ],
@@ -35,7 +34,6 @@ var hierarchy =
     [ "dcpp::nub::list< T >::ConstIterator", "classdcpp_1_1nub_1_1list_1_1ConstIterator.html", null ],
     [ "dcpp::nub::map< KeyType, ValueType >::ConstIterator", "classdcpp_1_1nub_1_1map_1_1ConstIterator.html", null ],
     [ "dcpp::nub::dimension2d< T >", "classdcpp_1_1nub_1_1dimension2d.html", null ],
-    [ "dcpp::nub::dimension2d< dcpp::uint32_kt >", "classdcpp_1_1nub_1_1dimension2d.html", null ],
     [ "dcpp::nub::FloatIntUnion32", "uniondcpp_1_1nub_1_1FloatIntUnion32.html", null ],
     [ "dcpp::IEventReceiver", "classdcpp_1_1IEventReceiver.html", [
       [ "dcpp::gui::IGUIElement", "classdcpp_1_1gui_1_1IGUIElement.html", [
@@ -261,15 +259,12 @@ var hierarchy =
     [ "dcpp::nub::map< KeyType, ValueType >::ParentFirstIterator", "classdcpp_1_1nub_1_1map_1_1ParentFirstIterator.html", null ],
     [ "dcpp::nub::map< KeyType, ValueType >::ParentLastIterator", "classdcpp_1_1nub_1_1map_1_1ParentLastIterator.html", null ],
     [ "dcpp::nub::plane3d< T >", "classdcpp_1_1nub_1_1plane3d.html", null ],
-    [ "dcpp::nub::plane3d< dcpp::float32_kt >", "classdcpp_1_1nub_1_1plane3d.html", null ],
     [ "dcpp::nub::PMatrix4< T >", "classdcpp_1_1nub_1_1PMatrix4.html", null ],
     [ "dcpp::PProfileScope", "classdcpp_1_1PProfileScope.html", null ],
     [ "dcpp::scene::quake3::Q3LevelLoadParameter", "classdcpp_1_1scene_1_1quake3_1_1Q3LevelLoadParameter.html", null ],
     [ "dcpp::nub::quaternion", "classdcpp_1_1nub_1_1quaternion.html", null ],
     [ "dcpp::ITimer::RealTimeDate", "classdcpp_1_1ITimer_1_1RealTimeDate.html", null ],
     [ "dcpp::nub::rect< T >", "classdcpp_1_1nub_1_1rect.html", null ],
-    [ "dcpp::nub::rect< dcpp::float32_kt >", "classdcpp_1_1nub_1_1rect.html", null ],
-    [ "dcpp::nub::rect< dcpp::int32_kt >", "classdcpp_1_1nub_1_1rect.html", null ],
     [ "dcpp::video::S3DVertex", "classdcpp_1_1video_1_1S3DVertex.html", [
       [ "dcpp::video::S3DVertex2TCoords", "classdcpp_1_1video_1_1S3DVertex2TCoords.html", null ],
       [ "dcpp::video::S3DVertexTangents", "classdcpp_1_1video_1_1S3DVertexTangents.html", null ]
@@ -331,8 +326,6 @@ var hierarchy =
     [ "dcpp::scene::ISkinnedMesh::SWeight", "classdcpp_1_1scene_1_1ISkinnedMesh_1_1SWeight.html", null ],
     [ "dcpp::nub::triangle3d< T >", "classdcpp_1_1nub_1_1triangle3d.html", null ],
     [ "dcpp::nub::vector2d< T >", "classdcpp_1_1nub_1_1vector2d.html", null ],
-    [ "dcpp::nub::vector2d< dcpp::float32_kt >", "classdcpp_1_1nub_1_1vector2d.html", null ],
     [ "dcpp::nub::vector3d< T >", "classdcpp_1_1nub_1_1vector3d.html", null ],
-    [ "dcpp::nub::vector3d< dcpp::float32_kt >", "classdcpp_1_1nub_1_1vector3d.html", null ],
     [ "dcpp::io::xmlChar< T >", "classdcpp_1_1io_1_1xmlChar.html", null ]
 ];

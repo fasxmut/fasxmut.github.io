@@ -1,11 +1,9 @@
 var NAVTREEINDEX25 =
 {
-"classdcpp_1_1video_1_1SExposedVideoData.html":[2,0,0,4,18],
-"classdcpp_1_1video_1_1SExposedVideoData.html":[3,0,0,4,18],
 "classdcpp_1_1video_1_1SExposedVideoData_1_1SD3D9.html":[2,0,0,4,18,0],
 "classdcpp_1_1video_1_1SExposedVideoData_1_1SD3D9.html":[3,0,0,4,18,0],
-"classdcpp_1_1video_1_1SExposedVideoData_1_1SD3D9.html#a1a7454f0f2a58eda45b9dead2cd61e8e":[3,0,0,4,18,0,1],
 "classdcpp_1_1video_1_1SExposedVideoData_1_1SD3D9.html#a1a7454f0f2a58eda45b9dead2cd61e8e":[2,0,0,4,18,0,1],
+"classdcpp_1_1video_1_1SExposedVideoData_1_1SD3D9.html#a1a7454f0f2a58eda45b9dead2cd61e8e":[3,0,0,4,18,0,1],
 "classdcpp_1_1video_1_1SExposedVideoData_1_1SD3D9.html#a6935db95c72b16c5e7a99b966c236a8a":[3,0,0,4,18,0,2],
 "classdcpp_1_1video_1_1SExposedVideoData_1_1SD3D9.html#a6935db95c72b16c5e7a99b966c236a8a":[2,0,0,4,18,0,2],
 "classdcpp_1_1video_1_1SExposedVideoData_1_1SD3D9.html#ac206efcea5546c63c10dd81d00f39413":[3,0,0,4,18,0,0],
@@ -249,5 +247,7 @@ var NAVTREEINDEX25 =
 "functions_q.html":[3,3,0,16],
 "functions_r.html":[3,3,0,17],
 "functions_rela.html":[3,3,5],
-"functions_s.html":[3,3,0,18]
+"functions_s.html":[3,3,0,18],
+"functions_t.html":[3,3,0,19],
+"functions_u.html":[3,3,0,20]
 };

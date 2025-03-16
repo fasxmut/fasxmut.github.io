@@ -134,12 +134,12 @@ virtual <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d
 <tr class="memitem:a7ed80207c51136496dad6d611dbd75d0" id="r_a7ed80207c51136496dad6d611dbd75d0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ITriangleSelector.html#a7ed80207c51136496dad6d611dbd75d0">getTriangles</a> (<a class="el" href="namespacedcpp_1_1nub.html#ae7a90e9adde42a8433f8a5864037d292">dcpp::nub::triangle3df</a> *triangles, <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> arraySize, <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &amp;outTriangleCount, const <a class="el" href="namespacedcpp_1_1nub.html#a9c1f289d933363c18b1b8db6727f5f1c">dcpp::nub::matrix4</a> *transform=0, bool useNodeTransform=true, <a class="el" href="classdcpp_1_1nub_1_1array.html">dcpp::nub::array</a>&lt; <a class="el" href="classdcpp_1_1scene_1_1SCollisionTriangleRange.html">SCollisionTriangleRange</a> &gt; *outTriangleInfo=0) const =0</td></tr>
 <tr class="memdesc:a7ed80207c51136496dad6d611dbd75d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the triangles for one associated node.  <br /></td></tr>
 <tr class="separator:a7ed80207c51136496dad6d611dbd75d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05d231a1ec9f43cd2cf0209b85fb723c" id="r_a05d231a1ec9f43cd2cf0209b85fb723c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ITriangleSelector.html#a05d231a1ec9f43cd2cf0209b85fb723c">getTriangles</a> (<a class="el" href="namespacedcpp_1_1nub.html#ae7a90e9adde42a8433f8a5864037d292">dcpp::nub::triangle3df</a> *triangles, <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> arraySize, <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &amp;outTriangleCount, const <a class="el" href="classdcpp_1_1nub_1_1aabbox3d.html">dcpp::nub::aabbox3d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt; &amp;box, const <a class="el" href="namespacedcpp_1_1nub.html#a9c1f289d933363c18b1b8db6727f5f1c">dcpp::nub::matrix4</a> *transform=0, bool useNodeTransform=true, <a class="el" href="classdcpp_1_1nub_1_1array.html">dcpp::nub::array</a>&lt; <a class="el" href="classdcpp_1_1scene_1_1SCollisionTriangleRange.html">SCollisionTriangleRange</a> &gt; *outTriangleInfo=0) const =0</td></tr>
-<tr class="memdesc:a05d231a1ec9f43cd2cf0209b85fb723c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the triangles for one associated node which may lie within a specific bounding box.  <br /></td></tr>
-<tr class="separator:a05d231a1ec9f43cd2cf0209b85fb723c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8126e8137a6c6b2452dd7ac73136f74" id="r_af8126e8137a6c6b2452dd7ac73136f74"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ITriangleSelector.html#af8126e8137a6c6b2452dd7ac73136f74">getTriangles</a> (<a class="el" href="namespacedcpp_1_1nub.html#ae7a90e9adde42a8433f8a5864037d292">dcpp::nub::triangle3df</a> *triangles, <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> arraySize, <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &amp;outTriangleCount, const <a class="el" href="classdcpp_1_1nub_1_1line3d.html">dcpp::nub::line3d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt; &amp;line, const <a class="el" href="namespacedcpp_1_1nub.html#a9c1f289d933363c18b1b8db6727f5f1c">dcpp::nub::matrix4</a> *transform=0, bool useNodeTransform=true, <a class="el" href="classdcpp_1_1nub_1_1array.html">dcpp::nub::array</a>&lt; <a class="el" href="classdcpp_1_1scene_1_1SCollisionTriangleRange.html">SCollisionTriangleRange</a> &gt; *outTriangleInfo=0) const =0</td></tr>
-<tr class="memdesc:af8126e8137a6c6b2452dd7ac73136f74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the triangles for one associated node which have or may have contact with a 3d line.  <br /></td></tr>
-<tr class="separator:af8126e8137a6c6b2452dd7ac73136f74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1f3edc3bf36dba38c4342e22f2b24f6" id="r_ae1f3edc3bf36dba38c4342e22f2b24f6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ITriangleSelector.html#ae1f3edc3bf36dba38c4342e22f2b24f6">getTriangles</a> (<a class="el" href="namespacedcpp_1_1nub.html#ae7a90e9adde42a8433f8a5864037d292">dcpp::nub::triangle3df</a> *triangles, <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> arraySize, <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &amp;outTriangleCount, const <a class="el" href="namespacedcpp_1_1nub.html#af9a25c6526e16dcbe178b2ac1dc7494e">dcpp::nub::aabbox3df</a> &amp;box, const <a class="el" href="namespacedcpp_1_1nub.html#a9c1f289d933363c18b1b8db6727f5f1c">dcpp::nub::matrix4</a> *transform=0, bool useNodeTransform=true, <a class="el" href="classdcpp_1_1nub_1_1array.html">dcpp::nub::array</a>&lt; <a class="el" href="classdcpp_1_1scene_1_1SCollisionTriangleRange.html">SCollisionTriangleRange</a> &gt; *outTriangleInfo=0) const =0</td></tr>
+<tr class="memdesc:ae1f3edc3bf36dba38c4342e22f2b24f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the triangles for one associated node which may lie within a specific bounding box.  <br /></td></tr>
+<tr class="separator:ae1f3edc3bf36dba38c4342e22f2b24f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f717713c142316fb990257e83a7c0b4" id="r_a9f717713c142316fb990257e83a7c0b4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ITriangleSelector.html#a9f717713c142316fb990257e83a7c0b4">getTriangles</a> (<a class="el" href="namespacedcpp_1_1nub.html#ae7a90e9adde42a8433f8a5864037d292">dcpp::nub::triangle3df</a> *triangles, <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> arraySize, <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &amp;outTriangleCount, const <a class="el" href="namespacedcpp_1_1nub.html#af940b9c399f7cb81663fbdbd45e601ee">dcpp::nub::line3df</a> &amp;line, const <a class="el" href="namespacedcpp_1_1nub.html#a9c1f289d933363c18b1b8db6727f5f1c">dcpp::nub::matrix4</a> *transform=0, bool useNodeTransform=true, <a class="el" href="classdcpp_1_1nub_1_1array.html">dcpp::nub::array</a>&lt; <a class="el" href="classdcpp_1_1scene_1_1SCollisionTriangleRange.html">SCollisionTriangleRange</a> &gt; *outTriangleInfo=0) const =0</td></tr>
+<tr class="memdesc:a9f717713c142316fb990257e83a7c0b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the triangles for one associated node which have or may have contact with a 3d line.  <br /></td></tr>
+<tr class="separator:a9f717713c142316fb990257e83a7c0b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a998324e7b2f6d755e55b226e741053a2" id="r_a998324e7b2f6d755e55b226e741053a2"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ITriangleSelector.html#a998324e7b2f6d755e55b226e741053a2">getSelectorCount</a> () const =0</td></tr>
 <tr class="memdesc:a998324e7b2f6d755e55b226e741053a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get number of TriangleSelectors that are part of this one.  <br /></td></tr>
 <tr class="separator:a998324e7b2f6d755e55b226e741053a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -306,8 +306,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a05d231a1ec9f43cd2cf0209b85fb723c" name="a05d231a1ec9f43cd2cf0209b85fb723c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a05d231a1ec9f43cd2cf0209b85fb723c">&#9670;&#160;</a></span>getTriangles() <span class="overload">[1/3]</span></h2>
+<a id="ae1f3edc3bf36dba38c4342e22f2b24f6" name="ae1f3edc3bf36dba38c4342e22f2b24f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1f3edc3bf36dba38c4342e22f2b24f6">&#9670;&#160;</a></span>getTriangles() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -336,7 +336,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1aabbox3d.html">dcpp::nub::aabbox3d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#af9a25c6526e16dcbe178b2ac1dc7494e">dcpp::nub::aabbox3df</a> &amp;&#160;</td>
           <td class="paramname"><em>box</em>, </td>
         </tr>
         <tr>
@@ -387,8 +387,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="af8126e8137a6c6b2452dd7ac73136f74" name="af8126e8137a6c6b2452dd7ac73136f74"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8126e8137a6c6b2452dd7ac73136f74">&#9670;&#160;</a></span>getTriangles() <span class="overload">[2/3]</span></h2>
+<a id="a9f717713c142316fb990257e83a7c0b4" name="a9f717713c142316fb990257e83a7c0b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f717713c142316fb990257e83a7c0b4">&#9670;&#160;</a></span>getTriangles() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -417,7 +417,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1line3d.html">dcpp::nub::line3d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#af940b9c399f7cb81663fbdbd45e601ee">dcpp::nub::line3df</a> &amp;&#160;</td>
           <td class="paramname"><em>line</em>, </td>
         </tr>
         <tr>

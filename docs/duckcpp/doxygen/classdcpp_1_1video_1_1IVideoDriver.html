@@ -125,13 +125,13 @@ Collaboration diagram for dcpp::video::IVideoDriver:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3acfba299210433642cda3be6147fa2a" id="r_a3acfba299210433642cda3be6147fa2a"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a3acfba299210433642cda3be6147fa2a">beginScene</a> (<a class="el" href="namespacedcpp.html#a96ad8c99421042319c4f39b34a00812b">dcpp::uint16_kt</a> clearFlag=(<a class="el" href="namespacedcpp.html#a96ad8c99421042319c4f39b34a00812b">dcpp::uint16_kt</a>)(ECBF_COLOR|ECBF_DEPTH), <a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a> clearColor=<a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a>(255, 0, 0, 0), <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> clearDepth=1.f, <a class="el" href="namespacedcpp.html#a4ee5e3a443a073623fd269e105ec79ac">dcpp::uint8_kt</a> clearStencil=0, const <a class="el" href="classdcpp_1_1video_1_1SExposedVideoData.html">dcpp::video::SExposedVideoData</a> &amp;videoData=<a class="el" href="classdcpp_1_1video_1_1SExposedVideoData.html">dcpp::video::SExposedVideoData</a>{}, <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; *sourceRect=0)=0</td></tr>
-<tr class="memdesc:a3acfba299210433642cda3be6147fa2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applications must call this method before performing any rendering.  <br /></td></tr>
-<tr class="separator:a3acfba299210433642cda3be6147fa2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e5bf2cf391690c628ab4f69649688f4" id="r_a1e5bf2cf391690c628ab4f69649688f4"><td class="memItemLeft" align="right" valign="top"><a id="a1e5bf2cf391690c628ab4f69649688f4" name="a1e5bf2cf391690c628ab4f69649688f4"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>beginScene</b> (bool backBuffer, bool zBuffer, <a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a> color=<a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a>(255, 0, 0, 0), const <a class="el" href="classdcpp_1_1video_1_1SExposedVideoData.html">dcpp::video::SExposedVideoData</a> &amp;videoData=<a class="el" href="classdcpp_1_1video_1_1SExposedVideoData.html">dcpp::video::SExposedVideoData</a>{}, <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; *sourceRect=0)</td></tr>
-<tr class="memdesc:a1e5bf2cf391690c628ab4f69649688f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alternative beginScene implementation. Can't clear stencil buffer, but otherwise identical to other beginScene. <br /></td></tr>
-<tr class="separator:a1e5bf2cf391690c628ab4f69649688f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0bab8eb0c21dfbda28ad34452978618" id="r_ac0bab8eb0c21dfbda28ad34452978618"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#ac0bab8eb0c21dfbda28ad34452978618">beginScene</a> (<a class="el" href="namespacedcpp.html#a96ad8c99421042319c4f39b34a00812b">dcpp::uint16_kt</a> clearFlag=(<a class="el" href="namespacedcpp.html#a96ad8c99421042319c4f39b34a00812b">dcpp::uint16_kt</a>)(ECBF_COLOR|ECBF_DEPTH), <a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a> clearColor=<a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a>(255, 0, 0, 0), <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> clearDepth=1.f, <a class="el" href="namespacedcpp.html#a4ee5e3a443a073623fd269e105ec79ac">dcpp::uint8_kt</a> clearStencil=0, const <a class="el" href="classdcpp_1_1video_1_1SExposedVideoData.html">dcpp::video::SExposedVideoData</a> &amp;videoData=<a class="el" href="classdcpp_1_1video_1_1SExposedVideoData.html">dcpp::video::SExposedVideoData</a>{}, <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> *sourceRect=0)=0</td></tr>
+<tr class="memdesc:ac0bab8eb0c21dfbda28ad34452978618"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applications must call this method before performing any rendering.  <br /></td></tr>
+<tr class="separator:ac0bab8eb0c21dfbda28ad34452978618"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd47db406da3029d57dfdce281887b58" id="r_abd47db406da3029d57dfdce281887b58"><td class="memItemLeft" align="right" valign="top"><a id="abd47db406da3029d57dfdce281887b58" name="abd47db406da3029d57dfdce281887b58"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>beginScene</b> (bool backBuffer, bool zBuffer, <a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a> color=<a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a>(255, 0, 0, 0), const <a class="el" href="classdcpp_1_1video_1_1SExposedVideoData.html">dcpp::video::SExposedVideoData</a> &amp;videoData=<a class="el" href="classdcpp_1_1video_1_1SExposedVideoData.html">dcpp::video::SExposedVideoData</a>{}, <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> *sourceRect=0)</td></tr>
+<tr class="memdesc:abd47db406da3029d57dfdce281887b58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alternative beginScene implementation. Can't clear stencil buffer, but otherwise identical to other beginScene. <br /></td></tr>
+<tr class="separator:abd47db406da3029d57dfdce281887b58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa30f501b89aa01b830cc00f66517984f" id="r_aa30f501b89aa01b830cc00f66517984f"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#aa30f501b89aa01b830cc00f66517984f">endScene</a> ()=0</td></tr>
 <tr class="memdesc:aa30f501b89aa01b830cc00f66517984f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Presents the rendered image to the screen.  <br /></td></tr>
 <tr class="separator:aa30f501b89aa01b830cc00f66517984f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -183,9 +183,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>beginScene</b> (bool 
 <tr class="memitem:aa3b2686e8622507e6f9994411664a158" id="r_aa3b2686e8622507e6f9994411664a158"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#aa3b2686e8622507e6f9994411664a158">renameTexture</a> (<a class="el" href="classdcpp_1_1video_1_1ITexture.html">ITexture</a> *texture, const <a class="el" href="namespacedcpp_1_1io.html#a1d9a4b38a466b80d39629320bafd581d">dcpp::io::path</a> &amp;newName)=0</td></tr>
 <tr class="memdesc:aa3b2686e8622507e6f9994411664a158"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renames a texture.  <br /></td></tr>
 <tr class="separator:aa3b2686e8622507e6f9994411664a158"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3223ab06643cd107410c7274ea4959fe" id="r_a3223ab06643cd107410c7274ea4959fe"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1video_1_1ITexture.html">ITexture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a3223ab06643cd107410c7274ea4959fe">addTexture</a> (const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp;size, const <a class="el" href="namespacedcpp_1_1io.html#a1d9a4b38a466b80d39629320bafd581d">dcpp::io::path</a> &amp;name, <a class="el" href="namespacedcpp_1_1video.html#a9f514e4a6f337bfa925e156fe9e9bc9d">ECOLOR_FORMAT</a> format=<a class="el" href="namespacedcpp_1_1video.html#a9f514e4a6f337bfa925e156fe9e9bc9dad455b5d9e892d0aacb7917748a1f510d">ECF_A8R8G8B8</a>)=0</td></tr>
-<tr class="memdesc:a3223ab06643cd107410c7274ea4959fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an empty texture of specified size.  <br /></td></tr>
-<tr class="separator:a3223ab06643cd107410c7274ea4959fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86d2d51eb16abc67dae855acd863be91" id="r_a86d2d51eb16abc67dae855acd863be91"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1video_1_1ITexture.html">ITexture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a86d2d51eb16abc67dae855acd863be91">addTexture</a> (const <a class="el" href="namespacedcpp_1_1nub.html#a04c84e82c13a5b10f7546a753f8a5334">dcpp::nub::dimension2du</a> &amp;size, const <a class="el" href="namespacedcpp_1_1io.html#a1d9a4b38a466b80d39629320bafd581d">dcpp::io::path</a> &amp;name, <a class="el" href="namespacedcpp_1_1video.html#a9f514e4a6f337bfa925e156fe9e9bc9d">ECOLOR_FORMAT</a> format=<a class="el" href="namespacedcpp_1_1video.html#a9f514e4a6f337bfa925e156fe9e9bc9dad455b5d9e892d0aacb7917748a1f510d">ECF_A8R8G8B8</a>)=0</td></tr>
+<tr class="memdesc:a86d2d51eb16abc67dae855acd863be91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an empty texture of specified size.  <br /></td></tr>
+<tr class="separator:a86d2d51eb16abc67dae855acd863be91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0de4d79bc6e178cf3146700b9e595181" id="r_a0de4d79bc6e178cf3146700b9e595181"><td class="memItemLeft" align="right" valign="top">DCPP_DEPRECATED <a class="el" href="classdcpp_1_1video_1_1ITexture.html">ITexture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a0de4d79bc6e178cf3146700b9e595181">addTexture</a> (const <a class="el" href="namespacedcpp_1_1io.html#a1d9a4b38a466b80d39629320bafd581d">dcpp::io::path</a> &amp;name, <a class="el" href="classdcpp_1_1video_1_1IImage.html">IImage</a> *image, void *mipmapData)</td></tr>
 <tr class="memdesc:a0de4d79bc6e178cf3146700b9e595181"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a texture from an <a class="el" href="classdcpp_1_1video_1_1IImage.html" title="Interface for software image data.">IImage</a>.  <br /></td></tr>
 <tr class="separator:a0de4d79bc6e178cf3146700b9e595181"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -198,9 +198,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>beginScene</b> (bool 
 <tr class="memitem:acadd9215d0c2b432e3aba6fd26f68f15" id="r_acadd9215d0c2b432e3aba6fd26f68f15"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1video_1_1ITexture.html">ITexture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#acadd9215d0c2b432e3aba6fd26f68f15">addTextureCubemap</a> (const <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> sideLen, const <a class="el" href="namespacedcpp_1_1io.html#a1d9a4b38a466b80d39629320bafd581d">dcpp::io::path</a> &amp;name, <a class="el" href="namespacedcpp_1_1video.html#a9f514e4a6f337bfa925e156fe9e9bc9d">ECOLOR_FORMAT</a> format=<a class="el" href="namespacedcpp_1_1video.html#a9f514e4a6f337bfa925e156fe9e9bc9dad455b5d9e892d0aacb7917748a1f510d">ECF_A8R8G8B8</a>)=0</td></tr>
 <tr class="memdesc:acadd9215d0c2b432e3aba6fd26f68f15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an empty cubemap texture of specified size.  <br /></td></tr>
 <tr class="separator:acadd9215d0c2b432e3aba6fd26f68f15"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a601a02adf6de5f0c59ed49aa19484adb" id="r_a601a02adf6de5f0c59ed49aa19484adb"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1video_1_1ITexture.html">ITexture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a601a02adf6de5f0c59ed49aa19484adb">addRenderTargetTexture</a> (const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp;size, const <a class="el" href="namespacedcpp_1_1io.html#a1d9a4b38a466b80d39629320bafd581d">dcpp::io::path</a> &amp;name=&quot;rt&quot;, const <a class="el" href="namespacedcpp_1_1video.html#a9f514e4a6f337bfa925e156fe9e9bc9d">ECOLOR_FORMAT</a> format=<a class="el" href="namespacedcpp_1_1video.html#a9f514e4a6f337bfa925e156fe9e9bc9da2bdf29639cf4eb3b65db531e1a20c625">ECF_UNKNOWN</a>)=0</td></tr>
-<tr class="memdesc:a601a02adf6de5f0c59ed49aa19484adb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new render target texture to the texture cache.  <br /></td></tr>
-<tr class="separator:a601a02adf6de5f0c59ed49aa19484adb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d0cc288e94ec1c7636da5f361e90c23" id="r_a8d0cc288e94ec1c7636da5f361e90c23"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1video_1_1ITexture.html">ITexture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a8d0cc288e94ec1c7636da5f361e90c23">addRenderTargetTexture</a> (const <a class="el" href="namespacedcpp_1_1nub.html#a04c84e82c13a5b10f7546a753f8a5334">dcpp::nub::dimension2du</a> &amp;size, const <a class="el" href="namespacedcpp_1_1io.html#a1d9a4b38a466b80d39629320bafd581d">dcpp::io::path</a> &amp;name=&quot;rt&quot;, const <a class="el" href="namespacedcpp_1_1video.html#a9f514e4a6f337bfa925e156fe9e9bc9d">ECOLOR_FORMAT</a> format=<a class="el" href="namespacedcpp_1_1video.html#a9f514e4a6f337bfa925e156fe9e9bc9da2bdf29639cf4eb3b65db531e1a20c625">ECF_UNKNOWN</a>)=0</td></tr>
+<tr class="memdesc:a8d0cc288e94ec1c7636da5f361e90c23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new render target texture to the texture cache.  <br /></td></tr>
+<tr class="separator:a8d0cc288e94ec1c7636da5f361e90c23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf338fa3da437a430c59107cec2060e0" id="r_adf338fa3da437a430c59107cec2060e0"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1video_1_1ITexture.html">ITexture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#adf338fa3da437a430c59107cec2060e0">addRenderTargetTextureCubemap</a> (const <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> sideLen, const <a class="el" href="namespacedcpp_1_1io.html#a1d9a4b38a466b80d39629320bafd581d">dcpp::io::path</a> &amp;name=&quot;rt&quot;, const <a class="el" href="namespacedcpp_1_1video.html#a9f514e4a6f337bfa925e156fe9e9bc9d">ECOLOR_FORMAT</a> format=<a class="el" href="namespacedcpp_1_1video.html#a9f514e4a6f337bfa925e156fe9e9bc9da2bdf29639cf4eb3b65db531e1a20c625">ECF_UNKNOWN</a>)=0</td></tr>
 <tr class="memdesc:adf338fa3da437a430c59107cec2060e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new render target texture with 6 sides for a cubemap map to the texture cache.  <br /></td></tr>
 <tr class="separator:adf338fa3da437a430c59107cec2060e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -259,9 +259,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>removeAllRend
 <tr class="memitem:a4e668ad851f482a44532aa5855ccd4b1" id="r_a4e668ad851f482a44532aa5855ccd4b1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a4e668ad851f482a44532aa5855ccd4b1">makeColorKeyTexture</a> (<a class="el" href="classdcpp_1_1video_1_1ITexture.html">dcpp::video::ITexture</a> *texture, <a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a> color, bool zeroTexels=false) const =0</td></tr>
 <tr class="memdesc:a4e668ad851f482a44532aa5855ccd4b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a boolean alpha channel on the texture based on a color key.  <br /></td></tr>
 <tr class="separator:a4e668ad851f482a44532aa5855ccd4b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed3e7ed716e14674b22ff89a661762ea" id="r_aed3e7ed716e14674b22ff89a661762ea"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#aed3e7ed716e14674b22ff89a661762ea">makeColorKeyTexture</a> (<a class="el" href="classdcpp_1_1video_1_1ITexture.html">dcpp::video::ITexture</a> *texture, dcpp::nub::position2d&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; colorKeyPixelPos, bool zeroTexels=false) const =0</td></tr>
-<tr class="memdesc:aed3e7ed716e14674b22ff89a661762ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a boolean alpha channel on the texture based on the color at a position.  <br /></td></tr>
-<tr class="separator:aed3e7ed716e14674b22ff89a661762ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee6259318219af91023dadcd8d699ba7" id="r_aee6259318219af91023dadcd8d699ba7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#aee6259318219af91023dadcd8d699ba7">makeColorKeyTexture</a> (<a class="el" href="classdcpp_1_1video_1_1ITexture.html">dcpp::video::ITexture</a> *texture, <a class="el" href="namespacedcpp_1_1nub.html#a28021dd2953876aa9b4b4c66aace0756">dcpp::nub::position2di</a> colorKeyPixelPos, bool zeroTexels=false) const =0</td></tr>
+<tr class="memdesc:aee6259318219af91023dadcd8d699ba7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a boolean alpha channel on the texture based on the color at a position.  <br /></td></tr>
+<tr class="separator:aee6259318219af91023dadcd8d699ba7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49d3b5468d807ddbb1acf517b12c3b27" id="r_a49d3b5468d807ddbb1acf517b12c3b27"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a49d3b5468d807ddbb1acf517b12c3b27">makeNormalMapTexture</a> (<a class="el" href="classdcpp_1_1video_1_1ITexture.html">dcpp::video::ITexture</a> *texture, <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> amplitude=1.0f) const =0</td></tr>
 <tr class="memdesc:a49d3b5468d807ddbb1acf517b12c3b27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a normal map from a height map texture.  <br /></td></tr>
 <tr class="separator:a49d3b5468d807ddbb1acf517b12c3b27"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -273,12 +273,12 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>removeAllRend
 <tr class="separator:a9961e87b95a6868e4c386db3605961a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:addc3286acd22b6529ef80f0924ff9f4e" id="r_addc3286acd22b6529ef80f0924ff9f4e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#addc3286acd22b6529ef80f0924ff9f4e">setRenderTarget</a> (<a class="el" href="classdcpp_1_1video_1_1ITexture.html">ITexture</a> *texture, bool clearBackBuffer, bool <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a2f00fbf71a24b6aedc78c955d6c7c75d">clearZBuffer</a>, <a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a> color=<a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a>(255, 0, 0, 0))</td></tr>
 <tr class="separator:addc3286acd22b6529ef80f0924ff9f4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab610f5307d4d47c6c24e2ac678438e7a" id="r_ab610f5307d4d47c6c24e2ac678438e7a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#ab610f5307d4d47c6c24e2ac678438e7a">setViewPort</a> (const <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &amp;area)=0</td></tr>
-<tr class="memdesc:ab610f5307d4d47c6c24e2ac678438e7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a new viewport.  <br /></td></tr>
-<tr class="separator:ab610f5307d4d47c6c24e2ac678438e7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07ddd3ee99516305dbd4853b01e2514b" id="r_a07ddd3ee99516305dbd4853b01e2514b"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a07ddd3ee99516305dbd4853b01e2514b">getViewPort</a> () const =0</td></tr>
-<tr class="memdesc:a07ddd3ee99516305dbd4853b01e2514b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the area of the current viewport.  <br /></td></tr>
-<tr class="separator:a07ddd3ee99516305dbd4853b01e2514b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b93219ee4fda69e37ebea01405c7d7d" id="r_a9b93219ee4fda69e37ebea01405c7d7d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a9b93219ee4fda69e37ebea01405c7d7d">setViewPort</a> (const <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> &amp;area)=0</td></tr>
+<tr class="memdesc:a9b93219ee4fda69e37ebea01405c7d7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a new viewport.  <br /></td></tr>
+<tr class="separator:a9b93219ee4fda69e37ebea01405c7d7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9120c72225428add35ca84ffd5dfd96" id="r_aa9120c72225428add35ca84ffd5dfd96"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#aa9120c72225428add35ca84ffd5dfd96">getViewPort</a> () const =0</td></tr>
+<tr class="memdesc:aa9120c72225428add35ca84ffd5dfd96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the area of the current viewport.  <br /></td></tr>
+<tr class="separator:aa9120c72225428add35ca84ffd5dfd96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2674ef922c031bcb2ad0837eefc88efd" id="r_a2674ef922c031bcb2ad0837eefc88efd"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a2674ef922c031bcb2ad0837eefc88efd">drawVertexPrimitiveList</a> (const void *vertices, <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> vertexCount, const void *indexList, <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> primCount, <a class="el" href="namespacedcpp_1_1video.html#a1f3d0e33386c09405449f4d20edc2744">E_VERTEX_TYPE</a> vType=<a class="el" href="namespacedcpp_1_1video.html#a1f3d0e33386c09405449f4d20edc2744ac3a474c3d6d33fedb6a0b758d8b98146">EVT_STANDARD</a>, <a class="el" href="namespacedcpp_1_1scene.html#a50ef0f3a86e60c6dab1b9c81a2886805">dcpp::scene::E_PRIMITIVE_TYPE</a> pType=<a class="el" href="namespacedcpp_1_1scene.html#a50ef0f3a86e60c6dab1b9c81a2886805ac1de6115a18dd900a1fe60bcde02897f">dcpp::scene::EPT_TRIANGLES</a>, E_INDEX_TYPE iType=EIT_16BIT)=0</td></tr>
 <tr class="memdesc:a2674ef922c031bcb2ad0837eefc88efd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a vertex primitive list.  <br /></td></tr>
 <tr class="separator:a2674ef922c031bcb2ad0837eefc88efd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -309,42 +309,42 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>removeAllRend
 <tr class="memitem:adb9bb46fe29d1d272feb872939c6452b" id="r_adb9bb46fe29d1d272feb872939c6452b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#adb9bb46fe29d1d272feb872939c6452b">draw3DTriangle</a> (const <a class="el" href="namespacedcpp_1_1nub.html#ae7a90e9adde42a8433f8a5864037d292">dcpp::nub::triangle3df</a> &amp;triangle, <a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a> color=<a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a>(255, 255, 255, 255))=0</td></tr>
 <tr class="memdesc:adb9bb46fe29d1d272feb872939c6452b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a 3d triangle.  <br /></td></tr>
 <tr class="separator:adb9bb46fe29d1d272feb872939c6452b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c1eddcd80841b02a184c3bd65a1e799" id="r_a0c1eddcd80841b02a184c3bd65a1e799"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a0c1eddcd80841b02a184c3bd65a1e799">draw3DBox</a> (const <a class="el" href="classdcpp_1_1nub_1_1aabbox3d.html">dcpp::nub::aabbox3d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt; &amp;box, <a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a> color=<a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a>(255, 255, 255, 255))=0</td></tr>
-<tr class="memdesc:a0c1eddcd80841b02a184c3bd65a1e799"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a 3d axis aligned box.  <br /></td></tr>
-<tr class="separator:a0c1eddcd80841b02a184c3bd65a1e799"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3145253bd42aa3f9a27896060738fdee" id="r_a3145253bd42aa3f9a27896060738fdee"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a3145253bd42aa3f9a27896060738fdee">draw2DImage</a> (const <a class="el" href="classdcpp_1_1video_1_1ITexture.html">dcpp::video::ITexture</a> *texture, const dcpp::nub::position2d&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &amp;destPos, bool useAlphaChannelOfTexture=false)=0</td></tr>
-<tr class="memdesc:a3145253bd42aa3f9a27896060738fdee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a 2d image without any special effects.  <br /></td></tr>
-<tr class="separator:a3145253bd42aa3f9a27896060738fdee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a496d55c5cee0cace774e3617a23cce77" id="r_a496d55c5cee0cace774e3617a23cce77"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a496d55c5cee0cace774e3617a23cce77">draw2DImage</a> (const <a class="el" href="classdcpp_1_1video_1_1ITexture.html">dcpp::video::ITexture</a> *texture, const dcpp::nub::position2d&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &amp;destPos, const <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &amp;sourceRect, const <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; *clipRect=0, <a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a> color=<a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a>(255, 255, 255, 255), bool useAlphaChannelOfTexture=false)=0</td></tr>
-<tr class="memdesc:a496d55c5cee0cace774e3617a23cce77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a 2d image using a color.  <br /></td></tr>
-<tr class="separator:a496d55c5cee0cace774e3617a23cce77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1d868e007cbf178f5ad1decd2097b5f" id="r_af1d868e007cbf178f5ad1decd2097b5f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#af1d868e007cbf178f5ad1decd2097b5f">draw2DImageBatch</a> (const <a class="el" href="classdcpp_1_1video_1_1ITexture.html">dcpp::video::ITexture</a> *texture, const dcpp::nub::position2d&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &amp;pos, const <a class="el" href="classdcpp_1_1nub_1_1array.html">dcpp::nub::array</a>&lt; <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &gt; &amp;sourceRects, const <a class="el" href="classdcpp_1_1nub_1_1array.html">dcpp::nub::array</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &amp;indices, <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> kerningWidth=0, const <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; *clipRect=0, <a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a> color=<a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a>(255, 255, 255, 255), bool useAlphaChannelOfTexture=false)=0</td></tr>
-<tr class="memdesc:af1d868e007cbf178f5ad1decd2097b5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a set of 2d images, using a color and the alpha channel of the texture.  <br /></td></tr>
-<tr class="separator:af1d868e007cbf178f5ad1decd2097b5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69ffa09e68b55dbf73157f47d6b2f712" id="r_a69ffa09e68b55dbf73157f47d6b2f712"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a69ffa09e68b55dbf73157f47d6b2f712">draw2DImageBatch</a> (const <a class="el" href="classdcpp_1_1video_1_1ITexture.html">dcpp::video::ITexture</a> *texture, const <a class="el" href="classdcpp_1_1nub_1_1array.html">dcpp::nub::array</a>&lt; dcpp::nub::position2d&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &gt; &amp;positions, const <a class="el" href="classdcpp_1_1nub_1_1array.html">dcpp::nub::array</a>&lt; <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &gt; &amp;sourceRects, const <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; *clipRect=0, <a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a> color=<a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a>(255, 255, 255, 255), bool useAlphaChannelOfTexture=false)=0</td></tr>
-<tr class="memdesc:a69ffa09e68b55dbf73157f47d6b2f712"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a set of 2d images, using a color and the alpha channel of the texture.  <br /></td></tr>
-<tr class="separator:a69ffa09e68b55dbf73157f47d6b2f712"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a673a2bff15118de26448b506ba36f693" id="r_a673a2bff15118de26448b506ba36f693"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a673a2bff15118de26448b506ba36f693">draw2DImage</a> (const <a class="el" href="classdcpp_1_1video_1_1ITexture.html">dcpp::video::ITexture</a> *texture, const <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &amp;destRect, const <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &amp;sourceRect, const <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; *clipRect=0, const <a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a> *const colors=0, bool useAlphaChannelOfTexture=false)=0</td></tr>
-<tr class="memdesc:a673a2bff15118de26448b506ba36f693"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a part of the texture into the rectangle. Note that colors must be an array of 4 colors if used.  <br /></td></tr>
-<tr class="separator:a673a2bff15118de26448b506ba36f693"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2301287849fb783774ecab778e0a4bb9" id="r_a2301287849fb783774ecab778e0a4bb9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a2301287849fb783774ecab778e0a4bb9">draw2DRectangle</a> (<a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a> color, const <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &amp;pos, const <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; *clip=0)=0</td></tr>
-<tr class="memdesc:a2301287849fb783774ecab778e0a4bb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a 2d rectangle.  <br /></td></tr>
-<tr class="separator:a2301287849fb783774ecab778e0a4bb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4bdacd95aa77c40b08dcf9100a227b1b" id="r_a4bdacd95aa77c40b08dcf9100a227b1b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a4bdacd95aa77c40b08dcf9100a227b1b">draw2DRectangle</a> (const <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &amp;pos, <a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a> colorLeftUp, <a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a> colorRightUp, <a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a> colorLeftDown, <a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a> colorRightDown, const <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; *clip=0)=0</td></tr>
-<tr class="memdesc:a4bdacd95aa77c40b08dcf9100a227b1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a 2d rectangle with a gradient.  <br /></td></tr>
-<tr class="separator:a4bdacd95aa77c40b08dcf9100a227b1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39ee743c8e79e5a7be8837e8f7092824" id="r_a39ee743c8e79e5a7be8837e8f7092824"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a39ee743c8e79e5a7be8837e8f7092824">draw3DBox</a> (const <a class="el" href="namespacedcpp_1_1nub.html#af9a25c6526e16dcbe178b2ac1dc7494e">dcpp::nub::aabbox3df</a> &amp;box, <a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a> color=<a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a>(255, 255, 255, 255))=0</td></tr>
+<tr class="memdesc:a39ee743c8e79e5a7be8837e8f7092824"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a 3d axis aligned box.  <br /></td></tr>
+<tr class="separator:a39ee743c8e79e5a7be8837e8f7092824"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cbc0a1bb6428586f8f960a4a694b818" id="r_a5cbc0a1bb6428586f8f960a4a694b818"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a5cbc0a1bb6428586f8f960a4a694b818">draw2DImage</a> (const <a class="el" href="classdcpp_1_1video_1_1ITexture.html">dcpp::video::ITexture</a> *texture, const <a class="el" href="namespacedcpp_1_1nub.html#a28021dd2953876aa9b4b4c66aace0756">dcpp::nub::position2di</a> &amp;destPos, bool useAlphaChannelOfTexture=false)=0</td></tr>
+<tr class="memdesc:a5cbc0a1bb6428586f8f960a4a694b818"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a 2d image without any special effects.  <br /></td></tr>
+<tr class="separator:a5cbc0a1bb6428586f8f960a4a694b818"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c45a036cf6bbdc8ada60eb7408eed13" id="r_a0c45a036cf6bbdc8ada60eb7408eed13"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a0c45a036cf6bbdc8ada60eb7408eed13">draw2DImage</a> (const <a class="el" href="classdcpp_1_1video_1_1ITexture.html">dcpp::video::ITexture</a> *texture, const <a class="el" href="namespacedcpp_1_1nub.html#a28021dd2953876aa9b4b4c66aace0756">dcpp::nub::position2di</a> &amp;destPos, const <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> &amp;sourceRect, const <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> *clipRect=0, <a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a> color=<a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a>(255, 255, 255, 255), bool useAlphaChannelOfTexture=false)=0</td></tr>
+<tr class="memdesc:a0c45a036cf6bbdc8ada60eb7408eed13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a 2d image using a color.  <br /></td></tr>
+<tr class="separator:a0c45a036cf6bbdc8ada60eb7408eed13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49d09d614e7b16e29006b8c779d3c851" id="r_a49d09d614e7b16e29006b8c779d3c851"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a49d09d614e7b16e29006b8c779d3c851">draw2DImageBatch</a> (const <a class="el" href="classdcpp_1_1video_1_1ITexture.html">dcpp::video::ITexture</a> *texture, const <a class="el" href="namespacedcpp_1_1nub.html#a28021dd2953876aa9b4b4c66aace0756">dcpp::nub::position2di</a> &amp;pos, const <a class="el" href="classdcpp_1_1nub_1_1array.html">dcpp::nub::array</a>&lt; <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> &gt; &amp;sourceRects, const <a class="el" href="classdcpp_1_1nub_1_1array.html">dcpp::nub::array</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &amp;indices, <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> kerningWidth=0, const <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> *clipRect=0, <a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a> color=<a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a>(255, 255, 255, 255), bool useAlphaChannelOfTexture=false)=0</td></tr>
+<tr class="memdesc:a49d09d614e7b16e29006b8c779d3c851"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a set of 2d images, using a color and the alpha channel of the texture.  <br /></td></tr>
+<tr class="separator:a49d09d614e7b16e29006b8c779d3c851"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefe94e92f2c05a73407ab5d0991e9eff" id="r_aefe94e92f2c05a73407ab5d0991e9eff"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#aefe94e92f2c05a73407ab5d0991e9eff">draw2DImageBatch</a> (const <a class="el" href="classdcpp_1_1video_1_1ITexture.html">dcpp::video::ITexture</a> *texture, const <a class="el" href="classdcpp_1_1nub_1_1array.html">dcpp::nub::array</a>&lt; <a class="el" href="namespacedcpp_1_1nub.html#a28021dd2953876aa9b4b4c66aace0756">dcpp::nub::position2di</a> &gt; &amp;positions, const <a class="el" href="classdcpp_1_1nub_1_1array.html">dcpp::nub::array</a>&lt; <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> &gt; &amp;sourceRects, const <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> *clipRect=0, <a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a> color=<a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a>(255, 255, 255, 255), bool useAlphaChannelOfTexture=false)=0</td></tr>
+<tr class="memdesc:aefe94e92f2c05a73407ab5d0991e9eff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a set of 2d images, using a color and the alpha channel of the texture.  <br /></td></tr>
+<tr class="separator:aefe94e92f2c05a73407ab5d0991e9eff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7a37e3e2ddc5032662f4bae1f353aff" id="r_aa7a37e3e2ddc5032662f4bae1f353aff"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#aa7a37e3e2ddc5032662f4bae1f353aff">draw2DImage</a> (const <a class="el" href="classdcpp_1_1video_1_1ITexture.html">dcpp::video::ITexture</a> *texture, const <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> &amp;destRect, const <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> &amp;sourceRect, const <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> *clipRect=0, const <a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a> *const colors=0, bool useAlphaChannelOfTexture=false)=0</td></tr>
+<tr class="memdesc:aa7a37e3e2ddc5032662f4bae1f353aff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a part of the texture into the rectangle. Note that colors must be an array of 4 colors if used.  <br /></td></tr>
+<tr class="separator:aa7a37e3e2ddc5032662f4bae1f353aff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a014f930e4ee9ffd9f83aae0d8c253a81" id="r_a014f930e4ee9ffd9f83aae0d8c253a81"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a014f930e4ee9ffd9f83aae0d8c253a81">draw2DRectangle</a> (<a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a> color, const <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> &amp;pos, const <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> *clip=0)=0</td></tr>
+<tr class="memdesc:a014f930e4ee9ffd9f83aae0d8c253a81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a 2d rectangle.  <br /></td></tr>
+<tr class="separator:a014f930e4ee9ffd9f83aae0d8c253a81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a713851e5c1cc2a5077c1969a9fe936ce" id="r_a713851e5c1cc2a5077c1969a9fe936ce"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a713851e5c1cc2a5077c1969a9fe936ce">draw2DRectangle</a> (const <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> &amp;pos, <a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a> colorLeftUp, <a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a> colorRightUp, <a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a> colorLeftDown, <a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a> colorRightDown, const <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> *clip=0)=0</td></tr>
+<tr class="memdesc:a713851e5c1cc2a5077c1969a9fe936ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a 2d rectangle with a gradient.  <br /></td></tr>
+<tr class="separator:a713851e5c1cc2a5077c1969a9fe936ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8255da801db15c290c0fe2ada71cf73c" id="r_a8255da801db15c290c0fe2ada71cf73c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a8255da801db15c290c0fe2ada71cf73c">draw2DRectangleOutline</a> (const <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> &amp;pos, <a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a> color=<a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a>(255, 255, 255, 255))=0</td></tr>
 <tr class="memdesc:a8255da801db15c290c0fe2ada71cf73c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws the outline of a 2D rectangle.  <br /></td></tr>
 <tr class="separator:a8255da801db15c290c0fe2ada71cf73c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52c86f30561712486b9631e7ee395344" id="r_a52c86f30561712486b9631e7ee395344"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a52c86f30561712486b9631e7ee395344">draw2DLine</a> (const dcpp::nub::position2d&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &amp;start, const dcpp::nub::position2d&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &amp;end, <a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a> color=<a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a>(255, 255, 255, 255))=0</td></tr>
-<tr class="memdesc:a52c86f30561712486b9631e7ee395344"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a 2d line.  <br /></td></tr>
-<tr class="separator:a52c86f30561712486b9631e7ee395344"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89180a60df7e55c0d7c030a3210d73a7" id="r_a89180a60df7e55c0d7c030a3210d73a7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a89180a60df7e55c0d7c030a3210d73a7">draw2DLine</a> (const <a class="el" href="namespacedcpp_1_1nub.html#a28021dd2953876aa9b4b4c66aace0756">dcpp::nub::position2di</a> &amp;start, const <a class="el" href="namespacedcpp_1_1nub.html#a28021dd2953876aa9b4b4c66aace0756">dcpp::nub::position2di</a> &amp;end, <a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a> color=<a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a>(255, 255, 255, 255))=0</td></tr>
+<tr class="memdesc:a89180a60df7e55c0d7c030a3210d73a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a 2d line.  <br /></td></tr>
+<tr class="separator:a89180a60df7e55c0d7c030a3210d73a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abbe0754da580590eebdde17d334b127e" id="r_abbe0754da580590eebdde17d334b127e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#abbe0754da580590eebdde17d334b127e">drawPixel</a> (<a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> x, <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> y, const <a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a> &amp;color)=0</td></tr>
 <tr class="memdesc:abbe0754da580590eebdde17d334b127e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a pixel.  <br /></td></tr>
 <tr class="separator:abbe0754da580590eebdde17d334b127e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62e33df9882560f76ce2348cc176d30e" id="r_a62e33df9882560f76ce2348cc176d30e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a62e33df9882560f76ce2348cc176d30e">draw2DPolygon</a> (dcpp::nub::position2d&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; center, <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> radius, <a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a> color=<a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a>(100, 255, 255, 255), <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> vertexCount=10)=0</td></tr>
-<tr class="memdesc:a62e33df9882560f76ce2348cc176d30e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a non filled concyclic regular 2d polygon.  <br /></td></tr>
-<tr class="separator:a62e33df9882560f76ce2348cc176d30e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3d00fd21c9d09352c2ac517c483ad75" id="r_aa3d00fd21c9d09352c2ac517c483ad75"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#aa3d00fd21c9d09352c2ac517c483ad75">draw2DPolygon</a> (<a class="el" href="namespacedcpp_1_1nub.html#a28021dd2953876aa9b4b4c66aace0756">dcpp::nub::position2di</a> center, <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> radius, <a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a> color=<a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a>(100, 255, 255, 255), <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> vertexCount=10)=0</td></tr>
+<tr class="memdesc:aa3d00fd21c9d09352c2ac517c483ad75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a non filled concyclic regular 2d polygon.  <br /></td></tr>
+<tr class="separator:aa3d00fd21c9d09352c2ac517c483ad75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d66a4dbb20074cf8e515b881ab4f089" id="r_a9d66a4dbb20074cf8e515b881ab4f089"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a9d66a4dbb20074cf8e515b881ab4f089">drawStencilShadowVolume</a> (const <a class="el" href="classdcpp_1_1nub_1_1array.html">dcpp::nub::array</a>&lt; <a class="el" href="namespacedcpp_1_1nub.html#ae00af5c5d6c9dae3a3622238dab96752">dcpp::nub::vector3df</a> &gt; &amp;triangles, bool zfail=true, <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> debugDataVisible=0)=0</td></tr>
 <tr class="memdesc:a9d66a4dbb20074cf8e515b881ab4f089"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a shadow volume into the stencil buffer.  <br /></td></tr>
 <tr class="separator:a9d66a4dbb20074cf8e515b881ab4f089"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -367,12 +367,12 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>getFog</b> (<
 <tr class="memitem:a0f3d7c954f5c66f4ab09f9434cb8b477" id="r_a0f3d7c954f5c66f4ab09f9434cb8b477"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedcpp_1_1video.html#a9f514e4a6f337bfa925e156fe9e9bc9d">ECOLOR_FORMAT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a0f3d7c954f5c66f4ab09f9434cb8b477">getColorFormat</a> () const =0</td></tr>
 <tr class="memdesc:a0f3d7c954f5c66f4ab09f9434cb8b477"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current color format of the color buffer.  <br /></td></tr>
 <tr class="separator:a0f3d7c954f5c66f4ab09f9434cb8b477"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51a02ecf8f94c21dd4c476d1f88f76f7" id="r_a51a02ecf8f94c21dd4c476d1f88f76f7"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a51a02ecf8f94c21dd4c476d1f88f76f7">getScreenSize</a> () const =0</td></tr>
-<tr class="memdesc:a51a02ecf8f94c21dd4c476d1f88f76f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the size of the screen or render window.  <br /></td></tr>
-<tr class="separator:a51a02ecf8f94c21dd4c476d1f88f76f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30baa4341071156ebd878b6932f0f050" id="r_a30baa4341071156ebd878b6932f0f050"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a30baa4341071156ebd878b6932f0f050">getCurrentRenderTargetSize</a> () const =0</td></tr>
-<tr class="memdesc:a30baa4341071156ebd878b6932f0f050"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the size of the current render target.  <br /></td></tr>
-<tr class="separator:a30baa4341071156ebd878b6932f0f050"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29dc9bd8de11666c3cccea1cfaa11ff3" id="r_a29dc9bd8de11666c3cccea1cfaa11ff3"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="namespacedcpp_1_1nub.html#a04c84e82c13a5b10f7546a753f8a5334">dcpp::nub::dimension2du</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a29dc9bd8de11666c3cccea1cfaa11ff3">getScreenSize</a> () const =0</td></tr>
+<tr class="memdesc:a29dc9bd8de11666c3cccea1cfaa11ff3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the size of the screen or render window.  <br /></td></tr>
+<tr class="separator:a29dc9bd8de11666c3cccea1cfaa11ff3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9f3e35d54c9cf02b4cb374bbc29e8c2" id="r_ac9f3e35d54c9cf02b4cb374bbc29e8c2"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="namespacedcpp_1_1nub.html#a04c84e82c13a5b10f7546a753f8a5334">dcpp::nub::dimension2du</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#ac9f3e35d54c9cf02b4cb374bbc29e8c2">getCurrentRenderTargetSize</a> () const =0</td></tr>
+<tr class="memdesc:ac9f3e35d54c9cf02b4cb374bbc29e8c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the size of the current render target.  <br /></td></tr>
+<tr class="separator:ac9f3e35d54c9cf02b4cb374bbc29e8c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4301466245f99de4f91ca0bbc45ecfa" id="r_ae4301466245f99de4f91ca0bbc45ecfa"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#ae4301466245f99de4f91ca0bbc45ecfa">getFPS</a> () const =0</td></tr>
 <tr class="memdesc:ae4301466245f99de4f91ca0bbc45ecfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns current frames per second value.  <br /></td></tr>
 <tr class="separator:ae4301466245f99de4f91ca0bbc45ecfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -432,24 +432,24 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>deleteAllDyna
 <tr class="memitem:a9ece761f6a7cc83fac1cf141c9bf92bf" id="r_a9ece761f6a7cc83fac1cf141c9bf92bf"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a9ece761f6a7cc83fac1cf141c9bf92bf">writeImageToFile</a> (<a class="el" href="classdcpp_1_1video_1_1IImage.html">IImage</a> *image, <a class="el" href="classdcpp_1_1io_1_1IWriteFile.html">dcpp::io::IWriteFile</a> *file, <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> param=0)=0</td></tr>
 <tr class="memdesc:a9ece761f6a7cc83fac1cf141c9bf92bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the provided image to a file.  <br /></td></tr>
 <tr class="separator:a9ece761f6a7cc83fac1cf141c9bf92bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2377d322b75cde8007e1649d07b06eb8" id="r_a2377d322b75cde8007e1649d07b06eb8"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1video_1_1IImage.html">IImage</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a2377d322b75cde8007e1649d07b06eb8">createImageFromData</a> (<a class="el" href="namespacedcpp_1_1video.html#a9f514e4a6f337bfa925e156fe9e9bc9d">ECOLOR_FORMAT</a> format, const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp;size, void *data, bool ownForeignMemory=false, bool deleteMemory=true)=0</td></tr>
-<tr class="memdesc:a2377d322b75cde8007e1649d07b06eb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a software image from a byte array.  <br /></td></tr>
-<tr class="separator:a2377d322b75cde8007e1649d07b06eb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4eb93a2e9522f6a05e8e001e11547c7c" id="r_a4eb93a2e9522f6a05e8e001e11547c7c"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1video_1_1IImage.html">IImage</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a4eb93a2e9522f6a05e8e001e11547c7c">createImage</a> (<a class="el" href="namespacedcpp_1_1video.html#a9f514e4a6f337bfa925e156fe9e9bc9d">ECOLOR_FORMAT</a> format, const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp;size)=0</td></tr>
-<tr class="memdesc:a4eb93a2e9522f6a05e8e001e11547c7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an empty software image.  <br /></td></tr>
-<tr class="separator:a4eb93a2e9522f6a05e8e001e11547c7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab541c4f727e4f9dbf3c7dc86654d7d34" id="r_ab541c4f727e4f9dbf3c7dc86654d7d34"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1video_1_1IImage.html">IImage</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#ab541c4f727e4f9dbf3c7dc86654d7d34">createImageFromData</a> (<a class="el" href="namespacedcpp_1_1video.html#a9f514e4a6f337bfa925e156fe9e9bc9d">ECOLOR_FORMAT</a> format, const <a class="el" href="namespacedcpp_1_1nub.html#a04c84e82c13a5b10f7546a753f8a5334">dcpp::nub::dimension2du</a> &amp;size, void *data, bool ownForeignMemory=false, bool deleteMemory=true)=0</td></tr>
+<tr class="memdesc:ab541c4f727e4f9dbf3c7dc86654d7d34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a software image from a byte array.  <br /></td></tr>
+<tr class="separator:ab541c4f727e4f9dbf3c7dc86654d7d34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01c61f8b69fc05fa6af7747467ace05d" id="r_a01c61f8b69fc05fa6af7747467ace05d"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1video_1_1IImage.html">IImage</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a01c61f8b69fc05fa6af7747467ace05d">createImage</a> (<a class="el" href="namespacedcpp_1_1video.html#a9f514e4a6f337bfa925e156fe9e9bc9d">ECOLOR_FORMAT</a> format, const <a class="el" href="namespacedcpp_1_1nub.html#a04c84e82c13a5b10f7546a753f8a5334">dcpp::nub::dimension2du</a> &amp;size)=0</td></tr>
+<tr class="memdesc:a01c61f8b69fc05fa6af7747467ace05d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an empty software image.  <br /></td></tr>
+<tr class="separator:a01c61f8b69fc05fa6af7747467ace05d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e93befda86e37c5e011ede9abb78f0a" id="r_a9e93befda86e37c5e011ede9abb78f0a"><td class="memItemLeft" align="right" valign="top">virtual DCPP_DEPRECATED <a class="el" href="classdcpp_1_1video_1_1IImage.html">IImage</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a9e93befda86e37c5e011ede9abb78f0a">createImage</a> (<a class="el" href="namespacedcpp_1_1video.html#a9f514e4a6f337bfa925e156fe9e9bc9d">ECOLOR_FORMAT</a> format, <a class="el" href="classdcpp_1_1video_1_1IImage.html">IImage</a> *imageToCopy)=0</td></tr>
 <tr class="memdesc:a9e93befda86e37c5e011ede9abb78f0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a software image by converting it to given format from another image.  <br /></td></tr>
 <tr class="separator:a9e93befda86e37c5e011ede9abb78f0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6a1778495f800fb640d7e8d71e796a0" id="r_ad6a1778495f800fb640d7e8d71e796a0"><td class="memItemLeft" align="right" valign="top">virtual DCPP_DEPRECATED <a class="el" href="classdcpp_1_1video_1_1IImage.html">IImage</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#ad6a1778495f800fb640d7e8d71e796a0">createImage</a> (<a class="el" href="classdcpp_1_1video_1_1IImage.html">IImage</a> *imageToCopy, const dcpp::nub::position2d&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &amp;pos, const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp;size)=0</td></tr>
-<tr class="memdesc:ad6a1778495f800fb640d7e8d71e796a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a software image from a part of another image.  <br /></td></tr>
-<tr class="separator:ad6a1778495f800fb640d7e8d71e796a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac45ed4a31c4c9e0bab177cfc77a79e30" id="r_ac45ed4a31c4c9e0bab177cfc77a79e30"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1video_1_1IImage.html">IImage</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#ac45ed4a31c4c9e0bab177cfc77a79e30">createImage</a> (<a class="el" href="classdcpp_1_1video_1_1ITexture.html">ITexture</a> *texture, const dcpp::nub::position2d&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &amp;pos, const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp;size)=0</td></tr>
-<tr class="memdesc:ac45ed4a31c4c9e0bab177cfc77a79e30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a software image from a part of a texture.  <br /></td></tr>
-<tr class="separator:ac45ed4a31c4c9e0bab177cfc77a79e30"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a699b1ae32f9a9e342e1ea7cf56a5ba45" id="r_a699b1ae32f9a9e342e1ea7cf56a5ba45"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a699b1ae32f9a9e342e1ea7cf56a5ba45">OnResize</a> (const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp;size)=0</td></tr>
-<tr class="memdesc:a699b1ae32f9a9e342e1ea7cf56a5ba45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event handler for resize events. Only used by the engine internally.  <br /></td></tr>
-<tr class="separator:a699b1ae32f9a9e342e1ea7cf56a5ba45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a75bb38a2f08743142364d41a5556f5" id="r_a6a75bb38a2f08743142364d41a5556f5"><td class="memItemLeft" align="right" valign="top">virtual DCPP_DEPRECATED <a class="el" href="classdcpp_1_1video_1_1IImage.html">IImage</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a6a75bb38a2f08743142364d41a5556f5">createImage</a> (<a class="el" href="classdcpp_1_1video_1_1IImage.html">IImage</a> *imageToCopy, const <a class="el" href="namespacedcpp_1_1nub.html#a28021dd2953876aa9b4b4c66aace0756">dcpp::nub::position2di</a> &amp;pos, const <a class="el" href="namespacedcpp_1_1nub.html#a04c84e82c13a5b10f7546a753f8a5334">dcpp::nub::dimension2du</a> &amp;size)=0</td></tr>
+<tr class="memdesc:a6a75bb38a2f08743142364d41a5556f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a software image from a part of another image.  <br /></td></tr>
+<tr class="separator:a6a75bb38a2f08743142364d41a5556f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39371c5b40c9eef6eb26044d31308101" id="r_a39371c5b40c9eef6eb26044d31308101"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1video_1_1IImage.html">IImage</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a39371c5b40c9eef6eb26044d31308101">createImage</a> (<a class="el" href="classdcpp_1_1video_1_1ITexture.html">ITexture</a> *texture, const <a class="el" href="namespacedcpp_1_1nub.html#a28021dd2953876aa9b4b4c66aace0756">dcpp::nub::position2di</a> &amp;pos, const <a class="el" href="namespacedcpp_1_1nub.html#a04c84e82c13a5b10f7546a753f8a5334">dcpp::nub::dimension2du</a> &amp;size)=0</td></tr>
+<tr class="memdesc:a39371c5b40c9eef6eb26044d31308101"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a software image from a part of a texture.  <br /></td></tr>
+<tr class="separator:a39371c5b40c9eef6eb26044d31308101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0806a592267a2c350f7091647a401e1" id="r_ae0806a592267a2c350f7091647a401e1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#ae0806a592267a2c350f7091647a401e1">OnResize</a> (const <a class="el" href="namespacedcpp_1_1nub.html#a04c84e82c13a5b10f7546a753f8a5334">dcpp::nub::dimension2du</a> &amp;size)=0</td></tr>
+<tr class="memdesc:ae0806a592267a2c350f7091647a401e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event handler for resize events. Only used by the engine internally.  <br /></td></tr>
+<tr class="separator:ae0806a592267a2c350f7091647a401e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a702785fea0d7018f9c01f99d36073c" id="r_a8a702785fea0d7018f9c01f99d36073c"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a8a702785fea0d7018f9c01f99d36073c">addMaterialRenderer</a> (<a class="el" href="classdcpp_1_1video_1_1IMaterialRenderer.html">IMaterialRenderer</a> *renderer, const <a class="el" href="namespacedcpp.html#a2a2d2e2601f3d260acd0ce9ac878b282">dcpp::char_kt</a> *name=0)=0</td></tr>
 <tr class="memdesc:a8a702785fea0d7018f9c01f99d36073c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new material renderer to the video device.  <br /></td></tr>
 <tr class="separator:a8a702785fea0d7018f9c01f99d36073c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -765,8 +765,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a601a02adf6de5f0c59ed49aa19484adb" name="a601a02adf6de5f0c59ed49aa19484adb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a601a02adf6de5f0c59ed49aa19484adb">&#9670;&#160;</a></span>addRenderTargetTexture()</h2>
+<a id="a8d0cc288e94ec1c7636da5f361e90c23" name="a8d0cc288e94ec1c7636da5f361e90c23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d0cc288e94ec1c7636da5f361e90c23">&#9670;&#160;</a></span>addRenderTargetTexture()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -777,7 +777,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">virtual <a class="el" href="classdcpp_1_1video_1_1ITexture.html">ITexture</a> * dcpp::video::IVideoDriver::addRenderTargetTexture </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#a04c84e82c13a5b10f7546a753f8a5334">dcpp::nub::dimension2du</a> &amp;&#160;</td>
           <td class="paramname"><em>size</em>, </td>
         </tr>
         <tr>
@@ -970,8 +970,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a3223ab06643cd107410c7274ea4959fe" name="a3223ab06643cd107410c7274ea4959fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3223ab06643cd107410c7274ea4959fe">&#9670;&#160;</a></span>addTexture() <span class="overload">[3/3]</span></h2>
+<a id="a86d2d51eb16abc67dae855acd863be91" name="a86d2d51eb16abc67dae855acd863be91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86d2d51eb16abc67dae855acd863be91">&#9670;&#160;</a></span>addTexture() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -982,7 +982,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">virtual <a class="el" href="classdcpp_1_1video_1_1ITexture.html">ITexture</a> * dcpp::video::IVideoDriver::addTexture </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#a04c84e82c13a5b10f7546a753f8a5334">dcpp::nub::dimension2du</a> &amp;&#160;</td>
           <td class="paramname"><em>size</em>, </td>
         </tr>
         <tr>
@@ -1158,8 +1158,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a3acfba299210433642cda3be6147fa2a" name="a3acfba299210433642cda3be6147fa2a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3acfba299210433642cda3be6147fa2a">&#9670;&#160;</a></span>beginScene()</h2>
+<a id="ac0bab8eb0c21dfbda28ad34452978618" name="ac0bab8eb0c21dfbda28ad34452978618"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0bab8eb0c21dfbda28ad34452978618">&#9670;&#160;</a></span>beginScene()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1200,7 +1200,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; *&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> *&#160;</td>
           <td class="paramname"><em>sourceRect</em> = <code>0</code>&#160;</td>
         </tr>
         <tr>
@@ -1256,7 +1256,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Check if the driver was recently reset. </p>
-<p>For d3d devices you will need to recreate the RTTs if the driver was reset. Should be queried right after <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a3acfba299210433642cda3be6147fa2a" title="Applications must call this method before performing any rendering.">beginScene()</a>. </p>
+<p>For d3d devices you will need to recreate the RTTs if the driver was reset. Should be queried right after <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#ac0bab8eb0c21dfbda28ad34452978618" title="Applications must call this method before performing any rendering.">beginScene()</a>. </p>
 
 </div>
 </div>
@@ -1284,7 +1284,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Clears the ZBuffer. </p>
-<p>Note that you usually need not to call this method, as it is automatically done in <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a3acfba299210433642cda3be6147fa2a" title="Applications must call this method before performing any rendering.">IVideoDriver::beginScene()</a> or <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a9961e87b95a6868e4c386db3605961a7" title="Sets a new render target.">IVideoDriver::setRenderTarget()</a> if you enable zBuffer. But if you have to render some special things, you can clear the zbuffer during the rendering process with this method any time. </p>
+<p>Note that you usually need not to call this method, as it is automatically done in <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#ac0bab8eb0c21dfbda28ad34452978618" title="Applications must call this method before performing any rendering.">IVideoDriver::beginScene()</a> or <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a9961e87b95a6868e4c386db3605961a7" title="Sets a new render target.">IVideoDriver::setRenderTarget()</a> if you enable zBuffer. But if you have to render some special things, you can clear the zbuffer during the rendering process with this method any time. </p>
 
 </div>
 </div>
@@ -1400,8 +1400,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a4eb93a2e9522f6a05e8e001e11547c7c" name="a4eb93a2e9522f6a05e8e001e11547c7c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4eb93a2e9522f6a05e8e001e11547c7c">&#9670;&#160;</a></span>createImage() <span class="overload">[1/4]</span></h2>
+<a id="a01c61f8b69fc05fa6af7747467ace05d" name="a01c61f8b69fc05fa6af7747467ace05d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01c61f8b69fc05fa6af7747467ace05d">&#9670;&#160;</a></span>createImage() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1418,7 +1418,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#a04c84e82c13a5b10f7546a753f8a5334">dcpp::nub::dimension2du</a> &amp;&#160;</td>
           <td class="paramname"><em>size</em>&#160;</td>
         </tr>
         <tr>
@@ -1493,8 +1493,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="ad6a1778495f800fb640d7e8d71e796a0" name="ad6a1778495f800fb640d7e8d71e796a0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad6a1778495f800fb640d7e8d71e796a0">&#9670;&#160;</a></span>createImage() <span class="overload">[3/4]</span></h2>
+<a id="a6a75bb38a2f08743142364d41a5556f5" name="a6a75bb38a2f08743142364d41a5556f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a75bb38a2f08743142364d41a5556f5">&#9670;&#160;</a></span>createImage() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1511,13 +1511,13 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const dcpp::nub::position2d&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#a28021dd2953876aa9b4b4c66aace0756">dcpp::nub::position2di</a> &amp;&#160;</td>
           <td class="paramname"><em>pos</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#a04c84e82c13a5b10f7546a753f8a5334">dcpp::nub::dimension2du</a> &amp;&#160;</td>
           <td class="paramname"><em>size</em>&#160;</td>
         </tr>
         <tr>
@@ -1547,8 +1547,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="ac45ed4a31c4c9e0bab177cfc77a79e30" name="ac45ed4a31c4c9e0bab177cfc77a79e30"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac45ed4a31c4c9e0bab177cfc77a79e30">&#9670;&#160;</a></span>createImage() <span class="overload">[4/4]</span></h2>
+<a id="a39371c5b40c9eef6eb26044d31308101" name="a39371c5b40c9eef6eb26044d31308101"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39371c5b40c9eef6eb26044d31308101">&#9670;&#160;</a></span>createImage() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1565,13 +1565,13 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const dcpp::nub::position2d&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#a28021dd2953876aa9b4b4c66aace0756">dcpp::nub::position2di</a> &amp;&#160;</td>
           <td class="paramname"><em>pos</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#a04c84e82c13a5b10f7546a753f8a5334">dcpp::nub::dimension2du</a> &amp;&#160;</td>
           <td class="paramname"><em>size</em>&#160;</td>
         </tr>
         <tr>
@@ -1600,8 +1600,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a2377d322b75cde8007e1649d07b06eb8" name="a2377d322b75cde8007e1649d07b06eb8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2377d322b75cde8007e1649d07b06eb8">&#9670;&#160;</a></span>createImageFromData()</h2>
+<a id="ab541c4f727e4f9dbf3c7dc86654d7d34" name="ab541c4f727e4f9dbf3c7dc86654d7d34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab541c4f727e4f9dbf3c7dc86654d7d34">&#9670;&#160;</a></span>createImageFromData()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1618,7 +1618,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#a04c84e82c13a5b10f7546a753f8a5334">dcpp::nub::dimension2du</a> &amp;&#160;</td>
           <td class="paramname"><em>size</em>, </td>
         </tr>
         <tr>
@@ -1919,8 +1919,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a3145253bd42aa3f9a27896060738fdee" name="a3145253bd42aa3f9a27896060738fdee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3145253bd42aa3f9a27896060738fdee">&#9670;&#160;</a></span>draw2DImage() <span class="overload">[1/3]</span></h2>
+<a id="a5cbc0a1bb6428586f8f960a4a694b818" name="a5cbc0a1bb6428586f8f960a4a694b818"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cbc0a1bb6428586f8f960a4a694b818">&#9670;&#160;</a></span>draw2DImage() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1937,7 +1937,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const dcpp::nub::position2d&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#a28021dd2953876aa9b4b4c66aace0756">dcpp::nub::position2di</a> &amp;&#160;</td>
           <td class="paramname"><em>destPos</em>, </td>
         </tr>
         <tr>
@@ -1971,8 +1971,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a496d55c5cee0cace774e3617a23cce77" name="a496d55c5cee0cace774e3617a23cce77"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a496d55c5cee0cace774e3617a23cce77">&#9670;&#160;</a></span>draw2DImage() <span class="overload">[2/3]</span></h2>
+<a id="a0c45a036cf6bbdc8ada60eb7408eed13" name="a0c45a036cf6bbdc8ada60eb7408eed13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c45a036cf6bbdc8ada60eb7408eed13">&#9670;&#160;</a></span>draw2DImage() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1989,19 +1989,19 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const dcpp::nub::position2d&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#a28021dd2953876aa9b4b4c66aace0756">dcpp::nub::position2di</a> &amp;&#160;</td>
           <td class="paramname"><em>destPos</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> &amp;&#160;</td>
           <td class="paramname"><em>sourceRect</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; *&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> *&#160;</td>
           <td class="paramname"><em>clipRect</em> = <code>0</code>, </td>
         </tr>
         <tr>
@@ -2044,8 +2044,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a673a2bff15118de26448b506ba36f693" name="a673a2bff15118de26448b506ba36f693"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a673a2bff15118de26448b506ba36f693">&#9670;&#160;</a></span>draw2DImage() <span class="overload">[3/3]</span></h2>
+<a id="aa7a37e3e2ddc5032662f4bae1f353aff" name="aa7a37e3e2ddc5032662f4bae1f353aff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7a37e3e2ddc5032662f4bae1f353aff">&#9670;&#160;</a></span>draw2DImage() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2062,19 +2062,19 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> &amp;&#160;</td>
           <td class="paramname"><em>destRect</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> &amp;&#160;</td>
           <td class="paramname"><em>sourceRect</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; *&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> *&#160;</td>
           <td class="paramname"><em>clipRect</em> = <code>0</code>, </td>
         </tr>
         <tr>
@@ -2117,8 +2117,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a69ffa09e68b55dbf73157f47d6b2f712" name="a69ffa09e68b55dbf73157f47d6b2f712"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69ffa09e68b55dbf73157f47d6b2f712">&#9670;&#160;</a></span>draw2DImageBatch() <span class="overload">[1/2]</span></h2>
+<a id="aefe94e92f2c05a73407ab5d0991e9eff" name="aefe94e92f2c05a73407ab5d0991e9eff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefe94e92f2c05a73407ab5d0991e9eff">&#9670;&#160;</a></span>draw2DImageBatch() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2135,19 +2135,19 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1array.html">dcpp::nub::array</a>&lt; dcpp::nub::position2d&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1array.html">dcpp::nub::array</a>&lt; <a class="el" href="namespacedcpp_1_1nub.html#a28021dd2953876aa9b4b4c66aace0756">dcpp::nub::position2di</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>positions</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1array.html">dcpp::nub::array</a>&lt; <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1array.html">dcpp::nub::array</a>&lt; <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>sourceRects</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; *&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> *&#160;</td>
           <td class="paramname"><em>clipRect</em> = <code>0</code>, </td>
         </tr>
         <tr>
@@ -2190,8 +2190,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="af1d868e007cbf178f5ad1decd2097b5f" name="af1d868e007cbf178f5ad1decd2097b5f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af1d868e007cbf178f5ad1decd2097b5f">&#9670;&#160;</a></span>draw2DImageBatch() <span class="overload">[2/2]</span></h2>
+<a id="a49d09d614e7b16e29006b8c779d3c851" name="a49d09d614e7b16e29006b8c779d3c851"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49d09d614e7b16e29006b8c779d3c851">&#9670;&#160;</a></span>draw2DImageBatch() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2208,13 +2208,13 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const dcpp::nub::position2d&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#a28021dd2953876aa9b4b4c66aace0756">dcpp::nub::position2di</a> &amp;&#160;</td>
           <td class="paramname"><em>pos</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1array.html">dcpp::nub::array</a>&lt; <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1array.html">dcpp::nub::array</a>&lt; <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>sourceRects</em>, </td>
         </tr>
         <tr>
@@ -2232,7 +2232,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; *&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> *&#160;</td>
           <td class="paramname"><em>clipRect</em> = <code>0</code>, </td>
         </tr>
         <tr>
@@ -2277,8 +2277,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a52c86f30561712486b9631e7ee395344" name="a52c86f30561712486b9631e7ee395344"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52c86f30561712486b9631e7ee395344">&#9670;&#160;</a></span>draw2DLine()</h2>
+<a id="a89180a60df7e55c0d7c030a3210d73a7" name="a89180a60df7e55c0d7c030a3210d73a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89180a60df7e55c0d7c030a3210d73a7">&#9670;&#160;</a></span>draw2DLine()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2289,13 +2289,13 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">virtual void dcpp::video::IVideoDriver::draw2DLine </td>
           <td>(</td>
-          <td class="paramtype">const dcpp::nub::position2d&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#a28021dd2953876aa9b4b4c66aace0756">dcpp::nub::position2di</a> &amp;&#160;</td>
           <td class="paramname"><em>start</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const dcpp::nub::position2d&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#a28021dd2953876aa9b4b4c66aace0756">dcpp::nub::position2di</a> &amp;&#160;</td>
           <td class="paramname"><em>end</em>, </td>
         </tr>
         <tr>
@@ -2329,8 +2329,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a62e33df9882560f76ce2348cc176d30e" name="a62e33df9882560f76ce2348cc176d30e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a62e33df9882560f76ce2348cc176d30e">&#9670;&#160;</a></span>draw2DPolygon()</h2>
+<a id="aa3d00fd21c9d09352c2ac517c483ad75" name="aa3d00fd21c9d09352c2ac517c483ad75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3d00fd21c9d09352c2ac517c483ad75">&#9670;&#160;</a></span>draw2DPolygon()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2341,7 +2341,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">virtual void dcpp::video::IVideoDriver::draw2DPolygon </td>
           <td>(</td>
-          <td class="paramtype">dcpp::nub::position2d&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacedcpp_1_1nub.html#a28021dd2953876aa9b4b4c66aace0756">dcpp::nub::position2di</a>&#160;</td>
           <td class="paramname"><em>center</em>, </td>
         </tr>
         <tr>
@@ -2388,8 +2388,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a4bdacd95aa77c40b08dcf9100a227b1b" name="a4bdacd95aa77c40b08dcf9100a227b1b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4bdacd95aa77c40b08dcf9100a227b1b">&#9670;&#160;</a></span>draw2DRectangle() <span class="overload">[1/2]</span></h2>
+<a id="a713851e5c1cc2a5077c1969a9fe936ce" name="a713851e5c1cc2a5077c1969a9fe936ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a713851e5c1cc2a5077c1969a9fe936ce">&#9670;&#160;</a></span>draw2DRectangle() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2400,7 +2400,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">virtual void dcpp::video::IVideoDriver::draw2DRectangle </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> &amp;&#160;</td>
           <td class="paramname"><em>pos</em>, </td>
         </tr>
         <tr>
@@ -2430,7 +2430,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; *&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> *&#160;</td>
           <td class="paramname"><em>clip</em> = <code>0</code>&#160;</td>
         </tr>
         <tr>
@@ -2461,8 +2461,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a2301287849fb783774ecab778e0a4bb9" name="a2301287849fb783774ecab778e0a4bb9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2301287849fb783774ecab778e0a4bb9">&#9670;&#160;</a></span>draw2DRectangle() <span class="overload">[2/2]</span></h2>
+<a id="a014f930e4ee9ffd9f83aae0d8c253a81" name="a014f930e4ee9ffd9f83aae0d8c253a81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a014f930e4ee9ffd9f83aae0d8c253a81">&#9670;&#160;</a></span>draw2DRectangle() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2479,13 +2479,13 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> &amp;&#160;</td>
           <td class="paramname"><em>pos</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; *&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> *&#160;</td>
           <td class="paramname"><em>clip</em> = <code>0</code>&#160;</td>
         </tr>
         <tr>
@@ -2638,8 +2638,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a0c1eddcd80841b02a184c3bd65a1e799" name="a0c1eddcd80841b02a184c3bd65a1e799"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0c1eddcd80841b02a184c3bd65a1e799">&#9670;&#160;</a></span>draw3DBox()</h2>
+<a id="a39ee743c8e79e5a7be8837e8f7092824" name="a39ee743c8e79e5a7be8837e8f7092824"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39ee743c8e79e5a7be8837e8f7092824">&#9670;&#160;</a></span>draw3DBox()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2650,7 +2650,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">virtual void dcpp::video::IVideoDriver::draw3DBox </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1aabbox3d.html">dcpp::nub::aabbox3d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#af9a25c6526e16dcbe178b2ac1dc7494e">dcpp::nub::aabbox3df</a> &amp;&#160;</td>
           <td class="paramname"><em>box</em>, </td>
         </tr>
         <tr>
@@ -3693,8 +3693,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a30baa4341071156ebd878b6932f0f050" name="a30baa4341071156ebd878b6932f0f050"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a30baa4341071156ebd878b6932f0f050">&#9670;&#160;</a></span>getCurrentRenderTargetSize()</h2>
+<a id="ac9f3e35d54c9cf02b4cb374bbc29e8c2" name="ac9f3e35d54c9cf02b4cb374bbc29e8c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9f3e35d54c9cf02b4cb374bbc29e8c2">&#9670;&#160;</a></span>getCurrentRenderTargetSize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3703,7 +3703,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp; dcpp::video::IVideoDriver::getCurrentRenderTargetSize </td>
+          <td class="memname">virtual const <a class="el" href="namespacedcpp_1_1nub.html#a04c84e82c13a5b10f7546a753f8a5334">dcpp::nub::dimension2du</a> &amp; dcpp::video::IVideoDriver::getCurrentRenderTargetSize </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -4352,8 +4352,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a51a02ecf8f94c21dd4c476d1f88f76f7" name="a51a02ecf8f94c21dd4c476d1f88f76f7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a51a02ecf8f94c21dd4c476d1f88f76f7">&#9670;&#160;</a></span>getScreenSize()</h2>
+<a id="a29dc9bd8de11666c3cccea1cfaa11ff3" name="a29dc9bd8de11666c3cccea1cfaa11ff3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29dc9bd8de11666c3cccea1cfaa11ff3">&#9670;&#160;</a></span>getScreenSize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4362,7 +4362,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp; dcpp::video::IVideoDriver::getScreenSize </td>
+          <td class="memname">virtual const <a class="el" href="namespacedcpp_1_1nub.html#a04c84e82c13a5b10f7546a753f8a5334">dcpp::nub::dimension2du</a> &amp; dcpp::video::IVideoDriver::getScreenSize </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -4583,8 +4583,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a07ddd3ee99516305dbd4853b01e2514b" name="a07ddd3ee99516305dbd4853b01e2514b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a07ddd3ee99516305dbd4853b01e2514b">&#9670;&#160;</a></span>getViewPort()</h2>
+<a id="aa9120c72225428add35ca84ffd5dfd96" name="aa9120c72225428add35ca84ffd5dfd96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9120c72225428add35ca84ffd5dfd96">&#9670;&#160;</a></span>getViewPort()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4593,7 +4593,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual const <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &amp; dcpp::video::IVideoDriver::getViewPort </td>
+          <td class="memname">virtual const <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> &amp; dcpp::video::IVideoDriver::getViewPort </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -4611,8 +4611,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="aed3e7ed716e14674b22ff89a661762ea" name="aed3e7ed716e14674b22ff89a661762ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aed3e7ed716e14674b22ff89a661762ea">&#9670;&#160;</a></span>makeColorKeyTexture() <span class="overload">[1/2]</span></h2>
+<a id="aee6259318219af91023dadcd8d699ba7" name="aee6259318219af91023dadcd8d699ba7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee6259318219af91023dadcd8d699ba7">&#9670;&#160;</a></span>makeColorKeyTexture() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4629,7 +4629,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">dcpp::nub::position2d&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacedcpp_1_1nub.html#a28021dd2953876aa9b4b4c66aace0756">dcpp::nub::position2di</a>&#160;</td>
           <td class="paramname"><em>colorKeyPixelPos</em>, </td>
         </tr>
         <tr>
@@ -4764,8 +4764,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a699b1ae32f9a9e342e1ea7cf56a5ba45" name="a699b1ae32f9a9e342e1ea7cf56a5ba45"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a699b1ae32f9a9e342e1ea7cf56a5ba45">&#9670;&#160;</a></span>OnResize()</h2>
+<a id="ae0806a592267a2c350f7091647a401e1" name="ae0806a592267a2c350f7091647a401e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0806a592267a2c350f7091647a401e1">&#9670;&#160;</a></span>OnResize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4776,7 +4776,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">virtual void dcpp::video::IVideoDriver::OnResize </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1dimension2d.html">dcpp::nub::dimension2d</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#a04c84e82c13a5b10f7546a753f8a5334">dcpp::nub::dimension2du</a> &amp;&#160;</td>
           <td class="paramname"><em>size</em></td><td>)</td>
           <td></td>
         </tr>
@@ -5449,7 +5449,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Sets a new render target. </p>
 <p>This will only work if the driver supports the EVDF_RENDER_TO_TARGET feature, which can be queried with <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#ada5ed8255aa4fec1ce42ec85257e91ac" title="Queries the features of the driver.">queryFeature()</a>. Usually, rendering to textures is done in this way: </p><div class="fragment"><div class="line"><span class="comment">// create render target</span></div>
-<div class="line"><a class="code hl_class" href="classdcpp_1_1video_1_1ITexture.html">ITexture</a>* target = driver-&gt;addRenderTargetTexture(<a class="code hl_class" href="classdcpp_1_1nub_1_1aabbox3d.html">dcpp::nub::dimension2d&lt;dcpp::uint32_kt&gt;</a>(128,128), <span class="stringliteral">&quot;rtt1&quot;</span>);</div>
+<div class="line"><a class="code hl_class" href="classdcpp_1_1video_1_1ITexture.html">ITexture</a>* target = driver-&gt;addRenderTargetTexture(<a class="code hl_class" href="classdcpp_1_1nub_1_1aabbox3d.html">dcpp::nub::dimension2du</a>(128,128), <span class="stringliteral">&quot;rtt1&quot;</span>);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// ...</span></div>
 <div class="line"> </div>
@@ -5458,9 +5458,9 @@ Additional Inherited Members</h2></td></tr>
 <div class="line">driver-&gt;setRenderTarget(0); <span class="comment">// set previous render target</span></div>
 <div class="ttc" id="aclassdcpp_1_1nub_1_1aabbox3d_html"><div class="ttname"><a href="classdcpp_1_1nub_1_1aabbox3d.html">dcpp::nub::aabbox3d</a></div><div class="ttdoc">Axis aligned bounding box in 3d dimensional space.</div><div class="ttdef"><b>Definition</b> aabbox3d.hpp:22</div></div>
 <div class="ttc" id="aclassdcpp_1_1video_1_1ITexture_html"><div class="ttname"><a href="classdcpp_1_1video_1_1ITexture.html">dcpp::video::ITexture</a></div><div class="ttdoc">Interface of a Video Driver dependent Texture.</div><div class="ttdef"><b>Definition</b> ITexture.hpp:186</div></div>
-</div><!-- fragment --><p> Please note that you cannot render 3D or 2D geometry with a render target as texture on it when you are rendering the scene into this render target at the same time. It is usually only possible to render into a texture between the <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a3acfba299210433642cda3be6147fa2a" title="Applications must call this method before performing any rendering.">IVideoDriver::beginScene()</a> and <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#aa30f501b89aa01b830cc00f66517984f" title="Presents the rendered image to the screen.">endScene()</a> method calls. </p><dl class="params"><dt>Parameters</dt><dd>
+</div><!-- fragment --><p> Please note that you cannot render 3D or 2D geometry with a render target as texture on it when you are rendering the scene into this render target at the same time. It is usually only possible to render into a texture between the <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#ac0bab8eb0c21dfbda28ad34452978618" title="Applications must call this method before performing any rendering.">IVideoDriver::beginScene()</a> and <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#aa30f501b89aa01b830cc00f66517984f" title="Presents the rendered image to the screen.">endScene()</a> method calls. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">texture</td><td>New render target. Must be a texture created with <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a601a02adf6de5f0c59ed49aa19484adb" title="Adds a new render target texture to the texture cache.">IVideoDriver::addRenderTargetTexture()</a>. If set to 0, it sets the previous render target which was set before the last <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a9961e87b95a6868e4c386db3605961a7" title="Sets a new render target.">setRenderTarget()</a> call. </td></tr>
+    <tr><td class="paramname">texture</td><td>New render target. Must be a texture created with <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a8d0cc288e94ec1c7636da5f361e90c23" title="Adds a new render target texture to the texture cache.">IVideoDriver::addRenderTargetTexture()</a>. If set to 0, it sets the previous render target which was set before the last <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a9961e87b95a6868e4c386db3605961a7" title="Sets a new render target.">setRenderTarget()</a> call. </td></tr>
     <tr><td class="paramname">clearFlag</td><td>A combination of the E_CLEAR_BUFFER_FLAG bit-flags. </td></tr>
     <tr><td class="paramname">clearColor</td><td>The clear color for the color buffer. </td></tr>
     <tr><td class="paramname">clearDepth</td><td>The clear value for the depth buffer. </td></tr>
@@ -5525,7 +5525,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Set a render target. </p>
-<p>This will only work if the driver supports the EVDF_RENDER_TO_TARGET feature, which can be queried with <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#ada5ed8255aa4fec1ce42ec85257e91ac" title="Queries the features of the driver.">queryFeature()</a>. Please note that you cannot render 3D or 2D geometry with a render target as texture on it when you are rendering the scene into this render target at the same time. It is usually only possible to render into a texture between the <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a3acfba299210433642cda3be6147fa2a" title="Applications must call this method before performing any rendering.">IVideoDriver::beginScene()</a> and <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#aa30f501b89aa01b830cc00f66517984f" title="Presents the rendered image to the screen.">endScene()</a> method calls. If you need the best performance use this method instead of setRenderTarget. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>This will only work if the driver supports the EVDF_RENDER_TO_TARGET feature, which can be queried with <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#ada5ed8255aa4fec1ce42ec85257e91ac" title="Queries the features of the driver.">queryFeature()</a>. Please note that you cannot render 3D or 2D geometry with a render target as texture on it when you are rendering the scene into this render target at the same time. It is usually only possible to render into a texture between the <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#ac0bab8eb0c21dfbda28ad34452978618" title="Applications must call this method before performing any rendering.">IVideoDriver::beginScene()</a> and <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#aa30f501b89aa01b830cc00f66517984f" title="Presents the rendered image to the screen.">endScene()</a> method calls. If you need the best performance use this method instead of setRenderTarget. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">target</td><td>Render target object. </td></tr>
     <tr><td class="paramname">clearFlag</td><td>A combination of the E_CLEAR_BUFFER_FLAG bit-flags. </td></tr>
@@ -5629,8 +5629,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="ab610f5307d4d47c6c24e2ac678438e7a" name="ab610f5307d4d47c6c24e2ac678438e7a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab610f5307d4d47c6c24e2ac678438e7a">&#9670;&#160;</a></span>setViewPort()</h2>
+<a id="a9b93219ee4fda69e37ebea01405c7d7d" name="a9b93219ee4fda69e37ebea01405c7d7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b93219ee4fda69e37ebea01405c7d7d">&#9670;&#160;</a></span>setViewPort()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -5641,7 +5641,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">virtual void dcpp::video::IVideoDriver::setViewPort </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> &amp;&#160;</td>
           <td class="paramname"><em>area</em></td><td>)</td>
           <td></td>
         </tr>

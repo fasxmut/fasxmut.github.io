@@ -99,7 +99,7 @@ var namespacedcpp =
       [ "ETIE_MOVED", "namespacedcpp.html#af0110623fb9056db00b0f9e213b91a62ae08a4c41cb36e9624a51205b111441c3", null ],
       [ "ETIE_COUNT", "namespacedcpp.html#af0110623fb9056db00b0f9e213b91a62a35340dad842cfedc6c2aba5ad48c52c8", null ]
     ] ],
-    [ "createDevice", "namespacedcpp.html#a559d0bc4da1521afaa0978943491af28", null ],
+    [ "createDevice", "namespacedcpp.html#ad9475ccd3a9519525332e3d1d940bffd", null ],
     [ "createDeviceEx", "namespacedcpp.html#ae27275c6a92cf7f08b437db43dc5098e", null ],
     [ "getProfiler", "namespacedcpp.html#aff98c1938e9c8a06d9af9dd7493fb5eb", null ]
 ];

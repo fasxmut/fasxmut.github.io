@@ -1,9 +1,7 @@
 <map id="dcpp::video::ITexture" name="dcpp::video::ITexture">
-<area shape="rect" id="Node000001" title="Interface of a Video Driver dependent Texture." alt="" coords="321,55,479,80"/>
+<area shape="rect" id="Node000001" title="Interface of a Video Driver dependent Texture." alt="" coords="118,93,275,119"/>
 <area shape="rect" id="Node000002" href="$classdcpp_1_1IReferenceCounted.html" title="Base class of most objects of the Duckcpp Engine." alt="" coords="5,5,191,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,30,298,45,337,52,336,57,297,50,204,35"/>
-<area shape="rect" id="Node000003" href="$classdcpp_1_1io_1_1SNamedPath.html" title="Used in places where we identify objects by a filename, but don&#39;t actually work with the real filenam..." alt="" coords="16,55,180,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="194,65,321,65,321,70,194,70"/>
-<area shape="rect" id="Node000004" href="$classdcpp_1_1nub_1_1dimension2d.html" title=" " alt="" coords="9,107,187,147"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="200,116,297,99,366,78,368,83,298,105,200,121"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,38,185,91,181,95,120,42"/>
+<area shape="rect" id="Node000003" href="$classdcpp_1_1io_1_1SNamedPath.html" title="Used in places where we identify objects by a filename, but don&#39;t actually work with the real filenam..." alt="" coords="215,5,379,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="274,42,212,95,209,91,271,38"/>
 </map>

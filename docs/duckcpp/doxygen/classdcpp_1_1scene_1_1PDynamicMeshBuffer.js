@@ -5,7 +5,7 @@ var classdcpp_1_1scene_1_1PDynamicMeshBuffer =
     [ "append", "classdcpp_1_1scene_1_1PDynamicMeshBuffer.html#aade2686fc4239b25e0d33bb09b89fb7d", null ],
     [ "append", "classdcpp_1_1scene_1_1PDynamicMeshBuffer.html#ac3cf61b2356851fa970ad9b460f67efa", null ],
     [ "createClone", "classdcpp_1_1scene_1_1PDynamicMeshBuffer.html#a48cf319dfca3cca03607d4918ea189f6", null ],
-    [ "getBoundingBox", "classdcpp_1_1scene_1_1PDynamicMeshBuffer.html#a9a2184a7864c881d6ae0cd4c39b95b00", null ],
+    [ "getBoundingBox", "classdcpp_1_1scene_1_1PDynamicMeshBuffer.html#a261aa2632df7bc8a67d31b34e3fdec20", null ],
     [ "getMaterial", "classdcpp_1_1scene_1_1PDynamicMeshBuffer.html#a143f2955d9a8f33a5e2ba882c90c3000", null ],
     [ "getMaterial", "classdcpp_1_1scene_1_1PDynamicMeshBuffer.html#a2af747439a5719a13221a0f58332b49c", null ],
     [ "getPrimitiveType", "classdcpp_1_1scene_1_1PDynamicMeshBuffer.html#a5a0a36536f0aa6dfff46c7b5079961a4", null ],

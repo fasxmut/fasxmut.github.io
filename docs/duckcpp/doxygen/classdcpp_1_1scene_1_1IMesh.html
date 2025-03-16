@@ -148,9 +148,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4a0d3d3cfe49e205a5b920f8c91174d8" id="r_a4a0d3d3cfe49e205a5b920f8c91174d8"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdcpp_1_1scene_1_1IMeshBuffer.html">IMeshBuffer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IMesh.html#a4a0d3d3cfe49e205a5b920f8c91174d8">getMeshBuffer</a> (const <a class="el" href="classdcpp_1_1video_1_1SMaterial.html">dcpp::video::SMaterial</a> &amp;material) const =0</td></tr>
 <tr class="memdesc:a4a0d3d3cfe49e205a5b920f8c91174d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get pointer to a mesh buffer which fits a material.  <br /></td></tr>
 <tr class="separator:a4a0d3d3cfe49e205a5b920f8c91174d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb803480f85a65578c7c8b2e5faee6e0" id="r_abb803480f85a65578c7c8b2e5faee6e0"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classdcpp_1_1nub_1_1aabbox3d.html">dcpp::nub::aabbox3d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IMesh.html#abb803480f85a65578c7c8b2e5faee6e0">getBoundingBox</a> () const =0</td></tr>
-<tr class="memdesc:abb803480f85a65578c7c8b2e5faee6e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get an axis aligned bounding box of the mesh.  <br /></td></tr>
-<tr class="separator:abb803480f85a65578c7c8b2e5faee6e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4e39ce8462267115d1bb9259b51357f" id="r_ac4e39ce8462267115d1bb9259b51357f"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="namespacedcpp_1_1nub.html#af9a25c6526e16dcbe178b2ac1dc7494e">dcpp::nub::aabbox3df</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IMesh.html#ac4e39ce8462267115d1bb9259b51357f">getBoundingBox</a> () const =0</td></tr>
+<tr class="memdesc:ac4e39ce8462267115d1bb9259b51357f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get an axis aligned bounding box of the mesh.  <br /></td></tr>
+<tr class="separator:ac4e39ce8462267115d1bb9259b51357f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34724c8be2597db24d149dcfc1ee4f6a" id="r_a34724c8be2597db24d149dcfc1ee4f6a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1IMesh.html#a34724c8be2597db24d149dcfc1ee4f6a">setBoundingBox</a> (const <a class="el" href="namespacedcpp_1_1nub.html#af9a25c6526e16dcbe178b2ac1dc7494e">dcpp::nub::aabbox3df</a> &amp;box)=0</td></tr>
 <tr class="memdesc:a34724c8be2597db24d149dcfc1ee4f6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set user-defined axis aligned bounding box.  <br /></td></tr>
 <tr class="separator:a34724c8be2597db24d149dcfc1ee4f6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -199,8 +199,8 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock"><p>Class which holds the geometry of an object. </p>
 <p>An <a class="el" href="classdcpp_1_1scene_1_1IMesh.html" title="Class which holds the geometry of an object.">IMesh</a> is nothing more than a collection of some mesh buffers (<a class="el" href="classdcpp_1_1scene_1_1IMeshBuffer.html" title="Class for holding a mesh with a single material.">IMeshBuffer</a>). <a class="el" href="classdcpp_1_1scene_1_1SMesh.html" title="Simple implementation of the IMesh interface.">SMesh</a> is a simple implementation of an <a class="el" href="classdcpp_1_1scene_1_1IMesh.html" title="Class which holds the geometry of an object.">IMesh</a>. A mesh is usually added to an <a class="el" href="classdcpp_1_1scene_1_1IMeshSceneNode.html" title="A scene node displaying a static mesh.">IMeshSceneNode</a> in order to be rendered. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="abb803480f85a65578c7c8b2e5faee6e0" name="abb803480f85a65578c7c8b2e5faee6e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb803480f85a65578c7c8b2e5faee6e0">&#9670;&#160;</a></span>getBoundingBox()</h2>
+<a id="ac4e39ce8462267115d1bb9259b51357f" name="ac4e39ce8462267115d1bb9259b51357f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4e39ce8462267115d1bb9259b51357f">&#9670;&#160;</a></span>getBoundingBox()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -209,7 +209,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual const <a class="el" href="classdcpp_1_1nub_1_1aabbox3d.html">dcpp::nub::aabbox3d</a>&lt; <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> &gt; &amp; dcpp::scene::IMesh::getBoundingBox </td>
+          <td class="memname">virtual const <a class="el" href="namespacedcpp_1_1nub.html#af9a25c6526e16dcbe178b2ac1dc7494e">dcpp::nub::aabbox3df</a> &amp; dcpp::scene::IMesh::getBoundingBox </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -225,7 +225,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Get an axis aligned bounding box of the mesh. </p>
 <dl class="section return"><dt>Returns</dt><dd>Bounding box of this mesh. </dd></dl>
 
-<p>Implemented in <a class="el" href="classdcpp_1_1scene_1_1SAnimatedMesh.html#aa550c45b0c0703d0f64d2ff50cd5e94a">dcpp::scene::SAnimatedMesh</a>, and <a class="el" href="classdcpp_1_1scene_1_1SMesh.html#a16b90bff5db8fb83c2bc3f4024639b2c">dcpp::scene::SMesh</a>.</p>
+<p>Implemented in <a class="el" href="classdcpp_1_1scene_1_1SAnimatedMesh.html#a4883d0968f057df78841af9af689b452">dcpp::scene::SAnimatedMesh</a>, and <a class="el" href="classdcpp_1_1scene_1_1SMesh.html#aab1b308469e1aacd83c4b59e5f40170a">dcpp::scene::SMesh</a>.</p>
 
 </div>
 </div>

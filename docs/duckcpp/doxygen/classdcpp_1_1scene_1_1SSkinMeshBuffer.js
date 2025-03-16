@@ -7,7 +7,7 @@ var classdcpp_1_1scene_1_1SSkinMeshBuffer =
     [ "convertTo2TCoords", "classdcpp_1_1scene_1_1SSkinMeshBuffer.html#ab0555e666045d40ab37ea1088e5964b5", null ],
     [ "convertToTangents", "classdcpp_1_1scene_1_1SSkinMeshBuffer.html#a01be4ffde5bd55d455d0b36952ba725e", null ],
     [ "createClone", "classdcpp_1_1scene_1_1SSkinMeshBuffer.html#a269aff5de67c579997897fd702c4ad7b", null ],
-    [ "getBoundingBox", "classdcpp_1_1scene_1_1SSkinMeshBuffer.html#a30ce9f78992ff9b3cac5104f965dea67", null ],
+    [ "getBoundingBox", "classdcpp_1_1scene_1_1SSkinMeshBuffer.html#aaf3c170ebb83cca8291f8d6b3c115bb7", null ],
     [ "getChangedID_Index", "classdcpp_1_1scene_1_1SSkinMeshBuffer.html#a780905030467c3958ef79869a360e635", null ],
     [ "getChangedID_Vertex", "classdcpp_1_1scene_1_1SSkinMeshBuffer.html#a7b809a905a55e1dabe782867f8a05297", null ],
     [ "getColor", "classdcpp_1_1scene_1_1SSkinMeshBuffer.html#a45251df253ddc5b391f02cc46e38ca05", null ],

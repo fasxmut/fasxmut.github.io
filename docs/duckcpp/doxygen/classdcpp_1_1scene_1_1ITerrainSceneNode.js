@@ -1,8 +1,8 @@
 var classdcpp_1_1scene_1_1ITerrainSceneNode =
 [
     [ "ITerrainSceneNode", "classdcpp_1_1scene_1_1ITerrainSceneNode.html#a3d5635a4d764a94a7e00f19b8ffbe250", null ],
-    [ "getBoundingBox", "classdcpp_1_1scene_1_1ITerrainSceneNode.html#a1c6f9df5f3d71544d33f0ab943af3f1b", null ],
-    [ "getBoundingBox", "classdcpp_1_1scene_1_1ITerrainSceneNode.html#a6f172f75be0adec27dc4038fa7216b43", null ],
+    [ "getBoundingBox", "classdcpp_1_1scene_1_1ITerrainSceneNode.html#ae32f5b43892945683810de5de0b9b9b0", null ],
+    [ "getBoundingBox", "classdcpp_1_1scene_1_1ITerrainSceneNode.html#a62c0eed2eebf5cd7858954349053854c", null ],
     [ "getCurrentLODOfPatches", "classdcpp_1_1scene_1_1ITerrainSceneNode.html#a65a7df21ac55b4ec29509f35b48b4114", null ],
     [ "getHeight", "classdcpp_1_1scene_1_1ITerrainSceneNode.html#a0cd93c8c672a2cdd9de386d666532392", null ],
     [ "getIndexCount", "classdcpp_1_1scene_1_1ITerrainSceneNode.html#a8bbcb75ce5d567621727d893ec1aac81", null ],

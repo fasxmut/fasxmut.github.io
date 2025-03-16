@@ -125,10 +125,10 @@ Collaboration diagram for dcpp::gui::IGUISpriteBank:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a73a7845d8e44061fb831c315d1fe640f" id="r_a73a7845d8e44061fb831c315d1fe640f"><td class="memItemLeft" align="right" valign="top"><a id="a73a7845d8e44061fb831c315d1fe640f" name="a73a7845d8e44061fb831c315d1fe640f"></a>
-virtual <a class="el" href="classdcpp_1_1nub_1_1array.html">dcpp::nub::array</a>&lt; <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getPositions</b> ()=0</td></tr>
-<tr class="memdesc:a73a7845d8e44061fb831c315d1fe640f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the list of rectangles held by the sprite bank. <br /></td></tr>
-<tr class="separator:a73a7845d8e44061fb831c315d1fe640f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5a1cb90a37cd8baf6cab6e2deec7ae0" id="r_ab5a1cb90a37cd8baf6cab6e2deec7ae0"><td class="memItemLeft" align="right" valign="top"><a id="ab5a1cb90a37cd8baf6cab6e2deec7ae0" name="ab5a1cb90a37cd8baf6cab6e2deec7ae0"></a>
+virtual <a class="el" href="classdcpp_1_1nub_1_1array.html">dcpp::nub::array</a>&lt; <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getPositions</b> ()=0</td></tr>
+<tr class="memdesc:ab5a1cb90a37cd8baf6cab6e2deec7ae0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the list of rectangles held by the sprite bank. <br /></td></tr>
+<tr class="separator:ab5a1cb90a37cd8baf6cab6e2deec7ae0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6c9faa95ca073167b6b65afd29f9ad5" id="r_ac6c9faa95ca073167b6b65afd29f9ad5"><td class="memItemLeft" align="right" valign="top"><a id="ac6c9faa95ca073167b6b65afd29f9ad5" name="ac6c9faa95ca073167b6b65afd29f9ad5"></a>
 virtual <a class="el" href="classdcpp_1_1nub_1_1array.html">dcpp::nub::array</a>&lt; <a class="el" href="classdcpp_1_1gui_1_1SGUISprite.html">SGUISprite</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getSprites</b> ()=0</td></tr>
 <tr class="memdesc:ac6c9faa95ca073167b6b65afd29f9ad5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the array of animated sprites within the sprite bank. <br /></td></tr>
@@ -156,16 +156,16 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setTexture</b
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> ()=0</td></tr>
 <tr class="memdesc:a10ab60df62d23316ff8c4a865570b13c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears sprites, rectangles and textures. <br /></td></tr>
 <tr class="separator:a10ab60df62d23316ff8c4a865570b13c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f7a9f326405858fa0be79a2ca8537b4" id="r_a7f7a9f326405858fa0be79a2ca8537b4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1gui_1_1IGUISpriteBank.html#a7f7a9f326405858fa0be79a2ca8537b4">draw2DSprite</a> (<a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> index, const <a class="el" href="namespacedcpp_1_1nub.html#a28021dd2953876aa9b4b4c66aace0756">dcpp::nub::position2di</a> &amp;pos, const <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; *clip=0, const <a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a> &amp;color=<a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a>(255, 255, 255, 255), <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> starttime=0, <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> currenttime=0, bool loop=true, bool center=false)=0</td></tr>
-<tr class="memdesc:a7f7a9f326405858fa0be79a2ca8537b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a sprite in 2d with position and color.  <br /></td></tr>
-<tr class="separator:a7f7a9f326405858fa0be79a2ca8537b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89e8ceae75c343640908acfb51d5bf2f" id="r_a89e8ceae75c343640908acfb51d5bf2f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1gui_1_1IGUISpriteBank.html#a89e8ceae75c343640908acfb51d5bf2f">draw2DSprite</a> (<a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> index, const <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &amp;destRect, const <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; *clip=0, const <a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a> *const colors=0, <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> timeTicks=0, bool loop=true)=0</td></tr>
-<tr class="memdesc:a89e8ceae75c343640908acfb51d5bf2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a sprite in 2d with destination rectangle and colors.  <br /></td></tr>
-<tr class="separator:a89e8ceae75c343640908acfb51d5bf2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a131c48559eda0daa0689944abf9df362" id="r_a131c48559eda0daa0689944abf9df362"><td class="memItemLeft" align="right" valign="top"><a id="a131c48559eda0daa0689944abf9df362" name="a131c48559eda0daa0689944abf9df362"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>draw2DSpriteBatch</b> (const <a class="el" href="classdcpp_1_1nub_1_1array.html">dcpp::nub::array</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp;indices, const <a class="el" href="classdcpp_1_1nub_1_1array.html">dcpp::nub::array</a>&lt; <a class="el" href="namespacedcpp_1_1nub.html#a28021dd2953876aa9b4b4c66aace0756">dcpp::nub::position2di</a> &gt; &amp;pos, const <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; *clip=0, const <a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a> &amp;color=<a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a>(255, 255, 255, 255), <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> starttime=0, <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> currenttime=0, bool loop=true, bool center=false)=0</td></tr>
-<tr class="memdesc:a131c48559eda0daa0689944abf9df362"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a sprite batch in 2d using an array of positions and a color. <br /></td></tr>
-<tr class="separator:a131c48559eda0daa0689944abf9df362"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a061f31a93892c400492dbf17a01f7704" id="r_a061f31a93892c400492dbf17a01f7704"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1gui_1_1IGUISpriteBank.html#a061f31a93892c400492dbf17a01f7704">draw2DSprite</a> (<a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> index, const <a class="el" href="namespacedcpp_1_1nub.html#a28021dd2953876aa9b4b4c66aace0756">dcpp::nub::position2di</a> &amp;pos, const <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> *clip=0, const <a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a> &amp;color=<a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a>(255, 255, 255, 255), <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> starttime=0, <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> currenttime=0, bool loop=true, bool center=false)=0</td></tr>
+<tr class="memdesc:a061f31a93892c400492dbf17a01f7704"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a sprite in 2d with position and color.  <br /></td></tr>
+<tr class="separator:a061f31a93892c400492dbf17a01f7704"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef82b6ee69122f7f4e31fc819c14650a" id="r_aef82b6ee69122f7f4e31fc819c14650a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1gui_1_1IGUISpriteBank.html#aef82b6ee69122f7f4e31fc819c14650a">draw2DSprite</a> (<a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> index, const <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> &amp;destRect, const <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> *clip=0, const <a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a> *const colors=0, <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> timeTicks=0, bool loop=true)=0</td></tr>
+<tr class="memdesc:aef82b6ee69122f7f4e31fc819c14650a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a sprite in 2d with destination rectangle and colors.  <br /></td></tr>
+<tr class="separator:aef82b6ee69122f7f4e31fc819c14650a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a04b5c96a04aeacd804a0ad66a005ac" id="r_a8a04b5c96a04aeacd804a0ad66a005ac"><td class="memItemLeft" align="right" valign="top"><a id="a8a04b5c96a04aeacd804a0ad66a005ac" name="a8a04b5c96a04aeacd804a0ad66a005ac"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>draw2DSpriteBatch</b> (const <a class="el" href="classdcpp_1_1nub_1_1array.html">dcpp::nub::array</a>&lt; <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> &gt; &amp;indices, const <a class="el" href="classdcpp_1_1nub_1_1array.html">dcpp::nub::array</a>&lt; <a class="el" href="namespacedcpp_1_1nub.html#a28021dd2953876aa9b4b4c66aace0756">dcpp::nub::position2di</a> &gt; &amp;pos, const <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> *clip=0, const <a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a> &amp;color=<a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a>(255, 255, 255, 255), <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> starttime=0, <a class="el" href="namespacedcpp.html#a912c88731e6a39387d877830a2684fed">dcpp::uint32_kt</a> currenttime=0, bool loop=true, bool center=false)=0</td></tr>
+<tr class="memdesc:a8a04b5c96a04aeacd804a0ad66a005ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a sprite batch in 2d using an array of positions and a color. <br /></td></tr>
+<tr class="separator:a8a04b5c96a04aeacd804a0ad66a005ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classdcpp_1_1IReferenceCounted"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classdcpp_1_1IReferenceCounted')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classdcpp_1_1IReferenceCounted.html">dcpp::IReferenceCounted</a></td></tr>
 <tr class="memitem:a6aa4e18369165d6b993c69d15835757b inherit pub_methods_classdcpp_1_1IReferenceCounted" id="r_a6aa4e18369165d6b993c69d15835757b"><td class="memItemLeft" align="right" valign="top">
 &#160;</td><td class="memItemRight" valign="bottom"><b>IReferenceCounted</b> ()</td></tr>
@@ -228,8 +228,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a7f7a9f326405858fa0be79a2ca8537b4" name="a7f7a9f326405858fa0be79a2ca8537b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f7a9f326405858fa0be79a2ca8537b4">&#9670;&#160;</a></span>draw2DSprite() <span class="overload">[1/2]</span></h2>
+<a id="a061f31a93892c400492dbf17a01f7704" name="a061f31a93892c400492dbf17a01f7704"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a061f31a93892c400492dbf17a01f7704">&#9670;&#160;</a></span>draw2DSprite() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -252,7 +252,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; *&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> *&#160;</td>
           <td class="paramname"><em>clip</em> = <code>0</code>, </td>
         </tr>
         <tr>
@@ -315,8 +315,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a89e8ceae75c343640908acfb51d5bf2f" name="a89e8ceae75c343640908acfb51d5bf2f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a89e8ceae75c343640908acfb51d5bf2f">&#9670;&#160;</a></span>draw2DSprite() <span class="overload">[2/2]</span></h2>
+<a id="aef82b6ee69122f7f4e31fc819c14650a" name="aef82b6ee69122f7f4e31fc819c14650a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef82b6ee69122f7f4e31fc819c14650a">&#9670;&#160;</a></span>draw2DSprite() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -333,13 +333,13 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> &amp;&#160;</td>
           <td class="paramname"><em>destRect</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classdcpp_1_1nub_1_1rect.html">dcpp::nub::rect</a>&lt; <a class="el" href="namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d">dcpp::int32_kt</a> &gt; *&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> *&#160;</td>
           <td class="paramname"><em>clip</em> = <code>0</code>, </td>
         </tr>
         <tr>

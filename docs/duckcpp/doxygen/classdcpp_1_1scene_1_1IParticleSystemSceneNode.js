@@ -25,5 +25,5 @@ var classdcpp_1_1scene_1_1IParticleSystemSceneNode =
     [ "setEmitter", "classdcpp_1_1scene_1_1IParticleSystemSceneNode.html#aac698dde28796a42dc8c45e2bf3722f5", null ],
     [ "setParticleBehavior", "classdcpp_1_1scene_1_1IParticleSystemSceneNode.html#a3ee594c39bf9449dac71e07c28618516", null ],
     [ "setParticlesAreGlobal", "classdcpp_1_1scene_1_1IParticleSystemSceneNode.html#a3b7d28b0d03c1955da351258ffecbd93", null ],
-    [ "setParticleSize", "classdcpp_1_1scene_1_1IParticleSystemSceneNode.html#afb365a7ab69061067f05d9c62f4746f1", null ]
+    [ "setParticleSize", "classdcpp_1_1scene_1_1IParticleSystemSceneNode.html#a184b3a5a58e20aca05cc99163a83f189", null ]
 ];

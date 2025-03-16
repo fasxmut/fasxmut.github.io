@@ -1,12 +1,7 @@
 <map id="dcpp::video::S3DVertexTangents" name="dcpp::video::S3DVertexTangents">
-<area shape="rect" id="Node000001" title="Vertex with a tangent and binormal vector." alt="" coords="21,201,252,227"/>
-<area shape="rect" id="Node000002" href="$classdcpp_1_1video_1_1S3DVertex.html" title="standard vertex used by the Duckcpp engine." alt="" coords="173,125,346,150"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="230,160,157,203,154,199,227,155"/>
-<area shape="rect" id="Node000003" href="$classdcpp_1_1nub_1_1vector3d.html" title=" " alt="" coords="5,5,161,45"/>
-<area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="85,59,88,103,99,151,113,178,129,199,124,203,108,181,94,153,83,104,80,59"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="126,50,242,122,239,127,124,55"/>
-<area shape="rect" id="Node000004" href="$classdcpp_1_1video_1_1SColor.html" title="Class representing a 32 bit ARGB color." alt="" coords="186,13,333,38"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="262,52,262,124,257,124,257,52"/>
-<area shape="rect" id="Node000005" href="$classdcpp_1_1nub_1_1vector2d.html" title=" " alt="" coords="357,5,513,45"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="395,55,279,127,276,122,392,50"/>
+<area shape="rect" id="Node000001" title="Vertex with a tangent and binormal vector." alt="" coords="5,168,236,193"/>
+<area shape="rect" id="Node000002" href="$classdcpp_1_1video_1_1S3DVertex.html" title="standard vertex used by the Duckcpp engine." alt="" coords="34,93,207,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,133,123,168,118,168,118,133"/>
+<area shape="rect" id="Node000003" href="$classdcpp_1_1video_1_1SColor.html" title="Class representing a 32 bit ARGB color." alt="" coords="47,5,194,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="123,45,123,93,118,93,118,45"/>
 </map>
