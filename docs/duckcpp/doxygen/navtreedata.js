@@ -85,7 +85,7 @@ var NAVTREEINDEX =
 "functions_rela.html",
 "namespacedcpp_1_1gui.html#a932cd189260460ddf84958dee63fcdf2a64835748733f7459dd8db2cf0e20cbe2",
 "namespacedcpp_1_1nub.html#a67fa11c85b341718b636fec82af7be59",
-"namespacedcpp_1_1scene.html#aa027d0247f4a61c100b7a290671872f4a1106ea34ad73d7a61b204cc283a90a2c",
+"namespacedcpp_1_1scene.html#aa027d0247f4a61c100b7a290671872f4a04b707d391ca42f8ab9a97afe49c1559",
 "namespacedcpp_1_1video.html#a851f5561154d3d9bbe393e3d0d33a2c8adf9ce3f82b91b994108c4681085f2f16"
 ];
 

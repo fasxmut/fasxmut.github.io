@@ -107,9 +107,9 @@ var namespacedcpp_1_1scene =
     [ "SViewFrustum", "classdcpp_1_1scene_1_1SViewFrustum.html", "classdcpp_1_1scene_1_1SViewFrustum" ],
     [ "ISceneNodeAnimatorList", "namespacedcpp_1_1scene.html#a771e0626427eb8987d70bc14f427e8ef", null ],
     [ "ISceneNodeList", "namespacedcpp_1_1scene.html#acfef5b6f38f468a3df7fdb1b9b59298d", null ],
-    [ "SMeshBuffer", "namespacedcpp_1_1scene.html#a8eae23079ee84105cc2cb174faf7ec5e", null ],
-    [ "SMeshBufferLightMap", "namespacedcpp_1_1scene.html#acec7b64f6b381aba9854736fdc133798", null ],
-    [ "SMeshBufferTangents", "namespacedcpp_1_1scene.html#a448b18e0598d2001bfb7141e14283581", null ],
+    [ "SMeshBuffer", "namespacedcpp_1_1scene.html#a46d95727b884e1721cc8b582fef9c763", null ],
+    [ "SMeshBufferLightMap", "namespacedcpp_1_1scene.html#a0bfb1eceff02a5df8013520702a66193", null ],
+    [ "SMeshBufferTangents", "namespacedcpp_1_1scene.html#a3fb68bd5719d7062a9f0dfe60276a2e2", null ],
     [ "E_ANIMATED_MESH_TYPE", "namespacedcpp_1_1scene.html#a44aa0049e1bc0871311c4b96b58d7d68", [
       [ "EAMT_UNKNOWN", "namespacedcpp_1_1scene.html#a44aa0049e1bc0871311c4b96b58d7d68ac7ce8b04c45b06572988160e8ba7611e", null ],
       [ "EAMT_MD2", "namespacedcpp_1_1scene.html#a44aa0049e1bc0871311c4b96b58d7d68a15ca171cdb28611cda155f8789319e6f", null ],
