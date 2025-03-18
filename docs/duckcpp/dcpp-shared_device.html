@@ -1,0 +1,101 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>dcpp::shared_device</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Duckcpp Engine">
+<link rel="up" href="smart-pointer.html" title="Duckcpp Smart Pointer Layer">
+<link rel="prev" href="smart-pointer.html" title="Duckcpp Smart Pointer Layer">
+<link rel="next" href="class-dcpp-shared_device.html" title="class: dcpp::shared_device">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="smart-pointer.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="smart-pointer.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="class-dcpp-shared_device.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="dcpp-shared_device"></a>dcpp::shared_device</h2></div></div>
+<hr>
+</div>
+<div class="toc">
+<p><b>Table of Contents</b></p>
+<dl class="toc">
+<dt><span class="article"><a href="class-dcpp-shared_device.html">class: dcpp::shared_device</a></span></dt>
+<dt><span class="article"><a href="constructors-dcpp-shared_device.html">constructors: dcpp::shared_device</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-get.html">method: shared_device.get()</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-use_count.html">method: shared_device.use_count()</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-destroy.html">method: shared_device.destroy()</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-video.html">method: shared_device.video()</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-scene.html">method: shared_device.scene()</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-fs.html">method: shared_device.fs()</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-gui.html">method: shared_device.gui()</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-cursor.html">method: shared_device.cursor()</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-fit_cursor.html">method: shared_device.fit_cursor()</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-timer.html">method: shared_device.timer()</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-logger.html">method: shared_device.logger()</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-version.html">method: shared_device.version()</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-osop.html">method: shared_device.osop()</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-randomizer.html">method: shared_device.randomizer</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-create_default_randomizer.html">method: shared_device.create_default_randomizer()</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-context.html">method: shared_device.context()</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-run.html">method: shared_device.run()</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-close.html">method: shared_device.close()</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-yield.html">method: shared_device.yield()</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-sleep.html">method: shared_device.sleep(...)</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-caption.html">method: shared_device.caption(...)</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-color_format.html">method: shared_device.color_format()</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-mode_list.html">method: shared_device.mode_list()</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-receiver.html">method: shared_device.receiver</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-post_user_event.html">method: shared_device.post_user_event(...)</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-receiving_scene.html">method: shared_device.receiving_scene(...)</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-resize.html">method: shared_device.resize(...)</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-resizable.html">method: shared_device.resizable(...)</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-fullscreen.html">method: shared_device.fullscreen()</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-window_active.html">method: shared_device.window_active()</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-window_focused.html">method: shared_device.window_focused()</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-window_minimized.html">method: shared_device.window_minimized()</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-minimize_window.html">method: shared_device.minimize_window()</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-maximize_window.html">method: shared_device.maximize_window()</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-restore_window.html">method: shared_device.restore_window()</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-window_position.html">method: shared_device.window_position()</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-activate_joysticks.html">method: shared_device.activate_joysticks(...)</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-gamma_ramp.html">method: shared_device.gamma_ramp</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-double_click_time.html">method: shared_device.double_click_time</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-clear_system_messages.html">method: shared_device.clear_system_messages()</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-type.html">method: shared_device.type()</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-driver_supported.html">method: shared_device.driver_supported(...)</a></span></dt>
+<dt><span class="article"><a href="method-shared_device-tuple.html">method: shared_device.tuple()</a></span></dt>
+</dl>
+</div>
+<h2>
+<a name="dcpp-shared_device.h0"></a>
+        <span class="phrase"><a name="dcpp-shared_device.back"></a></span><a class="link" href="dcpp-shared_device.html#dcpp-shared_device.back"><span class="cyan">Back</span></a>
+      </h2>
+<p>
+        <a class="link" href="smart-pointer.html" title="Duckcpp Smart Pointer Layer">Up</a>
+      </p>
+<h2>
+<a name="dcpp-shared_device.h1"></a>
+        <span class="phrase"><a name="dcpp-shared_device.cpp"></a></span><a class="link" href="dcpp-shared_device.html#dcpp-shared_device.cpp"><span class="cyan">c++</span></a>
+      </h2>
+<p>
+        <a href="." target="_top">Duckcpp</a>
+      </p>
+<p>
+        <a href=".." target="_top">cppfx.xyz</a>
+      </p>
+</div>
+<div class="copyright-footer">Copyright © 2023, 2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="smart-pointer.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="smart-pointer.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="class-dcpp-shared_device.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

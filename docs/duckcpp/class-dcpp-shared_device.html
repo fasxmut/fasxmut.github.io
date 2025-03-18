@@ -1,0 +1,136 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>class: dcpp::shared_device</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Duckcpp Engine">
+<link rel="up" href="dcpp-shared_device.html" title="dcpp::shared_device">
+<link rel="prev" href="dcpp-shared_device.html" title="dcpp::shared_device">
+<link rel="next" href="constructors-dcpp-shared_device.html" title="constructors: dcpp::shared_device">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="dcpp-shared_device.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="dcpp-shared_device.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="constructors-dcpp-shared_device.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="class-dcpp-shared_device"></a>class: dcpp::shared_device</h2></div></div>
+<hr>
+</div>
+<p>
+          dcpp::shared_device is a class of duckcpp. The dcpp::shared_device object
+          holds underlying dcpp::DuckcppDevice pointer and a reference-counter. When
+          another object of dcpp::shared_device is bound to the existed object of
+          dcpp::shared_device, they share the same underlying dcpp::DuckcppDevice
+          pointer and the same reference counter, and their reference-counter is
+          increased by one. It will handle exception.
+        </p>
+<h3>
+<a name="class-dcpp-shared_device.h0"></a>
+          <span class="phrase"><a name="class-dcpp-shared_device.important-notice"></a></span><a class="link" href="class-dcpp-shared_device.html#class-dcpp-shared_device.important-notice">Important
+          Notice</a>
+        </h3>
+<h4>
+<a name="class-dcpp-shared_device.h1"></a>
+          <span class="phrase"><a name="class-dcpp-shared_device.what_dcpp_shared_device_does"></a></span><a class="link" href="class-dcpp-shared_device.html#class-dcpp-shared_device.what_dcpp_shared_device_does">What dcpp::shared_device
+          does:</a>
+        </h4>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+              Share device, make an internal reference counter.
+            </li>
+<li class="listitem">
+              Propagate methods of dcpp::DuckcppDevice to dcpp::shared_device.
+            </li>
+<li class="listitem">
+              Throw exception when error occurs.
+            </li>
+</ul></div>
+<h4>
+<a name="class-dcpp-shared_device.h2"></a>
+          <span class="phrase"><a name="class-dcpp-shared_device.what_reference_counter_counts"></a></span><a class="link" href="class-dcpp-shared_device.html#class-dcpp-shared_device.what_reference_counter_counts">What reference
+          counter counts:</a>
+        </h4>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+              Reference counter is used to count how many objects are using the same
+              shared underlying valid device, not to count how many objects are hooked
+              together.
+            </li></ul></div>
+<p>
+          For example:
+        </p>
+<p>
+          4 objects are hooked together to use same underlying device,<br> but
+          the device is removed,<br> so all of the 4 objects' reference counter
+          is zero.
+        </p>
+<h4>
+<a name="class-dcpp-shared_device.h3"></a>
+          <span class="phrase"><a name="class-dcpp-shared_device.differs_from_dcpp_ireferencecoun"></a></span><a class="link" href="class-dcpp-shared_device.html#class-dcpp-shared_device.differs_from_dcpp_ireferencecoun">Differs
+          from dcpp::IReferenceCounted</a>
+        </h4>
+<p>
+          dcpp::shared_device has different purpose with dcpp::IReferenceCounted.
+        </p>
+<p>
+          dcpp::IReferenceCounted is used as base class by many classes of duckcpp
+          core layer, which is written and forked from irrlicht. All objects of those
+          classes must be created and referenced as pointer. Without careful management,
+          those pointers are very easy to crash program. The referenced objects can
+          be dereferenced by calling "object-&gt;drop()". They are still
+          very important parts of the engine, and will keep in the codebase.
+        </p>
+<p>
+          dcpp::shared_device is a class not designed for using as pointer. The words
+          "shared" and "reference counter" mean it shares the
+          underlying held "dcpp::DuckcppDevice *" pointer and counts how
+          many objects shared the same "dcpp::DuckcppDevice *" pointer,
+          not the dcpp::shared_device object itself. When one of the shared objects
+          of dcpp::shared_device is hitting to its end point of lifetime, the reference
+          counter will be counted down by one. If the underlying device (aka, the
+          "dcpp::DuckcppDevice *" pointer) is destroyed at some point,
+          it will be detected and the reference counter of all shared objects of
+          dcpp::shared_device is reset to zero, although those objects are still
+          valid.
+        </p>
+<h4>
+<a name="class-dcpp-shared_device.h4"></a>
+          <span class="phrase"><a name="class-dcpp-shared_device.not_pointer"></a></span><a class="link" href="class-dcpp-shared_device.html#class-dcpp-shared_device.not_pointer">Not
+          Pointer</a>
+        </h4>
+<p>
+          dcpp::shared_device is not designed for using as pointer, it can be constructed
+          directly.
+        </p>
+<h2>
+<a name="class-dcpp-shared_device.h5"></a>
+          <span class="phrase"><a name="class-dcpp-shared_device.back"></a></span><a class="link" href="class-dcpp-shared_device.html#class-dcpp-shared_device.back"><span class="cyan">Back</span></a>
+        </h2>
+<p>
+          <a class="link" href="dcpp-shared_device.html" title="dcpp::shared_device">Up</a>
+        </p>
+<h2>
+<a name="class-dcpp-shared_device.h6"></a>
+          <span class="phrase"><a name="class-dcpp-shared_device.cpp"></a></span><a class="link" href="class-dcpp-shared_device.html#class-dcpp-shared_device.cpp"><span class="cyan">c++</span></a>
+        </h2>
+<p>
+          <a href="." target="_top">Duckcpp</a>
+        </p>
+<p>
+          <a href=".." target="_top">cppfx.xyz</a>
+        </p>
+</div>
+<div class="copyright-footer">Copyright © 2023, 2024 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="dcpp-shared_device.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="dcpp-shared_device.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="constructors-dcpp-shared_device.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
