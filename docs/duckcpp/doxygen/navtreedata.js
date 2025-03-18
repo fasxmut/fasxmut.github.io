@@ -80,13 +80,13 @@ var NAVTREEINDEX =
 "classdcpp_1_1scene_1_1SMesh.html#abcd5359c9b213ebe2dcf7dcfe9dc0fb2",
 "classdcpp_1_1scene_1_1SViewFrustum.html#a4e57f96d02962e46e4378803a9ef0ed5",
 "classdcpp_1_1video_1_1IRenderTarget.html#a135cceb9f2503c5bc014f306b0a6f326",
-"classdcpp_1_1video_1_1IVideoDriver.html#ab1d21dacfcaac3c9e77603fa505c9ba5",
-"classdcpp_1_1video_1_1SExposedVideoData_1_1SD3D9.html",
-"functions_v.html",
-"namespacedcpp_1_1gui.html#a932cd189260460ddf84958dee63fcdf2a9e0e23438fd9d10c3f0c0f10ca0b248c",
-"namespacedcpp_1_1nub.html#a763db13edbf2fab4dff9d7df3b7f7d33",
-"namespacedcpp_1_1scene.html#aa121d38e7cc8d8c7617bd7d06a9e0a84a04a44377d584dbd6c3e0b77152901264",
-"namespacedcpp_1_1video.html#a8bd0c0c0754bb8c7ace1f3a400f52f12a53faa5d414328ec343d38ac58bbd3a59"
+"classdcpp_1_1video_1_1IVideoDriver.html#ab162b70bd1710a1345ec5372cdf800bd",
+"classdcpp_1_1video_1_1SColorf.html#add48c27076494c0383aac47d0fe77ddb",
+"functions_rela.html",
+"namespacedcpp_1_1gui.html#a932cd189260460ddf84958dee63fcdf2a64835748733f7459dd8db2cf0e20cbe2",
+"namespacedcpp_1_1nub.html#a67fa11c85b341718b636fec82af7be59",
+"namespacedcpp_1_1scene.html#aa027d0247f4a61c100b7a290671872f4a1106ea34ad73d7a61b204cc283a90a2c",
+"namespacedcpp_1_1video.html#a851f5561154d3d9bbe393e3d0d33a2c8adf9ce3f82b91b994108c4681085f2f16"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

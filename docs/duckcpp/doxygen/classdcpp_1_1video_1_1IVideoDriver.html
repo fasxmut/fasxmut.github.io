@@ -125,16 +125,21 @@ Collaboration diagram for dcpp::video::IVideoDriver:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac0bab8eb0c21dfbda28ad34452978618" id="r_ac0bab8eb0c21dfbda28ad34452978618"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#ac0bab8eb0c21dfbda28ad34452978618">beginScene</a> (<a class="el" href="namespacedcpp.html#a96ad8c99421042319c4f39b34a00812b">dcpp::uint16_kt</a> clearFlag=(<a class="el" href="namespacedcpp.html#a96ad8c99421042319c4f39b34a00812b">dcpp::uint16_kt</a>)(ECBF_COLOR|ECBF_DEPTH), <a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a> clearColor=<a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a>(255, 0, 0, 0), <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> clearDepth=1.f, <a class="el" href="namespacedcpp.html#a4ee5e3a443a073623fd269e105ec79ac">dcpp::uint8_kt</a> clearStencil=0, const <a class="el" href="classdcpp_1_1video_1_1SExposedVideoData.html">dcpp::video::SExposedVideoData</a> &amp;videoData=<a class="el" href="classdcpp_1_1video_1_1SExposedVideoData.html">dcpp::video::SExposedVideoData</a>{}, <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> *sourceRect=0)=0</td></tr>
-<tr class="memdesc:ac0bab8eb0c21dfbda28ad34452978618"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applications must call this method before performing any rendering.  <br /></td></tr>
-<tr class="separator:ac0bab8eb0c21dfbda28ad34452978618"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd47db406da3029d57dfdce281887b58" id="r_abd47db406da3029d57dfdce281887b58"><td class="memItemLeft" align="right" valign="top"><a id="abd47db406da3029d57dfdce281887b58" name="abd47db406da3029d57dfdce281887b58"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>beginScene</b> (bool backBuffer, bool zBuffer, <a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a> color=<a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a>(255, 0, 0, 0), const <a class="el" href="classdcpp_1_1video_1_1SExposedVideoData.html">dcpp::video::SExposedVideoData</a> &amp;videoData=<a class="el" href="classdcpp_1_1video_1_1SExposedVideoData.html">dcpp::video::SExposedVideoData</a>{}, <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> *sourceRect=0)</td></tr>
-<tr class="memdesc:abd47db406da3029d57dfdce281887b58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alternative beginScene implementation. Can't clear stencil buffer, but otherwise identical to other beginScene. <br /></td></tr>
-<tr class="separator:abd47db406da3029d57dfdce281887b58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68857def48284c62d5ad49c492c02106" id="r_a68857def48284c62d5ad49c492c02106"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a68857def48284c62d5ad49c492c02106">beginScene</a> (<a class="el" href="namespacedcpp.html#a96ad8c99421042319c4f39b34a00812b">dcpp::uint16_kt</a> clearFlag=<a class="el" href="namespacedcpp.html#a96ad8c99421042319c4f39b34a00812b">dcpp::uint16_kt</a>{ dcpp::video::ECBF_COLOR|dcpp::video::ECBF_DEPTH }, <a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a> clearColor=<a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a>{255, 0, 0, 0}, <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> clearDepth=1.f, <a class="el" href="namespacedcpp.html#a4ee5e3a443a073623fd269e105ec79ac">dcpp::uint8_kt</a> clearStencil=0, const <a class="el" href="classdcpp_1_1video_1_1SExposedVideoData.html">dcpp::video::SExposedVideoData</a> &amp;videoData=<a class="el" href="classdcpp_1_1video_1_1SExposedVideoData.html">dcpp::video::SExposedVideoData</a>{}, <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> *sourceRect=nullptr)=0</td></tr>
+<tr class="memdesc:a68857def48284c62d5ad49c492c02106"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applications must call this method before performing any rendering.  <br /></td></tr>
+<tr class="separator:a68857def48284c62d5ad49c492c02106"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56d5fd67316e3a499740736ee29fb88b" id="r_a56d5fd67316e3a499740736ee29fb88b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a56d5fd67316e3a499740736ee29fb88b">beginScene</a> (<a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a> color=<a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a>{255, 0, 0, 0}, const <a class="el" href="classdcpp_1_1video_1_1SExposedVideoData.html">dcpp::video::SExposedVideoData</a> &amp;videoData=<a class="el" href="classdcpp_1_1video_1_1SExposedVideoData.html">dcpp::video::SExposedVideoData</a>{}, <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> *sourceRect=nullptr)</td></tr>
+<tr class="memdesc:a56d5fd67316e3a499740736ee29fb88b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alternative beginScene implementation.  <br /></td></tr>
+<tr class="separator:a56d5fd67316e3a499740736ee29fb88b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa30f501b89aa01b830cc00f66517984f" id="r_aa30f501b89aa01b830cc00f66517984f"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#aa30f501b89aa01b830cc00f66517984f">endScene</a> ()=0</td></tr>
 <tr class="memdesc:aa30f501b89aa01b830cc00f66517984f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Presents the rendered image to the screen.  <br /></td></tr>
 <tr class="separator:aa30f501b89aa01b830cc00f66517984f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb33bbe516338b2ad9b99060bb3bd1b7" id="r_afb33bbe516338b2ad9b99060bb3bd1b7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#afb33bbe516338b2ad9b99060bb3bd1b7">swapScenes</a> (<a class="el" href="namespacedcpp.html#a96ad8c99421042319c4f39b34a00812b">dcpp::uint16_kt</a> clearFlag=<a class="el" href="namespacedcpp.html#a96ad8c99421042319c4f39b34a00812b">dcpp::uint16_kt</a>{ dcpp::video::ECBF_COLOR|dcpp::video::ECBF_DEPTH }, <a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a> clearColor=<a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a>{255, 0, 0, 0}, <a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a> clearDepth=1.f, <a class="el" href="namespacedcpp.html#a4ee5e3a443a073623fd269e105ec79ac">dcpp::uint8_kt</a> clearStencil=0, const <a class="el" href="classdcpp_1_1video_1_1SExposedVideoData.html">dcpp::video::SExposedVideoData</a> &amp;videoData=<a class="el" href="classdcpp_1_1video_1_1SExposedVideoData.html">dcpp::video::SExposedVideoData</a>{}, <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> *sourceRect=nullptr)</td></tr>
+<tr class="memdesc:afb33bbe516338b2ad9b99060bb3bd1b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Presents the current rendered image to the screen and start for next rendering.  <br /></td></tr>
+<tr class="separator:afb33bbe516338b2ad9b99060bb3bd1b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab162b70bd1710a1345ec5372cdf800bd" id="r_ab162b70bd1710a1345ec5372cdf800bd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#ab162b70bd1710a1345ec5372cdf800bd">swapScenes</a> (<a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a> color=<a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a>{255, 0, 0, 0}, const <a class="el" href="classdcpp_1_1video_1_1SExposedVideoData.html">dcpp::video::SExposedVideoData</a> &amp;videoData=<a class="el" href="classdcpp_1_1video_1_1SExposedVideoData.html">dcpp::video::SExposedVideoData</a>{}, <a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> *sourceRect=nullptr)</td></tr>
+<tr class="memdesc:ab162b70bd1710a1345ec5372cdf800bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alternative swapScenes(...) method.  <br /></td></tr>
+<tr class="separator:ab162b70bd1710a1345ec5372cdf800bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada5ed8255aa4fec1ce42ec85257e91ac" id="r_ada5ed8255aa4fec1ce42ec85257e91ac"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#ada5ed8255aa4fec1ce42ec85257e91ac">queryFeature</a> (<a class="el" href="namespacedcpp_1_1video.html#a739d59775b7ad0f90959e1d7ca068e1b">E_VIDEO_DRIVER_FEATURE</a> feature) const =0</td></tr>
 <tr class="memdesc:ada5ed8255aa4fec1ce42ec85257e91ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries the features of the driver.  <br /></td></tr>
 <tr class="separator:ada5ed8255aa4fec1ce42ec85257e91ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1158,8 +1163,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="ac0bab8eb0c21dfbda28ad34452978618" name="ac0bab8eb0c21dfbda28ad34452978618"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac0bab8eb0c21dfbda28ad34452978618">&#9670;&#160;</a></span>beginScene()</h2>
+<a id="a68857def48284c62d5ad49c492c02106" name="a68857def48284c62d5ad49c492c02106"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68857def48284c62d5ad49c492c02106">&#9670;&#160;</a></span>beginScene() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1171,13 +1176,13 @@ Additional Inherited Members</h2></td></tr>
           <td class="memname">virtual bool dcpp::video::IVideoDriver::beginScene </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="namespacedcpp.html#a96ad8c99421042319c4f39b34a00812b">dcpp::uint16_kt</a>&#160;</td>
-          <td class="paramname"><em>clearFlag</em> = <code>(<a class="el" href="namespacedcpp.html#a96ad8c99421042319c4f39b34a00812b">dcpp::uint16_kt</a>)(ECBF_COLOR|ECBF_DEPTH)</code>, </td>
+          <td class="paramname"><em>clearFlag</em> = <code><a class="el" href="namespacedcpp.html#a96ad8c99421042319c4f39b34a00812b">dcpp::uint16_kt</a>{&#160;dcpp::video::ECBF_COLOR|dcpp::video::ECBF_DEPTH&#160;}</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a>&#160;</td>
-          <td class="paramname"><em>clearColor</em> = <code><a class="el" href="classdcpp_1_1video_1_1SColor.html">SColor</a>(255,&#160;0,&#160;0,&#160;0)</code>, </td>
+          <td class="paramname"><em>clearColor</em> = <code><a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a>{255,&#160;0,&#160;0,&#160;0}</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1201,7 +1206,7 @@ Additional Inherited Members</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> *&#160;</td>
-          <td class="paramname"><em>sourceRect</em> = <code>0</code>&#160;</td>
+          <td class="paramname"><em>sourceRect</em> = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1232,6 +1237,51 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a id="a56d5fd67316e3a499740736ee29fb88b" name="a56d5fd67316e3a499740736ee29fb88b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56d5fd67316e3a499740736ee29fb88b">&#9670;&#160;</a></span>beginScene() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool dcpp::video::IVideoDriver::beginScene </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a>&#160;</td>
+          <td class="paramname"><em>color</em> = <code><a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a>{255,0,0,0}</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classdcpp_1_1video_1_1SExposedVideoData.html">dcpp::video::SExposedVideoData</a> &amp;&#160;</td>
+          <td class="paramname"><em>videoData</em> = <code><a class="el" href="classdcpp_1_1video_1_1SExposedVideoData.html">dcpp::video::SExposedVideoData</a>{}</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> *&#160;</td>
+          <td class="paramname"><em>sourceRect</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Alternative beginScene implementation. </p>
+<p>Can't clear stencil buffer, but otherwise identical to other beginScene. This method makes color-buffer on, depth-buffer on, and stencil-buffer off. </p>
+
+</div>
+</div>
 <a id="ac84bf2136c6dda8ebe8e883cb385bbcb" name="ac84bf2136c6dda8ebe8e883cb385bbcb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac84bf2136c6dda8ebe8e883cb385bbcb">&#9670;&#160;</a></span>checkDriverReset()</h2>
 
@@ -1256,7 +1306,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Check if the driver was recently reset. </p>
-<p>For d3d devices you will need to recreate the RTTs if the driver was reset. Should be queried right after <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#ac0bab8eb0c21dfbda28ad34452978618" title="Applications must call this method before performing any rendering.">beginScene()</a>. </p>
+<p>For d3d devices you will need to recreate the RTTs if the driver was reset. Should be queried right after <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a68857def48284c62d5ad49c492c02106" title="Applications must call this method before performing any rendering.">beginScene()</a>. </p>
 
 </div>
 </div>
@@ -1284,7 +1334,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Clears the ZBuffer. </p>
-<p>Note that you usually need not to call this method, as it is automatically done in <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#ac0bab8eb0c21dfbda28ad34452978618" title="Applications must call this method before performing any rendering.">IVideoDriver::beginScene()</a> or <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a9961e87b95a6868e4c386db3605961a7" title="Sets a new render target.">IVideoDriver::setRenderTarget()</a> if you enable zBuffer. But if you have to render some special things, you can clear the zbuffer during the rendering process with this method any time. </p>
+<p>Note that you usually need not to call this method, as it is automatically done in <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a68857def48284c62d5ad49c492c02106" title="Applications must call this method before performing any rendering.">IVideoDriver::beginScene()</a> or <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a9961e87b95a6868e4c386db3605961a7" title="Sets a new render target.">IVideoDriver::setRenderTarget()</a> if you enable zBuffer. But if you have to render some special things, you can clear the zbuffer during the rendering process with this method any time. </p>
 
 </div>
 </div>
@@ -5458,7 +5508,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="line">driver-&gt;setRenderTarget(0); <span class="comment">// set previous render target</span></div>
 <div class="ttc" id="aclassdcpp_1_1nub_1_1aabbox3d_html"><div class="ttname"><a href="classdcpp_1_1nub_1_1aabbox3d.html">dcpp::nub::aabbox3d</a></div><div class="ttdoc">Axis aligned bounding box in 3d dimensional space.</div><div class="ttdef"><b>Definition</b> aabbox3d.hpp:22</div></div>
 <div class="ttc" id="aclassdcpp_1_1video_1_1ITexture_html"><div class="ttname"><a href="classdcpp_1_1video_1_1ITexture.html">dcpp::video::ITexture</a></div><div class="ttdoc">Interface of a Video Driver dependent Texture.</div><div class="ttdef"><b>Definition</b> ITexture.hpp:186</div></div>
-</div><!-- fragment --><p> Please note that you cannot render 3D or 2D geometry with a render target as texture on it when you are rendering the scene into this render target at the same time. It is usually only possible to render into a texture between the <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#ac0bab8eb0c21dfbda28ad34452978618" title="Applications must call this method before performing any rendering.">IVideoDriver::beginScene()</a> and <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#aa30f501b89aa01b830cc00f66517984f" title="Presents the rendered image to the screen.">endScene()</a> method calls. </p><dl class="params"><dt>Parameters</dt><dd>
+</div><!-- fragment --><p> Please note that you cannot render 3D or 2D geometry with a render target as texture on it when you are rendering the scene into this render target at the same time. It is usually only possible to render into a texture between the <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a68857def48284c62d5ad49c492c02106" title="Applications must call this method before performing any rendering.">IVideoDriver::beginScene()</a> and <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#aa30f501b89aa01b830cc00f66517984f" title="Presents the rendered image to the screen.">endScene()</a> method calls. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">texture</td><td>New render target. Must be a texture created with <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a8d0cc288e94ec1c7636da5f361e90c23" title="Adds a new render target texture to the texture cache.">IVideoDriver::addRenderTargetTexture()</a>. If set to 0, it sets the previous render target which was set before the last <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a9961e87b95a6868e4c386db3605961a7" title="Sets a new render target.">setRenderTarget()</a> call. </td></tr>
     <tr><td class="paramname">clearFlag</td><td>A combination of the E_CLEAR_BUFFER_FLAG bit-flags. </td></tr>
@@ -5525,7 +5575,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Set a render target. </p>
-<p>This will only work if the driver supports the EVDF_RENDER_TO_TARGET feature, which can be queried with <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#ada5ed8255aa4fec1ce42ec85257e91ac" title="Queries the features of the driver.">queryFeature()</a>. Please note that you cannot render 3D or 2D geometry with a render target as texture on it when you are rendering the scene into this render target at the same time. It is usually only possible to render into a texture between the <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#ac0bab8eb0c21dfbda28ad34452978618" title="Applications must call this method before performing any rendering.">IVideoDriver::beginScene()</a> and <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#aa30f501b89aa01b830cc00f66517984f" title="Presents the rendered image to the screen.">endScene()</a> method calls. If you need the best performance use this method instead of setRenderTarget. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>This will only work if the driver supports the EVDF_RENDER_TO_TARGET feature, which can be queried with <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#ada5ed8255aa4fec1ce42ec85257e91ac" title="Queries the features of the driver.">queryFeature()</a>. Please note that you cannot render 3D or 2D geometry with a render target as texture on it when you are rendering the scene into this render target at the same time. It is usually only possible to render into a texture between the <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#a68857def48284c62d5ad49c492c02106" title="Applications must call this method before performing any rendering.">IVideoDriver::beginScene()</a> and <a class="el" href="classdcpp_1_1video_1_1IVideoDriver.html#aa30f501b89aa01b830cc00f66517984f" title="Presents the rendered image to the screen.">endScene()</a> method calls. If you need the best performance use this method instead of setRenderTarget. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">target</td><td>Render target object. </td></tr>
     <tr><td class="paramname">clearFlag</td><td>A combination of the E_CLEAR_BUFFER_FLAG bit-flags. </td></tr>
@@ -5712,6 +5762,125 @@ Additional Inherited Members</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="afb33bbe516338b2ad9b99060bb3bd1b7" name="afb33bbe516338b2ad9b99060bb3bd1b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb33bbe516338b2ad9b99060bb3bd1b7">&#9670;&#160;</a></span>swapScenes() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool dcpp::video::IVideoDriver::swapScenes </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacedcpp.html#a96ad8c99421042319c4f39b34a00812b">dcpp::uint16_kt</a>&#160;</td>
+          <td class="paramname"><em>clearFlag</em> = <code><a class="el" href="namespacedcpp.html#a96ad8c99421042319c4f39b34a00812b">dcpp::uint16_kt</a>{&#160;dcpp::video::ECBF_COLOR&#160;|&#160;dcpp::video::ECBF_DEPTH&#160;}</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a>&#160;</td>
+          <td class="paramname"><em>clearColor</em> = <code><a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a>{255,0,0,0}</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacedcpp.html#a93cc7c2898084f21ecea75013793af08">dcpp::float32_kt</a>&#160;</td>
+          <td class="paramname"><em>clearDepth</em> = <code>1.f</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacedcpp.html#a4ee5e3a443a073623fd269e105ec79ac">dcpp::uint8_kt</a>&#160;</td>
+          <td class="paramname"><em>clearStencil</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classdcpp_1_1video_1_1SExposedVideoData.html">dcpp::video::SExposedVideoData</a> &amp;&#160;</td>
+          <td class="paramname"><em>videoData</em> = <code><a class="el" href="classdcpp_1_1video_1_1SExposedVideoData.html">dcpp::video::SExposedVideoData</a>{}</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> *&#160;</td>
+          <td class="paramname"><em>sourceRect</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Presents the current rendered image to the screen and start for next rendering. </p>
+<p>This method is identical to calling "this-&gt;endScene() &amp;&amp; this-&gt;beginScene(...);" . </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">clearFlag</td><td>A combination of the E_CLEAR_BUFFER_FLAG bit-flags. </td></tr>
+    <tr><td class="paramname">clearColor</td><td>The clear color for the color buffer. </td></tr>
+    <tr><td class="paramname">clearDepth</td><td>The clear value for the depth buffer. </td></tr>
+    <tr><td class="paramname">clearStencil</td><td>The clear value for the stencil buffer. </td></tr>
+    <tr><td class="paramname">videoData</td><td>Handle of another window, if you want the bitmap to be displayed on another window. If this is an empty element, everything will be displayed in the default window. Note: This feature is not fully implemented for all devices. </td></tr>
+    <tr><td class="paramname">sourceRect</td><td>Pointer to a rectangle defining the source rectangle of the area to be presented. Set to null to present everything. Note: not implemented in all devices. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Return true if succeeded; Return false if failed. </dd></dl>
+
+</div>
+</div>
+<a id="ab162b70bd1710a1345ec5372cdf800bd" name="ab162b70bd1710a1345ec5372cdf800bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab162b70bd1710a1345ec5372cdf800bd">&#9670;&#160;</a></span>swapScenes() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool dcpp::video::IVideoDriver::swapScenes </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a>&#160;</td>
+          <td class="paramname"><em>color</em> = <code><a class="el" href="classdcpp_1_1video_1_1SColor.html">dcpp::video::SColor</a>{255,0,0,0}</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classdcpp_1_1video_1_1SExposedVideoData.html">dcpp::video::SExposedVideoData</a> &amp;&#160;</td>
+          <td class="paramname"><em>videoData</em> = <code><a class="el" href="classdcpp_1_1video_1_1SExposedVideoData.html">dcpp::video::SExposedVideoData</a>{}</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacedcpp_1_1nub.html#afcaede2b84ce77c7a3d29cf78e482eeb">dcpp::nub::recti</a> *&#160;</td>
+          <td class="paramname"><em>sourceRect</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Alternative swapScenes(...) method. </p>
+<p>Presents the current rendered image to the screen and start for next rendering. This method is identical to calling "this-&gt;endScene() &amp;&amp; this-&gt;beginScene(...);" . This method makes color-buffer on, depth-buffer on, and stencil-buffer off. </p><dl class="section return"><dt>Returns</dt><dd>Return true if succeeded; Return false if failed. </dd></dl>
 
 </div>
 </div>

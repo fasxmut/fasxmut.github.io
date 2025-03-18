@@ -18,8 +18,14 @@ dcpp-float32_kt.html
 dcpp-float64_kt.html
 dcpp-char_kt.html
 dcpp-nub.html
+dcpp-nub-string-category.html
 dcpp-nub-string.html
 dcpp-nub-wstring.html
 dcpp-nub-basic_string.html
+dcpp-video.html
+dcpp-video-IVideoDriver.html
+video_driver-beginScene.html
+video_driver-endScene.html
+video_driver-swapScenes.html
 smart-pointer.html
 backends.html
