@@ -39,8 +39,8 @@
             <span class="bold"><strong>Calling Sig - overloading 1:</strong></span>
           </p>
 <pre class="programlisting"><span class="identifier">video_driver</span><span class="special">-&gt;</span><span class="identifier">beginScene</span><span class="special">(</span>
-	<span class="identifier">clear_flag</span> <span class="special">=</span> <span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">uint16_kt</span><span class="special">{</span><span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">video</span><span class="special">::</span><span class="identifier">ECBF_COLOR</span><span class="special">|</span><span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">video</span><span class="special">::</span><span class="identifier">ECBF_DEPTH</span><span class="special">},</span>
-	<span class="identifier">clear_color</span> <span class="special">=</span> <span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">video</span><span class="special">::</span><span class="identifier">SColor</span><span class="special">{</span><span class="number">255</span><span class="special">,</span> <span class="number">0</span><span class="special">,</span> <span class="number">0</span><span class="special">,</span> <span class="number">0</span><span class="special">},</span>
+	<span class="identifier">clear_flag</span><span class="special">,</span>
+	<span class="identifier">clear_color</span><span class="special">,</span>
 	<span class="identifier">clear_depth</span> <span class="special">=</span> <span class="number">1.0f</span><span class="special">,</span>
 	<span class="identifier">clear_stencil</span> <span class="special">=</span> <span class="number">0</span><span class="special">,</span>
 	<span class="identifier">video_data</span> <span class="special">=</span> <span class="special">{},</span>
@@ -51,7 +51,13 @@
             This is the full parameter version of overloading.
           </p>
 <p>
-            All parameters have default values.
+            Some parameters have default values.
+          </p>
+<p>
+            clear_flag: dcpp::video::ECBF_COLOR | dcpp::video::ECBF_DEPTH | dcpp::video::ECBF_STENCIL
+          </p>
+<p>
+            Set them by the bitwise-or op.
           </p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
