@@ -51,6 +51,10 @@
               The new created object of dcpp::shared_device: reference to the moved
               underlying device, reference counter is set to one.
             </li>
+<li class="listitem">
+              If other__ has invalid underlying device or other__'s reference counter
+              is zero, the new created object's reference counter keeps zero.
+            </li>
 </ul></div>
 <h2>
 <a name="Rvalue-copy-constructor-dcpp-shared_device.h1"></a>
@@ -70,7 +74,7 @@
           <a href=".." target="_top">cppfx.xyz</a>
         </p>
 </div>
-<div class="copyright-footer">Copyright © 2023, 2024 Fas Xmut<p>
+<div class="copyright-footer">Copyright © 2023-2025 Fas Xmut<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
       </p>
