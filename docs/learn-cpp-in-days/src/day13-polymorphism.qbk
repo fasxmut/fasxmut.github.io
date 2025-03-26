@@ -181,14 +181,6 @@ call_echo_2(&bb_obj);
 
 Write a complete inheritance polymorphism c++ program that can be compiled, use both reference and pointer to do the polymorphism response action. Check, modify and compile the code by yourself.
 
-You can also send your exercise code to the discord server to let others check for you. If you send this exercise code to discord server, the following rules must be followed:
-[br]
-(Discord server can be found on the foot of this page)
-
-* [*Only the header iostream is included for this program, do not include or use other libraries.]
-* [*Use std::cout to print message.]
-* [*Keep code short, no one like to read a long code just for your exercise.]
-
 [br]
 [br]
 [br]
