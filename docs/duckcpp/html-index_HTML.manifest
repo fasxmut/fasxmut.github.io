@@ -35,6 +35,7 @@ Lvalue-copy-constructor-dcpp-shared_device.html
 Rvalue-copy-constructor-dcpp-shared_device.html
 Lvalue-assignment-dcpp-shared_device-operator.html
 Rvalue-assignment-dcpp-shared_device-operator.html
+method-shared_device-has_device.html
 method-shared_device-get.html
 method-shared_device-use_count.html
 method-shared_device-destroy.html

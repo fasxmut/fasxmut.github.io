@@ -189,7 +189,7 @@ var searchData=
   ['iscompressedformat_186',['isCompressedFormat',['../classdcpp_1_1video_1_1IImage.html#af27bb18f764d7c9dabf40f04007d737b',1,'dcpp::video::IImage']]],
   ['isculled_187',['isCulled',['../classdcpp_1_1scene_1_1ISceneManager.html#a73f0e97a7b219aa9466560db08ab97bd',1,'dcpp::scene::ISceneManager']]],
   ['isdebugdatavisible_188',['isDebugDataVisible',['../classdcpp_1_1scene_1_1ISceneNode.html#a7aa37a15e4c71a43274b7b559a53ce44',1,'dcpp::scene::ISceneNode']]],
-  ['isdebugobject_189',['isdebugobject',['../classdcpp_1_1scene_1_1ISceneNode.html#ab5f867a1f19fb7b6cd5b81d15da7f5d2',1,'dcpp::scene::ISceneNode::isDebugObject() const'],['../classdcpp_1_1scene_1_1ISceneNode.html#adeba949abcf4708ed7232f81fa842a53',1,'dcpp::scene::ISceneNode::IsDebugObject']]],
+  ['isdebugobject_189',['isdebugobject',['../classdcpp_1_1scene_1_1ISceneNode.html#adeba949abcf4708ed7232f81fa842a53',1,'dcpp::scene::ISceneNode::IsDebugObject'],['../classdcpp_1_1scene_1_1ISceneNode.html#ab5f867a1f19fb7b6cd5b81d15da7f5d2',1,'dcpp::scene::ISceneNode::isDebugObject() const']]],
   ['isdepthformat_190',['isDepthFormat',['../classdcpp_1_1video_1_1IImage.html#add58a39512486a27ead6c58023f8d0e2',1,'dcpp::video::IImage']]],
   ['isdigit_191',['isdigit',['../namespacedcpp_1_1nub.html#aa4c7ff825b6540cf8e85378e5bd2ca13',1,'dcpp::nub']]],
   ['isdirectory_192',['isDirectory',['../classdcpp_1_1io_1_1IFileList.html#ad1817ecedae74bf30aa61fd47650888c',1,'dcpp::io::IFileList']]],
