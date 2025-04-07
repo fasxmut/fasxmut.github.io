@@ -229,6 +229,7 @@ var annotated_dup =
       [ "PProfileScope", "classdcpp_1_1PProfileScope.html", "classdcpp_1_1PProfileScope" ],
       [ "SDuckcppCreationParameters", "classdcpp_1_1SDuckcppCreationParameters.html", "classdcpp_1_1SDuckcppCreationParameters" ],
       [ "SEvent", "classdcpp_1_1SEvent.html", "classdcpp_1_1SEvent" ],
+      [ "shared_device", "classdcpp_1_1shared__device.html", "classdcpp_1_1shared__device" ],
       [ "SJoystickInfo", "classdcpp_1_1SJoystickInfo.html", "classdcpp_1_1SJoystickInfo" ],
       [ "SKeyMap", "classdcpp_1_1SKeyMap.html", null ],
       [ "SProfileData", "classdcpp_1_1SProfileData.html", "classdcpp_1_1SProfileData" ]

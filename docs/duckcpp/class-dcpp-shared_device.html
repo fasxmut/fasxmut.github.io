@@ -28,6 +28,8 @@
           pointer and the same reference counter, and their reference-counter is
           increased by one. It will handle exception.
         </p>
+<pre class="programlisting"><span class="keyword">class</span> <span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">shared_device</span><span class="special">;</span>
+</pre>
 <h3>
 <a name="class-dcpp-shared_device.h0"></a>
           <span class="phrase"><a name="class-dcpp-shared_device.important-notice"></a></span><a class="link" href="class-dcpp-shared_device.html#class-dcpp-shared_device.important-notice">Important
@@ -107,13 +109,26 @@
         </p>
 <h2>
 <a name="class-dcpp-shared_device.h5"></a>
+          <span class="phrase"><a name="class-dcpp-shared_device.cpp-example"></a></span><a class="link" href="class-dcpp-shared_device.html#class-dcpp-shared_device.cpp-example"><span class="cyan">c++ example</span></a>
+        </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">duckcpp</span><span class="special">/</span><span class="identifier">shared</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">shared_device</span> <span class="identifier">device</span><span class="special">{</span><span class="number">2560</span><span class="special">,</span> <span class="number">1440</span><span class="special">,</span> <span class="string">"c++"</span><span class="special">};</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Hello, c++!"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="class-dcpp-shared_device.h6"></a>
           <span class="phrase"><a name="class-dcpp-shared_device.back"></a></span><a class="link" href="class-dcpp-shared_device.html#class-dcpp-shared_device.back"><span class="cyan">Back</span></a>
         </h2>
 <p>
           <a class="link" href="dcpp-shared_device.html" title="dcpp::shared_device">Up</a>
         </p>
 <h2>
-<a name="class-dcpp-shared_device.h6"></a>
+<a name="class-dcpp-shared_device.h7"></a>
           <span class="phrase"><a name="class-dcpp-shared_device.cpp"></a></span><a class="link" href="class-dcpp-shared_device.html#class-dcpp-shared_device.cpp"><span class="cyan">c++</span></a>
         </h2>
 <p>

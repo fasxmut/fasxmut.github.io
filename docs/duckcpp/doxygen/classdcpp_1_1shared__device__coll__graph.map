@@ -1,0 +1,7 @@
+<map id="dcpp::shared_device" name="dcpp::shared_device">
+<area shape="rect" id="Node000001" title=" " alt="" coords="21,168,175,193"/>
+<area shape="rect" id="Node000002" href="$classdcpp_1_1DuckcppDevice.html" title="The Duckcpp device. You can create it with createDevice() or createDeviceEx()." alt="" coords="17,80,179,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,119,101,167,95,167,95,119"/>
+<area shape="rect" id="Node000003" href="$classdcpp_1_1IReferenceCounted.html" title="Base class of most objects of the Duckcpp Engine." alt="" coords="5,5,191,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="101,45,101,80,95,80,95,45"/>
+</map>
