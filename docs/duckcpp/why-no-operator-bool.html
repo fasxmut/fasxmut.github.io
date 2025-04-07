@@ -1,0 +1,145 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Why no operator bool</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Duckcpp Engine">
+<link rel="up" href="tips.html" title="Tips">
+<link rel="prev" href="derived-from-it.html" title="Derived From It">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="derived-from-it.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="tips.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="why-no-operator-bool"></a>Why no operator bool</h2></div></div>
+<hr>
+</div>
+<p>
+        Although class <a class="link" href="class-dcpp-shared_device.html" title="class: dcpp::shared_device">dcpp::shared_device</a>
+        is very similar with std::shared_ptr, and it borrows the idea from std::shared_ptr,
+        but it is not std::shared_ptr. <a class="link" href="class-dcpp-shared_device.html" title="class: dcpp::shared_device">dcpp::shared_device</a>
+        is used to manage underlying device pointer, but it is not used for pointer,
+        it is used for object (std::shared_ptr object is object too).
+      </p>
+<p>
+        The std::shared_ptr object can be used as bool checker:
+      </p>
+<pre class="programlisting"><span class="keyword">if</span> <span class="special">(</span><span class="identifier">object</span><span class="special">)</span>
+	<span class="special">...</span>
+</pre>
+<p>
+        And dcpp::shared_device needs to do similar things.
+      </p>
+<p>
+        However, dcpp::shared_device is very different from std::shared_ptr. The
+        device validation check is complicated. Checking underlying device is not
+        just like checking a c++ integral value.
+      </p>
+<p>
+        To distinguish clearly, <span class="bold"><strong>operator bool</strong></span> won't
+        be provided.
+      </p>
+<p>
+        Instead, an explicit method <a class="link" href="method-shared_device-has_device.html" title="method: shared_device.has_device()">.has_device()</a>
+        is provided.
+      </p>
+<h2>
+<a name="why-no-operator-bool.h0"></a>
+        <span class="phrase"><a name="why-no-operator-bool.cpp-example"></a></span><a class="link" href="why-no-operator-bool.html#why-no-operator-bool.cpp-example"><span class="cyan">c++ example</span></a>
+      </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">duckcpp</span><span class="special">/</span><span class="identifier">shared</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">my_space</span>
+<span class="special">{</span>
+
+<span class="keyword">class</span> <span class="identifier">my_application</span>
+<span class="special">{</span>
+<span class="keyword">private</span><span class="special">:</span>
+	<span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">shared_device</span> <span class="identifier">__device</span><span class="special">;</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">my_application</span><span class="special">(</span><span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">shared_device</span> <span class="identifier">device__</span><span class="special">):</span>
+		<span class="identifier">__device</span><span class="special">{</span><span class="identifier">device__</span><span class="special">}</span>
+	<span class="special">{</span>
+		<span class="comment">// Before leaving constructor, the use count is 3.</span>
+	<span class="special">}</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">void</span> <span class="identifier">run</span><span class="special">()</span>
+	<span class="special">{</span>
+		<span class="keyword">if</span> <span class="special">(!</span> <span class="identifier">__device</span><span class="special">.</span><span class="identifier">has_device</span><span class="special">())</span>
+		<span class="special">{</span>
+			<span class="keyword">throw</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">runtime_error</span><span class="special">{</span><span class="string">"ERROR: sorry, no device"</span><span class="special">};</span>
+		<span class="special">}</span>
+		<span class="keyword">while</span> <span class="special">(</span><span class="identifier">__device</span><span class="special">.</span><span class="identifier">run</span><span class="special">())</span>
+		<span class="special">{</span>
+			<span class="keyword">if</span> <span class="special">(!</span> <span class="identifier">__device</span><span class="special">.</span><span class="identifier">window_active</span><span class="special">())</span>
+			<span class="special">{</span>
+				<span class="identifier">__device</span><span class="special">.</span><span class="identifier">yield</span><span class="special">();</span>
+				<span class="keyword">continue</span><span class="special">;</span>
+			<span class="special">}</span>
+			<span class="identifier">__device</span><span class="special">.</span><span class="identifier">scene</span><span class="special">()-&gt;</span><span class="identifier">drawAll</span><span class="special">();</span>
+			<span class="identifier">__device</span><span class="special">.</span><span class="identifier">video</span><span class="special">()-&gt;</span><span class="identifier">swapScenes</span><span class="special">(</span><span class="number">0xff123456</span><span class="special">);</span>
+		<span class="special">}</span>
+	<span class="special">}</span>
+	<span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">int32_kt</span> <span class="identifier">use_count</span><span class="special">()</span>
+	<span class="special">{</span>
+		<span class="keyword">return</span> <span class="identifier">__device</span><span class="special">.</span><span class="identifier">use_count</span><span class="special">();</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+
+<span class="special">}</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="keyword">try</span>
+<span class="special">{</span>
+	<span class="identifier">dcpp</span><span class="special">::</span><span class="identifier">shared_device</span> <span class="identifier">device</span><span class="special">{</span><span class="number">2560</span><span class="special">,</span> <span class="number">1440</span><span class="special">};</span>
+	<span class="identifier">my_space</span><span class="special">::</span><span class="identifier">my_application</span> <span class="identifier">app</span><span class="special">{</span><span class="identifier">device</span><span class="special">};</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Use count: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">device</span><span class="special">.</span><span class="identifier">use_count</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>	<span class="comment">// 2</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Use count: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">app</span><span class="special">.</span><span class="identifier">use_count</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>	<span class="comment">// 2</span>
+	<span class="keyword">if</span> <span class="special">(</span><span class="keyword">false</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="identifier">device</span><span class="special">.</span><span class="identifier">destroy</span><span class="special">();</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Use count: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">device</span><span class="special">.</span><span class="identifier">use_count</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>	<span class="comment">// 0</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Use count: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">app</span><span class="special">.</span><span class="identifier">use_count</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>	<span class="comment">// 0</span>
+	<span class="special">}</span>
+	<span class="comment">// If above block is executed, the following run will throw exception.</span>
+	<span class="identifier">app</span><span class="special">.</span><span class="identifier">run</span><span class="special">();</span>
+	<span class="keyword">return</span> <span class="number">0</span><span class="special">;</span>
+<span class="special">}</span>
+<span class="keyword">catch</span> <span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">exception</span> <span class="special">&amp;</span> <span class="identifier">e</span><span class="special">)</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">e</span><span class="special">.</span><span class="identifier">what</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="keyword">return</span> <span class="number">0</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="why-no-operator-bool.h1"></a>
+        <span class="phrase"><a name="why-no-operator-bool.date"></a></span><a class="link" href="why-no-operator-bool.html#why-no-operator-bool.date"><span class="cyan">Date</span></a>
+      </h2>
+<pre class="programlisting">&gt; date
+Mon Apr  7 09:22:06 AM UTC 2025
+</pre>
+<h2>
+<a name="why-no-operator-bool.h2"></a>
+        <span class="phrase"><a name="why-no-operator-bool.back"></a></span><a class="link" href="why-no-operator-bool.html#why-no-operator-bool.back"><span class="cyan">Back</span></a>
+      </h2>
+<p>
+        <a class="link" href="tips.html" title="Tips">Up: Tips</a>
+      </p>
+</div>
+<div class="copyright-footer">Copyright © 2023-2025 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="derived-from-it.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="tips.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+</body>
+</html>
