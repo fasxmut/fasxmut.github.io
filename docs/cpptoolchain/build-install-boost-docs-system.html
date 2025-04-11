@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Build and Install Boost Docs System</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="c++ Toolchain">
+<link rel="up" href="cpp-docs-system.html" title="c++ Docs System">
+<link rel="prev" href="cpp-docs-system.html" title="c++ Docs System">
+<link rel="next" href="some-utils.html" title="Some Utils">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="cpp-docs-system.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="cpp-docs-system.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="some-utils.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="build-install-boost-docs-system"></a>Build and Install Boost Docs System</h2></div></div>
+<hr>
+</div>
+<p>
+        Install Boost Docs System
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            <a class="link" href="build-install-boost-docs-system.html#build-install-boost-docs-system.requirements">Requirements</a>
+          </li>
+<li class="listitem">
+            <a class="link" href="build-install-boost-docs-system.html#build-install-boost-docs-system.install-docbook-tools">Install
+            docbook tools</a>
+          </li>
+<li class="listitem">
+            <a class="link" href="build-install-boost-docs-system.html#build-install-boost-docs-system.install-boostbook">Install
+            boostbook (from boost)</a>
+          </li>
+<li class="listitem">
+            <a class="link" href="build-install-boost-docs-system.html#build-install-boost-docs-system.install-quickbook">Install
+            quickbook (from boost)</a>
+          </li>
+<li class="listitem">
+            <a class="link" href="build-install-boost-docs-system.html#build-install-boost-docs-system.configure-site-config-jam">Configure
+            /etc/site-config.jam</a>
+          </li>
+</ul></div>
+<h2>
+<a name="build-install-boost-docs-system.h0"></a>
+        <span class="phrase"><a name="build-install-boost-docs-system.requirements"></a></span><a class="link" href="build-install-boost-docs-system.html#build-install-boost-docs-system.requirements"><span class="cyan">Requirements</span></a>
+      </h2>
+<p>
+        To install boost docs system, you need to install b2 build, the tutorial
+        of which can be found at:
+      </p>
+<p>
+        <a class="link" href="build-install-b2-build.html" title="Build and Install B2 Build">Build and Install B2 Build</a>
+      </p>
+<h2>
+<a name="build-install-boost-docs-system.h1"></a>
+        <span class="phrase"><a name="build-install-boost-docs-system.install-docbook-tools"></a></span><a class="link" href="build-install-boost-docs-system.html#build-install-boost-docs-system.install-docbook-tools"><span class="cyan">Install
+        docbook tools</span></a>
+      </h2>
+<h3>
+<a name="build-install-boost-docs-system.h2"></a>
+        <span class="phrase"><a name="build-install-boost-docs-system.install_docbook_xsl_docbook_xml_"></a></span><a class="link" href="build-install-boost-docs-system.html#build-install-boost-docs-system.install_docbook_xsl_docbook_xml_">Install
+        docbook-xsl, docbook-xml, xsltproc</a>
+      </h3>
+<p>
+        xsl is provided by docbook-xsl
+      </p>
+<p>
+        dtd is provided by docbook-xml
+      </p>
+<p>
+        docbook-xsl and docbook-xml are the xsl and dtd 's package names on q4os
+        linux, they might have different package names on different linux distributions,
+        you should find them for yourself.
+      </p>
+<p>
+        docbook-xsl and docbook-xml are most likely already installed on your system.
+        If not, install them.
+      </p>
+<pre class="programlisting">$ su -
+# apt install docbook-xsl docbook-xml xsltproc
+</pre>
+<h3>
+<a name="build-install-boost-docs-system.h3"></a>
+        <span class="phrase"><a name="build-install-boost-docs-system.find_the_role_blue_docbook_xsl_d"></a></span><a class="link" href="build-install-boost-docs-system.html#build-install-boost-docs-system.find_the_role_blue_docbook_xsl_d">Find
+        the <span class="blue">docbook-xsl-dir</span> path</a>
+      </h3>
+<p>
+        The full path of xsl dir must contain <span class="red">common/common.xsl</span>
+        .
+      </p>
+<pre class="programlisting">$ dpkg -L docbook-xsl | ugrep 'common/common.xsl'
+/usr/share/xml/docbook/stylesheet/docbook-xsl/common/common.xsl
+/usr/share/xml/docbook/stylesheet/docbook-xsl/slides/common/common.xsl
+</pre>
+<p>
+        Do not choose the slides one, choose this:
+      </p>
+<p>
+        <span class="red">/usr/share/xml/docbook/stylesheet/docbook-xsl/common/common.xsl</span>
+      </p>
+<p>
+        Now <span class="green">remove</span> the last part <span class="red">/common/common.xsl</span>,
+        we get:
+      </p>
+<p>
+        <span class="red">/usr/share/xml/docbook/stylesheet/docbook-xsl</span>
+      </p>
+<p>
+        We can call it <span class="bold"><strong>docbook-xsl-dir</strong></span> path for
+        b2 build, write it down, it will be used laterly.
+      </p>
+<h3>
+<a name="build-install-boost-docs-system.h4"></a>
+        <span class="phrase"><a name="build-install-boost-docs-system.find_the_role_blue_docbook_dtd_d"></a></span><a class="link" href="build-install-boost-docs-system.html#build-install-boost-docs-system.find_the_role_blue_docbook_dtd_d">Find
+        the <span class="blue">docbook-dtd-dir</span> path</a>
+      </h3>
+<p>
+        The full path of dtd dir must contain <span class="red">docbookx.dtd</span>
+        .
+      </p>
+<pre class="programlisting">$ dpkg -L docbook-xml | ugrep 'docbookx.dtd'
+/usr/share/xml/docbook/schema/dtd/4.0/docbookx.dtd
+/usr/share/xml/docbook/schema/dtd/4.1.2/docbookx.dtd
+/usr/share/xml/docbook/schema/dtd/4.2/docbookx.dtd
+/usr/share/xml/docbook/schema/dtd/4.3/docbookx.dtd
+/usr/share/xml/docbook/schema/dtd/4.4/docbookx.dtd
+/usr/share/xml/docbook/schema/dtd/4.5/docbookx.dtd
+</pre>
+<p>
+        The version <span class="red">4.2</span> is proved working by me, so we
+        choose the path:
+      </p>
+<p>
+        <span class="red">/usr/share/xml/docbook/schema/dtd/4.2/docbookx.dtd</span>
+      </p>
+<p>
+        Now <span class="green">remove</span> the last part <span class="red">/docbookx.dtd</span>
+        from the path, we get:
+      </p>
+<p>
+        <span class="red">/usr/share/xml/docbook/schema/dtd/4.2</span>
+      </p>
+<p>
+        We can call it <span class="bold"><strong>docbook-dtd-dir</strong></span> path for
+        b2 build, write it down, it will be used laterly.
+      </p>
+<h2>
+<a name="build-install-boost-docs-system.h5"></a>
+        <span class="phrase"><a name="build-install-boost-docs-system.install-boostbook"></a></span><a class="link" href="build-install-boost-docs-system.html#build-install-boost-docs-system.install-boostbook"><span class="cyan">Install boostbook (from boost)</span></a>
+      </h2>
+<p>
+        boostbook can be found in boost source code, copy it only: copy it to your
+        operating system's shared location.
+      </p>
+<p>
+        For example, I copy boostbook to <span class="bold"><strong>/sand/share/boostbook</strong></span>
+        and then use <span class="bold"><strong>/sand/share/boostbook</strong></span> as the
+        shared location.
+      </p>
+<pre class="programlisting">$ cd &lt;BOOST-SOURCE-ROOT&gt;/tools
+$ su
+# cp -rf boostbook /sand/share/
+</pre>
+<p>
+        Now <span class="bold"><strong>/sand/share/boostbook</strong></span> is the boostbook
+        location, which will be used laterly.
+      </p>
+<h2>
+<a name="build-install-boost-docs-system.h6"></a>
+        <span class="phrase"><a name="build-install-boost-docs-system.install-quickbook"></a></span><a class="link" href="build-install-boost-docs-system.html#build-install-boost-docs-system.install-quickbook"><span class="cyan">Install quickbook (from boost)</span></a>
+      </h2>
+<p>
+        quickbook must be compiled from the quickbook source code in boost source
+        code, then a binary file quickbook will be generated, we only need that binary
+        file quickbook.
+      </p>
+<pre class="programlisting">$ cd &lt;BOOST-SOURCE-ROOT&gt;/tools/quickbook/build
+$ b2 -q -j7
+</pre>
+<p>
+        Then, quickbook will be generated at &lt;BOOST-SOURCE-ROOT&gt;/dist/bin/quickbook,
+        just copy it to your system bin path.
+      </p>
+<p>
+        For example, I copy it to /sand/bin/quickbook, and my /sand/bin is already
+        added to PATH environment variable.
+      </p>
+<pre class="programlisting">$ cd &lt;BOOST-SOURCE-ROOT&gt;/dist/bin
+$ su
+# cp ./quickbook /sand/bin/
+</pre>
+<p>
+        To check if quickbook and its PATH work, type quickbook to run it:
+      </p>
+<pre class="programlisting">$ quickbook
+</pre>
+<h2>
+<a name="build-install-boost-docs-system.h7"></a>
+        <span class="phrase"><a name="build-install-boost-docs-system.configure-site-config-jam"></a></span><a class="link" href="build-install-boost-docs-system.html#build-install-boost-docs-system.configure-site-config-jam"><span class="cyan">Configure /etc/site-config.jam</span></a>
+      </h2>
+<h3>
+<a name="build-install-boost-docs-system.h8"></a>
+        <span class="phrase"><a name="build-install-boost-docs-system.final_role_blue_etc_site_config_"></a></span><a class="link" href="build-install-boost-docs-system.html#build-install-boost-docs-system.final_role_blue_etc_site_config_">Final
+        <span class="blue">/etc/site-config.jam</span></a>
+      </h3>
+<p>
+        The final configure appending to <span class="blue">/etc/site-config.jam</span>
+        :
+      </p>
+<pre class="programlisting">using quickbook : /sand/bin/quickbook ;
+using boostbook
+	:
+		/usr/share/xml/docbook/stylesheet/docbook-xsl
+	:
+		/usr/share/xml/docbook/schema/dtd/4.2
+	:
+		/sand/share/boostbook
+;
+</pre>
+<p>
+        <span class="bold"><strong>I explain it one by one:</strong></span>
+      </p>
+<h3>
+<a name="build-install-boost-docs-system.h9"></a>
+        <span class="phrase"><a name="build-install-boost-docs-system.quickbook"></a></span><a class="link" href="build-install-boost-docs-system.html#build-install-boost-docs-system.quickbook">quickbook</a>
+      </h3>
+<p>
+        Setup quickbook, the second parameter of "using quickbook" is the
+        quickbook binary path; If its path can be found at commandline, the second
+        parameter can be empty.
+      </p>
+<div class="tip"><table border="0" summary="Tip">
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><img alt="[Tip]" src="images/tip.png"></td>
+<th align="left">Tip</th>
+</tr>
+<tr><td align="left" valign="top">
+<p>
+          B2 build use a <span class="bold"><strong>:</strong></span> to split parameters.
+          For example:
+        </p>
+<pre class="programlisting"><span class="identifier">exe</span> <span class="identifier">prog</span> <span class="special">:</span> <span class="identifier">a</span><span class="special">.</span><span class="identifier">cpp</span> <span class="special">:</span> <span class="special">&lt;</span><span class="identifier">library</span><span class="special">&gt;</span><span class="identifier">b</span> <span class="special">;</span>
+</pre>
+<p>
+          + exe is a rule name;<br> + prog is the first parameter, which is a target;<br>
+          + a.cpp is the second paramter;<br> + &lt;library&gt;b is the third parameter;
+        </p>
+</td></tr>
+</table></div>
+<h3>
+<a name="build-install-boost-docs-system.h10"></a>
+        <span class="phrase"><a name="build-install-boost-docs-system.boostbook"></a></span><a class="link" href="build-install-boost-docs-system.html#build-install-boost-docs-system.boostbook">boostbook</a>
+      </h3>
+<p>
+        Setup boostbook:
+      </p>
+<h4>
+<a name="build-install-boost-docs-system.h11"></a>
+        <span class="phrase"><a name="build-install-boost-docs-system.docbook_xsl_path"></a></span><a class="link" href="build-install-boost-docs-system.html#build-install-boost-docs-system.docbook_xsl_path">docbook
+        xsl path</a>
+      </h4>
+<p>
+        The second parameter of "using boostbook" is the <span class="bold"><strong>docbook-xsl-dir</strong></span>
+        path, we have already got it as described in the beginning of this doc,
+        <span class="bold"><strong>just copy</strong></span> it here.
+      </p>
+<h4>
+<a name="build-install-boost-docs-system.h12"></a>
+        <span class="phrase"><a name="build-install-boost-docs-system.docbook_dtd_path"></a></span><a class="link" href="build-install-boost-docs-system.html#build-install-boost-docs-system.docbook_dtd_path">docbook
+        dtd path</a>
+      </h4>
+<p>
+        The third parameter of "using boostbook" is the <span class="bold"><strong>docbook-dtd-dir</strong></span>
+        path, we have already got it as described in the beginning of this doc,
+        <span class="bold"><strong>just copy</strong></span> it here.
+      </p>
+<h4>
+<a name="build-install-boost-docs-system.h13"></a>
+        <span class="phrase"><a name="build-install-boost-docs-system.boostbook_path"></a></span><a class="link" href="build-install-boost-docs-system.html#build-install-boost-docs-system.boostbook_path">boostbook
+        path</a>
+      </h4>
+<p>
+        The fourth paramter of "using boostbook" is the boostbook path.
+      </p>
+<h2>
+<a name="build-install-boost-docs-system.h14"></a>
+        <span class="phrase"><a name="build-install-boost-docs-system.see-also"></a></span><a class="link" href="build-install-boost-docs-system.html#build-install-boost-docs-system.see-also"><span class="cyan">See Also</span></a>
+      </h2>
+<p>
+        <a class="link" href="build-install-b2-build.html" title="Build and Install B2 Build">Build and Install B2 Build</a>
+      </p>
+<p>
+        <a href="https://www.boost.org" target="_top">Boost Home</a> - Boostbook and quickbook
+        are copyrighted by Boost Software.
+      </p>
+<h2>
+<a name="build-install-boost-docs-system.h15"></a>
+        <span class="phrase"><a name="build-install-boost-docs-system.back"></a></span><a class="link" href="build-install-boost-docs-system.html#build-install-boost-docs-system.back"><span class="cyan">Back</span></a>
+      </h2>
+<p>
+        <a class="link" href="cpp-docs-system.html" title="c++ Docs System">Up</a>
+      </p>
+<h2>
+<a name="build-install-boost-docs-system.h16"></a>
+        <span class="phrase"><a name="build-install-boost-docs-system.deck"></a></span><a class="link" href="build-install-boost-docs-system.html#build-install-boost-docs-system.deck"><span class="cyan">Deck</span></a>
+      </h2>
+<p>
+        <a href="https://cppfx.xyz/cpptoolchain" target="_top">c++ Toolchain</a>
+      </p>
+</div>
+<div class="copyright-footer">Copyright © 2024, 2025 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="cpp-docs-system.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="cpp-docs-system.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="some-utils.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
