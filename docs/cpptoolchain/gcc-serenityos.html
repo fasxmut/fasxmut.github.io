@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>gcc - SerenityOS c++ compiler</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="c++ Toolchain">
+<link rel="up" href="cpp-compilers.html" title="c++ compilers">
+<link rel="prev" href="visualcpp-windows.html" title="Microsoft Visualcpp - Windows c++ compiler">
+<link rel="next" href="gcc-haiku.html" title="gcc - Haiku c++ compiler">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="visualcpp-windows.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="cpp-compilers.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="gcc-haiku.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="gcc-serenityos"></a>gcc - SerenityOS c++ compiler</h2></div></div>
+<hr>
+</div>
+<p>
+        SerenityOS c++ compiler: gcc
+      </p>
+<h2>
+<a name="gcc-serenityos.h0"></a>
+        <span class="phrase"><a name="gcc-serenityos.serenityos-cpp"></a></span><a class="link" href="gcc-serenityos.html#gcc-serenityos.serenityos-cpp"><span class="cyan">SerenityOS c++ compiler</span></a>
+      </h2>
+<p>
+        Install gcc c++ compiler port on serenityos.
+      </p>
+<p>
+        <a href="https://serenityos.org" target="_top"><span class="red">SerenityOS:</span>
+        https://serenityos.org</a>
+      </p>
+<p>
+        <a href="https://gcc.gnu.org" target="_top"><span class="red">GNU c++:</span> https://gcc.gnu.org</a>
+      </p>
+<h2>
+<a name="gcc-serenityos.h1"></a>
+        <span class="phrase"><a name="gcc-serenityos.build-run-serenityos"></a></span><a class="link" href="gcc-serenityos.html#gcc-serenityos.build-run-serenityos"><span class="cyan">Build and Run SerenityOS</span></a>
+      </h2>
+<p>
+        Get serenityos code, build and run it.
+      </p>
+<h2>
+<a name="gcc-serenityos.h2"></a>
+        <span class="phrase"><a name="gcc-serenityos.install-gcc-port"></a></span><a class="link" href="gcc-serenityos.html#gcc-serenityos.install-gcc-port"><span class="cyan">Install gcc port</span></a>
+      </h2>
+<p>
+        Install SerenityOS gcc port.
+      </p>
+<h2>
+<a name="gcc-serenityos.h3"></a>
+        <span class="phrase"><a name="gcc-serenityos.cpp-editor"></a></span><a class="link" href="gcc-serenityos.html#gcc-serenityos.cpp-editor"><span class="cyan">c++ Editor</span></a>
+      </h2>
+<h3>
+<a name="gcc-serenityos.h4"></a>
+        <span class="phrase"><a name="gcc-serenityos.serenityos-text-editor"></a></span><a class="link" href="gcc-serenityos.html#gcc-serenityos.serenityos-text-editor">SerenityOS
+        Text Editor</a>
+      </h3>
+<p>
+        Use SerenityOS Text Editor
+      </p>
+<p>
+        Serenity System has its own text editor, just use it.
+      </p>
+<h3>
+<a name="gcc-serenityos.h5"></a>
+        <span class="phrase"><a name="gcc-serenityos.kakoune"></a></span><a class="link" href="gcc-serenityos.html#gcc-serenityos.kakoune">Kakoune
+        c++ Editor</a>
+      </h3>
+<p>
+        Kakoune is a console c++ code editor.
+      </p>
+<p>
+        <a href="https://kakoune.org" target="_top">https://kakoune.org</a>
+      </p>
+<p>
+        You can install kakoune c++ editor to write c++.
+      </p>
+<p>
+        Install serenityos kakoune port.
+      </p>
+<h2>
+<a name="gcc-serenityos.h6"></a>
+        <span class="phrase"><a name="gcc-serenityos.check"></a></span><a class="link" href="gcc-serenityos.html#gcc-serenityos.check"><span class="cyan">Check</span></a>
+      </h2>
+<p>
+        Check if the c++ compiler works.
+      </p>
+<p>
+        Copy paste the following c++ code, and save as hello.cpp:
+      </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Hello, c++!"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<p>
+        Compile and run the c++ code:
+      </p>
+<pre class="programlisting">g++ hello.cpp -std=c++23 -lgcc_s -o hello
+./hello
+</pre>
+<p>
+        It should output:
+      </p>
+<pre class="programlisting"><span class="identifier">Hello</span><span class="special">,</span> <span class="identifier">c</span><span class="special">++!</span>
+</pre>
+<p>
+        If the serenityos gcc c++ compiler can not compile c++ code, find and repair
+        issues, or ask for help.
+      </p>
+<h2>
+<a name="gcc-serenityos.h7"></a>
+        <span class="phrase"><a name="gcc-serenityos.date"></a></span><a class="link" href="gcc-serenityos.html#gcc-serenityos.date"><span class="cyan">Date</span></a>
+      </h2>
+<p>
+        Feb 17, 2025
+      </p>
+<h2>
+<a name="gcc-serenityos.h8"></a>
+        <span class="phrase"><a name="gcc-serenityos.back"></a></span><a class="link" href="gcc-serenityos.html#gcc-serenityos.back"><span class="cyan">Back</span></a>
+      </h2>
+<p>
+        <a class="link" href="cpp-compilers.html" title="c++ compilers">Up</a>
+      </p>
+<h2>
+<a name="gcc-serenityos.h9"></a>
+        <span class="phrase"><a name="gcc-serenityos.deck"></a></span><a class="link" href="gcc-serenityos.html#gcc-serenityos.deck"><span class="cyan">Deck</span></a>
+      </h2>
+<p>
+        <a href="https://cppfx.xyz/cpptoolchain" target="_top">c++ Toolchain</a>
+      </p>
+<p>
+        <a href="https://cppfx.xyz" target="_top">@cppfx.xyz</a>
+      </p>
+</div>
+<div class="copyright-footer">Copyright © 2024, 2025 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="visualcpp-windows.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="cpp-compilers.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="gcc-haiku.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

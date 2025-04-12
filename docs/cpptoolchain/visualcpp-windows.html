@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Microsoft Visualcpp - Windows c++ compiler</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="c++ Toolchain">
+<link rel="up" href="cpp-compilers.html" title="c++ compilers">
+<link rel="prev" href="cpp-compilers.html" title="c++ compilers">
+<link rel="next" href="gcc-serenityos.html" title="gcc - SerenityOS c++ compiler">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="cpp-compilers.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="cpp-compilers.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="gcc-serenityos.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="visualcpp-windows"></a>Microsoft Visualcpp - Windows c++ compiler</h2></div></div>
+<hr>
+</div>
+<p>
+        Install Visualcpp c++ compiler on windows. Visualcpp is also called msvc,
+        vcpp, visual studio, etc.
+      </p>
+<h2>
+<a name="visualcpp-windows.h0"></a>
+        <span class="phrase"><a name="visualcpp-windows.role_cyan_download"></a></span><a class="link" href="visualcpp-windows.html#visualcpp-windows.role_cyan_download"><span class="cyan">Download</span></a>
+      </h2>
+<p>
+        Find the visualcpp official webpages and download:
+      </p>
+<p>
+        <a href="https://visualstudio.microsoft.com/downloads" target="_top"><span class="red">Microsoft
+        Visualcpp:</span> https://visualstudio.microsoft.com/downloads</a>
+      </p>
+<p>
+        For open-source cases, the community edition is good; <br> For commercial
+        cases, the professional and enterprise editions are good, <br> it is up
+        to you to choose.
+      </p>
+<h2>
+<a name="visualcpp-windows.h1"></a>
+        <span class="phrase"><a name="visualcpp-windows.role_cyan_install"></a></span><a class="link" href="visualcpp-windows.html#visualcpp-windows.role_cyan_install"><span class="cyan">Install</span></a>
+      </h2>
+<p>
+        <span class="green">After downloading the related installer setup.exe, click
+        it,</span> <br> <span class="purple">and follow the installer step-by-step,</span>
+        <br> <span class="red">when it asks the compiler or libraries,</span>
+        <br> <span class="indigo">make sure you choose the c++ desktop version,
+        c++ compiler, etc.</span>
+      </p>
+<h2>
+<a name="visualcpp-windows.h2"></a>
+        <span class="phrase"><a name="visualcpp-windows.role_cyan_check"></a></span><a class="link" href="visualcpp-windows.html#visualcpp-windows.role_cyan_check"><span class="cyan">Check</span></a>
+      </h2>
+<p>
+        When finishing installing, <br> <span class="blue">open the visualcpp
+        IDE,</span> <br> <span class="purple">Create a new project,</span>
+        <br> <span class="green">Select empty c++ project,</span> <br> <span class="red">Add a new item hello.cpp to the source files,</span> <br>
+        <span class="indigo">Make sure hello.cpp is open in IDE,</span> <br>
+        and <span class="blue">copy the following code to hello.cpp:</span>
+      </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Hello, c++!"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<p>
+        <span class="blue">Then click <span class="bold"><strong>Build/Run</strong></span>
+        button to compile and run the c++ code,</span> <br> the button might
+        have a different name, find it by yourself.
+      </p>
+<p>
+        It should open a <span class="bold"><strong>cmd</strong></span> window and show <span class="bold"><strong>Hello, c++!</strong></span>
+      </p>
+<p>
+        <span class="red">If it does not show that message and reports errors,
+        <br> check your installation and configure, solve the installing problems.</span>
+      </p>
+<h2>
+<a name="visualcpp-windows.h3"></a>
+        <span class="phrase"><a name="visualcpp-windows.enable-cpp-latest"></a></span><a class="link" href="visualcpp-windows.html#visualcpp-windows.enable-cpp-latest"><span class="cyan">Enable c++20, c++23, c++latest, etc</span></a>
+      </h2>
+<p>
+        <span class="green">Create a project -&gt; <br> <br> Click <span class="bold"><strong>Project</strong></span> on the menubar -&gt; <br> <br> Click
+        <span class="bold"><strong>Project Properties</strong></span> -&gt; <br> <br> Click
+        <span class="bold"><strong>c++</strong></span> -&gt; <br> <br> Click <span class="bold"><strong>Langauge</strong></span> -&gt; <br> <br> Find the <span class="bold"><strong>c++
+        Language standard</strong></span> -&gt; <br> <br> Select <span class="bold"><strong>Preview,
+        ..., /std:c++latest</strong></span></span>
+      </p>
+<h2>
+<a name="visualcpp-windows.h4"></a>
+        <span class="phrase"><a name="visualcpp-windows.role_cyan_compiler_command_cl_ex"></a></span><a class="link" href="visualcpp-windows.html#visualcpp-windows.role_cyan_compiler_command_cl_ex"><span class="cyan">Compiler command cl.exe</span></a>
+      </h2>
+<p>
+        Microsoft visualcpp c++ compiler can be used as a commandline command on
+        the cmd window too, <br> the cmd is <span class="blue"><span class="bold"><strong>cl.exe</strong></span></span>
+        .
+      </p>
+<p>
+        Copy-paste the above c++ code, save it as <span class="bold"><strong>hello.cpp</strong></span>,
+      </p>
+<p>
+        then open <span class="green"><span class="bold"><strong>"Developer Command
+        Prompt for VS"</strong></span></span> cmd window,
+      </p>
+<p>
+        Run the compiling command:
+      </p>
+<pre class="programlisting"><span class="identifier">cl</span><span class="special">.</span><span class="identifier">exe</span> <span class="identifier">hello</span><span class="special">.</span><span class="identifier">cpp</span> <span class="special">/</span><span class="identifier">std</span><span class="special">:</span><span class="identifier">c</span><span class="special">++</span><span class="identifier">latest</span>
+</pre>
+<p>
+        Also try
+      </p>
+<p>
+        <span class="bold"><strong>/std:c++23</strong></span>
+      </p>
+<p>
+        <span class="bold"><strong>/std:c++20</strong></span>
+      </p>
+<h2>
+<a name="visualcpp-windows.h5"></a>
+        <span class="phrase"><a name="visualcpp-windows.date"></a></span><a class="link" href="visualcpp-windows.html#visualcpp-windows.date"><span class="cyan">Date</span></a>
+      </h2>
+<p>
+        Nov 02, 2024
+      </p>
+<h2>
+<a name="visualcpp-windows.h6"></a>
+        <span class="phrase"><a name="visualcpp-windows.back"></a></span><a class="link" href="visualcpp-windows.html#visualcpp-windows.back"><span class="cyan">Back</span></a>
+      </h2>
+<p>
+        <a class="link" href="cpp-compilers.html" title="c++ compilers">Up</a>
+      </p>
+<h2>
+<a name="visualcpp-windows.h7"></a>
+        <span class="phrase"><a name="visualcpp-windows.deck"></a></span><a class="link" href="visualcpp-windows.html#visualcpp-windows.deck"><span class="cyan">Deck</span></a>
+      </h2>
+<p>
+        <a href="https://cppfx.xyz/cpptoolchain" target="_top">c++ Toolchain</a>
+      </p>
+<p>
+        <a href="https://cppfx.xyz" target="_top">@cppfx.xyz</a>
+      </p>
+</div>
+<div class="copyright-footer">Copyright © 2024, 2025 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="cpp-compilers.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="cpp-compilers.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="gcc-serenityos.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
