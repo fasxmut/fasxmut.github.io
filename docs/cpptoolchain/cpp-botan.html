@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>c++ Botan</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="c++ Toolchain">
+<link rel="up" href="cpp-foundation-libraries.html" title="c++ Foundation Libraries">
+<link rel="prev" href="cpp-boost.html" title="c++ boost">
+<link rel="next" href="cpp-unit-test.html" title="c++ Unit Test">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="cpp-boost.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="cpp-foundation-libraries.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp-unit-test.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="cpp-botan"></a>c++ Botan</h2></div></div>
+<hr>
+</div>
+<p>
+        c++ Botan cryptography libraries, botan TLS.
+      </p>
+<h2>
+<a name="cpp-botan.h0"></a>
+        <span class="phrase"><a name="cpp-botan.build-install-botan"></a></span><a class="link" href="cpp-botan.html#cpp-botan.build-install-botan"><span class="cyan">Build and Install Botan</span></a>
+      </h2>
+<p>
+        <span class="bold"><strong>Get botan</strong></span>
+      </p>
+<p>
+        <a href="https://botan.randombit.net" target="_top">https://botan.randombit.net</a>
+      </p>
+<p>
+        <a href="https://github.com/randombit/botan" target="_top">https://github.com/randombit/botan</a>
+      </p>
+<p>
+        <span class="bold"><strong>Build botan</strong></span>
+      </p>
+<pre class="programlisting"><span class="special">&gt;</span> <span class="identifier">cd</span> <span class="identifier">botan</span>
+<span class="special">&gt;</span> <span class="special">./</span><span class="identifier">configure</span><span class="special">.</span><span class="identifier">py</span> <span class="special">--</span><span class="identifier">with</span><span class="special">-</span><span class="identifier">boost</span> <span class="special">--</span><span class="identifier">prefix</span><span class="special">=/</span><span class="identifier">sand</span>
+<span class="special">&gt;</span> <span class="identifier">make</span> <span class="special">-</span><span class="identifier">j2</span>
+</pre>
+<p>
+        <span class="bold"><strong>Install botan</strong></span>
+      </p>
+<pre class="programlisting"><span class="special">&gt;</span> <span class="identifier">su</span>
+<span class="preprocessor"># make</span> <span class="identifier">install</span>
+</pre>
+<h2>
+<a name="cpp-botan.h1"></a>
+        <span class="phrase"><a name="cpp-botan.use-botan"></a></span><a class="link" href="cpp-botan.html#cpp-botan.use-botan"><span class="cyan">Use Botan</span></a>
+      </h2>
+<p>
+        Botan::BigInt example.
+      </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">botan</span><span class="special">/</span><span class="identifier">bigint</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iomanip</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">Botan</span><span class="special">::</span><span class="identifier">BigInt</span> <span class="identifier">n1</span><span class="special">{</span><span class="string">"0x8ff27ff3f4f93ffff6786f1239ade4"</span><span class="special">};</span>
+	<span class="identifier">Botan</span><span class="special">::</span><span class="identifier">BigInt</span> <span class="identifier">n2</span><span class="special">{</span><span class="string">"0x5ab4cee943253deef82a873af33f6f"</span><span class="special">};</span>
+	<span class="identifier">Botan</span><span class="special">::</span><span class="identifier">BigInt</span> <span class="identifier">n3</span> <span class="special">=</span> <span class="identifier">n1</span> <span class="special">+</span> <span class="identifier">n2</span><span class="special">;</span>
+
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span>
+		<span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">right</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">setw</span><span class="special">(</span><span class="number">40</span><span class="special">)</span>
+		<span class="special">&lt;&lt;</span> <span class="identifier">n1</span><span class="special">.</span><span class="identifier">to_dec_string</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span>
+		<span class="special">&lt;&lt;</span> <span class="string">"+"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span>
+		<span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">right</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">setw</span><span class="special">(</span><span class="number">40</span><span class="special">)</span>
+		<span class="special">&lt;&lt;</span> <span class="identifier">n2</span><span class="special">.</span><span class="identifier">to_dec_string</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span>
+		<span class="special">&lt;&lt;</span> <span class="string">"||"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span>
+		<span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">right</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">setw</span><span class="special">(</span><span class="number">40</span><span class="special">)</span>
+		<span class="special">&lt;&lt;</span> <span class="identifier">n3</span><span class="special">.</span><span class="identifier">to_dec_string</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span>
+	<span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<p>
+        <span class="bold"><strong>Compile It</strong></span>
+      </p>
+<pre class="programlisting"><span class="special">&gt;</span> <span class="identifier">alias</span> <span class="identifier">gpp</span><span class="special">=</span><span class="string">"g++ -std=c++26"</span>
+<span class="special">&gt;</span> <span class="identifier">gpp</span> <span class="identifier">prog</span><span class="special">.</span><span class="identifier">cpp</span> <span class="special">-</span><span class="identifier">o</span> <span class="identifier">prog</span> <span class="special">-</span><span class="identifier">I</span> <span class="special">/</span><span class="identifier">sand</span><span class="special">/</span><span class="identifier">include</span><span class="special">/</span><span class="identifier">botan</span><span class="special">-</span><span class="number">3</span> <span class="special">-</span><span class="identifier">lbotan</span><span class="special">-</span><span class="number">3</span>
+<span class="special">&gt;</span> <span class="special">./</span><span class="identifier">prog</span>
+</pre>
+<p>
+        <span class="bold"><strong>Result:</strong></span>
+      </p>
+<pre class="programlisting">    <span class="number">747416931372215703109324736466365924</span>
+<span class="special">+</span>
+    <span class="number">470973944189450914015995221198978927</span>
+<span class="special">||</span>
+   <span class="number">1218390875561666617125319957665344851</span>
+</pre>
+<h2>
+<a name="cpp-botan.h2"></a>
+        <span class="phrase"><a name="cpp-botan.role_cyan_back"></a></span><a class="link" href="cpp-botan.html#cpp-botan.role_cyan_back"><span class="cyan">Back</span></a>
+      </h2>
+<p>
+        <a class="link" href="cpp-foundation-libraries.html" title="c++ Foundation Libraries">Up</a>
+      </p>
+<h2>
+<a name="cpp-botan.h3"></a>
+        <span class="phrase"><a name="cpp-botan.deck"></a></span><a class="link" href="cpp-botan.html#cpp-botan.deck"><span class="cyan">Deck</span></a>
+      </h2>
+<p>
+        <a href="https://cppfx.xyz/cpptoolchain" target="_top">c++ Toolchain</a>
+      </p>
+<p>
+        <a href="https://cppfx.xyz" target="_top">@cppfx.xyz</a>
+      </p>
+</div>
+<div class="copyright-footer">Copyright © 2024, 2025 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="cpp-boost.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="cpp-foundation-libraries.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp-unit-test.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

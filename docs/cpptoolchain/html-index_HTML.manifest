@@ -3,6 +3,9 @@ cpp-compilers.html
 cpp-build-system.html
 build-install-b2-build.html
 cpp-foundation-libraries.html
+cpp-stl.html
+cpp-boost.html
+cpp-botan.html
 cpp-unit-test.html
 cpp-docs-system.html
 build-install-boost-docs-system.html

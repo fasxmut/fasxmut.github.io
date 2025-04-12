@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>c++ STL</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="c++ Toolchain">
+<link rel="up" href="cpp-foundation-libraries.html" title="c++ Foundation Libraries">
+<link rel="prev" href="cpp-foundation-libraries.html" title="c++ Foundation Libraries">
+<link rel="next" href="cpp-boost.html" title="c++ boost">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="cpp-foundation-libraries.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="cpp-foundation-libraries.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp-boost.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="cpp-stl"></a>c++ STL</h2></div></div>
+<hr>
+</div>
+<h2>
+<a name="cpp-stl.h0"></a>
+        <span class="phrase"><a name="cpp-stl.install-stl"></a></span><a class="link" href="cpp-stl.html#cpp-stl.install-stl"><span class="cyan">Install STL</span></a>
+      </h2>
+<p>
+        c++ STL: standard Template Library is provided by the c++ compiler. After
+        installing a c++ compiler, stl is already ready.
+      </p>
+<h2>
+<a name="cpp-stl.h1"></a>
+        <span class="phrase"><a name="cpp-stl.use-stl"></a></span><a class="link" href="cpp-stl.html#cpp-stl.use-stl"><span class="cyan">Use
+        STL</span></a>
+      </h2>
+<p>
+        Some examples (gcc for example)
+      </p>
+<h3>
+<a name="cpp-stl.h2"></a>
+        <span class="phrase"><a name="cpp-stl.std-vector"></a></span><a class="link" href="cpp-stl.html#cpp-stl.std-vector">std::vector</a>
+      </h3>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">vector</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">float</span><span class="special">&gt;</span> <span class="identifier">vector</span><span class="special">{</span><span class="number">2.3f</span><span class="special">,</span> <span class="number">3.4f</span><span class="special">,</span> <span class="number">1.2f</span><span class="special">};</span>
+<span class="special">}</span>
+</pre>
+<p>
+        <span class="bold"><strong>Compile it:</strong></span>
+      </p>
+<pre class="programlisting">g++ prog.cpp -std=c++26 -o prog
+</pre>
+<h3>
+<a name="cpp-stl.h3"></a>
+        <span class="phrase"><a name="cpp-stl.std-copy"></a></span><a class="link" href="cpp-stl.html#cpp-stl.std-copy">std::copy</a>
+      </h3>
+<p>
+        Copy memory with std::copy
+      </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">algorithm</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">char</span> <span class="identifier">str1</span><span class="special">[]</span> <span class="special">=</span> <span class="string">"Hello, c++!"</span><span class="special">;</span>
+	<span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="identifier">size</span> <span class="special">=</span> <span class="keyword">sizeof</span> <span class="identifier">str1</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">str2</span><span class="special">;</span>
+	<span class="identifier">str2</span><span class="special">.</span><span class="identifier">resize</span><span class="special">(</span><span class="identifier">size</span><span class="special">);</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">copy</span><span class="special">(</span><span class="identifier">str1</span><span class="special">,</span> <span class="identifier">str1</span><span class="special">+</span><span class="identifier">size</span><span class="special">,</span> <span class="identifier">str2</span><span class="special">.</span><span class="identifier">begin</span><span class="special">());</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"str2 is "</span> <span class="special">&lt;&lt;</span> <span class="identifier">str2</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="comment">// str2 is Hello, c++!</span>
+<span class="special">}</span>
+</pre>
+<p>
+        Compile it:
+      </p>
+<pre class="programlisting"><span class="identifier">alias</span> <span class="identifier">gpp</span><span class="special">=</span><span class="string">"g++ -std=c++26"</span>
+<span class="identifier">gpp</span> <span class="identifier">prog</span><span class="special">.</span><span class="identifier">cpp</span> <span class="special">-</span><span class="identifier">o</span> <span class="identifier">prog</span>
+<span class="special">./</span><span class="identifier">prog</span>
+</pre>
+<h3>
+<a name="cpp-stl.h4"></a>
+        <span class="phrase"><a name="cpp-stl.std-fill"></a></span><a class="link" href="cpp-stl.html#cpp-stl.std-fill">std::fill</a>
+      </h3>
+<p>
+        Fill memory with std::fill
+      </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">algorithm</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">char</span> <span class="special">*</span> <span class="identifier">str</span> <span class="special">=</span> <span class="keyword">new</span> <span class="keyword">char</span><span class="special">[</span><span class="number">11</span><span class="special">];</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">fill</span><span class="special">(</span><span class="identifier">str</span><span class="special">,</span> <span class="identifier">str</span><span class="special">+</span><span class="number">10</span><span class="special">,</span> <span class="char">'R'</span><span class="special">);</span>
+	<span class="identifier">str</span><span class="special">[</span><span class="number">10</span><span class="special">]</span> <span class="special">=</span> <span class="char">'\0'</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">str</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="comment">// RRRRRRRRRR</span>
+<span class="special">}</span>
+</pre>
+<p>
+        Compile it:
+      </p>
+<pre class="programlisting"><span class="identifier">alias</span> <span class="identifier">gpp</span><span class="special">=</span><span class="string">"g++ -std=c++26"</span>
+<span class="identifier">gpp</span> <span class="identifier">prog</span><span class="special">.</span><span class="identifier">cpp</span> <span class="special">-</span><span class="identifier">o</span> <span class="identifier">prog</span>
+<span class="special">./</span><span class="identifier">prog</span>
+</pre>
+<h2>
+<a name="cpp-stl.h5"></a>
+        <span class="phrase"><a name="cpp-stl.role_cyan_back"></a></span><a class="link" href="cpp-stl.html#cpp-stl.role_cyan_back"><span class="cyan">Back</span></a>
+      </h2>
+<p>
+        <a class="link" href="cpp-foundation-libraries.html" title="c++ Foundation Libraries">Up</a>
+      </p>
+<h2>
+<a name="cpp-stl.h6"></a>
+        <span class="phrase"><a name="cpp-stl.deck"></a></span><a class="link" href="cpp-stl.html#cpp-stl.deck"><span class="cyan">Deck</span></a>
+      </h2>
+<p>
+        <a href="https://cppfx.xyz/cpptoolchain" target="_top">c++ Toolchain</a>
+      </p>
+<p>
+        <a href="https://cppfx.xyz" target="_top">@cppfx.xyz</a>
+      </p>
+</div>
+<div class="copyright-footer">Copyright © 2024, 2025 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="cpp-foundation-libraries.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="cpp-foundation-libraries.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp-boost.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
