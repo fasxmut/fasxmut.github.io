@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>c++ modules shared library, gcc 16.0 (04-23, 2025)</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="cpp/c++">
+<link rel="up" href="index.html" title="cpp/c++">
+<link rel="prev" href="index.html" title="cpp/c++">
+<link rel="next" href="cpp-cross-thread-exception.html" title="c++ cross-thread exception: std::future">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp-cross-thread-exception.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="cpp-modules-shared-library-gcc16-04-23-2025"></a>c++ modules shared library, gcc 16.0 (04-23, 2025)</h1></div></div>
+<hr>
+</div>
+<h2>
+<a name="cpp-modules-shared-library-gcc16-04-23-2025.h0"></a>
+      <span class="phrase"><a name="cpp-modules-shared-library-gcc16-04-23-2025.prepare"></a></span><a class="link" href="cpp-modules-shared-library-gcc16-04-23-2025.html#cpp-modules-shared-library-gcc16-04-23-2025.prepare"><span class="cyan">Prepare</span></a>
+    </h2>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          How to build latest gcc
+        </li>
+<li class="listitem">
+          How to "import std;" gcc
+        </li>
+</ul></div>
+<p>
+      Read:
+    </p>
+<p>
+      <a class="link" href="gcc-import-std-0304-2025.html" title="gcc import std; c++ modules (03-04, 2025)">gcc import std; c++ modules (03-04,
+      2025)</a>
+    </p>
+<h2>
+<a name="cpp-modules-shared-library-gcc16-04-23-2025.h1"></a>
+      <span class="phrase"><a name="cpp-modules-shared-library-gcc16-04-23-2025.alias-gpp"></a></span><a class="link" href="cpp-modules-shared-library-gcc16-04-23-2025.html#cpp-modules-shared-library-gcc16-04-23-2025.alias-gpp"><span class="cyan">Alias gpp command</span></a>
+    </h2>
+<pre class="programlisting"><span class="bold"><strong>alias <span class="green">gpp</span>="/path/to/g++ -fmodules-ts -std=c++26"</strong></span></pre>
+<h2>
+<a name="cpp-modules-shared-library-gcc16-04-23-2025.h2"></a>
+      <span class="phrase"><a name="cpp-modules-shared-library-gcc16-04-23-2025.cpp-src-01"></a></span><a class="link" href="cpp-modules-shared-library-gcc16-04-23-2025.html#cpp-modules-shared-library-gcc16-04-23-2025.cpp-src-01"><span class="cyan">c++
+      source file: my_class.cpp</span></a>
+    </h2>
+<p>
+      c++ module declaration starts with a keyword <span class="ddblue"><em class="replaceable"><code>export</code></em></span>
+      or <span class="ddblue"><em class="replaceable"><code>module</code></em></span>.
+    </p>
+<p>
+      E.X:
+    </p>
+<p>
+      <span class="dddred">export module module-name;</span>
+    </p>
+<p>
+      Declares a primary module interface unit and export, its name is <em class="replaceable"><code>module-name</code></em>
+      .
+    </p>
+<p>
+      <span class="bold"><strong><span class="ddgreen">my_class.cpp</span></strong></span>
+      :
+    </p>
+<pre class="programlisting"><span class="keyword">export</span> <span class="identifier">module</span> <span class="identifier">my_space</span><span class="special">;</span>
+
+<span class="identifier">import</span> <span class="identifier">std</span><span class="special">;</span>
+
+<span class="keyword">export</span> <span class="keyword">namespace</span> <span class="identifier">my_space</span>
+<span class="special">{</span>
+	<span class="keyword">class</span> <span class="identifier">my_class</span>
+	<span class="special">{</span>
+	<span class="keyword">private</span><span class="special">:</span>
+		<span class="keyword">int</span> <span class="identifier">__x</span><span class="special">;</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">my_class</span><span class="special">():</span>
+			<span class="identifier">__x</span><span class="special">{</span><span class="number">123</span><span class="special">}</span>
+		<span class="special">{</span>
+		<span class="special">}</span>
+		<span class="identifier">my_class</span><span class="special">(</span><span class="keyword">int</span> <span class="identifier">x__</span><span class="special">):</span>
+			<span class="identifier">__x</span><span class="special">{</span><span class="identifier">x__</span><span class="special">}</span>
+		<span class="special">{</span>
+		<span class="special">}</span>
+		<span class="keyword">int</span> <span class="identifier">get</span><span class="special">()</span> <span class="keyword">const</span>
+		<span class="special">{</span>
+			<span class="keyword">return</span> <span class="identifier">__x</span><span class="special">;</span>
+		<span class="special">}</span>
+		<span class="keyword">void</span> <span class="identifier">greeting</span><span class="special">()</span> <span class="keyword">const</span>
+		<span class="special">{</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Cheers, c++!"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="special">};</span>
+<span class="special">}</span>
+</pre>
+<p>
+      Build it to shared library:
+    </p>
+<pre class="programlisting"><span class="identifier">gpp</span> <span class="identifier">my_class</span><span class="special">.</span><span class="identifier">cpp</span> <span class="special">-</span><span class="identifier">c</span> <span class="special">-</span><span class="identifier">shared</span> <span class="special">-</span><span class="identifier">o</span> <span class="identifier">libmy_class</span><span class="special">.</span><span class="identifier">so</span>
+</pre>
+<h2>
+<a name="cpp-modules-shared-library-gcc16-04-23-2025.h3"></a>
+      <span class="phrase"><a name="cpp-modules-shared-library-gcc16-04-23-2025.cpp-src-02"></a></span><a class="link" href="cpp-modules-shared-library-gcc16-04-23-2025.html#cpp-modules-shared-library-gcc16-04-23-2025.cpp-src-02"><span class="cyan">c++
+      source file: main.cpp</span></a>
+    </h2>
+<pre class="programlisting"><span class="identifier">import</span> <span class="identifier">my_space</span><span class="special">;</span>
+<span class="identifier">import</span> <span class="identifier">std</span><span class="special">;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">my_space</span><span class="special">::</span><span class="identifier">my_class</span> <span class="identifier">obj1</span><span class="special">;</span>
+	<span class="identifier">my_space</span><span class="special">::</span><span class="identifier">my_class</span> <span class="identifier">obj2</span><span class="special">{-</span><span class="number">234</span><span class="special">};</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"values:\n"</span> <span class="special">&lt;&lt;</span> <span class="identifier">obj1</span><span class="special">.</span><span class="identifier">get</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="char">'\n'</span> <span class="special">&lt;&lt;</span> <span class="identifier">obj2</span><span class="special">.</span><span class="identifier">get</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="string">"\n"</span><span class="special">;</span>
+	<span class="identifier">obj2</span><span class="special">.</span><span class="identifier">greeting</span><span class="special">();</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<p>
+      Build program:
+    </p>
+<pre class="programlisting"><span class="identifier">gpp</span> <span class="identifier">main</span><span class="special">.</span><span class="identifier">cpp</span> <span class="special">-</span><span class="identifier">L</span><span class="special">./</span> <span class="special">-</span><span class="identifier">lmy_class</span> <span class="special">-</span><span class="identifier">o</span> <span class="identifier">main</span>
+</pre>
+<p>
+      Run program:
+    </p>
+<pre class="programlisting"><span class="special">&gt;</span> <span class="special">./</span><span class="identifier">main</span>
+<span class="identifier">values</span><span class="special">:</span>
+<span class="number">123</span>
+<span class="special">-</span><span class="number">234</span>
+<span class="identifier">Cheers</span><span class="special">,</span> <span class="identifier">c</span><span class="special">++!</span>
+</pre>
+<h2>
+<a name="cpp-modules-shared-library-gcc16-04-23-2025.h4"></a>
+      <span class="phrase"><a name="cpp-modules-shared-library-gcc16-04-23-2025.date"></a></span><a class="link" href="cpp-modules-shared-library-gcc16-04-23-2025.html#cpp-modules-shared-library-gcc16-04-23-2025.date"><span class="cyan">Date</span></a>
+    </h2>
+<p>
+      April 23, 2025
+    </p>
+<h2>
+<a name="cpp-modules-shared-library-gcc16-04-23-2025.h5"></a>
+      <span class="phrase"><a name="cpp-modules-shared-library-gcc16-04-23-2025.back"></a></span><a class="link" href="cpp-modules-shared-library-gcc16-04-23-2025.html#cpp-modules-shared-library-gcc16-04-23-2025.back"><span class="cyan">Back</span></a>
+    </h2>
+<p>
+      <a href="." target="_top">Up</a>
+    </p>
+<h2>
+<a name="cpp-modules-shared-library-gcc16-04-23-2025.h6"></a>
+      <span class="phrase"><a name="cpp-modules-shared-library-gcc16-04-23-2025.cpp-lang"></a></span><a class="link" href="cpp-modules-shared-library-gcc16-04-23-2025.html#cpp-modules-shared-library-gcc16-04-23-2025.cpp-lang"><span class="cyan">cpp/c++</span></a>
+    </h2>
+<p>
+      c++ std::exception:
+    </p>
+<p>
+      std::cout.write(err.data(), err.size());
+    </p>
+<p>
+      std::cout &lt;&lt; std::endl;
+    </p>
+<p>
+      <span class="purple">caught:</span>
+    </p>
+<pre class="programlisting">  ===================================
+  #  The c++ programming language.  #
+  #                                 #
+  #  Join c++                       #
+  #  Deck                           #
+  ===================================
+</pre>
+<p>
+      <a href="https://cppfx.xyz" target="_top">Home: cppfx.xyz</a>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp-cross-thread-exception.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

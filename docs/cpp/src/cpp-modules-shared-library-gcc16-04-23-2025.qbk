@@ -1,0 +1,112 @@
+[article c++ modules shared library, gcc 16.0 (04-23, 2025)
+	[id cpp-modules-shared-library-gcc16-04-23-2025]
+	[quickbook 1.7]
+]
+
+[h1:prepare [role cyan Prepare]]
+
+* How to build latest gcc
+* How to "import std;" gcc
+
+Read:
+
+[link gcc-import-std-0304-2025 gcc import std; c++ modules (03-04, 2025)]
+
+[h1:alias-gpp [role cyan Alias gpp command]]
+
+[pre [* alias [role green gpp]="/path/to/g++ -fmodules-ts -std=c++26"]]
+
+[h1:cpp-src-01 [role cyan c++ source file: my_class.cpp]]
+
+c++ module declaration starts with a keyword [role ddblue [~export]] or [role ddblue [~module]].
+
+E.X:
+
+[role dddred export module module-name;]
+
+Declares a primary module interface unit and export, its name is [~module-name] .
+
+[*[role ddgreen my_class.cpp]] :
+
+[!c++]
+```
+export module my_space;
+
+import std;
+
+export namespace my_space
+{
+	class my_class
+	{
+	private:
+		int __x;
+	public:
+		my_class():
+			__x{123}
+		{
+		}
+		my_class(int x__):
+			__x{x__}
+		{
+		}
+		int get() const
+		{
+			return __x;
+		}
+		void greeting() const
+		{
+			std::cout << "Cheers, c++!" << std::endl;
+		}
+	};
+}
+```
+
+Build it to shared library:
+
+```
+gpp my_class.cpp -c -shared -o libmy_class.so
+```
+
+[h1:cpp-src-02 [role cyan c++ source file: main.cpp]]
+
+[!c++]
+```
+import my_space;
+import std;
+
+int main()
+{
+	my_space::my_class obj1;
+	my_space::my_class obj2{-234};
+	std::cout << "values:\n" << obj1.get() << '\n' << obj2.get() << "\n";
+	obj2.greeting();
+	std::cout << std::endl;
+}
+```
+
+Build program:
+
+```
+gpp main.cpp -L./ -lmy_class -o main
+```
+
+Run program:
+
+```
+> ./main 
+values:
+123
+-234
+Cheers, c++!
+
+```
+
+[h1:date [role cyan Date]]
+
+April 23, 2025
+
+[h1:back [role cyan Back]]
+
+[@. Up]
+
+[include ../../share/foot-links.inc.qbk]
