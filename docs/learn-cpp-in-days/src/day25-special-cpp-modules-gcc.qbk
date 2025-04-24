@@ -61,7 +61,7 @@ The cache [*./gcm.cache] can be removed and you repeat above steps again, it wor
 
 The cache [*./gcm.cache/std.gcm] will be reused for the rest parts of this article conveniently.
 
-[h1:make-a-cpp-module [role cyan Make a c++ module]]
+[h1:make-a-cpp-module [role cyan Next: Make a c++ module]]
 
 [*export declaration:]
 
