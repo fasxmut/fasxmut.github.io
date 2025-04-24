@@ -8,8 +8,10 @@
 * [link day-25-special-cpp-modules-gcc.import-std First: import std;]
 * [link day-25-special-cpp-modules-gcc.make-a-cpp-module Next: Make a c++ module]
 * [link day-25-special-cpp-modules-gcc.modules-shared-library Next: Modules Shared Library]
+* [link day-25-special-cpp-modules-gcc.module-partition Next: Module Partition]
 * [link day-25-special-cpp-modules-gcc.split-definitions Next: Split Definitions for Shared Library]
 * [link day-25-special-cpp-modules-gcc.modules-in-b2-build Next: c++ Modules in B2 Build System]
+* [link day-25-special-cpp-modules-gcc.glossary Last: Glossary]
 
 [*Alias gpp:]
 
@@ -166,6 +168,84 @@ int main()
 get: 234
 ```
 
+[h1:module-partition [role cyan Next: Module Partition]]
+
+A module partition can be imported by module units of the same named module.
+
+In this example, [role ddgreen [*:my_partition]] can be imported by [role ddgreen [*my_module]], it can not be imported by other module.
+
+[*my_cpp_part.cpp] :
+
+[!c++]
+```
+export module my_module:my_partition;
+
+export namespace my_space
+{
+	class my_class_2
+	{
+	public:
+		int get() const
+		{
+			return -112233;
+		}
+	};
+}
+```
+
+[*my_cpp.cpp] :
+
+[!c++]
+```
+export module my_module;
+
+export import :my_partition;
+
+export namespace my_space
+{
+	class my_class
+	{
+	public:
+		int get() const
+		{
+			return 3333;
+		}
+	};
+}
+```
+
+[*main.cpp] :
+
+[!c++]
+```
+import my_module;
+import std;
+
+int main()
+{
+	my_space::my_class obj1;
+	std::cout << "v: " << obj1.get() << std::endl;
+	my_space::my_class_2 obj2;
+	std::cout << "v: " << obj2.get() << std::endl;
+}
+```
+
+[*Compile] :
+
+(compile order is important, my_cpp.cpp depends on my_cpp_part.cpp)
+
+```
+> gpp my_cpp_part.cpp my_cpp.cpp -c -fPIC
+> gpp *.o -shared -o libmy_cpp.so
+> gpp main.cpp -L./ -lmy_cpp -o main
+```
+
+```
+> ./main
+v: 3333
+v: -112233
+```
+
 [h1:split-definitions [role cyan Next: Split Definitions for Shared Library]]
 
 [*my_cpp.cpp] :
@@ -283,6 +363,8 @@ First, generate [*[role ddgreen gcm.cache/std.gcm]] cache in current working dir
 
 The same c++ source files of previous section of this article will used for this project:
 
+([link day-25-special-cpp-modules-gcc.split-definitions Split Definitions for Shared Library])
+
 * my_cpp.cpp
 * my_cpp_src.cpp
 * main.cpp
@@ -323,6 +405,66 @@ Greeting, c++!
 Cheers, c++!
 get: 12345
 Bye, c++!
+```
+
+[h1:glossary [role cyan Last: Glossary]]
+
+[h2:module-declaration Module Declaration]
+
+...
+
+[h2:module-definition Module definition]
+
+...
+
+[h2:export-declaration Export Declaration]
+
+...
+
+[h2:import-declaration Import Declaration]
+
+...
+
+[h2:translation-unit Translation Unit]
+
+...
+
+[h2:module-unit Module Unit]
+
+A module unit is a translation unit which has a module declaration.
+
+[h2:module-partition-unit Module Partition Unit]
+
+A module partition unit is a module unit which is included by a module unit and starts with a colon [*[role red :]] , and is placed after the module name.
+
+[*For example],
+
+```
+export module A:B;
+```
+
+```
+export module A;
+```
+
+* A is a module unit,
+
+* :B is a module partition unit.
+
+[h2:module-name Module Name]
+
+Module name is the name of the module unit, which consists of one or more identifiers separated by dots. Note that module partition unit is also module unit.
+
+[*For example],
+
+```
+// Module name is A
+export module A;
+```
+
+```
+// Module name is A.B.C
+export module A.B.C;
 ```
 
 [h1:date [role cyan Date]]

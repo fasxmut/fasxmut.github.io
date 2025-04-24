@@ -38,12 +38,19 @@
           Modules Shared Library</a>
         </li>
 <li class="listitem">
+          <a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.module-partition">Next: Module
+          Partition</a>
+        </li>
+<li class="listitem">
           <a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.split-definitions">Next:
           Split Definitions for Shared Library</a>
         </li>
 <li class="listitem">
           <a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.modules-in-b2-build">Next:
           c++ Modules in B2 Build System</a>
+        </li>
+<li class="listitem">
+          <a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.glossary">Last: Glossary</a>
         </li>
 </ul></div>
 <p>
@@ -214,6 +221,82 @@
 </pre>
 <h2>
 <a name="day-25-special-cpp-modules-gcc.h3"></a>
+      <span class="phrase"><a name="day-25-special-cpp-modules-gcc.module-partition"></a></span><a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.module-partition"><span class="cyan">Next: Module Partition</span></a>
+    </h2>
+<p>
+      A module partition can be imported by module units of the same named module.
+    </p>
+<p>
+      In this example, <span class="ddgreen"><span class="bold"><strong>:my_partition</strong></span></span>
+      can be imported by <span class="ddgreen"><span class="bold"><strong>my_module</strong></span></span>,
+      it can not be imported by other module.
+    </p>
+<p>
+      <span class="bold"><strong>my_cpp_part.cpp</strong></span> :
+    </p>
+<pre class="programlisting"><span class="keyword">export</span> <span class="identifier">module</span> <span class="identifier">my_module</span><span class="special">:</span><span class="identifier">my_partition</span><span class="special">;</span>
+
+<span class="keyword">export</span> <span class="keyword">namespace</span> <span class="identifier">my_space</span>
+<span class="special">{</span>
+	<span class="keyword">class</span> <span class="identifier">my_class_2</span>
+	<span class="special">{</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="keyword">int</span> <span class="identifier">get</span><span class="special">()</span> <span class="keyword">const</span>
+		<span class="special">{</span>
+			<span class="keyword">return</span> <span class="special">-</span><span class="number">112233</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="special">};</span>
+<span class="special">}</span>
+</pre>
+<p>
+      <span class="bold"><strong>my_cpp.cpp</strong></span> :
+    </p>
+<pre class="programlisting"><span class="keyword">export</span> <span class="identifier">module</span> <span class="identifier">my_module</span><span class="special">;</span>
+
+<span class="keyword">export</span> <span class="identifier">import</span> <span class="special">:</span><span class="identifier">my_partition</span><span class="special">;</span>
+
+<span class="keyword">export</span> <span class="keyword">namespace</span> <span class="identifier">my_space</span>
+<span class="special">{</span>
+	<span class="keyword">class</span> <span class="identifier">my_class</span>
+	<span class="special">{</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="keyword">int</span> <span class="identifier">get</span><span class="special">()</span> <span class="keyword">const</span>
+		<span class="special">{</span>
+			<span class="keyword">return</span> <span class="number">3333</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="special">};</span>
+<span class="special">}</span>
+</pre>
+<p>
+      <span class="bold"><strong>main.cpp</strong></span> :
+    </p>
+<pre class="programlisting"><span class="identifier">import</span> <span class="identifier">my_module</span><span class="special">;</span>
+<span class="identifier">import</span> <span class="identifier">std</span><span class="special">;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">my_space</span><span class="special">::</span><span class="identifier">my_class</span> <span class="identifier">obj1</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"v: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">obj1</span><span class="special">.</span><span class="identifier">get</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="identifier">my_space</span><span class="special">::</span><span class="identifier">my_class_2</span> <span class="identifier">obj2</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"v: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">obj2</span><span class="special">.</span><span class="identifier">get</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<p>
+      <span class="bold"><strong>Compile</strong></span> :
+    </p>
+<p>
+      (compile order is important, my_cpp.cpp depends on my_cpp_part.cpp)
+    </p>
+<pre class="programlisting"><span class="special">&gt;</span> <span class="identifier">gpp</span> <span class="identifier">my_cpp_part</span><span class="special">.</span><span class="identifier">cpp</span> <span class="identifier">my_cpp</span><span class="special">.</span><span class="identifier">cpp</span> <span class="special">-</span><span class="identifier">c</span> <span class="special">-</span><span class="identifier">fPIC</span>
+<span class="special">&gt;</span> <span class="identifier">gpp</span> <span class="special">*.</span><span class="identifier">o</span> <span class="special">-</span><span class="identifier">shared</span> <span class="special">-</span><span class="identifier">o</span> <span class="identifier">libmy_cpp</span><span class="special">.</span><span class="identifier">so</span>
+<span class="special">&gt;</span> <span class="identifier">gpp</span> <span class="identifier">main</span><span class="special">.</span><span class="identifier">cpp</span> <span class="special">-</span><span class="identifier">L</span><span class="special">./</span> <span class="special">-</span><span class="identifier">lmy_cpp</span> <span class="special">-</span><span class="identifier">o</span> <span class="identifier">main</span>
+</pre>
+<pre class="programlisting"><span class="special">&gt;</span> <span class="special">./</span><span class="identifier">main</span>
+<span class="identifier">v</span><span class="special">:</span> <span class="number">3333</span>
+<span class="identifier">v</span><span class="special">:</span> <span class="special">-</span><span class="number">112233</span>
+</pre>
+<h2>
+<a name="day-25-special-cpp-modules-gcc.h4"></a>
       <span class="phrase"><a name="day-25-special-cpp-modules-gcc.split-definitions"></a></span><a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.split-definitions"><span class="cyan">Next: Split Definitions for Shared Library</span></a>
     </h2>
 <p>
@@ -281,7 +364,7 @@
 <span class="identifier">Bye</span><span class="special">,</span> <span class="identifier">c</span><span class="special">++!</span>
 </pre>
 <h3>
-<a name="day-25-special-cpp-modules-gcc.h4"></a>
+<a name="day-25-special-cpp-modules-gcc.h5"></a>
       <span class="phrase"><a name="day-25-special-cpp-modules-gcc.about-module-declaration"></a></span><a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.about-module-declaration">About Module
       Declaration</a>
     </h3>
@@ -306,7 +389,7 @@
 <pre class="programlisting"><span class="identifier">module</span> <span class="identifier">A</span><span class="special">.</span><span class="identifier">B</span><span class="special">;</span>
 </pre>
 <h3>
-<a name="day-25-special-cpp-modules-gcc.h5"></a>
+<a name="day-25-special-cpp-modules-gcc.h6"></a>
       <span class="phrase"><a name="day-25-special-cpp-modules-gcc.constexpr-template"></a></span><a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.constexpr-template">constexpr
       and template</a>
     </h3>
@@ -315,14 +398,14 @@
       and definition module files.
     </p>
 <h2>
-<a name="day-25-special-cpp-modules-gcc.h6"></a>
+<a name="day-25-special-cpp-modules-gcc.h7"></a>
       <span class="phrase"><a name="day-25-special-cpp-modules-gcc.modules-in-b2-build"></a></span><a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.modules-in-b2-build"><span class="cyan">Next: c++ Modules in B2 Build System</span></a>
     </h2>
 <p>
       c++ modules gcc can be used in b2 build by flags settings trick.
     </p>
 <h3>
-<a name="day-25-special-cpp-modules-gcc.h7"></a>
+<a name="day-25-special-cpp-modules-gcc.h8"></a>
       <span class="phrase"><a name="day-25-special-cpp-modules-gcc.first"></a></span><a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.first">First:
       About import std;</a>
     </h3>
@@ -332,13 +415,17 @@
       I am a little lazy of how to make it by a b2 jamfile trick.
     </p>
 <h3>
-<a name="day-25-special-cpp-modules-gcc.h8"></a>
+<a name="day-25-special-cpp-modules-gcc.h9"></a>
       <span class="phrase"><a name="day-25-special-cpp-modules-gcc.cpp-src"></a></span><a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.cpp-src">c++
       source files</a>
     </h3>
 <p>
       The same c++ source files of previous section of this article will used for
       this project:
+    </p>
+<p>
+      (<a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.split-definitions">Split Definitions
+      for Shared Library</a>)
     </p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
@@ -352,7 +439,7 @@
         </li>
 </ul></div>
 <h3>
-<a name="day-25-special-cpp-modules-gcc.h9"></a>
+<a name="day-25-special-cpp-modules-gcc.h10"></a>
       <span class="phrase"><a name="day-25-special-cpp-modules-gcc.jamroot"></a></span><a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.jamroot">File:
       jamroot</a>
     </h3>
@@ -364,7 +451,7 @@
 <span class="identifier">exe</span> <span class="identifier">main</span> <span class="special">:</span> <span class="identifier">main</span><span class="special">.</span><span class="identifier">cpp</span> <span class="special">:</span> <span class="special">&lt;</span><span class="identifier">library</span><span class="special">&gt;</span><span class="identifier">my_cpp</span> <span class="special">;</span>
 </pre>
 <h3>
-<a name="day-25-special-cpp-modules-gcc.h10"></a>
+<a name="day-25-special-cpp-modules-gcc.h11"></a>
       <span class="phrase"><a name="day-25-special-cpp-modules-gcc.build-project"></a></span><a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.build-project">Build
       the project</a>
     </h3>
@@ -397,21 +484,116 @@
 <span class="identifier">Bye</span><span class="special">,</span> <span class="identifier">c</span><span class="special">++!</span>
 </pre>
 <h2>
-<a name="day-25-special-cpp-modules-gcc.h11"></a>
+<a name="day-25-special-cpp-modules-gcc.h12"></a>
+      <span class="phrase"><a name="day-25-special-cpp-modules-gcc.glossary"></a></span><a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.glossary"><span class="cyan">Last: Glossary</span></a>
+    </h2>
+<h3>
+<a name="day-25-special-cpp-modules-gcc.h13"></a>
+      <span class="phrase"><a name="day-25-special-cpp-modules-gcc.module-declaration"></a></span><a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.module-declaration">Module
+      Declaration</a>
+    </h3>
+<p>
+      ...
+    </p>
+<h3>
+<a name="day-25-special-cpp-modules-gcc.h14"></a>
+      <span class="phrase"><a name="day-25-special-cpp-modules-gcc.module-definition"></a></span><a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.module-definition">Module
+      definition</a>
+    </h3>
+<p>
+      ...
+    </p>
+<h3>
+<a name="day-25-special-cpp-modules-gcc.h15"></a>
+      <span class="phrase"><a name="day-25-special-cpp-modules-gcc.export-declaration"></a></span><a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.export-declaration">Export
+      Declaration</a>
+    </h3>
+<p>
+      ...
+    </p>
+<h3>
+<a name="day-25-special-cpp-modules-gcc.h16"></a>
+      <span class="phrase"><a name="day-25-special-cpp-modules-gcc.import-declaration"></a></span><a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.import-declaration">Import
+      Declaration</a>
+    </h3>
+<p>
+      ...
+    </p>
+<h3>
+<a name="day-25-special-cpp-modules-gcc.h17"></a>
+      <span class="phrase"><a name="day-25-special-cpp-modules-gcc.translation-unit"></a></span><a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.translation-unit">Translation
+      Unit</a>
+    </h3>
+<p>
+      ...
+    </p>
+<h3>
+<a name="day-25-special-cpp-modules-gcc.h18"></a>
+      <span class="phrase"><a name="day-25-special-cpp-modules-gcc.module-unit"></a></span><a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.module-unit">Module
+      Unit</a>
+    </h3>
+<p>
+      A module unit is a translation unit which has a module declaration.
+    </p>
+<h3>
+<a name="day-25-special-cpp-modules-gcc.h19"></a>
+      <span class="phrase"><a name="day-25-special-cpp-modules-gcc.module-partition-unit"></a></span><a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.module-partition-unit">Module
+      Partition Unit</a>
+    </h3>
+<p>
+      A module partition unit is a module unit which is included by a module unit
+      and starts with a colon <span class="bold"><strong><span class="red">:</span></strong></span>
+      , and is placed after the module name.
+    </p>
+<p>
+      <span class="bold"><strong>For example</strong></span>,
+    </p>
+<pre class="programlisting"><span class="keyword">export</span> <span class="identifier">module</span> <span class="identifier">A</span><span class="special">:</span><span class="identifier">B</span><span class="special">;</span>
+</pre>
+<pre class="programlisting"><span class="keyword">export</span> <span class="identifier">module</span> <span class="identifier">A</span><span class="special">;</span>
+</pre>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          A is a module unit,
+        </li>
+<li class="listitem">
+          :B is a module partition unit.
+        </li>
+</ul></div>
+<h3>
+<a name="day-25-special-cpp-modules-gcc.h20"></a>
+      <span class="phrase"><a name="day-25-special-cpp-modules-gcc.module-name"></a></span><a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.module-name">Module
+      Name</a>
+    </h3>
+<p>
+      Module name is the name of the module unit, which consists of one or more identifiers
+      separated by dots. Note that module partition unit is also module unit.
+    </p>
+<p>
+      <span class="bold"><strong>For example</strong></span>,
+    </p>
+<pre class="programlisting"><span class="comment">// Module name is A</span>
+<span class="keyword">export</span> <span class="identifier">module</span> <span class="identifier">A</span><span class="special">;</span>
+</pre>
+<pre class="programlisting"><span class="comment">// Module name is A.B.C</span>
+<span class="keyword">export</span> <span class="identifier">module</span> <span class="identifier">A</span><span class="special">.</span><span class="identifier">B</span><span class="special">.</span><span class="identifier">C</span><span class="special">;</span>
+</pre>
+<h2>
+<a name="day-25-special-cpp-modules-gcc.h21"></a>
       <span class="phrase"><a name="day-25-special-cpp-modules-gcc.date"></a></span><a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.date"><span class="cyan">Date</span></a>
     </h2>
 <p>
       <em class="replaceable"><code>Written on Apr 24, 2025</code></em>
     </p>
 <h2>
-<a name="day-25-special-cpp-modules-gcc.h12"></a>
+<a name="day-25-special-cpp-modules-gcc.h22"></a>
       <span class="phrase"><a name="day-25-special-cpp-modules-gcc.back"></a></span><a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.back"><span class="cyan">Back to index</span></a>
     </h2>
 <p>
       <a href="." target="_top">Index</a>
     </p>
 <h2>
-<a name="day-25-special-cpp-modules-gcc.h13"></a>
+<a name="day-25-special-cpp-modules-gcc.h23"></a>
       <span class="phrase"><a name="day-25-special-cpp-modules-gcc.cpp-lang"></a></span><a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.cpp-lang"><span class="cyan">cpp/c++</span></a>
     </h2>
 <p>
