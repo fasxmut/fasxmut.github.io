@@ -1,0 +1,336 @@
+[article day-25: Special: c++ modules gcc
+	[id day-25-special-cpp-modules-gcc]
+	[quickbook 1.7]
+]
+
+[role dddgreen The gcc used for this article is 16.0.0, built from gcc git source code. (Apr 24, 2025).]
+
+* [link day-25-special-cpp-modules-gcc.import-std First: import std;]
+* [link day-25-special-cpp-modules-gcc.make-a-cpp-module Next: Make a c++ module]
+* [link day-25-special-cpp-modules-gcc.modules-shared-library Next: Modules Shared Library]
+* [link day-25-special-cpp-modules-gcc.split-definitions Next: Split Definitions for Shared Library]
+* [link day-25-special-cpp-modules-gcc.modules-in-b2-build Next: c++ Modules in B2 Build System]
+
+[*Alias gpp:]
+
+[pre
+[*alias [role dred gpp]="path/to/the/g++ -fmodules-ts -std=c++26"]
+]
+
+[h1:import-std [role cyan First: import std;]]
+
+[*import declaration]: import module units, module partitions, header units.
+
+[*hello.cpp :]
+
+[!c++]
+```
+import std;
+
+int main()
+{
+	std::cout << "Hello, c++ modules!" << std::endl;
+}
+```
+
+[*Compile at the first time:]
+
+(a little slow)
+
+```
+> gpp -fsearch-include-path bits/std.cc hello.cpp -o hello
+> ./hello
+Hello, c++ modules!
+```
+
+It will create gcm.cache/std.gcm at current working directory.
+
+[*Compile not at the first time:]
+
+(very fast)
+
+After the cache is generated at the first time, the compiling is super fast.
+
+```
+> gpp hello.cpp -o hello
+> ./hello 
+Hello, c++ modules!
+```
+
+The cache [*./gcm.cache] can be removed and you repeat above steps again, it works, you can try it!
+
+The cache [*./gcm.cache/std.gcm] will be reused for the rest parts of this article conveniently.
+
+[h1:make-a-cpp-module [role cyan Make a c++ module]]
+
+[*export declaration:]
+
+c++ module declaration starts with a keyword export or module.
+
+E.X:
+
+[~[role ddred export module module-name;]]
+
+Declares a primary module interface unit and export, its name is module-name .
+
+export namespace.
+
+Make a c++ module, source code: my_class.cpp
+
+[*my_class.cpp] :
+
+[!c++]
+```
+export module my_module;
+
+import std;
+
+export namespace my_space
+{
+	class my_class
+	{
+	public:
+		void greeting() const
+		{
+			std::cout << "Cheers, c++!" << std::endl;
+		}
+	};
+}
+```
+
+Use the module, source code: main.cpp
+
+[*main.cpp] :
+
+[!c++]
+```
+import my_module;
+
+int main()
+{
+	my_space::my_class my_object;
+	my_object.greeting();
+}
+```
+
+[*Compile them] :
+
+```
+> gpp main.cpp my_class.cpp -o main
+> ./main
+Cheers, c++!
+```
+
+[h1:modules-shared-library [role cyan Next: Modules Shared Library]]
+
+Just compile the module source c++ file to shared library.
+
+[*my_cpp.cpp] :
+
+[!c++]
+```
+export module my_module;
+export import std;
+export namespace my_space
+{
+	class my_class
+	{
+	private:
+		int __x;
+	public:
+		my_class(int x__): __x{x__} {}
+	public:
+		int get() const {return __x;}
+	};
+}
+```
+
+[*main.cpp] :
+
+[!c++]
+```
+import my_module;
+int main()
+{
+	my_space::my_class object{234};
+	std::cout << "get: " << object.get() << std::endl;
+}
+```
+
+[*Compile] :
+
+```
+> gpp my_cpp.cpp -c -fPIC -shared -o libmy_cpp.so
+> gpp main.cpp -L./ -lmy_cpp -o main
+> ./main 
+get: 234
+```
+
+[h1:split-definitions [role cyan Next: Split Definitions for Shared Library]]
+
+[*my_cpp.cpp] :
+
+[!c++]
+```
+export module my_module;
+export namespace my_space
+{
+	class my_class
+	{
+	public:
+		void greeting() const;
+		void cheers() const;
+		int get() const;
+		virtual ~my_class();
+	};
+}
+```
+
+[*my_cpp_src.cpp] :
+
+[!c++]
+```
+module my_module;
+import std;
+my_space::my_class::~my_class()
+{
+	std::cout << "Bye, c++!" << std::endl;
+}
+void my_space::my_class::greeting() const
+{
+	std::cout << "Greeting, c++!" << std::endl;
+}
+void my_space::my_class::cheers() const
+{
+	std::cout << "Cheers, c++!" << std::endl;
+}
+int my_space::my_class::get() const
+{
+	return 12345;
+}
+```
+
+[*main.cpp] :
+
+[!c++]
+```
+import my_module;
+import std;
+int main()
+{
+	my_space::my_class my_object;
+	my_object.greeting();
+	my_object.cheers();
+	std::cout << "get: " << my_object.get() << std::endl;
+}
+```
+
+[*Compile] :
+
+```
+> gpp my_cpp.cpp my_cpp_src.cpp -c -fPIC
+> gpp my_cpp.o my_cpp_src.o -shared -o libmy_cpp.so
+> gpp main.cpp -L./ -lmy_cpp -o main
+```
+
+```
+> ./main
+Greeting, c++!
+Cheers, c++!
+get: 12345
+Bye, c++!
+```
+
+[h2:about-module-declaration About Module Declaration]
+
+[*Declare Primary Module Unit]
+
+(Name is A)
+
+```
+export module A;
+```
+
+(Name is A.B)
+
+```
+export module A.B;
+```
+
+[*Declare Module Implementation Unit]
+
+```
+module A;
+```
+
+```
+module A.B;
+```
+
+[h2:constexpr-template constexpr and template]
+
+constexpr and template declared api can not be splitted into two declaration and definition module files.
+
+[h1:modules-in-b2-build [role cyan Next: c++ Modules in B2 Build System]]
+
+c++ modules gcc can be used in b2 build by flags settings trick.
+
+[h2:first First: About import std;]
+
+First, generate [*[role ddgreen gcm.cache/std.gcm]] cache in current working directory like talked in the beginning of this article, I am a little lazy of how to make it by a b2 jamfile trick.
+
+[h2:cpp-src c++ source files]
+
+The same c++ source files of previous section of this article will used for this project:
+
+* my_cpp.cpp
+* my_cpp_src.cpp
+* main.cpp
+
+[h2:jamroot File: jamroot]
+
+The file jamroot in current working directory:
+
+[!c++]
+```
+project : requirements <cxxflags>"-fmodules-ts" : default-build <cxxstd>26 ;
+lib my_cpp : my_cpp.cpp my_cpp_src.cpp ;
+exe main : main.cpp : <library>my_cpp ;
+```
+
+[h2:build-project Build the project]
+
+[*Build:]
+
+```
+> b2 -q -j7
+```
+[*[role ddred Trick]: run above command twice], the first run will generate errors, the second run will be OK.
+
+Make sure the toolset used for this project is gcc. Visual c++ and clang++ has different compiler flags.
+
+
+[*Run program:]
+
+```
+> ls ./bin/gcc-latest/debug/cxxstd-26-iso/
+libmy_cpp.so  main  main.o  my_cpp.o  my_cpp_src.o
+>
+>
+>
+> ./bin/gcc-latest/debug/cxxstd-26-iso/main
+Greeting, c++!
+Cheers, c++!
+get: 12345
+Bye, c++!
+```
+
+[h1:date [role cyan Date]]
+
+[~Written on Apr 24, 2025]
+
+[h1:back [role cyan Back to index]]
+
+[@. Index]
+
+[include ../../share/foot-links.inc.qbk]

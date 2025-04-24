@@ -1,0 +1,446 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>day-25: Special: c++ modules gcc</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Learn c++ in days">
+<link rel="up" href="index.html" title="Learn c++ in days">
+<link rel="prev" href="day-24-cpp-stl-std-copy-std-fill.html" title="day-24: c++ STL: std::copy, std::fill">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="day-24-cpp-stl-std-copy-std-fill.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="day-25-special-cpp-modules-gcc"></a>day-25: Special: c++ modules gcc</h1></div></div>
+<hr>
+</div>
+<p>
+      <span class="dddgreen">The gcc used for this article is 16.0.0, built from
+      gcc git source code. (Apr 24, 2025).</span>
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          <a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.import-std">First: import
+          std;</a>
+        </li>
+<li class="listitem">
+          <a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.make-a-cpp-module">Next:
+          Make a c++ module</a>
+        </li>
+<li class="listitem">
+          <a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.modules-shared-library">Next:
+          Modules Shared Library</a>
+        </li>
+<li class="listitem">
+          <a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.split-definitions">Next:
+          Split Definitions for Shared Library</a>
+        </li>
+<li class="listitem">
+          <a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.modules-in-b2-build">Next:
+          c++ Modules in B2 Build System</a>
+        </li>
+</ul></div>
+<p>
+      <span class="bold"><strong>Alias gpp:</strong></span>
+    </p>
+<pre class="programlisting"><span class="bold"><strong>alias <span class="dred">gpp</span>="path/to/the/g++ -fmodules-ts -std=c++26"</strong></span>
+</pre>
+<h2>
+<a name="day-25-special-cpp-modules-gcc.h0"></a>
+      <span class="phrase"><a name="day-25-special-cpp-modules-gcc.import-std"></a></span><a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.import-std"><span class="cyan">First: import std;</span></a>
+    </h2>
+<p>
+      <span class="bold"><strong>import declaration</strong></span>: import module units, module
+      partitions, header units.
+    </p>
+<p>
+      <span class="bold"><strong>hello.cpp :</strong></span>
+    </p>
+<pre class="programlisting"><span class="identifier">import</span> <span class="identifier">std</span><span class="special">;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Hello, c++ modules!"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<p>
+      <span class="bold"><strong>Compile at the first time:</strong></span>
+    </p>
+<p>
+      (a little slow)
+    </p>
+<pre class="programlisting"><span class="special">&gt;</span> <span class="identifier">gpp</span> <span class="special">-</span><span class="identifier">fsearch</span><span class="special">-</span><span class="identifier">include</span><span class="special">-</span><span class="identifier">path</span> <span class="identifier">bits</span><span class="special">/</span><span class="identifier">std</span><span class="special">.</span><span class="identifier">cc</span> <span class="identifier">hello</span><span class="special">.</span><span class="identifier">cpp</span> <span class="special">-</span><span class="identifier">o</span> <span class="identifier">hello</span>
+<span class="special">&gt;</span> <span class="special">./</span><span class="identifier">hello</span>
+<span class="identifier">Hello</span><span class="special">,</span> <span class="identifier">c</span><span class="special">++</span> <span class="identifier">modules</span><span class="special">!</span>
+</pre>
+<p>
+      It will create gcm.cache/std.gcm at current working directory.
+    </p>
+<p>
+      <span class="bold"><strong>Compile not at the first time:</strong></span>
+    </p>
+<p>
+      (very fast)
+    </p>
+<p>
+      After the cache is generated at the first time, the compiling is super fast.
+    </p>
+<pre class="programlisting"><span class="special">&gt;</span> <span class="identifier">gpp</span> <span class="identifier">hello</span><span class="special">.</span><span class="identifier">cpp</span> <span class="special">-</span><span class="identifier">o</span> <span class="identifier">hello</span>
+<span class="special">&gt;</span> <span class="special">./</span><span class="identifier">hello</span>
+<span class="identifier">Hello</span><span class="special">,</span> <span class="identifier">c</span><span class="special">++</span> <span class="identifier">modules</span><span class="special">!</span>
+</pre>
+<p>
+      The cache <span class="bold"><strong>./gcm.cache</strong></span> can be removed and you
+      repeat above steps again, it works, you can try it!
+    </p>
+<p>
+      The cache <span class="bold"><strong>./gcm.cache/std.gcm</strong></span> will be reused
+      for the rest parts of this article conveniently.
+    </p>
+<h2>
+<a name="day-25-special-cpp-modules-gcc.h1"></a>
+      <span class="phrase"><a name="day-25-special-cpp-modules-gcc.make-a-cpp-module"></a></span><a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.make-a-cpp-module"><span class="cyan">Make a c++ module</span></a>
+    </h2>
+<p>
+      <span class="bold"><strong>export declaration:</strong></span>
+    </p>
+<p>
+      c++ module declaration starts with a keyword export or module.
+    </p>
+<p>
+      E.X:
+    </p>
+<p>
+      <em class="replaceable"><code><span class="ddred">export module module-name;</span></code></em>
+    </p>
+<p>
+      Declares a primary module interface unit and export, its name is module-name
+      .
+    </p>
+<p>
+      export namespace.
+    </p>
+<p>
+      Make a c++ module, source code: my_class.cpp
+    </p>
+<p>
+      <span class="bold"><strong>my_class.cpp</strong></span> :
+    </p>
+<pre class="programlisting"><span class="keyword">export</span> <span class="identifier">module</span> <span class="identifier">my_module</span><span class="special">;</span>
+
+<span class="identifier">import</span> <span class="identifier">std</span><span class="special">;</span>
+
+<span class="keyword">export</span> <span class="keyword">namespace</span> <span class="identifier">my_space</span>
+<span class="special">{</span>
+	<span class="keyword">class</span> <span class="identifier">my_class</span>
+	<span class="special">{</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="keyword">void</span> <span class="identifier">greeting</span><span class="special">()</span> <span class="keyword">const</span>
+		<span class="special">{</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Cheers, c++!"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="special">};</span>
+<span class="special">}</span>
+</pre>
+<p>
+      Use the module, source code: main.cpp
+    </p>
+<p>
+      <span class="bold"><strong>main.cpp</strong></span> :
+    </p>
+<pre class="programlisting"><span class="identifier">import</span> <span class="identifier">my_module</span><span class="special">;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">my_space</span><span class="special">::</span><span class="identifier">my_class</span> <span class="identifier">my_object</span><span class="special">;</span>
+	<span class="identifier">my_object</span><span class="special">.</span><span class="identifier">greeting</span><span class="special">();</span>
+<span class="special">}</span>
+</pre>
+<p>
+      <span class="bold"><strong>Compile them</strong></span> :
+    </p>
+<pre class="programlisting"><span class="special">&gt;</span> <span class="identifier">gpp</span> <span class="identifier">main</span><span class="special">.</span><span class="identifier">cpp</span> <span class="identifier">my_class</span><span class="special">.</span><span class="identifier">cpp</span> <span class="special">-</span><span class="identifier">o</span> <span class="identifier">main</span>
+<span class="special">&gt;</span> <span class="special">./</span><span class="identifier">main</span>
+<span class="identifier">Cheers</span><span class="special">,</span> <span class="identifier">c</span><span class="special">++!</span>
+</pre>
+<h2>
+<a name="day-25-special-cpp-modules-gcc.h2"></a>
+      <span class="phrase"><a name="day-25-special-cpp-modules-gcc.modules-shared-library"></a></span><a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.modules-shared-library"><span class="cyan">Next: Modules Shared Library</span></a>
+    </h2>
+<p>
+      Just compile the module source c++ file to shared library.
+    </p>
+<p>
+      <span class="bold"><strong>my_cpp.cpp</strong></span> :
+    </p>
+<pre class="programlisting"><span class="keyword">export</span> <span class="identifier">module</span> <span class="identifier">my_module</span><span class="special">;</span>
+<span class="keyword">export</span> <span class="identifier">import</span> <span class="identifier">std</span><span class="special">;</span>
+<span class="keyword">export</span> <span class="keyword">namespace</span> <span class="identifier">my_space</span>
+<span class="special">{</span>
+	<span class="keyword">class</span> <span class="identifier">my_class</span>
+	<span class="special">{</span>
+	<span class="keyword">private</span><span class="special">:</span>
+		<span class="keyword">int</span> <span class="identifier">__x</span><span class="special">;</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">my_class</span><span class="special">(</span><span class="keyword">int</span> <span class="identifier">x__</span><span class="special">):</span> <span class="identifier">__x</span><span class="special">{</span><span class="identifier">x__</span><span class="special">}</span> <span class="special">{}</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="keyword">int</span> <span class="identifier">get</span><span class="special">()</span> <span class="keyword">const</span> <span class="special">{</span><span class="keyword">return</span> <span class="identifier">__x</span><span class="special">;}</span>
+	<span class="special">};</span>
+<span class="special">}</span>
+</pre>
+<p>
+      <span class="bold"><strong>main.cpp</strong></span> :
+    </p>
+<pre class="programlisting"><span class="identifier">import</span> <span class="identifier">my_module</span><span class="special">;</span>
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">my_space</span><span class="special">::</span><span class="identifier">my_class</span> <span class="identifier">object</span><span class="special">{</span><span class="number">234</span><span class="special">};</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"get: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">object</span><span class="special">.</span><span class="identifier">get</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<p>
+      <span class="bold"><strong>Compile</strong></span> :
+    </p>
+<pre class="programlisting"><span class="special">&gt;</span> <span class="identifier">gpp</span> <span class="identifier">my_cpp</span><span class="special">.</span><span class="identifier">cpp</span> <span class="special">-</span><span class="identifier">c</span> <span class="special">-</span><span class="identifier">fPIC</span> <span class="special">-</span><span class="identifier">shared</span> <span class="special">-</span><span class="identifier">o</span> <span class="identifier">libmy_cpp</span><span class="special">.</span><span class="identifier">so</span>
+<span class="special">&gt;</span> <span class="identifier">gpp</span> <span class="identifier">main</span><span class="special">.</span><span class="identifier">cpp</span> <span class="special">-</span><span class="identifier">L</span><span class="special">./</span> <span class="special">-</span><span class="identifier">lmy_cpp</span> <span class="special">-</span><span class="identifier">o</span> <span class="identifier">main</span>
+<span class="special">&gt;</span> <span class="special">./</span><span class="identifier">main</span>
+<span class="identifier">get</span><span class="special">:</span> <span class="number">234</span>
+</pre>
+<h2>
+<a name="day-25-special-cpp-modules-gcc.h3"></a>
+      <span class="phrase"><a name="day-25-special-cpp-modules-gcc.split-definitions"></a></span><a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.split-definitions"><span class="cyan">Next: Split Definitions for Shared Library</span></a>
+    </h2>
+<p>
+      <span class="bold"><strong>my_cpp.cpp</strong></span> :
+    </p>
+<pre class="programlisting"><span class="keyword">export</span> <span class="identifier">module</span> <span class="identifier">my_module</span><span class="special">;</span>
+<span class="keyword">export</span> <span class="keyword">namespace</span> <span class="identifier">my_space</span>
+<span class="special">{</span>
+	<span class="keyword">class</span> <span class="identifier">my_class</span>
+	<span class="special">{</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="keyword">void</span> <span class="identifier">greeting</span><span class="special">()</span> <span class="keyword">const</span><span class="special">;</span>
+		<span class="keyword">void</span> <span class="identifier">cheers</span><span class="special">()</span> <span class="keyword">const</span><span class="special">;</span>
+		<span class="keyword">int</span> <span class="identifier">get</span><span class="special">()</span> <span class="keyword">const</span><span class="special">;</span>
+		<span class="keyword">virtual</span> <span class="special">~</span><span class="identifier">my_class</span><span class="special">();</span>
+	<span class="special">};</span>
+<span class="special">}</span>
+</pre>
+<p>
+      <span class="bold"><strong>my_cpp_src.cpp</strong></span> :
+    </p>
+<pre class="programlisting"><span class="identifier">module</span> <span class="identifier">my_module</span><span class="special">;</span>
+<span class="identifier">import</span> <span class="identifier">std</span><span class="special">;</span>
+<span class="identifier">my_space</span><span class="special">::</span><span class="identifier">my_class</span><span class="special">::~</span><span class="identifier">my_class</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Bye, c++!"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+<span class="keyword">void</span> <span class="identifier">my_space</span><span class="special">::</span><span class="identifier">my_class</span><span class="special">::</span><span class="identifier">greeting</span><span class="special">()</span> <span class="keyword">const</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Greeting, c++!"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+<span class="keyword">void</span> <span class="identifier">my_space</span><span class="special">::</span><span class="identifier">my_class</span><span class="special">::</span><span class="identifier">cheers</span><span class="special">()</span> <span class="keyword">const</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Cheers, c++!"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+<span class="keyword">int</span> <span class="identifier">my_space</span><span class="special">::</span><span class="identifier">my_class</span><span class="special">::</span><span class="identifier">get</span><span class="special">()</span> <span class="keyword">const</span>
+<span class="special">{</span>
+	<span class="keyword">return</span> <span class="number">12345</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<p>
+      <span class="bold"><strong>main.cpp</strong></span> :
+    </p>
+<pre class="programlisting"><span class="identifier">import</span> <span class="identifier">my_module</span><span class="special">;</span>
+<span class="identifier">import</span> <span class="identifier">std</span><span class="special">;</span>
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">my_space</span><span class="special">::</span><span class="identifier">my_class</span> <span class="identifier">my_object</span><span class="special">;</span>
+	<span class="identifier">my_object</span><span class="special">.</span><span class="identifier">greeting</span><span class="special">();</span>
+	<span class="identifier">my_object</span><span class="special">.</span><span class="identifier">cheers</span><span class="special">();</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"get: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">my_object</span><span class="special">.</span><span class="identifier">get</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<p>
+      <span class="bold"><strong>Compile</strong></span> :
+    </p>
+<pre class="programlisting"><span class="special">&gt;</span> <span class="identifier">gpp</span> <span class="identifier">my_cpp</span><span class="special">.</span><span class="identifier">cpp</span> <span class="identifier">my_cpp_src</span><span class="special">.</span><span class="identifier">cpp</span> <span class="special">-</span><span class="identifier">c</span> <span class="special">-</span><span class="identifier">fPIC</span>
+<span class="special">&gt;</span> <span class="identifier">gpp</span> <span class="identifier">my_cpp</span><span class="special">.</span><span class="identifier">o</span> <span class="identifier">my_cpp_src</span><span class="special">.</span><span class="identifier">o</span> <span class="special">-</span><span class="identifier">shared</span> <span class="special">-</span><span class="identifier">o</span> <span class="identifier">libmy_cpp</span><span class="special">.</span><span class="identifier">so</span>
+<span class="special">&gt;</span> <span class="identifier">gpp</span> <span class="identifier">main</span><span class="special">.</span><span class="identifier">cpp</span> <span class="special">-</span><span class="identifier">L</span><span class="special">./</span> <span class="special">-</span><span class="identifier">lmy_cpp</span> <span class="special">-</span><span class="identifier">o</span> <span class="identifier">main</span>
+</pre>
+<pre class="programlisting"><span class="special">&gt;</span> <span class="special">./</span><span class="identifier">main</span>
+<span class="identifier">Greeting</span><span class="special">,</span> <span class="identifier">c</span><span class="special">++!</span>
+<span class="identifier">Cheers</span><span class="special">,</span> <span class="identifier">c</span><span class="special">++!</span>
+<span class="identifier">get</span><span class="special">:</span> <span class="number">12345</span>
+<span class="identifier">Bye</span><span class="special">,</span> <span class="identifier">c</span><span class="special">++!</span>
+</pre>
+<h3>
+<a name="day-25-special-cpp-modules-gcc.h4"></a>
+      <span class="phrase"><a name="day-25-special-cpp-modules-gcc.about-module-declaration"></a></span><a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.about-module-declaration">About Module
+      Declaration</a>
+    </h3>
+<p>
+      <span class="bold"><strong>Declare Primary Module Unit</strong></span>
+    </p>
+<p>
+      (Name is A)
+    </p>
+<pre class="programlisting"><span class="keyword">export</span> <span class="identifier">module</span> <span class="identifier">A</span><span class="special">;</span>
+</pre>
+<p>
+      (Name is A.B)
+    </p>
+<pre class="programlisting"><span class="keyword">export</span> <span class="identifier">module</span> <span class="identifier">A</span><span class="special">.</span><span class="identifier">B</span><span class="special">;</span>
+</pre>
+<p>
+      <span class="bold"><strong>Declare Module Implementation Unit</strong></span>
+    </p>
+<pre class="programlisting"><span class="identifier">module</span> <span class="identifier">A</span><span class="special">;</span>
+</pre>
+<pre class="programlisting"><span class="identifier">module</span> <span class="identifier">A</span><span class="special">.</span><span class="identifier">B</span><span class="special">;</span>
+</pre>
+<h3>
+<a name="day-25-special-cpp-modules-gcc.h5"></a>
+      <span class="phrase"><a name="day-25-special-cpp-modules-gcc.constexpr-template"></a></span><a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.constexpr-template">constexpr
+      and template</a>
+    </h3>
+<p>
+      constexpr and template declared api can not be splitted into two declaration
+      and definition module files.
+    </p>
+<h2>
+<a name="day-25-special-cpp-modules-gcc.h6"></a>
+      <span class="phrase"><a name="day-25-special-cpp-modules-gcc.modules-in-b2-build"></a></span><a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.modules-in-b2-build"><span class="cyan">Next: c++ Modules in B2 Build System</span></a>
+    </h2>
+<p>
+      c++ modules gcc can be used in b2 build by flags settings trick.
+    </p>
+<h3>
+<a name="day-25-special-cpp-modules-gcc.h7"></a>
+      <span class="phrase"><a name="day-25-special-cpp-modules-gcc.first"></a></span><a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.first">First:
+      About import std;</a>
+    </h3>
+<p>
+      First, generate <span class="bold"><strong><span class="ddgreen">gcm.cache/std.gcm</span></strong></span>
+      cache in current working directory like talked in the beginning of this article,
+      I am a little lazy of how to make it by a b2 jamfile trick.
+    </p>
+<h3>
+<a name="day-25-special-cpp-modules-gcc.h8"></a>
+      <span class="phrase"><a name="day-25-special-cpp-modules-gcc.cpp-src"></a></span><a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.cpp-src">c++
+      source files</a>
+    </h3>
+<p>
+      The same c++ source files of previous section of this article will used for
+      this project:
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          my_cpp.cpp
+        </li>
+<li class="listitem">
+          my_cpp_src.cpp
+        </li>
+<li class="listitem">
+          main.cpp
+        </li>
+</ul></div>
+<h3>
+<a name="day-25-special-cpp-modules-gcc.h9"></a>
+      <span class="phrase"><a name="day-25-special-cpp-modules-gcc.jamroot"></a></span><a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.jamroot">File:
+      jamroot</a>
+    </h3>
+<p>
+      The file jamroot in current working directory:
+    </p>
+<pre class="programlisting"><span class="identifier">project</span> <span class="special">:</span> <span class="identifier">requirements</span> <span class="special">&lt;</span><span class="identifier">cxxflags</span><span class="special">&gt;</span><span class="string">"-fmodules-ts"</span> <span class="special">:</span> <span class="keyword">default</span><span class="special">-</span><span class="identifier">build</span> <span class="special">&lt;</span><span class="identifier">cxxstd</span><span class="special">&gt;</span><span class="number">26</span> <span class="special">;</span>
+<span class="identifier">lib</span> <span class="identifier">my_cpp</span> <span class="special">:</span> <span class="identifier">my_cpp</span><span class="special">.</span><span class="identifier">cpp</span> <span class="identifier">my_cpp_src</span><span class="special">.</span><span class="identifier">cpp</span> <span class="special">;</span>
+<span class="identifier">exe</span> <span class="identifier">main</span> <span class="special">:</span> <span class="identifier">main</span><span class="special">.</span><span class="identifier">cpp</span> <span class="special">:</span> <span class="special">&lt;</span><span class="identifier">library</span><span class="special">&gt;</span><span class="identifier">my_cpp</span> <span class="special">;</span>
+</pre>
+<h3>
+<a name="day-25-special-cpp-modules-gcc.h10"></a>
+      <span class="phrase"><a name="day-25-special-cpp-modules-gcc.build-project"></a></span><a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.build-project">Build
+      the project</a>
+    </h3>
+<p>
+      <span class="bold"><strong>Build:</strong></span>
+    </p>
+<pre class="programlisting"><span class="special">&gt;</span> <span class="identifier">b2</span> <span class="special">-</span><span class="identifier">q</span> <span class="special">-</span><span class="identifier">j7</span>
+</pre>
+<p>
+      <span class="bold"><strong><span class="ddred">Trick</span>: run above command
+      twice</strong></span>, the first run will generate errors, the second run will be
+      OK.
+    </p>
+<p>
+      Make sure the toolset used for this project is gcc. Visual c++ and clang++
+      has different compiler flags.
+    </p>
+<p>
+      <span class="bold"><strong>Run program:</strong></span>
+    </p>
+<pre class="programlisting"><span class="special">&gt;</span> <span class="identifier">ls</span> <span class="special">./</span><span class="identifier">bin</span><span class="special">/</span><span class="identifier">gcc</span><span class="special">-</span><span class="identifier">latest</span><span class="special">/</span><span class="identifier">debug</span><span class="special">/</span><span class="identifier">cxxstd</span><span class="special">-</span><span class="number">26</span><span class="special">-</span><span class="identifier">iso</span><span class="special">/</span>
+<span class="identifier">libmy_cpp</span><span class="special">.</span><span class="identifier">so</span>  <span class="identifier">main</span>  <span class="identifier">main</span><span class="special">.</span><span class="identifier">o</span>  <span class="identifier">my_cpp</span><span class="special">.</span><span class="identifier">o</span>  <span class="identifier">my_cpp_src</span><span class="special">.</span><span class="identifier">o</span>
+<span class="special">&gt;</span>
+<span class="special">&gt;</span>
+<span class="special">&gt;</span>
+<span class="special">&gt;</span> <span class="special">./</span><span class="identifier">bin</span><span class="special">/</span><span class="identifier">gcc</span><span class="special">-</span><span class="identifier">latest</span><span class="special">/</span><span class="identifier">debug</span><span class="special">/</span><span class="identifier">cxxstd</span><span class="special">-</span><span class="number">26</span><span class="special">-</span><span class="identifier">iso</span><span class="special">/</span><span class="identifier">main</span>
+<span class="identifier">Greeting</span><span class="special">,</span> <span class="identifier">c</span><span class="special">++!</span>
+<span class="identifier">Cheers</span><span class="special">,</span> <span class="identifier">c</span><span class="special">++!</span>
+<span class="identifier">get</span><span class="special">:</span> <span class="number">12345</span>
+<span class="identifier">Bye</span><span class="special">,</span> <span class="identifier">c</span><span class="special">++!</span>
+</pre>
+<h2>
+<a name="day-25-special-cpp-modules-gcc.h11"></a>
+      <span class="phrase"><a name="day-25-special-cpp-modules-gcc.date"></a></span><a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.date"><span class="cyan">Date</span></a>
+    </h2>
+<p>
+      <em class="replaceable"><code>Written on Apr 24, 2025</code></em>
+    </p>
+<h2>
+<a name="day-25-special-cpp-modules-gcc.h12"></a>
+      <span class="phrase"><a name="day-25-special-cpp-modules-gcc.back"></a></span><a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.back"><span class="cyan">Back to index</span></a>
+    </h2>
+<p>
+      <a href="." target="_top">Index</a>
+    </p>
+<h2>
+<a name="day-25-special-cpp-modules-gcc.h13"></a>
+      <span class="phrase"><a name="day-25-special-cpp-modules-gcc.cpp-lang"></a></span><a class="link" href="day-25-special-cpp-modules-gcc.html#day-25-special-cpp-modules-gcc.cpp-lang"><span class="cyan">cpp/c++</span></a>
+    </h2>
+<p>
+      c++ std::exception:
+    </p>
+<p>
+      std::cout.write(err.data(), err.size());
+    </p>
+<p>
+      std::cout &lt;&lt; std::endl;
+    </p>
+<p>
+      <span class="purple">caught:</span>
+    </p>
+<pre class="programlisting">  ===================================
+  #  The c++ programming language.  #
+  #                                 #
+  #  Join c++                       #
+  #  Deck                           #
+  ===================================
+</pre>
+<p>
+      <a href="https://cppfx.xyz" target="_top">Home: cppfx.xyz</a>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="day-24-cpp-stl-std-copy-std-fill.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+</body>
+</html>
