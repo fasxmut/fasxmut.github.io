@@ -9,6 +9,7 @@
 * [link day-25-special-cpp-modules-gcc.make-a-cpp-module Next: Make a c++ module]
 * [link day-25-special-cpp-modules-gcc.modules-shared-library Next: Modules Shared Library]
 * [link day-25-special-cpp-modules-gcc.module-partition Next: Module Partition]
+* [link day-25-special-cpp-modules-gcc.header-unit Next: Header Unit]
 * [link day-25-special-cpp-modules-gcc.split-definitions Next: Split Definitions for Shared Library]
 * [link day-25-special-cpp-modules-gcc.modules-in-b2-build Next: c++ Modules in B2 Build System]
 * [link day-25-special-cpp-modules-gcc.glossary Last: Glossary]
@@ -245,6 +246,31 @@ int main()
 v: 3333
 v: -112233
 ```
+
+[h1:header-unit [role cyan Next: Header Unit]]
+
+[*First, precompile] :
+
+```
+> gpp -xc++-system-header boost/parser/parser.hpp
+> gpp -xc++-system-header iostream
+```
+
+[*Then, use] :
+
+[!c++]
+```
+import <boost/parser/parser.hpp>;
+import <iostream>;
+
+int main()
+{
+	std::cout << "Hello, c++!" << std::endl;
+}
+```
+
+[*Compile] :
+[pre > gpp program.cpp -o program]
 
 [h1:split-definitions [role cyan Next: Split Definitions for Shared Library]]
 
