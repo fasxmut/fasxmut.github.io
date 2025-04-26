@@ -1,0 +1,13 @@
+[article winrt c++
+	[id winrt]
+	[quickbook 1.7]
+]
+
+[include winrt/winrt-com_ptr.qbk]
+
+[h1:back [role cyan Back]]
+
+[@. Up]
+
+[include ../../../share/foot-links.inc.qbk]
+

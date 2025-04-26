@@ -1,0 +1,499 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>winrt::com_ptr</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Windows c++ programming">
+<link rel="up" href="winrt.html" title="winrt c++">
+<link rel="prev" href="winrt.html" title="winrt c++">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="winrt.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="winrt.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="winrt-com_ptr"></a>winrt::com_ptr</h2></div></div>
+<hr>
+</div>
+<p>
+        winrt::com_ptr is windows api.
+      </p>
+<h2>
+<a name="winrt-com_ptr.h0"></a>
+        <span class="phrase"><a name="winrt-com_ptr.start"></a></span><a class="link" href="winrt-com_ptr.html#winrt-com_ptr.start"><span class="cyan">Start</span></a>
+      </h2>
+<p>
+        File: <span class="bold"><strong>start.cpp</strong></span>
+      </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">winrt</span><span class="special">/</span><span class="identifier">base</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">assert</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">my_space</span>
+<span class="special">{</span>
+	<span class="keyword">class</span> <span class="identifier">my_class</span>
+	<span class="special">{</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="comment">// winrt::com_ptr requires method .Release</span>
+		<span class="keyword">void</span> <span class="identifier">Release</span><span class="special">()</span>
+		<span class="special">{</span>
+		<span class="special">}</span>
+	<span class="special">};</span>
+<span class="special">}</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="special">{</span>
+		<span class="identifier">winrt</span><span class="special">::</span><span class="identifier">com_ptr</span><span class="special">&lt;</span><span class="identifier">my_space</span><span class="special">::</span><span class="identifier">my_class</span><span class="special">&gt;</span> <span class="identifier">ptr_object</span><span class="special">;</span>
+		<span class="comment">// Uninitialized ptr.</span>
+		<span class="identifier">BOOST_ASSERT</span><span class="special">(!</span> <span class="identifier">ptr_object</span><span class="special">);</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Initialized: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">boolalpha</span>
+			<span class="special">&lt;&lt;</span> <span class="keyword">bool</span><span class="special">{</span><span class="identifier">ptr_object</span><span class="special">}</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">}</span>
+</pre>
+<p>
+        It can be compiled by both visualcpp and gcc.
+      </p>
+<pre class="programlisting"><span class="special">&gt;</span> <span class="identifier">g</span><span class="special">++</span> <span class="identifier">start</span><span class="special">.</span><span class="identifier">cpp</span> <span class="special">-</span><span class="identifier">std</span><span class="special">=</span><span class="identifier">c</span><span class="special">++</span><span class="number">26</span> <span class="special">-</span><span class="identifier">o</span> <span class="identifier">start</span>
+</pre>
+<pre class="programlisting"><span class="special">&gt;</span> <span class="special">./</span><span class="identifier">start</span>
+<span class="identifier">Initialized</span><span class="special">:</span> <span class="keyword">false</span>
+</pre>
+<h2>
+<a name="winrt-com_ptr.h1"></a>
+        <span class="phrase"><a name="winrt-com_ptr.init-value"></a></span><a class="link" href="winrt-com_ptr.html#winrt-com_ptr.init-value"><span class="cyan">Init Value</span></a>
+      </h2>
+<p>
+        File: <span class="bold"><strong>value.cpp</strong></span>
+      </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">winrt</span><span class="special">/</span><span class="identifier">base</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">stdfloat</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">numbers</span><span class="special">&gt;</span>	<span class="comment">// std::numbers::pi</span>
+
+<span class="keyword">namespace</span> <span class="identifier">my_space</span>
+<span class="special">{</span>
+	<span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">type_t00</span><span class="special">&gt;</span>
+		<span class="identifier">requires</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">same_as</span><span class="special">&lt;</span>
+				<span class="identifier">std</span><span class="special">::</span><span class="identifier">remove_cvref_t</span><span class="special">&lt;</span>
+					<span class="identifier">type_t00</span>
+				<span class="special">&gt;,</span>
+				<span class="identifier">type_t00</span>
+			<span class="special">&gt;</span>
+	<span class="keyword">class</span> <span class="identifier">my_type</span>
+	<span class="special">{</span>
+	<span class="keyword">private</span><span class="special">:</span>
+		<span class="keyword">using</span> <span class="identifier">value_type</span> <span class="special">=</span> <span class="identifier">type_t00</span><span class="special">;</span>
+		<span class="keyword">using</span> <span class="identifier">self_type</span> <span class="special">=</span> <span class="identifier">my_space</span><span class="special">::</span><span class="identifier">my_type</span><span class="special">&lt;</span><span class="identifier">value_type</span><span class="special">&gt;;</span>
+		<span class="keyword">static_assert</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">same_as</span><span class="special">&lt;</span><span class="identifier">self_type</span><span class="special">,</span> <span class="identifier">my_space</span><span class="special">::</span><span class="identifier">my_type</span><span class="special">&lt;</span><span class="identifier">type_t00</span><span class="special">&gt;&gt;);</span>
+	<span class="keyword">private</span><span class="special">:</span>
+		<span class="identifier">value_type</span> <span class="special">*</span> <span class="identifier">__ptr</span><span class="special">{</span><span class="keyword">nullptr</span><span class="special">};</span>
+		<span class="keyword">const</span> <span class="keyword">bool</span> <span class="identifier">__owned</span><span class="special">;</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">my_type</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">value_type</span> <span class="special">&amp;</span> <span class="identifier">value__</span><span class="special">):</span>
+			<span class="identifier">__ptr</span><span class="special">{</span><span class="keyword">new</span> <span class="identifier">value_type</span><span class="special">{</span><span class="identifier">value__</span><span class="special">}},</span>
+			<span class="identifier">__owned</span><span class="special">{</span><span class="keyword">true</span><span class="special">}</span>
+		<span class="special">{</span>
+		<span class="special">}</span>
+		<span class="identifier">my_type</span><span class="special">():</span>
+			<span class="identifier">my_type</span><span class="special">{</span><span class="number">0</span><span class="special">}</span>
+		<span class="special">{</span>
+		<span class="special">}</span>
+		<span class="identifier">my_type</span><span class="special">(</span><span class="identifier">value_type</span> <span class="special">*</span> <span class="identifier">ptr__</span><span class="special">):</span>
+			<span class="identifier">__ptr</span><span class="special">{</span><span class="identifier">ptr__</span><span class="special">},</span>
+			<span class="identifier">__owned</span><span class="special">{</span><span class="keyword">false</span><span class="special">}</span>
+		<span class="special">{</span>
+		<span class="special">}</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="keyword">virtual</span> <span class="special">~</span><span class="identifier">my_type</span><span class="special">()</span>
+		<span class="special">{</span>
+			<span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">release</span><span class="special">();</span>
+		<span class="special">}</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">value_type</span> <span class="special">*</span> <span class="identifier">release</span><span class="special">()</span>
+		<span class="special">{</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Release is called."</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+			<span class="keyword">if</span> <span class="special">(</span><span class="identifier">__owned</span><span class="special">)</span>
+			<span class="special">{</span>
+				<span class="keyword">if</span> <span class="special">(</span><span class="identifier">__ptr</span><span class="special">)</span>
+				<span class="special">{</span>
+					<span class="keyword">delete</span> <span class="identifier">__ptr</span><span class="special">;</span>
+					<span class="identifier">__ptr</span> <span class="special">=</span> <span class="keyword">nullptr</span><span class="special">;</span>
+				<span class="special">}</span>
+				<span class="keyword">return</span> <span class="keyword">nullptr</span><span class="special">;</span>
+			<span class="special">}</span>
+			<span class="keyword">return</span> <span class="identifier">__ptr</span><span class="special">;</span>
+		<span class="special">}</span>
+		<span class="comment">// Required by winrt::com_ptr</span>
+		<span class="identifier">value_type</span> <span class="special">*</span> <span class="identifier">Release</span><span class="special">()</span>
+		<span class="special">{</span>
+			<span class="keyword">return</span> <span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">release</span><span class="special">();</span>
+		<span class="special">}</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">value_type</span> <span class="identifier">get_value</span><span class="special">()</span> <span class="keyword">const</span>
+		<span class="special">{</span>
+			<span class="keyword">if</span> <span class="special">(</span><span class="identifier">__ptr</span><span class="special">)</span>
+				<span class="keyword">return</span> <span class="special">*</span> <span class="identifier">__ptr</span><span class="special">;</span>
+			<span class="keyword">throw</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">runtime_error</span><span class="special">{</span><span class="string">"Value is not initialized."</span><span class="special">};</span>
+		<span class="special">}</span>
+	<span class="special">};</span>
+<span class="special">}</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="special">{</span>
+		<span class="keyword">using</span> <span class="identifier">int_type</span> <span class="special">=</span> <span class="identifier">my_space</span><span class="special">::</span><span class="identifier">my_type</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;;</span>
+		<span class="identifier">winrt</span><span class="special">::</span><span class="identifier">com_ptr</span><span class="special">&lt;</span><span class="identifier">int_type</span><span class="special">&gt;</span> <span class="identifier">p0</span><span class="special">{</span><span class="keyword">new</span> <span class="identifier">int_type</span><span class="special">{</span><span class="number">123</span><span class="special">},</span> <span class="special">{}};</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"value int: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">p0</span><span class="special">-&gt;</span><span class="identifier">get_value</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="special">{</span>
+		<span class="keyword">using</span> <span class="identifier">float_type</span> <span class="special">=</span> <span class="identifier">my_space</span><span class="special">::</span><span class="identifier">my_type</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">float64_t</span><span class="special">&gt;;</span>
+		<span class="identifier">winrt</span><span class="special">::</span><span class="identifier">com_ptr</span><span class="special">&lt;</span><span class="identifier">float_type</span><span class="special">&gt;</span> <span class="identifier">p0</span><span class="special">;</span>
+		<span class="identifier">p0</span><span class="special">.</span><span class="identifier">attach</span><span class="special">(</span><span class="keyword">new</span> <span class="identifier">float_type</span><span class="special">{</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">numbers</span><span class="special">::</span><span class="identifier">pi</span><span class="special">});</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"value float: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">p0</span><span class="special">-&gt;</span><span class="identifier">get_value</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">}</span>
+</pre>
+<pre class="programlisting"><span class="special">&gt;</span> <span class="identifier">g</span><span class="special">++</span> <span class="identifier">value</span><span class="special">.</span><span class="identifier">cpp</span> <span class="special">-</span><span class="identifier">std</span><span class="special">=</span><span class="identifier">c</span><span class="special">++</span><span class="number">26</span> <span class="special">-</span><span class="identifier">o</span> <span class="identifier">value</span>
+<span class="special">&gt;</span> <span class="special">./</span><span class="identifier">value</span>
+<span class="identifier">value</span> <span class="keyword">int</span><span class="special">:</span> <span class="number">123</span>
+<span class="identifier">Release</span> <span class="identifier">is</span> <span class="identifier">called</span><span class="special">.</span>
+<span class="identifier">value</span> <span class="keyword">float</span><span class="special">:</span> <span class="number">3.14159</span>
+<span class="identifier">Release</span> <span class="identifier">is</span> <span class="identifier">called</span><span class="special">.</span>
+</pre>
+<h2>
+<a name="winrt-com_ptr.h2"></a>
+        <span class="phrase"><a name="winrt-com_ptr.counter-check"></a></span><a class="link" href="winrt-com_ptr.html#winrt-com_ptr.counter-check"><span class="cyan">Counter Check</span></a>
+      </h2>
+<p>
+        File: <span class="bold"><strong>program.cpp</strong></span>
+      </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">winrt</span><span class="special">/</span><span class="identifier">base</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">assert</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">my_space</span>
+<span class="special">{</span>
+	<span class="keyword">class</span> <span class="identifier">counter</span>
+	<span class="special">{</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="keyword">int</span> <span class="identifier">constructors</span><span class="special">{</span><span class="number">0</span><span class="special">};</span>
+		<span class="keyword">int</span> <span class="identifier">destructors</span><span class="special">{</span><span class="number">0</span><span class="special">};</span>
+		<span class="keyword">int</span> <span class="identifier">releasors</span><span class="special">{</span><span class="number">0</span><span class="special">};</span>
+	<span class="special">};</span>
+
+	<span class="keyword">static</span> <span class="identifier">my_space</span><span class="special">::</span><span class="identifier">counter</span> <span class="identifier">strict_counter</span><span class="special">{};</span>
+	<span class="keyword">static</span> <span class="identifier">my_space</span><span class="special">::</span><span class="identifier">counter</span> <span class="identifier">smart_counter</span><span class="special">{};</span>
+
+	<span class="keyword">class</span> <span class="identifier">strict_resource</span>
+	<span class="special">{</span>
+	<span class="keyword">private</span><span class="special">:</span>
+		<span class="keyword">int</span> <span class="identifier">__value</span><span class="special">;</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">strict_resource</span><span class="special">(</span><span class="keyword">const</span> <span class="keyword">int</span> <span class="special">&amp;</span> <span class="identifier">value__</span><span class="special">):</span>
+			<span class="identifier">__value</span><span class="special">{</span><span class="identifier">value__</span><span class="special">}</span>
+		<span class="special">{</span>
+			<span class="special">++</span><span class="identifier">strict_counter</span><span class="special">.</span><span class="identifier">constructors</span><span class="special">;</span>
+		<span class="special">}</span>
+		<span class="identifier">strict_resource</span><span class="special">(</span><span class="keyword">const</span> <span class="keyword">int</span> <span class="special">&amp;&amp;</span> <span class="identifier">value__</span><span class="special">):</span>
+			<span class="identifier">__value</span><span class="special">{</span><span class="identifier">value__</span><span class="special">}</span>
+		<span class="special">{</span>
+			<span class="special">++</span><span class="identifier">strict_counter</span><span class="special">.</span><span class="identifier">constructors</span><span class="special">;</span>
+		<span class="special">}</span>
+		<span class="identifier">strict_resource</span><span class="special">():</span>
+			<span class="identifier">strict_resource</span><span class="special">{</span><span class="number">0</span><span class="special">}</span>
+		<span class="special">{</span>
+		<span class="special">}</span>
+		<span class="identifier">strict_resource</span><span class="special">(</span><span class="keyword">const</span> <span class="keyword">auto</span> <span class="special">&amp;)</span>
+		<span class="special">{</span>
+			<span class="special">++</span><span class="identifier">strict_counter</span><span class="special">.</span><span class="identifier">constructors</span><span class="special">;</span>
+		<span class="special">}</span>
+		<span class="identifier">strict_resource</span><span class="special">(</span><span class="keyword">const</span> <span class="keyword">auto</span> <span class="special">&amp;&amp;)</span>
+		<span class="special">{</span>
+			<span class="special">++</span><span class="identifier">strict_counter</span><span class="special">.</span><span class="identifier">constructors</span><span class="special">;</span>
+		<span class="special">}</span>
+		<span class="identifier">strict_resource</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">strict_resource</span> <span class="special">&amp;</span> <span class="identifier">res__</span><span class="special">):</span>
+			<span class="identifier">strict_resource</span><span class="special">{</span><span class="identifier">res__</span><span class="special">.</span><span class="identifier">__value</span><span class="special">}</span>
+		<span class="special">{</span>
+		<span class="special">}</span>
+		<span class="identifier">strict_resource</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">strict_resource</span> <span class="special">&amp;&amp;</span> <span class="identifier">res__</span><span class="special">):</span>
+			<span class="identifier">strict_resource</span><span class="special">{</span><span class="identifier">res__</span><span class="special">.</span><span class="identifier">__value</span><span class="special">}</span>
+		<span class="special">{</span>
+		<span class="special">}</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="keyword">virtual</span> <span class="special">~</span><span class="identifier">strict_resource</span><span class="special">()</span>
+		<span class="special">{</span>
+			<span class="special">++</span><span class="identifier">strict_counter</span><span class="special">.</span><span class="identifier">destructors</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="keyword">int</span> <span class="identifier">get_value</span><span class="special">()</span> <span class="keyword">const</span>
+		<span class="special">{</span>
+			<span class="keyword">return</span> <span class="identifier">__value</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="keyword">static</span> <span class="keyword">void</span> <span class="identifier">check</span><span class="special">()</span>
+		<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span>
+				<span class="special">&lt;&lt;</span> <span class="string">"my_space::smart_resource::check:\n"</span>
+				<span class="special">&lt;&lt;</span> <span class="string">"constructors: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">my_space</span><span class="special">::</span><span class="identifier">strict_counter</span><span class="special">.</span><span class="identifier">constructors</span> <span class="special">&lt;&lt;</span> <span class="char">'\n'</span>
+				<span class="special">&lt;&lt;</span> <span class="string">"destructors: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">my_space</span><span class="special">::</span><span class="identifier">strict_counter</span><span class="special">.</span><span class="identifier">destructors</span> <span class="special">&lt;&lt;</span> <span class="char">'\n'</span>
+				<span class="special">&lt;&lt;</span> <span class="string">"releasors: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">my_space</span><span class="special">::</span><span class="identifier">strict_counter</span><span class="special">.</span><span class="identifier">releasors</span> <span class="special">&lt;&lt;</span> <span class="char">'\n'</span>
+			<span class="special">;</span>
+			<span class="identifier">BOOST_ASSERT</span><span class="special">(</span><span class="identifier">strict_counter</span><span class="special">.</span><span class="identifier">constructors</span> <span class="special">==</span> <span class="identifier">strict_counter</span><span class="special">.</span><span class="identifier">destructors</span><span class="special">);</span>
+			<span class="identifier">BOOST_ASSERT</span><span class="special">(</span><span class="identifier">strict_counter</span><span class="special">.</span><span class="identifier">releasors</span> <span class="special">==</span> <span class="number">0</span><span class="special">);</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"my_space::strict_resource::check OK."</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="special">};</span>
+
+	<span class="keyword">class</span> <span class="identifier">smart_resource</span>
+	<span class="special">{</span>
+	<span class="keyword">private</span><span class="special">:</span>
+		<span class="identifier">my_space</span><span class="special">::</span><span class="identifier">strict_resource</span> <span class="special">*</span> <span class="identifier">__ptr</span><span class="special">{</span><span class="keyword">nullptr</span><span class="special">};</span>
+		<span class="comment">// const member data must be initialized by constructor.</span>
+		<span class="keyword">const</span> <span class="keyword">bool</span> <span class="identifier">__owned</span><span class="special">;</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">smart_resource</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">my_space</span><span class="special">::</span><span class="identifier">strict_resource</span> <span class="special">&amp;</span> <span class="identifier">res__</span><span class="special">):</span>
+			<span class="identifier">__ptr</span><span class="special">{</span><span class="keyword">new</span> <span class="identifier">my_space</span><span class="special">::</span><span class="identifier">strict_resource</span><span class="special">{</span><span class="identifier">res__</span><span class="special">}},</span>
+			<span class="identifier">__owned</span><span class="special">{</span><span class="keyword">true</span><span class="special">}</span>
+		<span class="special">{</span>
+			<span class="special">++</span><span class="identifier">smart_counter</span><span class="special">.</span><span class="identifier">constructors</span><span class="special">;</span>
+		<span class="special">}</span>
+		<span class="identifier">smart_resource</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">my_space</span><span class="special">::</span><span class="identifier">strict_resource</span> <span class="special">&amp;&amp;</span> <span class="identifier">res__</span><span class="special">):</span>
+			<span class="identifier">__ptr</span><span class="special">{</span><span class="keyword">new</span> <span class="identifier">my_space</span><span class="special">::</span><span class="identifier">strict_resource</span><span class="special">{</span><span class="identifier">res__</span><span class="special">}},</span>
+			<span class="identifier">__owned</span><span class="special">{</span><span class="keyword">true</span><span class="special">}</span>
+		<span class="special">{</span>
+			<span class="special">++</span><span class="identifier">smart_counter</span><span class="special">.</span><span class="identifier">constructors</span><span class="special">;</span>
+		<span class="special">}</span>
+		<span class="identifier">smart_resource</span><span class="special">():</span>
+			<span class="identifier">smart_resource</span><span class="special">{</span><span class="identifier">my_space</span><span class="special">::</span><span class="identifier">strict_resource</span><span class="special">{}}</span>
+		<span class="special">{</span>
+		<span class="special">}</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">smart_resource</span><span class="special">(</span><span class="identifier">my_space</span><span class="special">::</span><span class="identifier">strict_resource</span> <span class="special">*</span> <span class="identifier">ptr__</span><span class="special">):</span>
+			<span class="identifier">__ptr</span><span class="special">{</span><span class="identifier">ptr__</span><span class="special">},</span>
+			<span class="identifier">__owned</span><span class="special">{</span><span class="keyword">false</span><span class="special">}</span>
+		<span class="special">{</span>
+			<span class="special">++</span><span class="identifier">smart_counter</span><span class="special">.</span><span class="identifier">constructors</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">smart_resource</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">my_space</span><span class="special">::</span><span class="identifier">smart_resource</span> <span class="special">&amp;</span> <span class="identifier">res__</span><span class="special">):</span>
+			<span class="identifier">__ptr</span><span class="special">{</span>
+				<span class="keyword">new</span> <span class="identifier">my_space</span><span class="special">::</span><span class="identifier">strict_resource</span><span class="special">{</span>
+					<span class="special">(</span><span class="identifier">res__</span><span class="special">.</span><span class="identifier">__ptr</span><span class="special">)</span> <span class="special">?</span>
+						<span class="special">*</span> <span class="identifier">res__</span><span class="special">.</span><span class="identifier">__ptr</span>
+							<span class="special">:</span>
+						<span class="identifier">my_space</span><span class="special">::</span><span class="identifier">strict_resource</span><span class="special">{}</span>
+				<span class="special">}</span>
+			<span class="special">},</span>
+			<span class="identifier">__owned</span><span class="special">{</span><span class="keyword">true</span><span class="special">}</span>
+		<span class="special">{</span>
+			<span class="special">++</span><span class="identifier">smart_counter</span><span class="special">.</span><span class="identifier">constructors</span><span class="special">;</span>
+		<span class="special">}</span>
+		<span class="identifier">smart_resource</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">my_space</span><span class="special">::</span><span class="identifier">smart_resource</span> <span class="special">&amp;&amp;</span> <span class="identifier">res__</span><span class="special">):</span>
+			<span class="identifier">smart_resource</span><span class="special">{</span><span class="identifier">res__</span><span class="special">}</span>
+		<span class="special">{</span>
+		<span class="special">}</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="keyword">virtual</span> <span class="special">~</span><span class="identifier">smart_resource</span><span class="special">()</span>
+		<span class="special">{</span>
+			<span class="special">++</span><span class="identifier">smart_counter</span><span class="special">.</span><span class="identifier">destructors</span><span class="special">;</span>
+			<span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">release</span><span class="special">();</span>
+		<span class="special">}</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">my_space</span><span class="special">::</span><span class="identifier">strict_resource</span> <span class="special">*</span> <span class="identifier">release</span><span class="special">()</span>
+		<span class="special">{</span>
+			<span class="special">++</span><span class="identifier">smart_counter</span><span class="special">.</span><span class="identifier">releasors</span><span class="special">;</span>
+			<span class="keyword">if</span> <span class="special">(</span><span class="identifier">__owned</span><span class="special">)</span>
+			<span class="special">{</span>
+				<span class="keyword">if</span> <span class="special">(</span><span class="identifier">__ptr</span><span class="special">)</span>
+				<span class="special">{</span>
+					<span class="keyword">delete</span> <span class="identifier">__ptr</span><span class="special">;</span>
+					<span class="identifier">__ptr</span> <span class="special">=</span> <span class="keyword">nullptr</span><span class="special">;</span>
+				<span class="special">}</span>
+				<span class="keyword">return</span> <span class="keyword">nullptr</span><span class="special">;</span>
+			<span class="special">}</span>
+			<span class="keyword">return</span> <span class="identifier">__ptr</span><span class="special">;</span>
+		<span class="special">}</span>
+		<span class="identifier">my_space</span><span class="special">::</span><span class="identifier">strict_resource</span> <span class="special">*</span> <span class="identifier">Release</span><span class="special">()</span>
+		<span class="special">{</span>
+			<span class="keyword">return</span> <span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">release</span><span class="special">();</span>
+		<span class="special">}</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="keyword">int</span> <span class="identifier">get_value</span><span class="special">()</span> <span class="keyword">const</span>
+		<span class="special">{</span>
+			<span class="keyword">if</span> <span class="special">(</span><span class="identifier">__ptr</span><span class="special">)</span>
+				<span class="keyword">return</span> <span class="identifier">__ptr</span><span class="special">-&gt;</span><span class="identifier">get_value</span><span class="special">();</span>
+			<span class="keyword">throw</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">runtime_error</span><span class="special">{</span><span class="string">"ERROR calling method .get_value: __ptr is not initialized."</span><span class="special">};</span>
+		<span class="special">}</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="keyword">static</span> <span class="keyword">void</span> <span class="identifier">check</span><span class="special">(</span><span class="keyword">bool</span> <span class="identifier">use_winrt_com_ptr</span><span class="special">)</span>
+		<span class="special">{</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"==============================\nstart a check ...\n\n"</span><span class="special">;</span>
+			<span class="identifier">my_space</span><span class="special">::</span><span class="identifier">strict_resource</span><span class="special">::</span><span class="identifier">check</span><span class="special">();</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span>
+				<span class="special">&lt;&lt;</span> <span class="string">"my_space::smart_resource::check:\n"</span>
+				<span class="special">&lt;&lt;</span> <span class="string">"constructors: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">my_space</span><span class="special">::</span><span class="identifier">smart_counter</span><span class="special">.</span><span class="identifier">constructors</span> <span class="special">&lt;&lt;</span> <span class="char">'\n'</span>
+				<span class="special">&lt;&lt;</span> <span class="string">"destructors: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">my_space</span><span class="special">::</span><span class="identifier">smart_counter</span><span class="special">.</span><span class="identifier">destructors</span> <span class="special">&lt;&lt;</span> <span class="char">'\n'</span>
+				<span class="special">&lt;&lt;</span> <span class="string">"releasors: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">my_space</span><span class="special">::</span><span class="identifier">smart_counter</span><span class="special">.</span><span class="identifier">releasors</span> <span class="special">&lt;&lt;</span> <span class="char">'\n'</span>
+			<span class="special">;</span>
+			<span class="keyword">if</span> <span class="special">(!</span> <span class="identifier">use_winrt_com_ptr</span><span class="special">)</span>
+			<span class="special">{</span>
+				<span class="identifier">BOOST_ASSERT</span><span class="special">(</span><span class="identifier">my_space</span><span class="special">::</span><span class="identifier">smart_counter</span><span class="special">.</span><span class="identifier">constructors</span> <span class="special">==</span> <span class="identifier">my_space</span><span class="special">::</span><span class="identifier">smart_counter</span><span class="special">.</span><span class="identifier">destructors</span><span class="special">);</span>
+				<span class="identifier">BOOST_ASSERT</span><span class="special">(</span><span class="identifier">my_space</span><span class="special">::</span><span class="identifier">smart_counter</span><span class="special">.</span><span class="identifier">constructors</span> <span class="special">==</span> <span class="identifier">my_space</span><span class="special">::</span><span class="identifier">smart_counter</span><span class="special">.</span><span class="identifier">releasors</span><span class="special">);</span>
+			<span class="special">}</span>
+			<span class="keyword">else</span>
+			<span class="special">{</span>
+				<span class="identifier">BOOST_ASSERT</span><span class="special">(</span><span class="identifier">my_space</span><span class="special">::</span><span class="identifier">smart_counter</span><span class="special">.</span><span class="identifier">constructors</span> <span class="special">&gt;=</span> <span class="identifier">my_space</span><span class="special">::</span><span class="identifier">smart_counter</span><span class="special">.</span><span class="identifier">destructors</span><span class="special">);</span>
+				<span class="identifier">BOOST_ASSERT</span><span class="special">(</span><span class="identifier">my_space</span><span class="special">::</span><span class="identifier">smart_counter</span><span class="special">.</span><span class="identifier">constructors</span> <span class="special">&lt;=</span> <span class="identifier">my_space</span><span class="special">::</span><span class="identifier">smart_counter</span><span class="special">.</span><span class="identifier">releasors</span><span class="special">);</span>
+			<span class="special">}</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"my_space::smart_resource::check OK."</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+			<span class="special">;</span>
+		<span class="special">}</span>
+	<span class="special">};</span>
+<span class="special">}</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="special">{</span>
+		<span class="special">{</span>
+			<span class="special">{</span>
+				<span class="identifier">my_space</span><span class="special">::</span><span class="identifier">smart_resource</span> <span class="identifier">r1</span><span class="special">;</span>
+				<span class="identifier">my_space</span><span class="special">::</span><span class="identifier">smart_resource</span> <span class="identifier">r2</span><span class="special">{</span><span class="number">23445</span><span class="special">};</span>
+				<span class="identifier">my_space</span><span class="special">::</span><span class="identifier">smart_resource</span> <span class="identifier">r3</span><span class="special">{</span><span class="identifier">r2</span><span class="special">};</span>
+				<span class="identifier">my_space</span><span class="special">::</span><span class="identifier">smart_resource</span> <span class="identifier">r4</span><span class="special">{</span><span class="identifier">my_space</span><span class="special">::</span><span class="identifier">smart_resource</span><span class="special">{</span><span class="identifier">my_space</span><span class="special">::</span><span class="identifier">strict_resource</span><span class="special">{</span><span class="number">999</span><span class="special">}}};</span>
+				<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">r3</span><span class="special">.</span><span class="identifier">get_value</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="char">'\n'</span> <span class="special">&lt;&lt;</span> <span class="identifier">r4</span><span class="special">.</span><span class="identifier">get_value</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="char">'\n'</span><span class="special">;</span>
+			<span class="special">}</span>
+			<span class="special">{</span>
+				<span class="identifier">my_space</span><span class="special">::</span><span class="identifier">smart_resource</span> <span class="special">*</span> <span class="identifier">r5</span> <span class="special">=</span> <span class="keyword">new</span> <span class="identifier">my_space</span><span class="special">::</span><span class="identifier">smart_resource</span><span class="special">{</span><span class="number">234512</span><span class="special">};</span>
+				<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">r5</span><span class="special">-&gt;</span><span class="identifier">get_value</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+				<span class="keyword">delete</span> <span class="identifier">r5</span><span class="special">;</span>
+			<span class="special">}</span>
+		<span class="special">}</span>
+		<span class="identifier">my_space</span><span class="special">::</span><span class="identifier">smart_resource</span><span class="special">::</span><span class="identifier">check</span><span class="special">(</span><span class="keyword">false</span><span class="special">);</span>
+	<span class="special">}</span>
+	<span class="special">{</span>
+		<span class="special">{</span>
+			<span class="special">{</span>
+				<span class="identifier">winrt</span><span class="special">::</span><span class="identifier">com_ptr</span><span class="special">&lt;</span><span class="identifier">my_space</span><span class="special">::</span><span class="identifier">smart_resource</span><span class="special">&gt;</span> <span class="identifier">r1</span><span class="special">{</span><span class="keyword">new</span> <span class="identifier">my_space</span><span class="special">::</span><span class="identifier">smart_resource</span><span class="special">{</span><span class="number">231234</span><span class="special">},</span> <span class="special">{}};</span>
+				<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">r1</span><span class="special">-&gt;</span><span class="identifier">get_value</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+			<span class="special">}</span>
+			<span class="special">{</span>
+				<span class="identifier">winrt</span><span class="special">::</span><span class="identifier">com_ptr</span><span class="special">&lt;</span><span class="identifier">my_space</span><span class="special">::</span><span class="identifier">smart_resource</span><span class="special">&gt;</span> <span class="identifier">r2</span><span class="special">{</span>
+					<span class="keyword">new</span> <span class="identifier">my_space</span><span class="special">::</span><span class="identifier">smart_resource</span><span class="special">{</span><span class="identifier">my_space</span><span class="special">::</span><span class="identifier">strict_resource</span><span class="special">{-</span><span class="number">32</span><span class="special">}},</span> <span class="special">{}};</span>
+				<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">r2</span><span class="special">-&gt;</span><span class="identifier">get_value</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+			<span class="special">}</span>
+			<span class="special">{</span>
+				<span class="identifier">winrt</span><span class="special">::</span><span class="identifier">com_ptr</span><span class="special">&lt;</span><span class="identifier">my_space</span><span class="special">::</span><span class="identifier">smart_resource</span><span class="special">&gt;</span> <span class="identifier">r3</span><span class="special">;</span>
+				<span class="identifier">r3</span><span class="special">.</span><span class="identifier">attach</span><span class="special">(</span><span class="keyword">new</span> <span class="identifier">my_space</span><span class="special">::</span><span class="identifier">smart_resource</span><span class="special">{</span><span class="identifier">my_space</span><span class="special">::</span><span class="identifier">strict_resource</span><span class="special">{</span><span class="number">9</span><span class="special">}});</span>
+				<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">r3</span><span class="special">-&gt;</span><span class="identifier">get_value</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+			<span class="special">}</span>
+			<span class="special">{</span>
+				<span class="keyword">auto</span> <span class="identifier">ptr</span> <span class="special">=</span> <span class="keyword">new</span> <span class="identifier">my_space</span><span class="special">::</span><span class="identifier">strict_resource</span><span class="special">{</span><span class="number">9123</span><span class="special">};</span>
+				<span class="special">{</span>
+					<span class="identifier">winrt</span><span class="special">::</span><span class="identifier">com_ptr</span><span class="special">&lt;</span><span class="identifier">my_space</span><span class="special">::</span><span class="identifier">smart_resource</span><span class="special">&gt;</span> <span class="identifier">r4</span><span class="special">{</span><span class="keyword">new</span> <span class="identifier">my_space</span><span class="special">::</span><span class="identifier">smart_resource</span><span class="special">{</span><span class="identifier">ptr</span><span class="special">},</span> <span class="special">{}};</span>
+					<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">r4</span><span class="special">-&gt;</span><span class="identifier">get_value</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+				<span class="special">}</span>
+				<span class="identifier">BOOST_ASSERT</span><span class="special">(</span><span class="identifier">ptr</span> <span class="special">!=</span> <span class="keyword">nullptr</span><span class="special">);</span>
+				<span class="keyword">delete</span> <span class="identifier">ptr</span><span class="special">;</span>
+				<span class="identifier">ptr</span> <span class="special">=</span> <span class="keyword">nullptr</span><span class="special">;</span>
+				<span class="identifier">BOOST_ASSERT</span><span class="special">(</span><span class="identifier">ptr</span> <span class="special">==</span> <span class="keyword">nullptr</span><span class="special">);</span>
+			<span class="special">}</span>
+		<span class="special">}</span>
+		<span class="identifier">my_space</span><span class="special">::</span><span class="identifier">smart_resource</span><span class="special">::</span><span class="identifier">check</span><span class="special">(</span><span class="keyword">true</span><span class="special">);</span>
+	<span class="special">}</span>
+<span class="special">}</span>
+</pre>
+<pre class="programlisting"><span class="special">&gt;</span> <span class="identifier">g</span><span class="special">++</span> <span class="identifier">program</span><span class="special">.</span><span class="identifier">cpp</span> <span class="special">-</span><span class="identifier">std</span><span class="special">=</span><span class="identifier">c</span><span class="special">++</span><span class="number">26</span> <span class="special">-</span><span class="identifier">o</span> <span class="identifier">program</span>
+<span class="special">&gt;</span> <span class="special">./</span><span class="identifier">program</span><span class="special">.</span><span class="identifier">exe</span>
+<span class="number">23445</span>
+<span class="number">999</span>
+<span class="number">234512</span>
+<span class="special">==============================</span>
+<span class="identifier">start</span> <span class="identifier">a</span> <span class="identifier">check</span> <span class="special">...</span>
+
+<span class="identifier">my_space</span><span class="special">::</span><span class="identifier">smart_resource</span><span class="special">::</span><span class="identifier">check</span><span class="special">:</span>
+<span class="identifier">constructors</span><span class="special">:</span> <span class="number">9</span>
+<span class="identifier">destructors</span><span class="special">:</span> <span class="number">9</span>
+<span class="identifier">releasors</span><span class="special">:</span> <span class="number">0</span>
+<span class="identifier">my_space</span><span class="special">::</span><span class="identifier">strict_resource</span><span class="special">::</span><span class="identifier">check</span> <span class="identifier">OK</span><span class="special">.</span>
+
+<span class="identifier">my_space</span><span class="special">::</span><span class="identifier">smart_resource</span><span class="special">::</span><span class="identifier">check</span><span class="special">:</span>
+<span class="identifier">constructors</span><span class="special">:</span> <span class="number">5</span>
+<span class="identifier">destructors</span><span class="special">:</span> <span class="number">5</span>
+<span class="identifier">releasors</span><span class="special">:</span> <span class="number">5</span>
+<span class="identifier">my_space</span><span class="special">::</span><span class="identifier">smart_resource</span><span class="special">::</span><span class="identifier">check</span> <span class="identifier">OK</span><span class="special">.</span>
+
+<span class="number">231234</span>
+<span class="special">-</span><span class="number">32</span>
+<span class="number">9</span>
+<span class="number">9123</span>
+<span class="special">==============================</span>
+<span class="identifier">start</span> <span class="identifier">a</span> <span class="identifier">check</span> <span class="special">...</span>
+
+<span class="identifier">my_space</span><span class="special">::</span><span class="identifier">smart_resource</span><span class="special">::</span><span class="identifier">check</span><span class="special">:</span>
+<span class="identifier">constructors</span><span class="special">:</span> <span class="number">16</span>
+<span class="identifier">destructors</span><span class="special">:</span> <span class="number">16</span>
+<span class="identifier">releasors</span><span class="special">:</span> <span class="number">0</span>
+<span class="identifier">my_space</span><span class="special">::</span><span class="identifier">strict_resource</span><span class="special">::</span><span class="identifier">check</span> <span class="identifier">OK</span><span class="special">.</span>
+
+<span class="identifier">my_space</span><span class="special">::</span><span class="identifier">smart_resource</span><span class="special">::</span><span class="identifier">check</span><span class="special">:</span>
+<span class="identifier">constructors</span><span class="special">:</span> <span class="number">9</span>
+<span class="identifier">destructors</span><span class="special">:</span> <span class="number">5</span>
+<span class="identifier">releasors</span><span class="special">:</span> <span class="number">9</span>
+<span class="identifier">my_space</span><span class="special">::</span><span class="identifier">smart_resource</span><span class="special">::</span><span class="identifier">check</span> <span class="identifier">OK</span><span class="special">.</span>
+</pre>
+<h2>
+<a name="winrt-com_ptr.h3"></a>
+        <span class="phrase"><a name="winrt-com_ptr.date"></a></span><a class="link" href="winrt-com_ptr.html#winrt-com_ptr.date"><span class="cyan">Date</span></a>
+      </h2>
+<p>
+        Apr 26, 2025
+      </p>
+<h2>
+<a name="winrt-com_ptr.h4"></a>
+        <span class="phrase"><a name="winrt-com_ptr.back"></a></span><a class="link" href="winrt-com_ptr.html#winrt-com_ptr.back"><span class="cyan">Back</span></a>
+      </h2>
+<p>
+        <a class="link" href="winrt.html" title="winrt c++">Up</a>
+      </p>
+<h2>
+<a name="winrt-com_ptr.h5"></a>
+        <span class="phrase"><a name="winrt-com_ptr.cpp-lang"></a></span><a class="link" href="winrt-com_ptr.html#winrt-com_ptr.cpp-lang"><span class="cyan">cpp/c++</span></a>
+      </h2>
+<p>
+        c++ std::exception:
+      </p>
+<p>
+        std::cout.write(err.data(), err.size());
+      </p>
+<p>
+        std::cout &lt;&lt; std::endl;
+      </p>
+<p>
+        <span class="purple">caught:</span>
+      </p>
+<pre class="programlisting">  ===================================
+  #  The c++ programming language.  #
+  #                                 #
+  #  Join c++                       #
+  #  Deck                           #
+  ===================================
+</pre>
+<p>
+        <a href="https://cppfx.xyz" target="_top">Home: cppfx.xyz</a>
+      </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="winrt.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="winrt.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+</body>
+</html>

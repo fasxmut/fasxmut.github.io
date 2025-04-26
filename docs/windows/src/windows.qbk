@@ -1,0 +1,13 @@
+[book Windows c++ programming
+	[quickbook 1.7]
+	[id windows-cpp]
+]
+
+[include winrt/winrt.qbk]
+
+[h1:back [role cyan Back]]
+
+[@.. Up]
+
+[include ../../share/foot-links.inc.qbk]
+

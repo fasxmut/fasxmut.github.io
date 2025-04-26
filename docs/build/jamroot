@@ -17,6 +17,7 @@ project-list =
 	not-found-test
 	sycl
 	b2
+	windows
 ;
 
 path-constant my-dir : . ;
