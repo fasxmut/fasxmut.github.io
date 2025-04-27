@@ -1,5 +1,5 @@
-<map id="dcpp::scene::ISceneNodeAnimatorCameraMaya" name="dcpp::scene::ISceneNodeAnimatorCameraMaya">
-<area shape="rect" id="Node000001" title="Special scene node animator for Maya&#45;style cameras." alt="" coords="97,240,341,280"/>
+<map id="dcpp::scene::ISceneNodeAnimatorCameraDqrs" name="dcpp::scene::ISceneNodeAnimatorCameraDqrs">
+<area shape="rect" id="Node000001" title="Special scene node animator for dqrs&#45;style cameras." alt="" coords="97,240,341,280"/>
 <area shape="rect" id="Node000002" href="$classdcpp_1_1scene_1_1ISceneNodeAnimator.html" title="Animates a scene node. Can animate position, rotation, material, and so on." alt="" coords="97,167,341,192"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="222,206,222,240,217,240,217,206"/>
 <area shape="rect" id="Node000003" href="$classdcpp_1_1io_1_1IAttributeExchangingObject.html" title="An object which is able to serialize and deserialize its attributes into an attributes object." alt="" coords="5,79,223,119"/>

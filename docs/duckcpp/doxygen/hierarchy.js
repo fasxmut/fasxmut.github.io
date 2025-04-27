@@ -61,8 +61,8 @@ var hierarchy =
       ] ],
       [ "dcpp::scene::ICameraSceneNode", "classdcpp_1_1scene_1_1ICameraSceneNode.html", null ],
       [ "dcpp::scene::ISceneNodeAnimator", "classdcpp_1_1scene_1_1ISceneNodeAnimator.html", [
+        [ "dcpp::scene::ISceneNodeAnimatorCameraDqrs", "classdcpp_1_1scene_1_1ISceneNodeAnimatorCameraDqrs.html", null ],
         [ "dcpp::scene::ISceneNodeAnimatorCameraFPS", "classdcpp_1_1scene_1_1ISceneNodeAnimatorCameraFPS.html", null ],
-        [ "dcpp::scene::ISceneNodeAnimatorCameraMaya", "classdcpp_1_1scene_1_1ISceneNodeAnimatorCameraMaya.html", null ],
         [ "dcpp::scene::ISceneNodeAnimatorCollisionResponse", "classdcpp_1_1scene_1_1ISceneNodeAnimatorCollisionResponse.html", null ]
       ] ]
     ] ],
@@ -284,7 +284,6 @@ var hierarchy =
     [ "dcpp::SEvent::SGUIEvent", "classdcpp_1_1SEvent_1_1SGUIEvent.html", null ],
     [ "dcpp::gui::SGUISprite", "classdcpp_1_1gui_1_1SGUISprite.html", null ],
     [ "dcpp::gui::SGUISpriteFrame", "classdcpp_1_1gui_1_1SGUISpriteFrame.html", null ],
-    [ "dcpp::shared_device", "classdcpp_1_1shared__device.html", null ],
     [ "dcpp::scene::ISkinnedMesh::SJoint", "classdcpp_1_1scene_1_1ISkinnedMesh_1_1SJoint.html", null ],
     [ "dcpp::SEvent::SJoystickEvent", "classdcpp_1_1SEvent_1_1SJoystickEvent.html", null ],
     [ "dcpp::SJoystickInfo", "classdcpp_1_1SJoystickInfo.html", null ],

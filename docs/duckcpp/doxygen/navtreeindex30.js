@@ -1,9 +1,5 @@
 var NAVTREEINDEX30 =
 {
-"namespacedcpp_1_1video.html#a739d59775b7ad0f90959e1d7ca068e1bafc8754a927c462859030225f27975a84":[2,0,0,4,51,4],
-"namespacedcpp_1_1video.html#a73eb96d55e26ffd92137ef536faf107d":[2,0,0,4,80],
-"namespacedcpp_1_1video.html#a74cbe4f285338105b8f2f7a57ea1a84b":[2,0,0,4,61],
-"namespacedcpp_1_1video.html#a81c7adee459df10180aeeaa5a6fe9cf2":[2,0,0,4,75],
 "namespacedcpp_1_1video.html#a8262cb0e071be34704ee5464a50f63fa":[2,0,0,4,56],
 "namespacedcpp_1_1video.html#a851f5561154d3d9bbe393e3d0d33a2c8":[2,0,0,4,41],
 "namespacedcpp_1_1video.html#a851f5561154d3d9bbe393e3d0d33a2c8a72d27847a21b9ff3abb404ad55b4092d":[2,0,0,4,41,7],

@@ -48,9 +48,9 @@
 <area shape="poly" id="edge21_Node000002_Node000022" title=" " alt="" coords="349,577,459,833,469,867,475,895,484,920,506,944,539,961,536,966,502,948,480,922,470,897,464,868,453,835,344,579"/>
 <area shape="rect" id="Node000023" href="$classdcpp_1_1gui_1_1IGUIWindow.html" title="Default moveable window GUI element with border, caption and close icons." alt="" coords="541,1008,711,1033"/>
 <area shape="poly" id="edge22_Node000002_Node000023" title=" " alt="" coords="350,577,400,687,459,833,469,881,472,922,479,958,489,975,506,993,523,1005,542,1013,540,1018,520,1010,502,997,485,978,474,960,466,922,464,882,453,835,395,689,345,579"/>
-<area shape="rect" id="Node000026" href="$classdcpp_1_1scene_1_1ISceneNodeAnimatorCameraFPS.html" title="Special scene node animator for FPS cameras." alt="" coords="504,1058,748,1098"/>
+<area shape="rect" id="Node000026" href="$classdcpp_1_1scene_1_1ISceneNodeAnimatorCameraDqrs.html" title="Special scene node animator for dqrs&#45;style cameras." alt="" coords="504,1058,748,1098"/>
 <area shape="poly" id="edge25_Node000025_Node000026" title=" " alt="" coords="463,1093,504,1089,504,1094,464,1098"/>
-<area shape="rect" id="Node000027" href="$classdcpp_1_1scene_1_1ISceneNodeAnimatorCameraMaya.html" title="Special scene node animator for Maya&#45;style cameras." alt="" coords="504,1122,748,1162"/>
+<area shape="rect" id="Node000027" href="$classdcpp_1_1scene_1_1ISceneNodeAnimatorCameraFPS.html" title="Special scene node animator for FPS cameras." alt="" coords="504,1122,748,1162"/>
 <area shape="poly" id="edge26_Node000025_Node000027" title=" " alt="" coords="464,1122,504,1126,504,1131,463,1127"/>
 <area shape="rect" id="Node000028" href="$classdcpp_1_1scene_1_1ISceneNodeAnimatorCollisionResponse.html" title="Special scene node animator for doing automatic collision detection and response." alt="" coords="504,1186,748,1226"/>
 <area shape="poly" id="edge27_Node000025_Node000028" title=" " alt="" coords="380,1125,505,1171,545,1183,544,1189,503,1177,378,1130"/>

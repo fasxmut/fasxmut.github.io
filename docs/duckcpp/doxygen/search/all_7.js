@@ -18,8 +18,8 @@ var searchData=
   ['height_15',['Height',['../classdcpp_1_1nub_1_1dimension2d.html#a428e25151909d0e0079dc52fa4e69000',1,'dcpp::nub::dimension2d']]],
   ['heightmapoptimizemesh_16',['heightmapoptimizemesh',['../classdcpp_1_1scene_1_1IMeshManipulator.html#a45e9d290a07ac94ca95ccc7d00a498ea',1,'dcpp::scene::IMeshManipulator::heightmapOptimizeMesh(IMeshBuffer *const mb, const dcpp::float32_kt tolerance=dcpp::nub::ROUNDING_ERROR_Float32) const =0'],['../classdcpp_1_1scene_1_1IMeshManipulator.html#a3e015549ef2d60dfc0841d684beacf24',1,'dcpp::scene::IMeshManipulator::heightmapOptimizeMesh(IMesh *const mesh, const dcpp::float32_kt tolerance=dcpp::nub::ROUNDING_ERROR_Float32) const =0']]],
   ['highprecisionfpu_17',['HighPrecisionFPU',['../classdcpp_1_1SDuckcppCreationParameters.html#ab94afa4a4c0085a0382cfc2106ffef0e',1,'dcpp::SDuckcppCreationParameters']]],
-  ['history_18',['History',['..//home/u/my-projects/duckcpp/include/duckcpp/core/engine/irrXML.hpp#history',1,'']]],
-  ['how_20to_20use_19',['How to use',['..//home/u/my-projects/duckcpp/include/duckcpp/core/engine/irrXML.hpp#howto',1,'']]],
+  ['history_18',['History',['..//st/my-project-ln-in-st-cache/duckcpp/include/duckcpp/core/engine/irrXML.hpp#history',1,'']]],
+  ['how_20to_20use_19',['How to use',['..//st/my-project-ln-in-st-cache/duckcpp/include/duckcpp/core/engine/irrXML.hpp#howto',1,'']]],
   ['hrc_20',['HRc',['../classdcpp_1_1video_1_1SExposedVideoData_1_1SOpenGLWin32.html#a7ddaf1455d27649e1af453caca8a9fef',1,'dcpp::video::SExposedVideoData::SOpenGLWin32']]],
   ['hwnd_21',['hwnd',['../classdcpp_1_1video_1_1SExposedVideoData_1_1SD3D9.html#a6935db95c72b16c5e7a99b966c236a8a',1,'dcpp::video::SExposedVideoData::SD3D9::HWnd'],['../classdcpp_1_1video_1_1SExposedVideoData_1_1SOpenGLWin32.html#af236d42862765e85022480c487a905a8',1,'dcpp::video::SExposedVideoData::SOpenGLWin32::HWnd']]]
 ];

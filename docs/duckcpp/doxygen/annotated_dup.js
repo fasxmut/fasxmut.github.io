@@ -135,8 +135,8 @@ var annotated_dup =
         [ "ISceneManager", "classdcpp_1_1scene_1_1ISceneManager.html", "classdcpp_1_1scene_1_1ISceneManager" ],
         [ "ISceneNode", "classdcpp_1_1scene_1_1ISceneNode.html", "classdcpp_1_1scene_1_1ISceneNode" ],
         [ "ISceneNodeAnimator", "classdcpp_1_1scene_1_1ISceneNodeAnimator.html", "classdcpp_1_1scene_1_1ISceneNodeAnimator" ],
+        [ "ISceneNodeAnimatorCameraDqrs", "classdcpp_1_1scene_1_1ISceneNodeAnimatorCameraDqrs.html", "classdcpp_1_1scene_1_1ISceneNodeAnimatorCameraDqrs" ],
         [ "ISceneNodeAnimatorCameraFPS", "classdcpp_1_1scene_1_1ISceneNodeAnimatorCameraFPS.html", "classdcpp_1_1scene_1_1ISceneNodeAnimatorCameraFPS" ],
-        [ "ISceneNodeAnimatorCameraMaya", "classdcpp_1_1scene_1_1ISceneNodeAnimatorCameraMaya.html", "classdcpp_1_1scene_1_1ISceneNodeAnimatorCameraMaya" ],
         [ "ISceneNodeAnimatorCollisionResponse", "classdcpp_1_1scene_1_1ISceneNodeAnimatorCollisionResponse.html", "classdcpp_1_1scene_1_1ISceneNodeAnimatorCollisionResponse" ],
         [ "ISceneNodeAnimatorFactory", "classdcpp_1_1scene_1_1ISceneNodeAnimatorFactory.html", "classdcpp_1_1scene_1_1ISceneNodeAnimatorFactory" ],
         [ "ISceneNodeFactory", "classdcpp_1_1scene_1_1ISceneNodeFactory.html", "classdcpp_1_1scene_1_1ISceneNodeFactory" ],
@@ -229,7 +229,6 @@ var annotated_dup =
       [ "PProfileScope", "classdcpp_1_1PProfileScope.html", "classdcpp_1_1PProfileScope" ],
       [ "SDuckcppCreationParameters", "classdcpp_1_1SDuckcppCreationParameters.html", "classdcpp_1_1SDuckcppCreationParameters" ],
       [ "SEvent", "classdcpp_1_1SEvent.html", "classdcpp_1_1SEvent" ],
-      [ "shared_device", "classdcpp_1_1shared__device.html", "classdcpp_1_1shared__device" ],
       [ "SJoystickInfo", "classdcpp_1_1SJoystickInfo.html", "classdcpp_1_1SJoystickInfo" ],
       [ "SKeyMap", "classdcpp_1_1SKeyMap.html", null ],
       [ "SProfileData", "classdcpp_1_1SProfileData.html", "classdcpp_1_1SProfileData" ]

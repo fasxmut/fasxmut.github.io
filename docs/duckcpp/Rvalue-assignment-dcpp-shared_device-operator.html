@@ -54,7 +54,7 @@
               holds before will be set to zero;
             </li>
 <li class="listitem">
-              The reference counter of old device that the current object device1
+              The reference counter of old device that the current object device2
               held will be decreased by one;
             </li>
 <li class="listitem">
@@ -64,9 +64,9 @@
               If the underlying device of <span class="bold"><strong>&lt;temporary object
               expression&gt;</strong></span> is invalid or its reference counter is zero,
               device2 will be dereferenced from its previous underlying device, and
-              its reference counter is set to zero; in such case, if device1 is the
+              its reference counter is set to zero; in such case, if device2 is the
               only object that holds its underlying device, the underlying device
-              will be destroyed and device1's reference counter is set to zero.
+              will be destroyed and device2's reference counter is set to zero.
             </li>
 </ul></div>
 <h2>

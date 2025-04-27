@@ -246,11 +246,11 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneNodeAnimator.html">ISceneNodeAnimator</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Animates a scene node. Can animate position, rotation, material, and so on.  <a href="classdcpp_1_1scene_1_1ISceneNodeAnimator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneNodeAnimatorCameraDqrs.html">ISceneNodeAnimatorCameraDqrs</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Special scene node animator for dqrs-style cameras.  <a href="classdcpp_1_1scene_1_1ISceneNodeAnimatorCameraDqrs.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneNodeAnimatorCameraFPS.html">ISceneNodeAnimatorCameraFPS</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Special scene node animator for FPS cameras.  <a href="classdcpp_1_1scene_1_1ISceneNodeAnimatorCameraFPS.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneNodeAnimatorCameraMaya.html">ISceneNodeAnimatorCameraMaya</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Special scene node animator for Maya-style cameras.  <a href="classdcpp_1_1scene_1_1ISceneNodeAnimatorCameraMaya.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdcpp_1_1scene_1_1ISceneNodeAnimatorCollisionResponse.html">ISceneNodeAnimatorCollisionResponse</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Special scene node animator for doing automatic collision detection and response.  <a href="classdcpp_1_1scene_1_1ISceneNodeAnimatorCollisionResponse.html#details">More...</a><br /></td></tr>
@@ -724,7 +724,7 @@ Enumerations</h2></td></tr>
 , <br />
 &#160;&#160;<a class="el" href="namespacedcpp_1_1scene.html#a78efb13e2d8e615d86b921419ac70d6aa278af348952f3d90e53b6f0b89507cd8">ESNT_MD3_SCENE_NODE</a> = MAKE_DCPP_ID('m','d','3','_')
 , <a class="el" href="namespacedcpp_1_1scene.html#a78efb13e2d8e615d86b921419ac70d6aac19cb008a3b3bd084fe533851828a5b0">ESNT_VOLUME_LIGHT</a> = MAKE_DCPP_ID('v','o','l','l')
-, <a class="el" href="namespacedcpp_1_1scene.html#a78efb13e2d8e615d86b921419ac70d6aae667eb89ee189495bd8178c7ebded199">ESNT_CAMERA_MAYA</a> = MAKE_DCPP_ID('c','a','m','M')
+, <a class="el" href="namespacedcpp_1_1scene.html#a78efb13e2d8e615d86b921419ac70d6aa0dc22481dec626696c443472c8b2d21c">ESNT_CAMERA_DQRS</a> = MAKE_DCPP_ID('c','a','m','M')
 , <a class="el" href="namespacedcpp_1_1scene.html#a78efb13e2d8e615d86b921419ac70d6aa0b90306397260404f804fc97795056cf">ESNT_CAMERA_FPS</a> = MAKE_DCPP_ID('c','a','m','F')
 , <br />
 &#160;&#160;<a class="el" href="namespacedcpp_1_1scene.html#a78efb13e2d8e615d86b921419ac70d6aab8eea1e49339adce8b97d1b4fc9bd1f0">ESNT_UNKNOWN</a> = MAKE_DCPP_ID('u','n','k','n')
@@ -744,7 +744,7 @@ Enumerations</h2></td></tr>
 , <a class="el" href="namespacedcpp_1_1scene.html#a85e4e014d48bb444d2844c19833a559ea026b50207d027fd3efed2fbcecfe5e6a">ESNAT_COLLISION_RESPONSE</a>
 , <a class="el" href="namespacedcpp_1_1scene.html#a85e4e014d48bb444d2844c19833a559eaa5f9b5d5e6e60b59117c623b120a4030">ESNAT_CAMERA_FPS</a>
 , <br />
-&#160;&#160;<a class="el" href="namespacedcpp_1_1scene.html#a85e4e014d48bb444d2844c19833a559ea593fc6bac4fd73f49ff3e4bd3644332a">ESNAT_CAMERA_MAYA</a>
+&#160;&#160;<a class="el" href="namespacedcpp_1_1scene.html#a85e4e014d48bb444d2844c19833a559eaecf7fd21cb83e2e60503351938fa1d17">ESNAT_CAMERA_DQRS</a>
 , <a class="el" href="namespacedcpp_1_1scene.html#a85e4e014d48bb444d2844c19833a559ea6c86b4b606b6281ff111dc779a422b58">ESNAT_COUNT</a>
 , <a class="el" href="namespacedcpp_1_1scene.html#a85e4e014d48bb444d2844c19833a559ea9a3375fb383d07845c32f6a0ce6e9286">ESNAT_UNKNOWN</a>
 , <a class="el" href="namespacedcpp_1_1scene.html#a85e4e014d48bb444d2844c19833a559ea782bc44c7472f2a9c8297dfe10985c9d">ESNAT_FORCE_32_BIT</a> = 0x7fffffff
@@ -1624,7 +1624,7 @@ class <a class="el" href="classdcpp_1_1scene_1_1SMD3Header.html">dcpp::scene::SM
 </td></tr>
 <tr><td class="fieldname"><a id="a85e4e014d48bb444d2844c19833a559eaa5f9b5d5e6e60b59117c623b120a4030" name="a85e4e014d48bb444d2844c19833a559eaa5f9b5d5e6e60b59117c623b120a4030"></a>ESNAT_CAMERA_FPS&#160;</td><td class="fielddoc"><p>FPS camera animator. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a85e4e014d48bb444d2844c19833a559ea593fc6bac4fd73f49ff3e4bd3644332a" name="a85e4e014d48bb444d2844c19833a559ea593fc6bac4fd73f49ff3e4bd3644332a"></a>ESNAT_CAMERA_MAYA&#160;</td><td class="fielddoc"><p>Maya camera animator. </p>
+<tr><td class="fieldname"><a id="a85e4e014d48bb444d2844c19833a559eaecf7fd21cb83e2e60503351938fa1d17" name="a85e4e014d48bb444d2844c19833a559eaecf7fd21cb83e2e60503351938fa1d17"></a>ESNAT_CAMERA_DQRS&#160;</td><td class="fielddoc"><p>Dqrs camera animator. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a85e4e014d48bb444d2844c19833a559ea6c86b4b606b6281ff111dc779a422b58" name="a85e4e014d48bb444d2844c19833a559ea6c86b4b606b6281ff111dc779a422b58"></a>ESNAT_COUNT&#160;</td><td class="fielddoc"><p>Amount of built-in scene node animators. </p>
 </td></tr>
@@ -1695,7 +1695,7 @@ class <a class="el" href="classdcpp_1_1scene_1_1SMD3Header.html">dcpp::scene::SM
 </td></tr>
 <tr><td class="fieldname"><a id="a78efb13e2d8e615d86b921419ac70d6aac19cb008a3b3bd084fe533851828a5b0" name="a78efb13e2d8e615d86b921419ac70d6aac19cb008a3b3bd084fe533851828a5b0"></a>ESNT_VOLUME_LIGHT&#160;</td><td class="fielddoc"><p>Volume Light Scene Node. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a78efb13e2d8e615d86b921419ac70d6aae667eb89ee189495bd8178c7ebded199" name="a78efb13e2d8e615d86b921419ac70d6aae667eb89ee189495bd8178c7ebded199"></a>ESNT_CAMERA_MAYA&#160;</td><td class="fielddoc"><p>Maya Camera Scene Node. </p>
+<tr><td class="fieldname"><a id="a78efb13e2d8e615d86b921419ac70d6aa0dc22481dec626696c443472c8b2d21c" name="a78efb13e2d8e615d86b921419ac70d6aa0dc22481dec626696c443472c8b2d21c"></a>ESNT_CAMERA_DQRS&#160;</td><td class="fielddoc"><p>Dqrs Camera Scene Node. </p>
 <p>Legacy, for loading version &lt;= 1.4.x .irr files </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a78efb13e2d8e615d86b921419ac70d6aa0b90306397260404f804fc97795056cf" name="a78efb13e2d8e615d86b921419ac70d6aa0b90306397260404f804fc97795056cf"></a>ESNT_CAMERA_FPS&#160;</td><td class="fielddoc"><p>First Person Shooter Camera. </p>

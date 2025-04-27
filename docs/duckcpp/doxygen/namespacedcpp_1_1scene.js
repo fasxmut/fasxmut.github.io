@@ -48,8 +48,8 @@ var namespacedcpp_1_1scene =
     [ "ISceneManager", "classdcpp_1_1scene_1_1ISceneManager.html", "classdcpp_1_1scene_1_1ISceneManager" ],
     [ "ISceneNode", "classdcpp_1_1scene_1_1ISceneNode.html", "classdcpp_1_1scene_1_1ISceneNode" ],
     [ "ISceneNodeAnimator", "classdcpp_1_1scene_1_1ISceneNodeAnimator.html", "classdcpp_1_1scene_1_1ISceneNodeAnimator" ],
+    [ "ISceneNodeAnimatorCameraDqrs", "classdcpp_1_1scene_1_1ISceneNodeAnimatorCameraDqrs.html", "classdcpp_1_1scene_1_1ISceneNodeAnimatorCameraDqrs" ],
     [ "ISceneNodeAnimatorCameraFPS", "classdcpp_1_1scene_1_1ISceneNodeAnimatorCameraFPS.html", "classdcpp_1_1scene_1_1ISceneNodeAnimatorCameraFPS" ],
-    [ "ISceneNodeAnimatorCameraMaya", "classdcpp_1_1scene_1_1ISceneNodeAnimatorCameraMaya.html", "classdcpp_1_1scene_1_1ISceneNodeAnimatorCameraMaya" ],
     [ "ISceneNodeAnimatorCollisionResponse", "classdcpp_1_1scene_1_1ISceneNodeAnimatorCollisionResponse.html", "classdcpp_1_1scene_1_1ISceneNodeAnimatorCollisionResponse" ],
     [ "ISceneNodeAnimatorFactory", "classdcpp_1_1scene_1_1ISceneNodeAnimatorFactory.html", "classdcpp_1_1scene_1_1ISceneNodeAnimatorFactory" ],
     [ "ISceneNodeFactory", "classdcpp_1_1scene_1_1ISceneNodeFactory.html", "classdcpp_1_1scene_1_1ISceneNodeFactory" ],
@@ -364,7 +364,7 @@ var namespacedcpp_1_1scene =
       [ "ESNAT_DELETION", "namespacedcpp_1_1scene.html#a85e4e014d48bb444d2844c19833a559ea2cd15610a877f35e049643182d873a73", null ],
       [ "ESNAT_COLLISION_RESPONSE", "namespacedcpp_1_1scene.html#a85e4e014d48bb444d2844c19833a559ea026b50207d027fd3efed2fbcecfe5e6a", null ],
       [ "ESNAT_CAMERA_FPS", "namespacedcpp_1_1scene.html#a85e4e014d48bb444d2844c19833a559eaa5f9b5d5e6e60b59117c623b120a4030", null ],
-      [ "ESNAT_CAMERA_MAYA", "namespacedcpp_1_1scene.html#a85e4e014d48bb444d2844c19833a559ea593fc6bac4fd73f49ff3e4bd3644332a", null ],
+      [ "ESNAT_CAMERA_DQRS", "namespacedcpp_1_1scene.html#a85e4e014d48bb444d2844c19833a559eaecf7fd21cb83e2e60503351938fa1d17", null ],
       [ "ESNAT_COUNT", "namespacedcpp_1_1scene.html#a85e4e014d48bb444d2844c19833a559ea6c86b4b606b6281ff111dc779a422b58", null ],
       [ "ESNAT_UNKNOWN", "namespacedcpp_1_1scene.html#a85e4e014d48bb444d2844c19833a559ea9a3375fb383d07845c32f6a0ce6e9286", null ],
       [ "ESNAT_FORCE_32_BIT", "namespacedcpp_1_1scene.html#a85e4e014d48bb444d2844c19833a559ea782bc44c7472f2a9c8297dfe10985c9d", null ]
@@ -392,7 +392,7 @@ var namespacedcpp_1_1scene =
       [ "ESNT_Q3SHADER_SCENE_NODE", "namespacedcpp_1_1scene.html#a78efb13e2d8e615d86b921419ac70d6aad918dfb048abfe50f8ae67775d83f0a4", null ],
       [ "ESNT_MD3_SCENE_NODE", "namespacedcpp_1_1scene.html#a78efb13e2d8e615d86b921419ac70d6aa278af348952f3d90e53b6f0b89507cd8", null ],
       [ "ESNT_VOLUME_LIGHT", "namespacedcpp_1_1scene.html#a78efb13e2d8e615d86b921419ac70d6aac19cb008a3b3bd084fe533851828a5b0", null ],
-      [ "ESNT_CAMERA_MAYA", "namespacedcpp_1_1scene.html#a78efb13e2d8e615d86b921419ac70d6aae667eb89ee189495bd8178c7ebded199", null ],
+      [ "ESNT_CAMERA_DQRS", "namespacedcpp_1_1scene.html#a78efb13e2d8e615d86b921419ac70d6aa0dc22481dec626696c443472c8b2d21c", null ],
       [ "ESNT_CAMERA_FPS", "namespacedcpp_1_1scene.html#a78efb13e2d8e615d86b921419ac70d6aa0b90306397260404f804fc97795056cf", null ],
       [ "ESNT_UNKNOWN", "namespacedcpp_1_1scene.html#a78efb13e2d8e615d86b921419ac70d6aab8eea1e49339adce8b97d1b4fc9bd1f0", null ],
       [ "ESNT_ANY", "namespacedcpp_1_1scene.html#a78efb13e2d8e615d86b921419ac70d6aa23ab34ab9fa95963188faf0dd3771e2e", null ]

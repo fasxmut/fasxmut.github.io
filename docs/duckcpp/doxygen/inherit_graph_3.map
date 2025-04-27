@@ -48,9 +48,9 @@
 <area shape="poly" id="edge21_Node000001_Node000021" title=" " alt="" coords="662,602,680,664,711,744,733,785,758,826,789,863,824,895,844,906,866,913,864,919,842,911,821,899,785,867,754,829,728,788,706,746,675,665,657,604"/>
 <area shape="rect" id="Node000022" href="$classdcpp_1_1gui_1_1IGUIWindow.html" title="Default moveable window GUI element with border, caption and close icons." alt="" coords="869,959,1038,984"/>
 <area shape="poly" id="edge22_Node000001_Node000022" title=" " alt="" coords="660,602,675,672,704,765,726,815,752,863,785,906,824,944,846,956,870,964,868,969,843,961,821,948,781,910,748,865,721,817,699,767,669,673,655,603"/>
-<area shape="rect" id="Node000053" href="$classdcpp_1_1scene_1_1ISceneNodeAnimatorCameraFPS.html" title="Special scene node animator for FPS cameras." alt="" coords="831,1058,1075,1098"/>
+<area shape="rect" id="Node000053" href="$classdcpp_1_1scene_1_1ISceneNodeAnimatorCameraDqrs.html" title="Special scene node animator for dqrs&#45;style cameras." alt="" coords="831,1058,1075,1098"/>
 <area shape="poly" id="edge25_Node000052_Node000053" title=" " alt="" coords="708,1140,822,1107,868,1095,869,1101,823,1113,710,1145"/>
-<area shape="rect" id="Node000054" href="$classdcpp_1_1scene_1_1ISceneNodeAnimatorCameraMaya.html" title="Special scene node animator for Maya&#45;style cameras." alt="" coords="831,1122,1075,1162"/>
+<area shape="rect" id="Node000054" href="$classdcpp_1_1scene_1_1ISceneNodeAnimatorCameraFPS.html" title="Special scene node animator for FPS cameras." alt="" coords="831,1122,1075,1162"/>
 <area shape="poly" id="edge26_Node000052_Node000054" title=" " alt="" coords="788,1149,831,1146,831,1152,789,1154"/>
 <area shape="rect" id="Node000055" href="$classdcpp_1_1scene_1_1ISceneNodeAnimatorCollisionResponse.html" title="Special scene node animator for doing automatic collision detection and response." alt="" coords="831,1186,1075,1226"/>
 <area shape="poly" id="edge27_Node000052_Node000055" title=" " alt="" coords="749,1172,832,1184,831,1190,748,1177"/>
