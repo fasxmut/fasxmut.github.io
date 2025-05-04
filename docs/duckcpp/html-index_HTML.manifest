@@ -78,6 +78,7 @@ method-shared_device-double_click_time.html
 method-shared_device-clear_system_messages.html
 method-shared_device-type.html
 method-shared_device-driver_supported.html
+method-shared_device-driver_renerable.html
 method-shared_device-tuple.html
 backends.html
 tips.html
