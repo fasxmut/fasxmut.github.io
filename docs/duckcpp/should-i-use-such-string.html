@@ -1,0 +1,90 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Shoud I use such string ?</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Duckcpp Engine">
+<link rel="up" href="tips.html" title="Tips">
+<link rel="prev" href="why-no-operator-bool.html" title="Why no operator bool">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="why-no-operator-bool.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="tips.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="should-i-use-such-string"></a>Shoud I use such string ?</h2></div></div>
+<hr>
+</div>
+<p>
+        Duckcpp has its own string class: dcpp::nub::basic_string, dcpp::nub::string,
+        dcpp::nub::wstring, which are designed by and forked from irrlicht, and used
+        by the engine. (<a class="link" href="dcpp-nub-string-category.html" title="dcpp::nub String Category">dcpp::nub String
+        Category</a>)
+      </p>
+<h2>
+<a name="should-i-use-such-string.h0"></a>
+        <span class="phrase"><a name="should-i-use-such-string.should-i-use"></a></span><a class="link" href="should-i-use-such-string.html#should-i-use-such-string.should-i-use"><span class="cyan">Should I use duckcpp string or c++ standard string?</span></a>
+      </h2>
+<p>
+        Duckcpp string is designed for the engine, it has many features that c++
+        standard string does not have. And also, it lacks many general features that
+        the c++ standard string has. For projects, I suggest use c++ standard string
+        (std::string or std::wstring), not use the string from the engine.
+      </p>
+<h2>
+<a name="should-i-use-such-string.h1"></a>
+        <span class="phrase"><a name="should-i-use-such-string.why-not-remove"></a></span><a class="link" href="should-i-use-such-string.html#should-i-use-such-string.why-not-remove"><span class="cyan">Why not remove the duckcpp string and replace it with c++ standard
+        string?</span></a>
+      </h2>
+<p>
+        Duckcpp string is designed for and optimized for the engine. For engine internal
+        use, the duckcpp string is preferred.
+      </p>
+<h2>
+<a name="should-i-use-such-string.h2"></a>
+        <span class="phrase"><a name="should-i-use-such-string.conclusion"></a></span><a class="link" href="should-i-use-such-string.html#should-i-use-such-string.conclusion"><span class="cyan">Conclusion</span></a>
+      </h2>
+<p>
+        So the conclusion is that the duckcpp string should be used by the engine
+        only, not used by external project.
+      </p>
+<h2>
+<a name="should-i-use-such-string.h3"></a>
+        <span class="phrase"><a name="should-i-use-such-string.date"></a></span><a class="link" href="should-i-use-such-string.html#should-i-use-such-string.date"><span class="cyan">Date</span></a>
+      </h2>
+<pre class="programlisting">&gt; date
+Tue May  6 07:02:14 AM UTC 2025
+</pre>
+<h2>
+<a name="should-i-use-such-string.h4"></a>
+        <span class="phrase"><a name="should-i-use-such-string.back"></a></span><a class="link" href="should-i-use-such-string.html#should-i-use-such-string.back"><span class="cyan">Back</span></a>
+      </h2>
+<p>
+        <a class="link" href="tips.html" title="Tips">Up: Tips</a>
+      </p>
+<h2>
+<a name="should-i-use-such-string.h5"></a>
+        <span class="phrase"><a name="should-i-use-such-string.cpp"></a></span><a class="link" href="should-i-use-such-string.html#should-i-use-such-string.cpp"><span class="cyan">c++</span></a>
+      </h2>
+<p>
+        <a href="." target="_top">Duckcpp</a>
+      </p>
+<p>
+        <a href=".." target="_top">cppfx.xyz</a>
+      </p>
+</div>
+<div class="copyright-footer">Copyright © 2023-2025 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="why-no-operator-bool.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="tips.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a>
+</div>
+</body>
+</html>
