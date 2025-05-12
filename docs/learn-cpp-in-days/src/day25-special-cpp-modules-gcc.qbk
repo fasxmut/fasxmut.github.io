@@ -10,7 +10,7 @@
 * [link day-25-special-cpp-modules-gcc.modules-shared-library Next: Modules Shared Library]
 * [link day-25-special-cpp-modules-gcc.module-partition Next: Module Partition]
 * [link day-25-special-cpp-modules-gcc.header-unit Next: Header Unit]
-* [link day-25-special-cpp-modules-gcc.split-definitions Next: Split Definitions for Shared Library]
+* [link day-25-special-cpp-modules-gcc.split-definitions Next: Split Definitions for Shared Library (Module Unit and Module Implementation Unit)]
 * [link day-25-special-cpp-modules-gcc.modules-in-b2-build Next: c++ Modules in B2 Build System]
 * [link day-25-special-cpp-modules-gcc.glossary Last: Glossary]
 
@@ -24,6 +24,19 @@
 
 [*import declaration]: import module units, module partitions, header units.
 
+[*Pre-compile gcc std.gcm :]
+
+```
+> gpp -fsearch-include-path bits/std.cc -c
+> rm std.o
+> ls gcm.cache/
+std.gcm
+```
+
+It will generate gcm.cache/std.gcm at current working directory.
+
+Pre-compiling std.gcm is a little slow, after compiling it, the compiling of using of "import std;" is very fast.
+
 [*hello.cpp :]
 
 [!c++]
@@ -36,23 +49,11 @@ int main()
 }
 ```
 
-[*Compile at the first time:]
-
-(a little slow)
-
-```
-> gpp -fsearch-include-path bits/std.cc hello.cpp -o hello
-> ./hello
-Hello, c++ modules!
-```
-
-It will create gcm.cache/std.gcm at current working directory.
-
-[*Compile not at the first time:]
+[*Compile program hello.cpp:]
 
 (very fast)
 
-After the cache is generated at the first time, the compiling is super fast.
+After the cache [~gcm.cache/std.gcm] is generated, the compiling is super fast.
 
 ```
 > gpp hello.cpp -o hello
@@ -76,11 +77,20 @@ E.X:
 
 Declares a primary module interface unit and export, its name is module-name .
 
-export namespace.
+[~[role ddred
+export namespace namespace-name[br]
+{[br]
+...
+]]
 
-Make a c++ module, source code: my_class.cpp
+export a namespace
 
-[*my_class.cpp] :
+
+[role dddgreen Make a c++ module, source code: my_class.cppm] ->
+
+([role dddred Note that gcc supports both .cppm and .cpp as the c++ module source code file  name extension.])
+
+[*my_class.cppm] :
 
 [!c++]
 ```
@@ -119,16 +129,18 @@ int main()
 [*Compile them] :
 
 ```
-> gpp main.cpp my_class.cpp -o main
+> gpp my_class.cppm main.cpp -o main
 > ./main
 Cheers, c++!
 ```
+
+The compiling order is compiling my_class.cppm first, then main.cpp
 
 [h1:modules-shared-library [role cyan Next: Modules Shared Library]]
 
 Just compile the module source c++ file to shared library.
 
-[*my_cpp.cpp] :
+[*my_cpp.cppm] :
 
 [!c++]
 ```
@@ -163,7 +175,7 @@ int main()
 [*Compile] :
 
 ```
-> gpp my_cpp.cpp -c -fPIC -shared -o libmy_cpp.so
+> gpp my_cpp.cppm -c -fPIC -shared -o libmy_cpp.so
 > gpp main.cpp -L./ -lmy_cpp -o main
 > ./main 
 get: 234
@@ -175,7 +187,7 @@ A module partition can be imported by module units of the same named module.
 
 In this example, [role ddgreen [*:my_partition]] can be imported by [role ddgreen [*my_module]], it can not be imported by other module.
 
-[*my_cpp_part.cpp] :
+[*my_cpp_part.cppm] :
 
 [!c++]
 ```
@@ -194,7 +206,7 @@ export namespace my_space
 }
 ```
 
-[*my_cpp.cpp] :
+[*my_cpp.cppm] :
 
 [!c++]
 ```
@@ -233,10 +245,10 @@ int main()
 
 [*Compile] :
 
-(compile order is important, my_cpp.cpp depends on my_cpp_part.cpp)
+(compile order is important, my_cpp.cppm depends on my_cpp_part.cppm)
 
 ```
-> gpp my_cpp_part.cpp my_cpp.cpp -c -fPIC
+> gpp my_cpp_part.cppm my_cpp.cppm -c -fPIC
 > gpp *.o -shared -o libmy_cpp.so
 > gpp main.cpp -L./ -lmy_cpp -o main
 ```
@@ -258,6 +270,8 @@ v: -112233
 
 [*Then, use] :
 
+(program.cpp :)
+
 [!c++]
 ```
 import <boost/parser/parser.hpp>;
@@ -272,9 +286,18 @@ int main()
 [*Compile] :
 [pre > gpp program.cpp -o program]
 
-[h1:split-definitions [role cyan Next: Split Definitions for Shared Library]]
+[h1:split-definitions [role cyan Next: Split Definitions for Shared Library (Module Unit and Module Implementation Unit)]]
 
-[*my_cpp.cpp] :
+A [* module unit] contains declaration :
+
+[role dddred export module my_module;]
+
+A [*module implementation unit] is the implementation of module unit, which does not have [*export] keyword :
+
+[role dddred module my_module;]
+
+
+[*my_cpp.cppm] : [role dddgreen (module unit)]
 
 [!c++]
 ```
@@ -292,7 +315,7 @@ export namespace my_space
 }
 ```
 
-[*my_cpp_src.cpp] :
+[*my_cpp_src.cppm] : [role dddgreen (module implementation unit)]
 
 [!c++]
 ```
@@ -334,7 +357,7 @@ int main()
 [*Compile] :
 
 ```
-> gpp my_cpp.cpp my_cpp_src.cpp -c -fPIC
+> gpp my_cpp.cppm my_cpp_src.cppm -c -fPIC
 > gpp my_cpp.o my_cpp_src.o -shared -o libmy_cpp.so
 > gpp main.cpp -L./ -lmy_cpp -o main
 ```
@@ -387,33 +410,44 @@ First, generate [*[role ddgreen gcm.cache/std.gcm]] cache in current working dir
 
 [h2:cpp-src c++ source files]
 
-The same c++ source files of previous section of this article will used for this project:
+The same c++ source files of previous section of this article will be used for this project:
 
 ([link day-25-special-cpp-modules-gcc.split-definitions Split Definitions for Shared Library])
 
-* my_cpp.cpp
-* my_cpp_src.cpp
+* my_cpp.cppm
+* my_cpp_src.cppm
+* main.cpp
+
+(Because b2 build does not support .cppm file name extension by default (which needs a simple patch), we have to rename them):
+
+* my_cpp.cppm	->	mycpp.cpp
+* my_cpp_src.cppm	->	my_cpp_src.cpp
 * main.cpp
 
 [h2:jamroot File: jamroot]
 
 The file jamroot in current working directory:
 
+[*jamroot] :
+
 [!c++]
 ```
 project : requirements <cxxflags>"-fmodules-ts" : default-build <cxxstd>26 ;
-lib my_cpp : my_cpp.cpp my_cpp_src.cpp ;
-exe main : main.cpp : <library>my_cpp ;
+obj obj-my_cpp : my_cpp.cpp ;
+obj obj-my_cpp_src : my_cpp_src.cpp : <dependency>obj-my_cpp ;
+lib my_cpp : obj-my_cpp obj-my_cpp_src ;
+exe main : main.cpp : <library>my_cpp <dependency>my_cpp ;
 ```
 
 [h2:build-project Build the project]
+
+(Requires toolset gcc version >= 15.2. I use 16.0)
 
 [*Build:]
 
 ```
 > b2 -q -j7
 ```
-[*[role ddred Trick]: run above command twice], the first run will generate errors, the second run will be OK.
 
 Make sure the toolset used for this project is gcc. Visual c++ and clang++ has different compiler flags.
 
