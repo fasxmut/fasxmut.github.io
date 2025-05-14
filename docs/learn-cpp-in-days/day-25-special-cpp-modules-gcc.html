@@ -74,8 +74,7 @@
 <p>
       <span class="bold"><strong>Pre-compile gcc std.gcm :</strong></span>
     </p>
-<pre class="programlisting"><span class="special">&gt;</span> <span class="identifier">gpp</span> <span class="special">-</span><span class="identifier">fsearch</span><span class="special">-</span><span class="identifier">include</span><span class="special">-</span><span class="identifier">path</span> <span class="identifier">bits</span><span class="special">/</span><span class="identifier">std</span><span class="special">.</span><span class="identifier">cc</span> <span class="special">-</span><span class="identifier">c</span>
-<span class="special">&gt;</span> <span class="identifier">rm</span> <span class="identifier">std</span><span class="special">.</span><span class="identifier">o</span>
+<pre class="programlisting"><span class="special">&gt;</span> <span class="identifier">gpp</span> <span class="special">-</span><span class="identifier">fmodule</span><span class="special">-</span><span class="identifier">only</span> <span class="special">-</span><span class="identifier">fsearch</span><span class="special">-</span><span class="identifier">include</span><span class="special">-</span><span class="identifier">path</span> <span class="identifier">bits</span><span class="special">/</span><span class="identifier">std</span><span class="special">.</span><span class="identifier">cc</span> <span class="special">-</span><span class="identifier">c</span>
 <span class="special">&gt;</span> <span class="identifier">ls</span> <span class="identifier">gcm</span><span class="special">.</span><span class="identifier">cache</span><span class="special">/</span>
 <span class="identifier">std</span><span class="special">.</span><span class="identifier">gcm</span>
 </pre>
@@ -110,10 +109,6 @@
 <span class="special">&gt;</span> <span class="special">./</span><span class="identifier">hello</span>
 <span class="identifier">Hello</span><span class="special">,</span> <span class="identifier">c</span><span class="special">++</span> <span class="identifier">modules</span><span class="special">!</span>
 </pre>
-<p>
-      The cache <span class="bold"><strong>./gcm.cache</strong></span> can be removed and you
-      repeat above steps again, it works, you can try it!
-    </p>
 <p>
       The cache <span class="bold"><strong>./gcm.cache/std.gcm</strong></span> will be reused
       for the rest parts of this article conveniently.
@@ -667,6 +662,9 @@
     </h2>
 <p>
       <em class="replaceable"><code>Written on Apr 24, 2025</code></em>
+    </p>
+<p>
+      <em class="replaceable"><code>Latest update on May 14, 2025</code></em>
     </p>
 <h2>
 <a name="day-25-special-cpp-modules-gcc.h23"></a>
