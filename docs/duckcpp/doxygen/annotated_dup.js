@@ -76,16 +76,16 @@ var annotated_dup =
         [ "vector3d", "classdcpp_1_1nub_1_1vector3d.html", "classdcpp_1_1nub_1_1vector3d" ]
       ] ],
       [ "scene", "namespacedcpp_1_1scene.html", [
-        [ "quake3", null, [
-          [ "IShader", "classdcpp_1_1scene_1_1quake3_1_1IShader.html", null ],
-          [ "IShaderManager", "classdcpp_1_1scene_1_1quake3_1_1IShaderManager.html", null ],
-          [ "Noiser", "classdcpp_1_1scene_1_1quake3_1_1Noiser.html", null ],
-          [ "Q3LevelLoadParameter", "classdcpp_1_1scene_1_1quake3_1_1Q3LevelLoadParameter.html", null ],
-          [ "SBlendFunc", "classdcpp_1_1scene_1_1quake3_1_1SBlendFunc.html", null ],
-          [ "SModifierFunction", "classdcpp_1_1scene_1_1quake3_1_1SModifierFunction.html", null ],
-          [ "SVarGroup", "classdcpp_1_1scene_1_1quake3_1_1SVarGroup.html", null ],
-          [ "SVarGroupList", "classdcpp_1_1scene_1_1quake3_1_1SVarGroupList.html", null ],
-          [ "SVariable", "classdcpp_1_1scene_1_1quake3_1_1SVariable.html", null ]
+        [ "kqe", null, [
+          [ "IShader", "classdcpp_1_1scene_1_1kqe_1_1IShader.html", null ],
+          [ "IShaderManager", "classdcpp_1_1scene_1_1kqe_1_1IShaderManager.html", null ],
+          [ "Noiser", "classdcpp_1_1scene_1_1kqe_1_1Noiser.html", null ],
+          [ "Q3LevelLoadParameter", "classdcpp_1_1scene_1_1kqe_1_1Q3LevelLoadParameter.html", null ],
+          [ "SBlendFunc", "classdcpp_1_1scene_1_1kqe_1_1SBlendFunc.html", null ],
+          [ "SModifierFunction", "classdcpp_1_1scene_1_1kqe_1_1SModifierFunction.html", null ],
+          [ "SVarGroup", "classdcpp_1_1scene_1_1kqe_1_1SVarGroup.html", null ],
+          [ "SVarGroupList", "classdcpp_1_1scene_1_1kqe_1_1SVarGroupList.html", null ],
+          [ "SVariable", "classdcpp_1_1scene_1_1kqe_1_1SVariable.html", null ]
         ] ],
         [ "IAnimatedMesh", "classdcpp_1_1scene_1_1IAnimatedMesh.html", "classdcpp_1_1scene_1_1IAnimatedMesh" ],
         [ "IAnimatedMeshMD2", "classdcpp_1_1scene_1_1IAnimatedMeshMD2.html", "classdcpp_1_1scene_1_1IAnimatedMeshMD2" ],

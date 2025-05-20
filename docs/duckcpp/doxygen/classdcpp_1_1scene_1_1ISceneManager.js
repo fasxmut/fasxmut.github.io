@@ -18,7 +18,7 @@ var classdcpp_1_1scene_1_1ISceneManager =
     [ "addOctreeSceneNode", "classdcpp_1_1scene_1_1ISceneManager.html#a219b58fdb9cf9963dc7ac8fc1dfcbab3", null ],
     [ "addOctreeSceneNode", "classdcpp_1_1scene_1_1ISceneManager.html#a2b93c1045867b6b23c5650446d69eee4", null ],
     [ "addParticleSystemSceneNode", "classdcpp_1_1scene_1_1ISceneManager.html#a2fd10708088876b1831f7f5e5f1e49bb", null ],
-    [ "addQuake3SceneNode", "classdcpp_1_1scene_1_1ISceneManager.html#ade2a647f35c1cec6f49b0d9bb6975f01", null ],
+    [ "addQuake3SceneNode", "classdcpp_1_1scene_1_1ISceneManager.html#a08a27f210f8ca8b29cf61c3b9387f27c", null ],
     [ "addSceneNode", "classdcpp_1_1scene_1_1ISceneManager.html#a78df72b4a21a85751805117e8c546c52", null ],
     [ "addSkyBoxSceneNode", "classdcpp_1_1scene_1_1ISceneManager.html#a7f783dd0b0cf8b0a14832d0ca118e871", null ],
     [ "addSkyDomeSceneNode", "classdcpp_1_1scene_1_1ISceneManager.html#ad34a0ec24cdcc1a6156bcdc44dcc1a34", null ],

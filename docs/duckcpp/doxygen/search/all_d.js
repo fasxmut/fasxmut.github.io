@@ -9,7 +9,7 @@ var searchData=
   ['nextpage_6',['nextPage',['../classdcpp_1_1gui_1_1IGUIProfiler.html#ae5f275eac71f8e369a5f11a288f330b7',1,'dcpp::gui::IGUIProfiler']]],
   ['noclip_7',['NoClip',['../classdcpp_1_1gui_1_1IGUIElement.html#aae8d58b9c65c3339154dc15cef9dc84f',1,'dcpp::gui::IGUIElement']]],
   ['node_8',['Node',['../classdcpp_1_1scene_1_1SCollisionHit.html#aef41eab881562f3b25e85a6355278081',1,'dcpp::scene::SCollisionHit']]],
-  ['noiser_9',['Noiser',['../classdcpp_1_1scene_1_1quake3_1_1Noiser.html',1,'dcpp::scene::quake3']]],
+  ['noiser_9',['Noiser',['../classdcpp_1_1scene_1_1kqe_1_1Noiser.html',1,'dcpp::scene::kqe']]],
   ['normal_10',['normal',['../classdcpp_1_1nub_1_1plane3d.html#a5f5c9d1d3ff460c26dfede75c8fcde27',1,'dcpp::nub::plane3d::Normal'],['../classdcpp_1_1video_1_1S3DVertex.html#a159aa7ca8bceea47a2de5cffe87017a1',1,'dcpp::video::S3DVertex::Normal']]],
   ['normalize_11',['normalize',['../classdcpp_1_1nub_1_1vector3d.html#a941fceaff8450f3259f68730c64e88a4',1,'dcpp::nub::vector3d::normalize()'],['../classdcpp_1_1nub_1_1vector2d.html#a818f19b0d4f84e57120ff93675ea9cc2',1,'dcpp::nub::vector2d::normalize()'],['../classdcpp_1_1nub_1_1quaternion.html#a0511846695bad17500c6488eefeb771d',1,'dcpp::nub::quaternion::normalize()']]],
   ['normalizenormals_12',['NormalizeNormals',['../classdcpp_1_1video_1_1SMaterial.html#a7e2c2579783392d46acc964aa0e8ccc2',1,'dcpp::video::SMaterial']]],

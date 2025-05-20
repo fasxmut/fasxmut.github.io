@@ -84,7 +84,7 @@ var searchData=
   ['addposition2d_81',['addPosition2d',['../classdcpp_1_1io_1_1IAttributes.html#ab80c5cd14cd946ac41114abb5a0a5e83',1,'dcpp::io::IAttributes']]],
   ['addpositionkey_82',['addPositionKey',['../classdcpp_1_1scene_1_1ISkinnedMesh.html#ab98971cb4b6e3a3a9b8971c0727da3c0',1,'dcpp::scene::ISkinnedMesh']]],
   ['addprofilerdisplay_83',['addProfilerDisplay',['../classdcpp_1_1gui_1_1IGUIEnvironment.html#a5ad2706b838b8b274c468980a95dbc0e',1,'dcpp::gui::IGUIEnvironment']]],
-  ['addquake3scenenode_84',['addQuake3SceneNode',['../classdcpp_1_1scene_1_1ISceneManager.html#ade2a647f35c1cec6f49b0d9bb6975f01',1,'dcpp::scene::ISceneManager']]],
+  ['addquake3scenenode_84',['addQuake3SceneNode',['../classdcpp_1_1scene_1_1ISceneManager.html#a08a27f210f8ca8b29cf61c3b9387f27c',1,'dcpp::scene::ISceneManager']]],
   ['addquaternion_85',['addQuaternion',['../classdcpp_1_1io_1_1IAttributes.html#a65f80164ed3f8fd590aa49672b3b783a',1,'dcpp::io::IAttributes']]],
   ['addrect_86',['addRect',['../classdcpp_1_1io_1_1IAttributes.html#a58b7bada16c75b8033bef9f371e9ec9e',1,'dcpp::io::IAttributes']]],
   ['addrendertarget_87',['addRenderTarget',['../classdcpp_1_1video_1_1IVideoDriver.html#a3a25e47fb7f19e5de7eebb021606c77d',1,'dcpp::video::IVideoDriver']]],

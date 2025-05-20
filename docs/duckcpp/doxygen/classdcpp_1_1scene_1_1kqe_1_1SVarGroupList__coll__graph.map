@@ -1,0 +1,7 @@
+<map id="dcpp::scene::kqe::SVarGroupList" name="dcpp::scene::kqe::SVarGroupList">
+<area shape="rect" id="Node000001" title="holding a group a variable" alt="" coords="88,108,319,133"/>
+<area shape="rect" id="Node000002" href="$classdcpp_1_1IReferenceCounted.html" title="Base class of most objects of the Duckcpp Engine." alt="" coords="5,13,191,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,45,192,106,189,110,119,49"/>
+<area shape="rect" id="Node000003" href="$classdcpp_1_1nub_1_1array.html" title=" " alt="" coords="215,5,405,45"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="280,56,219,110,215,106,276,52"/>
+</map>
