@@ -5,7 +5,7 @@
 
 [h1 [role cyan PMPmesh - 3D Mesh Loader]]
 
-Pmpmesh is a mesh loader library forked from picomodel. It fixed compiling errors for compilers nowadays. The original picomodel has not been updated for many years, it has many outdated code case.
+Pmpmesh is a mesh loader library forked from picomodel, migrated to c++ completely. It fixed compiling errors for compilers nowadays. The original picomodel has not been updated for many years, it has many outdated code case.
 
 This library is mainly used as one dependency of my other projects, I will never guarantee any stable api, the api might be changed very frequently, use it at your own risk.
 
