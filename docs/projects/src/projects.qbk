@@ -1,5 +1,6 @@
 [book Projects - cppfx.xyz
 	[quickbook 1.7]
+	[id projects]
 ]
 
 [include mapkp.qbk]
