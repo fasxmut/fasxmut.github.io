@@ -2,6 +2,7 @@
 	[quickbook 1.7]
 ]
 
+[include mapkp.qbk]
 [include pmpmesh.qbk]
 [include cpp-programs.qbk]
 [include q3viewer.qbk]
