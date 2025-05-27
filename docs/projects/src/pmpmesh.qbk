@@ -1,0 +1,37 @@
+[article pmpmesh
+	[id pmpmesh]
+	[quickbook 1.7]
+]
+
+[h1 [role cyan PMPmesh - 3D Mesh Loader]]
+
+Pmpmesh is a mesh loader library forked from picomodel. It fixed compiling errors for compilers nowadays. The original picomodel has not been updated for many years, it has many outdated code case.
+
+This library is mainly used as one dependency of my other projects, I will never guarantee any stable api, the api might be changed very frequently, use it at your own risk.
+
+This library is redistributed under the Boost Software License.
+
+Supported model formats:
+
+* .lwo
+* .md3
+* .md2
+* q3 map
+* .3ds
+* .ms3d
+* .ase
+* .mdl
+* .obj
+* .fm
+* picoterrain terrain
+* .mdc
+
+[h1:added-date [role cyan Added Date]]
+
+Tue May 27 05:53:37 AM UTC 2025
+
+[h1:back [role cyan Back]]
+
+[@. Up]
+
+[include ../../share/foot-links.inc.qbk]

@@ -2,6 +2,7 @@
 	[quickbook 1.7]
 ]
 
+[include pmpmesh.qbk]
 [include cpp-programs.qbk]
 [include q3viewer.qbk]
 [include happy-cpp-sycl-examples.qbk]
