@@ -80,6 +80,9 @@ method-shared_device-type.html
 method-shared_device-driver_supported.html
 method-shared_device-driver_renerable.html
 method-shared_device-tuple.html
+dcpp-shared_deck.html
+class-dcpp-shared_deck.html
+method-deck-slip.html
 backends.html
 tips.html
 color-123456.html
