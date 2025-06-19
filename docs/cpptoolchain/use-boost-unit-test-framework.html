@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Use boost unit test framework</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="c++ Toolchain">
+<link rel="up" href="cpp-unit-test.html" title="c++ Unit Test">
+<link rel="prev" href="cpp-unit-test.html" title="c++ Unit Test">
+<link rel="next" href="cpp-docs-system.html" title="c++ Docs System">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="cpp-unit-test.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="cpp-unit-test.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp-docs-system.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="use-boost-unit-test-framework"></a>Use boost unit test framework</h2></div></div>
+<hr>
+</div>
+<p>
+        Boost unit test framework is a c++ unit test framework of boost libraries
+        for c++ development.
+      </p>
+<p>
+        Requirements:
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            boost library - <a class="link" href="cpp-boost.html" title="c++ boost">Build, Install, Use Boost</a>
+          </li>
+<li class="listitem">
+            B2 Build - <a class="link" href="build-install-b2-build.html" title="Build and Install B2 Build">Build and Install B2
+            Build</a>
+          </li>
+</ul></div>
+<p>
+        <span class="bold"><strong>Anchor List:</strong></span>
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            <a class="link" href="use-boost-unit-test-framework.html#use-boost-unit-test-framework.boost-unit-test-run-cmd">c++
+            boost unit test commandline</a>
+          </li>
+<li class="listitem">
+            <a class="link" href="use-boost-unit-test-framework.html#use-boost-unit-test-framework.boost-unit-test-b2-build">c++
+            boost unit test b2 build</a>
+          </li>
+</ul></div>
+<h2>
+<a name="use-boost-unit-test-framework.h0"></a>
+        <span class="phrase"><a name="use-boost-unit-test-framework.boost-unit-test-run-cmd"></a></span><a class="link" href="use-boost-unit-test-framework.html#use-boost-unit-test-framework.boost-unit-test-run-cmd"><span class="cyan">c++
+        boost unit test commandline</span></a>
+      </h2>
+<p>
+        <span class="bold"><strong>First, a boost unit test c++ code</strong></span>
+      </p>
+<p>
+        <span class="dblue">hello.cpp</span>
+      </p>
+<pre class="programlisting"><span class="preprocessor">#define</span> <span class="identifier">BOOST_TEST_MODULE</span> <span class="string">"hello.cpp"</span>
+
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">test</span><span class="special">/</span><span class="identifier">unit_test</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="identifier">BOOST_AUTO_TEST_CASE</span><span class="special">(</span><span class="identifier">test_case_01</span><span class="special">)</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Hello, c++!"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="identifier">BOOST_CHECK</span><span class="special">(</span><span class="number">2</span> <span class="special">==</span> <span class="number">2</span><span class="special">);</span>
+	<span class="identifier">BOOST_CHECK_EQUAL</span><span class="special">(</span><span class="number">2</span><span class="special">,</span> <span class="number">2</span><span class="special">);</span>
+<span class="special">}</span>
+</pre>
+<p>
+        <span class="bold"><strong>Then, compile the c++ unit test code</strong></span>
+      </p>
+<pre class="programlisting"><span class="identifier">g</span><span class="special">++</span> <span class="identifier">hello</span><span class="special">.</span><span class="identifier">cpp</span> <span class="special">-</span><span class="identifier">std</span><span class="special">=</span><span class="identifier">c</span><span class="special">++</span><span class="number">26</span> <span class="special">-</span><span class="identifier">DBOOST_TEST_DYN_LINK</span> <span class="special">-</span><span class="identifier">lboost_unit_test_framework</span> <span class="special">-</span><span class="identifier">o</span> <span class="identifier">hello</span>
+</pre>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            <span class="bold"><strong>Required included header:</strong></span> <span class="bold"><strong><span class="dddred">boost/test/unit_test.hpp</span></strong></span>
+          </li>
+<li class="listitem">
+            <span class="bold"><strong>Required library link:</strong></span> <span class="bold"><strong><span class="dddred">-lboost_unit_test_framework</span></strong></span>
+          </li>
+<li class="listitem">
+            <span class="bold"><strong>Define a unit test module for every unit test c++
+            code:</strong></span> <span class="bold"><strong><span class="dddred">#define
+            BOOST_TEST_MODULE "hello.cpp"</span></strong></span>
+          </li>
+<li class="listitem">
+            <span class="bold"><strong>Add a test case:</strong></span> <span class="bold"><strong><span class="dddred">BOOST_AUTO_TEST_CASE(test_case_01)</span></strong></span>
+          </li>
+<li class="listitem">
+            <span class="bold"><strong>Define Dynamic link macro, I commonly define it
+            on command line or b2 build: </strong></span> <span class="bold"><strong><span class="dddred">-DBOOST_TEST_DYN_LINK</span></strong></span>
+          </li>
+</ul></div>
+<p>
+        <span class="bold"><strong>BOOST_CHECK :</strong></span>
+      </p>
+<p>
+        You can provide a false condition to it, compile and run again, see what
+        happens.
+      </p>
+<h2>
+<a name="use-boost-unit-test-framework.h1"></a>
+        <span class="phrase"><a name="use-boost-unit-test-framework.boost-unit-test-b2-build"></a></span><a class="link" href="use-boost-unit-test-framework.html#use-boost-unit-test-framework.boost-unit-test-b2-build"><span class="cyan">c++ boost unit test b2 build</span></a>
+      </h2>
+<p>
+        <span class="bold"><strong>c++ code:</strong></span>
+      </p>
+<p>
+        Use the same c++ code above: hello.cpp
+      </p>
+<p>
+        <span class="bold"><strong>B2 Build:</strong></span>
+      </p>
+<p>
+        <span class="dblue">File: jamroot</span>
+      </p>
+<pre class="programlisting">import testing ;
+
+lib
+	boost-test
+:
+:
+	&lt;name&gt;boost_unit_test_framework
+:
+:
+	&lt;define&gt;BOOST_TEST_DYN_LINK
+;
+
+project
+:
+	default-build
+		&lt;cxxstd&gt;26
+;
+
+unit-test hello : hello.cpp : &lt;library&gt;boost-test ;
+</pre>
+<p>
+        <span class="bold"><strong>Build test</strong></span>
+      </p>
+<pre class="programlisting"><span class="identifier">b2</span>
+</pre>
+<p>
+        Because <span class="bold"><strong>unit-test</strong></span> is used instead of <span class="bold"><strong>exe</strong></span>, the unit test program will be auto-compiled and
+        auto-run, you does not have to run program by hand.
+      </p>
+<h2>
+<a name="use-boost-unit-test-framework.h2"></a>
+        <span class="phrase"><a name="use-boost-unit-test-framework.see-also"></a></span><a class="link" href="use-boost-unit-test-framework.html#use-boost-unit-test-framework.see-also"><span class="cyan">See Also</span></a>
+      </h2>
+<p>
+        <a href="https://www.boost.org/doc/libs/latest/libs/test/doc/html/index.html" target="_top">https://www.boost.org/doc/libs/latest/libs/test/doc/html/index.html</a>
+      </p>
+<h2>
+<a name="use-boost-unit-test-framework.h3"></a>
+        <span class="phrase"><a name="use-boost-unit-test-framework.date"></a></span><a class="link" href="use-boost-unit-test-framework.html#use-boost-unit-test-framework.date"><span class="cyan">Date</span></a>
+      </h2>
+<p>
+        Thu Jun 19 12:44:59 AM UTC 2025
+      </p>
+<h2>
+<a name="use-boost-unit-test-framework.h4"></a>
+        <span class="phrase"><a name="use-boost-unit-test-framework.back"></a></span><a class="link" href="use-boost-unit-test-framework.html#use-boost-unit-test-framework.back"><span class="cyan">Back</span></a>
+      </h2>
+<p>
+        <a class="link" href="cpp-unit-test.html" title="c++ Unit Test">Up</a>
+      </p>
+<h2>
+<a name="use-boost-unit-test-framework.h5"></a>
+        <span class="phrase"><a name="use-boost-unit-test-framework.deck"></a></span><a class="link" href="use-boost-unit-test-framework.html#use-boost-unit-test-framework.deck"><span class="cyan">Deck</span></a>
+      </h2>
+<p>
+        <a href="https://cppfx.xyz/cpptoolchain" target="_top">c++ Toolchain</a>
+      </p>
+<p>
+        <a href="https://cppfx.xyz" target="_top">@cppfx.xyz</a>
+      </p>
+</div>
+<div class="copyright-footer">Copyright © 2024, 2025 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="cpp-unit-test.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="cpp-unit-test.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp-docs-system.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

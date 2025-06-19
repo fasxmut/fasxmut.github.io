@@ -8,12 +8,12 @@
 <link rel="home" href="index.html" title="c++ Toolchain">
 <link rel="up" href="cpp-build-system.html" title="c++ Build System">
 <link rel="prev" href="cpp-build-system.html" title="c++ Build System">
-<link rel="next" href="cpp-foundation-libraries.html" title="c++ Foundation Libraries">
+<link rel="next" href="create-manage-cpp-project-b2-build.html" title="Create and Manage c++ Project with b2 build">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <div class="spirit-nav">
-<a accesskey="p" href="cpp-build-system.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="cpp-build-system.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp-foundation-libraries.html"><img src="images/next.png" alt="Next"></a>
+<a accesskey="p" href="cpp-build-system.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="cpp-build-system.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="create-manage-cpp-project-b2-build.html"><img src="images/next.png" alt="Next"></a>
 </div>
 <div class="article">
 <div class="titlepage">
@@ -26,6 +26,12 @@
       </p>
 <p>
         B2 is an excellent c++ project build system.
+      </p>
+<p>
+        B2 Build can be built and installed on windows, haiku, linux, bsd etc.
+      </p>
+<p>
+        <span class="bold"><strong>Anchor List:</strong></span>
       </p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
@@ -69,15 +75,27 @@ $ ./bootstrap.sh
         <span class="bold"><strong>b2 binary file</strong></span> is installed as <span class="bold"><strong>/sand/bin/b2</strong></span> , make sure the path is added to the
         system environment variable <span class="bold"><strong>PATH</strong></span> .
       </p>
+<p>
+        For <span class="bold"><strong>windows</strong></span> users, you have to use a different
+        path style for <span class="bold"><strong>--prefix=path/to</strong></span>, figure
+        it by youself.
+      </p>
+<p>
+        For <span class="bold"><strong>haiku</strong></span> users, you have to set a permssion-allowed
+        path for <span class="bold"><strong>--prefix=path/to</strong></span>, such as <span class="bold"><strong>--prefix=/boot/home/sand</strong></span>
+      </p>
 <h2>
 <a name="build-install-b2-build.h4"></a>
         <span class="phrase"><a name="build-install-b2-build.configure-site-config-jam"></a></span><a class="link" href="build-install-b2-build.html#build-install-b2-build.configure-site-config-jam"><span class="cyan">Configure <span class="gold">/etc/site-config.jam</span></span></a>
       </h2>
 <p>
         <span class="bold"><strong>/etc/site-config.jam</strong></span> is the <span class="bold"><strong>system-wide</strong></span>
-        config file for b2, the configure can be set to <span class="bold"><strong>user
-        config</strong></span> file <span class="bold"><strong>~/user-config.jam</strong></span>
-        too.
+        config file for b2,
+      </p>
+<p>
+        if you have no permission to write <span class="bold"><strong>/etc/site-config.jam</strong></span>,
+        you can write to <span class="bold"><strong>user-config.jam</strong></span>, which
+        have to place at your user home folder.
       </p>
 <h3>
 <a name="build-install-b2-build.h5"></a>
@@ -170,7 +188,7 @@ using clang : dpcpp : dpcpp ;
         <span class="phrase"><a name="build-install-b2-build.see-also"></a></span><a class="link" href="build-install-b2-build.html#build-install-b2-build.see-also"><span class="cyan">See Also</span></a>
       </h2>
 <p>
-        <a class="link" href="build-install-boost-docs-system.html" title="Build and Install Boost Docs System">Build and Install Boost Docs
+        <a class="link" href="build-install-boost-docs-system.html" title="Build and Install Boost Docs System: boost quickbook">Build and Install Boost Docs
         System</a>
       </p>
 <p>
@@ -211,7 +229,7 @@ using clang : dpcpp : dpcpp ;
 </div>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="cpp-build-system.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="cpp-build-system.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp-foundation-libraries.html"><img src="images/next.png" alt="Next"></a>
+<a accesskey="p" href="cpp-build-system.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="cpp-build-system.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="create-manage-cpp-project-b2-build.html"><img src="images/next.png" alt="Next"></a>
 </div>
 </body>
 </html>

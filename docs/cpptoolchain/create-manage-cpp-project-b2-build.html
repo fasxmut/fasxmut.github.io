@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Create and Manage c++ Project with b2 build</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="c++ Toolchain">
+<link rel="up" href="cpp-build-system.html" title="c++ Build System">
+<link rel="prev" href="build-install-b2-build.html" title="Build and Install B2 Build">
+<link rel="next" href="cpp-foundation-libraries.html" title="c++ Foundation Libraries">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="build-install-b2-build.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="cpp-build-system.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp-foundation-libraries.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="create-manage-cpp-project-b2-build"></a>Create and Manage c++ Project with b2 build</h2></div></div>
+<hr>
+</div>
+<p>
+        B2 build is a perfect build system to create, manage, upgrade c++ project.
+      </p>
+<p>
+        <span class="bold"><strong>Read first:</strong></span> <a class="link" href="build-install-b2-build.html" title="Build and Install B2 Build">Build
+        and Install B2 Build</a>
+      </p>
+<p>
+        <span class="bold"><strong>Anchor List:</strong></span>
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            <a class="link" href="create-manage-cpp-project-b2-build.html#create-manage-cpp-project-b2-build.exe-program">Create
+            an executable c++ project</a>
+          </li>
+<li class="listitem">
+            <a class="link" href="create-manage-cpp-project-b2-build.html#create-manage-cpp-project-b2-build.libraries">Create,
+            manage c++ library project</a>
+          </li>
+</ul></div>
+<h2>
+<a name="create-manage-cpp-project-b2-build.h0"></a>
+        <span class="phrase"><a name="create-manage-cpp-project-b2-build.exe-program"></a></span><a class="link" href="create-manage-cpp-project-b2-build.html#create-manage-cpp-project-b2-build.exe-program"><span class="cyan">Create an executable c++ project</span></a>
+      </h2>
+<p>
+        <span class="bold"><strong>Start: create project directory</strong></span>
+      </p>
+<pre class="programlisting"><span class="identifier">mkdir</span> <span class="identifier">my</span><span class="special">-</span><span class="identifier">prj</span>
+<span class="identifier">cd</span> <span class="identifier">my</span><span class="special">-</span><span class="identifier">prj</span>
+</pre>
+<p>
+        <span class="bold"><strong>Write Jamfile</strong></span>
+      </p>
+<p>
+        <span class="ddblue">File: jamroot</span>
+      </p>
+<pre class="programlisting"><span class="identifier">exe</span> <span class="identifier">hello</span> <span class="special">:</span> <span class="identifier">hello</span><span class="special">.</span><span class="identifier">cpp</span> <span class="special">:</span> <span class="special">&lt;</span><span class="identifier">define</span><span class="special">&gt;</span><span class="identifier">cpp_hot</span> <span class="special">:</span> <span class="special">&lt;</span><span class="identifier">cxxstd</span><span class="special">&gt;</span><span class="number">26</span> <span class="special">;</span>
+</pre>
+<p>
+        <span class="bold"><strong>exe</strong></span> is a rule to define an executable target:
+        <span class="bold"><strong>hello</strong></span>
+      </p>
+<p>
+        <span class="bold"><strong><span class="dddgreen">In b2 build, almost every rule
+        has <span class="bold"><strong>five</strong></span> paramters, splitted by keyword
+        <span class="bold"><strong><span class="dred">:</span></strong></span></span></strong></span>
+      </p>
+<p>
+        Note that both the left side and right side of <span class="bold"><strong><span class="red">:</span></strong></span> and <span class="bold"><strong><span class="red">;</span></strong></span>
+        must be blank characters.
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            First parameter: <span class="ddblue">hello</span> <br> <span class="ddred">First parameter is commonly the <span class="bold"><strong>target
+            name</strong></span>.</span>
+          </li>
+<li class="listitem">
+            Second parameter: <span class="ddblue">hello.cpp</span> <br> <span class="ddred">Second paramter is commonly the source list: c++ source
+            file list; and also, another target can be used as the source list too.</span>
+          </li>
+<li class="listitem">
+            Third parameter: <span class="ddblue">&lt;define&gt;cpp_hot</span>
+            <br> <span class="ddred">Third parameter commonly lists some requirements
+            that are required to use to built current target, these requirements
+            can not be overrided on commandline. These requirements can be called
+            as <span class="bold"><strong>requirements</strong></span></span>
+          </li>
+<li class="listitem">
+            Fourth parameter: <span class="ddblue">&lt;cxxstd&gt;26</span> <br>
+            <span class="ddred">4th paramter commonly lists some preferences that
+            are used to build current target, these preferences can be overrided
+            on commandline. There preferences can be called as <span class="bold"><strong>default-build</strong></span></span>
+          </li>
+<li class="listitem">
+            5th parameter: none in this example. <br> <span class="ddred">5th
+            parameter lists some requirements required by another target that depends
+            on current target: If another target depends on current target, these
+            requirements will be applied to another target.</span>
+          </li>
+</ul></div>
+<p>
+        <span class="bold"><strong>Write c++</strong></span>
+      </p>
+<p>
+        <span class="ddblue">File: hello.cpp</span>
+      </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Hello, c++!"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<p>
+        <span class="bold"><strong>Build project</strong></span>
+      </p>
+<p>
+        Just run command b2:
+      </p>
+<pre class="programlisting"><span class="special">&gt;</span> <span class="identifier">b2</span>
+</pre>
+<p>
+        <span class="bold"><strong>Run pgram:</strong></span>
+      </p>
+<p>
+        The compiled program is generated at folder <span class="bold"><strong>bin</strong></span>,
+        you have to find it.
+      </p>
+<pre class="programlisting">&gt; ./bin/gcc-16/debug/cxxstd-26-iso/hello
+Hello, c++!
+</pre>
+<h2>
+<a name="create-manage-cpp-project-b2-build.h1"></a>
+        <span class="phrase"><a name="create-manage-cpp-project-b2-build.libraries"></a></span><a class="link" href="create-manage-cpp-project-b2-build.html#create-manage-cpp-project-b2-build.libraries"><span class="cyan">Create, manage c++ library project</span></a>
+      </h2>
+<p>
+        <span class="bold"><strong><span class="ddred">Init project folders:</span></strong></span>
+      </p>
+<pre class="programlisting"><span class="identifier">mkdir</span> <span class="identifier">myprj</span>
+<span class="identifier">cd</span> <span class="identifier">myprj</span>
+<span class="identifier">mkdir</span> <span class="identifier">include</span> <span class="identifier">src</span>
+</pre>
+<p>
+        <span class="bold"><strong><span class="ddred">File: jamroot</span></strong></span>
+      </p>
+<pre class="programlisting">lib foo : src/foo.cpp : &lt;cxxstd&gt;26 &lt;include&gt;./include : : &lt;include&gt;./include ;
+
+exe prog : prog.cpp : &lt;library&gt;foo ;
+</pre>
+<p>
+        rule <span class="bold"><strong>lib</strong></span> defines a target <span class="bold"><strong>foo</strong></span>.
+      </p>
+<p>
+        Because <span class="bold"><strong>foo</strong></span> is a <span class="bold"><strong>lib</strong></span>
+        target, the b2 build will generate <span class="bold"><strong>libfoo.so</strong></span>
+        by default on linux, or related shared library on windows.
+      </p>
+<p>
+        <span class="bold"><strong>&lt;cxxstd&gt;26</strong></span> in the requirements list:
+        can not be overrided on commandline (in the 3rd paramter);
+      </p>
+<p>
+        <span class="bold"><strong>&lt;include&gt;./include</strong></span> in the requirements
+        list: build current library requires including ./inlcude (in the 3ird parameter);
+      </p>
+<p>
+        The 4th parameter is empty;
+      </p>
+<p>
+        <span class="bold"><strong>&lt;include&gt;./include</strong></span> in the list of
+        5th parameter: if another target depends on this target, it will be applied
+        to another target (in the 5th parameter);
+      </p>
+<p>
+        <span class="bold"><strong><span class="ddred">File: include/foo.hpp</span></strong></span>
+      </p>
+<pre class="programlisting"><span class="preprocessor">#pragma</span> <span class="identifier">once</span>
+
+<span class="keyword">namespace</span> <span class="identifier">dir</span>
+<span class="special">{</span>
+	<span class="keyword">class</span> <span class="identifier">foo</span>
+	<span class="special">{</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="keyword">void</span> <span class="identifier">print</span><span class="special">()</span> <span class="keyword">const</span><span class="special">;</span>
+	<span class="special">};</span>
+<span class="special">};</span>
+</pre>
+<p>
+        <span class="bold"><strong><span class="ddred">File: src/foo.cpp</span></strong></span>
+      </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">foo</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">void</span> <span class="identifier">dir</span><span class="special">::</span><span class="identifier">foo</span><span class="special">::</span><span class="identifier">print</span><span class="special">()</span> <span class="keyword">const</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Hello, c++ world!"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<p>
+        <span class="bold"><strong><span class="ddred">File: prog.cpp</span></strong></span>
+      </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">foo</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">dir</span><span class="special">::</span><span class="identifier">foo</span> <span class="identifier">object</span><span class="special">;</span>
+	<span class="identifier">object</span><span class="special">.</span><span class="identifier">print</span><span class="special">();</span>
+<span class="special">}</span>
+</pre>
+<p>
+        <span class="bold"><strong><span class="ddred">Build project:</span></strong></span>
+      </p>
+<p>
+        Just run command b2
+      </p>
+<pre class="programlisting"><span class="identifier">b2</span>
+</pre>
+<p>
+        <span class="bold"><strong><span class="ddred">Run program:</span></strong></span>
+      </p>
+<p>
+        The program <span class="bold"><strong>prog</strong></span> is already generated in
+        <span class="bold"><strong>bin</strong></span> folder, you have to find where it is.
+      </p>
+<pre class="programlisting">&gt; ./bin/gcc-16/debug/prog
+Hello, c++ world!
+&gt;
+</pre>
+<h2>
+<a name="create-manage-cpp-project-b2-build.h2"></a>
+        <span class="phrase"><a name="create-manage-cpp-project-b2-build.see-also"></a></span><a class="link" href="create-manage-cpp-project-b2-build.html#create-manage-cpp-project-b2-build.see-also"><span class="cyan">See Also</span></a>
+      </h2>
+<p>
+        <a href="https://www.bfgroup.xyz/b2/manual/release/index.html" target="_top">https://www.bfgroup.xyz/b2/manual/release/index.html</a>
+      </p>
+<h2>
+<a name="create-manage-cpp-project-b2-build.h3"></a>
+        <span class="phrase"><a name="create-manage-cpp-project-b2-build.date"></a></span><a class="link" href="create-manage-cpp-project-b2-build.html#create-manage-cpp-project-b2-build.date"><span class="cyan">Date</span></a>
+      </h2>
+<p>
+        Thu Jun 19 02:12:53 AM UTC 2025
+      </p>
+<h2>
+<a name="create-manage-cpp-project-b2-build.h4"></a>
+        <span class="phrase"><a name="create-manage-cpp-project-b2-build.back"></a></span><a class="link" href="create-manage-cpp-project-b2-build.html#create-manage-cpp-project-b2-build.back"><span class="cyan">Back</span></a>
+      </h2>
+<p>
+        <a class="link" href="cpp-build-system.html" title="c++ Build System">Up</a>
+      </p>
+<h2>
+<a name="create-manage-cpp-project-b2-build.h5"></a>
+        <span class="phrase"><a name="create-manage-cpp-project-b2-build.deck"></a></span><a class="link" href="create-manage-cpp-project-b2-build.html#create-manage-cpp-project-b2-build.deck"><span class="cyan">Deck</span></a>
+      </h2>
+<p>
+        <a href="https://cppfx.xyz/cpptoolchain" target="_top">c++ Toolchain</a>
+      </p>
+<p>
+        <a href="https://cppfx.xyz" target="_top">@cppfx.xyz</a>
+      </p>
+</div>
+<div class="copyright-footer">Copyright © 2024, 2025 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="build-install-b2-build.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="cpp-build-system.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp-foundation-libraries.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

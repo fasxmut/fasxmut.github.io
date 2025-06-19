@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Write docs with boost quickbook</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="c++ Toolchain">
+<link rel="up" href="cpp-docs-system.html" title="c++ Docs System">
+<link rel="prev" href="build-install-boost-docs-system.html" title="Build and Install Boost Docs System: boost quickbook">
+<link rel="next" href="some-utils.html" title="Some Utils">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="build-install-boost-docs-system.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="cpp-docs-system.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="some-utils.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="write-docs-boost-quickbook"></a>Write docs with boost quickbook</h2></div></div>
+<hr>
+</div>
+<p>
+        Boost quickbook and boostbook are very good to generate html, pdf, man documents.
+        Boost quickbook .qbk file format is good to write.
+      </p>
+<p>
+        Requires:
+      </p>
+<p>
+        <a class="link" href="build-install-b2-build.html" title="Build and Install B2 Build">Build and Install B2 Build</a>
+        <br> <a class="link" href="build-install-boost-docs-system.html" title="Build and Install Boost Docs System: boost quickbook">Build and Install
+        Boost Docs System: boost quickbook</a> <br>
+      </p>
+<h2>
+<a name="write-docs-boost-quickbook.h0"></a>
+        <span class="phrase"><a name="write-docs-boost-quickbook.write-simple-docs"></a></span><a class="link" href="write-docs-boost-quickbook.html#write-docs-boost-quickbook.write-simple-docs"><span class="cyan">boost quickbook: Write Simple Docs</span></a>
+      </h2>
+<h3>
+<a name="write-docs-boost-quickbook.h1"></a>
+        <span class="phrase"><a name="write-docs-boost-quickbook.start"></a></span><a class="link" href="write-docs-boost-quickbook.html#write-docs-boost-quickbook.start">First:
+        Init project folders</a>
+      </h3>
+<p>
+        Init project folders:
+      </p>
+<pre class="programlisting"><span class="special">&gt;</span> <span class="identifier">mkdir</span> <span class="identifier">foo</span>
+<span class="special">&gt;</span> <span class="identifier">cd</span> <span class="identifier">foo</span>
+</pre>
+<h3>
+<a name="write-docs-boost-quickbook.h2"></a>
+        <span class="phrase"><a name="write-docs-boost-quickbook.write-a-qbk"></a></span><a class="link" href="write-docs-boost-quickbook.html#write-docs-boost-quickbook.write-a-qbk">Next:
+        Write a start .qbk file</a>
+      </h3>
+<p>
+        <span class="bold"><strong>File: main.qbk</strong></span>
+      </p>
+<pre class="programlisting">[book c++ Book
+	[id cpp-book]
+	[quickbook 1.7]
+]
+
+Start, c++
+
+[h1:cpp Hello World!]
+
+Hello, c++
+
+Thanks, website [@https://cppfx.xyz cppfx]
+</pre>
+<p>
+        As you see, you will quickly understand .qbk file syntax.
+      </p>
+<p>
+        The title is <span class="ddred">c++ Book</span>, and the html tag <span class="bold"><strong>&lt;h1&gt;</strong></span> will use the title as header too.
+      </p>
+<p>
+        The <span class="ddred">[h1</span> will be used as html <span class="bold"><strong>&lt;h2&gt;</strong></span>
+      </p>
+<p>
+        <span class="bold"><strong><span class="dred">
+        <p>
+          To avoid keyword c++ to parsed as c, let it to be parsed as cpp, define
+          id anywhere.<br> For example, document id:
+        </p>
+<pre class="programlisting"><span class="identifier">c</span><span class="special">++</span> <span class="identifier">Book</span>
+<span class="special">[</span><span class="identifier">id</span> <span class="identifier">cpp</span><span class="special">-</span><span class="identifier">book</span><span class="special">]</span>
+</pre>
+        <p>
+          For example, anchor id:
+        </p>
+<pre class="programlisting"><span class="special">[</span><span class="identifier">h1</span><span class="special">:</span><span class="identifier">cpp</span><span class="special">-</span><span class="identifier">text</span> <span class="identifier">c</span><span class="special">++</span> <span class="identifier">text</span><span class="special">]</span>
+</pre>
+        <p>
+          Then c++ will be parsed as cpp
+        </p>
+        </span></strong></span>
+      </p>
+<h3>
+<a name="write-docs-boost-quickbook.h3"></a>
+        <span class="phrase"><a name="write-docs-boost-quickbook.write-jamfile"></a></span><a class="link" href="write-docs-boost-quickbook.html#write-docs-boost-quickbook.write-jamfile">Next:
+        Write Jamfile</a>
+      </h3>
+<p>
+        <span class="bold"><strong>File: jamroot</strong></span>
+      </p>
+<pre class="programlisting"><span class="identifier">xml</span> <span class="identifier">abc</span> <span class="special">:</span> <span class="identifier">main</span><span class="special">.</span><span class="identifier">qbk</span> <span class="special">;</span>
+
+<span class="identifier">boostbook</span> <span class="identifier">xyz</span> <span class="special">:</span> <span class="identifier">abc</span> <span class="special">;</span>
+</pre>
+<p>
+        The rule xml defines a target abc, so it will generate file <span class="bold"><strong>abc.xml</strong></span>
+      </p>
+<p>
+        The rule boostbook defines a target xyz, and use previous target abc as its
+        source, it will generate files <span class="bold"><strong>abc.docook</strong></span>,
+        <span class="bold"><strong>index.html</strong></span>
+      </p>
+<p>
+        <span class="dddblue">A .qbk file refered in the jamfile will generate the
+        html <span class="bold"><strong>index file: index.html</strong></span>; <br> A .qbk
+        file refered in another .qbk file will generate a html <span class="bold"><strong>subpage</strong></span>,
+        not index. <br> Read below. </span>
+      </p>
+<h3>
+<a name="write-docs-boost-quickbook.h4"></a>
+        <span class="phrase"><a name="write-docs-boost-quickbook.build-first"></a></span><a class="link" href="write-docs-boost-quickbook.html#write-docs-boost-quickbook.build-first">Next:
+        Build at the first time</a>
+      </h3>
+<p>
+        Just run command b2:
+      </p>
+<pre class="programlisting"><span class="special">&gt;</span> <span class="identifier">b2</span>
+</pre>
+<p>
+        You will see the html document is generated.
+      </p>
+<h3>
+<a name="write-docs-boost-quickbook.h5"></a>
+        <span class="phrase"><a name="write-docs-boost-quickbook.add-another-qbk"></a></span><a class="link" href="write-docs-boost-quickbook.html#write-docs-boost-quickbook.add-another-qbk">Next:
+        Add another qbk, for subpage</a>
+      </h3>
+<p>
+        <span class="bold"><strong>File: cpp-article.qbk</strong></span>
+      </p>
+<pre class="programlisting"><span class="special">[</span><span class="identifier">article</span> <span class="identifier">This</span> <span class="identifier">is</span> <span class="identifier">c</span><span class="special">++</span> <span class="identifier">subpage</span> <span class="identifier">title</span>
+	<span class="special">[</span><span class="identifier">id</span> <span class="identifier">cpp</span><span class="special">-</span><span class="identifier">subpage</span><span class="special">]</span>
+	<span class="special">[</span><span class="identifier">quickbook</span> <span class="number">1.7</span><span class="special">]</span>
+<span class="special">]</span>
+
+<span class="identifier">Hello</span><span class="special">,</span> <span class="identifier">c</span><span class="special">++</span> <span class="identifier">World</span><span class="special">!</span>
+
+<span class="identifier">This</span> <span class="identifier">is</span> <span class="identifier">c</span><span class="special">++</span> <span class="identifier">document</span>
+
+<span class="special">[</span><span class="identifier">h1</span><span class="special">:</span><span class="identifier">cpp</span><span class="special">-</span><span class="identifier">text</span> <span class="identifier">c</span><span class="special">++</span> <span class="identifier">Text</span><span class="special">]</span>
+
+<span class="identifier">Hi</span><span class="special">,</span> <span class="identifier">I</span> <span class="identifier">a</span> <span class="identifier">room</span><span class="special">.</span>
+</pre>
+<p>
+        <span class="bold"><strong>Add subpage to the main page</strong></span>
+      </p>
+<p>
+        A subpage is not written to the jamfile, but written to the main .qbk file:
+        <span class="bold"><strong>main.qbk</strong></span>
+      </p>
+<p>
+        The updated <span class="bold"><strong>main.qbk</strong></span> will be like this:
+      </p>
+<pre class="programlisting">[book c++ Book
+	[id cpp-book]
+	[quickbook 1.7]
+]
+
+[include cpp-article.qbk]
+
+Start, c++
+
+[h1 Hello World!]
+
+Hello, c++
+
+Thanks, website [@https://cppfx.xyz cppfx]
+</pre>
+<h3>
+<a name="write-docs-boost-quickbook.h6"></a>
+        <span class="phrase"><a name="write-docs-boost-quickbook.build-again"></a></span><a class="link" href="write-docs-boost-quickbook.html#write-docs-boost-quickbook.build-again">Next:
+        Build Again</a>
+      </h3>
+<pre class="programlisting"><span class="special">&gt;</span> <span class="identifier">b2</span>
+</pre>
+<h3>
+<a name="write-docs-boost-quickbook.h7"></a>
+        <span class="phrase"><a name="write-docs-boost-quickbook.install-boost-media"></a></span><a class="link" href="write-docs-boost-quickbook.html#write-docs-boost-quickbook.install-boost-media">Next:
+        Install boost media</a>
+      </h3>
+<p>
+        The html generated above is not so nice-looking, thats because boost media
+        is not installed.
+      </p>
+<p>
+        Extract boost c++ library release package, then add the following code to
+        <span class="bold"><strong>jamroot</strong></span> :
+      </p>
+<p>
+        (Please <span class="ddblue">replace</span> <span class="bold"><strong>my-path/to-extracted/boost-release</strong></span>
+        with your real boost extracted folder path.)
+      </p>
+<pre class="programlisting">boost-path = my-path/to-extracted/boost-release ;
+boost-media-path = $(boost-path)/doc/src ;
+
+install
+	boost-media
+:
+	[
+		glob
+			$(boost-media-path)/*.css
+			$(boost-media-path)/images/*.png
+	]
+:
+	&lt;location&gt;./html
+	&lt;install-source-root&gt;$(boost-media-path)
+;
+</pre>
+<p>
+        The <span class="bold"><strong>rule</strong></span> <span class="dblue">install</span>
+        defines a <span class="bold"><strong>target</strong></span> boost-media, and use the
+        files of searched by <span class="bold"><strong>[ glob ... ]</strong></span> as its
+        sources, copy the files to location <span class="bold"><strong>./html/</strong></span>
+      </p>
+<p>
+        <span class="bold"><strong>install-source-root</strong></span> :
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            Without this property, the css and png files will be installed under
+            <span class="bold"><strong>./html/my-path/to-extracted/boost-release/doc/src/</strong></span>
+          </li>
+<li class="listitem">
+            With this property, the css and png files will be installed under <span class="bold"><strong>./html/</strong></span>
+          </li>
+</ul></div>
+<h3>
+<a name="write-docs-boost-quickbook.h8"></a>
+        <span class="phrase"><a name="write-docs-boost-quickbook.build-again-again"></a></span><a class="link" href="write-docs-boost-quickbook.html#write-docs-boost-quickbook.build-again-again">Next:
+        Build again</a>
+      </h3>
+<pre class="programlisting"><span class="special">&gt;</span> <span class="identifier">b2</span>
+</pre>
+<h2>
+<a name="write-docs-boost-quickbook.h9"></a>
+        <span class="phrase"><a name="write-docs-boost-quickbook.see-also"></a></span><a class="link" href="write-docs-boost-quickbook.html#write-docs-boost-quickbook.see-also"><span class="cyan">See Also</span></a>
+      </h2>
+<p>
+        <a href="https://www.boost.org/tools/quickbook" target="_top">https://www.boost.org/tools/quickbook</a>
+      </p>
+<h2>
+<a name="write-docs-boost-quickbook.h10"></a>
+        <span class="phrase"><a name="write-docs-boost-quickbook.date"></a></span><a class="link" href="write-docs-boost-quickbook.html#write-docs-boost-quickbook.date"><span class="cyan">Date</span></a>
+      </h2>
+<p>
+        Thu Jun 19 06:31:38 AM UTC 2025
+      </p>
+<h2>
+<a name="write-docs-boost-quickbook.h11"></a>
+        <span class="phrase"><a name="write-docs-boost-quickbook.back"></a></span><a class="link" href="write-docs-boost-quickbook.html#write-docs-boost-quickbook.back"><span class="cyan">Back</span></a>
+      </h2>
+<p>
+        <a class="link" href="cpp-docs-system.html" title="c++ Docs System">Up</a>
+      </p>
+<h2>
+<a name="write-docs-boost-quickbook.h12"></a>
+        <span class="phrase"><a name="write-docs-boost-quickbook.deck"></a></span><a class="link" href="write-docs-boost-quickbook.html#write-docs-boost-quickbook.deck"><span class="cyan">Deck</span></a>
+      </h2>
+<p>
+        <a href="https://cppfx.xyz/cpptoolchain" target="_top">c++ Toolchain</a>
+      </p>
+<p>
+        <a href="https://cppfx.xyz" target="_top">@cppfx.xyz</a>
+      </p>
+</div>
+<div class="copyright-footer">Copyright © 2024, 2025 Fas Xmut<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="build-install-boost-docs-system.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="cpp-docs-system.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="some-utils.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
