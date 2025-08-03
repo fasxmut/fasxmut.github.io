@@ -4,6 +4,7 @@
 ]
 
 [include audio/audio.qbk]
+[include use/use.qbk]
 
 [@https://www.haiku-os.org]
 

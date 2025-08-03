@@ -1,0 +1,55 @@
+[article Install c++ libs, apps on Haiku OS
+	[id install-cpp-libs-apps-haiku]
+	[quickbook 1.7]
+]
+
+Install c++ libraries, applications on Haiku Operating System
+ 
+[h2:botan Install botan c++]
+
+```
+pkgman search botan
+pkgman install botan3_devel
+```
+
+[h2:boost Install boost c++]
+
+```
+pkgman search boost
+pkgman install boost1.88_devel 
+```
+
+[h2:kakoune Install kakoune editor]
+
+```
+pkgman install kakoune
+```
+
+[h2:falkon Install falkon]
+
+```
+pkgman install falkone
+```
+
+[h2:krita Install kritia]
+
+```
+pkgman install krita
+```
+
+[h2:trenchbroom Install trenchbroom]
+
+```
+pkgman install trenchbroom
+```
+
+[h1:date [role cyan Date]]
+
+Sun Aug  3 10:13:37 AM UTC 2025
+
+[h1:back [role cyan Back]]
+
+[link audio Up]
+
+[include ../../../share/foot-links.inc.qbk]
+

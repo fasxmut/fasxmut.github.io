@@ -1,0 +1,13 @@
+[article Use Haiku OS
+	[id use]
+	[quickbook 1.7]
+]
+
+[include install-cpp-libs-apps-haiku.qbk]
+
+[h1:back [role cyan Back]]
+
+[@. Up]
+
+[include ../../../share/foot-links.inc.qbk]
+
