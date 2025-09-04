@@ -83,10 +83,10 @@ var NAVTREEINDEX =
 "classdcpp_1_1video_1_1IVideoDriver.html#aa9120c72225428add35ca84ffd5dfd96",
 "classdcpp_1_1video_1_1SColorf.html#aa6a2a41109aefbb8d814a4dfb8ac64c7",
 "functions_g.html",
-"namespacedcpp_1_1gui.html#a8cc69ab0266a8b19c9bd26cd52a39bfa",
-"namespacedcpp_1_1nub.html#a5bb45461ea1f4f9276b51b0789466891",
-"namespacedcpp_1_1scene.html#a87a28d987218a16717f96bad48138339a114a9f81a3966d026d64412b99ba4a2f",
-"namespacedcpp_1_1video.html#a8262cb0e071be34704ee5464a50f63fa"
+"namespacedcpp_1_1gui.html#a8cc69ab0266a8b19c9bd26cd52a39bfaa5b2b3f3a34735ac249e10934e10494e7",
+"namespacedcpp_1_1nub.html#a5f10106873820968c9a1bde83ce4a78e",
+"namespacedcpp_1_1scene.html#a87a28d987218a16717f96bad48138339a16a62cb4aa05bdd76d95a9918e4b4133",
+"namespacedcpp_1_1video.html#a851f5561154d3d9bbe393e3d0d33a2c8"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

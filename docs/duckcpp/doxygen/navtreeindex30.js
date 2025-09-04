@@ -1,6 +1,5 @@
 var NAVTREEINDEX30 =
 {
-"namespacedcpp_1_1video.html#a8262cb0e071be34704ee5464a50f63fa":[2,0,0,4,56],
 "namespacedcpp_1_1video.html#a851f5561154d3d9bbe393e3d0d33a2c8":[2,0,0,4,41],
 "namespacedcpp_1_1video.html#a851f5561154d3d9bbe393e3d0d33a2c8a72d27847a21b9ff3abb404ad55b4092d":[2,0,0,4,41,7],
 "namespacedcpp_1_1video.html#a851f5561154d3d9bbe393e3d0d33a2c8a870702b9113eb08fec55730da5e4a090":[2,0,0,4,41,10],

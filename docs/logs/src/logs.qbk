@@ -11,8 +11,6 @@
 [include d0030_sycl_queue_copy_queue_fill.qbk]
 [include d0029_sycl_class_kernel.qbk]
 [include d0028_sycl_buffer_host_access.qbk]
-[include d0027_glbinding-sfml-version.qbk]
-[include d0026_glbinding_and_sfml.qbk]
 [include d0025_b2_build_group_libs.qbk]
 [include d0024_swift_cpp_20_concepts.qbk]
 [include d0023_windows_cpp_compiler.qbk]

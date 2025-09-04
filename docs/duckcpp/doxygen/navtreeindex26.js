@@ -98,13 +98,12 @@ var NAVTREEINDEX26 =
 "namespacedcpp.html#a98a7da5e8df11d4c3cfe063fd42e491d":[2,0,0,24],
 "namespacedcpp.html#a9bb03fcbeed4737b3e8890d660cb2e8e":[2,0,0,29],
 "namespacedcpp.html#a9bb03fcbeed4737b3e8890d660cb2e8ea185e45aae608de5a828109d672cd31ac":[2,0,0,29,1],
-"namespacedcpp.html#a9bb03fcbeed4737b3e8890d660cb2e8ea214179d583285e03411ef12e2cd7b98c":[2,0,0,29,6],
+"namespacedcpp.html#a9bb03fcbeed4737b3e8890d660cb2e8ea214179d583285e03411ef12e2cd7b98c":[2,0,0,29,5],
 "namespacedcpp.html#a9bb03fcbeed4737b3e8890d660cb2e8ea3f00214bc8fa175bef1f21f2d72294a2":[2,0,0,29,0],
-"namespacedcpp.html#a9bb03fcbeed4737b3e8890d660cb2e8ea5b09889f27a968917d16647e6b464a8e":[2,0,0,29,4],
 "namespacedcpp.html#a9bb03fcbeed4737b3e8890d660cb2e8ea71cf5818ff353627ebbc02a067edb7d3":[2,0,0,29,2],
-"namespacedcpp.html#a9bb03fcbeed4737b3e8890d660cb2e8ea8d85f2584400e12848509da10b8565d2":[2,0,0,29,5],
+"namespacedcpp.html#a9bb03fcbeed4737b3e8890d660cb2e8ea8d85f2584400e12848509da10b8565d2":[2,0,0,29,4],
 "namespacedcpp.html#a9bb03fcbeed4737b3e8890d660cb2e8eace78ffb9aed9b245f374b668a3a19276":[2,0,0,29,3],
-"namespacedcpp.html#a9bb03fcbeed4737b3e8890d660cb2e8eaf3498d9eaee02130a622897e12a9201c":[2,0,0,29,7],
+"namespacedcpp.html#a9bb03fcbeed4737b3e8890d660cb2e8eaf3498d9eaee02130a622897e12a9201c":[2,0,0,29,6],
 "namespacedcpp.html#aa44240ee19c160bf7ee3deadb27e76e5":[2,0,0,32],
 "namespacedcpp.html#aa44240ee19c160bf7ee3deadb27e76e5a094f5f0e7ad31e8ef10022706805a941":[2,0,0,32,4],
 "namespacedcpp.html#aa44240ee19c160bf7ee3deadb27e76e5a331565537c965bc288650d9e54883f08":[2,0,0,32,8],
@@ -249,5 +248,6 @@ var NAVTREEINDEX26 =
 "namespacedcpp_1_1gui.html#a8199f5f1561bb18b41c822e6b74512e5ac64e15cdcd644afcb2fb8fff7f36d9e2":[2,0,0,0,52,1],
 "namespacedcpp_1_1gui.html#a8199f5f1561bb18b41c822e6b74512e5ae634552a134174ea3deea559ad8db888":[2,0,0,0,52,3],
 "namespacedcpp_1_1gui.html#a8199f5f1561bb18b41c822e6b74512e5af5e419931713cdef324bd1c0190669b7":[2,0,0,0,52,2],
-"namespacedcpp_1_1gui.html#a8b8a8d305656ffea6a5cf985304834e7":[2,0,0,0,55]
+"namespacedcpp_1_1gui.html#a8b8a8d305656ffea6a5cf985304834e7":[2,0,0,0,55],
+"namespacedcpp_1_1gui.html#a8cc69ab0266a8b19c9bd26cd52a39bfa":[2,0,0,0,49]
 };

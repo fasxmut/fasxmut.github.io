@@ -8,8 +8,6 @@ sycl_handler_copy_handler_fill.html
 sycl_queue_copy_queue_fill.html
 sycl_class_kernel.html
 sycl_buffer_host_access.html
-glbinding_sfml_version.html
-glbinding_and_sfml.html
 b2_build_group_libs.html
 swift_cpp_20_concepts.html
 windows_install_cpp_compiler.html

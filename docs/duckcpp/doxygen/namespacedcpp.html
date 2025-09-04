@@ -488,8 +488,7 @@ Enumerations</h2></td></tr>
 , <a class="el" href="namespacedcpp.html#a9bb03fcbeed4737b3e8890d660cb2e8ea71cf5818ff353627ebbc02a067edb7d3">EIDT_X11</a>
 , <a class="el" href="namespacedcpp.html#a9bb03fcbeed4737b3e8890d660cb2e8eace78ffb9aed9b245f374b668a3a19276">EIDT_OSX</a>
 , <br />
-&#160;&#160;<a class="el" href="namespacedcpp.html#a9bb03fcbeed4737b3e8890d660cb2e8ea5b09889f27a968917d16647e6b464a8e">EIDT_SFML</a>
-, <a class="el" href="namespacedcpp.html#a9bb03fcbeed4737b3e8890d660cb2e8ea8d85f2584400e12848509da10b8565d2">EIDT_FRAMEBUFFER</a>
+&#160;&#160;<a class="el" href="namespacedcpp.html#a9bb03fcbeed4737b3e8890d660cb2e8ea8d85f2584400e12848509da10b8565d2">EIDT_FRAMEBUFFER</a>
 , <a class="el" href="namespacedcpp.html#a9bb03fcbeed4737b3e8890d660cb2e8ea214179d583285e03411ef12e2cd7b98c">EIDT_CONSOLE</a>
 , <a class="el" href="namespacedcpp.html#a9bb03fcbeed4737b3e8890d660cb2e8eaf3498d9eaee02130a622897e12a9201c">EIDT_BEST</a>
 <br />
@@ -711,9 +710,6 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="a9bb03fcbeed4737b3e8890d660cb2e8eace78ffb9aed9b245f374b668a3a19276" name="a9bb03fcbeed4737b3e8890d660cb2e8eace78ffb9aed9b245f374b668a3a19276"></a>EIDT_OSX&#160;</td><td class="fielddoc"><p><a class="el" href="namespacedcpp.html#a9bb03fcbeed4737b3e8890d660cb2e8eace78ffb9aed9b245f374b668a3a19276" title="dcpp::EIDT_OSX">dcpp::EIDT_OSX</a> </p>
 <p>A device native to Mac OSX . - This device uses Apple's Cocoa API and works in Mac OSX 10.2 and above. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a9bb03fcbeed4737b3e8890d660cb2e8ea5b09889f27a968917d16647e6b464a8e" name="a9bb03fcbeed4737b3e8890d660cb2e8ea5b09889f27a968917d16647e6b464a8e"></a>EIDT_SFML&#160;</td><td class="fielddoc"><p><a class="el" href="namespacedcpp.html#a9bb03fcbeed4737b3e8890d660cb2e8ea5b09889f27a968917d16647e6b464a8e" title="dcpp::EIDT_SFML">dcpp::EIDT_SFML</a> </p>
-<p>A device which uses SFML . - The SFML device works under all platforms supported by SFML. </p>
-</td></tr>
 <tr><td class="fieldname"><a id="a9bb03fcbeed4737b3e8890d660cb2e8ea8d85f2584400e12848509da10b8565d2" name="a9bb03fcbeed4737b3e8890d660cb2e8ea8d85f2584400e12848509da10b8565d2"></a>EIDT_FRAMEBUFFER&#160;</td><td class="fielddoc"><p><a class="el" href="namespacedcpp.html#a9bb03fcbeed4737b3e8890d660cb2e8ea8d85f2584400e12848509da10b8565d2" title="dcpp::EIDT_FRAMEBUFFER">dcpp::EIDT_FRAMEBUFFER</a> </p>
 <p>A device for raw framebuffer access . - Best used with embedded devices and mobile systems. Does not need X11 or other graphical subsystems. May support hw-acceleration via OpenGL-ES for FBDirect </p>
 </td></tr>
@@ -721,7 +717,7 @@ Functions</h2></td></tr>
 <p>A simple text only device supported by all platforms. . - This device allows applications to run from the command line without opening a window. It can render the output of the software drivers to the console as ASCII. It only supports mouse and keyboard in Windows operating systems. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a9bb03fcbeed4737b3e8890d660cb2e8eaf3498d9eaee02130a622897e12a9201c" name="a9bb03fcbeed4737b3e8890d660cb2e8eaf3498d9eaee02130a622897e12a9201c"></a>EIDT_BEST&#160;</td><td class="fielddoc"><p><a class="el" href="namespacedcpp.html#a9bb03fcbeed4737b3e8890d660cb2e8eaf3498d9eaee02130a622897e12a9201c" title="dcpp::EIDT_BEST">dcpp::EIDT_BEST</a> </p>
-<p>This selection allows Duckcpp to choose the best device from the ones available. . - If this selection is chosen then Duckcpp will try to use the <a class="el" href="classdcpp_1_1DuckcppDevice.html" title="The Duckcpp device. You can create it with createDevice() or createDeviceEx().">DuckcppDevice</a> native to your operating system. If this is unavailable then the X11, SFML and then console device will be tried. This ensures that Duckcpp will run even if your platform is unsupported, although it may not be able to render anything. </p>
+<p>This selection allows Duckcpp to choose the best device from the ones available. . - If this selection is chosen then Duckcpp will try to use the <a class="el" href="classdcpp_1_1DuckcppDevice.html" title="The Duckcpp device. You can create it with createDevice() or createDeviceEx().">DuckcppDevice</a> native to your operating system. If this is unavailable then the X11, TODODEVICE and then console device will be tried. This ensures that Duckcpp will run even if your platform is unsupported, although it may not be able to render anything. </p>
 </td></tr>
 </table>
 
@@ -775,7 +771,7 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="a02de22e8ddb3f03a4b09f9efd42d24c1ac9ddec82641cf193422eb7d379374d95" name="a02de22e8ddb3f03a4b09f9efd42d24c1ac9ddec82641cf193422eb7d379374d95"></a>EET_TOUCH_INPUT_EVENT&#160;</td><td class="fielddoc"><p>A touch input event. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a02de22e8ddb3f03a4b09f9efd42d24c1a78553ac4b9143cbee7ba98c374ccfd6f" name="a02de22e8ddb3f03a4b09f9efd42d24c1a78553ac4b9143cbee7ba98c374ccfd6f"></a>EET_JOYSTICK_INPUT_EVENT&#160;</td><td class="fielddoc"><p>A joystick (joypad, gamepad) input event. </p>
-<p>Joystick events are created by polling all connected joysticks once per device run() and then passing the events to <a class="el" href="classdcpp_1_1DuckcppDevice.html#ac6ade54ae24fb996415d0f0eed3b99bd" title="Sends a user created event to the engine.">DuckcppDevice::postEventFromUser</a>. They take the same path as mouse events. Windows, SFML: Implemented. Linux: Implemented, with POV hat issues. MacOS / Other: Not yet implemented. </p>
+<p>Joystick events are created by polling all connected joysticks once per device run() and then passing the events to <a class="el" href="classdcpp_1_1DuckcppDevice.html#ac6ade54ae24fb996415d0f0eed3b99bd" title="Sends a user created event to the engine.">DuckcppDevice::postEventFromUser</a>. They take the same path as mouse events. Windows, TODODEVICE: Implemented. Linux: Implemented, with POV hat issues. MacOS / Other: Not yet implemented. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a02de22e8ddb3f03a4b09f9efd42d24c1a16d6fc1afffbd9cd7bdea4d8177212fe" name="a02de22e8ddb3f03a4b09f9efd42d24c1a16d6fc1afffbd9cd7bdea4d8177212fe"></a>EET_LOG_TEXT_EVENT&#160;</td><td class="fielddoc"><p>A log event. </p>
 <p>Log events are only passed to the user receiver if there is one. If they are absorbed by the user receiver then no text will be sent to the console. </p>

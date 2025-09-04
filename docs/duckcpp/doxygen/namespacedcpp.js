@@ -34,7 +34,6 @@ var namespacedcpp =
       [ "EIDT_WINCE", "namespacedcpp.html#a9bb03fcbeed4737b3e8890d660cb2e8ea185e45aae608de5a828109d672cd31ac", null ],
       [ "EIDT_X11", "namespacedcpp.html#a9bb03fcbeed4737b3e8890d660cb2e8ea71cf5818ff353627ebbc02a067edb7d3", null ],
       [ "EIDT_OSX", "namespacedcpp.html#a9bb03fcbeed4737b3e8890d660cb2e8eace78ffb9aed9b245f374b668a3a19276", null ],
-      [ "EIDT_SFML", "namespacedcpp.html#a9bb03fcbeed4737b3e8890d660cb2e8ea5b09889f27a968917d16647e6b464a8e", null ],
       [ "EIDT_FRAMEBUFFER", "namespacedcpp.html#a9bb03fcbeed4737b3e8890d660cb2e8ea8d85f2584400e12848509da10b8565d2", null ],
       [ "EIDT_CONSOLE", "namespacedcpp.html#a9bb03fcbeed4737b3e8890d660cb2e8ea214179d583285e03411ef12e2cd7b98c", null ],
       [ "EIDT_BEST", "namespacedcpp.html#a9bb03fcbeed4737b3e8890d660cb2e8eaf3498d9eaee02130a622897e12a9201c", null ]

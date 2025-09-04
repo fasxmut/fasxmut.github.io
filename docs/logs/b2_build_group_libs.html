@@ -7,13 +7,13 @@
 <meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
 <link rel="home" href="index.html" title="logs - Blogs or News">
 <link rel="up" href="index.html" title="logs - Blogs or News">
-<link rel="prev" href="glbinding_and_sfml.html" title="glbinding and sfml">
+<link rel="prev" href="sycl_buffer_host_access.html" title="sycl::buffer host access">
 <link rel="next" href="swift_cpp_20_concepts.html" title="swift cpp 20 concepts">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <div class="spirit-nav">
-<a accesskey="p" href="glbinding_and_sfml.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="swift_cpp_20_concepts.html"><img src="images/next.png" alt="Next"></a>
+<a accesskey="p" href="sycl_buffer_host_access.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="swift_cpp_20_concepts.html"><img src="images/next.png" alt="Next"></a>
 </div>
 <div class="article">
 <div class="titlepage">
@@ -37,8 +37,7 @@
       one by one, I want to make one name to all of them.
     </p>
 <p>
-      For example, I want to merge sfml-graphics, sfml-window, and sfml-audio, and
-      sfml-system into one name target.
+      For example, I want to merge lib1, lib2, and lib3, and lib4 into one name target.
     </p>
 <h2>
 <a name="b2_build_group_libs.h1"></a>
@@ -123,40 +122,40 @@
 <p>
       If the library search path is standard, the &lt;search&gt; can be empty.
     </p>
-<pre class="programlisting"><span class="identifier">lib</span> <span class="identifier">sfml</span><span class="special">-</span><span class="identifier">audio</span> <span class="special">:</span> <span class="special">:</span> <span class="special">&lt;</span><span class="identifier">name</span><span class="special">&gt;</span><span class="identifier">sfml</span><span class="special">-</span><span class="identifier">audio</span> <span class="special">;</span>	<span class="special">#</span> <span class="identifier">Omit</span> <span class="identifier">the</span> <span class="special">&lt;</span><span class="identifier">search</span><span class="special">&gt;</span>
+<pre class="programlisting"><span class="identifier">lib</span> <span class="identifier">lib3</span> <span class="special">:</span> <span class="special">:</span> <span class="special">&lt;</span><span class="identifier">name</span><span class="special">&gt;</span><span class="identifier">lib3</span> <span class="special">;</span>	<span class="special">#</span> <span class="identifier">Omit</span> <span class="identifier">the</span> <span class="special">&lt;</span><span class="identifier">search</span><span class="special">&gt;</span>
 </pre>
 <p>
-      Because the search path of sfml is standard, the &lt;search&gt; can be omitted.
+      Because the search path of libs is standard, the &lt;search&gt; can be omitted.
     </p>
 <h3>
 <a name="b2_build_group_libs.h5"></a>
       <span class="phrase"><a name="b2_build_group_libs.more_short"></a></span><a class="link" href="b2_build_group_libs.html#b2_build_group_libs.more_short">More
       short ...</a>
     </h3>
-<pre class="programlisting"><span class="identifier">lib</span> <span class="identifier">sfml</span><span class="special">-</span><span class="identifier">audio</span> <span class="special">;</span>
+<pre class="programlisting"><span class="identifier">lib</span> <span class="identifier">lib3</span> <span class="special">;</span>
 </pre>
 <p>
       This is the same as :
     </p>
-<pre class="programlisting"><span class="identifier">lib</span> <span class="identifier">sfml</span><span class="special">-</span><span class="identifier">audio</span> <span class="special">:</span> <span class="special">:</span> <span class="special">&lt;</span><span class="identifier">name</span><span class="special">&gt;</span><span class="identifier">sfml</span><span class="special">-</span><span class="identifier">audio</span> <span class="special">;</span>
+<pre class="programlisting"><span class="identifier">lib</span> <span class="identifier">lib3</span> <span class="special">:</span> <span class="special">:</span> <span class="special">&lt;</span><span class="identifier">name</span><span class="special">&gt;</span><span class="identifier">lib3</span> <span class="special">;</span>
 </pre>
 <p>
       But if you want to use different target name and library name, you can not
       use that short code.
     </p>
-<pre class="programlisting"><span class="identifier">lib</span> <span class="identifier">audio</span> <span class="special">:</span> <span class="special">:</span> <span class="special">&lt;</span><span class="identifier">name</span><span class="special">&gt;</span><span class="identifier">sfml</span><span class="special">-</span><span class="identifier">audio</span> <span class="special">;</span>	<span class="special">#</span> <span class="identifier">target</span> <span class="identifier">name</span> <span class="identifier">is</span> <span class="identifier">audio</span><span class="special">,</span> <span class="identifier">library</span> <span class="identifier">name</span> <span class="identifier">is</span> <span class="identifier">sfml</span><span class="special">-</span><span class="identifier">audio</span><span class="special">,</span> <span class="identifier">aka</span><span class="special">.</span> <span class="identifier">libsfml</span><span class="special">-</span><span class="identifier">audio</span><span class="special">.</span><span class="identifier">so</span>
+<pre class="programlisting"><span class="identifier">lib</span> <span class="identifier">audio</span> <span class="special">:</span> <span class="special">:</span> <span class="special">&lt;</span><span class="identifier">name</span><span class="special">&gt;</span><span class="identifier">lib3</span> <span class="special">;</span>	<span class="special">#</span> <span class="identifier">target</span> <span class="identifier">name</span> <span class="identifier">is</span> <span class="identifier">audio</span><span class="special">,</span> <span class="identifier">library</span> <span class="identifier">name</span> <span class="identifier">is</span> <span class="identifier">lib3</span><span class="special">,</span> <span class="identifier">aka</span><span class="special">.</span> <span class="identifier">liblib3</span><span class="special">.</span><span class="identifier">so</span>
 </pre>
 <p>
       To define many targets, nice:
     </p>
-<pre class="programlisting"><span class="identifier">lib</span> <span class="identifier">sfml</span><span class="special">-</span><span class="identifier">audio</span> <span class="identifier">sfml</span><span class="special">-</span><span class="identifier">window</span> <span class="identifier">sfml</span><span class="special">-</span><span class="identifier">graphics</span> <span class="special">;</span>
+<pre class="programlisting"><span class="identifier">lib</span> <span class="identifier">lib3</span> <span class="identifier">lib2</span> <span class="identifier">lib1</span> <span class="special">;</span>
 </pre>
 <p>
       It is the same as:
     </p>
-<pre class="programlisting"><span class="identifier">lib</span> <span class="identifier">sfml</span><span class="special">-</span><span class="identifier">audio</span> <span class="special">:</span> <span class="special">:</span> <span class="special">&lt;</span><span class="identifier">name</span><span class="special">&gt;</span><span class="identifier">sfml</span><span class="special">-</span><span class="identifier">audio</span> <span class="special">;</span>
-<span class="identifier">lib</span> <span class="identifier">sfml</span><span class="special">-</span><span class="identifier">window</span> <span class="special">:</span> <span class="special">:</span> <span class="special">&lt;</span><span class="identifier">name</span><span class="special">&gt;</span><span class="identifier">sfml</span><span class="special">-</span><span class="identifier">window</span> <span class="special">;</span>
-<span class="identifier">lib</span> <span class="identifier">sfml</span><span class="special">-</span><span class="identifier">graphics</span> <span class="special">:</span> <span class="special">:</span> <span class="special">&lt;</span><span class="identifier">name</span><span class="special">&gt;</span><span class="identifier">sfml</span><span class="special">-</span><span class="identifier">graphics</span> <span class="special">;</span>
+<pre class="programlisting"><span class="identifier">lib</span> <span class="identifier">lib3</span> <span class="special">:</span> <span class="special">:</span> <span class="special">&lt;</span><span class="identifier">name</span><span class="special">&gt;</span><span class="identifier">lib3</span> <span class="special">;</span>
+<span class="identifier">lib</span> <span class="identifier">lib2</span> <span class="special">:</span> <span class="special">:</span> <span class="special">&lt;</span><span class="identifier">name</span><span class="special">&gt;</span><span class="identifier">lib2</span> <span class="special">;</span>
+<span class="identifier">lib</span> <span class="identifier">lib1</span> <span class="special">:</span> <span class="special">:</span> <span class="special">&lt;</span><span class="identifier">name</span><span class="special">&gt;</span><span class="identifier">lib1</span> <span class="special">;</span>
 </pre>
 <h2>
 <a name="b2_build_group_libs.h6"></a>
@@ -167,10 +166,10 @@
 <p>
       So, I have my first solution:
     </p>
-<pre class="programlisting"><span class="identifier">lib</span> <span class="identifier">sfml</span><span class="special">-</span><span class="identifier">graphics</span> <span class="identifier">sfml</span><span class="special">-</span><span class="identifier">window</span> <span class="identifier">sfml</span><span class="special">-</span><span class="identifier">audio</span> <span class="identifier">sfml</span><span class="special">-</span><span class="identifier">system</span> <span class="special">;</span>
-<span class="identifier">alias</span> <span class="identifier">sfml</span> <span class="special">:</span> <span class="identifier">sfml</span><span class="special">-</span><span class="identifier">graphics</span> <span class="identifier">sfml</span><span class="special">-</span><span class="identifier">window</span> <span class="identifier">sfml</span><span class="special">-</span><span class="identifier">audio</span> <span class="identifier">sfml</span><span class="special">-</span><span class="identifier">system</span> <span class="special">;</span>
+<pre class="programlisting"><span class="identifier">lib</span> <span class="identifier">lib1</span> <span class="identifier">lib2</span> <span class="identifier">lib3</span> <span class="identifier">lib4</span> <span class="special">;</span>
+<span class="identifier">alias</span> <span class="identifier">liball</span> <span class="special">:</span> <span class="identifier">lib1</span> <span class="identifier">lib2</span> <span class="identifier">lib3</span> <span class="identifier">lib4</span> <span class="special">;</span>
 
-<span class="identifier">exe</span> <span class="identifier">my_prog</span> <span class="special">:</span> <span class="identifier">my_prog</span><span class="special">.</span><span class="identifier">cpp</span> <span class="special">:</span> <span class="special">&lt;</span><span class="identifier">library</span><span class="special">&gt;</span><span class="identifier">sfml</span> <span class="special">&lt;</span><span class="identifier">cxxstd</span><span class="special">&gt;</span><span class="number">23</span> <span class="special">;</span>
+<span class="identifier">exe</span> <span class="identifier">my_prog</span> <span class="special">:</span> <span class="identifier">my_prog</span><span class="special">.</span><span class="identifier">cpp</span> <span class="special">:</span> <span class="special">&lt;</span><span class="identifier">library</span><span class="special">&gt;</span><span class="identifier">liball</span> <span class="special">&lt;</span><span class="identifier">cxxstd</span><span class="special">&gt;</span><span class="number">23</span> <span class="special">;</span>
 </pre>
 <h2>
 <a name="b2_build_group_libs.h7"></a>
@@ -202,7 +201,7 @@
 <div class="copyright-footer"></div>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="glbinding_and_sfml.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="swift_cpp_20_concepts.html"><img src="images/next.png" alt="Next"></a>
+<a accesskey="p" href="sycl_buffer_host_access.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="swift_cpp_20_concepts.html"><img src="images/next.png" alt="Next"></a>
 </div>
 </body>
 </html>

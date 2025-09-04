@@ -6,7 +6,7 @@ var searchData=
   ['lerp_3',['lerp',['../classdcpp_1_1nub_1_1quaternion.html#a3340da868bca6080b97419ee76a2cf1b',1,'dcpp::nub::quaternion::lerp()'],['../namespacedcpp_1_1nub.html#ae391c6b100a2ae60d6f025a9a3560b29',1,'dcpp::nub::lerp()']]],
   ['lerpn_4',['lerpN',['../classdcpp_1_1nub_1_1quaternion.html#ada1d321cff68259f212c447822835c84',1,'dcpp::nub::quaternion']]],
   ['level_5',['Level',['../classdcpp_1_1SEvent_1_1SLogEvent.html#a5691f5122139ef3368020a54dd73159f',1,'dcpp::SEvent::SLogEvent']]],
-  ['license_6',['License',['..//st/my-project-ln-in-st-cache/duckcpp/include/duckcpp/core/engine/irrXML.hpp#license',1,'']]],
+  ['license_6',['License',['..//home/u/my-projects/duckcpp/include/duckcpp/core/engine/irrXML.hpp#license',1,'']]],
   ['lighting_7',['Lighting',['../classdcpp_1_1video_1_1SMaterial.html#ae5011686e23266f3f1b3ebe261d0a50f',1,'dcpp::video::SMaterial']]],
   ['lighttypenames_8',['LightTypeNames',['../namespacedcpp_1_1video.html#a1a7cc02a1e78be60105f7b613d5df0ee',1,'dcpp::video']]],
   ['line2d_9',['line2d',['../classdcpp_1_1nub_1_1line2d.html#ace975e6540e6188b828e9caf5790cebe',1,'dcpp::nub::line2d::line2d()'],['../classdcpp_1_1nub_1_1line2d.html#a258e1875bf8021cc0e2c0fbd0ef2d642',1,'dcpp::nub::line2d::line2d(T xa, T ya, T xb, T yb)'],['../classdcpp_1_1nub_1_1line2d.html#aea852e385ecd60f675eb782213ee5678',1,'dcpp::nub::line2d::line2d(const vector2d&lt; T &gt; &amp;start, const vector2d&lt; T &gt; &amp;end)'],['../classdcpp_1_1nub_1_1line2d.html',1,'dcpp::nub::line2d&lt; T &gt;']]],

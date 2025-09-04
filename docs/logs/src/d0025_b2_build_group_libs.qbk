@@ -10,7 +10,7 @@ b2 build group libs - Posted on Jun 21, 2024 - See [@https://www.bfgroup.xyz/b2]
 
 I have many library targets, I don't want to link them by writting their names one by one, I want to make one name to all of them.
 
-For example, I want to merge sfml-graphics, sfml-window, and sfml-audio, and sfml-system into one name target.
+For example, I want to merge lib1, lib2, and lib3, and lib4 into one name target.
 
 [h1 [role cyan How to define library target in b2 build jamfile]]
 
@@ -62,41 +62,41 @@ lib lib_name : source_code_list : requirements : default-build : usage-requireme
 If the library search path is standard, the <search> can be empty.
 
 ```
-lib sfml-audio : : <name>sfml-audio ;	# Omit the <search>
+lib lib3 : : <name>lib3 ;	# Omit the <search>
 ```
 
-Because the search path of sfml is standard, the <search> can be omitted.
+Because the search path of libs is standard, the <search> can be omitted.
 
 [h2 More short ...]
 
 ```
-lib sfml-audio ;
+lib lib3 ;
 ```
 
 This is the same as :
 
 ```
-lib sfml-audio : : <name>sfml-audio ;
+lib lib3 : : <name>lib3 ;
 ```
 
 But if you want to use different target name and library name, you can not use that short code.
 
 ```
-lib audio : : <name>sfml-audio ;	# target name is audio, library name is sfml-audio, aka. libsfml-audio.so
+lib audio : : <name>lib3 ;	# target name is audio, library name is lib3, aka. liblib3.so
 ```
 
 To define many targets, nice:
 
 ```
-lib sfml-audio sfml-window sfml-graphics ;
+lib lib3 lib2 lib1 ;
 ```
 
 It is the same as:
 
 ```
-lib sfml-audio : : <name>sfml-audio ;
-lib sfml-window : : <name>sfml-window ;
-lib sfml-graphics : : <name>sfml-graphics ;
+lib lib3 : : <name>lib3 ;
+lib lib2 : : <name>lib2 ;
+lib lib1 : : <name>lib1 ;
 ```
 
 [h1 [role cyan alias to many targets]]
@@ -108,10 +108,10 @@ alias target : target1 target2 target3 ;
 So, I have my first solution:
 
 ```
-lib sfml-graphics sfml-window sfml-audio sfml-system ;
-alias sfml : sfml-graphics sfml-window sfml-audio sfml-system ;
+lib lib1 lib2 lib3 lib4 ;
+alias liball : lib1 lib2 lib3 lib4 ;
 
-exe my_prog : my_prog.cpp : <library>sfml <cxxstd>23 ;
+exe my_prog : my_prog.cpp : <library>liball <cxxstd>23 ;
 ```
 
 [include ../../share/foot-links.inc.qbk]
