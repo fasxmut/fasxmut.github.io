@@ -1,0 +1,15 @@
+[article cpphtgt
+	[id cpphtgt]
+	[quickbook 1.7]
+]
+
+cpphtgt is a static http web server written in c++, small, simple, and fast. It only hosts html, css, mp3, mp4, png, jpg and text files.
+
+Github: [@https://github.com/cppfx/cpphtgt]
+
+[h1:back [role cyan Back]]
+
+[@. Up]
+
+[include ../../share/foot-links.inc.qbk]
+

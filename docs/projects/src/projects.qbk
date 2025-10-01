@@ -3,6 +3,7 @@
 	[id projects]
 ]
 
+[include cpphtgt.qbk]
 [include hostlab.qbk]
 [include mapkp.qbk]
 [include pmpmesh.qbk]
