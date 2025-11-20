@@ -10,7 +10,6 @@
 [include falkon.qbk]
 [include ugrep.qbk]
 [include mysql.qbk]
-[include compiled.qbk]
 
 There are many good applications on the Internet world.
 

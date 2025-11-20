@@ -9,12 +9,9 @@ sycl_queue_copy_queue_fill.html
 sycl_class_kernel.html
 sycl_buffer_host_access.html
 b2_build_group_libs.html
-swift_cpp_20_concepts.html
 windows_install_cpp_compiler.html
 cpp_std_float_type.html
 kubuntu_install_cpp_compiler.html
-swift_pm_cli_uses_cpp_cpp_intero.html
-cpp_uses_swift_cpp_interop.html
 cobalt_main_entry_points_cpp_boo.html
 cobalt_beast_http_cpp_boost.html
 cobalt_op_what_is_it_cpp_boost.html
@@ -24,4 +21,3 @@ sycl_copy_method.html
 q4os_sycl_cpp.html
 chaiscript_cpp.html
 cpp_integral_type.html
-cpp_uses_swift.html

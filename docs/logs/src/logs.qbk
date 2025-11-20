@@ -12,12 +12,9 @@
 [include d0029_sycl_class_kernel.qbk]
 [include d0028_sycl_buffer_host_access.qbk]
 [include d0025_b2_build_group_libs.qbk]
-[include d0024_swift_cpp_20_concepts.qbk]
 [include d0023_windows_cpp_compiler.qbk]
 [include d0022_cpp_std_float_type.qbk]
 [include d0021_kubuntu_cpp_compiler.qbk]
-[include d0018_swift_cli_uses_cpp.qbk]
-[include d0017_cpp_uses_swift_2.qbk]
 [include d0016_cobalt_main_entry_points.qbk]
 [include d0015_cobalt_beast_http_cs.qbk]
 [include d0014_cobalt_op_cpp_boost.qbk]
@@ -27,7 +24,6 @@
 [include d0010_q4os_sycl_cpp.qbk]
 [include d0009-chaiscript-cpp.qbk]
 [include d0006-cpp-integral.qbk]
-[include d0005-cpp-uses-swift.qbk]
 
 Logs - blogs or News .
 

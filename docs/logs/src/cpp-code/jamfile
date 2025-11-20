@@ -17,7 +17,6 @@ project
 ;
 
 progs =
-	d0005-cpp-uses-swift
 	d0006-cpp-integral
 	d0012_boost_cobalt_fast
 	d0013_cobalt_race_boost_cpp
