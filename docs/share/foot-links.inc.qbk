@@ -18,7 +18,7 @@ std::cout << greeting.data() << std::endl;
 
 Powered by
 -
-[@https://bfgroup.xyz/b2 B2 Build]
+[@https://www.bfgroup.xyz/b2 B2 Build]
 |
 [@https://www.boost.org/tools/quickbook boost quickbook]
 
