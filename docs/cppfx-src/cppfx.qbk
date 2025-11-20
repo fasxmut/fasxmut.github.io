@@ -1,0 +1,15 @@
+[book cppfx - cpp/c++, b2 build
+	[quickbook 1.7]
+	[id cppfx]
+]
+
+[include asio-thread_pool-executor.qbk]
+
+//////////////////////////////////////////////////////////////////////
+
+[@old-index.html Old Index]
+
+[include ../share/foot-links.inc.qbk]
+
+
+

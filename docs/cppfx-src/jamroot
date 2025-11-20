@@ -1,0 +1,84 @@
+path-constant qbk-media-root : ../share/fx-quickbook-media/qbk-media ;
+path-constant cppfx-src-root : . ;
+path-constant cppfx-web-root : .. ;
+
+argv = [ modules.peek : ARGV ] ;
+
+if [ MATCH ^(clean)$ : $(argv) ]
+{
+	echo "rm -rf $(cppfx-src-root)/bin" ;
+	SHELL "rm -rf $(cppfx-src-root)/bin" ;
+
+	echo "rm -rf $(cppfx-src-root)/html" ;
+	SHELL "rm -rf $(cppfx-src-root)/html" ;
+
+	exit ;
+}
+
+if [ MATCH ^(cleanall)$ : $(argv) ]
+{
+	echo "rm -rf $(cppfx-src-root)/bin" ;
+	SHELL "rm -rf $(cppfx-src-root)/bin" ;
+
+	echo "rm -rf $(cppfx-src-root)/html" ;
+	SHELL "rm -rf $(cppfx-src-root)/html" ;
+
+	echo "rm -rf $(cppfx-web-root)/*.html" ;
+	SHELL "rm -rf $(cppfx-web-root)/*.html" ;
+
+	echo "rm -rf $(cppfx-web-root)/*.css" ;
+	SHELL "rm -rf $(cppfx-web-root)/*.css" ;
+
+	echo "rm -rf $(cppfx-web-root)/*.manifest" ;
+	SHELL "rm -rf $(cppfx-web-root)/*.manifest" ;
+
+	echo "rm -rf $(cppfx-web-root)/images" ;
+	SHELL "rm -rf $(cppfx-web-root)/images" ;
+
+	exit ;
+}
+
+xml xml-index : cppfx.qbk ;
+
+boostbook
+	html-index
+:
+	xml-index
+:
+	<xsl:param>"chunk.first.sections=1"
+	<xsl:param>"chunker.output.doctype-public=-//W3C//DTD XHTML 1.0 Strict//EN"
+	<xsl:param>"chunker.output.doctype-system=http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"
+	<dependency>media
+;
+
+install html
+	:
+		[ glob
+			$(cppfx-src-root)/html/*.html
+			$(cppfx-src-root)/html/*.manifest
+		]
+	:
+		<location>$(cppfx-web-root)
+		<install-source-root>$(cppfx-src-root)/html
+;
+
+install custom-page
+	:
+		[ glob
+			$(cppfx-src-root)/custom-page/*.html
+		]
+	:
+		<location>$(cppfx-web-root)
+		<install-source-root>$(cppfx-src-root)/custom-page
+;
+
+install media :
+	[ glob
+		$(qbk-media-root)/*.css
+		$(qbk-media-root)/images/*.png
+	]
+	:
+	<location>$(cppfx-web-root)
+	<install-source-root>$(qbk-media-root)
+	;
+

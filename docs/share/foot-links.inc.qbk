@@ -16,5 +16,11 @@ std::cout << greeting.data() << std::endl;
   ===================================
 ]
 
-[@https://cppfx.xyz Home: cppfx.xyz]
+Powered by
+-
+[@https://bfgroup.xyz/b2 B2 Build]
+|
+[@https://www.boost.org/tools/quickbook boost quickbook]
+
+@[@https://cppfx.xyz cppfx.xyz]
 

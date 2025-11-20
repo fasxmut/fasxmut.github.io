@@ -1,421 +1,66 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>cppfx - cpp/c++, b2 build</title>
-<style>
-body {font-size:15px}
-h1 {color:darkred}
-h2 {background:#ddd;padding:2px 4px;border-radius:2px}
-
-#body {min-width:1400px;max-width:1400px;border:0px solid #f00;margin-left:auto;margin-right:auto}
-a {color:darkcyan}
-a:hover {background:#ddd}
-
-#header {width:100%;text-align:center;border:0px solid #0f0;margin:1px}
-#header url {float:right;color:darkred}
-#page {width:100%;border:0px solid #0f0;margin:1px}
-#footer {width:100%;text-align:center;border:0px solid #0f0;margin:1px}
-
-.oneblock {width:342.7px;margin:1px;float:left;border:0px solid #00f}
-.twoblock {width:693.4px;margin:1px;float:left;border:0px solid #00f}
-.threeblock {width:1046.0142px;margin:1px;float:left;border:0px solid #00f}
-.fourblock {width:100%;margin:1px;float:left;border:0px solid #00f}
-.content {width:auto;padding:15px 25px;margin:1px;border:0px solid #297}
-
-.codeblock {width:auto;border:2px dashed darkcyan;padding:0px 10px;border-radius:3px;background:#eee;color:black;font-weight:bold;font-size:12px}
-</style>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="cppfx - cpp/c++, b2 build">
+<link rel="next" href="asio-thread_pool-executor.html" title="boost::asio::thread_pool, executor">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body>
-<div id="body">
-
-<div id="header">
-
-<div class="fourblock">
-<div class="content">
-<h1>cppfx - cpp/c++, b2 build</h1>
-<url>https://cppfx.xyz</url>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav"><a accesskey="n" href="asio-thread_pool-executor.html"><img src="images/next.png" alt="Next"></a></div>
+<div class="book">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="cppfx"></a>cppfx - cpp/c++, b2 build</h1></div></div>
+<hr>
 </div>
-</div>	<!-- class="fourblock" -->
-
-<div style="clear:both"></div>
-</div>	<!-- id="header" -->
-
-<hr />
-
-<div id="page">
-
-<!---------------------------------------->
-<!---------------------------------------->
-<!---------------------------------------->
-<!---------------------------------------->
-<!---------------------------------------->
-
-<div class="oneblock" id="group-1">
-<div class="content">
-
-<div id="std-cout">
-
-<h2>std::cout<br />class</h2>
-<div class="codeblock">
-<pre>
-<font color="grey">#include &lt;iostream&gt;</font>
-
-<font color="red">class</font> box_world
-{
-<font color="blue">public:</font>
-  void greeting() const
-  {
-    <font color="red">std::cout</font>
-      &lt;&lt; "Cheers, c++ !"
-      &lt;&lt; <font color="blue">std::endl</font>;
-  }
-};
-
-<font color="darkgreen">int</font> <font color="green">main</font>()
-{
-  <font color="blue">auto</font> box = box_world{};
-  box.greeting();
-}
+<div class="toc">
+<p><b>Table of Contents</b></p>
+<dl class="toc"><dt><span class="article"><a href="asio-thread_pool-executor.html">boost::asio::thread_pool, executor</a></span></dt></dl>
+</div>
+<p>
+    //////////////////////////////////////////////////////////////////////
+  </p>
+<p>
+    <a href="old-index.html" target="_top">Old Index</a>
+  </p>
+<h2>
+<a name="cppfx.h0"></a>
+    <span class="phrase"><a name="cppfx.cpp-lang"></a></span><a class="link" href="index.html#cppfx.cpp-lang"><span class="cyan">Cheers,
+    cpp/c++ !</span></a>
+  </h2>
+<p>
+    const std::string greeting = "Cheers, c++!";
+  </p>
+<p>
+    std::cout &lt;&lt; greeting &lt;&lt; std::endl;
+  </p>
+<p>
+    std::cout &lt;&lt; greeting.data() &lt;&lt; std::endl;
+  </p>
+<p>
+    <span class="purple">caught:</span>
+  </p>
+<pre class="programlisting">  ===================================
+  #  The c++ programming language.  #
+  #                                 #
+  #  Join c++                       #
+  #  Deck                           #
+  ===================================
 </pre>
-</div>	<!-- class="codeblock" -->
-
-<ul>
-<li><strong>std::cout (<a href="https://en.cppreference.com/w/cpp/io/cout">std::cout</a>)</strong>
-<li><strong>c++ class</strong>
-</ul>
-
-</div>	<!-- id="std-cout" -->
-
-</div>	<!-- class="content" -->
-</div>	<!-- class="oneblock" id="group-1" -->
-
-<div class="oneblock" id="group-2">
-<div class="content">
-
-<div id="std-copy">
-
-<h2>c++ std::copy:<br />copy memory area</h2>
-
-<div class="codeblock">
-<pre>
-<font color="grey">#include &lt;algorithm&gt;</font>
-
-<font color="darkgreen">int</font> <font color="green">main</font>()
-{
-  <font color="darkcyan">// c++ array</font>
-  char src[] = {"Hello, c++!"};
-  <font color="darkcyan">// Note: src[11] == '\0'</font>
-  int size = 11 + 1;
-  char * dst = <font color="blue">new</font> char[size];
-  <font color="red">std::copy</font>(src, src+size, dst);
-  <font color="blue">delete</font> [] dst;
-}
-</pre>
-</div>	<!-- class="codeblock" -->
-
-<ul>
-<li><strong>std::copy (<a href="https://en.cppreference.com/w/cpp/algorithm/copy">std::copy</a>)</strong>
-<li><strong>new</strong>
-<li><strong>delete</strong>
-</ul>
-
-</div>	<!-- id="std-copy" -->
-
-</div>	<!-- class="content" -->
-</div>	<!-- class="oneblock" id="group-2" -->
-
-<div class="oneblock" id="group-3">
-<div class="content">
-
-<div id="std-fill">
-
-<h2>c++ std::fill:<br />fill memory area</h2>
-
-<div class="codeblock">
-<pre>
-<font color="grey">#include &lt;algorithm&gt;</font>
-
-<font color="darkgreen">int</font> <font color="green">main</font>()
-{
-  <font color="darkcyan">// c++ array</font>
-  char src[100];
-  <font color="red">std::fill</font>(src, src+100, '0');
-}
-</pre>
-</div>	<!-- class="codeblock" -->
-
-<ul>
-<li><strong>std::fill (<a href="https://en.cppreference.com/w/cpp/algorithm/fill">std::fill</a>)</strong>
-</ul>
-
-</div>	<!-- id="std-fill" -->
-
-<div id="std-mt19937">
-
-<h2>c++ std::mt19937</h2>
-
-<p>Get Random Number</p>
-
-<div class="codeblock">
-<pre>
-<font color="red">std::random_device</font> seed;
-<font color="red">std::mt19937</font> rng{seed()};
-<font color="blue">auto</font> rd_value = rng();
-<font color="darkcyan">std::cout</font> << rd_value << std::endl;
-</pre>
+<p>
+    Powered by - <a href="https://bfgroup.xyz/b2" target="_top">B2 Build</a> | <a href="https://www.boost.org/tools/quickbook" target="_top">boost
+    quickbook</a>
+  </p>
+<p>
+    @<a href="https://cppfx.xyz" target="_top">cppfx.xyz</a>
+  </p>
 </div>
-
-<ul>
-<li><strong>std::mt19937</strong>
-<li><strong>std::random_device</strong>
-</ul>
-
-</div>	<!-- id="std-mt19937" -->
-
-</div>	<!-- class="content" -->
-</div>	<!-- class="oneblock" id="group-3" -->
-
-<div class="oneblock" id="group-4">
-<div class="content">
-
-<div id="cpp-logo">
-
-<div style="text-align:center">
-<img src="cpp-logo/arts/cpp-logo-300x100.png" alt="cpp/c++" title="cpp/c++" />
-</div>
-
-</div>	<!-- id="cpp-logo" -->
-
-<div id="github">
-
-<div style="font-size:20px;text-align:center;padding:20px;border:1px solid #000;border-radius:2px;">
-<a href="projects/cpphtgt.html">cpphtgt</a>
-&nbsp; - &nbsp;
-<a href="https://github.com/cppfx/cpphtgt">Github</a>
-</div>
-
-</div>	<!-- id="github" -->
-
-<div id="cpp-tutorial">
-
-<div id="border-0">
-<style>
-	#border-0
-	{
-		background: #dde;
-		color: darkblue;
-		border: 2px solid #bbc;
-		border-top: 4px solid #bbc;
-		font-size: 20px;
-		padding: 1px 20px 1px;
-		border-radius: 4px;
-		font-weight: bold;
-		margin: 5px;
-	}
-	#border-0 a
-	{
-		color: darkred;
-		padding: 5px 30px;
-	}
-	#border-0 a:hover
-	{
-		background: blue;
-		color: cyan;
-		border-radius: 3px;
-	}
-</style>
-
-<p>c++ Tutorial:</p>
-<p><a href="learn-cpp-in-days">Learn c++ in days</a></p>
-
-</div>	<!-- id="border-0" -->
-
-</div>	<!-- id="cpp-tutorial" -->
-
-
-<div id="cpptoolchain">
-
-<div style="border:1px solid #ccc;padding:0px 25px;border-radius:3px;">
-<p><a href="cpptoolchain">c++ Toolchain</a></p>
-</div>
-
-</div>	<!-- id="cpp-compilers" -->
-
-</div>	<!-- class="content" -->
-</div>	<!-- class="oneblock" id="group-4" -->
-
-<div style="clear:both"></div>
-<hr />
-
-<!---------------------------------------->
-<!---------------------------------------->
-<!---------------------------------------->
-<!---------------------------------------->
-<!---------------------------------------->
-
-<div class="oneblock">
-<div class="content">
-<h2>Update:</h2>
-
-<p>
-
-<a href="duckcpp">Duckcpp</a><br />
-<a href="duckcpp/dcpp.html">dcpp</a><br />
-<a href="https://railcpp.dpdns.org">Railcpp</a><br />
-
-</p>
-
-</div>	<!-- class="content" -->
-</div>	<!-- class="oneblock" -->
-
-<div class="oneblock">
-<div class="content">
-<h2>Windows c++</h2>
-<p>Windows c++ programming</p>
-<p><a href="windows">Enter</a></p>
-</div>	<!-- class="content" -->
-</div>	<!-- class="oneblock" -->
-
-<div class="oneblock">
-<div class="content">
-<h2>B2</h2>
-<p>B2 Build</p>
-<p><a href="b2">Enter</a></p>
-</div>	<!-- class="content" -->
-</div>	<!-- class="oneblock" -->
-
-<div class="oneblock">
-<div class="content">
-<h2>boost c++</h2>
-<p>boost c++ libraries</p>
-<p><a href="boost">Enter</a></p>
-</div>	<!-- class="content" -->
-</div>	<!-- class="oneblock" -->
-
-<div class="oneblock">
-<div class="content">
-<h2>Selam</h2>
-<p>Selam c++ audio codec</p>
-<p><a href="selam">Enter</a></p>
-</div>	<!-- class="content" -->
-</div>	<!-- class="oneblock" -->
-
-<div class="oneblock">
-<div class="content">
-<h2>Giac c++</h2>
-<p>Giac c++ mathematics</p>
-<p><a href="giac">Enter</a></p>
-</div>	<!-- class="content" -->
-</div>	<!-- class="oneblock" -->
-
-<div class="oneblock">
-<div class="content">
-<h2>Haiku OS</h2>
-<p>Haiku Operating System</p>
-<p><a href="haiku">Enter</a></p>
-</div>	<!-- class="content" -->
-</div>	<!-- class="oneblock" -->
-
-<div class="oneblock">
-<div class="content">
-<h2>c++</h2>
-<p>c++ programming</p>
-<p><a href="cpp">Enter</a></p>
-</div>	<!-- class="content" -->
-</div>	<!-- class="oneblock" -->
-
-<div class="oneblock">
-<div class="content">
-<h2>SerenityOS</h2>
-<p>Serenity Operating System</p>
-<p><a href="serenityos">Enter</a></p>
-</div>	<!-- class="content" -->
-</div>	<!-- class="oneblock" -->
-
-<div class="oneblock">
-<div class="content">
-<h2>Botan c++</h2>
-<p>Botan c++</p>
-<p><a href="botan-cpp">Enter</a></p>
-</div>	<!-- class="content" -->
-</div>	<!-- class="oneblock" -->
-
-<div class="oneblock">
-<div class="content">
-<h2>SYCL c++</h2>
-<p><span style="background:#aea;color:#721;font-weight:bold;font-size:16px;padding:1px">#include &lt;sycl/sycl.hpp&gt;</span></p>
-
-<p><a href="sycl">Enter</a></p>
-</div>	<!-- class="content" -->
-</div>	<!-- class="oneblock" -->
-
-<div class="oneblock">
-<div class="content">
-<h2>c++ Silice</h2>
-<p><a href="silice">Enter</a></p>
-</div>	<!-- class="content" -->
-</div>	<!-- class="oneblock" -->
-
-<div class="oneblock">
-<div class="content">
-<h2>Projects</h2>
-<p>
-c++ projects
-</p>
-<p>
-<a href="projects">Enter</a>
-</p>
-</div>	<!-- class="content" -->
-</div>	<!-- class="oneblock" -->
-
-<div class="oneblock">
-<div class="content">
-<h2>Apps Case</h2>
-<p>Some useful apps</p>
-<p><a href="apps-case">Enter</a></p>
-</div>	<!-- class="content" -->
-</div>	<!-- class="oneblock" -->
-
-<div class="oneblock">
-<div class="content">
-<h2>Logs</h2>
-<p>
-Logs - Record my c++ explorer
-</p>
-<p>
-<a href="logs">Enter</a>
-</p>
-</div>	<!-- class="content" -->
-</div>	<!-- class="oneblock" -->
-
-<hr />
-
-<div id="footer">
-
-<div class="fourblock">
-<div class="content">
-
-<p>
-Website designed in <a href="https://www.boost.org/tools/quickbook">boost quickbook</a>
-</p>
-
-<p>
-<a href="https://www.bfgroup.xyz/b2">B2 Build</a>
-</p>
-
-<p>
-<a href="duckcpp">Duckcpp</a>
-&nbsp;/&nbsp;
-@<a href="https://cppfx.xyz">cppfx</a>
-</p>
-
-</div>	<!-- class="content" -->
-</div>	<!-- class="fourblock" -->
-
-<div style="clear:both"></div>
-</div>	<!-- id="footer" -->
-
-</div>	<!-- id="body" -->
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav"><a accesskey="n" href="asio-thread_pool-executor.html"><img src="images/next.png" alt="Next"></a></div>
 </body>
 </html>
-
