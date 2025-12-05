@@ -9,7 +9,6 @@
 [include pmpmesh.qbk]
 [include cpp-programs.qbk]
 [include q3viewer.qbk]
-[include happy-cpp-sycl-examples.qbk]
 
 [h1:back [role cyan Back]]
 

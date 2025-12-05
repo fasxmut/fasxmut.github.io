@@ -5,6 +5,12 @@
 
 [include asio-thread_pool-executor.qbk]
 
+[h1 [role cyan Master Site]]
+
+[@http://cppfx.i2p]
+
+[@http://cppfxjjm5bgqx2cepvisfcy4zz4ystzxxh36mtuvqm2jp5g6rb7a.b32.i2p]
+
 //////////////////////////////////////////////////////////////////////
 
 [@old-index.html Old Index]

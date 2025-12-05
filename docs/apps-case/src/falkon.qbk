@@ -1,6 +1,6 @@
 [article Falkon Browser
-	[quickbook 1.7]
 	[id falkon]
+	[quickbook 1.7]
 ]
 
 Oct 12, 2024
@@ -14,7 +14,7 @@ Falkon is an excellent web browser written in c++ qt webengine.
 * Open Source
 * KDE Plasma Desktop
 
-Home: [@https://www.falkon.org https://www.falkon.org]
+Home: [@https://www.falkon.org]
 
 [h1:back [role cyan Back]]
 
