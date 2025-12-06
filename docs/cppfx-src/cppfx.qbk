@@ -17,7 +17,82 @@
 
 //////////////////////////////////////////////////////////////////////
 
+[h1 [role cyan Subspaces]]
+
+* [@learn-cpp-in-days Learn c++ in days]
+
+* [@cpptoolchain c++ Toolchain]
+
 [@old-index.html Old Index]
+
+[h1 [role cyan How to access cppfx.i2p]]
+
+From today (12/05/2025), [role ddred cppfx.xyz] has been migrated to [role dgreen cppfx.i2p],
+[br]
+and set cppfx.i2p as master site.
+[br]
+The updates will be applied to cppfx.i2p first, then cppfx.xyz.
+
+[role dred [*How to access cppfx.i2p]]
+
+[h2 step-1: Install i2p client]
+
+Install i2p client, such as [role dred i2pd],
+
+--->
+
+Run i2pd,
+
+--->
+
+Wait i2pd peer data and addressbook synchronization,
+[br]
+it might take a quick short time or a long time, depending on your network environment.
+
+[h2 step-2: Configure web page browser]
+
+Take [role dred falkon] for example,
+
+Open [role dred falkon] main menu
+
+[role dgreen =>]
+
+click [role dred "Preferences"]
+
+[role dgreen =>]
+
+click [role dred "Browsing"]
+
+[role dgreen =>]
+
+click [role dred "Proxy Configuraton"]
+
+[role dgreen =>]
+
+select [role dred "Manual configuration"]
+
+[role dgreen =>]
+
+(You can choose http proxy or socks proxy now)[br]
+(If you are using i2pd:)[br]
+
+[pre [role dred
+HTTP		127.0.0.1		4444
+]]
+
+[pre [role dred
+SOCKS5		127.0.0.1		4447
+]]
+
+Then [role dred restart] falkon.
+
+[h2 step-3: Access cppfx.i2p]
+
+After restarting falkon, just open any one of the domains:
+
+[role dred cppfx.i2p]
+
+[role dred cppfxjjm5bgqx2cepvisfcy4zz4ystzxxh36mtuvqm2jp5g6rb7a.b32.i2p]
 
 [include ../share/foot-links.inc.qbk]
 

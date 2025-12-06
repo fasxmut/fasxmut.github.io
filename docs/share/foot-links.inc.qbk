@@ -1,20 +1,4 @@
-[h1:cpp-lang [role cyan Cheers, cpp/c++ !]]
-
-const std::string greeting = "Cheers, c++!";
-
-std::cout << greeting << std::endl;
-
-std::cout << greeting.data() << std::endl;
-
-[role purple caught:]
-[pre
-  ===================================
-  #  The c++ programming language.  #
-  #                                 #
-  #  Join c++                       #
-  #  Deck                           #
-  ===================================
-]
+[h1:cpp-lang [role cyan Role]]
 
 Powered by
 -
@@ -22,7 +6,9 @@ Powered by
 |
 [@https://www.boost.org/tools/quickbook boost quickbook]
 
-@[@http://cppfx.i2p]
+====
 
-@[@http://cppfxjjm5bgqx2cepvisfcy4zz4ystzxxh36mtuvqm2jp5g6rb7a.b32.i2p]
+[@http://cppfx.i2p cppfx.i2p]
+
+[@http://cppfxjjm5bgqx2cepvisfcy4zz4ystzxxh36mtuvqm2jp5g6rb7a.b32.i2p cppfxjjm5bgqx2cepvisfcy4zz4ystzxxh36mtuvqm2jp5g6rb7a.b32.i2p]
 
