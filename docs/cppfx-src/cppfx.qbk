@@ -5,7 +5,7 @@
 
 [include asio-thread_pool-executor.qbk]
 
-[h1 [role cyan Master Site, at I2P !]]
+[h1:master-site-at-i2p [role cyan Master Site, at I2P !]]
 
 [role ddred cppfx.i2p]
 
@@ -17,7 +17,7 @@
 
 //////////////////////////////////////////////////////////////////////
 
-[h1 [role cyan Subspaces]]
+[h1:subspaces [role cyan Subspaces]]
 
 * [@learn-cpp-in-days Learn c++ in days]
 
@@ -25,9 +25,9 @@
 
 [@old-index.html Old Index]
 
-[h1 [role cyan How to access cppfx.i2p]]
+[h1:how-to-access-i2p [role cyan How to access cppfx.i2p]]
 
-From today (12/05/2025), [role ddred cppfx.xyz] has been migrated to [role dgreen cppfx.i2p],
+From today (12/05/2025), [role ddblue cppfx.xyz] has been migrated to [role dred cppfx.i2p],
 [br]
 and set cppfx.i2p as master site.
 [br]
@@ -35,21 +35,45 @@ The updates will be applied to cppfx.i2p first, then cppfx.xyz.
 
 [role dred [*How to access cppfx.i2p]]
 
-[h2 step-1: Install i2p client]
+[h2:step-1 step-1: Install i2p client]
 
-Install i2p client, such as [role dred i2pd],
+[*Install] i2p client, such as [role dred i2pd],
 
---->
+[role dred ===>]
 
-Run i2pd,
+[*Run i2pd,]
 
---->
+Run in foreground:
 
-Wait i2pd peer data and addressbook synchronization,
+```
+i2pd
+```
+
+Run in background:
+
+```
+i2pd --daemon
+```
+
+[role dred ===>]
+
+[*Wait] i2pd peer data and addressbook [*synchronization],
 [br]
 it might take a quick short time or a long time, depending on your network environment.
 
-[h2 step-2: Configure web page browser]
+[role dred ===>]
+
+[*Watch synchronization status]
+
+For i2pd,[br]
+Open [*http://127.0.0.1:7070][br]
+Click [*I2P Tunnels],
+
+Under [*Client Tunnels],[br]
+you will see [*HTTP Proxy] and [*SOCKS Proxy],[br]
+just click them and watch [*Inbound tunnels] and [*Outbound tunnels] .
+
+[h2:step-2 step-2: Configure web page browser]
 
 Take [role dred falkon] for example,
 
@@ -86,7 +110,7 @@ SOCKS5		127.0.0.1		4447
 
 Then [role dred restart] falkon.
 
-[h2 step-3: Access cppfx.i2p]
+[h2:step-3 step-3: Access cppfx.i2p]
 
 After restarting falkon, just open any one of the domains:
 
