@@ -3,6 +3,7 @@
 	[id cppfx]
 ]
 
+[include writing-jamfiles.qbk]
 [include asio-thread_pool-executor.qbk]
 
 [h1:master-site-at-i2p [role cyan Master Site, at I2P !]]

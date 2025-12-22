@@ -1,0 +1,248 @@
+[article Writing Jamfiles
+	[quickbook 1.7]
+	[id Writing-jamefiles]
+]
+
+[pre
+[link Writing-jamefiles.overview Overview]
+[link Writing-jamefiles.targets Main targets]
+[link Writing-jamefiles.projects Projects]
+[link Writing-jamefiles.other-rules Jamfile Utility Rules]
+]
+
+\[
+[@https://www.bfgroup.xyz/b2 B2 Build (jamfile) Home]
+-
+[@cpptoolchain/build-install-b2-build.html Setup B2 Build]
+\]
+
+[h1:overview [role cyan Overview]]
+
+Jamfiles are the thing which is most important to the user, bacause they declare the targets which should be build. Jamfiles are also used for organizing targets -- each Jamfile is a separate project, which can be build independently from the other projects.
+
+Jamfile mostly contain calls to Boost.Build functions, which do all the work, specifically:
+
+* [link Writing-jamefiles.targets declare main targets]
+* [link Writing-jamefiles.projects define project properties]
+* [link Writing-jamefiles.other-rules do various other things]
+
+[h1:targets [role cyan Main targets]]
+
+A Main target is a user-defined named entity that can be built, for example an executable file. Declaring a main target is usually done using one of the main target rules described in the section called “Builtin target types”. The user can also declare custom main target rules as shown in the section called “Main target rules”.
+
+Most main target rules in Boost.Build can be invoked with a common syntax:
+
+[pre
+rule-name main-target-name
+    : sources...
+    : requirements... 
+    : default-build...
+    : usage-requirements...
+    ;
+]
+
+* main-target-name is the name used to request the target on command line and to use it from other main targets. A main target name may contain alphanumeric characters, dashes (‘-’), and underscores (‘_’).
+* sources is the list of source files and other main targets that must be combined.
+* requirements is the list of properties that must always be present when this main target is built.
+* default-build is the list of properties that will be used unless some other value of the same feature is already specified, e.g. on the command line or by propogation from a dependent target.
+* usage-requirements is the list of properties that will be propagated to all main targets that use this one, i.e. to all its dependents.
+
+Some main target rules have a shorter list of parameters; consult their documentation for details.
+
+Note that the actual requirements, default-build and usage-requirements attributes for a target are obtained by combining the explicitly specified ones with those specified for the project where a target is declared.
+
+The list of sources specifies what should be processed to get the resulting targets. Most of the time, it's just a list of files. Sometimes, you'll want to automatically construct the list of source files rather than having to spell it out manually, in which case you can use the glob rule. Here are two examples:
+
+[pre
+exe a : a.cpp ;           # a.cpp is the only source file
+exe b : [ glob *.cpp ] ;  # all .cpp files in this directory are sources 
+]
+
+Unless you specify a files with absolute path, the name is considered relative to the source directory -- which is typically the directory where the Jamfile is located, but can be changed as described in the section called “Projects”.
+
+The list of sources can also refer to other main targets. Targets in the same project can be referred to by name, while targets in other projects need to be qualified with a directory or a symbolic project name. For example:
+
+[pre
+lib helper : helper.cpp ;
+exe a : a.cpp helper ;
+exe b : b.cpp ..//utils ;
+exe c : c.cpp /boost/program_options//program_options ;
+]
+
+The first exe uses the library defined in the same project. The second one uses some target (most likely library) defined by Jamfile one level higher. Finally, the third target uses some C++ Boost library, referring to it by its absolute symbolic name. More information about it can be found in the section called “Dependent Targets” and the section called “Target identifiers and references”.
+
+Requirements are the properties that should always be present when building a target. Typically, they are includes and defines:
+
+[pre
+exe hello : hello.cpp : <include>/opt/boost <define>MY_DEBUG ;
+]
+
+In special circumstances, other properties can be used, for example if a library can only be built statically, or a file can't be compiled with optimization due to a compiler bug, one can use
+
+[pre
+lib util : util.cpp : <link>static ;
+obj main : main.cpp : <optimization>off ;
+]
+
+Sometimes requirements are necessary only for a specific compiler or build variant. Conditional properties can be used in that case:
+
+[pre
+lib util : util.cpp : <toolset>msvc:<link>static ;
+]
+
+Whenever <toolset>msvc property is in build properties, the <link>static property will be included as well. Conditional requirements can be “chained”:
+
+[pre
+lib util : util.cpp : <toolset>msvc:<link>static 
+                      <link>static:<define>STATIC_LINK ;
+]
+
+will set of static link and the STATIC_LINK define on the msvc toolset.
+
+The default-build parameter is a set of properties to be used if the build request does not otherwise specify a value for features in the set. For example:
+
+[pre
+exe hello : hello.cpp : : <threading>multi ;
+]
+
+would build a multi-threaded target in unless the user explicitly requests a single-threaded version. The difference between requirements and default-build is that requirements cannot be overriden in any way.
+
+A target of the same name can be declared several times, in which case each declaration is called an alternative. When the target is built, one of the alternatives will be selected and used. Alternatives need not be defined by the same main target rule. For example,
+
+[pre
+lib helpers : helpers.hpp ;                 # a header-only library
+alias helpers : helpers.lib : <toolset>msvc ; # except on msvc
+]
+
+The actual commands used to build any given main target can differ greatly from platform to platform. For example, you might have different lists of sources for different compilers, or different options for those compilers. Two approaches to this are explained in the tutorial.
+
+Sometimes a main target is really needed only by some other main target. For example, a rule that declares a test-suite uses a main target that represent test, but those main targets are rarely needed by themselves.
+
+It is possible to declare a target inline, i.e. the "sources" parameter may include calls to other main rules. For example:
+
+[pre
+exe hello : hello.cpp 
+    [ obj helpers : helpers.cpp : <optimization>off ] ;
+]
+
+Will cause "helpers.cpp" to be always compiled without optimization. When referring to an inline main target, its declared name must be prefixed by its parent target's name and two dots. In the example above, to build only helpers, one should run bjam hello..helpers.
+
+[h1:projects [role cyan Projects]]
+
+As mentioned before, targets are grouped into projects, and each Jamfile is a separate project. Projects are useful because they allow us to group related targets together, define properties common to all those targets, and assign a symbolic name to the project that can be used in referring to its targets.
+
+Projects are named using the project rule, which has the following syntax:
+
+[pre
+project id : attributes ;
+]
+
+Here, attributes is a sequence of rule arguments, each of which begins with an attribute-name and is followed by any number of build properties. The list of attribute names along with its handling is also shown in the table below. For example, it is possible to write:
+
+[pre
+project tennis 
+    : requirements <threading>multi 
+    : default-build release
+    ;
+]
+
+The possible attributes are listed below.
+
+Project id is a short way to denote a project, as opposed to the Jamfile's pathname. It is a hierarchical path, unrelated to filesystem, such as "boost/thread". Target references make use of project ids to specify a target.
+
+Source location specifies the directory where sources for the project are located.
+
+Project requirements are requirements that apply to all the targets in the projects as well as all subprojects.
+
+Default build is the build request that should be used when no build request is specified explicitly.
+
+The default values for those attributes are given in the table below.
+
+[table Table
+	[
+		[Attribute]
+		[Name for the 'project' rule]
+		[Default value]
+		[Handling by the 'project' rule]
+	]
+	[
+		[Project id]
+		[none]
+		[none]
+		[Assigned from the first parameter of the 'project' rule. It is assumed to denote absolute project id.]
+	]
+	[
+		[Source location]
+		[source-location]
+		[The location of jamfile for the project]
+		[Sets to the passed value]
+	]
+	[
+		[Requirements]
+		[requirements]
+		[The parent's requirements]
+		[The parent's requirements are refined with the passed requirement and the result is used as the project requirements.]
+	]
+	[
+		[Default build]
+		[default-build]
+		[none]
+		[Sets to the passed value]
+	]
+	[
+		[Build directory]
+		[build-dir]
+		[Empty if the parent has no build directory set. Otherwise, the parent's build directory with with the relative path from parent to the current project appended to it.]
+		[Sets to the passed value, interpreted as relative to the project's location.]
+	]
+]
+
+Besides defining projects and main targets, Jamfiles commonly invoke utility rules such as constant and path-constant, which inject a specified Boost.Jam variable setting into this project's Jamfile module and those of all its subprojects. See the section called “Jamfile Utility Rules” for a complete description of these utility rules. Jamfiles are regular Boost.Jam source files and Boost.Build modules, so naturally they can contain any kind of Boost.Jam code, including rule definitions.
+
+Each subproject inherits attributes, constants and rules from its parent project, which is defined by the nearest Jamfile in an ancestor directory above the subproject. The top-level project is declared in a file called Jamroot rather than Jamfile. When loading a project, Boost.Build looks for either Jamroot or Jamfile. They are handled indentically, except that if the file is called Jamroot, the search for a parent project is not performed.
+
+Even when building in a subproject directory, parent project files are always loaded before those of their subprojects, so that every definition made in a parent project is always available to its children. The loading order of any other projects is unspecified. Even if one project refers to another via ???, or a target reference, no specific order should be assumed.
+
+[note
+Giving the root project the special name “Jamroot” ensures that Boost.Build won't misinterpret a directory above it as the project root just because the directory contains a Jamfile.
+]
+
+[h1:other-rules [role cyan Jamfile Utility Rules]]
+
+The following table describes utility rules that can be used in Jamfiles. Detailed information for any of these rules can be obtained by running:
+
+[pre
+bjam --help project.rulename
+]
+
+[table Table
+[[Rule][Semantics]]
+[[project][Define this project's symbolic ID or attributes.]]
+[[use-project][Make another project known so that it can be referred to by symbolic ID.]]
+[[build-project][Cause another project to be built when this one is built.]]
+[[explicit][State that a target should be built only by explicit request.]]
+[[glob][Translate a list of shell-style wildcards into a corresponding list of files.]]
+[[constant][Injects a variable setting into this project's Jamfile module and those of all its subprojects.]]
+[[path-constant][Injects a variable set to a path value into this project's Jamfile module and those of all its subprojects. If the value is a relative path it will be adjusted for each subproject so that it refers to the same directory.]]
+]
+
+\[
+[@https://www.bfgroup.xyz/b2 B2 Build (jamfile) Home]
+-
+[@cpptoolchain/build-install-b2-build.html Setup B2 Build]
+\]
+
+//////////////////////////////////////////////////////////////////////
+
+[@. Home]
+
+//////////////////////////////////////////////////////////////////////
+
+Copy date
+
+Mon Dec 22 08:33:00 AM UTC 2025
+
+//////////////////////////////////////////////////////////////////////
+
+[include ../share/foot-links.inc.qbk]
+

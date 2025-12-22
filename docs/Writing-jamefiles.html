@@ -1,0 +1,621 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Writing Jamfiles</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="cppfx - cpp/c++, b2 build">
+<link rel="up" href="index.html" title="cppfx - cpp/c++, b2 build">
+<link rel="prev" href="index.html" title="cppfx - cpp/c++, b2 build">
+<link rel="next" href="asio-thread_pool-executor.html" title="boost::asio::thread_pool, executor">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="asio-thread_pool-executor.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="Writing-jamefiles"></a>Writing Jamfiles</h1></div></div>
+<hr>
+</div>
+<pre class="programlisting"><a class="link" href="Writing-jamefiles.html#Writing-jamefiles.overview">Overview</a>
+<a class="link" href="Writing-jamefiles.html#Writing-jamefiles.targets">Main targets</a>
+<a class="link" href="Writing-jamefiles.html#Writing-jamefiles.projects">Projects</a>
+<a class="link" href="Writing-jamefiles.html#Writing-jamefiles.other-rules">Jamfile Utility Rules</a>
+</pre>
+<p>
+      [ <a href="https://www.bfgroup.xyz/b2" target="_top">B2 Build (jamfile) Home</a> -
+      <a href="cpptoolchain/build-install-b2-build.html" target="_top">Setup B2 Build</a>
+      ]
+    </p>
+<h2>
+<a name="Writing-jamefiles.h0"></a>
+      <span class="phrase"><a name="Writing-jamefiles.overview"></a></span><a class="link" href="Writing-jamefiles.html#Writing-jamefiles.overview"><span class="cyan">Overview</span></a>
+    </h2>
+<p>
+      Jamfiles are the thing which is most important to the user, bacause they declare
+      the targets which should be build. Jamfiles are also used for organizing targets
+      -- each Jamfile is a separate project, which can be build independently from
+      the other projects.
+    </p>
+<p>
+      Jamfile mostly contain calls to Boost.Build functions, which do all the work,
+      specifically:
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          <a class="link" href="Writing-jamefiles.html#Writing-jamefiles.targets">declare main targets</a>
+        </li>
+<li class="listitem">
+          <a class="link" href="Writing-jamefiles.html#Writing-jamefiles.projects">define project properties</a>
+        </li>
+<li class="listitem">
+          <a class="link" href="Writing-jamefiles.html#Writing-jamefiles.other-rules">do various other things</a>
+        </li>
+</ul></div>
+<h2>
+<a name="Writing-jamefiles.h1"></a>
+      <span class="phrase"><a name="Writing-jamefiles.targets"></a></span><a class="link" href="Writing-jamefiles.html#Writing-jamefiles.targets"><span class="cyan">Main targets</span></a>
+    </h2>
+<p>
+      A Main target is a user-defined named entity that can be built, for example
+      an executable file. Declaring a main target is usually done using one of the
+      main target rules described in the section called “Builtin target types”.
+      The user can also declare custom main target rules as shown in the section
+      called “Main target rules”.
+    </p>
+<p>
+      Most main target rules in Boost.Build can be invoked with a common syntax:
+    </p>
+<pre class="programlisting">rule-name main-target-name
+    : sources...
+    : requirements...
+    : default-build...
+    : usage-requirements...
+    ;
+</pre>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          main-target-name is the name used to request the target on command line
+          and to use it from other main targets. A main target name may contain alphanumeric
+          characters, dashes (‘-’), and underscores (‘_’).
+        </li>
+<li class="listitem">
+          sources is the list of source files and other main targets that must be
+          combined.
+        </li>
+<li class="listitem">
+          requirements is the list of properties that must always be present when
+          this main target is built.
+        </li>
+<li class="listitem">
+          default-build is the list of properties that will be used unless some other
+          value of the same feature is already specified, e.g. on the command line
+          or by propogation from a dependent target.
+        </li>
+<li class="listitem">
+          usage-requirements is the list of properties that will be propagated to
+          all main targets that use this one, i.e. to all its dependents.
+        </li>
+</ul></div>
+<p>
+      Some main target rules have a shorter list of parameters; consult their documentation
+      for details.
+    </p>
+<p>
+      Note that the actual requirements, default-build and usage-requirements attributes
+      for a target are obtained by combining the explicitly specified ones with those
+      specified for the project where a target is declared.
+    </p>
+<p>
+      The list of sources specifies what should be processed to get the resulting
+      targets. Most of the time, it's just a list of files. Sometimes, you'll want
+      to automatically construct the list of source files rather than having to spell
+      it out manually, in which case you can use the glob rule. Here are two examples:
+    </p>
+<pre class="programlisting">exe a : a.cpp ;           # a.cpp is the only source file
+exe b : [ glob *.cpp ] ;  # all .cpp files in this directory are sources
+</pre>
+<p>
+      Unless you specify a files with absolute path, the name is considered relative
+      to the source directory -- which is typically the directory where the Jamfile
+      is located, but can be changed as described in the section called “Projects”.
+    </p>
+<p>
+      The list of sources can also refer to other main targets. Targets in the same
+      project can be referred to by name, while targets in other projects need to
+      be qualified with a directory or a symbolic project name. For example:
+    </p>
+<pre class="programlisting">lib helper : helper.cpp ;
+exe a : a.cpp helper ;
+exe b : b.cpp ..//utils ;
+exe c : c.cpp /boost/program_options//program_options ;
+</pre>
+<p>
+      The first exe uses the library defined in the same project. The second one
+      uses some target (most likely library) defined by Jamfile one level higher.
+      Finally, the third target uses some C++ Boost library, referring to it by its
+      absolute symbolic name. More information about it can be found in the section
+      called “Dependent Targets” and the section called “Target identifiers
+      and references”.
+    </p>
+<p>
+      Requirements are the properties that should always be present when building
+      a target. Typically, they are includes and defines:
+    </p>
+<pre class="programlisting">exe hello : hello.cpp : &lt;include&gt;/opt/boost &lt;define&gt;MY_DEBUG ;
+</pre>
+<p>
+      In special circumstances, other properties can be used, for example if a library
+      can only be built statically, or a file can't be compiled with optimization
+      due to a compiler bug, one can use
+    </p>
+<pre class="programlisting">lib util : util.cpp : &lt;link&gt;static ;
+obj main : main.cpp : &lt;optimization&gt;off ;
+</pre>
+<p>
+      Sometimes requirements are necessary only for a specific compiler or build
+      variant. Conditional properties can be used in that case:
+    </p>
+<pre class="programlisting">lib util : util.cpp : &lt;toolset&gt;msvc:&lt;link&gt;static ;
+</pre>
+<p>
+      Whenever &lt;toolset&gt;msvc property is in build properties, the &lt;link&gt;static
+      property will be included as well. Conditional requirements can be “chained”:
+    </p>
+<pre class="programlisting">lib util : util.cpp : &lt;toolset&gt;msvc:&lt;link&gt;static
+                      &lt;link&gt;static:&lt;define&gt;STATIC_LINK ;
+</pre>
+<p>
+      will set of static link and the STATIC_LINK define on the msvc toolset.
+    </p>
+<p>
+      The default-build parameter is a set of properties to be used if the build
+      request does not otherwise specify a value for features in the set. For example:
+    </p>
+<pre class="programlisting">exe hello : hello.cpp : : &lt;threading&gt;multi ;
+</pre>
+<p>
+      would build a multi-threaded target in unless the user explicitly requests
+      a single-threaded version. The difference between requirements and default-build
+      is that requirements cannot be overriden in any way.
+    </p>
+<p>
+      A target of the same name can be declared several times, in which case each
+      declaration is called an alternative. When the target is built, one of the
+      alternatives will be selected and used. Alternatives need not be defined by
+      the same main target rule. For example,
+    </p>
+<pre class="programlisting">lib helpers : helpers.hpp ;                 # a header-only library
+alias helpers : helpers.lib : &lt;toolset&gt;msvc ; # except on msvc
+</pre>
+<p>
+      The actual commands used to build any given main target can differ greatly
+      from platform to platform. For example, you might have different lists of sources
+      for different compilers, or different options for those compilers. Two approaches
+      to this are explained in the tutorial.
+    </p>
+<p>
+      Sometimes a main target is really needed only by some other main target. For
+      example, a rule that declares a test-suite uses a main target that represent
+      test, but those main targets are rarely needed by themselves.
+    </p>
+<p>
+      It is possible to declare a target inline, i.e. the "sources" parameter
+      may include calls to other main rules. For example:
+    </p>
+<pre class="programlisting">exe hello : hello.cpp
+    [ obj helpers : helpers.cpp : &lt;optimization&gt;off ] ;
+</pre>
+<p>
+      Will cause "helpers.cpp" to be always compiled without optimization.
+      When referring to an inline main target, its declared name must be prefixed
+      by its parent target's name and two dots. In the example above, to build only
+      helpers, one should run bjam hello..helpers.
+    </p>
+<h2>
+<a name="Writing-jamefiles.h2"></a>
+      <span class="phrase"><a name="Writing-jamefiles.projects"></a></span><a class="link" href="Writing-jamefiles.html#Writing-jamefiles.projects"><span class="cyan">Projects</span></a>
+    </h2>
+<p>
+      As mentioned before, targets are grouped into projects, and each Jamfile is
+      a separate project. Projects are useful because they allow us to group related
+      targets together, define properties common to all those targets, and assign
+      a symbolic name to the project that can be used in referring to its targets.
+    </p>
+<p>
+      Projects are named using the project rule, which has the following syntax:
+    </p>
+<pre class="programlisting">project id : attributes ;
+</pre>
+<p>
+      Here, attributes is a sequence of rule arguments, each of which begins with
+      an attribute-name and is followed by any number of build properties. The list
+      of attribute names along with its handling is also shown in the table below.
+      For example, it is possible to write:
+    </p>
+<pre class="programlisting">project tennis
+    : requirements &lt;threading&gt;multi
+    : default-build release
+    ;
+</pre>
+<p>
+      The possible attributes are listed below.
+    </p>
+<p>
+      Project id is a short way to denote a project, as opposed to the Jamfile's
+      pathname. It is a hierarchical path, unrelated to filesystem, such as "boost/thread".
+      Target references make use of project ids to specify a target.
+    </p>
+<p>
+      Source location specifies the directory where sources for the project are located.
+    </p>
+<p>
+      Project requirements are requirements that apply to all the targets in the
+      projects as well as all subprojects.
+    </p>
+<p>
+      Default build is the build request that should be used when no build request
+      is specified explicitly.
+    </p>
+<p>
+      The default values for those attributes are given in the table below.
+    </p>
+<div class="table">
+<a name="Writing-jamefiles.table"></a><p class="title"><b>Table 1. Table</b></p>
+<div class="table-contents"><table class="table" summary="Table">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+              <p>
+                Attribute
+              </p>
+            </th>
+<th>
+              <p>
+                Name for the 'project' rule
+              </p>
+            </th>
+<th>
+              <p>
+                Default value
+              </p>
+            </th>
+<th>
+              <p>
+                Handling by the 'project' rule
+              </p>
+            </th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+              <p>
+                Project id
+              </p>
+            </td>
+<td>
+              <p>
+                none
+              </p>
+            </td>
+<td>
+              <p>
+                none
+              </p>
+            </td>
+<td>
+              <p>
+                Assigned from the first parameter of the 'project' rule. It is assumed
+                to denote absolute project id.
+              </p>
+            </td>
+</tr>
+<tr>
+<td>
+              <p>
+                Source location
+              </p>
+            </td>
+<td>
+              <p>
+                source-location
+              </p>
+            </td>
+<td>
+              <p>
+                The location of jamfile for the project
+              </p>
+            </td>
+<td>
+              <p>
+                Sets to the passed value
+              </p>
+            </td>
+</tr>
+<tr>
+<td>
+              <p>
+                Requirements
+              </p>
+            </td>
+<td>
+              <p>
+                requirements
+              </p>
+            </td>
+<td>
+              <p>
+                The parent's requirements
+              </p>
+            </td>
+<td>
+              <p>
+                The parent's requirements are refined with the passed requirement
+                and the result is used as the project requirements.
+              </p>
+            </td>
+</tr>
+<tr>
+<td>
+              <p>
+                Default build
+              </p>
+            </td>
+<td>
+              <p>
+                default-build
+              </p>
+            </td>
+<td>
+              <p>
+                none
+              </p>
+            </td>
+<td>
+              <p>
+                Sets to the passed value
+              </p>
+            </td>
+</tr>
+<tr>
+<td>
+              <p>
+                Build directory
+              </p>
+            </td>
+<td>
+              <p>
+                build-dir
+              </p>
+            </td>
+<td>
+              <p>
+                Empty if the parent has no build directory set. Otherwise, the parent's
+                build directory with with the relative path from parent to the current
+                project appended to it.
+              </p>
+            </td>
+<td>
+              <p>
+                Sets to the passed value, interpreted as relative to the project's
+                location.
+              </p>
+            </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br class="table-break"><p>
+      Besides defining projects and main targets, Jamfiles commonly invoke utility
+      rules such as constant and path-constant, which inject a specified Boost.Jam
+      variable setting into this project's Jamfile module and those of all its subprojects.
+      See the section called “Jamfile Utility Rules” for a complete description
+      of these utility rules. Jamfiles are regular Boost.Jam source files and Boost.Build
+      modules, so naturally they can contain any kind of Boost.Jam code, including
+      rule definitions.
+    </p>
+<p>
+      Each subproject inherits attributes, constants and rules from its parent project,
+      which is defined by the nearest Jamfile in an ancestor directory above the
+      subproject. The top-level project is declared in a file called Jamroot rather
+      than Jamfile. When loading a project, Boost.Build looks for either Jamroot
+      or Jamfile. They are handled indentically, except that if the file is called
+      Jamroot, the search for a parent project is not performed.
+    </p>
+<p>
+      Even when building in a subproject directory, parent project files are always
+      loaded before those of their subprojects, so that every definition made in
+      a parent project is always available to its children. The loading order of
+      any other projects is unspecified. Even if one project refers to another via
+      ???, or a target reference, no specific order should be assumed.
+    </p>
+<div class="note"><table border="0" summary="Note">
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td>
+<th align="left">Note</th>
+</tr>
+<tr><td align="left" valign="top"><p>
+        Giving the root project the special name “Jamroot” ensures that Boost.Build
+        won't misinterpret a directory above it as the project root just because
+        the directory contains a Jamfile.
+      </p></td></tr>
+</table></div>
+<h2>
+<a name="Writing-jamefiles.h3"></a>
+      <span class="phrase"><a name="Writing-jamefiles.other-rules"></a></span><a class="link" href="Writing-jamefiles.html#Writing-jamefiles.other-rules"><span class="cyan">Jamfile Utility Rules</span></a>
+    </h2>
+<p>
+      The following table describes utility rules that can be used in Jamfiles. Detailed
+      information for any of these rules can be obtained by running:
+    </p>
+<pre class="programlisting">bjam --help project.rulename
+</pre>
+<div class="table">
+<a name="Writing-jamefiles.table0"></a><p class="title"><b>Table 2. Table</b></p>
+<div class="table-contents"><table class="table" summary="Table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+              <p>
+                Rule
+              </p>
+            </th>
+<th>
+              <p>
+                Semantics
+              </p>
+            </th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+              <p>
+                project
+              </p>
+            </td>
+<td>
+              <p>
+                Define this project's symbolic ID or attributes.
+              </p>
+            </td>
+</tr>
+<tr>
+<td>
+              <p>
+                use-project
+              </p>
+            </td>
+<td>
+              <p>
+                Make another project known so that it can be referred to by symbolic
+                ID.
+              </p>
+            </td>
+</tr>
+<tr>
+<td>
+              <p>
+                build-project
+              </p>
+            </td>
+<td>
+              <p>
+                Cause another project to be built when this one is built.
+              </p>
+            </td>
+</tr>
+<tr>
+<td>
+              <p>
+                explicit
+              </p>
+            </td>
+<td>
+              <p>
+                State that a target should be built only by explicit request.
+              </p>
+            </td>
+</tr>
+<tr>
+<td>
+              <p>
+                glob
+              </p>
+            </td>
+<td>
+              <p>
+                Translate a list of shell-style wildcards into a corresponding list
+                of files.
+              </p>
+            </td>
+</tr>
+<tr>
+<td>
+              <p>
+                constant
+              </p>
+            </td>
+<td>
+              <p>
+                Injects a variable setting into this project's Jamfile module and
+                those of all its subprojects.
+              </p>
+            </td>
+</tr>
+<tr>
+<td>
+              <p>
+                path-constant
+              </p>
+            </td>
+<td>
+              <p>
+                Injects a variable set to a path value into this project's Jamfile
+                module and those of all its subprojects. If the value is a relative
+                path it will be adjusted for each subproject so that it refers to
+                the same directory.
+              </p>
+            </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br class="table-break"><p>
+      [ <a href="https://www.bfgroup.xyz/b2" target="_top">B2 Build (jamfile) Home</a> -
+      <a href="cpptoolchain/build-install-b2-build.html" target="_top">Setup B2 Build</a>
+      ]
+    </p>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<p>
+      <a href="." target="_top">Home</a>
+    </p>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<p>
+      Copy date
+    </p>
+<p>
+      Mon Dec 22 08:33:00 AM UTC 2025
+    </p>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<h2>
+<a name="Writing-jamefiles.h4"></a>
+      <span class="phrase"><a name="Writing-jamefiles.cpp-lang"></a></span><a class="link" href="Writing-jamefiles.html#Writing-jamefiles.cpp-lang"><span class="cyan">Role</span></a>
+    </h2>
+<p>
+      Powered by - <a href="https://www.bfgroup.xyz/b2" target="_top">B2 Build</a> | <a href="https://www.boost.org/tools/quickbook" target="_top">boost quickbook</a> | <a href="http://i2pd.i2p" target="_top">I2Pd</a>
+    </p>
+<p>
+      ====
+    </p>
+<p>
+      <a href="http://cppfx.i2p" target="_top">cppfx.i2p</a>
+    </p>
+<p>
+      <a href="http://cppfxjjm5bgqx2cepvisfcy4zz4ystzxxh36mtuvqm2jp5g6rb7a.b32.i2p" target="_top">cppfxjjm5bgqx2cepvisfcy4zz4ystzxxh36mtuvqm2jp5g6rb7a.b32.i2p</a>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="asio-thread_pool-executor.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
