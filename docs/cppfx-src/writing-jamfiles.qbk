@@ -3,18 +3,24 @@
 	[id Writing-jamefiles]
 ]
 
-[pre
-[link Writing-jamefiles.overview Overview]
-[link Writing-jamefiles.targets Main targets]
-[link Writing-jamefiles.projects Projects]
-[link Writing-jamefiles.other-rules Jamfile Utility Rules]
+[role drop_menu
+> [link Writing-jamefiles Start][br]
+> [link Writing-jamefiles.overview Overview][br]
+> [link Writing-jamefiles.targets Main targets][br]
+> [link Writing-jamefiles.projects Projects][br]
+> [link Writing-jamefiles.other-rules Jamfile Utility Rules][br]
+> [@. Back: Home]
 ]
 
-\[
-[@https://www.bfgroup.xyz/b2 B2 Build (jamfile) Home]
--
-[@cpptoolchain/build-install-b2-build.html Setup B2 Build]
-\]
+[role half_center
+[@https://www.bfgroup.xyz/b2]
+]
+
+[role half_center
+[@cpptoolchain/build-install-b2-build.html]
+]
+
+[role clear_both]
 
 [h1:overview [role cyan Overview]]
 

@@ -11,6 +11,13 @@ Distributed under the Boost Software License, Version 1.0. (See accompany-
 ing file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 =============================================================================*/
 
+	:root
+	{
+		font-size: 16px;
+		font-family: sans-serif;
+		scroll-behavior: smooth;
+	}
+
 /*=============================================================================
 Body defaults
 =============================================================================*/
@@ -18,9 +25,6 @@ Body defaults
     body
     {
         margin: 1em;
-        /*font-size: 18px;*/
-        font-family: sans-serif;
-        font-size: 16px;
         margin-left: auto;	/*Added by fx*/
         margin-right: auto;	/*Added by fx*/
         max-width: 1200px;	/*Added by fx*/
@@ -889,4 +893,29 @@ span.greenpurple1 {color: #339966}
 span.greenpurple2 {color: #669933}
 span.bluepurple1 {color: #336699}
 span.bluepurple2 {color: #663399}
+
+/**********************************************************************/
+
+span.drop_menu
+{
+	position:fixed;
+	right:50px;
+	top:40px;
+	padding:9px;
+	border:1px solid #879;
+	background:#dce;
+	border-radius:4px;
+}
+
+/**********************************************************************/
+
+span.half_center
+{
+	margin-left:300px;
+}
+span.clear_both
+{
+	clear:both;
+	display:block;
+}
 

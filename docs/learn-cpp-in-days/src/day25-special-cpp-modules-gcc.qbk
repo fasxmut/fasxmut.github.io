@@ -5,14 +5,29 @@
 
 [role dddgreen The gcc used for this article is 16.0.0, built from gcc git source code. (Apr 24, 2025).]
 
-* [link day-25-special-cpp-modules-gcc.import-std First: import std;]
-* [link day-25-special-cpp-modules-gcc.make-a-cpp-module Next: Make a c++ module]
-* [link day-25-special-cpp-modules-gcc.modules-shared-library Next: Modules Shared Library]
-* [link day-25-special-cpp-modules-gcc.module-partition Next: Module Partition]
-* [link day-25-special-cpp-modules-gcc.header-unit Next: Header Unit]
-* [link day-25-special-cpp-modules-gcc.split-definitions Next: Split Definitions for Shared Library (Module Unit and Module Implementation Unit)]
-* [link day-25-special-cpp-modules-gcc.modules-in-b2-build Next: c++ Modules in B2 Build System]
-* [link day-25-special-cpp-modules-gcc.glossary Last: Glossary]
+[role drop_menu
+
+> [link day-25-special-cpp-modules-gcc Start]
+	[br]
+> [link day-25-special-cpp-modules-gcc.import-std First: import std;]
+	[br]
+> [link day-25-special-cpp-modules-gcc.make-a-cpp-module Next: Make a c++ module]
+	[br]
+> [link day-25-special-cpp-modules-gcc.modules-shared-library Next: Modules Shared Library]
+	[br]
+> [link day-25-special-cpp-modules-gcc.module-partition Next: Module Partition]
+	[br]
+> [link day-25-special-cpp-modules-gcc.header-unit Next: Header Unit]
+	[br]
+> [link day-25-special-cpp-modules-gcc.split-definitions Next: Split Definitions]
+	[br]
+> [link day-25-special-cpp-modules-gcc.modules-in-b2-build Next: c++ Modules in B2]
+	[br]
+> [link day-25-special-cpp-modules-gcc.glossary Last: Glossary]
+	[br]
+> [@. Back: Index]
+
+]
 
 [*Alias gpp:]
 

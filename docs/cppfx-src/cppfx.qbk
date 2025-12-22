@@ -6,6 +6,13 @@
 [include writing-jamfiles.qbk]
 [include asio-thread_pool-executor.qbk]
 
+[role drop_menu
+> [@. Start][br]
+> [link cppfx.master-site-at-i2p master Site, at I2P !][br]
+> [link cppfx.subspaces Subspaces][br]
+> [link cppfx.how-to-access-i2p How to access cppfx.i2p]
+]
+
 [h1:master-site-at-i2p [role cyan Master Site, at I2P !]]
 
 [role ddred cppfx.i2p]
