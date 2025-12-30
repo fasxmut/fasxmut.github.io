@@ -20,9 +20,20 @@
 <a name="asio-thread_pool-executor"></a>boost::asio::thread_pool, executor</h1></div></div>
 <hr>
 </div>
+<p>
+      <span class="drop_menu">&gt; <a class="link" href="asio-thread_pool-executor.html" title="boost::asio::thread_pool, executor">Start</a><br>
+      &gt; <a class="link" href="asio-thread_pool-executor.html#asio-thread_pool-executor.asio-thread_pool">boost::asio::thread_pool</a><br>
+      &gt; <a class="link" href="asio-thread_pool-executor.html#asio-thread_pool-executor.asio-excutor-contexts">boost::asio
+      executor contexts</a><br> &gt; <a class="link" href="asio-thread_pool-executor.html#asio-thread_pool-executor.get-executor-from-asio-thread-pool">Get
+      executor from asio thread pool</a><br> &gt; <a class="link" href="asio-thread_pool-executor.html#asio-thread_pool-executor.post-tasks-to-asio-thread_pool">Post
+      tasks to asio::thread_pool</a><br> &gt; <a class="link" href="asio-thread_pool-executor.html#asio-thread_pool-executor.use-asio-thread_pool-to-replace-io_context">asio::thread_pool
+      replace asio::io_context</a><br> &gt; <a class="link" href="asio-thread_pool-executor.html#asio-thread_pool-executor.nested-asio-thread_pool-for-asio-co_spawn">Nested
+      asio::thread_pool for asio::co_spawn</a><br> &gt; <a href="." target="_top">Back:
+      Home</a> </span>
+    </p>
 <h2>
 <a name="asio-thread_pool-executor.h0"></a>
-      <span class="phrase"><a name="asio-thread_pool-executor.role_cyan_boost_asio_thread_pool"></a></span><a class="link" href="asio-thread_pool-executor.html#asio-thread_pool-executor.role_cyan_boost_asio_thread_pool"><span class="cyan">boost::asio::thread_pool</span></a>
+      <span class="phrase"><a name="asio-thread_pool-executor.asio-thread_pool"></a></span><a class="link" href="asio-thread_pool-executor.html#asio-thread_pool-executor.asio-thread_pool"><span class="cyan">boost::asio::thread_pool</span></a>
     </h2>
 <p>
       c++ boost::asio thread pool.
@@ -64,7 +75,7 @@
     </p>
 <h2>
 <a name="asio-thread_pool-executor.h4"></a>
-      <span class="phrase"><a name="asio-thread_pool-executor.role_cyan_boost_asio_executor_co"></a></span><a class="link" href="asio-thread_pool-executor.html#asio-thread_pool-executor.role_cyan_boost_asio_executor_co"><span class="cyan">boost::asio executor contexts</span></a>
+      <span class="phrase"><a name="asio-thread_pool-executor.asio-excutor-contexts"></a></span><a class="link" href="asio-thread_pool-executor.html#asio-thread_pool-executor.asio-excutor-contexts"><span class="cyan">boost::asio executor contexts</span></a>
     </h2>
 <p>
       boost::asio has some executor contexts: <br> <span class="dred">asio::io_context</span>,
@@ -80,7 +91,7 @@
     </p>
 <h2>
 <a name="asio-thread_pool-executor.h5"></a>
-      <span class="phrase"><a name="asio-thread_pool-executor.role_cyan_get_executor_from_asio"></a></span><a class="link" href="asio-thread_pool-executor.html#asio-thread_pool-executor.role_cyan_get_executor_from_asio"><span class="cyan">Get executor from asio thread pool</span></a>
+      <span class="phrase"><a name="asio-thread_pool-executor.get-executor-from-asio-thread-pool"></a></span><a class="link" href="asio-thread_pool-executor.html#asio-thread_pool-executor.get-executor-from-asio-thread-pool"><span class="cyan">Get executor from asio thread pool</span></a>
     </h2>
 <p>
       Obtains the executor associated with the pool.
@@ -90,7 +101,7 @@
 </pre>
 <h2>
 <a name="asio-thread_pool-executor.h6"></a>
-      <span class="phrase"><a name="asio-thread_pool-executor.role_cyan_post_tasks_to_asio_thr"></a></span><a class="link" href="asio-thread_pool-executor.html#asio-thread_pool-executor.role_cyan_post_tasks_to_asio_thr"><span class="cyan">Post tasks to asio::thread_pool</span></a>
+      <span class="phrase"><a name="asio-thread_pool-executor.post-tasks-to-asio-thread_pool"></a></span><a class="link" href="asio-thread_pool-executor.html#asio-thread_pool-executor.post-tasks-to-asio-thread_pool"><span class="cyan">Post tasks to asio::thread_pool</span></a>
     </h2>
 <p>
       Users can post tasks to asio::thread_pool object, its object will run tasks
@@ -144,7 +155,7 @@
 </pre>
 <h2>
 <a name="asio-thread_pool-executor.h7"></a>
-      <span class="phrase"><a name="asio-thread_pool-executor.role_cyan_use_asio_thread_pool_o"></a></span><a class="link" href="asio-thread_pool-executor.html#asio-thread_pool-executor.role_cyan_use_asio_thread_pool_o"><span class="cyan">Use asio::thread_pool object to replace asio::io_context for asio::co_spawn</span></a>
+      <span class="phrase"><a name="asio-thread_pool-executor.use-asio-thread_pool-to-replace-io_context"></a></span><a class="link" href="asio-thread_pool-executor.html#asio-thread_pool-executor.use-asio-thread_pool-to-replace-io_context"><span class="cyan">Use asio::thread_pool object to replace asio::io_context for asio::co_spawn</span></a>
     </h2>
 <p>
       <span class="bold"><strong>c++ coroutines:</strong></span>
@@ -289,7 +300,7 @@
 </pre>
 <h2>
 <a name="asio-thread_pool-executor.h8"></a>
-      <span class="phrase"><a name="asio-thread_pool-executor.role_cyan_nested_asio_thread_poo"></a></span><a class="link" href="asio-thread_pool-executor.html#asio-thread_pool-executor.role_cyan_nested_asio_thread_poo"><span class="cyan">Nested asio::thread_pool and executor objects for asio::co_spawn</span></a>
+      <span class="phrase"><a name="asio-thread_pool-executor.nested-asio-thread_pool-for-asio-co_spawn"></a></span><a class="link" href="asio-thread_pool-executor.html#asio-thread_pool-executor.nested-asio-thread_pool-for-asio-co_spawn"><span class="cyan">Nested asio::thread_pool and executor objects for asio::co_spawn</span></a>
     </h2>
 <p>
       <span class="bold"><strong>c++ example</strong></span>

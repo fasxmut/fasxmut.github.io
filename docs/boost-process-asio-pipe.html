@@ -1,0 +1,459 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>boost::process and asio pipe</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="cppfx - cpp/c++, b2 build">
+<link rel="up" href="index.html" title="cppfx - cpp/c++, b2 build">
+<link rel="prev" href="index.html" title="cppfx - cpp/c++, b2 build">
+<link rel="next" href="Writing-jamefiles.html" title="Writing Jamfiles">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="Writing-jamefiles.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="boost-process-asio-pipe"></a>boost::process and asio pipe</h1></div></div>
+<hr>
+</div>
+<p>
+      <span class="drop_menu">&gt; <a class="link" href="boost-process-asio-pipe.html" title="boost::process and asio pipe">Start</a><br>
+      &gt; <a class="link" href="boost-process-asio-pipe.html#boost-process-asio-pipe.asio-pipe">asio pipe</a><br>
+      &gt; <a class="link" href="boost-process-asio-pipe.html#boost-process-asio-pipe.asio-connect-pipe">asio::connect_pipe</a><br>
+      &gt; <a class="link" href="boost-process-asio-pipe.html#boost-process-asio-pipe.pipe-cpp-example">pipe c++ example</a><br>
+      &gt; <a class="link" href="boost-process-asio-pipe.html#boost-process-asio-pipe.boost-process">boost::process</a><br>
+      &gt; <a class="link" href="boost-process-asio-pipe.html#boost-process-asio-pipe.process-cpp-example-1">boost::process
+      c++ example 1</a><br> &gt; <a class="link" href="boost-process-asio-pipe.html#boost-process-asio-pipe.process-cpp-example-2">boost::process
+      c++ example 2</a><br> &gt; <a class="link" href="boost-process-asio-pipe.html#boost-process-asio-pipe.process-cpp-example-3">boost::process
+      c++ example 3</a><br> &gt; <a href="." target="_top">Back: Home</a> </span>
+    </p>
+<p>
+      <span class="half_center"><a href="https://www.boost.org/library/latest/process" target="_top">https://www.boost.org/library/latest/process</a>
+      </span>
+    </p>
+<p>
+      <span class="half_center"><a href="https://www.boost.org/library/latest/asio" target="_top">https://www.boost.org/library/latest/asio</a>
+      </span>
+    </p>
+<p>
+      <span class="half_center"><a href="https://think-async.com/Asio" target="_top">https://think-async.com/Asio</a>
+      </span>
+    </p>
+<p>
+      <span class="clear_both"></span>
+    </p>
+<h2>
+<a name="boost-process-asio-pipe.h0"></a>
+      <span class="phrase"><a name="boost-process-asio-pipe.asio-pipe"></a></span><a class="link" href="boost-process-asio-pipe.html#boost-process-asio-pipe.asio-pipe"><span class="cyan">asio pipe</span></a>
+    </h2>
+<p>
+      boost asio has two kind of pipe:
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          asio::readable_pipe
+        </li>
+<li class="listitem">
+          asio::writable_pipe
+        </li>
+</ul></div>
+<p>
+      <span class="bold"><strong>asio::readable_pipe</strong></span> is a pipe end that has
+      defined methods <span class="ddred">.read_some</span> and <span class="ddred">.async_read_some</span>,
+      it does <span class="bold"><strong>not define write</strong></span> methods. <br>
+      <span class="bold"><strong>asio::writable_pipe</strong></span> is a pipe end that has
+      defined methods <span class="ddred">.write_some</span> and <span class="ddred">.async_write_some</span>,
+      it does <span class="bold"><strong>not define read</strong></span> methods.
+    </p>
+<p>
+      So we can <span class="red">read from</span> the <span class="ddred">asio::readable_pipe</span>
+      object, but we can not write to it ;<br> and <span class="red">write to</span>
+      the <span class="ddred">asio::writable_pipe</span> object, but we can not
+      read from it.
+    </p>
+<h2>
+<a name="boost-process-asio-pipe.h1"></a>
+      <span class="phrase"><a name="boost-process-asio-pipe.asio-connect-pipe"></a></span><a class="link" href="boost-process-asio-pipe.html#boost-process-asio-pipe.asio-connect-pipe"><span class="cyan">asio::connect_pipe</span></a>
+    </h2>
+<p>
+      We can connect a readable-pipe and a writable-pipe with <span class="dred">asio::connect_pipe</span>
+      :
+    </p>
+<pre class="programlisting"><span class="identifier">asio</span><span class="special">::</span><span class="identifier">connect_pipe</span><span class="special">(</span><span class="identifier">readable_pipe</span><span class="special">,</span> <span class="identifier">writable_pipe</span><span class="special">);</span>
+</pre>
+<h2>
+<a name="boost-process-asio-pipe.h2"></a>
+      <span class="phrase"><a name="boost-process-asio-pipe.pipe-cpp-example"></a></span><a class="link" href="boost-process-asio-pipe.html#boost-process-asio-pipe.pipe-cpp-example"><span class="cyan">pipe c++ example</span></a>
+    </h2>
+<p>
+      Pipe game: a pipe c++ example.
+    </p>
+<h3>
+<a name="boost-process-asio-pipe.h3"></a>
+      <span class="phrase"><a name="boost-process-asio-pipe.jamfile-jamroot"></a></span><a class="link" href="boost-process-asio-pipe.html#boost-process-asio-pipe.jamfile-jamroot">jamfile:
+      jamroot</a>
+    </h3>
+<p>
+      Filename: <span class="dred">jamroot</span>
+    </p>
+<pre class="programlisting">project
+:
+	default-build
+		&lt;cxxstd&gt;26
+;
+
+exe bpp-1 : bpp-1.cpp ;
+</pre>
+<h3>
+<a name="boost-process-asio-pipe.h4"></a>
+      <span class="phrase"><a name="boost-process-asio-pipe.pipe-cpp"></a></span><a class="link" href="boost-process-asio-pipe.html#boost-process-asio-pipe.pipe-cpp">c++
+      file</a>
+    </h3>
+<p>
+      <span class="dddgreen">The write-pipe end must be closed after writing and
+      before reading read-pipe end.</span>
+    </p>
+<p>
+      Filename: <span class="dred">bpp-1.cpp</span>
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">asio</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">try</span>
+	<span class="special">{</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">thread_pool</span> <span class="identifier">pool</span><span class="special">{</span><span class="number">32</span><span class="special">};</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">readable_pipe</span> <span class="identifier">rp</span><span class="special">{</span><span class="identifier">pool</span><span class="special">.</span><span class="identifier">get_executor</span><span class="special">()};</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">writable_pipe</span> <span class="identifier">wp</span><span class="special">{</span><span class="identifier">pool</span><span class="special">.</span><span class="identifier">get_executor</span><span class="special">()};</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">connect_pipe</span><span class="special">(</span><span class="identifier">rp</span><span class="special">,</span> <span class="identifier">wp</span><span class="special">);</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">system</span><span class="special">::</span><span class="identifier">error_code</span> <span class="identifier">ec</span><span class="special">;</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">write</span><span class="special">(</span><span class="identifier">wp</span><span class="special">,</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">buffer</span><span class="special">(</span><span class="string">"Hello, c++ world."</span><span class="special">),</span> <span class="identifier">ec</span><span class="special">);</span>
+		<span class="comment">// The write-pipe end must be closed after writing and before reading read-pipe end.</span>
+		<span class="identifier">wp</span><span class="special">.</span><span class="identifier">close</span><span class="special">();</span>
+		<span class="keyword">if</span> <span class="special">(</span><span class="identifier">ec</span><span class="special">)</span>
+			<span class="keyword">throw</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">system_error</span><span class="special">{</span><span class="identifier">ec</span><span class="special">,</span> <span class="string">"error: write pipe"</span><span class="special">};</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">received</span><span class="special">;</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">read</span><span class="special">(</span><span class="identifier">rp</span><span class="special">,</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">dynamic_buffer</span><span class="special">(</span><span class="identifier">received</span><span class="special">),</span> <span class="identifier">ec</span><span class="special">);</span>
+		<span class="keyword">if</span> <span class="special">(</span><span class="identifier">ec</span> <span class="special">&amp;&amp;</span> <span class="identifier">ec</span> <span class="special">!=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">error</span><span class="special">::</span><span class="identifier">eof</span><span class="special">)</span>
+			<span class="keyword">throw</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">system_error</span><span class="special">{</span><span class="identifier">ec</span><span class="special">,</span> <span class="string">"error: read pipe"</span><span class="special">};</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Received: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">received</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="keyword">catch</span> <span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">system_error</span> <span class="special">&amp;</span> <span class="identifier">e</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cerr</span>
+			<span class="special">&lt;&lt;</span> <span class="string">"====&gt;\n"</span>
+			<span class="special">&lt;&lt;</span> <span class="string">"e.what(): "</span> <span class="special">&lt;&lt;</span> <span class="identifier">e</span><span class="special">.</span><span class="identifier">what</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="char">'\n'</span>
+			<span class="special">&lt;&lt;</span> <span class="string">"e.code(): "</span> <span class="special">&lt;&lt;</span> <span class="identifier">e</span><span class="special">.</span><span class="identifier">code</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="char">'\n'</span>
+		<span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">}</span>
+</pre>
+<h4>
+<a name="boost-process-asio-pipe.h5"></a>
+      <span class="phrase"><a name="boost-process-asio-pipe.build-run"></a></span><a class="link" href="boost-process-asio-pipe.html#boost-process-asio-pipe.build-run">Build
+      and Run</a>
+    </h4>
+<pre class="programlisting">&gt; b2
+...found 10 targets...
+&gt; ./bin/gcc-15/debug/cxxstd-26-iso/bpp-1
+Received: Hello, c++ world.
+</pre>
+<h2>
+<a name="boost-process-asio-pipe.h6"></a>
+      <span class="phrase"><a name="boost-process-asio-pipe.boost-process"></a></span><a class="link" href="boost-process-asio-pipe.html#boost-process-asio-pipe.boost-process"><span class="cyan">boost::process</span></a>
+    </h2>
+<p>
+      boost::process v2 is default since boost 1.89.
+    </p>
+<pre class="programlisting"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">process</span><span class="special">::</span><span class="identifier">process</span> <span class="identifier">proc</span><span class="special">{</span>
+	<span class="identifier">executor</span><span class="special">,</span>
+	<span class="string">"/path/prog"</span><span class="special">,</span>
+	<span class="special">{</span><span class="identifier">param1</span><span class="special">,</span> <span class="special">...},</span>
+	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">process</span><span class="special">::</span><span class="identifier">process_stdio</span><span class="special">{</span>
+		<span class="special">.</span><span class="identifier">in</span> <span class="special">=</span> <span class="special">???,</span>
+		<span class="special">.</span><span class="identifier">out</span> <span class="special">=</span> <span class="special">???,</span>
+		<span class="special">.</span><span class="identifier">err</span> <span class="special">=</span> <span class="special">???</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+</pre>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          <span class="ddred">.in is assigned with readable-pipe;</span>
+        </li>
+<li class="listitem">
+          <span class="ddred">.out and .err are assigned with writable-pipes;</span>
+        </li>
+<li class="listitem">
+          <span class="red">If .out is assigned with readable-pipe, then a writable-pipe
+          is created internally and connected to the readable-pipe;</span>
+        </li>
+</ul></div>
+<h2>
+<a name="boost-process-asio-pipe.h7"></a>
+      <span class="phrase"><a name="boost-process-asio-pipe.process-cpp-example-1"></a></span><a class="link" href="boost-process-asio-pipe.html#boost-process-asio-pipe.process-cpp-example-1"><span class="cyan">boost::process c++ example 1</span></a>
+    </h2>
+<p>
+      <span class="bold"><strong>Filename: jamroot</strong></span>
+    </p>
+<pre class="programlisting">project
+:
+	default-build
+		&lt;cxxstd&gt;26
+;
+
+lib boost_process ;
+lib boost_filesystem ;
+
+exe bpp : bpp.cpp : &lt;library&gt;boost_process &lt;library&gt;boost_filesystem ;
+</pre>
+<p>
+      <span class="bold"><strong>Filename: bpp.cpp</strong></span>
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">process</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">asio</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">bpp</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">process</span><span class="special">;</span>
+<span class="keyword">namespace</span> <span class="identifier">asio</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">;</span>
+
+<span class="comment">// not hpp</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">try</span>
+	<span class="special">{</span>
+		<span class="identifier">asio</span><span class="special">::</span><span class="identifier">thread_pool</span> <span class="identifier">pool</span><span class="special">{</span><span class="number">32</span><span class="special">};</span>
+		<span class="identifier">asio</span><span class="special">::</span><span class="identifier">readable_pipe</span> <span class="identifier">rp</span><span class="special">{</span><span class="identifier">pool</span><span class="special">.</span><span class="identifier">get_executor</span><span class="special">()};</span>
+		<span class="identifier">asio</span><span class="special">::</span><span class="identifier">writable_pipe</span> <span class="identifier">wp</span><span class="special">{</span><span class="identifier">pool</span><span class="special">.</span><span class="identifier">get_executor</span><span class="special">()};</span>
+		<span class="identifier">asio</span><span class="special">::</span><span class="identifier">connect_pipe</span><span class="special">(</span><span class="identifier">rp</span><span class="special">,</span> <span class="identifier">wp</span><span class="special">);</span>
+		<span class="identifier">bpp</span><span class="special">::</span><span class="identifier">process</span> <span class="identifier">proc</span><span class="special">{</span>
+			<span class="identifier">pool</span><span class="special">.</span><span class="identifier">get_executor</span><span class="special">(),</span>
+			<span class="identifier">bpp</span><span class="special">::</span><span class="identifier">environment</span><span class="special">::</span><span class="identifier">find_executable</span><span class="special">(</span><span class="string">"ugrep"</span><span class="special">),</span>
+			<span class="special">{</span>
+				<span class="string">"-rIni"</span><span class="special">,</span>
+				<span class="identifier">R</span><span class="string">"(\.hpp)"</span><span class="special">,</span>
+				<span class="string">"."</span>
+			<span class="special">},</span>
+			<span class="identifier">bpp</span><span class="special">::</span><span class="identifier">process_stdio</span><span class="special">{</span>
+				<span class="special">.</span><span class="identifier">out</span> <span class="special">=</span> <span class="identifier">wp</span>
+			<span class="special">}</span>
+		<span class="special">};</span>
+		<span class="keyword">if</span> <span class="special">(</span><span class="identifier">proc</span><span class="special">.</span><span class="identifier">wait</span><span class="special">()</span> <span class="special">!=</span> <span class="number">0</span><span class="special">)</span>
+			<span class="keyword">throw</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">runtime_error</span><span class="special">{</span><span class="string">"proc error"</span><span class="special">};</span>
+		<span class="identifier">wp</span><span class="special">.</span><span class="identifier">close</span><span class="special">();</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">result</span><span class="special">;</span>
+		<span class="identifier">bpp</span><span class="special">::</span><span class="identifier">error_code</span> <span class="identifier">ec</span><span class="special">;</span>
+		<span class="identifier">asio</span><span class="special">::</span><span class="identifier">read</span><span class="special">(</span><span class="identifier">rp</span><span class="special">,</span> <span class="identifier">asio</span><span class="special">::</span><span class="identifier">dynamic_buffer</span><span class="special">(</span><span class="identifier">result</span><span class="special">),</span> <span class="identifier">ec</span><span class="special">);</span>
+		<span class="keyword">if</span> <span class="special">(</span><span class="identifier">ec</span> <span class="special">&amp;&amp;</span> <span class="identifier">ec</span> <span class="special">!=</span> <span class="identifier">asio</span><span class="special">::</span><span class="identifier">error</span><span class="special">::</span><span class="identifier">eof</span><span class="special">)</span>
+			<span class="keyword">throw</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">system_error</span><span class="special">{</span><span class="identifier">ec</span><span class="special">,</span> <span class="string">"read pipe error"</span><span class="special">};</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Result:\n"</span> <span class="special">&lt;&lt;</span> <span class="identifier">result</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="keyword">catch</span> <span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">exception</span> <span class="special">&amp;</span> <span class="identifier">e</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"====&gt;\n"</span> <span class="special">&lt;&lt;</span> <span class="identifier">e</span><span class="special">.</span><span class="identifier">what</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">}</span>
+</pre>
+<p>
+      The example will run <span class="dred"><span class="bold"><strong>ugrep -rIni
+      '\.hpp' .</strong></span></span> <br> and save result to c++ std::string <span class="bold"><strong>result</strong></span>.
+    </p>
+<p>
+      .out is assigned with a writable-pipe.
+    </p>
+<h2>
+<a name="boost-process-asio-pipe.h8"></a>
+      <span class="phrase"><a name="boost-process-asio-pipe.process-cpp-example-2"></a></span><a class="link" href="boost-process-asio-pipe.html#boost-process-asio-pipe.process-cpp-example-2"><span class="cyan">boost::process c++ example 2</span></a>
+    </h2>
+<p>
+      <span class="bold"><strong>Filename: bpp.cpp</strong></span>
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">process</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">asio</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">bpp</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">process</span><span class="special">;</span>
+<span class="keyword">namespace</span> <span class="identifier">asio</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">;</span>
+
+<span class="comment">// not hpp</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">try</span>
+	<span class="special">{</span>
+		<span class="identifier">asio</span><span class="special">::</span><span class="identifier">thread_pool</span> <span class="identifier">pool</span><span class="special">{</span><span class="number">32</span><span class="special">};</span>
+		<span class="identifier">asio</span><span class="special">::</span><span class="identifier">readable_pipe</span> <span class="identifier">rp</span><span class="special">{</span><span class="identifier">pool</span><span class="special">.</span><span class="identifier">get_executor</span><span class="special">()};</span>
+		<span class="identifier">bpp</span><span class="special">::</span><span class="identifier">process</span> <span class="identifier">proc</span><span class="special">{</span>
+			<span class="identifier">pool</span><span class="special">.</span><span class="identifier">get_executor</span><span class="special">(),</span>
+			<span class="identifier">bpp</span><span class="special">::</span><span class="identifier">environment</span><span class="special">::</span><span class="identifier">find_executable</span><span class="special">(</span><span class="string">"ugrep"</span><span class="special">),</span>
+			<span class="special">{</span>
+				<span class="string">"-rIni"</span><span class="special">,</span>
+				<span class="identifier">R</span><span class="string">"(\.hpp)"</span><span class="special">,</span>
+				<span class="string">"."</span>
+			<span class="special">},</span>
+			<span class="identifier">bpp</span><span class="special">::</span><span class="identifier">process_stdio</span><span class="special">{</span>
+				<span class="special">.</span><span class="identifier">out</span> <span class="special">=</span> <span class="identifier">rp</span>
+			<span class="special">}</span>
+		<span class="special">};</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">result</span><span class="special">;</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">system</span><span class="special">::</span><span class="identifier">error_code</span> <span class="identifier">ec</span><span class="special">;</span>
+		<span class="identifier">asio</span><span class="special">::</span><span class="identifier">read</span><span class="special">(</span><span class="identifier">rp</span><span class="special">,</span> <span class="identifier">asio</span><span class="special">::</span><span class="identifier">dynamic_buffer</span><span class="special">(</span><span class="identifier">result</span><span class="special">),</span> <span class="identifier">ec</span><span class="special">);</span>
+		<span class="keyword">if</span> <span class="special">(</span><span class="identifier">ec</span> <span class="special">&amp;&amp;</span> <span class="identifier">ec</span> <span class="special">!=</span> <span class="identifier">asio</span><span class="special">::</span><span class="identifier">error</span><span class="special">::</span><span class="identifier">eof</span><span class="special">)</span>
+			<span class="keyword">throw</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">system_error</span><span class="special">{</span><span class="identifier">ec</span><span class="special">,</span> <span class="string">"error: read pipe"</span><span class="special">};</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Result:\n"</span> <span class="special">&lt;&lt;</span> <span class="identifier">result</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="keyword">catch</span> <span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">exception</span> <span class="special">&amp;</span> <span class="identifier">e</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"====&gt;\n"</span> <span class="special">&lt;&lt;</span> <span class="identifier">e</span><span class="special">.</span><span class="identifier">what</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">}</span>
+</pre>
+<p>
+      <span class="ddred"><span class="bold"><strong> In this example, because .out is
+      assigned with a readable-pipe,<br> a writable-pipe will be created internally
+      and connected to the readable-pipe. </strong></span> </span>
+    </p>
+<h2>
+<a name="boost-process-asio-pipe.h9"></a>
+      <span class="phrase"><a name="boost-process-asio-pipe.process-cpp-example-3"></a></span><a class="link" href="boost-process-asio-pipe.html#boost-process-asio-pipe.process-cpp-example-3"><span class="cyan">boost::process c++ example 3</span></a>
+    </h2>
+<p>
+      Using boost::process in asynchrous and awaitable asio c++ code.
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">process</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">asio</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">app</span>
+<span class="special">{</span>
+	<span class="keyword">class</span> <span class="identifier">program</span><span class="special">:</span>
+		<span class="keyword">virtual</span> <span class="keyword">public</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">enable_shared_from_this</span><span class="special">&lt;</span><span class="identifier">app</span><span class="special">::</span><span class="identifier">program</span><span class="special">&gt;</span>
+	<span class="special">{</span>
+	<span class="keyword">private</span><span class="special">:</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">process</span><span class="special">::</span><span class="identifier">process</span><span class="special">&gt;</span> <span class="identifier">__proc</span><span class="special">;</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">readable_pipe</span><span class="special">&gt;</span> <span class="identifier">__rp</span><span class="special">;</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">awaitable</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">&gt;</span> <span class="identifier">start</span><span class="special">()</span>
+		<span class="special">{</span>
+			<span class="identifier">co_await</span> <span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">init</span><span class="special">();</span>
+			<span class="identifier">co_await</span> <span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">run_program</span><span class="special">();</span>
+			<span class="identifier">co_await</span> <span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">get_output</span><span class="special">();</span>
+		<span class="special">}</span>
+	<span class="keyword">protected</span><span class="special">:</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">awaitable</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">&gt;</span> <span class="identifier">init</span><span class="special">()</span>
+		<span class="special">{</span>
+			<span class="identifier">__rp</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">make_shared</span><span class="special">&lt;</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">readable_pipe</span><span class="special">&gt;(</span>
+				<span class="identifier">co_await</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">this_coro</span><span class="special">::</span><span class="identifier">executor</span>
+			<span class="special">);</span>
+			<span class="identifier">__proc</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">process</span><span class="special">::</span><span class="identifier">process</span><span class="special">&gt;{</span>
+				<span class="keyword">new</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">process</span><span class="special">::</span><span class="identifier">process</span><span class="special">{</span>
+					<span class="identifier">co_await</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">this_coro</span><span class="special">::</span><span class="identifier">executor</span><span class="special">,</span>
+					<span class="identifier">boost</span><span class="special">::</span><span class="identifier">process</span><span class="special">::</span><span class="identifier">environment</span><span class="special">::</span><span class="identifier">find_executable</span><span class="special">(</span><span class="string">"falkon"</span><span class="special">),</span>
+					<span class="identifier">std</span><span class="special">::</span><span class="identifier">initializer_list</span><span class="special">&lt;</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">string_view</span><span class="special">&gt;{</span>
+						<span class="string">"http://cppfx.i2p"</span>
+					<span class="special">},</span>
+					<span class="identifier">boost</span><span class="special">::</span><span class="identifier">process</span><span class="special">::</span><span class="identifier">process_stdio</span><span class="special">{</span>
+						<span class="special">.</span><span class="identifier">out</span> <span class="special">=</span> <span class="special">*</span><span class="identifier">__rp</span>
+					<span class="special">}</span>
+				<span class="special">}</span>
+			<span class="special">};</span>
+		<span class="special">}</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">awaitable</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">&gt;</span> <span class="identifier">run_program</span><span class="special">()</span>
+		<span class="special">{</span>
+			<span class="keyword">auto</span> <span class="special">[</span><span class="identifier">ec</span><span class="special">,</span> <span class="identifier">status</span><span class="special">]</span> <span class="special">=</span> <span class="identifier">co_await</span> <span class="identifier">__proc</span><span class="special">-&gt;</span><span class="identifier">async_wait</span><span class="special">(</span>
+				<span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">as_tuple</span>
+			<span class="special">);</span>
+			<span class="identifier">boost</span><span class="special">::</span><span class="identifier">process</span><span class="special">::</span><span class="identifier">check_exit_code</span><span class="special">(</span><span class="identifier">ec</span><span class="special">,</span> <span class="identifier">__proc</span><span class="special">-&gt;</span><span class="identifier">native_exit_code</span><span class="special">());</span>
+			<span class="keyword">if</span> <span class="special">(</span><span class="identifier">ec</span> <span class="special">||</span> <span class="identifier">status</span> <span class="special">!=</span> <span class="number">0</span><span class="special">)</span>
+				<span class="keyword">throw</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">system_error</span><span class="special">{</span><span class="identifier">ec</span><span class="special">,</span> <span class="string">"wait proc error"</span><span class="special">};</span>
+			<span class="comment">// else</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"OK"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+		<span class="special">}</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">awaitable</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">&gt;</span> <span class="identifier">get_output</span><span class="special">()</span>
+		<span class="special">{</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">result</span><span class="special">;</span>
+			<span class="keyword">auto</span> <span class="special">[</span><span class="identifier">ec</span><span class="special">,</span> <span class="identifier">bytes</span><span class="special">]</span> <span class="special">=</span> <span class="identifier">co_await</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">async_read</span><span class="special">(</span>
+				<span class="special">*</span><span class="identifier">__rp</span><span class="special">,</span>
+				<span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">dynamic_buffer</span><span class="special">(</span><span class="identifier">result</span><span class="special">),</span>
+				<span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">as_tuple</span>
+			<span class="special">);</span>
+			<span class="keyword">if</span> <span class="special">(</span><span class="identifier">ec</span> <span class="special">&amp;&amp;</span> <span class="identifier">ec</span> <span class="special">!=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">error</span><span class="special">::</span><span class="identifier">eof</span><span class="special">)</span>
+				<span class="keyword">throw</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">system_error</span><span class="special">{</span><span class="identifier">ec</span><span class="special">,</span> <span class="string">"read pipe error"</span><span class="special">};</span>
+			<span class="keyword">if</span> <span class="special">(</span><span class="identifier">result</span><span class="special">.</span><span class="identifier">empty</span><span class="special">())</span>
+				<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"No data."</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+			<span class="keyword">else</span>
+				<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Result: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">result</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="special">};</span>
+<span class="special">}</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">try</span>
+	<span class="special">{</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">thread_pool</span> <span class="identifier">pool</span><span class="special">{</span><span class="number">32</span><span class="special">};</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">co_spawn</span><span class="special">(</span>
+			<span class="identifier">pool</span><span class="special">.</span><span class="identifier">get_executor</span><span class="special">(),</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">bind</span><span class="special">(</span>
+				<span class="special">&amp;</span><span class="identifier">app</span><span class="special">::</span><span class="identifier">program</span><span class="special">::</span><span class="identifier">start</span><span class="special">,</span>
+				<span class="identifier">std</span><span class="special">::</span><span class="identifier">make_shared</span><span class="special">&lt;</span><span class="identifier">app</span><span class="special">::</span><span class="identifier">program</span><span class="special">&gt;()</span>
+			<span class="special">),</span>
+			<span class="special">[]</span> <span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">exception_ptr</span> <span class="identifier">eptr</span><span class="special">)</span>
+			<span class="special">{</span>
+				<span class="keyword">if</span> <span class="special">(</span><span class="identifier">eptr</span><span class="special">)</span>
+					<span class="identifier">std</span><span class="special">::</span><span class="identifier">rethrow_exception</span><span class="special">(</span><span class="identifier">eptr</span><span class="special">);</span>
+			<span class="special">}</span>
+		<span class="special">);</span>
+		<span class="identifier">pool</span><span class="special">.</span><span class="identifier">join</span><span class="special">();</span>
+	<span class="special">}</span>
+	<span class="keyword">catch</span> <span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">exception</span> <span class="special">&amp;</span> <span class="identifier">e</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"====&gt;\n"</span> <span class="special">&lt;&lt;</span> <span class="identifier">e</span><span class="special">.</span><span class="identifier">what</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">}</span>
+</pre>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<p>
+      <a href="." target="_top">Home</a>
+    </p>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<p>
+      Tue Dec 30 05:43:03 AM UTC 2025
+    </p>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<h2>
+<a name="boost-process-asio-pipe.h10"></a>
+      <span class="phrase"><a name="boost-process-asio-pipe.cpp-lang"></a></span><a class="link" href="boost-process-asio-pipe.html#boost-process-asio-pipe.cpp-lang"><span class="cyan">Role</span></a>
+    </h2>
+<p>
+      Powered by - <a href="https://www.bfgroup.xyz/b2" target="_top">B2 Build</a> | <a href="https://www.boost.org/tools/quickbook" target="_top">boost quickbook</a> | <a href="http://i2pd.i2p" target="_top">I2Pd</a>
+    </p>
+<p>
+      ====
+    </p>
+<p>
+      <a href="http://cppfx.i2p" target="_top">cppfx.i2p</a>
+    </p>
+<p>
+      <a href="http://cppfxjjm5bgqx2cepvisfcy4zz4ystzxxh36mtuvqm2jp5g6rb7a.b32.i2p" target="_top">cppfxjjm5bgqx2cepvisfcy4zz4ystzxxh36mtuvqm2jp5g6rb7a.b32.i2p</a>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="Writing-jamefiles.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

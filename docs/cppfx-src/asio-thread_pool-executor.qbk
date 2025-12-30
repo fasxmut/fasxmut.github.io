@@ -3,7 +3,18 @@
 	[id asio-thread_pool-executor]
 ]
 
-[h1 [role cyan boost::asio::thread_pool]]
+[role drop_menu
+> [link asio-thread_pool-executor Start][br]
+> [link asio-thread_pool-executor.asio-thread_pool boost::asio::thread_pool][br]
+> [link asio-thread_pool-executor.asio-excutor-contexts boost::asio executor contexts][br]
+> [link asio-thread_pool-executor.get-executor-from-asio-thread-pool Get executor from asio thread pool][br]
+> [link asio-thread_pool-executor.post-tasks-to-asio-thread_pool Post tasks to asio::thread_pool][br]
+> [link asio-thread_pool-executor.use-asio-thread_pool-to-replace-io_context asio::thread_pool replace asio::io_context][br]
+> [link asio-thread_pool-executor.nested-asio-thread_pool-for-asio-co_spawn Nested asio::thread_pool for asio::co_spawn][br]
+> [@. Back: Home]
+]
+
+[h1:asio-thread_pool [role cyan boost::asio::thread_pool]]
 
 c++ boost::asio thread pool.
 
@@ -39,7 +50,7 @@ thread_pool(num_threads, initial_services);
 /
 [*shutdown]
 
-[h1 [role cyan boost::asio executor contexts]]
+[h1:asio-excutor-contexts [role cyan boost::asio executor contexts]]
 
 boost::asio has some executor contexts:
 [br]
@@ -55,7 +66,7 @@ Users can construct io objects such as sockets to use arbitrary executor types.
 
 boost::asio executors provide a powerful abstraction for controlling where, when and how objects get executed.
 
-[h1 [role cyan Get executor from asio thread pool]]
+[h1:get-executor-from-asio-thread-pool [role cyan Get executor from asio thread pool]]
 
 Obtains the executor associated with the pool.
 
@@ -64,7 +75,7 @@ pool.executor();	// return executor_type
 pool.get_executor();	// return executor_type
 ```
 
-[h1 [role cyan Post tasks to asio::thread_pool]]
+[h1:post-tasks-to-asio-thread_pool [role cyan Post tasks to asio::thread_pool]]
 
 Users can post tasks to asio::thread_pool object, its object will run tasks concurrently.
 
@@ -117,7 +128,7 @@ int main()
 end
 ```
 
-[h1 [role cyan Use asio::thread_pool object to replace asio::io_context for asio::co_spawn]]
+[h1:use-asio-thread_pool-to-replace-io_context [role cyan Use asio::thread_pool object to replace asio::io_context for asio::co_spawn]]
 
 [*c++ coroutines:]
 
@@ -258,7 +269,7 @@ int main()
 9009 4
 ```
 
-[h1 [role cyan Nested asio::thread_pool and executor objects for asio::co_spawn]]
+[h1:nested-asio-thread_pool-for-asio-co_spawn [role cyan Nested asio::thread_pool and executor objects for asio::co_spawn]]
 
 [*c++ example]
 

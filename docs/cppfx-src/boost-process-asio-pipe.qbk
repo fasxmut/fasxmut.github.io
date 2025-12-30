@@ -1,0 +1,387 @@
+[article boost::process and asio pipe
+	[quickbook 1.7]
+	[id boost-process-asio-pipe]
+]
+
+[role drop_menu
+> [link boost-process-asio-pipe Start][br]
+> [link boost-process-asio-pipe.asio-pipe asio pipe][br]
+> [link boost-process-asio-pipe.asio-connect-pipe asio::connect_pipe][br]
+> [link boost-process-asio-pipe.pipe-cpp-example pipe c++ example][br]
+> [link boost-process-asio-pipe.boost-process boost::process][br]
+> [link boost-process-asio-pipe.process-cpp-example-1 boost::process c++ example 1][br]
+> [link boost-process-asio-pipe.process-cpp-example-2 boost::process c++ example 2][br]
+> [link boost-process-asio-pipe.process-cpp-example-3 boost::process c++ example 3][br]
+> [@. Back: Home]
+]
+
+[role half_center
+[@https://www.boost.org/library/latest/process]
+]
+
+[role half_center
+[@https://www.boost.org/library/latest/asio]
+]
+
+[role half_center
+[@https://think-async.com/Asio]
+]
+
+[role clear_both]
+
+[h1:asio-pipe [role cyan asio pipe]]
+
+boost asio has two kind of pipe:
+
+* asio::readable_pipe
+* asio::writable_pipe
+
+[*asio::readable_pipe] is a pipe end that has defined methods [role ddred .read_some] and [role ddred .async_read_some], it does [* not define write] methods.
+[br]
+[*asio::writable_pipe] is a pipe end that has defined methods [role ddred .write_some] and [role ddred .async_write_some], it does [* not define read] methods.
+
+So we can [role red read from] the [role ddred asio::readable_pipe] object, but we can not write to it ;[br]
+and [role red write to] the [role ddred asio::writable_pipe] object, but we can not read from it.
+
+[h1:asio-connect-pipe [role cyan asio::connect_pipe]]
+
+We can connect a readable-pipe and a writable-pipe with [role dred asio::connect_pipe] :
+
+[!c++]
+```
+asio::connect_pipe(readable_pipe, writable_pipe);
+```
+
+[h1:pipe-cpp-example [role cyan pipe c++ example]]
+
+Pipe game: a pipe c++ example.
+
+[h2:jamfile-jamroot jamfile: jamroot]
+
+Filename: [role dred jamroot]
+
+[!teletype]
+```
+project
+:
+	default-build
+		<cxxstd>26
+;
+
+exe bpp-1 : bpp-1.cpp ;
+
+```
+
+[h2:pipe-cpp c++ file]
+
+[role dddgreen The write-pipe end must be closed after writing and before reading read-pipe end.]
+
+Filename: [role dred bpp-1.cpp]
+
+[!c++]
+```
+#include <boost/asio.hpp>
+#include <iostream>
+
+int main()
+{
+	try
+	{
+		boost::asio::thread_pool pool{32};
+		boost::asio::readable_pipe rp{pool.get_executor()};
+		boost::asio::writable_pipe wp{pool.get_executor()};
+		boost::asio::connect_pipe(rp, wp);
+		boost::system::error_code ec;
+		boost::asio::write(wp, boost::asio::buffer("Hello, c++ world."), ec);
+		// The write-pipe end must be closed after writing and before reading read-pipe end.
+		wp.close();
+		if (ec)
+			throw std::system_error{ec, "error: write pipe"};
+		std::string received;
+		boost::asio::read(rp, boost::asio::dynamic_buffer(received), ec);
+		if (ec && ec != boost::asio::error::eof)
+			throw std::system_error{ec, "error: read pipe"};
+		std::cout << "Received: " << received << std::endl;
+	}
+	catch (const std::system_error & e)
+	{
+		std::cerr
+			<< "====>\n"
+			<< "e.what(): " << e.what() << '\n'
+			<< "e.code(): " << e.code() << '\n'
+		;
+	}
+}
+```
+
+[h3:build-run Build and Run]
+
+[!teletype]
+```
+> b2
+...found 10 targets...
+> ./bin/gcc-15/debug/cxxstd-26-iso/bpp-1 
+Received: Hello, c++ world.
+```
+
+[h1:boost-process [role cyan boost::process]]
+
+boost::process v2 is default since boost 1.89.
+
+[!c++]
+```
+boost::process::process proc{
+	executor,
+	"/path/prog",
+	{param1, ...},
+	boost::process::process_stdio{
+		.in = ???,
+		.out = ???,
+		.err = ???
+	}
+};
+```
+
+* [role ddred .in is assigned with readable-pipe;]
+* [role ddred .out and .err are assigned with writable-pipes;]
+* [role red If .out is assigned with readable-pipe, then a writable-pipe is created internally and connected to the readable-pipe;]
+
+[h1:process-cpp-example-1 [role cyan boost::process c++ example 1]]
+
+[* Filename: jamroot]
+
+[!teletype]
+```
+project
+:
+	default-build
+		<cxxstd>26
+;
+
+lib boost_process ;
+lib boost_filesystem ;
+
+exe bpp : bpp.cpp : <library>boost_process <library>boost_filesystem ;
+```
+
+[* Filename: bpp.cpp]
+
+[!c++]
+```
+#include <boost/process.hpp>
+#include <boost/asio.hpp>
+#include <iostream>
+
+namespace bpp = boost::process;
+namespace asio = boost::asio;
+
+// not hpp
+
+int main()
+{
+	try
+	{
+		asio::thread_pool pool{32};
+		asio::readable_pipe rp{pool.get_executor()};
+		asio::writable_pipe wp{pool.get_executor()};
+		asio::connect_pipe(rp, wp);
+		bpp::process proc{
+			pool.get_executor(),
+			bpp::environment::find_executable("ugrep"),
+			{
+				"-rIni",
+				R"(\.hpp)",
+				"."
+			},
+			bpp::process_stdio{
+				.out = wp
+			}
+		};
+		if (proc.wait() != 0)
+			throw std::runtime_error{"proc error"};
+		wp.close();
+		std::string result;
+		bpp::error_code ec;
+		asio::read(rp, asio::dynamic_buffer(result), ec);
+		if (ec && ec != asio::error::eof)
+			throw std::system_error{ec, "read pipe error"};
+		std::cout << "Result:\n" << result << std::endl;
+	}
+	catch (const std::exception & e)
+	{
+		std::cout << "====>\n" << e.what() << std::endl;
+	}
+}
+```
+
+The example will run [role dred [* ugrep -rIni '\\.hpp' .]]
+[br]
+and save result to c++ std::string [*result].
+
+.out is assigned with a writable-pipe.
+
+[h1:process-cpp-example-2 [role cyan boost::process c++ example 2]]
+
+[* Filename: bpp.cpp]
+
+[!c++]
+```
+#include <boost/process.hpp>
+#include <boost/asio.hpp>
+#include <iostream>
+
+namespace bpp = boost::process;
+namespace asio = boost::asio;
+
+// not hpp
+
+int main()
+{
+	try
+	{
+		asio::thread_pool pool{32};
+		asio::readable_pipe rp{pool.get_executor()};
+		bpp::process proc{
+			pool.get_executor(),
+			bpp::environment::find_executable("ugrep"),
+			{
+				"-rIni",
+				R"(\.hpp)",
+				"."
+			},
+			bpp::process_stdio{
+				.out = rp
+			}
+		};
+		std::string result;
+		boost::system::error_code ec;
+		asio::read(rp, asio::dynamic_buffer(result), ec);
+		if (ec && ec != asio::error::eof)
+			throw std::system_error{ec, "error: read pipe"};
+		std::cout << "Result:\n" << result << std::endl;
+	}
+	catch (const std::exception & e)
+	{
+		std::cout << "====>\n" << e.what() << std::endl;
+	}
+}
+```
+
+[role ddred
+[*
+In this example, because .out is assigned with a readable-pipe,[br]
+a writable-pipe will be created internally and connected to the readable-pipe.
+]
+]
+
+[h1:process-cpp-example-3 [role cyan boost::process c++ example 3]]
+
+Using boost::process in asynchrous and awaitable asio c++ code.
+
+[!c++]
+```
+#include <boost/process.hpp>
+#include <boost/asio.hpp>
+#include <iostream>
+
+namespace app
+{
+	class program:
+		virtual public std::enable_shared_from_this<app::program>
+	{
+	private:
+		std::shared_ptr<boost::process::process> __proc;
+		std::shared_ptr<boost::asio::readable_pipe> __rp;
+	public:
+		boost::asio::awaitable<void> start()
+		{
+			co_await this->init();
+			co_await this->run_program();
+			co_await this->get_output();
+		}
+	protected:
+		boost::asio::awaitable<void> init()
+		{
+			__rp = std::make_shared<boost::asio::readable_pipe>(
+				co_await boost::asio::this_coro::executor
+			);
+			__proc = std::shared_ptr<boost::process::process>{
+				new boost::process::process{
+					co_await boost::asio::this_coro::executor,
+					boost::process::environment::find_executable("falkon"),
+					std::initializer_list<boost::string_view>{
+						"http://cppfx.i2p"
+					},
+					boost::process::process_stdio{
+						.out = *__rp
+					}
+				}
+			};
+		}
+		boost::asio::awaitable<void> run_program()
+		{
+			auto [ec, status] = co_await __proc->async_wait(
+				boost::asio::as_tuple
+			);
+			boost::process::check_exit_code(ec, __proc->native_exit_code());
+			if (ec || status != 0)
+				throw std::system_error{ec, "wait proc error"};
+			// else
+			std::cout << "OK" << std::endl;
+		}
+		boost::asio::awaitable<void> get_output()
+		{
+			std::string result;
+			auto [ec, bytes] = co_await boost::asio::async_read(
+				*__rp,
+				boost::asio::dynamic_buffer(result),
+				boost::asio::as_tuple
+			);
+			if (ec && ec != boost::asio::error::eof)
+				throw std::system_error{ec, "read pipe error"};
+			if (result.empty())
+				std::cout << "No data." << std::endl;
+			else
+				std::cout << "Result: " << result << std::endl;
+		}
+	};
+}
+
+int main()
+{
+	try
+	{
+		boost::asio::thread_pool pool{32};
+		boost::asio::co_spawn(
+			pool.get_executor(),
+			std::bind(
+				&app::program::start,
+				std::make_shared<app::program>()
+			),
+			[] (std::exception_ptr eptr)
+			{
+				if (eptr)
+					std::rethrow_exception(eptr);
+			}
+		);
+		pool.join();
+	}
+	catch (const std::exception & e)
+	{
+		std::cout << "====>\n" << e.what() << std::endl;
+	}
+}
+```
+
+//////////////////////////////////////////////////////////////////////
+
+[@. Home]
+
+//////////////////////////////////////////////////////////////////////
+
+Tue Dec 30 05:43:03 AM UTC 2025
+
+//////////////////////////////////////////////////////////////////////
+
+[include ../share/foot-links.inc.qbk]
+
