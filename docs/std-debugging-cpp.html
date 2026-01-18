@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>debugging - c++26 std</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="cppfx - cpp/c++, b2 build">
+<link rel="up" href="index.html" title="cppfx - cpp/c++, b2 build">
+<link rel="prev" href="index.html" title="cppfx - cpp/c++, b2 build">
+<link rel="next" href="boost-process-asio-pipe.html" title="boost::process and asio pipe">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="boost-process-asio-pipe.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="std-debugging-cpp"></a>debugging - c++26 std</h1></div></div>
+<hr>
+</div>
+<p>
+      <span class="drop_menu">&gt; <a class="link" href="std-debugging-cpp.html" title="debugging - c++26 std">Start</a><br>
+      &gt; <a class="link" href="std-debugging-cpp.html#std-debugging-cpp.std-is_debugger_present">std::is_debugger_present()</a><br>
+      &gt; <a class="link" href="std-debugging-cpp.html#std-debugging-cpp.std-breakpoint">std::breakpoint()</a><br>
+      &gt; <a class="link" href="std-debugging-cpp.html#std-debugging-cpp.std-breakpoint_if_debugging">std::breakpoint_if_debugging()</a><br>
+      &gt; <a class="link" href="std-debugging-cpp.html#std-debugging-cpp.link-cpp-exp-lib">Link c++ experimental
+      library</a><br> &gt; <a class="link" href="std-debugging-cpp.html#std-debugging-cpp.cpp-example">c++
+      example</a><br> &gt; <a href="." target="_top">Back: Home</a> </span>
+    </p>
+<p>
+      c++26 &lt;debugging&gt; is implemented initially by gnu c++ compiler:
+    </p>
+<p>
+      g++
+    </p>
+<p>
+      Requires gnu c++ compiler 16.0 at least.
+    </p>
+<p>
+      <span class="half_center"><a href="https://gcc.gnu.org" target="_top">https://gcc.gnu.org</a>
+      </span>
+    </p>
+<p>
+      <span class="clear_both"></span>
+    </p>
+<h2>
+<a name="std-debugging-cpp.h0"></a>
+      <span class="phrase"><a name="std-debugging-cpp.std-is_debugger_present"></a></span><a class="link" href="std-debugging-cpp.html#std-debugging-cpp.std-is_debugger_present"><span class="cyan">std::is_debugger_present()</span></a>
+    </h2>
+<pre class="programlisting">bool std::is_debugger_present() noexcept;
+</pre>
+<p>
+      Try to determine if the program is running under control of a debugger.
+    </p>
+<p>
+      It returns <span class="bold"><strong>true</strong></span> if the program is running
+      under control of <span class="bold"><strong>gdb</strong></span> .
+    </p>
+<h2>
+<a name="std-debugging-cpp.h1"></a>
+      <span class="phrase"><a name="std-debugging-cpp.std-breakpoint"></a></span><a class="link" href="std-debugging-cpp.html#std-debugging-cpp.std-breakpoint"><span class="cyan">std::breakpoint()</span></a>
+    </h2>
+<pre class="programlisting">void std::breakpoint() noexcept;
+</pre>
+<p>
+      Stop the program with a breakpoint or debug trap.
+    </p>
+<p>
+      The program will be stopped by <span class="bold"><strong>std::breakpoint()</strong></span>
+      for either a debugger present or not.
+    </p>
+<h2>
+<a name="std-debugging-cpp.h2"></a>
+      <span class="phrase"><a name="std-debugging-cpp.std-breakpoint_if_debugging"></a></span><a class="link" href="std-debugging-cpp.html#std-debugging-cpp.std-breakpoint_if_debugging"><span class="cyan">std::breakpoint_if_debugging</span></a>
+    </h2>
+<pre class="programlisting">void std::breakpoint_if_debugging() noexcept;
+</pre>
+<p>
+      Stop the program if it is running under control of a debugger.
+    </p>
+<h2>
+<a name="std-debugging-cpp.h3"></a>
+      <span class="phrase"><a name="std-debugging-cpp.link-cpp-exp-lib"></a></span><a class="link" href="std-debugging-cpp.html#std-debugging-cpp.link-cpp-exp-lib"><span class="cyan">Link c++ experimental library</span></a>
+    </h2>
+<p>
+      Link if gnu c++ compiler.
+    </p>
+<pre class="programlisting">-lstdc++exp
+</pre>
+<h2>
+<a name="std-debugging-cpp.h4"></a>
+      <span class="phrase"><a name="std-debugging-cpp.cpp-example"></a></span><a class="link" href="std-debugging-cpp.html#std-debugging-cpp.cpp-example"><span class="cyan">c++ Example</span></a>
+    </h2>
+<p>
+      c++ Example: dbgprog.cpp
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">debugging</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span>
+		<span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">boolalpha</span>
+		<span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">is_debugger_present</span><span class="special">()</span>
+		<span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">;</span>
+
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"A"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">breakpoint_if_debugging</span><span class="special">();</span>
+
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"B"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">breakpoint</span><span class="special">();</span>
+
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"C"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<p>
+      <span class="bold"><strong>compile:</strong></span>
+    </p>
+<pre class="programlisting">gpp dbgprog.cpp -lstdc++exp -o dbgprog
+</pre>
+<p>
+      ( <span class="bold"><strong>alias gpp=g++ -fmodules-ts -std=c++26</strong></span> )<br>
+      ( At least g++ 16.0 required )
+    </p>
+<p>
+      <span class="bold"><strong>Run without a debugger</strong></span>
+    </p>
+<pre class="programlisting">&gt; ./dbgprog
+false
+A
+B
+Trace/breakpoint trap
+</pre>
+<p>
+      <span class="bold"><strong>Run in gdb</strong></span>
+    </p>
+<p>
+      ( Some trivial informations are removed. )
+    </p>
+<pre class="programlisting">&gt; gdb ./dbgprog
+Reading symbols from ./dbgprog...
+
+<span class="dblue">(gdb) r</span>
+
+true
+<span class="ddgreen"><span class="bold"><strong>A</strong></span></span>
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+<span class="dred">0x000000000040257d</span> in std::breakpoint ()
+    at ..<span class="emphasis"><em>..</em></span>..<span class="emphasis"><em>..</em></span>../gcc/libstdc++-v3/src/c++26/debugging.cc:142
+
+<span class="dblue">(gdb) n</span>
+<span class="dred">0x0000000000402471</span> in main ()
+<span class="dblue">(gdb) n</span>
+Single stepping until exit from function main,
+which has no line number information.
+<span class="ddgreen"><span class="bold"><strong>B</strong></span></span>
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+<span class="dred">0x000000000040257d</span> in std::breakpoint ()
+
+<span class="dblue">(gdb) n</span>
+<span class="dred">0x0000000000402492</span> in main ()
+<span class="dblue">(gdb) n</span>
+Single stepping until exit from function main,
+which has no line number information.
+<span class="ddgreen"><span class="bold"><strong>C</strong></span></span>
+
+<span class="dblue">(gdb) n</span>
+[Inferior 1 (process 14244) exited normally]
+<span class="dblue">(gdb) n</span>
+The program is not being run.
+<span class="dblue">(gdb) q</span>
+</pre>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<p>
+      <a href="." target="_top">Home</a>
+    </p>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<p>
+      Sun Jan 18 10:06:22 AM UTC 2026
+    </p>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<h2>
+<a name="std-debugging-cpp.h5"></a>
+      <span class="phrase"><a name="std-debugging-cpp.cpp-lang"></a></span><a class="link" href="std-debugging-cpp.html#std-debugging-cpp.cpp-lang"><span class="cyan">Role</span></a>
+    </h2>
+<p>
+      Powered by - <a href="https://www.bfgroup.xyz/b2" target="_top">B2 Build</a> | <a href="https://www.boost.org/tools/quickbook" target="_top">boost quickbook</a> | <a href="http://i2pd.i2p" target="_top">I2Pd</a>
+    </p>
+<p>
+      ====
+    </p>
+<p>
+      <a href="http://cppfx.i2p" target="_top">cppfx.i2p</a>
+    </p>
+<p>
+      <a href="http://cppfxjjm5bgqx2cepvisfcy4zz4ystzxxh36mtuvqm2jp5g6rb7a.b32.i2p" target="_top">cppfxjjm5bgqx2cepvisfcy4zz4ystzxxh36mtuvqm2jp5g6rb7a.b32.i2p</a>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="boost-process-asio-pipe.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

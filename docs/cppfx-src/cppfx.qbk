@@ -3,6 +3,7 @@
 	[id cppfx]
 ]
 
+[include debugging-cpp-std.qbk]
 [include boost-process-asio-pipe.qbk]
 [include writing-jamfiles.qbk]
 [include asio-thread_pool-executor.qbk]
