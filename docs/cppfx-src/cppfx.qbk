@@ -1,4 +1,4 @@
-[book cppfx - cpp/c++, b2 build
+[book cppfx - c++, b2 build
 	[quickbook 1.7]
 	[id cppfx]
 ]
@@ -11,6 +11,8 @@
 [role drop_menu
 > [@. Start][br]
 > [link cppfx.subspaces Subspaces][br]
+> [link cppfx.about-me About Me][br]
+> [link cppfx.donate Donate]
 ]
 
 [h1:subspaces [role cyan Subspaces]]
@@ -20,6 +22,24 @@
 * [@cpptoolchain c++ Toolchain]
 
 [@old-index.html Old Index]
+
+
+[h1:about-me [role cyan About Me]]
+
+After many times of repeated matchmaking against my life and world in the past, I decide not to hide myself and not to keep anonymous.
+
+I am Chinese living in China.
+
+[*My declaration] about cppfx.xyz and its github repo:
+
+* [* No politics]
+* [* No military viewpoint and standpoint]
+* [* No country-level nationalism]
+
+[h1:donate [role cyan Donate]]
+
+[$donate/cny-alipay-300x300.png]
+[$donate/usd-alipay-300x300.png]
 
 [include ../share/foot-links.inc.qbk]
 

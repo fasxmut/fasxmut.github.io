@@ -1,16 +1,30 @@
-[h1:cpp-lang [role cyan Role]]
+[h1:helpful [role cyan Helpful]]
+
+[@https://fayige.top/cpp/cpp-std-string-data.html c++ std::string, .data()]
+
+[@https://fayige.top/cpp/cpp-123.html c++ 123]
+
+[h1:role [role cyan Role]]
+
++
 
 Github:[br]
-
 [@https://github.com/cppfx/cpphtgt]
 
-Powered by:[br]
++
 
+Powered by:[br]
 [@https://www.bfgroup.xyz/b2 B2 Build]
 |
 [@https://www.boost.org/tools/quickbook boost quickbook]
 
-====
++
 
-[@https://cppfx.xyz cppfx.xyz]
+[@https://cppfx.xyz#cppfx.donate Donate]
+
++
+
+@[@https://cppfx.xyz cppfx.xyz]
+
+[br][br][br][br][br][br][br][br][br][br][br][br][br][br][br][br]
 
