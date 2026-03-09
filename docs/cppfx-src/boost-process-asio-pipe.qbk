@@ -310,7 +310,7 @@ namespace app
 					co_await boost::asio::this_coro::executor,
 					boost::process::environment::find_executable("falkon"),
 					std::initializer_list<boost::string_view>{
-						"http://cppfx.i2p"
+						"http://cppfx.xyz"
 					},
 					boost::process::process_stdio{
 						.out = *__rp
