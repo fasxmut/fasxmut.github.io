@@ -1,7 +1,11 @@
 [h1:cpp-lang [role cyan Role]]
 
-Powered by
--
+Github:[br]
+
+[@https://github.com/cppfx/cpphtgt]
+
+Powered by:[br]
+
 [@https://www.bfgroup.xyz/b2 B2 Build]
 |
 [@https://www.boost.org/tools/quickbook boost quickbook]
