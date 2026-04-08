@@ -3,6 +3,7 @@
 	[id cppfx]
 ]
 
+[include asio-thread_pool-std-bind-bind-lifetime-to-object.qbk]
 [include debugging-cpp-std.qbk]
 [include boost-process-asio-pipe.qbk]
 [include writing-jamfiles.qbk]
@@ -11,6 +12,7 @@
 [role drop_menu
 > [@. Start][br]
 > [link cppfx.subspaces Subspaces][br]
+> [@learn-cpp-in-days Special: Learn c++ In Days][br]
 > [link cppfx.about-me About Me][br]
 > [link cppfx.donate Donate]
 ]

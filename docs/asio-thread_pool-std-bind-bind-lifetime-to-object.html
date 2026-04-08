@@ -1,0 +1,313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Nested asio::thread_pool std::bind: Bind its lifetime to an object</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="cppfx - c++, b2 build">
+<link rel="up" href="index.html" title="cppfx - c++, b2 build">
+<link rel="prev" href="index.html" title="cppfx - c++, b2 build">
+<link rel="next" href="std-debugging-cpp.html" title="debugging - c++26 std">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="std-debugging-cpp.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="asio-thread_pool-std-bind-bind-lifetime-to-object"></a>Nested asio::thread_pool std::bind: Bind its lifetime to an object</h1></div></div>
+<hr>
+</div>
+<p>
+      <span class="drop_menu">&gt; <a class="link" href="asio-thread_pool-std-bind-bind-lifetime-to-object.html" title="Nested asio::thread_pool std::bind: Bind its lifetime to an object">Start</a><br>
+      &gt; <a class="link" href="asio-thread_pool-std-bind-bind-lifetime-to-object.html#asio-thread_pool-std-bind-bind-lifetime-to-object.q">Expected
+      but not worked code</a><br> &gt; <a class="link" href="asio-thread_pool-std-bind-bind-lifetime-to-object.html#asio-thread_pool-std-bind-bind-lifetime-to-object.unrelated">Coroutines
+      and asio::co_spawn are not the problem</a><br> &gt; <a class="link" href="asio-thread_pool-std-bind-bind-lifetime-to-object.html#asio-thread_pool-std-bind-bind-lifetime-to-object.std-shared_ptr">Solution:
+      std::shared_ptr</a><br> &gt; <a class="link" href="asio-thread_pool-std-bind-bind-lifetime-to-object.html#asio-thread_pool-std-bind-bind-lifetime-to-object.boost-asio-co_spawn">Back
+      boost::asio::co_spawn and coroutines</a><br> &gt; <a href="." target="_top">Back:
+      Home</a> </span>
+    </p>
+<p>
+      When I tried to bind boost::asio::thread_pool by-rvalue or passing-by-value
+      object lifetime to a lifetime of customized class object and then pass the
+      customized object to std::bind, I saw too many lines of errors, very headache.
+      But finally, I found the solution. That's std::shared_ptr, and std::unique_ptr
+      should work too.
+    </p>
+<h2>
+<a name="asio-thread_pool-std-bind-bind-lifetime-to-object.h0"></a>
+      <span class="phrase"><a name="asio-thread_pool-std-bind-bind-lifetime-to-object.q"></a></span><a class="link" href="asio-thread_pool-std-bind-bind-lifetime-to-object.html#asio-thread_pool-std-bind-bind-lifetime-to-object.q"><span class="cyan">Expected but not worked code</span></a>
+    </h2>
+<p>
+      The rvalue or passing-by-value object to std::bind does not work, but I do
+      not want to use a named object, which requires an additional standalone named
+      object.
+    </p>
+<p>
+      The original code, expected, but not worked.
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">asio</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">functional</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">wk</span>
+<span class="special">{</span>
+	<span class="keyword">class</span> <span class="identifier">work</span>
+	<span class="special">{</span>
+	<span class="keyword">private</span><span class="special">:</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">thread_pool</span> <span class="identifier">__pool</span><span class="special">;</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">work</span><span class="special">():</span>
+			<span class="identifier">__pool</span><span class="special">{</span><span class="number">17u</span><span class="special">}</span>
+		<span class="special">{</span>
+		<span class="special">}</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">awaitable</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">&gt;</span> <span class="identifier">run</span><span class="special">()</span>
+		<span class="special">{</span>
+			<span class="identifier">co_await</span> <span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">join</span><span class="special">();</span>
+			<span class="identifier">co_return</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">awaitable</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">&gt;</span> <span class="identifier">join</span><span class="special">()</span>
+		<span class="special">{</span>
+			<span class="identifier">__pool</span><span class="special">.</span><span class="identifier">join</span><span class="special">();</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"finished"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+			<span class="identifier">co_return</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="special">};</span>
+<span class="special">}</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">thread_pool</span> <span class="identifier">pool</span><span class="special">{</span><span class="number">11u</span><span class="special">};</span>
+	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">co_spawn</span><span class="special">(</span>
+		<span class="identifier">pool</span><span class="special">.</span><span class="identifier">get_executor</span><span class="special">(),</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">bind</span><span class="special">(</span>
+			<span class="special">&amp;</span><span class="identifier">wk</span><span class="special">::</span><span class="identifier">work</span><span class="special">::</span><span class="identifier">run</span><span class="special">,</span>
+			<span class="identifier">wk</span><span class="special">::</span><span class="identifier">work</span><span class="special">{}</span>	<span class="comment">// It does not work here.</span>
+		<span class="special">),</span>
+		<span class="special">[]</span> <span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">exception_ptr</span> <span class="identifier">ptr</span><span class="special">)</span>
+		<span class="special">{</span>
+		<span class="special">}</span>
+	<span class="special">);</span>
+	<span class="identifier">pool</span><span class="special">.</span><span class="identifier">join</span><span class="special">();</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="asio-thread_pool-std-bind-bind-lifetime-to-object.h1"></a>
+      <span class="phrase"><a name="asio-thread_pool-std-bind-bind-lifetime-to-object.unrelated"></a></span><a class="link" href="asio-thread_pool-std-bind-bind-lifetime-to-object.html#asio-thread_pool-std-bind-bind-lifetime-to-object.unrelated"><span class="cyan">Coroutines and asio::co_spawn are not the problem</span></a>
+    </h2>
+<p>
+      I am pretty sure, coroutines and boost::asio::co_spawn are not the problem.
+    </p>
+<pre class="programlisting"><span class="keyword">namespace</span> <span class="identifier">wk</span>
+<span class="special">{</span>
+	<span class="keyword">class</span> <span class="identifier">work</span>
+	<span class="special">{</span>
+	<span class="keyword">private</span><span class="special">:</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">thread_pool</span> <span class="identifier">__pool</span><span class="special">;</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">work</span><span class="special">():</span>
+			<span class="identifier">__pool</span><span class="special">{</span><span class="number">17u</span><span class="special">}</span>
+		<span class="special">{</span>
+		<span class="special">}</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="keyword">void</span> <span class="identifier">run</span><span class="special">()</span>
+		<span class="special">{</span>
+			<span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">join</span><span class="special">();</span>
+		<span class="special">}</span>
+		<span class="keyword">void</span> <span class="identifier">join</span><span class="special">()</span>
+		<span class="special">{</span>
+			<span class="identifier">__pool</span><span class="special">.</span><span class="identifier">join</span><span class="special">();</span>
+		<span class="special">}</span>
+	<span class="special">};</span>
+<span class="special">}</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">thread_pool</span> <span class="identifier">pool</span><span class="special">{</span><span class="number">11u</span><span class="special">};</span>
+	<span class="identifier">wk</span><span class="special">::</span><span class="identifier">work</span> <span class="identifier">wk1</span><span class="special">{};</span>
+	<span class="keyword">auto</span> <span class="identifier">fn1</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">bind</span><span class="special">(&amp;</span><span class="identifier">wk</span><span class="special">::</span><span class="identifier">work</span><span class="special">::</span><span class="identifier">run</span><span class="special">,</span> <span class="identifier">wk1</span><span class="special">);</span>	<span class="comment">// not work</span>
+	<span class="keyword">auto</span> <span class="identifier">fn2</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">bind</span><span class="special">(&amp;</span><span class="identifier">wk</span><span class="special">::</span><span class="identifier">work</span><span class="special">::</span><span class="identifier">run</span><span class="special">,</span> <span class="identifier">wk</span><span class="special">::</span><span class="identifier">work</span><span class="special">{});</span>	<span class="comment">// not work</span>
+	<span class="keyword">auto</span> <span class="identifier">fn3</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">bind</span><span class="special">(&amp;</span><span class="identifier">wk</span><span class="special">::</span><span class="identifier">work</span><span class="special">::</span><span class="identifier">run</span><span class="special">,</span> <span class="special">&amp;</span><span class="identifier">wk1</span><span class="special">);</span>	<span class="comment">// work</span>
+	<span class="identifier">pool</span><span class="special">.</span><span class="identifier">join</span><span class="special">();</span>
+<span class="special">}</span>
+</pre>
+<p>
+      The boost::asio::thread_pool does not allow object-copy and rvalue-object-passing.
+    </p>
+<h2>
+<a name="asio-thread_pool-std-bind-bind-lifetime-to-object.h2"></a>
+      <span class="phrase"><a name="asio-thread_pool-std-bind-bind-lifetime-to-object.std-shared_ptr"></a></span><a class="link" href="asio-thread_pool-std-bind-bind-lifetime-to-object.html#asio-thread_pool-std-bind-bind-lifetime-to-object.std-shared_ptr"><span class="cyan">Solution: std::shared_ptr</span></a>
+    </h2>
+<p>
+      To make it work: bind boost::asio::thread_pool object to a customized object,
+      and pass the object to std::bind, the customized object is unamed,
+    </p>
+<p>
+      std::shared_ptr is the solution, and std::unique_ptr should work too.
+    </p>
+<p>
+      std::shared_ptr creates an unnamed object and passes the address of the object
+      to std::bind.
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">asio</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">functional</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">wk</span>
+<span class="special">{</span>
+	<span class="keyword">class</span> <span class="identifier">work</span>
+	<span class="special">{</span>
+	<span class="keyword">private</span><span class="special">:</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">thread_pool</span> <span class="identifier">__pool</span><span class="special">;</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">work</span><span class="special">():</span>
+			<span class="identifier">__pool</span><span class="special">{</span><span class="number">17u</span><span class="special">}</span>
+		<span class="special">{</span>
+		<span class="special">}</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="keyword">void</span> <span class="identifier">run</span><span class="special">()</span>
+		<span class="special">{</span>
+			<span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">join</span><span class="special">();</span>
+		<span class="special">}</span>
+		<span class="keyword">void</span> <span class="identifier">join</span><span class="special">()</span>
+		<span class="special">{</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Finished."</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+			<span class="identifier">__pool</span><span class="special">.</span><span class="identifier">join</span><span class="special">();</span>
+		<span class="special">}</span>
+	<span class="special">};</span>
+<span class="special">}</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">thread_pool</span> <span class="identifier">pool</span><span class="special">{</span><span class="number">11u</span><span class="special">};</span>
+	<span class="comment">// It works.</span>
+	<span class="keyword">auto</span> <span class="identifier">fn</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">bind</span><span class="special">(&amp;</span><span class="identifier">wk</span><span class="special">::</span><span class="identifier">work</span><span class="special">::</span><span class="identifier">run</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">make_shared</span><span class="special">&lt;</span><span class="identifier">wk</span><span class="special">::</span><span class="identifier">work</span><span class="special">&gt;());</span>
+	<span class="identifier">fn</span><span class="special">();</span>
+	<span class="identifier">pool</span><span class="special">.</span><span class="identifier">join</span><span class="special">();</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="asio-thread_pool-std-bind-bind-lifetime-to-object.h3"></a>
+      <span class="phrase"><a name="asio-thread_pool-std-bind-bind-lifetime-to-object.boost-asio-co_spawn"></a></span><a class="link" href="asio-thread_pool-std-bind-bind-lifetime-to-object.html#asio-thread_pool-std-bind-bind-lifetime-to-object.boost-asio-co_spawn"><span class="cyan">Back boost::asio::co_spawn and coroutines</span></a>
+    </h2>
+<p>
+      Back to boost::asio::co_spawn and coroutines, it works.
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">asio</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">functional</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">wk</span>
+<span class="special">{</span>
+	<span class="keyword">class</span> <span class="identifier">work</span>
+	<span class="special">{</span>
+	<span class="keyword">private</span><span class="special">:</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">thread_pool</span> <span class="identifier">__pool</span><span class="special">;</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">work</span><span class="special">():</span>
+			<span class="identifier">__pool</span><span class="special">{</span><span class="number">17u</span><span class="special">}</span>
+		<span class="special">{</span>
+		<span class="special">}</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">awaitable</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">&gt;</span> <span class="identifier">run</span><span class="special">()</span>
+		<span class="special">{</span>
+			<span class="identifier">co_await</span> <span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">join</span><span class="special">();</span>
+			<span class="identifier">co_return</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="keyword">private</span><span class="special">:</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">awaitable</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">&gt;</span> <span class="identifier">join</span><span class="special">()</span>
+		<span class="special">{</span>
+			<span class="identifier">__pool</span><span class="special">.</span><span class="identifier">join</span><span class="special">();</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Fnished 3."</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+			<span class="identifier">co_return</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="special">};</span>
+<span class="special">}</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">thread_pool</span> <span class="identifier">pool</span><span class="special">{</span><span class="number">11u</span><span class="special">};</span>
+	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">co_spawn</span><span class="special">(</span>
+		<span class="identifier">pool</span><span class="special">.</span><span class="identifier">get_executor</span><span class="special">(),</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">bind</span><span class="special">(</span>
+			<span class="special">&amp;</span><span class="identifier">wk</span><span class="special">::</span><span class="identifier">work</span><span class="special">::</span><span class="identifier">run</span><span class="special">,</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">make_shared</span><span class="special">&lt;</span><span class="identifier">wk</span><span class="special">::</span><span class="identifier">work</span><span class="special">&gt;()</span>
+		<span class="special">),</span>
+		<span class="special">[]</span> <span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">exception_ptr</span><span class="special">)</span>
+		<span class="special">{</span>
+		<span class="special">}</span>
+	<span class="special">);</span>
+	<span class="identifier">pool</span><span class="special">.</span><span class="identifier">join</span><span class="special">();</span>
+<span class="special">}</span>
+</pre>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<p>
+      <a href="." target="_top">Home</a>
+    </p>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<p>
+      Wed Apr 8 10:16:43 AM UTC 2026
+    </p>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<h2>
+<a name="asio-thread_pool-std-bind-bind-lifetime-to-object.h4"></a>
+      <span class="phrase"><a name="asio-thread_pool-std-bind-bind-lifetime-to-object.helpful"></a></span><a class="link" href="asio-thread_pool-std-bind-bind-lifetime-to-object.html#asio-thread_pool-std-bind-bind-lifetime-to-object.helpful"><span class="cyan">Helpful</span></a>
+    </h2>
+<p>
+      <a href="https://wtgo.top/jfty.html" target="_top">Jfty</a>
+    </p>
+<p>
+      <a href="https://wtgo.top" target="_top">Wtgo</a>
+    </p>
+<h2>
+<a name="asio-thread_pool-std-bind-bind-lifetime-to-object.h5"></a>
+      <span class="phrase"><a name="asio-thread_pool-std-bind-bind-lifetime-to-object.role"></a></span><a class="link" href="asio-thread_pool-std-bind-bind-lifetime-to-object.html#asio-thread_pool-std-bind-bind-lifetime-to-object.role"><span class="cyan">Role</span></a>
+    </h2>
+<p>
+      +
+    </p>
+<p>
+      Github:<br> <a href="https://github.com/cppfx/cpphtgt" target="_top">https://github.com/cppfx/cpphtgt</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      Powered by:<br> <a href="https://www.bfgroup.xyz/b2" target="_top">B2 Build</a>
+      | <a href="https://www.boost.org/tools/quickbook" target="_top">boost quickbook</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      <a href="https://cppfx.xyz#cppfx.donate" target="_top">Donate</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      @<a href="https://cppfx.xyz" target="_top">cppfx.xyz</a>
+    </p>
+<p>
+      <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+      <br> <br> <br> <br> <br>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="std-debugging-cpp.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
