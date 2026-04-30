@@ -8,12 +8,12 @@
 [include boost-process-asio-pipe.qbk]
 [include writing-jamfiles.qbk]
 [include asio-thread_pool-executor.qbk]
+[include about.qbk]
 
 [role drop_menu
 > [@. Start][br]
 > [link cppfx.subspaces Subspaces][br]
 > [@learn-cpp-in-days Special: Learn c++ In Days][br]
-> [link cppfx.about-me About Me][br]
 > [link cppfx.donate Donate]
 ]
 
@@ -25,23 +25,11 @@
 
 [@old-index.html Old Index]
 
-
-[h1:about-me [role cyan About Me]]
-
-After many times of repeated matchmaking against my life and world in the past, I decide not to hide myself and not to keep anonymous.
-
-I am Chinese living in China.
-
-[*My declaration] about cppfx.xyz and its github repo:
-
-* [* No politics]
-* [* No military viewpoint and standpoint]
-* [* No country-level nationalism]
-
 [h1:donate [role cyan Donate]]
 
-[$donate/cny-alipay-300x300.png]
-[$donate/usd-alipay-300x300.png]
+[*[link about.donate-cny Donate CNY]]
+
+[*[link about.donate-wise Donate GBP, EUR, AUD, USD, ...]]
 
 [include ../share/foot-links.inc.qbk]
 

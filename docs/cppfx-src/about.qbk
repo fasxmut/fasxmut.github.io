@@ -1,0 +1,61 @@
+[article About
+	[quickbook 1.7]
+	[id about]
+]
+
+[role drop_menu
+> [link about Start][br]
+> [link about.donate-cny Donate CNY][br]
+> [link about.donate-wise Donate GBP, EUR, AUD, USD, ...][br]
+> [@. Back: Home]
+]
+
+cppfx:[br]
+[*[role dddred cppfx.xyz]] - A website for c++ programming, applications, games and declicated systems.
+
+My declaration about cppfx.xyz and its github repos:
+
+* No politics
+* No military viewpoint and standpoint
+* No country-level nationalism
+
+github:[br]
+[*[role dddred https://github.com/cppfx]][br]
+[*[role dddred https://github.com/fasxmut]][br]
+
+[h1:donate-cny [role cyan Donate CNY]]
+
+[h3:alipay-scan Alipay Scan (China Alipay):]
+
+[$donate/cny-alipay-300x300.png]
+
+[h1:donate-wise [role cyan Donate GBP, EUR, AUD, USD, ...]]
+
+[h3:wise-scan Wise Scan:]
+[$donate/wise-500x500.png [width 300px] [height 300px]]
+
+Donate GBP, EUR, AUD, USD, ..., etc.
+
+[h3:wise-account Wise Account]
+
+If you do not have wise account, you can sign up with my [*ref link]:[br]
+[*[@https://wise.com/invite/dic/zhoujund]]
+
+If you have wise account, donate directly.
+
+My [*wisetag:][br]
+[*zhoujund]
+
+Donate Link:[br]
+[*[@https://wise.com/pay/me/zhoujund]]
+
+//////////////////////////////////////////////////////////////////////
+
+[@. Home]
+
+//////////////////////////////////////////////////////////////////////
+
+[include ../share/foot-links.inc.qbk]
+
+
+
