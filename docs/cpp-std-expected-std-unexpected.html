@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>c++: std::expected, std::unexpected</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="cppfx - c++, b2 build">
+<link rel="up" href="index.html" title="cppfx - c++, b2 build">
+<link rel="prev" href="index.html" title="cppfx - c++, b2 build">
+<link rel="next" href="asio-thread_pool-std-bind-bind-lifetime-to-object.html" title="Nested asio::thread_pool std::bind: Bind its lifetime to an object">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="asio-thread_pool-std-bind-bind-lifetime-to-object.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="cpp-std-expected-std-unexpected"></a>c++: std::expected, std::unexpected</h1></div></div>
+<hr>
+</div>
+<p>
+      <span class="drop_menu">&gt; <a class="link" href="cpp-std-expected-std-unexpected.html" title="c++: std::expected, std::unexpected">Start</a><br>
+      &gt; <a class="link" href="cpp-std-expected-std-unexpected.html#cpp-std-expected-std-unexpected.std-expected">std::expected</a><br>
+      &gt; <a class="link" href="cpp-std-expected-std-unexpected.html#cpp-std-expected-std-unexpected.operator-bool">operator
+      bool</a><br> &gt; <a class="link" href="cpp-std-expected-std-unexpected.html#cpp-std-expected-std-unexpected.cpp-example">c++
+      Example</a><br> &gt; <a href="." target="_top">Back: Home</a> </span>
+    </p>
+<p>
+      std::expected
+    </p>
+<p>
+      std::unexpected
+    </p>
+<p>
+      operator bool
+    </p>
+<p>
+      c++ Example
+    </p>
+<h2>
+<a name="cpp-std-expected-std-unexpected.h0"></a>
+      <span class="phrase"><a name="cpp-std-expected-std-unexpected.std-expected"></a></span><a class="link" href="cpp-std-expected-std-unexpected.html#cpp-std-expected-std-unexpected.std-expected"><span class="cyan">std::expected</span></a>
+    </h2>
+<p>
+      c++ std::expected: The first template type is the expected value type, the
+      second template type is the unexpected value type.
+    </p>
+<p>
+      c++ std::unexpected: The template type is the unexpected value type.
+    </p>
+<p>
+      Method .value(): The expected value if result is expected;
+    </p>
+<p>
+      Method .error(): Set a value if result is unexpected;
+    </p>
+<p>
+      Also: .value_or()
+    </p>
+<p>
+      The class template std::expected provides a way to represent either of two
+      values: an expected value of type T, or an unexpected value of type E. expected
+      is never valueless.<br> (<a href="https://en.cppreference.com/cpp/utility/expected" target="_top">https://en.cppreference.com/cpp/utility/expected</a>)
+    </p>
+<h2>
+<a name="cpp-std-expected-std-unexpected.h1"></a>
+      <span class="phrase"><a name="cpp-std-expected-std-unexpected.operator-bool"></a></span><a class="link" href="cpp-std-expected-std-unexpected.html#cpp-std-expected-std-unexpected.operator-bool"><span class="cyan">operator bool</span></a>
+    </h2>
+<p>
+      In real practical programming, we'd like use if conditional statement, so
+      <span class="bold"><strong>operator bool</strong></span> and method <span class="bold"><strong>.value()</strong></span>
+      are better than method <span class="bold"><strong>.value_or(...)</strong></span>.
+    </p>
+<pre class="programlisting"><span class="keyword">auto</span> <span class="identifier">exp</span> <span class="special">=</span> <span class="identifier">the_expected_or_unexpected_expression</span><span class="special">;</span>
+<span class="keyword">if</span> <span class="special">(</span><span class="identifier">exp</span><span class="special">)</span>
+	<span class="identifier">exp</span><span class="special">.</span><span class="identifier">value</span><span class="special">();</span>
+<span class="keyword">else</span>
+	<span class="identifier">exp</span><span class="special">.</span><span class="identifier">error</span><span class="special">();</span>
+</pre>
+<h2>
+<a name="cpp-std-expected-std-unexpected.h2"></a>
+      <span class="phrase"><a name="cpp-std-expected-std-unexpected.cpp-example"></a></span><a class="link" href="cpp-std-expected-std-unexpected.html#cpp-std-expected-std-unexpected.cpp-example"><span class="cyan">c++ Example</span></a>
+    </h2>
+<p>
+      <span class="bold"><strong>c++ Example:</strong></span>
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">expected</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">stdfloat</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">complex</span><span class="special">&gt;</span>	<span class="comment">// std::abs, std::cos</span>
+
+<span class="keyword">namespace</span> <span class="identifier">app</span>
+<span class="special">{</span>
+	<span class="keyword">class</span> <span class="identifier">division_by_zero</span> <span class="identifier">final</span>
+	<span class="special">{</span>
+	<span class="keyword">private</span><span class="special">:</span>
+		<span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string_view</span> <span class="identifier">__value</span> <span class="special">=</span> <span class="string">"ERROR: Division by zero."</span><span class="special">;</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="keyword">friend</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">ostream</span> <span class="special">&amp;</span> <span class="keyword">operator</span><span class="special">&lt;&lt;(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">ostream</span> <span class="special">&amp;</span> <span class="identifier">out</span><span class="special">,</span> <span class="keyword">const</span> <span class="identifier">app</span><span class="special">::</span><span class="identifier">division_by_zero</span> <span class="special">&amp;</span> <span class="identifier">self</span><span class="special">)</span>
+		<span class="special">{</span>
+			<span class="identifier">out</span> <span class="special">&lt;&lt;</span> <span class="identifier">self</span><span class="special">.</span><span class="identifier">__value</span><span class="special">;</span>
+			<span class="keyword">return</span> <span class="identifier">out</span><span class="special">;</span>
+		<span class="special">}</span>
+		<span class="keyword">constexpr</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string_view</span> <span class="identifier">get</span><span class="special">()</span> <span class="keyword">const</span>
+		<span class="special">{</span>
+			<span class="keyword">return</span> <span class="identifier">__value</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="special">};</span>
+
+	<span class="keyword">using</span> <span class="identifier">expected</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">expected</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">float64_t</span><span class="special">,</span> <span class="identifier">app</span><span class="special">::</span><span class="identifier">division_by_zero</span><span class="special">&gt;;</span>
+	<span class="keyword">using</span> <span class="identifier">unexpected</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">unexpected</span><span class="special">&lt;</span><span class="identifier">app</span><span class="special">::</span><span class="identifier">division_by_zero</span><span class="special">&gt;;</span>
+
+	<span class="keyword">class</span> <span class="identifier">my_class</span>
+	<span class="special">{</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">app</span><span class="special">::</span><span class="identifier">expected</span> <span class="identifier">divide</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">float64_t</span> <span class="identifier">a</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">float64_t</span> <span class="identifier">b</span><span class="special">)</span>
+		<span class="special">{</span>
+			<span class="keyword">if</span> <span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">abs</span><span class="special">(</span><span class="identifier">b</span><span class="special">)</span> <span class="special">&lt;</span> <span class="number">0.00000001</span><span class="special">)</span>
+				<span class="keyword">return</span> <span class="identifier">app</span><span class="special">::</span><span class="identifier">unexpected</span><span class="special">{</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">in_place_t</span><span class="special">{}};</span>
+			<span class="comment">// else</span>
+			<span class="keyword">return</span> <span class="identifier">app</span><span class="special">::</span><span class="identifier">expected</span><span class="special">{</span><span class="identifier">a</span><span class="special">/</span><span class="identifier">b</span><span class="special">};</span>
+		<span class="special">}</span>
+	<span class="special">};</span>
+<span class="special">}</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">for</span> <span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">float64_t</span> <span class="identifier">a</span><span class="special">=-</span><span class="number">11</span><span class="special">;</span> <span class="identifier">a</span><span class="special">&lt;=</span><span class="number">11</span><span class="special">;</span> <span class="identifier">a</span><span class="special">++)</span>
+	<span class="special">{</span>
+		<span class="keyword">auto</span> <span class="identifier">result</span> <span class="special">=</span> <span class="identifier">app</span><span class="special">::</span><span class="identifier">my_class</span><span class="special">{}.</span><span class="identifier">divide</span><span class="special">(</span><span class="number">7</span><span class="special">,</span> <span class="identifier">a</span><span class="special">);</span>
+		<span class="keyword">if</span> <span class="special">(</span><span class="identifier">result</span><span class="special">)</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Result: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">result</span><span class="special">.</span><span class="identifier">value</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+		<span class="keyword">else</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">result</span><span class="special">.</span><span class="identifier">error</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">}</span>
+</pre>
+<p>
+      <span class="bold"><strong>Running output:</strong></span>
+    </p>
+<pre class="programlisting">Result: -0.636364
+Result: -0.7
+Result: -0.777778
+Result: -0.875
+Result: -1
+Result: -1.16667
+Result: -1.4
+Result: -1.75
+Result: -2.33333
+Result: -3.5
+Result: -7
+ERROR: Division by zero.
+Result: 7
+Result: 3.5
+Result: 2.33333
+Result: 1.75
+Result: 1.4
+Result: 1.16667
+Result: 1
+Result: 0.875
+Result: 0.777778
+Result: 0.7
+Result: 0.636364
+</pre>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<p>
+      <a href="." target="_top">Home</a>
+    </p>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<p>
+      Sat May 2 08:23:24 AM UTC 2026
+    </p>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<h2>
+<a name="cpp-std-expected-std-unexpected.h3"></a>
+      <span class="phrase"><a name="cpp-std-expected-std-unexpected.helpful"></a></span><a class="link" href="cpp-std-expected-std-unexpected.html#cpp-std-expected-std-unexpected.helpful"><span class="cyan">Helpful</span></a>
+    </h2>
+<p>
+      <a href="https://wtgo.top/jfty.html" target="_top">Jfty</a>
+    </p>
+<p>
+      <a href="https://wtgo.top" target="_top">Wtgo</a>
+    </p>
+<h2>
+<a name="cpp-std-expected-std-unexpected.h4"></a>
+      <span class="phrase"><a name="cpp-std-expected-std-unexpected.role"></a></span><a class="link" href="cpp-std-expected-std-unexpected.html#cpp-std-expected-std-unexpected.role"><span class="cyan">Role</span></a>
+    </h2>
+<p>
+      +
+    </p>
+<p>
+      Github:<br> <a href="https://github.com/cppfx/cpphtgt" target="_top">https://github.com/cppfx/cpphtgt</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      Powered by:<br> <a href="https://www.bfgroup.xyz/b2" target="_top">B2 Build</a>
+      | <a href="https://www.boost.org/tools/quickbook" target="_top">boost quickbook</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      <a href="https://cppfx.xyz#cppfx.donate" target="_top">Donate</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      @<a href="https://cppfx.xyz" target="_top">cppfx.xyz</a>
+    </p>
+<p>
+      <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+      <br> <br> <br> <br> <br>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="asio-thread_pool-std-bind-bind-lifetime-to-object.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

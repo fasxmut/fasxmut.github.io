@@ -1,0 +1,148 @@
+[article c++: std::expected, std::unexpected
+	[quickbook 1.7]
+	[id cpp-std-expected-std-unexpected]
+]
+
+[role drop_menu
+> [link cpp-std-expected-std-unexpected Start][br]
+> [link cpp-std-expected-std-unexpected.std-expected std::expected][br]
+> [link cpp-std-expected-std-unexpected.operator-bool operator bool][br]
+> [link cpp-std-expected-std-unexpected.cpp-example c++ Example][br]
+> [@. Back: Home]
+]
+
+std::expected
+
+std::unexpected
+
+operator bool
+
+c++ Example
+
+[h1:std-expected [role cyan std::expected]]
+
+c++ std::expected: The first template type is the expected value type, the second template type is the unexpected value type.
+
+c++ std::unexpected: The template type is the unexpected value type.
+
+Method .value(): The expected value if result is expected;
+
+Method .error(): Set a value if result is unexpected;
+
+Also: .value_or()
+
+The class template std::expected provides a way to represent either of two values: an expected value of type T, or an unexpected value of type E. expected is never valueless.[br]
+([@https://en.cppreference.com/cpp/utility/expected])
+
+[h1:operator-bool [role cyan operator bool]]
+
+In real practical programming, we'd like use if conditional statement, so [*operator bool] and method [*.value()] are better than method [*.value_or(...)].
+
+[!c++]
+```
+auto exp = the_expected_or_unexpected_expression;
+if (exp)
+	exp.value();
+else
+	exp.error();
+```
+
+[h1:cpp-example [role cyan c++ Example]]
+
+[*c++ Example:]
+
+[!c++]
+```
+#include <expected>
+#include <iostream>
+#include <stdfloat>
+#include <complex>	// std::abs, std::cos
+
+namespace app
+{
+	class division_by_zero final
+	{
+	private:
+		constexpr static std::string_view __value = "ERROR: Division by zero.";
+	public:
+		friend std::ostream & operator<<(std::ostream & out, const app::division_by_zero & self)
+		{
+			out << self.__value;
+			return out;
+		}
+		constexpr std::string_view get() const
+		{
+			return __value;
+		}
+	};
+
+	using expected = std::expected<std::float64_t, app::division_by_zero>;
+	using unexpected = std::unexpected<app::division_by_zero>;
+
+	class my_class
+	{
+	public:
+		app::expected divide(std::float64_t a, std::float64_t b)
+		{
+			if (std::abs(b) < 0.00000001)
+				return app::unexpected{std::in_place_t{}};
+			// else
+			return app::expected{a/b};
+		}
+	};
+}
+
+int main()
+{
+	for (std::float64_t a=-11; a<=11; a++)
+	{
+		auto result = app::my_class{}.divide(7, a);
+		if (result)
+			std::cout << "Result: " << result.value() << std::endl;
+		else
+			std::cout << result.error() << std::endl;
+	}
+}
+```
+
+[*Running output:]
+
+[!teletype]
+```
+Result: -0.636364
+Result: -0.7
+Result: -0.777778
+Result: -0.875
+Result: -1
+Result: -1.16667
+Result: -1.4
+Result: -1.75
+Result: -2.33333
+Result: -3.5
+Result: -7
+ERROR: Division by zero.
+Result: 7
+Result: 3.5
+Result: 2.33333
+Result: 1.75
+Result: 1.4
+Result: 1.16667
+Result: 1
+Result: 0.875
+Result: 0.777778
+Result: 0.7
+Result: 0.636364
+```
+
+//////////////////////////////////////////////////////////////////////
+
+[@. Home]
+
+//////////////////////////////////////////////////////////////////////
+
+Sat May  2 08:23:24 AM UTC 2026
+
+//////////////////////////////////////////////////////////////////////
+
+[include ../share/foot-links.inc.qbk]
+

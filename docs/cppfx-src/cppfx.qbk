@@ -3,6 +3,7 @@
 	[id cppfx]
 ]
 
+[include cpp-std-expected-std-unexpected.qbk]
 [include asio-thread_pool-std-bind-bind-lifetime-to-object.qbk]
 [include debugging-cpp-std.qbk]
 [include boost-process-asio-pipe.qbk]
