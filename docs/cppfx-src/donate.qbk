@@ -1,0 +1,67 @@
+[article Donate
+	[quickbook 1.7]
+	[id donate]
+]
+
+[role drop_menu
+> [link donate Start][br]
+> [link donate.cny Donate CNY][br]
+> [link donate.wise Donate GBP, EUR, AUD, USD, ...][br]
+> [link donate.aud Donate AUD][br]
+> [@. Back: Home][br]
+]
+
+cppfx:
+
+[*[role dddred cppfx.xyz]] - A website for c++ programming, applications, games and declicated systems.
+
+* c++20, c++23, c++26, c++future
+* c++ libraries
+* c++ software
+* c++ games
+* c++ dedicated systems
+
+[h1:cny [role cyan Donate CNY]]
+
+[h3:alipay-scan Alipay Scan (China Alipay):]
+
+[$donate/cny-alipay-300x300.png]
+
+[h1:wise [role cyan Donate GBP, EUR, AUD, USD, ...]]
+
+Donate GBP, EUR, AUD, USD, ... and any more currencies by wise.
+
+[h3:wise-scan Wise Scan:]
+[$donate/wise-500x500.png [width 300px] [height 300px]]
+
+Donate GBP, EUR, AUD, USD, ..., etc.
+
+[h3:wise-account Wise Account]
+
+If you do not have wise account, you can sign up with my [*ref link]:[br]
+[*[@https://wise.com/invite/dic/zhoujund]]
+
+If you have wise account, donate directly.
+
+My [*wisetag:][br]
+[*zhoujund]
+
+Donate Link:[br]
+[*[@https://wise.com/pay/me/zhoujund]]
+
+[h1:aud [role cyan Donate AUD]]
+
+Donate AUD with Australia PayID:
+
+[$donate/aupidkp-600x200.png [width 500px]]
+
+//////////////////////////////////////////////////////////////////////
+
+[@. Home]
+
+//////////////////////////////////////////////////////////////////////
+
+[include ../share/foot-links.inc.qbk]
+
+
+

@@ -9,13 +9,14 @@
 [include boost-process-asio-pipe.qbk]
 [include writing-jamfiles.qbk]
 [include asio-thread_pool-executor.qbk]
+[include donate.qbk]
 [include about.qbk]
 
 [role drop_menu
 > [@. Start][br]
 > [link cppfx.subspaces Subspaces][br]
 > [@learn-cpp-in-days Special: Learn c++ In Days][br]
-> [link cppfx.donate Donate]
+> [@donate.html Donate][br]
 ]
 
 [h1:subspaces [role cyan Subspaces]]
@@ -25,12 +26,6 @@
 * [@cpptoolchain c++ Toolchain]
 
 [@old-index.html Old Index]
-
-[h1:donate [role cyan Donate]]
-
-[*[link about.donate-cny Donate CNY]]
-
-[*[link about.donate-wise Donate GBP, EUR, AUD, USD, ...]]
 
 [include ../share/foot-links.inc.qbk]
 
