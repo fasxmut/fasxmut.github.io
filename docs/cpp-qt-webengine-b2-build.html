@@ -1,0 +1,331 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>c++ Qt WebEngine and b2 build</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="cppfx - c++, b2 build">
+<link rel="up" href="index.html" title="cppfx - c++, b2 build">
+<link rel="prev" href="index.html" title="cppfx - c++, b2 build">
+<link rel="next" href="cpp-std-expected-std-unexpected.html" title="c++: std::expected, std::unexpected">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp-std-expected-std-unexpected.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="cpp-qt-webengine-b2-build"></a>c++ Qt WebEngine and b2 build</h1></div></div>
+<hr>
+</div>
+<p>
+      <span class="drop_menu">&gt; <a class="link" href="cpp-qt-webengine-b2-build.html" title="c++ Qt WebEngine and b2 build">Start</a><br>
+      &gt; <a class="link" href="cpp-qt-webengine-b2-build.html#cpp-qt-webengine-b2-build.install">Install</a><br>
+      &gt; <a class="link" href="cpp-qt-webengine-b2-build.html#cpp-qt-webengine-b2-build.hello-discord">Hello World: Discord
+      App</a><br> &gt; <a class="link" href="cpp-qt-webengine-b2-build.html#cpp-qt-webengine-b2-build.qt-b2">Use b2
+      build</a><br> &gt; <a class="link" href="cpp-qt-webengine-b2-build.html#cpp-qt-webengine-b2-build.address-bar">Address
+      Bar</a><br> &gt; <a class="link" href="cpp-qt-webengine-b2-build.html#cpp-qt-webengine-b2-build.default-profile">Default
+      Profile</a><br> &gt; <a class="link" href="cpp-qt-webengine-b2-build.html#cpp-qt-webengine-b2-build.customize-profile">Customize
+      Profile</a><br> &gt; <a class="link" href="cpp-qt-webengine-b2-build.html#cpp-qt-webengine-b2-build.tabs">Tabs</a><br>
+      &gt; <a href="." target="_top">Back: Home</a> </span>
+    </p>
+<p>
+      c++
+    </p>
+<p>
+      Qt6
+    </p>
+<p>
+      Qt WebEngine
+    </p>
+<p>
+      Chromium
+    </p>
+<p>
+      B2 Build
+    </p>
+<p>
+      Discord
+    </p>
+<p>
+      c++ qt webengine is a web browser engine powered by Qt c++ libraries and google
+      chromium.
+    </p>
+<p>
+      c++ Examples
+    </p>
+<p>
+      c++ Code
+    </p>
+<h2>
+<a name="cpp-qt-webengine-b2-build.h0"></a>
+      <span class="phrase"><a name="cpp-qt-webengine-b2-build.install"></a></span><a class="link" href="cpp-qt-webengine-b2-build.html#cpp-qt-webengine-b2-build.install"><span class="cyan">Install</span></a>
+    </h2>
+<pre class="programlisting">$ su -
+# apt install qt6-webengine-dev
+</pre>
+<h2>
+<a name="cpp-qt-webengine-b2-build.h1"></a>
+      <span class="phrase"><a name="cpp-qt-webengine-b2-build.hello-discord"></a></span><a class="link" href="cpp-qt-webengine-b2-build.html#cpp-qt-webengine-b2-build.hello-discord"><span class="cyan">Hell World: Discord App</span></a>
+    </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">QApplication</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">QWebEngineView</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">QUrl</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">(</span><span class="keyword">int</span> <span class="identifier">argc</span><span class="special">,</span> <span class="keyword">char</span> <span class="special">**</span> <span class="identifier">argv</span><span class="special">)</span>
+<span class="special">{</span>
+	<span class="identifier">QApplication</span> <span class="identifier">app</span><span class="special">{</span><span class="identifier">argc</span><span class="special">,</span> <span class="identifier">argv</span><span class="special">};</span>
+	<span class="identifier">QWebEngineView</span> <span class="identifier">view</span><span class="special">;</span>
+	<span class="identifier">view</span><span class="special">.</span><span class="identifier">load</span><span class="special">(</span><span class="identifier">QUrl</span><span class="special">(</span><span class="string">"https://discord.com"</span><span class="special">));</span>
+	<span class="identifier">view</span><span class="special">.</span><span class="identifier">resize</span><span class="special">(</span><span class="number">1500</span><span class="special">,</span> <span class="number">850</span><span class="special">);</span>
+	<span class="identifier">view</span><span class="special">.</span><span class="identifier">show</span><span class="special">();</span>
+	<span class="keyword">return</span> <span class="identifier">app</span><span class="special">.</span><span class="identifier">exec</span><span class="special">();</span>
+<span class="special">}</span>
+</pre>
+<p>
+      Compile it with c++ compiler (gcc), run, then open discord, login, and chat.
+    </p>
+<h3>
+<a name="cpp-qt-webengine-b2-build.h2"></a>
+      <span class="phrase"><a name="cpp-qt-webengine-b2-build.qt-b2"></a></span><a class="link" href="cpp-qt-webengine-b2-build.html#cpp-qt-webengine-b2-build.qt-b2">Use
+      b2 build</a>
+    </h3>
+<p>
+      <span class="bold"><strong>Initialize project</strong></span>
+    </p>
+<pre class="programlisting">$ mkdir discord
+$ cd discord
+$ kak discord.cpp
+$ kak jamroot
+</pre>
+<p>
+      File: <span class="bold"><strong>jamroot</strong></span>
+    </p>
+<pre class="programlisting"><span class="identifier">import</span> <span class="identifier">pkg</span><span class="special">-</span><span class="identifier">config</span> <span class="special">;</span>
+<span class="keyword">using</span> <span class="identifier">pkg</span><span class="special">-</span><span class="identifier">config</span> <span class="special">;</span>
+
+<span class="identifier">pkg</span><span class="special">-</span><span class="identifier">config</span><span class="special">.</span><span class="identifier">import</span>
+	<span class="identifier">qt6_webengine</span>
+<span class="special">:</span>
+	<span class="identifier">requirements</span>
+		<span class="special">&lt;</span><span class="identifier">name</span><span class="special">&gt;</span><span class="identifier">Qt6WebEngineWidgets</span>
+<span class="special">;</span>
+
+<span class="identifier">exe</span>
+	<span class="identifier">discord</span>
+<span class="special">:</span>
+	<span class="identifier">discord</span><span class="special">.</span><span class="identifier">cpp</span>
+<span class="special">:</span>
+	<span class="special">&lt;</span><span class="identifier">library</span><span class="special">&gt;</span><span class="identifier">qt6_webengine</span>
+<span class="special">;</span>
+</pre>
+<p>
+      The jamfile <span class="bold"><strong>jamroot</strong></span> has too many lines? It
+      has only four lines actually:
+    </p>
+<pre class="programlisting"><span class="identifier">import</span> <span class="identifier">pkg</span><span class="special">-</span><span class="identifier">config</span> <span class="special">;</span>
+<span class="keyword">using</span> <span class="identifier">pkg</span><span class="special">-</span><span class="identifier">config</span> <span class="special">;</span>
+<span class="identifier">pkg</span><span class="special">-</span><span class="identifier">config</span><span class="special">.</span><span class="identifier">import</span> <span class="identifier">qt6_webengine</span> <span class="special">:</span> <span class="identifier">requirements</span> <span class="special">&lt;</span><span class="identifier">name</span><span class="special">&gt;</span><span class="identifier">Qt6WebEngineWidgets</span> <span class="special">;</span>
+<span class="identifier">exe</span> <span class="identifier">discord</span> <span class="special">:</span> <span class="identifier">discord</span><span class="special">.</span><span class="identifier">cpp</span> <span class="special">:</span> <span class="special">&lt;</span><span class="identifier">library</span><span class="special">&gt;</span><span class="identifier">qt6_webengine</span> <span class="special">;</span>
+</pre>
+<p>
+      <span class="bold"><strong>Build project</strong></span>
+    </p>
+<pre class="programlisting"><span class="identifier">b2</span> <span class="special">-</span><span class="identifier">q</span> <span class="special">-</span><span class="identifier">j3</span>
+</pre>
+<h3>
+<a name="cpp-qt-webengine-b2-build.h3"></a>
+      <span class="phrase"><a name="cpp-qt-webengine-b2-build.run-discord"></a></span><a class="link" href="cpp-qt-webengine-b2-build.html#cpp-qt-webengine-b2-build.run-discord">Run
+      discord</a>
+    </h3>
+<pre class="programlisting">$ ./bin/gcc-15/debug/discord
+</pre>
+<h3>
+<a name="cpp-qt-webengine-b2-build.h4"></a>
+      <span class="phrase"><a name="cpp-qt-webengine-b2-build.setHtml"></a></span><a class="link" href="cpp-qt-webengine-b2-build.html#cpp-qt-webengine-b2-build.setHtml">setHtml</a>
+    </h3>
+<pre class="programlisting"><span class="identifier">webview</span><span class="special">.</span><span class="identifier">setHtml</span><span class="special">(</span><span class="string">"&lt;p&gt;He&lt;b&gt;ll&lt;/b&gt;o&lt;/p&gt;, c++!"</span><span class="special">);</span>
+</pre>
+<h2>
+<a name="cpp-qt-webengine-b2-build.h5"></a>
+      <span class="phrase"><a name="cpp-qt-webengine-b2-build.address-bar"></a></span><a class="link" href="cpp-qt-webengine-b2-build.html#cpp-qt-webengine-b2-build.address-bar"><span class="cyan">Address Bar</span></a>
+    </h2>
+<p>
+      Add address bar to the program, which will make the program look like a web
+      browser.
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">QApplication</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">QWebEngineView</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">QUrl</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">QVBoxLayout</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">QLineEdit</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">(</span><span class="keyword">int</span> <span class="identifier">argc</span><span class="special">,</span> <span class="keyword">char</span> <span class="special">**</span> <span class="identifier">argv</span><span class="special">)</span>
+<span class="special">{</span>
+	<span class="identifier">QApplication</span> <span class="identifier">app</span><span class="special">{</span><span class="identifier">argc</span><span class="special">,</span> <span class="identifier">argv</span><span class="special">};</span>
+	<span class="keyword">auto</span> <span class="special">*</span> <span class="identifier">window</span> <span class="special">=</span> <span class="keyword">new</span> <span class="identifier">QWidget</span><span class="special">;</span>
+	<span class="identifier">window</span><span class="special">-&gt;</span><span class="identifier">resize</span><span class="special">(</span><span class="number">1500</span><span class="special">,</span> <span class="number">800</span><span class="special">);</span>
+	<span class="keyword">auto</span> <span class="special">*</span> <span class="identifier">layout</span> <span class="special">=</span> <span class="keyword">new</span> <span class="identifier">QVBoxLayout</span><span class="special">{</span><span class="identifier">window</span><span class="special">};</span>
+
+	<span class="comment">// Create an address bar to the program.</span>
+	<span class="keyword">auto</span> <span class="special">*</span> <span class="identifier">addressbar</span> <span class="special">=</span> <span class="keyword">new</span> <span class="identifier">QLineEdit</span><span class="special">;</span>
+	<span class="identifier">layout</span><span class="special">-&gt;</span><span class="identifier">addWidget</span><span class="special">(</span><span class="identifier">addressbar</span><span class="special">);</span>
+
+	<span class="keyword">auto</span> <span class="special">*</span> <span class="identifier">webview</span> <span class="special">=</span> <span class="keyword">new</span> <span class="identifier">QWebEngineView</span><span class="special">;</span>
+	<span class="identifier">layout</span><span class="special">-&gt;</span><span class="identifier">addWidget</span><span class="special">(</span><span class="identifier">webview</span><span class="special">);</span>
+
+	<span class="comment">// Connect address bar url input event.</span>
+	<span class="identifier">QObject</span><span class="special">::</span><span class="identifier">connect</span><span class="special">(</span>
+		<span class="identifier">addressbar</span><span class="special">,</span>
+		<span class="special">&amp;</span><span class="identifier">QLineEdit</span><span class="special">::</span><span class="identifier">returnPressed</span><span class="special">,</span>
+		<span class="special">[</span><span class="identifier">webview</span><span class="special">,</span> <span class="identifier">addressbar</span><span class="special">]</span>
+		<span class="special">{</span>
+			<span class="identifier">QString</span> <span class="identifier">url</span> <span class="special">=</span> <span class="identifier">addressbar</span><span class="special">-&gt;</span><span class="identifier">text</span><span class="special">();</span>
+			<span class="keyword">if</span> <span class="special">(!</span> <span class="identifier">url</span><span class="special">.</span><span class="identifier">startsWith</span><span class="special">(</span><span class="string">"https://"</span><span class="special">)</span> <span class="special">&amp;&amp;</span> <span class="special">!</span> <span class="identifier">url</span><span class="special">.</span><span class="identifier">startsWith</span><span class="special">(</span><span class="string">"http://"</span><span class="special">))</span>
+				<span class="identifier">url</span> <span class="special">=</span> <span class="identifier">QString</span><span class="special">{</span><span class="string">"https://"</span><span class="special">}</span> <span class="special">+</span> <span class="identifier">url</span><span class="special">;</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Trying connect:\n"</span> <span class="special">&lt;&lt;</span> <span class="identifier">url</span><span class="special">.</span><span class="identifier">toStdString</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="string">"\n..."</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+			<span class="identifier">webview</span><span class="special">-&gt;</span><span class="identifier">load</span><span class="special">(</span><span class="identifier">QUrl</span><span class="special">(</span><span class="identifier">url</span><span class="special">));</span>
+		<span class="special">}</span>
+	<span class="special">);</span>
+
+	<span class="identifier">window</span><span class="special">-&gt;</span><span class="identifier">show</span><span class="special">();</span>
+	<span class="keyword">return</span> <span class="identifier">app</span><span class="special">.</span><span class="identifier">exec</span><span class="special">();</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="cpp-qt-webengine-b2-build.h6"></a>
+      <span class="phrase"><a name="cpp-qt-webengine-b2-build.default-profile"></a></span><a class="link" href="cpp-qt-webengine-b2-build.html#cpp-qt-webengine-b2-build.default-profile"><span class="cyan">Default Profile</span></a>
+    </h2>
+<p>
+      Default profile:
+    </p>
+<h3>
+<a name="cpp-qt-webengine-b2-build.h7"></a>
+      <span class="phrase"><a name="cpp-qt-webengine-b2-build.profile-name"></a></span><a class="link" href="cpp-qt-webengine-b2-build.html#cpp-qt-webengine-b2-build.profile-name">Profile
+      name:</a>
+    </h3>
+<pre class="programlisting"><span class="identifier">QCoreApplication</span><span class="special">::</span><span class="identifier">setOrganizationName</span><span class="special">(</span><span class="string">"MyWorldApplication"</span><span class="special">);</span>
+</pre>
+<p>
+      Now, the profile name is <span class="bold"><strong>MyWorldApplication</strong></span>
+    </p>
+<h3>
+<a name="cpp-qt-webengine-b2-build.h8"></a>
+      <span class="phrase"><a name="cpp-qt-webengine-b2-build.settings-pointer"></a></span><a class="link" href="cpp-qt-webengine-b2-build.html#cpp-qt-webengine-b2-build.settings-pointer">Get
+      settings pointer</a>
+    </h3>
+<p>
+      #include &lt;QWebEngineProfile&gt;
+    </p>
+<pre class="programlisting"><span class="comment">// This pointer must be got after creating QApplication</span>
+<span class="keyword">auto</span> <span class="special">*</span> <span class="identifier">set</span> <span class="special">=</span> <span class="identifier">QWebEngineProfile</span><span class="special">::</span><span class="identifier">defaultProfile</span><span class="special">()-&gt;</span><span class="identifier">settings</span><span class="special">();</span>
+</pre>
+<h3>
+<a name="cpp-qt-webengine-b2-build.h9"></a>
+      <span class="phrase"><a name="cpp-qt-webengine-b2-build.features"></a></span><a class="link" href="cpp-qt-webengine-b2-build.html#cpp-qt-webengine-b2-build.features">Enable/Disable
+      features</a>
+    </h3>
+<p>
+      #include &lt;QWebEngineSettings&gt;
+    </p>
+<pre class="programlisting"><span class="identifier">set</span><span class="special">-&gt;</span><span class="identifier">setAttribute</span><span class="special">(</span><span class="identifier">QWebEngineSettings</span><span class="special">::</span><span class="identifier">PdfViewerEnabled</span><span class="special">,</span> <span class="keyword">true</span><span class="special">);</span>
+</pre>
+<h2>
+<a name="cpp-qt-webengine-b2-build.h10"></a>
+      <span class="phrase"><a name="cpp-qt-webengine-b2-build.customize-profile"></a></span><a class="link" href="cpp-qt-webengine-b2-build.html#cpp-qt-webengine-b2-build.customize-profile"><span class="cyan">Customize Profile</span></a>
+    </h2>
+<pre class="programlisting"><span class="keyword">auto</span> <span class="special">*</span> <span class="identifier">profile</span> <span class="special">=</span> <span class="keyword">new</span> <span class="identifier">QWebEngineProfile</span><span class="special">(</span><span class="string">"MyNewProfile"</span><span class="special">,</span> <span class="keyword">this</span><span class="special">);</span>
+<span class="identifier">profile</span><span class="special">-&gt;</span><span class="identifier">settings</span><span class="special">-&gt;</span><span class="identifier">setAttribute</span><span class="special">(</span><span class="identifier">QWebEngineSettings</span><span class="special">::</span><span class="identifier">JavascriptEanbled</span><span class="special">,</span> <span class="keyword">false</span><span class="special">);</span>
+<span class="keyword">auto</span> <span class="special">*</span> <span class="identifier">page</span> <span class="special">=</span> <span class="keyword">new</span> <span class="identifier">QWebEnginePage</span><span class="special">(</span><span class="identifier">profile</span><span class="special">,</span> <span class="keyword">this</span><span class="special">);</span>
+<span class="keyword">auto</span> <span class="special">*</span> <span class="identifier">webview</span> <span class="special">=</span> <span class="keyword">new</span> <span class="identifier">QWebEngineView</span><span class="special">(</span><span class="keyword">this</span><span class="special">);</span>
+<span class="identifier">webview</span><span class="special">-&gt;</span><span class="identifier">sePage</span><span class="special">(</span><span class="identifier">page</span><span class="special">);</span>
+</pre>
+<h2>
+<a name="cpp-qt-webengine-b2-build.h11"></a>
+      <span class="phrase"><a name="cpp-qt-webengine-b2-build.tabs"></a></span><a class="link" href="cpp-qt-webengine-b2-build.html#cpp-qt-webengine-b2-build.tabs"><span class="cyan">Tabs</span></a>
+    </h2>
+<p>
+      #include &lt;QTabWidget&gt;<br> #include &lt;QWidget&gt;
+    </p>
+<pre class="programlisting"><span class="keyword">auto</span> <span class="special">*</span> <span class="identifier">tab1</span> <span class="special">=</span> <span class="keyword">new</span> <span class="identifier">QWidget</span><span class="special">;</span>
+<span class="keyword">auto</span> <span class="special">*</span> <span class="identifier">tab2</span> <span class="special">=</span> <span class="keyword">new</span> <span class="identifier">QWidget</span><span class="special">;</span>
+
+<span class="identifier">QTabWidget</span> <span class="identifier">twg</span><span class="special">;</span>
+
+<span class="identifier">twg</span><span class="special">.</span><span class="identifier">addTab</span><span class="special">(</span><span class="identifier">tab1</span><span class="special">,</span> <span class="string">"Tab 1"</span><span class="special">);</span>
+<span class="identifier">twg</span><span class="special">.</span><span class="identifier">addTab</span><span class="special">(</span><span class="identifier">tab2</span><span class="special">,</span> <span class="string">"Tab 2"</span><span class="special">);</span>
+
+<span class="identifier">twg</span><span class="special">.</span><span class="identifier">resize</span><span class="special">(</span><span class="number">1500</span><span class="special">,</span> <span class="number">850</span><span class="special">);</span>
+<span class="identifier">twg</span><span class="special">.</span><span class="identifier">show</span><span class="special">();</span>
+</pre>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<p>
+      <a href="." target="_top">Home</a>
+    </p>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<p>
+      Mon May 18 01:10:03 AM UTC 2026
+    </p>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<h2>
+<a name="cpp-qt-webengine-b2-build.h12"></a>
+      <span class="phrase"><a name="cpp-qt-webengine-b2-build.helpful"></a></span><a class="link" href="cpp-qt-webengine-b2-build.html#cpp-qt-webengine-b2-build.helpful"><span class="cyan">Helpful</span></a>
+    </h2>
+<p>
+      <a href="https://wtgo.top/jfty.html" target="_top">Jfty</a>
+    </p>
+<p>
+      <a href="https://wtgo.top" target="_top">Wtgo</a>
+    </p>
+<h2>
+<a name="cpp-qt-webengine-b2-build.h13"></a>
+      <span class="phrase"><a name="cpp-qt-webengine-b2-build.role"></a></span><a class="link" href="cpp-qt-webengine-b2-build.html#cpp-qt-webengine-b2-build.role"><span class="cyan">Role</span></a>
+    </h2>
+<p>
+      +
+    </p>
+<p>
+      Github:<br> <a href="https://github.com/cppfx/cpphtgt" target="_top">https://github.com/cppfx/cpphtgt</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      Powered by:<br> <a href="https://www.bfgroup.xyz/b2" target="_top">B2 Build</a>
+      | <a href="https://www.boost.org/tools/quickbook" target="_top">boost quickbook</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      <a href="https://cppfx.xyz#cppfx.donate" target="_top">Donate</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      @<a href="https://cppfx.xyz" target="_top">cppfx.xyz</a>
+    </p>
+<p>
+      <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+      <br> <br> <br> <br> <br>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp-std-expected-std-unexpected.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,247 @@
+[article c++ Qt WebEngine and b2 build
+	[quickbook 1.7]
+	[id cpp-qt-webengine-b2-build]
+]
+
+[role drop_menu
+> [link cpp-qt-webengine-b2-build Start][br]
+> [link cpp-qt-webengine-b2-build.install Install][br]
+> [link cpp-qt-webengine-b2-build.hello-discord Hello World: Discord App][br]
+> [link cpp-qt-webengine-b2-build.qt-b2 Use b2 build][br]
+> [link cpp-qt-webengine-b2-build.address-bar Address Bar][br]
+> [link cpp-qt-webengine-b2-build.default-profile Default Profile][br]
+> [link cpp-qt-webengine-b2-build.customize-profile Customize Profile][br]
+> [link cpp-qt-webengine-b2-build.tabs Tabs][br]
+> [@. Back: Home]
+]
+
+c++
+
+Qt6
+
+Qt WebEngine
+
+Chromium
+
+B2 Build
+
+Discord
+
+c++ qt webengine is a web browser engine powered by Qt c++ libraries and google chromium.
+
+c++ Examples
+
+c++ Code
+
+[h1:install [role cyan Install]]
+
+[!teletype]
+```
+$ su -
+# apt install qt6-webengine-dev
+```
+
+[h1:hello-discord [role cyan Hell World: Discord App]]
+
+[!c++]
+```
+#include <QApplication>
+#include <QWebEngineView>
+#include <QUrl>
+#include <iostream>
+
+int main(int argc, char ** argv)
+{
+	QApplication app{argc, argv};
+	QWebEngineView view;
+	view.load(QUrl("https://discord.com"));
+	view.resize(1500, 850);
+	view.show();
+	return app.exec();
+}
+```
+
+Compile it with c++ compiler (gcc), run, then open discord, login, and chat.
+
+[h2:qt-b2 Use b2 build]
+
+[*Initialize project]
+
+[!teletype]
+```
+$ mkdir discord
+$ cd discord
+$ kak discord.cpp
+$ kak jamroot
+```
+
+File: [*jamroot]
+
+```
+import pkg-config ;
+using pkg-config ;
+
+pkg-config.import
+	qt6_webengine
+:
+	requirements
+		<name>Qt6WebEngineWidgets
+;
+
+exe
+	discord
+:
+	discord.cpp
+:
+	<library>qt6_webengine
+;
+```
+
+The jamfile [*jamroot] has too many lines? It has only four lines actually:
+
+```
+import pkg-config ;
+using pkg-config ;
+pkg-config.import qt6_webengine : requirements <name>Qt6WebEngineWidgets ;
+exe discord : discord.cpp : <library>qt6_webengine ;
+```
+
+[*Build project]
+
+```
+b2 -q -j3
+```
+
+[h2:run-discord Run discord]
+
+[!teletype]
+```
+$ ./bin/gcc-15/debug/discord
+```
+
+[h2:setHtml setHtml]
+
+```
+webview.setHtml("<p>He<b>ll</b>o</p>, c++!");
+```
+
+[h1:address-bar [role cyan Address Bar]]
+
+Add address bar to the program, which will make the program look like a web browser.
+
+[!c++]
+```
+#include <QApplication>
+#include <QWebEngineView>
+#include <QUrl>
+#include <iostream>
+#include <QVBoxLayout>
+#include <QLineEdit>
+
+int main(int argc, char ** argv)
+{
+	QApplication app{argc, argv};
+	auto * window = new QWidget;
+	window->resize(1500, 800);
+	auto * layout = new QVBoxLayout{window};
+
+	// Create an address bar to the program.
+	auto * addressbar = new QLineEdit;
+	layout->addWidget(addressbar);
+
+	auto * webview = new QWebEngineView;
+	layout->addWidget(webview);
+
+	// Connect address bar url input event.
+	QObject::connect(
+		addressbar,
+		&QLineEdit::returnPressed,
+		[webview, addressbar]
+		{
+			QString url = addressbar->text();
+			if (! url.startsWith("https://") && ! url.startsWith("http://"))
+				url = QString{"https://"} + url;
+			std::cout << "Trying connect:\n" << url.toStdString() << "\n..." << std::endl;
+			webview->load(QUrl(url));
+		}
+	);
+
+	window->show();
+	return app.exec();
+}
+```
+
+[h1:default-profile [role cyan Default Profile]]
+
+Default profile:
+
+[h2:profile-name Profile name:]
+
+[!c++]
+```
+QCoreApplication::setOrganizationName("MyWorldApplication");
+```
+
+Now, the profile name is [*MyWorldApplication]
+
+[h2:settings-pointer Get settings pointer]
+
+\#include <QWebEngineProfile>
+
+[!c++]
+```
+// This pointer must be got after creating QApplication
+auto * set = QWebEngineProfile::defaultProfile()->settings();
+```
+
+[h2:features Enable/Disable features]
+
+\#include <QWebEngineSettings>
+
+[!c++]
+```
+set->setAttribute(QWebEngineSettings::PdfViewerEnabled, true);
+```
+
+[h1:customize-profile [role cyan Customize Profile]]
+
+[!c++]
+```
+auto * profile = new QWebEngineProfile("MyNewProfile", this);
+profile->settings->setAttribute(QWebEngineSettings::JavascriptEanbled, false);
+auto * page = new QWebEnginePage(profile, this);
+auto * webview = new QWebEngineView(this);
+webview->sePage(page);
+```
+
+[h1:tabs [role cyan Tabs]]
+
+\#include <QTabWidget>[br]
+\#include <QWidget>
+
+[!c++]
+```
+auto * tab1 = new QWidget;
+auto * tab2 = new QWidget;
+
+QTabWidget twg;
+
+twg.addTab(tab1, "Tab 1");
+twg.addTab(tab2, "Tab 2");
+
+twg.resize(1500, 850);
+twg.show();
+```
+
+//////////////////////////////////////////////////////////////////////
+
+[@. Home]
+
+//////////////////////////////////////////////////////////////////////
+
+Mon May 18 01:10:03 AM UTC 2026
+
+//////////////////////////////////////////////////////////////////////
+
+[include ../share/foot-links.inc.qbk]
+
