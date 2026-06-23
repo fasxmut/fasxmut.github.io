@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>c++ std::packaged_task for exception propagation</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="cppfx - c++, b2 build">
+<link rel="up" href="index.html" title="cppfx - c++, b2 build">
+<link rel="prev" href="index.html" title="cppfx - c++, b2 build">
+<link rel="next" href="cpp-qt-webengine-b2-build.html" title="c++ Qt WebEngine and b2 build">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp-qt-webengine-b2-build.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="cpp-std-packaged_task-for-exception-propagation"></a>c++ std::packaged_task for exception propagation</h1></div></div>
+<hr>
+</div>
+<p>
+      <span class="drop_menu">&gt; <a class="link" href="cpp-std-packaged_task-for-exception-propagation.html" title="c++ std::packaged_task for exception propagation">Start</a><br>
+      &gt; <a class="link" href="cpp-std-packaged_task-for-exception-propagation.html#cpp-std-packaged_task-for-exception-propagation.synopsis">Synopsis</a><br>
+      &gt; <a class="link" href="cpp-std-packaged_task-for-exception-propagation.html#cpp-std-packaged_task-for-exception-propagation.cpp-example-invoke-by-thread">Example:
+      invoke by thread</a><br> &gt; <a class="link" href="cpp-std-packaged_task-for-exception-propagation.html#cpp-std-packaged_task-for-exception-propagation.cpp-example-use-std-future">Example:
+      use std::future</a><br> &gt; <a class="link" href="cpp-std-packaged_task-for-exception-propagation.html#cpp-std-packaged_task-for-exception-propagation.conclusion">Conclusion</a><br>
+      &gt; <a href="." target="_top">Back: Home</a> </span>
+    </p>
+<p>
+      c++
+    </p>
+<p>
+      std::packaged_task
+    </p>
+<p>
+      Exception propagation through threads.
+    </p>
+<h2>
+<a name="cpp-std-packaged_task-for-exception-propagation.h0"></a>
+      <span class="phrase"><a name="cpp-std-packaged_task-for-exception-propagation.synopsis"></a></span><a class="link" href="cpp-std-packaged_task-for-exception-propagation.html#cpp-std-packaged_task-for-exception-propagation.synopsis"><span class="cyan">Synopsis</span></a>
+    </h2>
+<p>
+      std::packaged_task wraps any callable target so that it can be invoked asynchronously.
+      Its return value or exception thrown is stored in a shared state which can
+      be accessed through std::future objects =&gt;
+    </p>
+<div class="note"><table border="0" summary="Note">
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td>
+<th align="left">Note</th>
+</tr>
+<tr><td align="left" valign="top"><p>
+        <span class="bold"><strong>cppreference:</strong></span><br> The class template std::packaged_task
+        wraps any Callable target (function, lambda expression, bind expression,
+        or another function object) so that it can be invoked asynchronously. Its
+        return value or exception thrown is stored in a shared state which can be
+        accessed through std::future objects.
+      </p></td></tr>
+</table></div>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          A callable target is wrapped to a task by std::packaged_task.
+        </li>
+<li class="listitem">
+          A task can be invoked asynchronously by threads.
+        </li>
+<li class="listitem">
+          Its return value is stored in a shared state.
+        </li>
+<li class="listitem">
+          Its exception thrown is stored in a shared state.
+        </li>
+<li class="listitem">
+          The shared state can be accessed through std::future objects.
+        </li>
+</ul></div>
+<h2>
+<a name="cpp-std-packaged_task-for-exception-propagation.h1"></a>
+      <span class="phrase"><a name="cpp-std-packaged_task-for-exception-propagation.cpp-example-invoke-by-thread"></a></span><a class="link" href="cpp-std-packaged_task-for-exception-propagation.html#cpp-std-packaged_task-for-exception-propagation.cpp-example-invoke-by-thread"><span class="cyan">c++ Example: Invoke by thread</span></a>
+    </h2>
+<p>
+      A task (std::packaged_task object) can be invoked asynchronously by threads.
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">thread</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">future</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="comment">// Template: return_type(arg_type)</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">packaged_task</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">(</span><span class="keyword">void</span><span class="special">)&gt;</span> <span class="identifier">task</span><span class="special">{</span>
+		<span class="special">[]</span>
+		<span class="special">{</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Hello, c++!"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="special">};</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">jthread</span> <span class="identifier">thread</span><span class="special">{</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">move</span><span class="special">(</span><span class="identifier">task</span><span class="special">)};</span>
+	<span class="identifier">thread</span><span class="special">.</span><span class="identifier">join</span><span class="special">();</span>
+<span class="special">}</span>
+</pre>
+<p>
+      future.get() does not have to be called in this example, because the thread
+      will invoke and run the task.
+    </p>
+<h2>
+<a name="cpp-std-packaged_task-for-exception-propagation.h2"></a>
+      <span class="phrase"><a name="cpp-std-packaged_task-for-exception-propagation.cpp-example-use-std-future"></a></span><a class="link" href="cpp-std-packaged_task-for-exception-propagation.html#cpp-std-packaged_task-for-exception-propagation.cpp-example-use-std-future"><span class="cyan">c++ Example: use std::future</span></a>
+    </h2>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          Its return value is stored in a shared state.
+        </li>
+<li class="listitem">
+          Its exception thrown is stored in a shared state.
+        </li>
+<li class="listitem">
+          The shared state can be accessed through std::future objects.
+        </li>
+</ul></div>
+<p>
+      To get return value or exception thrown, the future object has to be used.
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">thread</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">future</span><span class="special">&gt;</span>
+
+<span class="keyword">using</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string_literals</span><span class="special">::</span><span class="keyword">operator</span><span class="string">""</span><span class="identifier">s</span><span class="special">;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">(</span><span class="keyword">int</span> <span class="identifier">argc</span><span class="special">,</span> <span class="keyword">char</span> <span class="special">**</span> <span class="identifier">argv</span><span class="special">)</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">packaged_task</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">(</span><span class="keyword">void</span><span class="special">)&gt;</span> <span class="identifier">task</span><span class="special">{</span>
+		<span class="special">[&amp;]</span>
+		<span class="special">{</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Hello, c++!"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+			<span class="keyword">if</span> <span class="special">(</span><span class="identifier">argc</span> <span class="special">&gt;=</span><span class="number">3</span> <span class="special">&amp;&amp;</span> <span class="string">"true"</span><span class="identifier">s</span> <span class="special">==</span> <span class="identifier">argv</span><span class="special">[</span><span class="number">2</span><span class="special">])</span>
+				<span class="keyword">throw</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">runtime_error</span><span class="special">{</span><span class="string">"Test Exception"</span><span class="special">};</span>
+			<span class="keyword">return</span> <span class="number">1333</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="special">};</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">future</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;</span> <span class="identifier">future</span> <span class="special">=</span> <span class="identifier">task</span><span class="special">.</span><span class="identifier">get_future</span><span class="special">();</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">jthread</span> <span class="identifier">thread</span><span class="special">{</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">move</span><span class="special">(</span><span class="identifier">task</span><span class="special">)};</span>
+	<span class="identifier">thread</span><span class="special">.</span><span class="identifier">join</span><span class="special">();</span>
+	<span class="keyword">if</span> <span class="special">(</span><span class="identifier">argc</span> <span class="special">&gt;=</span> <span class="number">2</span> <span class="special">&amp;&amp;</span> <span class="string">"true"</span><span class="identifier">s</span> <span class="special">==</span> <span class="identifier">argv</span><span class="special">[</span><span class="number">1</span><span class="special">])</span>
+	<span class="special">{</span>
+		<span class="keyword">try</span>
+		<span class="special">{</span>
+			<span class="keyword">int</span> <span class="identifier">result</span> <span class="special">=</span> <span class="identifier">future</span><span class="special">.</span><span class="identifier">get</span><span class="special">();</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Result: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">result</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+		<span class="special">}</span>
+		<span class="keyword">catch</span> <span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">exception</span> <span class="special">&amp;</span> <span class="identifier">e</span><span class="special">)</span>
+		<span class="special">{</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"OK: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">e</span><span class="special">.</span><span class="identifier">what</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="special">}</span>
+<span class="special">}</span>
+</pre>
+<h4>
+<a name="cpp-std-packaged_task-for-exception-propagation.h3"></a>
+      <span class="phrase"><a name="cpp-std-packaged_task-for-exception-propagation.run_3er2e"></a></span><a class="link" href="cpp-std-packaged_task-for-exception-propagation.html#cpp-std-packaged_task-for-exception-propagation.run_3er2e">Run</a>
+    </h4>
+<pre class="programlisting">$ b2 -q -j3
+
+$ ./bin/gcc-15/debug/cxxstd-26-iso/edir
+Hello, c++!
+
+$ ./bin/gcc-15/debug/cxxstd-26-iso/edir true
+Hello, c++!
+Result: 1333
+
+$ ./bin/gcc-15/debug/cxxstd-26-iso/edir true true
+Hello, c++!
+OK: Test Exception
+</pre>
+<h2>
+<a name="cpp-std-packaged_task-for-exception-propagation.h4"></a>
+      <span class="phrase"><a name="cpp-std-packaged_task-for-exception-propagation.conclusion"></a></span><a class="link" href="cpp-std-packaged_task-for-exception-propagation.html#cpp-std-packaged_task-for-exception-propagation.conclusion"><span class="cyan">Conclusion</span></a>
+    </h2>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          <span class="ddgreen"><span class="bold"><strong>Threads can invoke and run
+          the task without invoking future.get() or future.wait().</strong></span></span>
+        </li>
+<li class="listitem">
+          <span class="ddred"><span class="bold"><strong>However, to fetch return value
+          and exception thrown of the task,<br> the future.get() or future.wait()
+          must be invoked.</strong></span></span>
+        </li>
+<li class="listitem">
+          <span class="ddblue"><span class="bold"><strong>Cross-Threads Exception Propagation:</strong></span><br>
+          As the task is invoked and run by the child thread,<br> and the future.get()
+          or future.wait() is invoked by parent thread,<br> the exception thrown
+          is propagated from child thread to parent thread. </span>
+        </li>
+</ul></div>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<p>
+      <a href="." target="_top">Home</a>
+    </p>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<p>
+      Tue Jun 23 05:52:05 AM UTC 2026
+    </p>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<h2>
+<a name="cpp-std-packaged_task-for-exception-propagation.h5"></a>
+      <span class="phrase"><a name="cpp-std-packaged_task-for-exception-propagation.helpful"></a></span><a class="link" href="cpp-std-packaged_task-for-exception-propagation.html#cpp-std-packaged_task-for-exception-propagation.helpful"><span class="cyan">Helpful</span></a>
+    </h2>
+<p>
+      <a href="https://wtgo.top/jfty.html" target="_top">Jfty</a>
+    </p>
+<p>
+      <a href="https://wtgo.top" target="_top">Wtgo</a>
+    </p>
+<h2>
+<a name="cpp-std-packaged_task-for-exception-propagation.h6"></a>
+      <span class="phrase"><a name="cpp-std-packaged_task-for-exception-propagation.role"></a></span><a class="link" href="cpp-std-packaged_task-for-exception-propagation.html#cpp-std-packaged_task-for-exception-propagation.role"><span class="cyan">Role</span></a>
+    </h2>
+<p>
+      +
+    </p>
+<p>
+      Github:<br> <a href="https://github.com/cppfx/cpphtgt" target="_top">https://github.com/cppfx/cpphtgt</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      Powered by:<br> <a href="https://www.bfgroup.xyz/b2" target="_top">B2 Build</a>
+      | <a href="https://www.boost.org/tools/quickbook" target="_top">boost quickbook</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      <a href="https://cppfx.xyz/donate.html" target="_top">Donate</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      @<a href="https://cppfx.xyz" target="_top">cppfx.xyz</a>
+    </p>
+<p>
+      <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+      <br> <br> <br> <br> <br>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp-qt-webengine-b2-build.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

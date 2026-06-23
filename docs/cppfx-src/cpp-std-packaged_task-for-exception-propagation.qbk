@@ -1,0 +1,148 @@
+[article c++ std::packaged_task for exception propagation
+	[quickbook 1.7]
+	[id cpp-std-packaged_task-for-exception-propagation]
+]
+
+[role drop_menu
+> [link cpp-std-packaged_task-for-exception-propagation Start][br]
+> [link cpp-std-packaged_task-for-exception-propagation.synopsis Synopsis][br]
+> [link cpp-std-packaged_task-for-exception-propagation.cpp-example-invoke-by-thread Example: invoke by thread][br]
+> [link cpp-std-packaged_task-for-exception-propagation.cpp-example-use-std-future Example: use std::future][br]
+> [link cpp-std-packaged_task-for-exception-propagation.conclusion Conclusion][br]
+> [@. Back: Home]
+]
+
+c++
+
+std::packaged_task
+
+Exception propagation through threads.
+
+[h1:synopsis [role cyan Synopsis]]
+
+std::packaged_task wraps any callable target so that it can be invoked asynchronously. Its return value or exception thrown is stored in a shared state which can be accessed through std::future objects =>
+
+[note
+[*cppreference:][br]
+The class template std::packaged_task wraps any Callable target (function, lambda expression, bind expression, or another function object) so that it can be invoked asynchronously. Its return value or exception thrown is stored in a shared state which can be accessed through std::future objects.
+]
+
+* A callable target is wrapped to a task by std::packaged_task.
+* A task can be invoked asynchronously by threads.
+* Its return value is stored in a shared state.
+* Its exception thrown is stored in a shared state.
+* The shared state can be accessed through std::future objects.
+
+[h1:cpp-example-invoke-by-thread [role cyan c++ Example: Invoke by thread]]
+
+A task (std::packaged_task object) can be invoked asynchronously by threads.
+
+[!c++]
+```
+#include <iostream>
+#include <thread>
+#include <future>
+
+int main()
+{
+	// Template: return_type(arg_type)
+	std::packaged_task<void(void)> task{
+		[]
+		{
+			std::cout << "Hello, c++!" << std::endl;
+		}
+	};
+	std::jthread thread{std::move(task)};
+	thread.join();
+}
+```
+
+future.get() does not have to be called in this example, because the thread will invoke and run the task.
+
+[h1:cpp-example-use-std-future [role cyan c++ Example: use std::future]]
+
+* Its return value is stored in a shared state.
+* Its exception thrown is stored in a shared state.
+* The shared state can be accessed through std::future objects.
+
+To get return value or exception thrown, the future object has to be used.
+
+[!c++]
+```
+#include <iostream>
+#include <thread>
+#include <future>
+
+using std::string_literals::operator""s;
+
+int main(int argc, char ** argv)
+{
+	std::packaged_task<int(void)> task{
+		[&]
+		{
+			std::cout << "Hello, c++!" << std::endl;
+			if (argc >=3 && "true"s == argv[2])
+				throw std::runtime_error{"Test Exception"};
+			return 1333;
+		}
+	};
+	std::future<int> future = task.get_future();
+	std::jthread thread{std::move(task)};
+	thread.join();
+	if (argc >= 2 && "true"s == argv[1])
+	{
+		try
+		{
+			int result = future.get();
+			std::cout << "Result: " << result << std::endl;
+		}
+		catch (const std::exception & e)
+		{
+			std::cout << "OK: " << e.what() << std::endl;
+		}
+	}
+}
+```
+
+[h3:run_3er2e Run]
+
+[!teletype]
+```
+$ b2 -q -j3
+
+$ ./bin/gcc-15/debug/cxxstd-26-iso/edir 
+Hello, c++!
+
+$ ./bin/gcc-15/debug/cxxstd-26-iso/edir true
+Hello, c++!
+Result: 1333
+
+$ ./bin/gcc-15/debug/cxxstd-26-iso/edir true true
+Hello, c++!
+OK: Test Exception
+
+```
+
+[h1:conclusion [role cyan Conclusion]]
+
+* [role ddgreen [*Threads can invoke and run the task without invoking future.get() or future.wait().]]
+* [role ddred [*However, to fetch return value and exception thrown of the task,[br]
+the future.get() or future.wait() must be invoked.]]
+* [role ddblue [*Cross-Threads Exception Propagation:][br]
+As the task is invoked and run by the child thread,[br]
+and the future.get() or future.wait() is invoked by parent thread,[br]
+the exception thrown is propagated from child thread to parent thread.
+]
+
+//////////////////////////////////////////////////////////////////////
+
+[@. Home]
+
+//////////////////////////////////////////////////////////////////////
+
+Tue Jun 23 05:52:05 AM UTC 2026
+
+//////////////////////////////////////////////////////////////////////
+
+[include ../share/foot-links.inc.qbk]
+

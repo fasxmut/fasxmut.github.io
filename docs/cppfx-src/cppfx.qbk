@@ -3,6 +3,7 @@
 	[id cppfx]
 ]
 
+[include cpp-std-packaged_task-for-exception-propagation.qbk]
 [include cpp-qt-webengine.qbk]
 [include cpp-std-expected-std-unexpected.qbk]
 [include asio-thread_pool-std-bind-bind-lifetime-to-object.qbk]
