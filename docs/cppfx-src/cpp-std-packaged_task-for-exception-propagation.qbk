@@ -20,7 +20,7 @@ Exception propagation through threads.
 
 [h1:synopsis [role cyan Synopsis]]
 
-std::packaged_task wraps any callable target so that it can be invoked asynchronously. Its return value or exception thrown is stored in a shared state which can be accessed through std::future objects =>
+std::packaged_task wraps any callable target so that it can be invoked asynchronously. Its return value or exception thrown is stored in a shared state which can be accessed through std::future objects.
 
 [note
 [*cppreference:][br]
