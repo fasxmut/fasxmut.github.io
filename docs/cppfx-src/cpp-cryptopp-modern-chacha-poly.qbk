@@ -1,0 +1,239 @@
+[article c++ cryptopp-modern Chacha 20 Poly 1304
+	[quickbook 1.7]
+	[id cpp-cryptopp-modern-chacha-poly]
+]
+
+[role drop_menu
+> [link cpp-cryptopp-modern-chacha-poly Start][br]
+> [link cpp-cryptopp-modern-chacha-poly.ppm namespace ppm = CryptoPP;][br]
+> [link cpp-cryptopp-modern-chacha-poly.chacha20poly1304 chacha20poly1304][br]
+> [link cpp-cryptopp-modern-chacha-poly.xchacha20poly1304 xchacha20poly1304][br]
+> [link cpp-cryptopp-modern-chacha-poly.ppm-stringsource Use ppm::StringSource][br]
+> [@. Back: Home]
+]
+
+c++ cryptopp-modern
+
+Chacha 20, poly 1304
+
+[h4:ppm ppm]
+
+[!c++]
+```
+namespace ppm = CryptoPP;
+```
+
+[h1:chacha20poly1304 [role cyan chacha20poly1304]]
+
+chacha 20 poly 1304 are the TLS encryption and authentication algorithms.
+
+For the chacha20poly1304 implementation,[br]
+nonce size requires 12 bytes (96bits),[br]
+and the 32 bytes (256 bits) is a valid value to key size.
+
+[@https://www.cryptopp.com]
+
+[@https://www.cryptopp-modern.com]
+
+[h3:s1 s1: Encryption or decryption objects]
+
+Create encryption or decryption objects, and prepare data.
+
+[!c++]
+```
+ppm::ChaCha20Poly1304::Encryption encryption;
+ppm::ChaCha20Poly1304::Decryption decryption;
+```
+
+[h3:s2 s2: Filter object]
+
+Construct filter object and feed it with encryption or decryption object and output object to be stored for result.
+
+[!c++]
+```
+ppm::AuthenticatedEncryptionFilter enc_filter{encryption, new ppm::StringSink{result}};
+```
+
+[!c++]
+```
+ppm::AuthenticatedDecryptionFilter dec_filter{decryption, new ppm::StringSink{result}};
+```
+
+[h3:s3 s3: Feed filter input]
+
+Feed the filter with to be manipulated input.
+
+[!c++]
+```
+enc_filter.Put(input, input.size());
+enc_filter.MessageEnd();
+```
+
+[!c++]
+```
+dec_filter.Put(input, input.size());
+dec_filter.MessageEnd();
+```
+
+[h2:cpp-example c++ Example]
+
+Chacha 20 and Poly 1305: c++ example
+
+[!c++]
+```
+#include <cryptopp/chachapoly.h>
+#include <cryptopp/osrng.h>
+#include <iostream>
+#include <vector>
+
+namespace ppm = CryptoPP;
+
+namespace etl
+{
+	class sprite
+	{
+	private:
+		ppm::ChaCha20Poly1305::Encryption __encryption;
+		ppm::ChaCha20Poly1305::Decryption __decryption;
+		ppm::AutoSeededRandomPool __rng;
+		ppm::SecByteBlock __key;
+		std::vector<ppm::byte> __nonce;
+	private:
+		std::string __input;	// plain text
+		std::string __cipher;	// cipher text
+		std::string __recover;	// recover text
+	public:
+		sprite(std::size_t key_size, std::size_t nonce_size):
+			__key{key_size},
+			__nonce(nonce_size)
+		{
+			std::cout << "Key size: " << __key.size() << std::endl;
+			std::cout << "Nonce size: " << __nonce.size() << std::endl;
+			this->reinit();
+		}
+	public:
+		void reinit()
+		{
+			__rng.GenerateBlock(__key.data(), __key.size());
+			__rng.GenerateBlock(__nonce.data(), __nonce.size());
+		}
+	public:
+		void encrypt(const std::string & input)
+		{
+			__input = input;
+			__encryption.SetKeyWithIV(__key, __key.size(), __nonce.data(), __nonce.size());
+			ppm::AuthenticatedEncryptionFilter aef{
+				__encryption,
+				new ppm::StringSink{
+					__cipher
+				},
+				false,
+				16
+			};
+			aef.Put((const ppm::byte *)__input.data(), __input.size());
+			aef.MessageEnd();
+		}
+	public:
+		void decrypt()
+		{
+			__decryption.SetKeyWithIV(__key, __key.size(), __nonce.data(), __nonce.size());
+			ppm::AuthenticatedDecryptionFilter adf{
+				__decryption,
+				new ppm::StringSink{
+					__recover
+				}
+			};
+			adf.Put((const ppm::byte *)__cipher.data(), __cipher.size());
+			adf.MessageEnd();
+		}
+	public:
+		void print() const
+		{
+			std::cout << "input: " << __input << std::endl;
+			std::cout << "cipher: " << __cipher << std::endl;
+			std::cout << "recover: " << __recover << std::endl;
+			if (__input != __recover)
+				throw std::runtime_error{"input != recover"};
+			std::cout << "ChaCha20Poly1305 Encryption and Decryption OK!" << std::endl;
+		}
+	};
+}	// namespace etl
+
+int main()
+{
+	try
+	{
+		etl::sprite sprite{32u, 12u};
+		sprite.encrypt("Hello, c++ important document.");
+		sprite.decrypt();
+		sprite.print();
+	}
+	catch (const std::exception & e)
+	{
+		std::cerr << "Error: " << e.what() << std::endl;
+	}
+}
+```
+
+[*Jamfile: jamroot]
+
+[!teletype]
+```
+lib ppm : : <name>cryptopp <search>/sand/lib : : <include>/sand/include ;
+exe prog : prog.cpp : <library>ppm : <cxxstd>26 ;
+```
+
+[h2:xchacha20poly1304 xchacha20poly1304]
+
+xchacha20poly1304 can use 24 bytes nonce.
+
+To use xchacha20poly1304,[br]
+just replace ppm::ChaCha20Poly1304 with ppm::XChaCha20Poly1304,[br]
+and use 24 bytes nonce.
+
+[!c++]
+```
+ppm::XChaCha20Poly1304::Encryption encryption;
+ppm::XChaCha20Poly1304::decryption decryption;
+```
+
+[!c++]
+```
+std::vector<ppm::byte> nonce(24);
+```
+
+[h2:ppm-stringsource Use ppm::StringSource]
+
+[*ppm::StringSource:]
+
+String-based implementation of the Source interface.
+
+Replace code from constructing filter to messageend with ppm::StringSource.
+
+[!c++]
+```
+ppm::StringSource ss{
+	input,
+	true,
+			// or ppm::AuthenticatedDecryptionFilter
+	new ppm::AuthenticatedEncryptionFilter{
+		encryption,		// or decryption for decryption
+		new ppm::StringSink{
+			result
+		}
+	}
+};
+```
+
+//////////////////////////////////////////////////////////////////////
+
+[@. Home]
+
+//////////////////////////////////////////////////////////////////////
+
+Sat Jun 27 11:51:48 PM UTC 2026
+
+//////////////////////////////////////////////////////////////////////
+
+[include ../share/foot-links.inc.qbk]
+

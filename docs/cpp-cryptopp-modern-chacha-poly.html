@@ -1,0 +1,313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>c++ cryptopp-modern Chacha 20 Poly 1304</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="cppfx - c++, b2 build">
+<link rel="up" href="index.html" title="cppfx - c++, b2 build">
+<link rel="prev" href="index.html" title="cppfx - c++, b2 build">
+<link rel="next" href="cpp-cryptopp-modern-fk7a.html" title="c++ cryptopp-modern fork, fk7a">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp-cryptopp-modern-fk7a.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="cpp-cryptopp-modern-chacha-poly"></a>c++ cryptopp-modern Chacha 20 Poly 1304</h1></div></div>
+<hr>
+</div>
+<p>
+      <span class="drop_menu">&gt; <a class="link" href="cpp-cryptopp-modern-chacha-poly.html" title="c++ cryptopp-modern Chacha 20 Poly 1304">Start</a><br>
+      &gt; <a class="link" href="cpp-cryptopp-modern-chacha-poly.html#cpp-cryptopp-modern-chacha-poly.ppm">namespace ppm = CryptoPP;</a><br>
+      &gt; <a class="link" href="cpp-cryptopp-modern-chacha-poly.html#cpp-cryptopp-modern-chacha-poly.chacha20poly1304">chacha20poly1304</a><br>
+      &gt; <a class="link" href="cpp-cryptopp-modern-chacha-poly.html#cpp-cryptopp-modern-chacha-poly.xchacha20poly1304">xchacha20poly1304</a><br>
+      &gt; <a class="link" href="cpp-cryptopp-modern-chacha-poly.html#cpp-cryptopp-modern-chacha-poly.ppm-stringsource">Use ppm::StringSource</a><br>
+      &gt; <a href="." target="_top">Back: Home</a> </span>
+    </p>
+<p>
+      c++ cryptopp-modern
+    </p>
+<p>
+      Chacha 20, poly 1304
+    </p>
+<h5>
+<a name="cpp-cryptopp-modern-chacha-poly.h0"></a>
+      <span class="phrase"><a name="cpp-cryptopp-modern-chacha-poly.ppm"></a></span><a class="link" href="cpp-cryptopp-modern-chacha-poly.html#cpp-cryptopp-modern-chacha-poly.ppm">ppm</a>
+    </h5>
+<pre class="programlisting"><span class="keyword">namespace</span> <span class="identifier">ppm</span> <span class="special">=</span> <span class="identifier">CryptoPP</span><span class="special">;</span>
+</pre>
+<h2>
+<a name="cpp-cryptopp-modern-chacha-poly.h1"></a>
+      <span class="phrase"><a name="cpp-cryptopp-modern-chacha-poly.chacha20poly1304"></a></span><a class="link" href="cpp-cryptopp-modern-chacha-poly.html#cpp-cryptopp-modern-chacha-poly.chacha20poly1304"><span class="cyan">chacha20poly1304</span></a>
+    </h2>
+<p>
+      chacha 20 poly 1304 are the TLS encryption and authentication algorithms.
+    </p>
+<p>
+      For the chacha20poly1304 implementation,<br> nonce size requires 12 bytes
+      (96bits),<br> and the 32 bytes (256 bits) is a valid value to key size.
+    </p>
+<p>
+      <a href="https://www.cryptopp.com" target="_top">https://www.cryptopp.com</a>
+    </p>
+<p>
+      <a href="https://www.cryptopp-modern.com" target="_top">https://www.cryptopp-modern.com</a>
+    </p>
+<h4>
+<a name="cpp-cryptopp-modern-chacha-poly.h2"></a>
+      <span class="phrase"><a name="cpp-cryptopp-modern-chacha-poly.s1"></a></span><a class="link" href="cpp-cryptopp-modern-chacha-poly.html#cpp-cryptopp-modern-chacha-poly.s1">s1:
+      Encryption or decryption objects</a>
+    </h4>
+<p>
+      Create encryption or decryption objects, and prepare data.
+    </p>
+<pre class="programlisting"><span class="identifier">ppm</span><span class="special">::</span><span class="identifier">ChaCha20Poly1304</span><span class="special">::</span><span class="identifier">Encryption</span> <span class="identifier">encryption</span><span class="special">;</span>
+<span class="identifier">ppm</span><span class="special">::</span><span class="identifier">ChaCha20Poly1304</span><span class="special">::</span><span class="identifier">Decryption</span> <span class="identifier">decryption</span><span class="special">;</span>
+</pre>
+<h4>
+<a name="cpp-cryptopp-modern-chacha-poly.h3"></a>
+      <span class="phrase"><a name="cpp-cryptopp-modern-chacha-poly.s2"></a></span><a class="link" href="cpp-cryptopp-modern-chacha-poly.html#cpp-cryptopp-modern-chacha-poly.s2">s2:
+      Filter object</a>
+    </h4>
+<p>
+      Construct filter object and feed it with encryption or decryption object and
+      output object to be stored for result.
+    </p>
+<pre class="programlisting"><span class="identifier">ppm</span><span class="special">::</span><span class="identifier">AuthenticatedEncryptionFilter</span> <span class="identifier">enc_filter</span><span class="special">{</span><span class="identifier">encryption</span><span class="special">,</span> <span class="keyword">new</span> <span class="identifier">ppm</span><span class="special">::</span><span class="identifier">StringSink</span><span class="special">{</span><span class="identifier">result</span><span class="special">}};</span>
+</pre>
+<pre class="programlisting"><span class="identifier">ppm</span><span class="special">::</span><span class="identifier">AuthenticatedDecryptionFilter</span> <span class="identifier">dec_filter</span><span class="special">{</span><span class="identifier">decryption</span><span class="special">,</span> <span class="keyword">new</span> <span class="identifier">ppm</span><span class="special">::</span><span class="identifier">StringSink</span><span class="special">{</span><span class="identifier">result</span><span class="special">}};</span>
+</pre>
+<h4>
+<a name="cpp-cryptopp-modern-chacha-poly.h4"></a>
+      <span class="phrase"><a name="cpp-cryptopp-modern-chacha-poly.s3"></a></span><a class="link" href="cpp-cryptopp-modern-chacha-poly.html#cpp-cryptopp-modern-chacha-poly.s3">s3:
+      Feed filter input</a>
+    </h4>
+<p>
+      Feed the filter with to be manipulated input.
+    </p>
+<pre class="programlisting"><span class="identifier">enc_filter</span><span class="special">.</span><span class="identifier">Put</span><span class="special">(</span><span class="identifier">input</span><span class="special">,</span> <span class="identifier">input</span><span class="special">.</span><span class="identifier">size</span><span class="special">());</span>
+<span class="identifier">enc_filter</span><span class="special">.</span><span class="identifier">MessageEnd</span><span class="special">();</span>
+</pre>
+<pre class="programlisting"><span class="identifier">dec_filter</span><span class="special">.</span><span class="identifier">Put</span><span class="special">(</span><span class="identifier">input</span><span class="special">,</span> <span class="identifier">input</span><span class="special">.</span><span class="identifier">size</span><span class="special">());</span>
+<span class="identifier">dec_filter</span><span class="special">.</span><span class="identifier">MessageEnd</span><span class="special">();</span>
+</pre>
+<h3>
+<a name="cpp-cryptopp-modern-chacha-poly.h5"></a>
+      <span class="phrase"><a name="cpp-cryptopp-modern-chacha-poly.cpp-example"></a></span><a class="link" href="cpp-cryptopp-modern-chacha-poly.html#cpp-cryptopp-modern-chacha-poly.cpp-example">c++
+      Example</a>
+    </h3>
+<p>
+      Chacha 20 and Poly 1305: c++ example
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">cryptopp</span><span class="special">/</span><span class="identifier">chachapoly</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">cryptopp</span><span class="special">/</span><span class="identifier">osrng</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">vector</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">ppm</span> <span class="special">=</span> <span class="identifier">CryptoPP</span><span class="special">;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">etl</span>
+<span class="special">{</span>
+	<span class="keyword">class</span> <span class="identifier">sprite</span>
+	<span class="special">{</span>
+	<span class="keyword">private</span><span class="special">:</span>
+		<span class="identifier">ppm</span><span class="special">::</span><span class="identifier">ChaCha20Poly1305</span><span class="special">::</span><span class="identifier">Encryption</span> <span class="identifier">__encryption</span><span class="special">;</span>
+		<span class="identifier">ppm</span><span class="special">::</span><span class="identifier">ChaCha20Poly1305</span><span class="special">::</span><span class="identifier">Decryption</span> <span class="identifier">__decryption</span><span class="special">;</span>
+		<span class="identifier">ppm</span><span class="special">::</span><span class="identifier">AutoSeededRandomPool</span> <span class="identifier">__rng</span><span class="special">;</span>
+		<span class="identifier">ppm</span><span class="special">::</span><span class="identifier">SecByteBlock</span> <span class="identifier">__key</span><span class="special">;</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="identifier">ppm</span><span class="special">::</span><span class="identifier">byte</span><span class="special">&gt;</span> <span class="identifier">__nonce</span><span class="special">;</span>
+	<span class="keyword">private</span><span class="special">:</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">__input</span><span class="special">;</span>	<span class="comment">// plain text</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">__cipher</span><span class="special">;</span>	<span class="comment">// cipher text</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">__recover</span><span class="special">;</span>	<span class="comment">// recover text</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">sprite</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">key_size</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">nonce_size</span><span class="special">):</span>
+			<span class="identifier">__key</span><span class="special">{</span><span class="identifier">key_size</span><span class="special">},</span>
+			<span class="identifier">__nonce</span><span class="special">(</span><span class="identifier">nonce_size</span><span class="special">)</span>
+		<span class="special">{</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Key size: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">__key</span><span class="special">.</span><span class="identifier">size</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Nonce size: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">__nonce</span><span class="special">.</span><span class="identifier">size</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+			<span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">reinit</span><span class="special">();</span>
+		<span class="special">}</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="keyword">void</span> <span class="identifier">reinit</span><span class="special">()</span>
+		<span class="special">{</span>
+			<span class="identifier">__rng</span><span class="special">.</span><span class="identifier">GenerateBlock</span><span class="special">(</span><span class="identifier">__key</span><span class="special">.</span><span class="identifier">data</span><span class="special">(),</span> <span class="identifier">__key</span><span class="special">.</span><span class="identifier">size</span><span class="special">());</span>
+			<span class="identifier">__rng</span><span class="special">.</span><span class="identifier">GenerateBlock</span><span class="special">(</span><span class="identifier">__nonce</span><span class="special">.</span><span class="identifier">data</span><span class="special">(),</span> <span class="identifier">__nonce</span><span class="special">.</span><span class="identifier">size</span><span class="special">());</span>
+		<span class="special">}</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="keyword">void</span> <span class="identifier">encrypt</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="special">&amp;</span> <span class="identifier">input</span><span class="special">)</span>
+		<span class="special">{</span>
+			<span class="identifier">__input</span> <span class="special">=</span> <span class="identifier">input</span><span class="special">;</span>
+			<span class="identifier">__encryption</span><span class="special">.</span><span class="identifier">SetKeyWithIV</span><span class="special">(</span><span class="identifier">__key</span><span class="special">,</span> <span class="identifier">__key</span><span class="special">.</span><span class="identifier">size</span><span class="special">(),</span> <span class="identifier">__nonce</span><span class="special">.</span><span class="identifier">data</span><span class="special">(),</span> <span class="identifier">__nonce</span><span class="special">.</span><span class="identifier">size</span><span class="special">());</span>
+			<span class="identifier">ppm</span><span class="special">::</span><span class="identifier">AuthenticatedEncryptionFilter</span> <span class="identifier">aef</span><span class="special">{</span>
+				<span class="identifier">__encryption</span><span class="special">,</span>
+				<span class="keyword">new</span> <span class="identifier">ppm</span><span class="special">::</span><span class="identifier">StringSink</span><span class="special">{</span>
+					<span class="identifier">__cipher</span>
+				<span class="special">},</span>
+				<span class="keyword">false</span><span class="special">,</span>
+				<span class="number">16</span>
+			<span class="special">};</span>
+			<span class="identifier">aef</span><span class="special">.</span><span class="identifier">Put</span><span class="special">((</span><span class="keyword">const</span> <span class="identifier">ppm</span><span class="special">::</span><span class="identifier">byte</span> <span class="special">*)</span><span class="identifier">__input</span><span class="special">.</span><span class="identifier">data</span><span class="special">(),</span> <span class="identifier">__input</span><span class="special">.</span><span class="identifier">size</span><span class="special">());</span>
+			<span class="identifier">aef</span><span class="special">.</span><span class="identifier">MessageEnd</span><span class="special">();</span>
+		<span class="special">}</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="keyword">void</span> <span class="identifier">decrypt</span><span class="special">()</span>
+		<span class="special">{</span>
+			<span class="identifier">__decryption</span><span class="special">.</span><span class="identifier">SetKeyWithIV</span><span class="special">(</span><span class="identifier">__key</span><span class="special">,</span> <span class="identifier">__key</span><span class="special">.</span><span class="identifier">size</span><span class="special">(),</span> <span class="identifier">__nonce</span><span class="special">.</span><span class="identifier">data</span><span class="special">(),</span> <span class="identifier">__nonce</span><span class="special">.</span><span class="identifier">size</span><span class="special">());</span>
+			<span class="identifier">ppm</span><span class="special">::</span><span class="identifier">AuthenticatedDecryptionFilter</span> <span class="identifier">adf</span><span class="special">{</span>
+				<span class="identifier">__decryption</span><span class="special">,</span>
+				<span class="keyword">new</span> <span class="identifier">ppm</span><span class="special">::</span><span class="identifier">StringSink</span><span class="special">{</span>
+					<span class="identifier">__recover</span>
+				<span class="special">}</span>
+			<span class="special">};</span>
+			<span class="identifier">adf</span><span class="special">.</span><span class="identifier">Put</span><span class="special">((</span><span class="keyword">const</span> <span class="identifier">ppm</span><span class="special">::</span><span class="identifier">byte</span> <span class="special">*)</span><span class="identifier">__cipher</span><span class="special">.</span><span class="identifier">data</span><span class="special">(),</span> <span class="identifier">__cipher</span><span class="special">.</span><span class="identifier">size</span><span class="special">());</span>
+			<span class="identifier">adf</span><span class="special">.</span><span class="identifier">MessageEnd</span><span class="special">();</span>
+		<span class="special">}</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="keyword">void</span> <span class="identifier">print</span><span class="special">()</span> <span class="keyword">const</span>
+		<span class="special">{</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"input: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">__input</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"cipher: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">__cipher</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"recover: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">__recover</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+			<span class="keyword">if</span> <span class="special">(</span><span class="identifier">__input</span> <span class="special">!=</span> <span class="identifier">__recover</span><span class="special">)</span>
+				<span class="keyword">throw</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">runtime_error</span><span class="special">{</span><span class="string">"input != recover"</span><span class="special">};</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"ChaCha20Poly1305 Encryption and Decryption OK!"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="special">};</span>
+<span class="special">}</span>	<span class="comment">// namespace etl</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">try</span>
+	<span class="special">{</span>
+		<span class="identifier">etl</span><span class="special">::</span><span class="identifier">sprite</span> <span class="identifier">sprite</span><span class="special">{</span><span class="number">32u</span><span class="special">,</span> <span class="number">12u</span><span class="special">};</span>
+		<span class="identifier">sprite</span><span class="special">.</span><span class="identifier">encrypt</span><span class="special">(</span><span class="string">"Hello, c++ important document."</span><span class="special">);</span>
+		<span class="identifier">sprite</span><span class="special">.</span><span class="identifier">decrypt</span><span class="special">();</span>
+		<span class="identifier">sprite</span><span class="special">.</span><span class="identifier">print</span><span class="special">();</span>
+	<span class="special">}</span>
+	<span class="keyword">catch</span> <span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">exception</span> <span class="special">&amp;</span> <span class="identifier">e</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cerr</span> <span class="special">&lt;&lt;</span> <span class="string">"Error: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">e</span><span class="special">.</span><span class="identifier">what</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">}</span>
+</pre>
+<p>
+      <span class="bold"><strong>Jamfile: jamroot</strong></span>
+    </p>
+<pre class="programlisting">lib ppm : : &lt;name&gt;cryptopp &lt;search&gt;/sand/lib : : &lt;include&gt;/sand/include ;
+exe prog : prog.cpp : &lt;library&gt;ppm : &lt;cxxstd&gt;26 ;
+</pre>
+<h3>
+<a name="cpp-cryptopp-modern-chacha-poly.h6"></a>
+      <span class="phrase"><a name="cpp-cryptopp-modern-chacha-poly.xchacha20poly1304"></a></span><a class="link" href="cpp-cryptopp-modern-chacha-poly.html#cpp-cryptopp-modern-chacha-poly.xchacha20poly1304">xchacha20poly1304</a>
+    </h3>
+<p>
+      xchacha20poly1304 can use 24 bytes nonce.
+    </p>
+<p>
+      To use xchacha20poly1304,<br> just replace ppm::ChaCha20Poly1304 with ppm::XChaCha20Poly1304,<br>
+      and use 24 bytes nonce.
+    </p>
+<pre class="programlisting"><span class="identifier">ppm</span><span class="special">::</span><span class="identifier">XChaCha20Poly1304</span><span class="special">::</span><span class="identifier">Encryption</span> <span class="identifier">encryption</span><span class="special">;</span>
+<span class="identifier">ppm</span><span class="special">::</span><span class="identifier">XChaCha20Poly1304</span><span class="special">::</span><span class="identifier">decryption</span> <span class="identifier">decryption</span><span class="special">;</span>
+</pre>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="identifier">ppm</span><span class="special">::</span><span class="identifier">byte</span><span class="special">&gt;</span> <span class="identifier">nonce</span><span class="special">(</span><span class="number">24</span><span class="special">);</span>
+</pre>
+<h3>
+<a name="cpp-cryptopp-modern-chacha-poly.h7"></a>
+      <span class="phrase"><a name="cpp-cryptopp-modern-chacha-poly.ppm-stringsource"></a></span><a class="link" href="cpp-cryptopp-modern-chacha-poly.html#cpp-cryptopp-modern-chacha-poly.ppm-stringsource">Use
+      ppm::StringSource</a>
+    </h3>
+<p>
+      <span class="bold"><strong>ppm::StringSource:</strong></span>
+    </p>
+<p>
+      String-based implementation of the Source interface.
+    </p>
+<p>
+      Replace code from constructing filter to messageend with ppm::StringSource.
+    </p>
+<pre class="programlisting"><span class="identifier">ppm</span><span class="special">::</span><span class="identifier">StringSource</span> <span class="identifier">ss</span><span class="special">{</span>
+	<span class="identifier">input</span><span class="special">,</span>
+	<span class="keyword">true</span><span class="special">,</span>
+			<span class="comment">// or ppm::AuthenticatedDecryptionFilter</span>
+	<span class="keyword">new</span> <span class="identifier">ppm</span><span class="special">::</span><span class="identifier">AuthenticatedEncryptionFilter</span><span class="special">{</span>
+		<span class="identifier">encryption</span><span class="special">,</span>		<span class="comment">// or decryption for decryption</span>
+		<span class="keyword">new</span> <span class="identifier">ppm</span><span class="special">::</span><span class="identifier">StringSink</span><span class="special">{</span>
+			<span class="identifier">result</span>
+		<span class="special">}</span>
+	<span class="special">}</span>
+<span class="special">};</span>
+</pre>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<p>
+      <a href="." target="_top">Home</a>
+    </p>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<p>
+      Sat Jun 27 11:51:48 PM UTC 2026
+    </p>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<h2>
+<a name="cpp-cryptopp-modern-chacha-poly.h8"></a>
+      <span class="phrase"><a name="cpp-cryptopp-modern-chacha-poly.helpful"></a></span><a class="link" href="cpp-cryptopp-modern-chacha-poly.html#cpp-cryptopp-modern-chacha-poly.helpful"><span class="cyan">Helpful</span></a>
+    </h2>
+<p>
+      <a href="https://wtgo.top/jfty.html" target="_top">Jfty</a>
+    </p>
+<p>
+      <a href="https://wtgo.top" target="_top">Wtgo</a>
+    </p>
+<h2>
+<a name="cpp-cryptopp-modern-chacha-poly.h9"></a>
+      <span class="phrase"><a name="cpp-cryptopp-modern-chacha-poly.role"></a></span><a class="link" href="cpp-cryptopp-modern-chacha-poly.html#cpp-cryptopp-modern-chacha-poly.role"><span class="cyan">Role</span></a>
+    </h2>
+<p>
+      +
+    </p>
+<p>
+      Github:<br> <a href="https://github.com/cppfx/cpphtgt" target="_top">https://github.com/cppfx/cpphtgt</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      Powered by:<br> <a href="https://www.bfgroup.xyz/b2" target="_top">B2 Build</a>
+      | <a href="https://www.boost.org/tools/quickbook" target="_top">boost quickbook</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      <a href="https://cppfx.xyz/donate.html" target="_top">Donate</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      @<a href="https://cppfx.xyz" target="_top">cppfx.xyz</a>
+    </p>
+<p>
+      <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+      <br> <br> <br> <br> <br>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp-cryptopp-modern-fk7a.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
