@@ -360,8 +360,6 @@ int main()
 			),
 			[] (std::exception_ptr eptr)
 			{
-				if (eptr)
-					std::rethrow_exception(eptr);
 			}
 		);
 		pool.join();

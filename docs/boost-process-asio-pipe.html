@@ -406,8 +406,6 @@ exe bpp : bpp.cpp : &lt;library&gt;boost_process &lt;library&gt;boost_filesystem
 			<span class="special">),</span>
 			<span class="special">[]</span> <span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">exception_ptr</span> <span class="identifier">eptr</span><span class="special">)</span>
 			<span class="special">{</span>
-				<span class="keyword">if</span> <span class="special">(</span><span class="identifier">eptr</span><span class="special">)</span>
-					<span class="identifier">std</span><span class="special">::</span><span class="identifier">rethrow_exception</span><span class="special">(</span><span class="identifier">eptr</span><span class="special">);</span>
 			<span class="special">}</span>
 		<span class="special">);</span>
 		<span class="identifier">pool</span><span class="special">.</span><span class="identifier">join</span><span class="special">();</span>

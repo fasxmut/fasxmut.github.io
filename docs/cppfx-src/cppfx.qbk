@@ -3,6 +3,7 @@
 	[id cppfx]
 ]
 
+[include cpp-cryptopp-modern-fk7a.qbk]
 [include cpp-std-packaged_task-for-exception-propagation.qbk]
 [include cpp-qt-webengine.qbk]
 [include cpp-std-expected-std-unexpected.qbk]

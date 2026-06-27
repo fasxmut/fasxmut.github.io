@@ -1,0 +1,647 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>c++ cryptopp-modern fork, fk7a</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="cppfx - c++, b2 build">
+<link rel="up" href="index.html" title="cppfx - c++, b2 build">
+<link rel="prev" href="index.html" title="cppfx - c++, b2 build">
+<link rel="next" href="cpp-std-packaged_task-for-exception-propagation.html" title="c++ std::packaged_task for exception propagation">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp-std-packaged_task-for-exception-propagation.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="cpp-cryptopp-modern-fk7a"></a>c++ cryptopp-modern fork, fk7a</h1></div></div>
+<hr>
+</div>
+<p>
+      <span class="drop_menu">&gt; <a class="link" href="cpp-cryptopp-modern-fk7a.html" title="c++ cryptopp-modern fork, fk7a">Start</a><br>
+      &gt; <a class="link" href="cpp-cryptopp-modern-fk7a.html#cpp-cryptopp-modern-fk7a.cpp-cryptopp-modern">c++ cryptopp-modern</a><br>
+      &gt; <a class="link" href="cpp-cryptopp-modern-fk7a.html#cpp-cryptopp-modern-fk7a.examples">Examples</a><br>
+      &gt; <a class="link" href="cpp-cryptopp-modern-fk7a.html#cpp-cryptopp-modern-fk7a.jump-middle">Jump Middle</a><br>
+      &gt; <a class="link" href="cpp-cryptopp-modern-fk7a.html#cpp-cryptopp-modern-fk7a.jump-end">Jump End</a><br>
+      &gt; <a href="." target="_top">Back: Home</a> </span>
+    </p>
+<p>
+      c++ full-featured cryptographic library: cryptopp and cryptopp-modern.
+    </p>
+<h2>
+<a name="cpp-cryptopp-modern-fk7a.h0"></a>
+      <span class="phrase"><a name="cpp-cryptopp-modern-fk7a.cpp-cryptopp-modern"></a></span><a class="link" href="cpp-cryptopp-modern-fk7a.html#cpp-cryptopp-modern-fk7a.cpp-cryptopp-modern"><span class="cyan">c++ cryptopp-modern</span></a>
+    </h2>
+<p>
+      c++ cryptopp-modern forks cryptopp.
+    </p>
+<p>
+      Home:
+    </p>
+<p>
+      <a href="https://cryptopp-modern.com" target="_top">https://cryptopp-modern.com</a>
+    </p>
+<p>
+      cryptopp-modern is an actively maintained fork of Crypto++ 8.9.0, providing
+      a modern cryptographic library with contemporary algorithms, better code organisation,
+      and regular security updates.
+    </p>
+<p>
+      c++ cryptopp-modern Github:
+    </p>
+<p>
+      <a href="https://github.com/weidai11/cryptopp" target="_top">https://github.com/weidai11/cryptopp</a>
+    </p>
+<p>
+      c++ cryptopp Github:
+    </p>
+<p>
+      <a href="https://github.com/weidai11/cryptopp" target="_top">https://github.com/weidai11/cryptopp</a>
+    </p>
+<h2>
+<a name="cpp-cryptopp-modern-fk7a.h1"></a>
+      <span class="phrase"><a name="cpp-cryptopp-modern-fk7a.examples"></a></span><a class="link" href="cpp-cryptopp-modern-fk7a.html#cpp-cryptopp-modern-fk7a.examples"><span class="cyan">Examples</span></a>
+    </h2>
+<h3>
+<a name="cpp-cryptopp-modern-fk7a.h2"></a>
+      <span class="phrase"><a name="cpp-cryptopp-modern-fk7a.cpp-ex-ew23"></a></span><a class="link" href="cpp-cryptopp-modern-fk7a.html#cpp-cryptopp-modern-fk7a.cpp-ex-ew23">c++
+      cryptopp-modern example</a>
+    </h3>
+<p>
+      The c++ cryptopp-modern example: Blake3 Hash
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">cryptopp</span><span class="special">/</span><span class="identifier">blake3</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">cryptopp</span><span class="special">/</span><span class="identifier">hex</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">ppm</span> <span class="special">=</span> <span class="identifier">CryptoPP</span><span class="special">;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">ppm</span><span class="special">::</span><span class="identifier">BLAKE3</span> <span class="identifier">hash</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">msg</span> <span class="special">=</span> <span class="string">"Hello, c++ cryptopp."</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">digest</span><span class="special">;</span>
+	<span class="identifier">ppm</span><span class="special">::</span><span class="identifier">StringSource</span><span class="special">{</span>
+		<span class="identifier">msg</span><span class="special">,</span>
+		<span class="keyword">true</span><span class="special">,</span>
+		<span class="keyword">new</span> <span class="identifier">ppm</span><span class="special">::</span><span class="identifier">HashFilter</span><span class="special">{</span>
+			<span class="identifier">hash</span><span class="special">,</span>
+			<span class="keyword">new</span> <span class="identifier">ppm</span><span class="special">::</span><span class="identifier">HexEncoder</span><span class="special">{</span>
+				<span class="keyword">new</span> <span class="identifier">ppm</span><span class="special">::</span><span class="identifier">StringSink</span><span class="special">{</span><span class="identifier">digest</span><span class="special">}</span>
+			<span class="special">}</span>
+		<span class="special">}</span>
+	<span class="special">};</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Blake3: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">digest</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<h3>
+<a name="cpp-cryptopp-modern-fk7a.h3"></a>
+      <span class="phrase"><a name="cpp-cryptopp-modern-fk7a.cpp-ex-ew23_0"></a></span><a class="link" href="cpp-cryptopp-modern-fk7a.html#cpp-cryptopp-modern-fk7a.cpp-ex-ew23_0">c++
+      cryptopp-modern example</a>
+    </h3>
+<p>
+      The c++ cryptopp-modern example: Password Hashing with Argon2
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">cryptopp</span><span class="special">/</span><span class="identifier">argon2</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">cryptopp</span><span class="special">/</span><span class="identifier">hex</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">cryptopp</span><span class="special">/</span><span class="identifier">secblock</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">algorithm</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">ppm</span> <span class="special">=</span> <span class="identifier">CryptoPP</span><span class="special">;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">ppm</span><span class="special">::</span><span class="identifier">Argon2</span> <span class="identifier">argon2</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">password</span> <span class="special">=</span> <span class="string">"This is my password, please stole it."</span><span class="special">;</span>
+	<span class="identifier">ppm</span><span class="special">::</span><span class="identifier">SecByteBlock</span> <span class="identifier">salt</span><span class="special">{</span><span class="number">16</span><span class="special">};</span>
+	<span class="identifier">ppm</span><span class="special">::</span><span class="identifier">SecByteBlock</span> <span class="identifier">derived</span><span class="special">{</span><span class="number">32</span><span class="special">};</span>
+
+	<span class="comment">// In practice, Generate random salt.</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">fill_n</span><span class="special">(</span><span class="identifier">salt</span><span class="special">.</span><span class="identifier">begin</span><span class="special">(),</span> <span class="identifier">salt</span><span class="special">.</span><span class="identifier">size</span><span class="special">(),</span> <span class="number">0x01</span><span class="special">);</span>
+
+	<span class="identifier">argon2</span><span class="special">.</span><span class="identifier">DeriveKey</span><span class="special">(</span>
+		<span class="identifier">derived</span><span class="special">,</span>
+		<span class="identifier">derived</span><span class="special">.</span><span class="identifier">size</span><span class="special">(),</span>
+		<span class="special">(</span><span class="keyword">const</span> <span class="identifier">ppm</span><span class="special">::</span><span class="identifier">byte</span> <span class="special">*)</span><span class="identifier">password</span><span class="special">.</span><span class="identifier">data</span><span class="special">(),</span>	<span class="comment">// convert const char * to const unsigned char *</span>
+		<span class="identifier">password</span><span class="special">.</span><span class="identifier">size</span><span class="special">(),</span>
+		<span class="identifier">salt</span><span class="special">,</span>
+		<span class="identifier">salt</span><span class="special">.</span><span class="identifier">size</span><span class="special">(),</span>
+		<span class="number">3</span><span class="special">,</span>	<span class="comment">// time cost</span>
+		<span class="number">65536</span><span class="special">,</span>	<span class="comment">// memory cost</span>
+		<span class="number">2</span><span class="special">,</span>	<span class="comment">// Parallism</span>
+		<span class="keyword">nullptr</span><span class="special">,</span>	<span class="comment">// secret</span>
+		<span class="number">0</span><span class="special">,</span>	<span class="comment">// secret len</span>
+		<span class="keyword">nullptr</span><span class="special">,</span>	<span class="comment">// associated data</span>
+		<span class="number">0</span>	<span class="comment">// associated data len</span>
+	<span class="special">);</span>
+
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">hex_out</span><span class="special">;</span>
+	<span class="identifier">ppm</span><span class="special">::</span><span class="identifier">HexEncoder</span> <span class="identifier">encoder</span><span class="special">{</span>
+		<span class="keyword">new</span> <span class="identifier">ppm</span><span class="special">::</span><span class="identifier">StringSink</span><span class="special">{</span>
+			<span class="identifier">hex_out</span>
+		<span class="special">}</span>
+	<span class="special">};</span>
+	<span class="identifier">encoder</span><span class="special">.</span><span class="identifier">Put</span><span class="special">(</span><span class="identifier">derived</span><span class="special">,</span> <span class="identifier">derived</span><span class="special">.</span><span class="identifier">size</span><span class="special">());</span>
+	<span class="identifier">encoder</span><span class="special">.</span><span class="identifier">MessageEnd</span><span class="special">();</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Argon2id: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">hex_out</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<h3>
+<a name="cpp-cryptopp-modern-fk7a.h4"></a>
+      <span class="phrase"><a name="cpp-cryptopp-modern-fk7a.cpp-ex-ew23_1"></a></span><a class="link" href="cpp-cryptopp-modern-fk7a.html#cpp-cryptopp-modern-fk7a.cpp-ex-ew23_1">c++
+      cryptopp-modern example</a>
+    </h3>
+<p>
+      The c++ cryptopp-modern example: AES Encryption
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">cryptopp</span><span class="special">/</span><span class="identifier">aes</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">cryptopp</span><span class="special">/</span><span class="identifier">modes</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">cryptopp</span><span class="special">/</span><span class="identifier">hex</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">algorithm</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">ppm</span> <span class="special">=</span> <span class="identifier">CryptoPP</span><span class="special">;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="comment">// In practice, generate these securely.</span>
+	<span class="identifier">ppm</span><span class="special">::</span><span class="identifier">byte</span> <span class="identifier">key</span><span class="special">[</span><span class="identifier">ppm</span><span class="special">::</span><span class="identifier">AES</span><span class="special">::</span><span class="identifier">DEFAULT_KEYLENGTH</span><span class="special">]</span> <span class="special">=</span> <span class="special">{</span><span class="number">0</span><span class="special">};</span>
+	<span class="identifier">ppm</span><span class="special">::</span><span class="identifier">byte</span> <span class="identifier">iv</span><span class="special">[</span><span class="identifier">ppm</span><span class="special">::</span><span class="identifier">AES</span><span class="special">::</span><span class="identifier">BLOCKSIZE</span><span class="special">]</span> <span class="special">=</span> <span class="special">{</span><span class="number">0</span><span class="special">};</span>
+
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">plain_text</span> <span class="special">=</span> <span class="string">"Secret Message"</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">cipher_text</span><span class="special">,</span> <span class="identifier">decrypted</span><span class="special">;</span>
+
+	<span class="comment">// Encrypt</span>
+	<span class="identifier">ppm</span><span class="special">::</span><span class="identifier">CBC_Mode</span><span class="special">&lt;</span><span class="identifier">ppm</span><span class="special">::</span><span class="identifier">AES</span><span class="special">&gt;::</span><span class="identifier">Encryption</span> <span class="identifier">enc</span><span class="special">;</span>
+	<span class="identifier">enc</span><span class="special">.</span><span class="identifier">SetKeyWithIV</span><span class="special">(</span><span class="identifier">key</span><span class="special">,</span> <span class="keyword">sizeof</span> <span class="special">(</span><span class="identifier">key</span><span class="special">),</span> <span class="identifier">iv</span><span class="special">);</span>
+	<span class="identifier">ppm</span><span class="special">::</span><span class="identifier">StringSource</span><span class="special">{</span>
+		<span class="identifier">plain_text</span><span class="special">,</span>
+		<span class="keyword">true</span><span class="special">,</span>
+		<span class="keyword">new</span> <span class="identifier">ppm</span><span class="special">::</span><span class="identifier">StreamTransformationFilter</span><span class="special">{</span>
+			<span class="identifier">enc</span><span class="special">,</span>
+			<span class="keyword">new</span> <span class="identifier">ppm</span><span class="special">::</span><span class="identifier">StringSink</span><span class="special">{</span>
+				<span class="identifier">cipher_text</span>
+			<span class="special">}</span>
+		<span class="special">}</span>
+	<span class="special">};</span>
+
+	<span class="comment">// Decrypt</span>
+	<span class="identifier">ppm</span><span class="special">::</span><span class="identifier">CBC_Mode</span><span class="special">&lt;</span><span class="identifier">ppm</span><span class="special">::</span><span class="identifier">AES</span><span class="special">&gt;::</span><span class="identifier">Decryption</span> <span class="identifier">dec</span><span class="special">;</span>
+	<span class="identifier">dec</span><span class="special">.</span><span class="identifier">SetKeyWithIV</span><span class="special">(</span><span class="identifier">key</span><span class="special">,</span> <span class="keyword">sizeof</span> <span class="special">(</span><span class="identifier">key</span><span class="special">),</span> <span class="identifier">iv</span><span class="special">);</span>
+	<span class="identifier">ppm</span><span class="special">::</span><span class="identifier">StringSource</span><span class="special">{</span>
+		<span class="identifier">cipher_text</span><span class="special">,</span>
+		<span class="keyword">true</span><span class="special">,</span>
+		<span class="keyword">new</span> <span class="identifier">ppm</span><span class="special">::</span><span class="identifier">StreamTransformationFilter</span><span class="special">{</span>
+			<span class="identifier">dec</span><span class="special">,</span>
+			<span class="keyword">new</span> <span class="identifier">ppm</span><span class="special">::</span><span class="identifier">StringSink</span><span class="special">{</span>
+				<span class="identifier">decrypted</span>
+			<span class="special">}</span>
+		<span class="special">}</span>
+	<span class="special">};</span>
+
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Plain Text: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">plain_text</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Encrypted: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">cipher_text</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Decrypted: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">decrypted</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<h3>
+<a name="cpp-cryptopp-modern-fk7a.h5"></a>
+      <span class="phrase"><a name="cpp-cryptopp-modern-fk7a.jump-middle"></a></span><a class="link" href="cpp-cryptopp-modern-fk7a.html#cpp-cryptopp-modern-fk7a.jump-middle">Jump
+      Middle</a>
+    </h3>
+<p>
+      Jump Middle
+    </p>
+<h3>
+<a name="cpp-cryptopp-modern-fk7a.h6"></a>
+      <span class="phrase"><a name="cpp-cryptopp-modern-fk7a.cpp-ex-ew23_2"></a></span><a class="link" href="cpp-cryptopp-modern-fk7a.html#cpp-cryptopp-modern-fk7a.cpp-ex-ew23_2">c++
+      cryptopp-modern example</a>
+    </h3>
+<p>
+      The c++ cryptopp-modern example: Digital signatures with ed25519
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">cryptopp</span><span class="special">/</span><span class="identifier">xed25519</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">cryptopp</span><span class="special">/</span><span class="identifier">osrng</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">algorithm</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">ppm</span> <span class="special">=</span> <span class="identifier">CryptoPP</span><span class="special">;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">ppm</span><span class="special">::</span><span class="identifier">AutoSeededRandomPool</span> <span class="identifier">rng</span><span class="special">;</span>
+	<span class="identifier">ppm</span><span class="special">::</span><span class="identifier">ed25519Signer</span> <span class="identifier">signer</span><span class="special">;</span>
+	<span class="identifier">signer</span><span class="special">.</span><span class="identifier">AccessPrivateKey</span><span class="special">().</span><span class="identifier">GenerateRandom</span><span class="special">(</span><span class="identifier">rng</span><span class="special">);</span>	<span class="comment">// Generate key pair</span>
+
+	<span class="identifier">ppm</span><span class="special">::</span><span class="identifier">ed25519Verifier</span> <span class="identifier">verifier</span><span class="special">{</span><span class="identifier">signer</span><span class="special">};</span>
+
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">msg</span> <span class="special">=</span> <span class="string">"This is an important document."</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">signature</span><span class="special">;</span>
+
+	<span class="comment">// Sign Message</span>
+	<span class="identifier">ppm</span><span class="special">::</span><span class="identifier">StringSource</span> <span class="identifier">ss</span><span class="special">{</span>
+		<span class="identifier">msg</span><span class="special">,</span>
+		<span class="keyword">true</span><span class="special">,</span>
+		<span class="keyword">new</span> <span class="identifier">ppm</span><span class="special">::</span><span class="identifier">SignerFilter</span><span class="special">{</span>
+			<span class="identifier">rng</span><span class="special">,</span>
+			<span class="identifier">signer</span><span class="special">,</span>
+			<span class="keyword">new</span> <span class="identifier">ppm</span><span class="special">::</span><span class="identifier">StringSink</span><span class="special">{</span>
+				<span class="identifier">signature</span>
+			<span class="special">}</span>
+		<span class="special">}</span>
+	<span class="special">};</span>
+
+	<span class="keyword">bool</span> <span class="identifier">valid</span> <span class="special">=</span> <span class="keyword">false</span><span class="special">;</span>
+
+	<span class="comment">// Verify signature</span>
+	<span class="identifier">ppm</span><span class="special">::</span><span class="identifier">StringSource</span> <span class="identifier">ss2</span><span class="special">{</span>
+		<span class="identifier">msg</span> <span class="special">+</span> <span class="identifier">signature</span><span class="special">,</span>
+		<span class="keyword">true</span><span class="special">,</span>
+		<span class="keyword">new</span> <span class="identifier">ppm</span><span class="special">::</span><span class="identifier">SignatureVerificationFilter</span><span class="special">{</span>
+			<span class="identifier">verifier</span><span class="special">,</span>
+			<span class="keyword">new</span> <span class="identifier">ppm</span><span class="special">::</span><span class="identifier">ArraySink</span><span class="special">{</span>
+				<span class="special">(</span><span class="identifier">ppm</span><span class="special">::</span><span class="identifier">byte</span> <span class="special">*)&amp;</span><span class="identifier">valid</span><span class="special">,</span>
+				<span class="keyword">sizeof</span> <span class="special">(</span><span class="identifier">valid</span><span class="special">)</span>
+			<span class="special">}</span>
+		<span class="special">}</span>
+	<span class="special">};</span>
+
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Signature Valid: "</span> <span class="special">&lt;&lt;</span> <span class="special">(</span><span class="identifier">valid</span><span class="special">?</span><span class="string">"Yes"</span><span class="special">:</span><span class="string">"No"</span><span class="special">)</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<h3>
+<a name="cpp-cryptopp-modern-fk7a.h7"></a>
+      <span class="phrase"><a name="cpp-cryptopp-modern-fk7a.cpp-ex-ew23_3"></a></span><a class="link" href="cpp-cryptopp-modern-fk7a.html#cpp-cryptopp-modern-fk7a.cpp-ex-ew23_3">c++
+      cryptopp-modern example</a>
+    </h3>
+<p>
+      The c++ cryptopp-modern example: Hash a file
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">cryptopp</span><span class="special">/</span><span class="identifier">blake3</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">cryptopp</span><span class="special">/</span><span class="identifier">hex</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">cryptopp</span><span class="special">/</span><span class="identifier">files</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">ppm</span> <span class="special">=</span> <span class="identifier">CryptoPP</span><span class="special">;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">hf</span>
+<span class="special">{</span>
+	<span class="keyword">class</span> <span class="identifier">file_hasher</span>
+	<span class="special">{</span>
+	<span class="keyword">private</span><span class="special">:</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">__result</span><span class="special">;</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">file_hasher</span><span class="special">()</span> <span class="special">=</span> <span class="keyword">default</span><span class="special">;</span>
+		<span class="keyword">virtual</span> <span class="special">~</span><span class="identifier">file_hasher</span><span class="special">()</span> <span class="special">=</span> <span class="keyword">default</span><span class="special">;</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="keyword">void</span> <span class="identifier">hash</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="special">&amp;</span> <span class="identifier">filename</span><span class="special">)</span>
+		<span class="special">{</span>
+			<span class="identifier">ppm</span><span class="special">::</span><span class="identifier">BLAKE3</span> <span class="identifier">hash</span><span class="special">;</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">digest</span><span class="special">;</span>
+			<span class="keyword">try</span>
+			<span class="special">{</span>
+				<span class="identifier">ppm</span><span class="special">::</span><span class="identifier">FileSource</span> <span class="identifier">fs</span><span class="special">{</span>
+					<span class="identifier">filename</span><span class="special">.</span><span class="identifier">data</span><span class="special">(),</span>
+					<span class="keyword">true</span><span class="special">,</span>
+					<span class="keyword">new</span> <span class="identifier">ppm</span><span class="special">::</span><span class="identifier">HashFilter</span><span class="special">{</span>
+						<span class="identifier">hash</span><span class="special">,</span>
+						<span class="keyword">new</span> <span class="identifier">ppm</span><span class="special">::</span><span class="identifier">HexEncoder</span><span class="special">{</span>
+							<span class="keyword">new</span> <span class="identifier">ppm</span><span class="special">::</span><span class="identifier">StringSink</span><span class="special">{</span>
+								<span class="identifier">digest</span>
+							<span class="special">}</span>
+						<span class="special">}</span>
+					<span class="special">}</span>
+				<span class="special">};</span>
+				<span class="identifier">__result</span> <span class="special">=</span> <span class="identifier">digest</span><span class="special">;</span>
+			<span class="special">}</span>
+			<span class="keyword">catch</span> <span class="special">(</span><span class="keyword">const</span> <span class="identifier">ppm</span><span class="special">::</span><span class="identifier">Exception</span> <span class="special">&amp;</span> <span class="identifier">e</span><span class="special">)</span>
+			<span class="special">{</span>
+				<span class="identifier">std</span><span class="special">::</span><span class="identifier">cerr</span> <span class="special">&lt;&lt;</span> <span class="string">"Hash Error:\n"</span><span class="special">;</span>
+				<span class="identifier">std</span><span class="special">::</span><span class="identifier">rethrow_exception</span><span class="special">(</span>
+					<span class="identifier">std</span><span class="special">::</span><span class="identifier">make_exception_ptr</span><span class="special">(</span><span class="identifier">e</span><span class="special">)</span>
+				<span class="special">);</span>
+			<span class="special">}</span>
+		<span class="special">}</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">result</span><span class="special">()</span>
+		<span class="special">{</span>
+			<span class="keyword">return</span> <span class="identifier">__result</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="special">};</span>
+<span class="special">}</span>	<span class="comment">// namespace hf</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">(</span><span class="keyword">int</span> <span class="identifier">argc</span><span class="special">,</span> <span class="keyword">char</span> <span class="special">**</span> <span class="identifier">argv</span><span class="special">)</span>
+<span class="special">{</span>
+	<span class="keyword">try</span>
+	<span class="special">{</span>
+		<span class="keyword">if</span> <span class="special">(</span><span class="identifier">argc</span> <span class="special">!=</span> <span class="number">2</span><span class="special">)</span>
+			<span class="keyword">throw</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">runtime_error</span><span class="special">{</span><span class="string">"hash-file &lt;filename&gt;"</span><span class="special">};</span>
+		<span class="identifier">hf</span><span class="special">::</span><span class="identifier">file_hasher</span> <span class="identifier">hasher</span><span class="special">;</span>
+		<span class="identifier">hasher</span><span class="special">.</span><span class="identifier">hash</span><span class="special">(</span><span class="identifier">argv</span><span class="special">[</span><span class="number">1</span><span class="special">]);</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Filename: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">argv</span><span class="special">[</span><span class="number">1</span><span class="special">]</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"File hash: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">hasher</span><span class="special">.</span><span class="identifier">result</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="keyword">catch</span> <span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">exception</span> <span class="special">&amp;</span> <span class="identifier">e</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cerr</span> <span class="special">&lt;&lt;</span> <span class="string">"Error: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">e</span><span class="special">.</span><span class="identifier">what</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+		<span class="keyword">return</span> <span class="number">1</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">}</span>
+</pre>
+<h3>
+<a name="cpp-cryptopp-modern-fk7a.h8"></a>
+      <span class="phrase"><a name="cpp-cryptopp-modern-fk7a.cpp-ex-ew23_4"></a></span><a class="link" href="cpp-cryptopp-modern-fk7a.html#cpp-cryptopp-modern-fk7a.cpp-ex-ew23_4">c++
+      cryptopp-modern example</a>
+    </h3>
+<p>
+      The c++ cryptopp-modern example: Random number generation
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">cryptopp</span><span class="special">/</span><span class="identifier">osrng</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">cryptopp</span><span class="special">/</span><span class="identifier">hex</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">algorithm</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">ppm</span> <span class="special">=</span> <span class="identifier">CryptoPP</span><span class="special">;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">rnn</span>
+<span class="special">{</span>
+	<span class="keyword">class</span> <span class="identifier">random_generator</span>
+	<span class="special">{</span>
+	<span class="keyword">private</span><span class="special">:</span>
+		<span class="identifier">ppm</span><span class="special">::</span><span class="identifier">AutoSeededRandomPool</span> <span class="identifier">__prng</span><span class="special">;</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="keyword">virtual</span> <span class="special">~</span><span class="identifier">random_generator</span><span class="special">()</span> <span class="special">=</span> <span class="keyword">default</span><span class="special">;</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">rand_bytes</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">length</span><span class="special">)</span>
+		<span class="special">{</span>
+			<span class="identifier">ppm</span><span class="special">::</span><span class="identifier">SecByteBlock</span> <span class="identifier">rnd</span><span class="special">{</span><span class="identifier">length</span><span class="special">};</span>
+			<span class="identifier">__prng</span><span class="special">.</span><span class="identifier">GenerateBlock</span><span class="special">(</span><span class="identifier">rnd</span><span class="special">,</span> <span class="identifier">rnd</span><span class="special">.</span><span class="identifier">size</span><span class="special">());</span>
+
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">hex</span><span class="special">;</span>
+			<span class="identifier">ppm</span><span class="special">::</span><span class="identifier">HexEncoder</span> <span class="identifier">encoder</span><span class="special">{</span><span class="keyword">new</span> <span class="identifier">ppm</span><span class="special">::</span><span class="identifier">StringSink</span><span class="special">{</span><span class="identifier">hex</span><span class="special">}};</span>
+			<span class="identifier">encoder</span><span class="special">.</span><span class="identifier">Put</span><span class="special">(</span><span class="identifier">rnd</span><span class="special">,</span> <span class="identifier">rnd</span><span class="special">.</span><span class="identifier">size</span><span class="special">());</span>
+			<span class="identifier">encoder</span><span class="special">.</span><span class="identifier">MessageEnd</span><span class="special">();</span>
+
+			<span class="keyword">return</span> <span class="identifier">hex</span><span class="special">;</span>
+		<span class="special">}</span>
+
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">uint32_t</span> <span class="identifier">rand_uint</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">uint32_t</span> <span class="identifier">min</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">uint32_t</span> <span class="identifier">max</span><span class="special">)</span>
+		<span class="special">{</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">uint32_t</span> <span class="identifier">value</span><span class="special">;</span>
+			<span class="identifier">__prng</span><span class="special">.</span><span class="identifier">GenerateBlock</span><span class="special">((</span><span class="identifier">ppm</span><span class="special">::</span><span class="identifier">byte</span> <span class="special">*)&amp;</span><span class="identifier">value</span><span class="special">,</span> <span class="keyword">sizeof</span> <span class="special">(</span><span class="identifier">value</span><span class="special">));</span>
+			<span class="keyword">return</span> <span class="identifier">value</span><span class="special">%(</span><span class="identifier">max</span><span class="special">-</span><span class="identifier">min</span><span class="special">+</span><span class="number">1</span><span class="special">)</span> <span class="special">+</span> <span class="identifier">min</span><span class="special">;</span>
+		<span class="special">}</span>
+
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">rand_token</span><span class="special">()</span>
+		<span class="special">{</span>
+			<span class="keyword">return</span> <span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">rand_bytes</span><span class="special">(</span><span class="number">32</span><span class="special">);</span>
+		<span class="special">}</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">ppm</span><span class="special">::</span><span class="identifier">SecByteBlock</span> <span class="identifier">rand_key</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">key_size</span> <span class="special">=</span> <span class="number">32</span><span class="special">)</span>
+		<span class="special">{</span>
+			<span class="identifier">ppm</span><span class="special">::</span><span class="identifier">SecByteBlock</span> <span class="identifier">key</span><span class="special">{</span><span class="identifier">key_size</span><span class="special">};</span>
+			<span class="identifier">__prng</span><span class="special">.</span><span class="identifier">GenerateBlock</span><span class="special">(</span><span class="identifier">key</span><span class="special">,</span> <span class="identifier">key</span><span class="special">.</span><span class="identifier">size</span><span class="special">());</span>
+			<span class="keyword">return</span> <span class="identifier">key</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="special">};</span>
+<span class="special">}</span>	<span class="comment">// namespace rnn</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">rnn</span><span class="special">::</span><span class="identifier">random_generator</span> <span class="identifier">gen</span><span class="special">;</span>
+
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Random bytes: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">gen</span><span class="special">.</span><span class="identifier">rand_bytes</span><span class="special">(</span><span class="number">32</span><span class="special">)</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Random u-int: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">gen</span><span class="special">.</span><span class="identifier">rand_uint</span><span class="special">(</span><span class="number">100</span><span class="special">,</span> <span class="number">1000</span><span class="special">)</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Random session token: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">gen</span><span class="special">.</span><span class="identifier">rand_token</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+
+	<span class="keyword">auto</span> <span class="identifier">key</span> <span class="special">=</span> <span class="identifier">gen</span><span class="special">.</span><span class="identifier">rand_key</span><span class="special">(</span><span class="number">64</span><span class="special">);</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">key_cr</span><span class="special">(</span><span class="keyword">reinterpret_cast</span><span class="special">&lt;</span><span class="keyword">const</span> <span class="keyword">char</span> <span class="special">*&gt;(</span><span class="identifier">key</span><span class="special">.</span><span class="identifier">data</span><span class="special">()));</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">key_fau</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">transform</span><span class="special">(</span>
+		<span class="identifier">key</span><span class="special">.</span><span class="identifier">begin</span><span class="special">(),</span>
+		<span class="identifier">key</span><span class="special">.</span><span class="identifier">end</span><span class="special">(),</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">back_inserter</span><span class="special">(</span><span class="identifier">key_fau</span><span class="special">),</span>
+		<span class="special">[]</span> <span class="special">(</span><span class="keyword">auto</span> <span class="identifier">x</span><span class="special">)</span>
+		<span class="special">{</span>
+			<span class="keyword">return</span> <span class="keyword">static_cast</span><span class="special">&lt;</span><span class="keyword">char</span><span class="special">&gt;(</span><span class="identifier">x</span><span class="special">);</span>
+		<span class="special">}</span>
+	<span class="special">);</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Random Encryption Key is generated. It is not printable.\n"</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">key_cr</span> <span class="special">&lt;&lt;</span> <span class="char">'\n'</span> <span class="special">&lt;&lt;</span> <span class="identifier">key_fau</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="special">((</span><span class="identifier">key_cr</span><span class="special">==</span><span class="identifier">key_fau</span><span class="special">)?</span><span class="string">"oh"</span><span class="special">:</span><span class="string">"ho"</span><span class="special">)</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<h3>
+<a name="cpp-cryptopp-modern-fk7a.h9"></a>
+      <span class="phrase"><a name="cpp-cryptopp-modern-fk7a.cpp-ex-ew23_5"></a></span><a class="link" href="cpp-cryptopp-modern-fk7a.html#cpp-cryptopp-modern-fk7a.cpp-ex-ew23_5">c++
+      cryptopp-modern example</a>
+    </h3>
+<p>
+      The c++ cryptopp-modern example: X25519 key exchange
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">cryptopp</span><span class="special">/</span><span class="identifier">xed25519</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">cryptopp</span><span class="special">/</span><span class="identifier">osrng</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">cryptopp</span><span class="special">/</span><span class="identifier">hex</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">assert</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">ppm</span> <span class="special">=</span> <span class="identifier">CryptoPP</span><span class="special">;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">kex</span>
+<span class="special">{</span>
+	<span class="keyword">class</span> <span class="identifier">shared_resource</span><span class="special">:</span>
+		<span class="keyword">virtual</span> <span class="keyword">public</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">enable_shared_from_this</span><span class="special">&lt;</span><span class="identifier">kex</span><span class="special">::</span><span class="identifier">shared_resource</span><span class="special">&gt;</span>
+	<span class="special">{</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">ppm</span><span class="special">::</span><span class="identifier">AutoSeededRandomPool</span> <span class="identifier">rng</span><span class="special">;</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="keyword">virtual</span> <span class="special">~</span><span class="identifier">shared_resource</span><span class="special">()</span> <span class="special">=</span> <span class="keyword">default</span><span class="special">;</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">shared_resource</span><span class="special">():</span>
+			<span class="identifier">rng</span><span class="special">{}</span>
+		<span class="special">{</span>
+		<span class="special">}</span>
+	<span class="special">};</span>	<span class="comment">// class shared_resource</span>
+
+	<span class="keyword">class</span> <span class="identifier">peer</span><span class="special">:</span>
+		<span class="keyword">virtual</span> <span class="keyword">public</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">enable_shared_from_this</span><span class="special">&lt;</span><span class="identifier">kex</span><span class="special">::</span><span class="identifier">peer</span><span class="special">&gt;</span>
+	<span class="special">{</span>
+	<span class="keyword">private</span><span class="special">:</span>
+		<span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">__name</span><span class="special">;</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="identifier">kex</span><span class="special">::</span><span class="identifier">shared_resource</span><span class="special">&gt;</span> <span class="identifier">__sres</span><span class="special">;</span>
+		<span class="identifier">ppm</span><span class="special">::</span><span class="identifier">x25519</span> <span class="identifier">__cert</span><span class="special">;</span>
+		<span class="identifier">ppm</span><span class="special">::</span><span class="identifier">SecByteBlock</span> <span class="identifier">__private</span><span class="special">;</span>
+		<span class="identifier">ppm</span><span class="special">::</span><span class="identifier">SecByteBlock</span> <span class="identifier">__public</span><span class="special">;</span>
+		<span class="identifier">ppm</span><span class="special">::</span><span class="identifier">SecByteBlock</span> <span class="identifier">__shared_key</span><span class="special">;</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">peer</span><span class="special">(</span>
+			<span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="special">&amp;</span> <span class="identifier">name__</span><span class="special">,</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="identifier">kex</span><span class="special">::</span><span class="identifier">shared_resource</span><span class="special">&gt;</span> <span class="identifier">sres__</span>
+		<span class="special">):</span>
+			<span class="identifier">__name</span><span class="special">{</span><span class="identifier">name__</span><span class="special">},</span>
+			<span class="identifier">__sres</span><span class="special">{</span><span class="identifier">sres__</span><span class="special">},</span>
+			<span class="identifier">__cert</span><span class="special">{},</span>
+			<span class="identifier">__private</span><span class="special">{</span><span class="identifier">ppm</span><span class="special">::</span><span class="identifier">x25519</span><span class="special">::</span><span class="identifier">SECRET_KEYLENGTH</span><span class="special">},</span>
+			<span class="identifier">__public</span><span class="special">{</span><span class="identifier">ppm</span><span class="special">::</span><span class="identifier">x25519</span><span class="special">::</span><span class="identifier">PUBLIC_KEYLENGTH</span><span class="special">},</span>
+			<span class="identifier">__shared_key</span><span class="special">{</span><span class="identifier">ppm</span><span class="special">::</span><span class="identifier">x25519</span><span class="special">::</span><span class="identifier">SHARED_KEYLENGTH</span><span class="special">}</span>
+		<span class="special">{</span>
+			<span class="identifier">__cert</span><span class="special">.</span><span class="identifier">GeneratePrivateKey</span><span class="special">(</span><span class="identifier">__sres</span><span class="special">-&gt;</span><span class="identifier">rng</span><span class="special">,</span> <span class="identifier">__private</span><span class="special">);</span>
+			<span class="identifier">__cert</span><span class="special">.</span><span class="identifier">GeneratePublicKey</span><span class="special">(</span><span class="identifier">__sres</span><span class="special">-&gt;</span><span class="identifier">rng</span><span class="special">,</span> <span class="identifier">__private</span><span class="special">,</span> <span class="identifier">__public</span><span class="special">);</span>
+		<span class="special">}</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="keyword">void</span> <span class="identifier">agree</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">kex</span><span class="special">::</span><span class="identifier">peer</span> <span class="special">&amp;</span> <span class="identifier">other</span><span class="special">)</span>
+		<span class="special">{</span>
+			<span class="comment">// This peer computes shared secret using his private key and other's public key.</span>
+			<span class="keyword">if</span> <span class="special">(</span><span class="identifier">__cert</span><span class="special">.</span><span class="identifier">Agree</span><span class="special">(</span><span class="identifier">__shared_key</span><span class="special">,</span> <span class="identifier">__private</span><span class="special">,</span> <span class="identifier">other</span><span class="special">.</span><span class="identifier">__public</span><span class="special">))</span>
+				<span class="keyword">return</span><span class="special">;</span>
+			<span class="comment">// else</span>
+			<span class="keyword">throw</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">runtime_error</span><span class="special">{</span>
+				<span class="identifier">__name</span> <span class="special">+</span> <span class="string">": "</span>
+				<span class="special">+</span>
+				<span class="string">"key agreement failed."</span>
+			<span class="special">};</span>
+		<span class="special">}</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="keyword">auto</span> <span class="identifier">shared_key</span><span class="special">()</span> <span class="keyword">const</span>
+		<span class="special">{</span>
+			<span class="keyword">return</span> <span class="identifier">__shared_key</span><span class="special">;</span>
+		<span class="special">}</span>
+		<span class="keyword">auto</span> <span class="identifier">name</span><span class="special">()</span> <span class="keyword">const</span>
+		<span class="special">{</span>
+			<span class="keyword">return</span> <span class="identifier">__name</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="special">};</span>	<span class="comment">// class peer</span>
+
+	<span class="keyword">class</span> <span class="identifier">encoder</span>
+	<span class="special">{</span>
+	<span class="keyword">private</span><span class="special">:</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">__hex</span><span class="special">;</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">encoder</span><span class="special">(</span>
+			<span class="keyword">const</span> <span class="identifier">ppm</span><span class="special">::</span><span class="identifier">SecByteBlock</span> <span class="special">&amp;</span> <span class="identifier">shared__</span>
+		<span class="special">)</span>
+		<span class="special">{</span>
+			<span class="identifier">ppm</span><span class="special">::</span><span class="identifier">HexEncoder</span> <span class="identifier">enc</span><span class="special">{</span>
+				<span class="keyword">new</span> <span class="identifier">ppm</span><span class="special">::</span><span class="identifier">StringSink</span><span class="special">{</span>
+					<span class="identifier">__hex</span>
+				<span class="special">}</span>
+			<span class="special">};</span>
+			<span class="identifier">enc</span><span class="special">.</span><span class="identifier">Put</span><span class="special">(</span><span class="identifier">shared__</span><span class="special">,</span> <span class="identifier">shared__</span><span class="special">.</span><span class="identifier">size</span><span class="special">());</span>
+			<span class="identifier">enc</span><span class="special">.</span><span class="identifier">MessageEnd</span><span class="special">();</span>
+		<span class="special">}</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">hex</span><span class="special">()</span> <span class="keyword">const</span>
+		<span class="special">{</span>
+			<span class="keyword">return</span> <span class="identifier">__hex</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="special">};</span>
+<span class="special">}</span>	<span class="comment">// namespace kex</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">try</span>
+	<span class="special">{</span>
+		<span class="keyword">auto</span> <span class="identifier">sres</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">make_shared</span><span class="special">&lt;</span><span class="identifier">kex</span><span class="special">::</span><span class="identifier">shared_resource</span><span class="special">&gt;();</span>
+		<span class="identifier">kex</span><span class="special">::</span><span class="identifier">peer</span> <span class="identifier">tom</span><span class="special">{</span><span class="string">"Tom"</span><span class="special">,</span> <span class="identifier">sres</span><span class="special">};</span>
+		<span class="identifier">kex</span><span class="special">::</span><span class="identifier">peer</span> <span class="identifier">bob</span><span class="special">{</span><span class="string">"Bob"</span><span class="special">,</span> <span class="identifier">sres</span><span class="special">};</span>
+		<span class="identifier">tom</span><span class="special">.</span><span class="identifier">agree</span><span class="special">(</span><span class="identifier">bob</span><span class="special">);</span>
+		<span class="identifier">bob</span><span class="special">.</span><span class="identifier">agree</span><span class="special">(</span><span class="identifier">tom</span><span class="special">);</span>
+		<span class="special">{</span>
+			<span class="keyword">if</span> <span class="special">(</span><span class="identifier">tom</span><span class="special">.</span><span class="identifier">shared_key</span><span class="special">()</span> <span class="special">!=</span> <span class="identifier">bob</span><span class="special">.</span><span class="identifier">shared_key</span><span class="special">())</span>
+				<span class="keyword">throw</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">runtime_error</span><span class="special">{</span><span class="string">"Key Exchange Failed. Secrets do not match!"</span><span class="special">};</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Key exchange successful! They share the secret: "</span>
+				<span class="special">&lt;&lt;</span> <span class="identifier">tom</span><span class="special">.</span><span class="identifier">name</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="string">" and "</span> <span class="special">&lt;&lt;</span> <span class="identifier">bob</span><span class="special">.</span><span class="identifier">name</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+			<span class="identifier">kex</span><span class="special">::</span><span class="identifier">encoder</span> <span class="identifier">encoder</span><span class="special">{</span><span class="identifier">tom</span><span class="special">.</span><span class="identifier">shared_key</span><span class="special">()};</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Shared Secret: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">encoder</span><span class="special">.</span><span class="identifier">hex</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+			<span class="identifier">BOOST_ASSERT</span><span class="special">(</span>
+				<span class="identifier">kex</span><span class="special">::</span><span class="identifier">encoder</span><span class="special">{</span><span class="identifier">tom</span><span class="special">.</span><span class="identifier">shared_key</span><span class="special">()}.</span><span class="identifier">hex</span><span class="special">()</span> <span class="special">==</span> <span class="identifier">kex</span><span class="special">::</span><span class="identifier">encoder</span><span class="special">{</span><span class="identifier">bob</span><span class="special">.</span><span class="identifier">shared_key</span><span class="special">()}.</span><span class="identifier">hex</span><span class="special">()</span>
+			<span class="special">);</span>
+		<span class="special">}</span>
+	<span class="special">}</span>
+	<span class="keyword">catch</span> <span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">exception</span> <span class="special">&amp;</span> <span class="identifier">e</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cerr</span> <span class="special">&lt;&lt;</span> <span class="string">"Error: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">e</span><span class="special">.</span><span class="identifier">what</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+		<span class="keyword">return</span> <span class="number">1</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">}</span>
+</pre>
+<h3>
+<a name="cpp-cryptopp-modern-fk7a.h10"></a>
+      <span class="phrase"><a name="cpp-cryptopp-modern-fk7a.jump-end"></a></span><a class="link" href="cpp-cryptopp-modern-fk7a.html#cpp-cryptopp-modern-fk7a.jump-end">Jump
+      End</a>
+    </h3>
+<p>
+      Jump End
+    </p>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<p>
+      <a href="." target="_top">Home</a>
+    </p>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<p>
+      Sat Jun 27 12:02:57 PM UTC 2026
+    </p>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<h2>
+<a name="cpp-cryptopp-modern-fk7a.h11"></a>
+      <span class="phrase"><a name="cpp-cryptopp-modern-fk7a.helpful"></a></span><a class="link" href="cpp-cryptopp-modern-fk7a.html#cpp-cryptopp-modern-fk7a.helpful"><span class="cyan">Helpful</span></a>
+    </h2>
+<p>
+      <a href="https://wtgo.top/jfty.html" target="_top">Jfty</a>
+    </p>
+<p>
+      <a href="https://wtgo.top" target="_top">Wtgo</a>
+    </p>
+<h2>
+<a name="cpp-cryptopp-modern-fk7a.h12"></a>
+      <span class="phrase"><a name="cpp-cryptopp-modern-fk7a.role"></a></span><a class="link" href="cpp-cryptopp-modern-fk7a.html#cpp-cryptopp-modern-fk7a.role"><span class="cyan">Role</span></a>
+    </h2>
+<p>
+      +
+    </p>
+<p>
+      Github:<br> <a href="https://github.com/cppfx/cpphtgt" target="_top">https://github.com/cppfx/cpphtgt</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      Powered by:<br> <a href="https://www.bfgroup.xyz/b2" target="_top">B2 Build</a>
+      | <a href="https://www.boost.org/tools/quickbook" target="_top">boost quickbook</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      <a href="https://cppfx.xyz/donate.html" target="_top">Donate</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      @<a href="https://cppfx.xyz" target="_top">cppfx.xyz</a>
+    </p>
+<p>
+      <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+      <br> <br> <br> <br> <br>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp-std-packaged_task-for-exception-propagation.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

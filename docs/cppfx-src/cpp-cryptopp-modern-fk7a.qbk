@@ -1,0 +1,546 @@
+[article c++ cryptopp-modern fork, fk7a
+	[quickbook 1.7]
+	[id cpp-cryptopp-modern-fk7a]
+]
+
+[role drop_menu
+> [link cpp-cryptopp-modern-fk7a Start][br]
+> [link cpp-cryptopp-modern-fk7a.cpp-cryptopp-modern c++ cryptopp-modern][br]
+> [link cpp-cryptopp-modern-fk7a.examples Examples][br]
+> [link cpp-cryptopp-modern-fk7a.jump-middle Jump Middle][br]
+> [link cpp-cryptopp-modern-fk7a.jump-end Jump End][br]
+> [@. Back: Home]
+]
+
+c++ full-featured cryptographic library: cryptopp and cryptopp-modern.
+
+[h1:cpp-cryptopp-modern [role cyan c++ cryptopp-modern]]
+
+c++ cryptopp-modern forks cryptopp.
+
+Home:
+
+[@https://cryptopp-modern.com]
+
+cryptopp-modern is an actively maintained fork of Crypto++ 8.9.0, providing a modern cryptographic library with contemporary algorithms, better code organisation, and regular security updates.
+
+c++ cryptopp-modern Github:
+
+[@https://github.com/weidai11/cryptopp]
+
+c++ cryptopp Github:
+
+[@https://github.com/weidai11/cryptopp]
+
+[h1:examples [role cyan Examples]]
+
+[h2:cpp-ex-ew23 c++ cryptopp-modern example]
+
+The c++ cryptopp-modern example: Blake3 Hash
+
+[!c++]
+```
+#include <cryptopp/blake3.h>
+#include <cryptopp/hex.h>
+#include <iostream>
+
+namespace ppm = CryptoPP;
+
+int main()
+{
+	ppm::BLAKE3 hash;
+	std::string msg = "Hello, c++ cryptopp.";
+	std::string digest;
+	ppm::StringSource{
+		msg,
+		true,
+		new ppm::HashFilter{
+			hash,
+			new ppm::HexEncoder{
+				new ppm::StringSink{digest}
+			}
+		}
+	};
+	std::cout << "Blake3: " << digest << std::endl;
+}
+```
+
+[h2:cpp-ex-ew23 c++ cryptopp-modern example]
+
+The c++ cryptopp-modern example: Password Hashing with Argon2
+
+[!c++]
+```
+#include <cryptopp/argon2.h>
+#include <cryptopp/hex.h>
+#include <cryptopp/secblock.h>
+#include <iostream>
+#include <algorithm>
+
+namespace ppm = CryptoPP;
+
+int main()
+{
+	ppm::Argon2 argon2;
+	std::string password = "This is my password, please stole it.";
+	ppm::SecByteBlock salt{16};
+	ppm::SecByteBlock derived{32};
+
+	// In practice, Generate random salt.
+	std::fill_n(salt.begin(), salt.size(), 0x01);
+
+	argon2.DeriveKey(
+		derived,
+		derived.size(),
+		(const ppm::byte *)password.data(),	// convert const char * to const unsigned char *
+		password.size(),
+		salt,
+		salt.size(),
+		3,	// time cost
+		65536,	// memory cost
+		2,	// Parallism
+		nullptr,	// secret
+		0,	// secret len
+		nullptr,	// associated data
+		0	// associated data len
+	);
+
+	std::string hex_out;
+	ppm::HexEncoder encoder{
+		new ppm::StringSink{
+			hex_out
+		}
+	};
+	encoder.Put(derived, derived.size());
+	encoder.MessageEnd();
+	std::cout << "Argon2id: " << hex_out << std::endl;
+}
+```
+
+[h2:cpp-ex-ew23 c++ cryptopp-modern example]
+
+The c++ cryptopp-modern example: AES Encryption
+
+[!c++]
+```
+#include <cryptopp/aes.h>
+#include <cryptopp/modes.h>
+#include <cryptopp/hex.h>
+#include <iostream>
+#include <algorithm>
+
+namespace ppm = CryptoPP;
+
+int main()
+{
+	// In practice, generate these securely.
+	ppm::byte key[ppm::AES::DEFAULT_KEYLENGTH] = {0};
+	ppm::byte iv[ppm::AES::BLOCKSIZE] = {0};
+
+	std::string plain_text = "Secret Message";
+	std::string cipher_text, decrypted;
+
+	// Encrypt
+	ppm::CBC_Mode<ppm::AES>::Encryption enc;
+	enc.SetKeyWithIV(key, sizeof (key), iv);
+	ppm::StringSource{
+		plain_text,
+		true,
+		new ppm::StreamTransformationFilter{
+			enc,
+			new ppm::StringSink{
+				cipher_text
+			}
+		}
+	};
+
+	// Decrypt
+	ppm::CBC_Mode<ppm::AES>::Decryption dec;
+	dec.SetKeyWithIV(key, sizeof (key), iv);
+	ppm::StringSource{
+		cipher_text,
+		true,
+		new ppm::StreamTransformationFilter{
+			dec,
+			new ppm::StringSink{
+				decrypted
+			}
+		}
+	};
+
+	std::cout << "Plain Text: " << plain_text << std::endl;
+	std::cout << "Encrypted: " << cipher_text << std::endl;
+	std::cout << "Decrypted: " << decrypted << std::endl;
+}
+```
+
+[h2:jump-middle Jump Middle]
+
+Jump Middle
+
+[h2:cpp-ex-ew23 c++ cryptopp-modern example]
+
+The c++ cryptopp-modern example: Digital signatures with ed25519
+
+[!c++]
+```
+#include <cryptopp/xed25519.h>
+#include <cryptopp/osrng.h>
+#include <iostream>
+#include <algorithm>
+
+namespace ppm = CryptoPP;
+
+int main()
+{
+	ppm::AutoSeededRandomPool rng;
+	ppm::ed25519Signer signer;
+	signer.AccessPrivateKey().GenerateRandom(rng);	// Generate key pair
+
+	ppm::ed25519Verifier verifier{signer};
+
+	std::string msg = "This is an important document.";
+	std::string signature;
+
+	// Sign Message
+	ppm::StringSource ss{
+		msg,
+		true,
+		new ppm::SignerFilter{
+			rng,
+			signer,
+			new ppm::StringSink{
+				signature
+			}
+		}
+	};
+
+	bool valid = false;
+
+	// Verify signature
+	ppm::StringSource ss2{
+		msg + signature,
+		true,
+		new ppm::SignatureVerificationFilter{
+			verifier,
+			new ppm::ArraySink{
+				(ppm::byte *)&valid,
+				sizeof (valid)
+			}
+		}
+	};
+
+	std::cout << "Signature Valid: " << (valid?"Yes":"No") << std::endl;
+}
+```
+
+[h2:cpp-ex-ew23 c++ cryptopp-modern example]
+
+The c++ cryptopp-modern example: Hash a file
+
+[!c++]
+```
+#include <cryptopp/blake3.h>
+#include <cryptopp/hex.h>
+#include <cryptopp/files.h>
+#include <iostream>
+
+namespace ppm = CryptoPP;
+
+namespace hf
+{
+	class file_hasher
+	{
+	private:
+		std::string __result;
+	public:
+		file_hasher() = default;
+		virtual ~file_hasher() = default;
+	public:
+		void hash(const std::string & filename)
+		{
+			ppm::BLAKE3 hash;
+			std::string digest;
+			try
+			{
+				ppm::FileSource fs{
+					filename.data(),
+					true,
+					new ppm::HashFilter{
+						hash,
+						new ppm::HexEncoder{
+							new ppm::StringSink{
+								digest
+							}
+						}
+					}
+				};
+				__result = digest;
+			}
+			catch (const ppm::Exception & e)
+			{
+				std::cerr << "Hash Error:\n";
+				std::rethrow_exception(
+					std::make_exception_ptr(e)
+				);
+			}
+		}
+		std::string result()
+		{
+			return __result;
+		}
+	};
+}	// namespace hf
+
+int main(int argc, char ** argv)
+{
+	try
+	{
+		if (argc != 2)
+			throw std::runtime_error{"hash-file <filename>"};
+		hf::file_hasher hasher;
+		hasher.hash(argv[1]);
+		std::cout << "Filename: " << argv[1] << std::endl;
+		std::cout << "File hash: " << hasher.result() << std::endl;
+	}
+	catch (const std::exception & e)
+	{
+		std::cerr << "Error: " << e.what() << std::endl;
+		return 1;
+	}
+}
+```
+
+[h2:cpp-ex-ew23 c++ cryptopp-modern example]
+
+The c++ cryptopp-modern example: Random number generation
+
+[!c++]
+```
+#include <cryptopp/osrng.h>
+#include <cryptopp/hex.h>
+#include <iostream>
+#include <algorithm>
+
+namespace ppm = CryptoPP;
+
+namespace rnn
+{
+	class random_generator
+	{
+	private:
+		ppm::AutoSeededRandomPool __prng;
+	public:
+		virtual ~random_generator() = default;
+	public:
+		std::string rand_bytes(std::size_t length)
+		{
+			ppm::SecByteBlock rnd{length};
+			__prng.GenerateBlock(rnd, rnd.size());
+
+			std::string hex;
+			ppm::HexEncoder encoder{new ppm::StringSink{hex}};
+			encoder.Put(rnd, rnd.size());
+			encoder.MessageEnd();
+
+			return hex;
+		}
+
+	public:
+		std::uint32_t rand_uint(std::uint32_t min, std::uint32_t max)
+		{
+			std::uint32_t value;
+			__prng.GenerateBlock((ppm::byte *)&value, sizeof (value));
+			return value%(max-min+1) + min;
+		}
+
+	public:
+		std::string rand_token()
+		{
+			return this->rand_bytes(32);
+		}
+	public:
+		ppm::SecByteBlock rand_key(std::size_t key_size = 32)
+		{
+			ppm::SecByteBlock key{key_size};
+			__prng.GenerateBlock(key, key.size());
+			return key;
+		}
+	};
+}	// namespace rnn
+
+int main()
+{
+	rnn::random_generator gen;
+
+	std::cout << "Random bytes: " << gen.rand_bytes(32) << std::endl;
+	std::cout << "Random u-int: " << gen.rand_uint(100, 1000) << std::endl;
+	std::cout << "Random session token: " << gen.rand_token() << std::endl;
+
+	auto key = gen.rand_key(64);
+	std::string key_cr(reinterpret_cast<const char *>(key.data()));
+	std::string key_fau;
+	std::transform(
+		key.begin(),
+		key.end(),
+		std::back_inserter(key_fau),
+		[] (auto x)
+		{
+			return static_cast<char>(x);
+		}
+	);
+	std::cout << "Random Encryption Key is generated. It is not printable.\n";
+	std::cout << key_cr << '\n' << key_fau << std::endl;
+	std::cout << ((key_cr==key_fau)?"oh":"ho") << std::endl;
+}
+```
+
+[h2:cpp-ex-ew23 c++ cryptopp-modern example]
+
+The c++ cryptopp-modern example: X25519 key exchange
+
+[!c++]
+```
+#include <cryptopp/xed25519.h>
+#include <cryptopp/osrng.h>
+#include <cryptopp/hex.h>
+#include <iostream>
+#include <boost/assert.hpp>
+
+namespace ppm = CryptoPP;
+
+namespace kex
+{
+	class shared_resource:
+		virtual public std::enable_shared_from_this<kex::shared_resource>
+	{
+	public:
+		ppm::AutoSeededRandomPool rng;
+	public:
+		virtual ~shared_resource() = default;
+	public:
+		shared_resource():
+			rng{}
+		{
+		}
+	};	// class shared_resource
+
+	class peer:
+		virtual public std::enable_shared_from_this<kex::peer>
+	{
+	private:
+		const std::string __name;
+		std::shared_ptr<kex::shared_resource> __sres;
+		ppm::x25519 __cert;
+		ppm::SecByteBlock __private;
+		ppm::SecByteBlock __public;
+		ppm::SecByteBlock __shared_key;
+	public:
+		peer(
+			const std::string & name__,
+			std::shared_ptr<kex::shared_resource> sres__
+		):
+			__name{name__},
+			__sres{sres__},
+			__cert{},
+			__private{ppm::x25519::SECRET_KEYLENGTH},
+			__public{ppm::x25519::PUBLIC_KEYLENGTH},
+			__shared_key{ppm::x25519::SHARED_KEYLENGTH}
+		{
+			__cert.GeneratePrivateKey(__sres->rng, __private);
+			__cert.GeneratePublicKey(__sres->rng, __private, __public);
+		}
+	public:
+		void agree(const kex::peer & other)
+		{
+			// This peer computes shared secret using his private key and other's public key.
+			if (__cert.Agree(__shared_key, __private, other.__public))
+				return;
+			// else
+			throw std::runtime_error{
+				__name + ": "
+				+
+				"key agreement failed."
+			};
+		}
+	public:
+		auto shared_key() const
+		{
+			return __shared_key;
+		}
+		auto name() const
+		{
+			return __name;
+		}
+	};	// class peer
+
+	class encoder
+	{
+	private:
+		std::string __hex;
+	public:
+		encoder(
+			const ppm::SecByteBlock & shared__
+		)
+		{
+			ppm::HexEncoder enc{
+				new ppm::StringSink{
+					__hex
+				}
+			};
+			enc.Put(shared__, shared__.size());
+			enc.MessageEnd();
+		}
+	public:
+		std::string hex() const
+		{
+			return __hex;
+		}
+	};
+}	// namespace kex
+
+int main()
+{
+	try
+	{
+		auto sres = std::make_shared<kex::shared_resource>();
+		kex::peer tom{"Tom", sres};
+		kex::peer bob{"Bob", sres};
+		tom.agree(bob);
+		bob.agree(tom);
+		{
+			if (tom.shared_key() != bob.shared_key())
+				throw std::runtime_error{"Key Exchange Failed. Secrets do not match!"};
+			std::cout << "Key exchange successful! They share the secret: "
+				<< tom.name() << " and " << bob.name() << std::endl;
+			kex::encoder encoder{tom.shared_key()};
+			std::cout << "Shared Secret: " << encoder.hex() << std::endl;
+			BOOST_ASSERT(
+				kex::encoder{tom.shared_key()}.hex() == kex::encoder{bob.shared_key()}.hex()
+			);
+		}
+	}
+	catch (const std::exception & e)
+	{
+		std::cerr << "Error: " << e.what() << std::endl;
+		return 1;
+	}
+}
+```
+
+[h2:jump-end Jump End]
+
+Jump End
+
+//////////////////////////////////////////////////////////////////////
+
+[@. Home]
+
+//////////////////////////////////////////////////////////////////////
+
+Sat Jun 27 12:02:57 PM UTC 2026
+
+//////////////////////////////////////////////////////////////////////
+
+[include ../share/foot-links.inc.qbk]
+
