@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>c++ Botan::TLS::Stream Constructors</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="cppfx - c++, b2 build">
+<link rel="up" href="index.html" title="cppfx - c++, b2 build">
+<link rel="prev" href="index.html" title="cppfx - c++, b2 build">
+<link rel="next" href="cpp-cryptopp-modern-chacha-poly.html" title="c++ cryptopp-modern Chacha 20 Poly 1304">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp-cryptopp-modern-chacha-poly.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="cpp-botan-tls-stream-constructors"></a>c++ Botan::TLS::Stream Constructors</h1></div></div>
+<hr>
+</div>
+<p>
+      <span class="drop_menu">&gt; <a class="link" href="cpp-botan-tls-stream-constructors.html" title="c++ Botan::TLS::Stream Constructors">Start</a><br>
+      &gt; <a class="link" href="cpp-botan-tls-stream-constructors.html#cpp-botan-tls-stream-constructors.constructor-01">constructor
+      01: master constructor</a><br> &gt; <a class="link" href="cpp-botan-tls-stream-constructors.html#cpp-botan-tls-stream-constructors.constructor-02">constructor
+      02: Propagate to 01</a><br> &gt; <a class="link" href="cpp-botan-tls-stream-constructors.html#cpp-botan-tls-stream-constructors.constructor-03">constructor
+      03: Propagate to 01</a><br> &gt; <a class="link" href="cpp-botan-tls-stream-constructors.html#cpp-botan-tls-stream-constructors.constructor-04">constructor
+      04: Propagate to 02</a><br> &gt; <a class="link" href="cpp-botan-tls-stream-constructors.html#cpp-botan-tls-stream-constructors.conclusion">Conclusion</a><br>
+      &gt; <a href="." target="_top">Back: Home</a> </span>
+    </p>
+<p>
+      This article talks about c++ Botan::TLS::Stream Constructors (overload).
+    </p>
+<h2>
+<a name="cpp-botan-tls-stream-constructors.h0"></a>
+      <span class="phrase"><a name="cpp-botan-tls-stream-constructors.constructor-01"></a></span><a class="link" href="cpp-botan-tls-stream-constructors.html#cpp-botan-tls-stream-constructors.constructor-01"><span class="cyan">constructor 01: master constructor</span></a>
+    </h2>
+<pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span><span class="special">...</span> <span class="identifier">Args</span><span class="special">&gt;</span>
+<span class="keyword">explicit</span> <span class="identifier">Stream</span><span class="special">(</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="identifier">Context</span><span class="special">&gt;</span> <span class="identifier">context</span><span class="special">,</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="identifier">StreamCallbacks</span><span class="special">&gt;</span> <span class="identifier">callbacks</span><span class="special">,</span>
+	<span class="identifier">Args</span> <span class="special">&amp;&amp;</span> <span class="special">...</span> <span class="identifier">args</span>
+<span class="special">);</span>
+</pre>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          <span class="ddgreen"><span class="bold"><strong>context</strong></span></span>
+          is used to construct <span class="dred"><span class="bold"><strong>Botan::TLS::Context</strong></span></span>
+          shared pointer object.
+        </li>
+<li class="listitem">
+          <span class="ddgreen"><span class="bold"><strong>callbacks</strong></span></span>
+          is used to construct <span class="dred"><span class="bold"><strong>Botan::TLS::StreamCallbacks</strong></span></span>
+          shared pointer object.
+        </li>
+<li class="listitem">
+          All <span class="ddgreen"><span class="bold"><strong>args ...</strong></span></span>
+          are forwarded to and used to construct <span class="dred"><span class="bold"><strong>m_nextLayer</strong></span></span>,<br>
+        </li>
+<li class="listitem">
+          <span class="dred"><span class="bold"><strong>m_nextLayer</strong></span></span>
+          is constructed from a type <span class="ddcyan"><span class="bold"><strong>StreamLayer</strong></span></span>
+          which is passed from class template (parameters).
+        </li>
+</ul></div>
+<pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">StreamLayer</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">ChannelT</span> <span class="special">=</span> <span class="identifier">Channel</span><span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">Stream</span>
+<span class="special">{</span>
+	<span class="special">...</span>
+	<span class="special">...</span>
+	<span class="identifier">StreamLayer</span> <span class="identifier">m_nextLayer</span><span class="special">;</span>
+<span class="special">};</span>
+</pre>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+          <span class="ddcyan"><span class="bold"><strong>StreamLayer</strong></span></span>
+          can be <span class="dddgreen"><span class="bold"><strong>boost::asio::ip::tcp::socket,
+          boost::beast::tcp_stream,</strong></span></span> or any other <span class="ddgreen">compatible
+          socket</span> types.
+        </li></ul></div>
+<p>
+      <span class="bold"><strong>c++ Example:</strong></span>
+    </p>
+<pre class="programlisting"><span class="keyword">auto</span> <span class="identifier">tls_context</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">make_shared</span><span class="special">&lt;</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">TLS</span><span class="special">::</span><span class="identifier">Context</span><span class="special">&gt;(</span>
+	<span class="identifier">cred</span><span class="special">,</span> <span class="identifier">rng</span><span class="special">,</span> <span class="identifier">ses</span><span class="special">,</span> <span class="identifier">policy</span><span class="special">,</span> <span class="identifier">server_info</span><span class="special">);</span>
+<span class="keyword">auto</span> <span class="identifier">callbacks</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">make_shared</span><span class="special">&lt;</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">TLS</span><span class="special">::</span><span class="identifier">StreamCallbacks</span><span class="special">&gt;();</span>
+<span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">thread_pool</span> <span class="identifier">thread_pool</span><span class="special">;</span>
+
+<span class="identifier">Boan</span><span class="special">::</span><span class="identifier">TLS</span><span class="special">::</span><span class="identifier">Stream</span><span class="special">&lt;</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">beast</span><span class="special">::</span><span class="identifier">tcp_stream</span><span class="special">&gt;</span> <span class="identifier">tls_stream</span><span class="special">{</span>
+	<span class="identifier">tls_context</span><span class="special">,</span>
+	<span class="identifier">callbacks</span><span class="special">,</span>
+	<span class="identifier">thread_pool</span><span class="special">.</span><span class="identifier">get_executor</span><span class="special">()</span>
+<span class="special">};</span>
+</pre>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          <span class="ddred">StreamLayer: <span class="bold"><strong>boost::beast::tcp_stream</strong></span></span>
+        </li>
+<li class="listitem">
+          <span class="ddred">args ... : <span class="bold"><strong>thread_pool.get_executor()</strong></span></span>
+        </li>
+<li class="listitem">
+          <span class="ddred">m_nextLayer: A beast::tcp_stream object <span class="bold"><strong>constructed from arg thread_pool.get_executor()</strong></span></span>
+        </li>
+</ul></div>
+<div class="note"><table border="0" summary="Note">
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td>
+<th align="left">Note</th>
+</tr>
+<tr><td align="left" valign="top"><p>
+        Distinguish class template and constructor template.
+      </p></td></tr>
+</table></div>
+<h2>
+<a name="cpp-botan-tls-stream-constructors.h1"></a>
+      <span class="phrase"><a name="cpp-botan-tls-stream-constructors.constructor-02"></a></span><a class="link" href="cpp-botan-tls-stream-constructors.html#cpp-botan-tls-stream-constructors.constructor-02"><span class="cyan">constructor 02: Propagate to constructor 01</span></a>
+    </h2>
+<pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span><span class="special">...</span> <span class="identifier">Args</span><span class="special">&gt;</span>
+<span class="keyword">explicit</span> <span class="identifier">Stream</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="identifier">Context</span><span class="special">&gt;</span> <span class="identifier">context</span><span class="special">,</span> <span class="identifier">Args</span><span class="special">&amp;&amp;...</span> <span class="identifier">args</span><span class="special">);</span>
+</pre>
+<p>
+      Propagate from <span class="bold"><strong>constructor 02</strong></span> to <span class="bold"><strong>constructor 01</strong></span>:
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          <span class="dred">context</span> as <span class="dred">context</span>
+        </li>
+<li class="listitem">
+          <span class="dred">args ...</span> as <span class="dred">args ...</span>
+        </li>
+<li class="listitem">
+          A <span class="dred"><span class="bold"><strong>default Botan::TLS::StreamCallbacks
+          object</strong></span></span> is constructed with no parameter.
+        </li>
+</ul></div>
+<h2>
+<a name="cpp-botan-tls-stream-constructors.h2"></a>
+      <span class="phrase"><a name="cpp-botan-tls-stream-constructors.constructor-03"></a></span><a class="link" href="cpp-botan-tls-stream-constructors.html#cpp-botan-tls-stream-constructors.constructor-03"><span class="cyan">constructor 03: Propagate to constructor 01</span></a>
+    </h2>
+<pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">Arg</span><span class="special">&gt;</span>
+<span class="keyword">explicit</span> <span class="identifier">Stream</span><span class="special">(</span>
+	<span class="identifier">Arg</span><span class="special">&amp;&amp;</span> <span class="identifier">arg</span><span class="special">,</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="identifier">Context</span><span class="special">&gt;</span> <span class="identifier">context</span><span class="special">,</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="identifier">StreamCallbacks</span><span class="special">&gt;</span> <span class="identifier">callbacks</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">make_shared</span><span class="special">&lt;</span><span class="identifier">StreamCallbacks</span><span class="special">&gt;()</span>
+<span class="special">);</span>
+</pre>
+<p>
+      Propagate from <span class="bold"><strong>constructor 03</strong></span> to <span class="bold"><strong>constructor 01</strong></span>:
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          <span class="dred">context</span> as <span class="dred">context</span>
+        </li>
+<li class="listitem">
+          <span class="dred">callbacks</span> as <span class="dred">callbacks</span>
+        </li>
+<li class="listitem">
+          <span class="dred">arg</span> as <span class="dred">args ...</span>
+        </li>
+</ul></div>
+<p>
+      Please note that<br> <span class="dddgreen">arg is single arg;<br> args
+      ... are many args</span>.
+    </p>
+<p>
+      <span class="bold"><strong>This constructor is for compatibility, not suggested.</strong></span>
+    </p>
+<p>
+      <span class="bold"><strong>Example:</strong></span>
+    </p>
+<pre class="programlisting"><span class="comment">// Work, but not suggested:</span>
+<span class="identifier">Botan</span><span class="special">::</span><span class="identifier">TLS</span><span class="special">::</span><span class="identifier">Stream</span> <span class="identifier">tls_stream1</span><span class="special">{</span><span class="identifier">io_context</span><span class="special">,</span> <span class="identifier">tls_context</span><span class="special">};</span>
+
+<span class="comment">// Work, highly suggested:</span>
+<span class="identifier">Botan</span><span class="special">::</span><span class="identifier">TLS</span><span class="special">::</span><span class="identifier">Stream</span> <span class="identifier">tls_stream2</span><span class="special">{</span><span class="identifier">tls_context</span><span class="special">,</span> <span class="identifier">io_context</span><span class="special">};</span>
+</pre>
+<h2>
+<a name="cpp-botan-tls-stream-constructors.h3"></a>
+      <span class="phrase"><a name="cpp-botan-tls-stream-constructors.constructor-04"></a></span><a class="link" href="cpp-botan-tls-stream-constructors.html#cpp-botan-tls-stream-constructors.constructor-04"><span class="cyan">constructor 04: Propagate to constructor 02</span></a>
+    </h2>
+<pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span><span class="special">...</span> <span class="identifier">Args</span><span class="special">&gt;</span>
+<span class="keyword">explicit</span> <span class="identifier">Stream</span><span class="special">(</span>
+	<span class="identifier">Server_Information</span> <span class="identifier">server_info</span><span class="special">,</span>
+	<span class="identifier">Args</span><span class="special">&amp;&amp;...</span> <span class="identifier">args</span>
+<span class="special">):</span>
+	<span class="identifier">Stream</span><span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">make_shared</span><span class="special">&lt;</span><span class="identifier">Context</span><span class="special">&gt;(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">move</span><span class="special">(</span><span class="identifier">server_info</span><span class="special">)),</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">forward</span><span class="special">&lt;</span><span class="identifier">Args</span><span class="special">&gt;(</span><span class="identifier">args</span><span class="special">)...</span>
+	<span class="special">}</span>
+	<span class="special">{}</span>
+</pre>
+<p>
+      By this constructor, it will construct a simple <span class="dddred"><span class="bold"><strong>Botan::TLS::Context</strong></span></span> shared pointer object with
+      <span class="ddred"><span class="bold"><strong>server_info</strong></span></span>
+      parameter only.
+    </p>
+<p>
+      I think the constructed tls-context by this constructor does not work in many
+      realistic Internet environment.<br> To make a fully working <span class="ddred"><span class="bold"><strong>tls-context</strong></span></span> and <span class="ddred"><span class="bold"><strong>tls-stream</strong></span></span>, do not use this constructor.
+    </p>
+<h2>
+<a name="cpp-botan-tls-stream-constructors.h4"></a>
+      <span class="phrase"><a name="cpp-botan-tls-stream-constructors.conclusion"></a></span><a class="link" href="cpp-botan-tls-stream-constructors.html#cpp-botan-tls-stream-constructors.conclusion"><span class="cyan">Conclusion</span></a>
+    </h2>
+<p>
+      <span class="ddddgreen"><span class="bold"><strong> Constructor 01 and constructor
+      02 are reommended,<br> constructor 03 and constructor 04 are not reommended.
+      </strong></span></span>
+    </p>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<p>
+      <a href="." target="_top">Home</a>
+    </p>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<p>
+      Sun Jun 28 11:01:14 AM UTC 2026
+    </p>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<h2>
+<a name="cpp-botan-tls-stream-constructors.h5"></a>
+      <span class="phrase"><a name="cpp-botan-tls-stream-constructors.helpful"></a></span><a class="link" href="cpp-botan-tls-stream-constructors.html#cpp-botan-tls-stream-constructors.helpful"><span class="cyan">Helpful</span></a>
+    </h2>
+<p>
+      <a href="https://wtgo.top/spaceship-50-years-alienated.html" target="_top">Spaceship 50
+      Years Alienated</a>
+    </p>
+<h2>
+<a name="cpp-botan-tls-stream-constructors.h6"></a>
+      <span class="phrase"><a name="cpp-botan-tls-stream-constructors.role"></a></span><a class="link" href="cpp-botan-tls-stream-constructors.html#cpp-botan-tls-stream-constructors.role"><span class="cyan">Role</span></a>
+    </h2>
+<p>
+      +
+    </p>
+<p>
+      Github:<br> <a href="https://github.com/cppfx/cpphtgt" target="_top">https://github.com/cppfx/cpphtgt</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      Powered by:<br> <a href="https://www.bfgroup.xyz/b2" target="_top">B2 Build</a>
+      | <a href="https://www.boost.org/tools/quickbook" target="_top">boost quickbook</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      <a href="https://cppfx.xyz/donate.html" target="_top">Donate</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      @<a href="https://cppfx.xyz" target="_top">cppfx.xyz</a>
+    </p>
+<p>
+      <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+      <br> <br> <br> <br> <br>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp-cryptopp-modern-chacha-poly.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
