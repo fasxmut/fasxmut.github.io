@@ -1,0 +1,518 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>c++ asio::io_context, asio::thread_pool, std::promise, propagate exception</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="cppfx - c++, b2 build">
+<link rel="up" href="index.html" title="cppfx - c++, b2 build">
+<link rel="prev" href="index.html" title="cppfx - c++, b2 build">
+<link rel="next" href="cpp-botan-tls-stream-constructors.html" title="c++ Botan::TLS::Stream Constructors">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp-botan-tls-stream-constructors.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception"></a>c++ asio::io_context, asio::thread_pool, std::promise, propagate exception</h1></div></div>
+<hr>
+</div>
+<p>
+      <span class="drop_menu">&gt; <a class="link" href="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.html" title="c++ asio::io_context, asio::thread_pool, std::promise, propagate exception">Start</a><br>
+      &gt; <a class="link" href="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.html#cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.and">asio::io_context,
+      asio::thread_pool</a><br> &gt; <a class="link" href="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.html#cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.exception-propagation">Exception
+      Propagation</a><br> &gt; <a class="link" href="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.html#cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.solution-std-promise">Solution:
+      std::promise</a><br> &gt; <a class="link" href="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.html#cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.cpp-join">c++
+      join</a><br> &gt; <a href="." target="_top">Back: Home</a> </span>
+    </p>
+<p>
+      c++ asio::io_context and asio::thread_pool, std::promise, propagate exception
+    </p>
+<h2>
+<a name="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.h0"></a>
+      <span class="phrase"><a name="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.and"></a></span><a class="link" href="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.html#cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.and"><span class="cyan">asio::io_context and asio::thread_pool</span></a>
+    </h2>
+<h3>
+<a name="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.h1"></a>
+      <span class="phrase"><a name="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.fsfwe1"></a></span><a class="link" href="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.html#cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.fsfwe1">asio::io_context:</a>
+    </h3>
+<p>
+      io_context.run() is run.
+    </p>
+<h3>
+<a name="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.h2"></a>
+      <span class="phrase"><a name="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.24sfa"></a></span><a class="link" href="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.html#cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.24sfa">asio::thread_pool:</a>
+    </h3>
+<p>
+      thread_pool.join() is join.
+    </p>
+<h3>
+<a name="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.h3"></a>
+      <span class="phrase"><a name="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.43fdsa"></a></span><a class="link" href="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.html#cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.43fdsa">test
+      program:</a>
+    </h3>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">asio</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">thread</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">asio</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">;</span>
+
+<span class="keyword">using</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string_literals</span><span class="special">::</span><span class="keyword">operator</span><span class="string">""</span><span class="identifier">s</span><span class="special">;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">mgr</span>
+<span class="special">{</span>
+	<span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">help_info</span> <span class="special">=</span> <span class="string">"test &lt;io_context|thread_pool&gt;"</span><span class="special">;</span>
+
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">mutex</span> <span class="identifier">cout_mutex</span><span class="special">;</span>
+
+	<span class="keyword">enum</span> <span class="keyword">class</span> <span class="identifier">context_type</span>
+	<span class="special">{</span>
+		<span class="identifier">io_context</span><span class="special">,</span>
+		<span class="identifier">thread_pool</span>
+	<span class="special">};</span>
+
+	<span class="keyword">class</span> <span class="identifier">manager</span>
+	<span class="special">{</span>
+	<span class="keyword">private</span><span class="special">:</span>
+		<span class="identifier">mgr</span><span class="special">::</span><span class="identifier">context_type</span> <span class="identifier">__type</span><span class="special">;</span>
+		<span class="keyword">void</span> <span class="special">*</span> <span class="identifier">__context</span> <span class="special">=</span> <span class="keyword">nullptr</span><span class="special">;</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">manager</span><span class="special">(</span>
+			<span class="keyword">int</span> <span class="identifier">argc</span><span class="special">,</span>
+			<span class="keyword">char</span> <span class="special">**</span> <span class="identifier">argv</span>
+		<span class="special">)</span>
+		<span class="special">{</span>
+			<span class="keyword">if</span> <span class="special">(</span><span class="identifier">argc</span> <span class="special">!=</span> <span class="number">2</span><span class="special">)</span>
+				<span class="keyword">throw</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">runtime_error</span><span class="special">{</span><span class="identifier">mgr</span><span class="special">::</span><span class="identifier">help_info</span><span class="special">};</span>
+			<span class="keyword">if</span> <span class="special">(</span><span class="string">"io_context"</span><span class="identifier">s</span> <span class="special">==</span> <span class="identifier">argv</span><span class="special">[</span><span class="number">1</span><span class="special">])</span>
+				<span class="identifier">__type</span> <span class="special">=</span> <span class="identifier">mgr</span><span class="special">::</span><span class="identifier">context_type</span><span class="special">::</span><span class="identifier">io_context</span><span class="special">;</span>
+			<span class="keyword">else</span> <span class="keyword">if</span> <span class="special">(</span><span class="string">"thread_pool"</span><span class="identifier">s</span> <span class="special">==</span> <span class="identifier">argv</span><span class="special">[</span><span class="number">1</span><span class="special">])</span>
+				<span class="identifier">__type</span> <span class="special">=</span> <span class="identifier">mgr</span><span class="special">::</span><span class="identifier">context_type</span><span class="special">::</span><span class="identifier">thread_pool</span><span class="special">;</span>
+			<span class="keyword">else</span>
+				<span class="keyword">throw</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">runtime_error</span><span class="special">{</span><span class="identifier">mgr</span><span class="special">::</span><span class="identifier">help_info</span><span class="special">};</span>
+			<span class="keyword">switch</span> <span class="special">(</span><span class="identifier">__type</span><span class="special">)</span>
+			<span class="special">{</span>
+			<span class="keyword">case</span> <span class="identifier">mgr</span><span class="special">::</span><span class="identifier">context_type</span><span class="special">::</span><span class="identifier">io_context</span><span class="special">:</span>
+				<span class="identifier">__context</span> <span class="special">=</span> <span class="keyword">new</span> <span class="identifier">asio</span><span class="special">::</span><span class="identifier">io_context</span><span class="special">;</span>
+				<span class="keyword">break</span><span class="special">;</span>
+			<span class="keyword">case</span> <span class="identifier">mgr</span><span class="special">::</span><span class="identifier">context_type</span><span class="special">::</span><span class="identifier">thread_pool</span><span class="special">:</span>
+				<span class="identifier">__context</span> <span class="special">=</span> <span class="keyword">new</span> <span class="identifier">asio</span><span class="special">::</span><span class="identifier">thread_pool</span><span class="special">;</span>
+				<span class="keyword">break</span><span class="special">;</span>
+			<span class="special">}</span>
+		<span class="special">}</span>
+		<span class="keyword">virtual</span> <span class="special">~</span><span class="identifier">manager</span><span class="special">()</span> <span class="special">=</span> <span class="keyword">default</span><span class="special">;</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="keyword">void</span> <span class="identifier">wait</span><span class="special">()</span>
+		<span class="special">{</span>
+			<span class="keyword">if</span> <span class="special">(</span><span class="identifier">__context</span> <span class="special">==</span> <span class="keyword">nullptr</span><span class="special">)</span>
+				<span class="keyword">return</span><span class="special">;</span>
+			<span class="keyword">switch</span> <span class="special">(</span><span class="identifier">__type</span><span class="special">)</span>
+			<span class="special">{</span>
+			<span class="keyword">case</span> <span class="identifier">mgr</span><span class="special">::</span><span class="identifier">context_type</span><span class="special">::</span><span class="identifier">io_context</span><span class="special">:</span>
+				<span class="special">{</span>
+					<span class="keyword">auto</span> <span class="special">*</span> <span class="identifier">io_context</span> <span class="special">=</span> <span class="keyword">reinterpret_cast</span><span class="special">&lt;</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">io_context</span> <span class="special">*&gt;(</span><span class="identifier">__context</span><span class="special">);</span>
+					<span class="identifier">io_context</span><span class="special">-&gt;</span><span class="identifier">run</span><span class="special">();</span>
+					<span class="keyword">delete</span> <span class="identifier">io_context</span><span class="special">;</span>
+					<span class="identifier">io_context</span> <span class="special">=</span> <span class="keyword">nullptr</span><span class="special">;</span>
+				<span class="special">}</span>
+				<span class="keyword">break</span><span class="special">;</span>
+			<span class="keyword">case</span> <span class="identifier">mgr</span><span class="special">::</span><span class="identifier">context_type</span><span class="special">::</span><span class="identifier">thread_pool</span><span class="special">:</span>
+				<span class="special">{</span>
+					<span class="keyword">auto</span> <span class="special">*</span> <span class="identifier">thread_pool</span> <span class="special">=</span> <span class="keyword">reinterpret_cast</span><span class="special">&lt;</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">thread_pool</span> <span class="special">*&gt;(</span><span class="identifier">__context</span><span class="special">);</span>
+					<span class="identifier">thread_pool</span><span class="special">-&gt;</span><span class="identifier">join</span><span class="special">();</span>
+					<span class="keyword">delete</span> <span class="identifier">thread_pool</span><span class="special">;</span>
+					<span class="identifier">thread_pool</span> <span class="special">=</span> <span class="keyword">nullptr</span><span class="special">;</span>
+				<span class="special">}</span>
+				<span class="keyword">break</span><span class="special">;</span>
+			<span class="special">}</span>
+			<span class="identifier">__context</span> <span class="special">=</span> <span class="keyword">nullptr</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">asio</span><span class="special">::</span><span class="identifier">any_io_executor</span> <span class="identifier">get_executor</span><span class="special">()</span>
+		<span class="special">{</span>
+			<span class="keyword">switch</span> <span class="special">(</span><span class="identifier">__type</span><span class="special">)</span>
+			<span class="special">{</span>
+			<span class="keyword">case</span> <span class="identifier">mgr</span><span class="special">::</span><span class="identifier">context_type</span><span class="special">::</span><span class="identifier">io_context</span><span class="special">:</span>
+				<span class="keyword">return</span> <span class="keyword">reinterpret_cast</span><span class="special">&lt;</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">io_context</span> <span class="special">*&gt;(</span><span class="identifier">__context</span><span class="special">)-&gt;</span><span class="identifier">get_executor</span><span class="special">();</span>
+			<span class="keyword">case</span> <span class="identifier">mgr</span><span class="special">::</span><span class="identifier">context_type</span><span class="special">::</span><span class="identifier">thread_pool</span><span class="special">:</span>
+				<span class="keyword">return</span> <span class="keyword">reinterpret_cast</span><span class="special">&lt;</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">thread_pool</span> <span class="special">*&gt;(</span><span class="identifier">__context</span><span class="special">)-&gt;</span><span class="identifier">get_executor</span><span class="special">();</span>
+			<span class="special">}</span>
+			<span class="keyword">throw</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">runtime_error</span><span class="special">{</span><span class="string">"This should not happen."</span><span class="special">};</span>
+		<span class="special">}</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="keyword">void</span> <span class="identifier">test</span><span class="special">()</span>
+		<span class="special">{</span>
+			<span class="identifier">asio</span><span class="special">::</span><span class="identifier">post</span><span class="special">(</span>
+				<span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">get_executor</span><span class="special">(),</span>
+				<span class="special">[]</span>
+				<span class="special">{</span>
+					<span class="identifier">std</span><span class="special">::</span><span class="identifier">unique_lock</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">mutex</span><span class="special">&gt;</span> <span class="identifier">lock</span><span class="special">{</span><span class="identifier">mgr</span><span class="special">::</span><span class="identifier">cout_mutex</span><span class="special">};</span>
+					<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"By post:\n\t"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">this_thread</span><span class="special">::</span><span class="identifier">get_id</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+				<span class="special">}</span>
+			<span class="special">);</span>
+			<span class="identifier">asio</span><span class="special">::</span><span class="identifier">co_spawn</span><span class="special">(</span>
+				<span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">get_executor</span><span class="special">(),</span>
+				<span class="special">[]</span> <span class="special">-&gt;</span> <span class="identifier">asio</span><span class="special">::</span><span class="identifier">awaitable</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">&gt;</span>
+				<span class="special">{</span>
+					<span class="identifier">std</span><span class="special">::</span><span class="identifier">unique_lock</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">mutex</span><span class="special">&gt;</span> <span class="identifier">lock</span><span class="special">{</span><span class="identifier">mgr</span><span class="special">::</span><span class="identifier">cout_mutex</span><span class="special">};</span>
+					<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"By asio::co_spawn post:\n\t"</span>
+						<span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">this_thread</span><span class="special">::</span><span class="identifier">get_id</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+					<span class="identifier">co_return</span><span class="special">;</span>
+				<span class="special">},</span>
+				<span class="special">[]</span> <span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">exception_ptr</span><span class="special">)</span>
+				<span class="special">{</span>
+					<span class="identifier">std</span><span class="special">::</span><span class="identifier">unique_lock</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">mutex</span><span class="special">&gt;</span> <span class="identifier">lock</span><span class="special">{</span><span class="identifier">mgr</span><span class="special">::</span><span class="identifier">cout_mutex</span><span class="special">};</span>
+					<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"By asio::co_spawn completion:\n\t"</span>
+						<span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">this_thread</span><span class="special">::</span><span class="identifier">get_id</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+				<span class="special">}</span>
+			<span class="special">);</span>
+		<span class="special">}</span>
+	<span class="special">};</span>	<span class="comment">// class manager</span>
+<span class="special">}</span>	<span class="comment">// namespace mgr</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">(</span><span class="keyword">int</span> <span class="identifier">argc</span><span class="special">,</span> <span class="keyword">char</span> <span class="special">**</span> <span class="identifier">argv</span><span class="special">)</span>
+<span class="special">{</span>
+	<span class="keyword">try</span>
+	<span class="special">{</span>
+		<span class="identifier">mgr</span><span class="special">::</span><span class="identifier">manager</span> <span class="identifier">mgr</span><span class="special">{</span><span class="identifier">argc</span><span class="special">,</span> <span class="identifier">argv</span><span class="special">};</span>
+		<span class="identifier">mgr</span><span class="special">.</span><span class="identifier">test</span><span class="special">();</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">unique_lock</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">mutex</span><span class="special">&gt;</span> <span class="identifier">lock</span><span class="special">{</span><span class="identifier">mgr</span><span class="special">::</span><span class="identifier">cout_mutex</span><span class="special">};</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Main:\n\t"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">this_thread</span><span class="special">::</span><span class="identifier">get_id</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+		<span class="identifier">lock</span><span class="special">.</span><span class="identifier">unlock</span><span class="special">();</span>
+		<span class="identifier">mgr</span><span class="special">.</span><span class="identifier">wait</span><span class="special">();</span>
+	<span class="special">}</span>
+	<span class="keyword">catch</span> <span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">exception</span> <span class="special">&amp;</span> <span class="identifier">e</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">unique_lock</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">mutex</span><span class="special">&gt;</span> <span class="identifier">lock</span><span class="special">{</span><span class="identifier">mgr</span><span class="special">::</span><span class="identifier">cout_mutex</span><span class="special">};</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cerr</span> <span class="special">&lt;&lt;</span> <span class="string">"ERROR: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">e</span><span class="special">.</span><span class="identifier">what</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">}</span>
+</pre>
+<h4>
+<a name="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.h4"></a>
+      <span class="phrase"><a name="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.3afdafddk"></a></span><a class="link" href="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.html#cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.3afdafddk">Run:</a>
+    </h4>
+<pre class="programlisting">$ ./test io_context
+Main:
+	134625736947584
+By post:
+	134625736947584
+By asio::co_spawn post:
+	134625736947584
+By asio::co_spawn completion:
+	134625736947584
+
+$ ./test thread_pool
+By post:
+	133836537038528
+Main:
+	133836603242368
+By asio::co_spawn post:
+	133836595787456
+By asio::co_spawn completion:
+	133836595787456
+</pre>
+<p>
+      <span class="bold"><strong>Analysis:</strong></span>
+    </p>
+<p>
+      For asio::io_context, the tasks and their caller are running on one thread.
+    </p>
+<p>
+      Tasks are running on thread same as which calls io_context.run().
+    </p>
+<p>
+      Different thread calling a time of io_context.run() can make it threaded, but
+      the io_context.run() caller and called are still in the same thread.
+    </p>
+<p>
+      For asio::thread_pool, the tasks are running on different threads.
+    </p>
+<h2>
+<a name="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.h5"></a>
+      <span class="phrase"><a name="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.exception-propagation"></a></span><a class="link" href="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.html#cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.exception-propagation"><span class="cyan">Exception Propagation</span></a>
+    </h2>
+<h3>
+<a name="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.h6"></a>
+      <span class="phrase"><a name="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.4safake29"></a></span><a class="link" href="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.html#cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.4safake29">asio::io_context</a>
+    </h3>
+<p>
+      Throwing exception by task of asio::io_context can be propagated to which calls
+      io_context.run(),<br> because they are running on the same thread.
+    </p>
+<pre class="programlisting"><span class="identifier">asio</span><span class="special">::</span><span class="identifier">post</span><span class="special">(</span>
+	<span class="identifier">io_context</span><span class="special">,</span>
+	<span class="special">[]</span>
+	<span class="special">{</span>
+		<span class="keyword">throw</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">runtime_error</span><span class="special">{</span><span class="string">"test exception"</span><span class="special">};</span>
+	<span class="special">}</span>
+<span class="special">);</span>
+
+<span class="keyword">try</span>
+<span class="special">{</span>
+	<span class="identifier">io_context</span><span class="special">.</span><span class="identifier">run</span><span class="special">();</span>
+
+	<span class="comment">// Exception is propagated directly here.</span>
+	<span class="comment">// Because they are in same thread.</span>
+<span class="special">}</span>
+<span class="keyword">catch</span> <span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">runtime_error</span> <span class="special">&amp;</span> <span class="identifier">e</span><span class="special">)</span>
+<span class="special">{</span>
+<span class="special">}</span>
+</pre>
+<h3>
+<a name="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.h7"></a>
+      <span class="phrase"><a name="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.dk99ke"></a></span><a class="link" href="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.html#cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.dk99ke">asio::thread_pool</a>
+    </h3>
+<p>
+      Throwing exception by task of asio::thread_pool can not be propagated to which
+      calls thread_pool.join(),<br> because they are running in different threads.
+    </p>
+<pre class="programlisting"><span class="identifier">asio</span><span class="special">::</span><span class="identifier">post</span><span class="special">(</span>
+	<span class="identifier">thread_pool</span><span class="special">,</span>
+	<span class="special">[]</span>
+	<span class="special">{</span>
+		<span class="keyword">throw</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">runtime_error</span><span class="special">{</span><span class="string">"test exception"</span><span class="special">};</span>
+	<span class="special">}</span>
+<span class="special">);</span>
+
+<span class="keyword">try</span>
+<span class="special">{</span>
+	<span class="identifier">thread_pool</span><span class="special">.</span><span class="identifier">join</span><span class="special">();</span>
+
+	<span class="comment">// Exception can not be propagated directly here.</span>
+	<span class="comment">// Because they are in different threads.</span>
+<span class="special">}</span>
+<span class="keyword">catch</span> <span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">runtime_error</span> <span class="special">&amp;</span> <span class="identifier">e</span><span class="special">)</span>
+<span class="special">{</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.h8"></a>
+      <span class="phrase"><a name="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.solution-std-promise"></a></span><a class="link" href="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.html#cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.solution-std-promise"><span class="cyan">Cross-threads exception solution: std::promise</span></a>
+    </h2>
+<p>
+      std::promise object stores exception or value into a shared state which can
+      be accessed by std::future object.
+    </p>
+<p>
+      Using promise.set_exception or promise.set_value to propagate exception or
+      value to host thread.
+    </p>
+<h3>
+<a name="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.h9"></a>
+      <span class="phrase"><a name="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.eaore2"></a></span><a class="link" href="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.html#cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.eaore2">c++
+      example 1</a>
+    </h3>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">asio</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">asio</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">hello</span>
+<span class="special">{</span>
+	<span class="keyword">class</span> <span class="identifier">world</span><span class="special">:</span> <span class="keyword">virtual</span> <span class="keyword">public</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">enable_shared_from_this</span><span class="special">&lt;</span><span class="identifier">hello</span><span class="special">::</span><span class="identifier">world</span><span class="special">&gt;</span>
+	<span class="special">{</span>
+	<span class="keyword">private</span><span class="special">:</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">promise</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">&gt;</span> <span class="identifier">__promise</span><span class="special">;</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">world</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">promise</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">&gt;</span> <span class="special">&amp;&amp;</span> <span class="identifier">promise__</span><span class="special">):</span>
+			<span class="identifier">__promise</span><span class="special">{</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">move</span><span class="special">(</span><span class="identifier">promise__</span><span class="special">)}</span>
+		<span class="special">{</span>
+		<span class="special">}</span>
+		<span class="keyword">void</span> <span class="identifier">run</span><span class="special">()</span>
+		<span class="special">{</span>
+			<span class="keyword">throw</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">runtime_error</span><span class="special">{</span><span class="string">"Test Exception."</span><span class="special">};</span>
+		<span class="special">}</span>
+		<span class="keyword">void</span> <span class="identifier">start</span><span class="special">()</span>
+		<span class="special">{</span>
+			<span class="keyword">try</span>
+			<span class="special">{</span>
+				<span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">run</span><span class="special">();</span>
+				<span class="identifier">__promise</span><span class="special">.</span><span class="identifier">set_value</span><span class="special">();</span>
+			<span class="special">}</span>
+			<span class="keyword">catch</span> <span class="special">(...)</span>
+			<span class="special">{</span>
+				<span class="identifier">__promise</span><span class="special">.</span><span class="identifier">set_exception</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">current_exception</span><span class="special">());</span>
+			<span class="special">}</span>
+		<span class="special">}</span>
+	<span class="special">};</span>
+<span class="special">}</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">asio</span><span class="special">::</span><span class="identifier">thread_pool</span> <span class="identifier">thpl</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">promise</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">&gt;</span> <span class="identifier">promise</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">future</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">&gt;</span> <span class="identifier">future</span> <span class="special">=</span> <span class="identifier">promise</span><span class="special">.</span><span class="identifier">get_future</span><span class="special">();</span>
+	<span class="identifier">asio</span><span class="special">::</span><span class="identifier">post</span><span class="special">(</span>
+		<span class="identifier">thpl</span><span class="special">.</span><span class="identifier">get_executor</span><span class="special">(),</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">bind</span><span class="special">(</span>
+			<span class="special">&amp;</span><span class="identifier">hello</span><span class="special">::</span><span class="identifier">world</span><span class="special">::</span><span class="identifier">start</span><span class="special">,</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">make_shared</span><span class="special">&lt;</span><span class="identifier">hello</span><span class="special">::</span><span class="identifier">world</span><span class="special">&gt;(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">move</span><span class="special">(</span><span class="identifier">promise</span><span class="special">))</span>
+		<span class="special">)</span>
+	<span class="special">);</span>
+	<span class="keyword">try</span>
+	<span class="special">{</span>
+		<span class="identifier">future</span><span class="special">.</span><span class="identifier">get</span><span class="special">();</span>
+	<span class="special">}</span>
+	<span class="keyword">catch</span> <span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">exception</span> <span class="special">&amp;</span> <span class="identifier">e</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cerr</span> <span class="special">&lt;&lt;</span> <span class="string">"ERROR: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">e</span><span class="special">.</span><span class="identifier">what</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="identifier">thpl</span><span class="special">.</span><span class="identifier">join</span><span class="special">();</span>
+<span class="special">}</span>
+</pre>
+<pre class="programlisting"><span class="identifier">ERROR</span><span class="special">:</span> <span class="identifier">Test</span> <span class="identifier">Exception</span><span class="special">.</span>
+</pre>
+<h3>
+<a name="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.h10"></a>
+      <span class="phrase"><a name="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.re3k2"></a></span><a class="link" href="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.html#cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.re3k2">c++
+      example 2</a>
+    </h3>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">asio</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">asio</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">hello</span>
+<span class="special">{</span>
+	<span class="keyword">class</span> <span class="identifier">world</span>
+	<span class="special">{</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">world</span><span class="special">()</span> <span class="special">=</span> <span class="keyword">default</span><span class="special">;</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">asio</span><span class="special">::</span><span class="identifier">awaitable</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">&gt;</span> <span class="identifier">run</span><span class="special">()</span>
+		<span class="special">{</span>
+			<span class="keyword">throw</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">runtime_error</span><span class="special">{</span><span class="string">"Test Exception by asio::awaitable"</span><span class="special">};</span>
+			<span class="identifier">co_return</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="special">};</span>
+<span class="special">}</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">asio</span><span class="special">::</span><span class="identifier">thread_pool</span> <span class="identifier">thpl</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">promise</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">&gt;</span> <span class="identifier">exception_promise</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">future</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">&gt;</span> <span class="identifier">exception_future</span> <span class="special">=</span> <span class="identifier">exception_promise</span><span class="special">.</span><span class="identifier">get_future</span><span class="special">();</span>
+	<span class="identifier">asio</span><span class="special">::</span><span class="identifier">co_spawn</span><span class="special">(</span>
+		<span class="identifier">thpl</span><span class="special">.</span><span class="identifier">get_executor</span><span class="special">(),</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">bind</span><span class="special">(</span>
+			<span class="special">&amp;</span><span class="identifier">hello</span><span class="special">::</span><span class="identifier">world</span><span class="special">::</span><span class="identifier">run</span><span class="special">,</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">make_shared</span><span class="special">&lt;</span><span class="identifier">hello</span><span class="special">::</span><span class="identifier">world</span><span class="special">&gt;()</span>
+		<span class="special">),</span>
+		<span class="special">[&amp;</span><span class="identifier">exception_promise</span><span class="special">]</span> <span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">exception_ptr</span> <span class="identifier">eptr</span><span class="special">)</span>
+		<span class="special">{</span>
+			<span class="keyword">if</span> <span class="special">(</span><span class="identifier">eptr</span><span class="special">)</span>
+				<span class="identifier">exception_promise</span><span class="special">.</span><span class="identifier">set_exception</span><span class="special">(</span><span class="identifier">eptr</span><span class="special">);</span>
+			<span class="keyword">else</span>
+				<span class="identifier">exception_promise</span><span class="special">.</span><span class="identifier">set_value</span><span class="special">();</span>
+		<span class="special">}</span>
+	<span class="special">);</span>
+	<span class="keyword">try</span>
+	<span class="special">{</span>
+		<span class="identifier">exception_future</span><span class="special">.</span><span class="identifier">get</span><span class="special">();</span>
+	<span class="special">}</span>
+	<span class="keyword">catch</span> <span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">exception</span> <span class="special">&amp;</span> <span class="identifier">e</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cerr</span> <span class="special">&lt;&lt;</span> <span class="string">"ERROR: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">e</span><span class="special">.</span><span class="identifier">what</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="identifier">thpl</span><span class="special">.</span><span class="identifier">join</span><span class="special">();</span>
+<span class="special">}</span>
+</pre>
+<pre class="programlisting"><span class="identifier">ERROR</span><span class="special">:</span> <span class="identifier">Test</span> <span class="identifier">Exception</span> <span class="identifier">by</span> <span class="identifier">asio</span><span class="special">::</span><span class="identifier">awaitable</span>
+</pre>
+<h2>
+<a name="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.h11"></a>
+      <span class="phrase"><a name="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.cpp-join"></a></span><a class="link" href="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.html#cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.cpp-join"><span class="cyan">c++ join</span></a>
+    </h2>
+<p>
+      By the way, just kidding, what is c++ join.
+    </p>
+<p>
+      c++ join means join.
+    </p>
+<p>
+      The thread is just started on thread created. Join means wait and join.
+    </p>
+<pre class="programlisting"><span class="comment">// main_host</span>
+	<span class="special">...</span>
+	<span class="special">...</span>
+	<span class="identifier">sub_thread</span><span class="special">.</span><span class="identifier">join</span><span class="special">();</span> <span class="comment">// sub_thread</span>
+</pre>
+<p>
+      The <span class="bold"><strong>sub_thread</strong></span> is already started and running
+      when it is created.
+    </p>
+<p>
+      <span class="bold"><strong>sub_thread.join()</strong></span> means <span class="bold"><strong>sub_thread</strong></span>
+      requires to join the <span class="bold"><strong>main_host</strong></span> here, to achieve
+      this goal, it must finish its task and ask <span class="bold"><strong>main_host</strong></span>
+      to wait it at this point.
+    </p>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<p>
+      <a href="." target="_top">Home</a>
+    </p>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<p>
+      Mon Jun 29 06:36:26 AM UTC 2026
+    </p>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<h2>
+<a name="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.h12"></a>
+      <span class="phrase"><a name="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.helpful"></a></span><a class="link" href="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.html#cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.helpful"><span class="cyan">Helpful</span></a>
+    </h2>
+<p>
+      <a href="https://wtgo.top/spaceship-50-years-alienated.html" target="_top">Spaceship 50
+      Years Alienated</a>
+    </p>
+<h2>
+<a name="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.h13"></a>
+      <span class="phrase"><a name="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.role"></a></span><a class="link" href="cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.html#cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.role"><span class="cyan">Role</span></a>
+    </h2>
+<p>
+      +
+    </p>
+<p>
+      Github:<br> <a href="https://github.com/cppfx/cpphtgt" target="_top">https://github.com/cppfx/cpphtgt</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      Powered by:<br> <a href="https://www.bfgroup.xyz/b2" target="_top">B2 Build</a>
+      | <a href="https://www.boost.org/tools/quickbook" target="_top">boost quickbook</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      <a href="https://cppfx.xyz/donate.html" target="_top">Donate</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      @<a href="https://cppfx.xyz" target="_top">cppfx.xyz</a>
+    </p>
+<p>
+      <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+      <br> <br> <br> <br> <br>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp-botan-tls-stream-constructors.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
