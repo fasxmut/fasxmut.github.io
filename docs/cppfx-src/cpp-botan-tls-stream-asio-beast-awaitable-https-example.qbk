@@ -1,0 +1,344 @@
+[article c++ botan tls stream and asio beast awaitable https example
+	[quickbook 1.7]
+	[id cpp-botan-tls-stream-asio-beast-awaitable-https-example]
+]
+
+[role drop_menu
+> [link cpp-botan-tls-stream-asio-beast-awaitable-https-example Start][br]
+> [link cpp-botan-tls-stream-asio-beast-awaitable-https-example.cpp-example c++ Example][br]
+> [@. Back: Home]
+]
+
+c++ botan tls stream and asio beast awaitable https example:
+
+c++ code is easy.
+
+[h1:cpp-example [role cyan c++ Example]]
+
+[!c++]
+```
+#include <boost/asio.hpp>
+#include <boost/beast.hpp>
+#include <botan/tls.h>
+#include <botan/asio_stream.h>
+#include <botan/certstor_system.h>
+#include <botan/auto_rng.h>
+#include <iostream>
+#include <future>
+#include <sstream>
+
+namespace asio = boost::asio;
+namespace beast = boost::beast;
+namespace http = beast::http;
+
+using std::string_literals::operator""s;
+
+namespace tls
+{
+	class host_info:
+		virtual public std::enable_shared_from_this<tls::host_info>
+	{
+	private:
+		const std::string __host;
+		const std::string __port;
+		const std::string __target;
+	public:
+		host_info(
+			const std::string & host__,
+			const std::string & port__,
+			const std::string & target__
+		):
+			__host{host__},
+			__port{port__},
+			__target{target__}
+		{
+		}
+		virtual ~host_info() = default;
+	public:
+		std::string host() const
+		{
+			return __host;
+		}
+		std::string port() const
+		{
+			return __port;
+		}
+		std::string target() const
+		{
+			return __target;
+		}
+	};
+
+	class credentials_manager;
+
+	class policy;
+
+	class net_info:
+		virtual public std::enable_shared_from_this<tls::net_info>
+	{
+	private:
+		std::shared_ptr<asio::ip::tcp::resolver> __resolver;
+		std::shared_ptr<Botan::TLS::Stream<beast::tcp_stream>> __tls_stream;
+	public:
+		net_info() = default;
+		virtual ~net_info() = default;
+	public:
+		asio::awaitable<void> init()
+		{
+			auto executor = co_await asio::this_coro::executor;
+			__resolver = std::make_shared<asio::ip::tcp::resolver>(executor);
+			auto rng = std::make_shared<Botan::AutoSeeded_RNG>();
+			__tls_stream = std::make_shared<Botan::TLS::Stream<beast::tcp_stream>>(
+				std::make_shared<Botan::TLS::Context>(
+					std::make_shared<tls::credentials_manager>(),
+					rng,
+					std::make_shared<Botan::TLS::Session_Manager_In_Memory>(rng),
+					std::make_shared<tls::policy>(),
+					Botan::TLS::Server_Information{}
+				),
+				executor
+			);
+			co_return;
+		}
+	public:
+		auto resolver()
+		{
+			return __resolver;
+		}
+	public:
+		auto tls_stream()
+		{
+			return __tls_stream;
+		}
+	};
+
+	class tls_http_client:
+		virtual public std::enable_shared_from_this<tls::tls_http_client>
+	{
+	private:
+		std::shared_ptr<tls::host_info> __hi;
+		std::shared_ptr<tls::net_info> __ni;
+	public:
+		tls_http_client(
+			std::shared_ptr<tls::host_info> hi__
+		):
+			__hi{hi__},
+			__ni{std::make_shared<tls::net_info>()}
+		{
+		}
+		virtual ~tls_http_client() = default;
+	public:
+		asio::awaitable<void> start()
+		{
+			try
+			{
+				co_await __ni->init();
+				co_await this->connect();
+				co_await this->handshake();
+				co_await this->http_request();
+				co_await this->http_receive();
+				co_await this->shutdown();
+			}
+			catch (const std::exception & e)
+			{
+				std::cerr << "code:101." << std::endl;
+				throw std::runtime_error{e.what()};
+			}
+			co_return;
+		}
+	private:
+		asio::awaitable<void> connect()
+		{
+			auto [ec, ep_list] = co_await __ni->resolver()->async_resolve(
+				__hi->host(),
+				__hi->port(),
+				asio::as_tuple
+			);
+			if (ec)
+				throw std::system_error{ec, "Resolve Error!"};
+			std::clog << "Resolved OK!" << std::endl;
+			__ni->tls_stream()->next_layer().expires_after(std::chrono::seconds(5));
+			auto [ec2, ep] = co_await __ni->tls_stream()->next_layer().async_connect(
+				ep_list,
+				asio::as_tuple
+			);
+			if (ec2)
+				throw std::system_error{ec2, "Connect Error!"};
+			std::clog << "Connected: " << ep << std::endl;
+			co_return;
+		}
+	private:
+		asio::awaitable<void> handshake()
+		{
+			__ni->tls_stream()->next_layer().expires_after(std::chrono::seconds(5));
+			auto [ec] = co_await __ni->tls_stream()->async_handshake(
+				Botan::TLS::Connection_Side::Client,
+				asio::as_tuple
+			);
+			if (ec)
+				throw std::system_error{ec, "Handshake Error!"};
+			std::clog << "Handshake OK!" << std::endl;
+			co_return;
+		}
+	private:
+		asio::awaitable<void> shutdown()
+		{
+			auto [ec] = co_await __ni->tls_stream()->async_shutdown(
+				asio::as_tuple
+			);
+			std::clog << "TLS Connection closed! " << ec << std::endl;
+			co_return;
+		}
+	private:
+		asio::awaitable<void> http_request()
+		{
+			http::request<http::empty_body> request;
+			request.version(11);
+			request.target(__hi->target());
+			request.set(http::field::host, __hi->host());
+			request.set(http::field::user_agent, "boost::asio beast and Botan::TLS");
+			request.method(http::verb::get);
+			auto [ec, bytes] = co_await http::async_write(
+				*__ni->tls_stream(),
+				request,
+				asio::as_tuple
+			);
+			if (bytes < 1 || ec && ec != asio::error::eof)
+				throw std::system_error{ec, "Http request error"};
+			std::clog << "Http request OK!" << std::endl;
+			co_return;
+		}
+	private:
+		asio::awaitable<void> http_receive()
+		{
+			http::response<http::string_body> response;
+			beast::flat_buffer buffer;
+			auto [ec, bytes] = co_await http::async_read(
+				*__ni->tls_stream(),
+				buffer,
+				response,
+				asio::as_tuple
+			);
+			if (bytes < 1 || ec && ec != asio::error::eof)
+				throw std::system_error{ec, "Http receive error!"};
+			std::clog << "Http receive OK!" << std::endl;
+			std::clog << response << std::endl;
+			std::cout << response.body() << std::flush;
+			co_return;
+		}
+	};	// class tls_http_client
+
+	class credentials_manager:
+		virtual public Botan::Credentials_Manager
+	{
+	private:
+		using store_vector_type = std::vector<Botan::Certificate_Store *>;
+	private:
+		Botan::System_Certificate_Store __system_store{};
+	public:
+		store_vector_type trusted_certificate_authorities(
+			const std::string & type,
+			const std::string & context
+		) override
+		{
+			return store_vector_type{
+				&__system_store
+			};
+		}
+	public:
+		virtual ~credentials_manager()
+		{
+			std::clog << "~credntials_manager" << std::endl;
+		}
+	};
+
+	class policy:
+		virtual public Botan::TLS::Policy
+	{
+	public:
+		bool require_cert_revocation_info() const override
+		{
+			return false;
+		}
+	public:
+		virtual ~policy()
+		{
+			std::clog << "~policy" << std::endl;
+		}
+	};
+}	// namespace tls
+
+int main(int argc, char ** argv)
+{
+	try
+	{
+		if (argc != 4)
+			throw std::runtime_error{
+				"tls_http <host> <port> <target>"
+			};
+		asio::thread_pool thpl{32u};
+		auto hi = std::make_shared<tls::host_info>(argv[1], argv[2], argv[3]);
+		std::promise<void> exception_promise;
+		std::future<void> exception_future = exception_promise.get_future();
+		asio::co_spawn(
+			thpl.get_executor(),
+			std::bind(
+				&tls::tls_http_client::start,
+				std::make_shared<tls::tls_http_client>(
+					hi
+				)
+			),
+			[&exception_promise] (std::exception_ptr eptr)
+			{
+				if (eptr)
+					exception_promise.set_exception(eptr);
+				else
+					exception_promise.set_value();
+			}
+		);
+		try
+		{
+			exception_future.get();
+		}
+		catch (const std::system_error & e)
+		{
+			throw std::runtime_error{
+				"(std::system_error), "s
+				+ e.what() + ", "
+				+ (std::ostringstream{} << e.code()).str()
+			};
+		}
+		catch (const std::exception & e)
+		{
+			throw std::runtime_error{"(std::exception), "s + e.what()};
+		}
+		catch (...)
+		{
+			std::cerr << "(...), ";
+			std::rethrow_exception(std::current_exception());
+		}
+		thpl.join();
+	}
+	catch (const std::exception & e)
+	{
+		std::cerr << "ERROR: " << e.what() << std::endl;
+	}
+	catch (...)
+	{
+		std::cerr << "Unknown exception." << std::endl;
+	}
+}
+```
+
+//////////////////////////////////////////////////////////////////////
+
+[@. Home]
+
+//////////////////////////////////////////////////////////////////////
+
+Mon Jun 29 09:23:27 AM UTC 2026
+
+//////////////////////////////////////////////////////////////////////
+
+[include ../share/foot-links.inc.qbk]
+

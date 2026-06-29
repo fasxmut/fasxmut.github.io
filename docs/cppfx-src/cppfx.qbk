@@ -3,6 +3,7 @@
 	[id cppfx]
 ]
 
+[include cpp-botan-tls-stream-asio-beast-awaitable-https-example.qbk]
 [include cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.qbk]
 [include cpp-botan-tls-stream-constructors.qbk]
 [include cpp-cryptopp-modern-chacha-poly.qbk]
