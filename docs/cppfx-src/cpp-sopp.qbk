@@ -1,0 +1,28 @@
+[article c++ sopp json-rpc client
+	[quickbook 1.7]
+	[id cpp-sopp]
+]
+
+[role drop_menu
+> [link cpp-sopp Start][br]
+> [@. Back: Home]
+]
+
+Sopp: c++ json-rpc http client application.
+
+Project Home:
+
+[@https://cppfx.xyz/projects/sopp.html Sopp]
+
+//////////////////////////////////////////////////////////////////////
+
+[@. Home]
+
+//////////////////////////////////////////////////////////////////////
+
+Wed Jul  1 12:42:43 PM UTC 2026
+
+//////////////////////////////////////////////////////////////////////
+
+[include ../share/foot-links.inc.qbk]
+

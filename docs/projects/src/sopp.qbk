@@ -1,0 +1,75 @@
+[article Sopp - c++ json-rpc client
+	[id sopp]
+	[quickbook 1.7]
+]
+
+Sopp c++ json-rpc http client application.
+
+Build:
+
+[!teletype]
+```
+$ cd sopp
+$ b2 -q -j7
+```
+
+Help:
+
+[!teletype]
+```
+|========
+| Sopp c++ json-rpc http client application.
+| Boost Software License
+|========
+
+sopp [-d|-dd|-ddd] [-v] [-a file] [-o file] [-l file] [-e file] <-r host> <json string>
+sopp [-h|-help|--h|--help|help]
+
+
+-d        ---- Developer Mode: do not request server.
+-dd       ---- Developer Mode: request server.
+-ddd      ---- Developer Mode: request server. More verbose.
+
+-v        ---- Verbose print: Write result, log, error to console.
+
+-a file        ---- Write result, log, error all to one file.
+-o file        ---- Write result to file.
+-l file        ---- Write log to file.
+-e file        ---- Write error to file.
+-r host        ---- Request host.
+
+-h, -help, --h, --help, help        ---- show this help.
+
+>>>> No -v -a -o -l -e: output result to console; log and error are not outputed.
+
+>>>> host format: ip_address:port/location
+>>>>    For example: 127.0.0.1:8080/api/v1.0
+>>>> <-r host> and <json string> are required, other args are optional.
+
+>>>> -d, -dd, -ddd are mutex with each other.
+>>>>
+>>>> -v is mutex with any one of -a -o -l -e .
+>>>> -a is mutex with any one of -v -o -l -e .
+>>>>
+>>>> Fatal error occured (sopp::fatal_error exception):
+>>>>    print error to console unconditionally and quit program.
+```
+
+Example:
+
+sopp -r 127.0.0.1:8080 '{"action" : "balance"}'
+
+Project Start Date:
+
+Wed, Jul 1, 2026
+
+github:
+
+[@https://github.com/cppfx/sopp]
+
+[h1:back [role cyan Back]]
+
+[@. Up]
+
+[include ../../share/foot-links.inc.qbk]
+

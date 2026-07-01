@@ -3,6 +3,7 @@
 	[id projects]
 ]
 
+[include sopp.qbk]
 [include cpphtgt.qbk]
 [include hostlab.qbk]
 [include mapkp.qbk]

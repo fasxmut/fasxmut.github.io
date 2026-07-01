@@ -1,0 +1,145 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sopp - c++ json-rpc client</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Projects - cppfx.xyz">
+<link rel="up" href="index.html" title="Projects - cppfx.xyz">
+<link rel="prev" href="index.html" title="Projects - cppfx.xyz">
+<link rel="next" href="cpphtgt.html" title="cpphtgt">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpphtgt.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="sopp"></a>Sopp - c++ json-rpc client</h1></div></div>
+<hr>
+</div>
+<p>
+      Sopp c++ json-rpc http client application.
+    </p>
+<p>
+      Build:
+    </p>
+<pre class="programlisting">$ cd sopp
+$ b2 -q -j7
+</pre>
+<p>
+      Help:
+    </p>
+<pre class="programlisting">|========
+| Sopp c++ json-rpc http client application.
+| Boost Software License
+|========
+
+sopp [-d|-dd|-ddd] [-v] [-a file] [-o file] [-l file] [-e file] &lt;-r host&gt; &lt;json string&gt;
+sopp [-h|-help|--h|--help|help]
+
+
+-d        ---- Developer Mode: do not request server.
+-dd       ---- Developer Mode: request server.
+-ddd      ---- Developer Mode: request server. More verbose.
+
+-v        ---- Verbose print: Write result, log, error to console.
+
+-a file        ---- Write result, log, error all to one file.
+-o file        ---- Write result to file.
+-l file        ---- Write log to file.
+-e file        ---- Write error to file.
+-r host        ---- Request host.
+
+-h, -help, --h, --help, help        ---- show this help.
+
+&gt;&gt;&gt;&gt; No -v -a -o -l -e: output result to console; log and error are not outputed.
+
+&gt;&gt;&gt;&gt; host format: ip_address:port/location
+&gt;&gt;&gt;&gt;    For example: 127.0.0.1:8080/api/v1.0
+&gt;&gt;&gt;&gt; &lt;-r host&gt; and &lt;json string&gt; are required, other args are optional.
+
+&gt;&gt;&gt;&gt; -d, -dd, -ddd are mutex with each other.
+&gt;&gt;&gt;&gt;
+&gt;&gt;&gt;&gt; -v is mutex with any one of -a -o -l -e .
+&gt;&gt;&gt;&gt; -a is mutex with any one of -v -o -l -e .
+&gt;&gt;&gt;&gt;
+&gt;&gt;&gt;&gt; Fatal error occured (sopp::fatal_error exception):
+&gt;&gt;&gt;&gt;    print error to console unconditionally and quit program.
+</pre>
+<p>
+      Example:
+    </p>
+<p>
+      sopp -r 127.0.0.1:8080 '{"action" : "balance"}'
+    </p>
+<p>
+      Project Start Date:
+    </p>
+<p>
+      Wed, Jul 1, 2026
+    </p>
+<p>
+      github:
+    </p>
+<p>
+      <a href="https://github.com/cppfx/sopp" target="_top">https://github.com/cppfx/sopp</a>
+    </p>
+<h2>
+<a name="sopp.h0"></a>
+      <span class="phrase"><a name="sopp.back"></a></span><a class="link" href="sopp.html#sopp.back"><span class="cyan">Back</span></a>
+    </h2>
+<p>
+      <a href="." target="_top">Up</a>
+    </p>
+<h2>
+<a name="sopp.h1"></a>
+      <span class="phrase"><a name="sopp.helpful"></a></span><a class="link" href="sopp.html#sopp.helpful"><span class="cyan">Helpful</span></a>
+    </h2>
+<p>
+      <a href="https://wtgo.top/spaceship-50-years-alienated.html" target="_top">Spaceship 50
+      Years Alienated</a>
+    </p>
+<h2>
+<a name="sopp.h2"></a>
+      <span class="phrase"><a name="sopp.role"></a></span><a class="link" href="sopp.html#sopp.role"><span class="cyan">Role</span></a>
+    </h2>
+<p>
+      +
+    </p>
+<p>
+      Github:<br> <a href="https://github.com/cppfx/cpphtgt" target="_top">https://github.com/cppfx/cpphtgt</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      Powered by:<br> <a href="https://www.bfgroup.xyz/b2" target="_top">B2 Build</a>
+      | <a href="https://www.boost.org/tools/quickbook" target="_top">boost quickbook</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      <a href="https://cppfx.xyz/donate.html" target="_top">Donate</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      @<a href="https://cppfx.xyz" target="_top">cppfx.xyz</a>
+    </p>
+<p>
+      <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+      <br> <br> <br> <br> <br>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpphtgt.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
