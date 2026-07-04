@@ -1,0 +1,195 @@
+[article std::meta::define_aggregate, c++26 reflection example
+	[quickbook 1.7]
+	[id cpp-stdm-def-agg-exa]
+]
+
+[role drop_menu
+> [link cpp-stdm-def-agg-exa Start][br]
+> [link cpp-stdm-def-agg-exa.std-meta-define_aggregate std::meta::define_aggregate][br]
+> [link cpp-stdm-def-agg-exa.cpp-example c++ example][br]
+> [@. Back: Home]
+]
+
+c++, c++26 reflection:
+
+std::meta::define_aggregate
+
+std::meta::data_member_spec
+
+std::meta::data_member_options
+
+Requires gcc 16.1.
+
+Gcc is ahead of visual c++ and clang to support c++26 reflection.
+
+[h1:std-meta-define_aggregate [role cyan std::meta::define_aggregate]]
+
+std::meta::define_aggregate can be used to finish defining an incomplete class type.
+
+* [* First param: [role dred a reflection of an incomplete class type.]]
+* [* Second param: [role dred a reflection range of members to be used to define that class.]]
+
+The members reflection range must be specified by[br]
+a range of std::meta::data_member_spec[br]
+by using the first param as member type and[br]
+using a member name specified by std::meta::data_member_opitons.
+
+[!c++]
+```
+namespace std::meta
+{
+	template <
+		std::meta::reflection_range range_type
+			= std::initializer_list<std::meta::info>
+	>
+	consteval std::meta::info define_aggregate(
+		std::meta::info,
+		range_type &&
+	);
+}
+```
+
+For example:
+
+[!c++]
+```
+class impl;
+consteval
+{
+	std::meta::define_aggregate(
+		^^impl,
+		std::vector<std::meta::info>{
+			std::meta::data_member_spec(^^int,
+				std::meta::data_member_opitons{.name="int_v"}),
+			std::meta::data_member_spec(^^float,
+				std::meta::data_member_opitons{.name="float_v"}),
+			std::meta::data_member_spec(^^char,
+				std::meta::data_member_opitons{.name="char_v"})
+		}
+	);
+}
+```
+
+Here it defines [* [role dddblue incomplete class impl]],[br]
+and add three data members to the [*class impl] :[br]
+
+`int int_v;`[br]
+`float float_v;`[br]
+`char char_v;`
+
+[*To avoid error code :]
+
+* [* The class name passing to it must be an incomplete class.]
+* [* Only one calling of [role dred std::meta::define_aggregate] can be applied to one incomplete class.]
+* [* Otherwise it is a duplicated definition error.]
+
+
+[h1:cpp-example [role cyan c++ example]]
+
+Tested on gcc 16.1.
+
+Some code idea from open-std and cppreference can not be compiled on current c++ compiler. This code fix it to let it compile.
+
+Gcc is the best to compile c++ reflection code.
+
+[!c++]
+```
+#include <meta>
+#include <iostream>
+#include <vector>
+#include <array>
+
+namespace nss
+{
+	template <typename point_type, std::size_t N>
+	class hide
+	{
+	public:
+		class trans;
+	public:
+		consteval
+		{
+			// Stage-1: store old members of input
+			auto old_members = std::meta::nonstatic_data_members_of(
+				^^point_type,
+				std::meta::access_context::current()
+			);
+
+			// Stage-2: make new members
+			std::vector<std::meta::info> members{};
+			for (auto mem: old_members)
+			{
+				members.push_back(
+					std::meta::data_member_spec(
+						std::meta::substitute(
+							^^std::array,
+							std::vector<std::meta::info>{
+								std::meta::type_of(mem),
+								std::meta::reflect_constant(N)
+							}
+						),
+						std::meta::data_member_options{
+							.name = std::meta::identifier_of(mem)
+						}
+					)
+				);
+			}
+
+			// Stage-3: define it
+			std::meta::define_aggregate(^^trans, members);
+		}
+	};	// class hide
+}	// namespace nss
+
+
+namespace src
+{
+	class point
+	{
+	public:
+		double x{};
+		double y{};
+		double z{};
+	};
+}
+
+int main()
+{
+	nss::hide<src::point, 10>::trans points{
+		{1,2,3,4,5,6,7,8,9,0},
+		{0,1,2,3,4,5,6,7,8,9},
+		{9,0,1,2,3,4,5,6,7,8}
+	};
+
+	for (unsigned int i=0; i<points.x.size(); ++i)
+	{
+		std::cout << points.x[i] << " " << points.y[i] << " " << points.z[i] << std::endl;
+	}
+}
+```
+
+[*The example transforms the class structure from src::point to the following code:]
+
+[!c++]
+```
+class trans
+{
+public:
+	std::array<double, 10> x;
+	std::array<double, 10> y;
+	std::array<double, 10> z;
+};
+```
+
+//////////////////////////////////////////////////////////////////////
+
+[@. Home]
+
+//////////////////////////////////////////////////////////////////////
+
+Sat Jul  4 09:53:32 AM UTC 2026
+
+//////////////////////////////////////////////////////////////////////
+
+[include ../share/foot-links.inc.qbk]
+

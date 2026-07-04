@@ -1,0 +1,144 @@
+[article std::meta::substitute, c++26 reflection example
+	[quickbook 1.7]
+	[id cpp-stdm-subs-exa]
+]
+
+c++, c++26 reflection: std::meta::substitute.
+
+Requires gcc 16.1 to compile.
+
+Enable it:
+
+[~-freflection]
+
+gcc 16.1 is ahead of visual c++ and clang for supporting and compiling c++ reflection code.
+
+[role drop_menu
+> [link cpp-stdm-subs-exa Start][br]
+> [link cpp-stdm-subs-exa.std-meta-substitute std::meta::substitute][br]
+> [link cpp-stdm-subs-exa.cpp-example c++ example][br]
+> [@. Back: Home]
+]
+
+[h1:std-meta-substitute [role cyan std::meta::substitute]]
+
+std::meta::substitute returns a reflection,[br]
+it accepts a reflection template and a range of reflections[br]
+which denote the template parameter list of the reflection.
+
+[!c++]
+```
+namespace std::meta
+{
+	template <
+		std::meta::reflection_range range_type
+			= std::initializer_list<std::meta::info>
+	>
+	consteval std::meta::info substitute(
+		std::meta::info,
+		range_type &&
+	);
+}
+```
+
+For example,
+
+[!c++]
+```
+constexpr auto ref_val = std::meta::substitute(
+	^^std::tuple,
+	std::vector<std::meta::info>{^^int, ^^float, ^^std::string}
+);
+```
+
+* Accept a reflection template:[br]
+[* [role dred ^^std::tuple]]
+* Accept a range of reflections which denote the template parameter list of the reflection:[br]
+[* [role dred std::vector<std::meta::info>{^^int, ^^float, ^^std::string}]]
+* Return a reflection:[br]
+[* [role ddgreen the reflection of] [role dred std::tuple<int, float, std::string>]]
+
+[h1:cpp-example [role cyan c++ example]]
+
+[role dblue [* This c++ example code is compiled on gcc 16.1.]]
+
+[!c++]
+```
+#include <meta>
+#include <iostream>
+#include <tuple>
+#include <stdfloat>
+
+namespace nss
+{
+	template <typename ... type_list>
+	class some_door
+	{
+	public:
+		void print() const
+		{
+			((std::cout << sizeof (type_list) << " "), ...);
+			std::cout << std::endl;
+		}
+	};
+}
+
+int main()
+{
+	constexpr auto ref_type_1 = std::meta::substitute(
+		^^std::tuple,
+		std::vector<std::meta::info>{
+			^^int,
+			^^float,
+			^^std::string,
+			^^char
+		}
+	);
+	constexpr auto ref_type_2 = std::meta::substitute(
+		^^std::array,
+		std::vector<std::meta::info>{
+			^^std::string,
+			std::meta::reflect_constant(3)
+		}
+	);
+	constexpr auto ref_type_3 = std::meta::substitute(
+		^^nss::some_door,
+		std::vector<std::meta::info>{
+			^^int,
+			^^float,
+			^^nss::some_door<int, float>
+		}
+	);
+
+	static_assert(std::same_as<typename [:ref_type_1:], std::tuple<int, float, std::string, char>>);
+	static_assert(std::same_as<typename [:ref_type_2:], std::array<std::string, 3>>);
+	static_assert(
+		std::same_as<
+			typename [:ref_type_3:],
+			nss::some_door<
+				int,
+				float,
+				nss::some_door<
+					int,
+					float
+				>
+			>
+		>
+	);
+	typename [:ref_type_3:] door;
+	door.print();	// 4 4 1
+}
+```
+
+//////////////////////////////////////////////////////////////////////
+
+[@. Home]
+
+//////////////////////////////////////////////////////////////////////
+
+Sat Jul  4 08:54:15 AM UTC 2026
+
+//////////////////////////////////////////////////////////////////////
+
+[include ../share/foot-links.inc.qbk]
+

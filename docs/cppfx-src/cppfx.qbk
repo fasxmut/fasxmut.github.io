@@ -3,6 +3,8 @@
 	[id cppfx]
 ]
 
+[include cpp-stdm-def-agg-exa.qbk]
+[include cpp-stdm-subs-exa.qbk]
 [include cpp26-reflection-gcc16.qbk]
 [include cpp-sopp.qbk]
 [include cpp-botan-tls-stream-asio-beast-awaitable-https-example.qbk]
