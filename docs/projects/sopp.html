@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Sopp - c++ json-rpc client</title>
+<title>Sopp - c++ network request client application.</title>
 <link rel="stylesheet" href="boostbook.css" type="text/css">
 <meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
 <link rel="home" href="index.html" title="Projects - cppfx.xyz">
@@ -17,11 +17,24 @@
 <div class="article">
 <div class="titlepage">
 <div><div><h1 class="title">
-<a name="sopp"></a>Sopp - c++ json-rpc client</h1></div></div>
+<a name="sopp"></a>Sopp - c++ network request client application.</h1></div></div>
 <hr>
 </div>
 <p>
-      Sopp c++ json-rpc http client application.
+      Sopp c++ network request client application. Sopp is a c++ network request
+      application written in c++ boost asio beast and botan cryptographic libraries.
+    </p>
+<p>
+      Used as:
+    </p>
+<p>
+      Json-rpc client.
+    </p>
+<p>
+      Http request client.
+    </p>
+<p>
+      Get network resources.
     </p>
 <p>
       Build:
@@ -37,7 +50,11 @@ $ b2 -q -j7
 | Boost Software License
 |========
 
-sopp [-d|-dd|-ddd] [-v] [-a file] [-o file] [-l file] [-e file] &lt;-r host&gt; &lt;json string&gt;
+sopp [-d|-dd|-ddd] [-v]
+	[-a file] [-o file] [-l file] [-e file]
+	&lt;-r host&gt; [-t content-type] [-m method]
+	&lt;json string&gt;
+
 sopp [-h|-help|--h|--help|help]
 
 
@@ -51,7 +68,10 @@ sopp [-h|-help|--h|--help|help]
 -o file        ---- Write result to file.
 -l file        ---- Write log to file.
 -e file        ---- Write error to file.
--r host        ---- Request host.
+
+-r host            ---- Request host.
+-t content-type    ---- default for json-rpc, can be text/html, etc.
+-m method          ---- get, post, head, default: post.
 
 -h, -help, --h, --help, help        ---- show this help.
 

@@ -1,9 +1,17 @@
-[article Sopp - c++ json-rpc client
+[article Sopp - c++ network request client application.
 	[id sopp]
 	[quickbook 1.7]
 ]
 
-Sopp c++ json-rpc http client application.
+Sopp c++ network request client application. Sopp is a c++ network request application written in c++ boost asio beast and botan cryptographic libraries.
+
+Used as:
+
+Json-rpc client.
+
+Http request client.
+
+Get network resources.
 
 Build:
 
@@ -22,7 +30,11 @@ Help:
 | Boost Software License
 |========
 
-sopp [-d|-dd|-ddd] [-v] [-a file] [-o file] [-l file] [-e file] <-r host> <json string>
+sopp [-d|-dd|-ddd] [-v]
+	[-a file] [-o file] [-l file] [-e file]
+	<-r host> [-t content-type] [-m method]
+	<json string>
+
 sopp [-h|-help|--h|--help|help]
 
 
@@ -36,7 +48,10 @@ sopp [-h|-help|--h|--help|help]
 -o file        ---- Write result to file.
 -l file        ---- Write log to file.
 -e file        ---- Write error to file.
--r host        ---- Request host.
+
+-r host            ---- Request host.
+-t content-type    ---- default for json-rpc, can be text/html, etc.
+-m method          ---- get, post, head, default: post.
 
 -h, -help, --h, --help, help        ---- show this help.
 
