@@ -3,6 +3,7 @@
 	[id cppfx]
 ]
 
+[include cpp-enum-class-micro-database-reflection.qbk]
 [include cpp-stdm-def-agg-exa.qbk]
 [include cpp-stdm-subs-exa.qbk]
 [include cpp26-reflection-gcc16.qbk]

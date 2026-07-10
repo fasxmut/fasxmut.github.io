@@ -63,16 +63,16 @@ Program listings
     .programlisting,
     .screen
     {
-        /*font-size: 9pt;*/
-        font-size: 80%;	/*Modified by fx*/
-        width: 900px;	/*Added by fx*/
+        font-size: 80%;
+        font-weight: bold;
+        width: 900px;
         display: block;
         margin: 1pc 4% 0pc 4%;
-        margin-left: auto;	/*Added by fx*/
-        margin-right: auto;	/*Added by fx*/
-        white-space: pre-wrap;	/*Added by fx*/
+        margin-left: auto;
+        margin-right: auto;
+        white-space: pre-wrap;
         padding: 0.5pc 0.5pc 0.5pc 0.5pc;
-		background: #dce;
+		background: #DCE;
 		border-radius: 5px;
     }
 
@@ -475,7 +475,7 @@ Colors
         .highlight .kp,
         .highlight .kr,
         .highlight .kt,
-        .keyword { color: #0000AA; }
+        .keyword { color: #B74100; }
 
         .highlight .n,
         .highlight .na,
@@ -496,12 +496,12 @@ Colors
         .highlight .vc,
         .highlight .vg,
         .highlight .vi,
-        .identifier { color: #000000; }
+        .identifier { color: #1E7D35; }
 
-        .special { color: #707070; }
+        .special { color: #0A029A; font-weight: bold; }
 
         .highlight .cp,
-        .preprocessor { color: #402080; }
+        .preprocessor { color: #646700; }
 
         .highlight .sc
         .char { color: teal; }
@@ -515,7 +515,7 @@ Colors
         .highlight .cs,
         .highlight .sd,
         .highlight .sh,
-        .comment { color: #800000; }
+        .comment { color: #4B4D0F; }
 
         .highlight .s,
         .highlight .sa,
@@ -528,14 +528,14 @@ Colors
         .highlight .sr,
         .highlight .s1,
         .highlight .ss,
-        .string { color: teal; }
+        .string { color: #891688; }
 
         .highlight .m,
         .highlight .mf,
         .highlight .mh,
         .highlight .mi,
         .highlight .mo,
-        .number { color: teal; }
+        .number { color: #D2208E; }
 
         .highlight,
         .white_bkd { background-color: #FFFFFF; }
@@ -554,7 +554,6 @@ Colors
         a:visited .special, a:visited .preprocessor a:visited .char,
         a:visited .comment, a:visited .string, a:visited .number
         {
-            /*color: #9c5a9c;*/
             color: #005a9c;
         }
 

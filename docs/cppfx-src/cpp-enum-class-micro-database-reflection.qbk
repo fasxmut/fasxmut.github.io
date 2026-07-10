@@ -1,0 +1,224 @@
+[article c++, enum class as micro database by reflection
+	[quickbook 1.7]
+	[id cpp-enum-class-micro-database-reflection]
+]
+
+[role drop_menu
+> [link cpp-enum-class-micro-database-reflection Start][br]
+> [link cpp-enum-class-micro-database-reflection.first-table First Table: url schema ident][br]
+> [link cpp-enum-class-micro-database-reflection.second-table Second Table: url schema alias][br]
+> [link cpp-enum-class-micro-database-reflection.third-table Third Table: relation][br]
+> [link cpp-enum-class-micro-database-reflection.reflection Reflection][br]
+> [@. Back: Home]
+]
+
+By c++26 reflection, c++ enum class can be used as micro database.
+
+This article takes url schema as example.
+
+[h1:first-table [role cyan First Table: url schema ident]]
+
+First table: defines url schema ident.
+
+Url schema ident contains http, (socket), websocket, tcp (socket), udp (socket), socks4, socks5, empty, noident, unknown.
+
+Every enum class enumerator is unique. This table is the database keys table.
+
+[*`url_schema::ident`]
+
+[!c++]
+```
+class url_schema
+{
+public:
+	enum class ident
+	{
+		http,
+		websocket,
+		tcp,	// tcp socket
+		udp,	// udp socket
+		socks4,
+		socks5,
+		empty,
+		noident,
+		unknown
+	};
+};
+```
+
+[*`url_schema::ident`] is used to identify which url schema from the url.
+
+[*`empty`]: the url has no explicit schema at the first of the url string.
+
+[*`noident`]: the url starts with `://` without schema string, likely a bad-url.
+
+[*`unknown`]: the url schema is not implemented currently, such as [*chat://]
+
+[h1:second-table [role cyan Second Table: url schema alias]]
+
+Second table: defines url schema alias. Every ident has too many aliases.
+
+[*`url_schema::alias`]
+
+[!c++]
+```
+class url_schema
+{
+public:
+	enum class alias
+	{
+		http,
+		https,
+		websocket,
+		websockets,
+		tcp,
+		tcps,
+		udp,
+		udps,
+		socket,
+		sockets,
+		sock,
+		socks,
+		socks4,
+		socks5,
+		empty,
+		noalias,
+		unknown
+	};
+};
+```
+
+[*`url_schema::alias`] is used to match the first substring of the url.
+
+[*`empty`]: the url has no explicit schema at the first of the url string.
+
+[*`noalias`]: the url starts with `://` without schema string, likely a bad-url.
+
+[*`unknown`]: the url schema is not implemented currently, such as [*chat://]
+
+[h1:third-table [role cyan Third Table: relation]]
+
+Third table: the relation table of the first table and second table. It defines how to search the unique ident by alias. It also defines if the tls is enabled or not.
+
+[*`url_schema::relation`]
+
+[!c++]
+```
+class url_schema
+{
+public:
+	enum class relation
+	{
+		http_http_no,
+		http_https_yes,
+		websocket_websocket_no,
+		websocket_websockets_yes,
+		tcp_tcp_no,
+		tcp_tcps_yes,
+		udp_udp_no,
+		udp_udps_yes,
+		tcp_socket_no,
+		tcp_sockets_yes,
+		tcp_sock_no,
+		tcp_socks_yes,
+		socks4_socks4_no,
+		socks5_socks5_no,
+		empty_empty_no,
+		noident_noalias_no,
+		unknown_unknown_no
+	};
+};
+```
+
+[*`url_schema::relation`] is the relation table.
+
+* [*`??_yes`]:	tls enabled
+* [*`??_no`]: tls not enabled
+
+[h1:reflection [role cyan Reflection]]
+
+After the three tables are built in c++ code,[br]
+the next step is to use c++26 reflection to[br]
+search, match, transform and handle the url schema.
+
+[h2:reflection-example Reflection example]
+
+[!c++]
+```
+#include <meta>
+#include <map>
+#include <iostream>
+
+namespace url
+{
+	class url_schema
+	{
+	public:
+		enum class ident
+		{
+			http,
+			websocket,
+			tcp,
+			udp,
+			socks4,
+			socks5,
+			empty,
+			noident,
+			unknown
+		};
+	};
+}
+
+int main()
+{
+	std::map<url::url_schema::ident, std::string> map;
+	constexpr auto table = std::define_static_array(
+		std::meta::enumerators_of(
+			^^url::url_schema::ident
+		)
+	);
+	template for (constexpr auto & ident: auto (table))
+	{
+		map.emplace(
+			[:ident:],
+			std::string{
+				std::meta::identifier_of(ident)
+			}
+		);
+	}
+	for (const auto & [ident, string]: map)
+	{
+		std::cout
+			<< static_cast<int>(ident) << " => " << string
+			<< std::endl
+		;
+	}
+}
+```
+
+[*Output:]
+
+```
+0 => http
+1 => websocket
+2 => tcp
+3 => udp
+4 => socks4
+5 => socks5
+6 => empty
+7 => noident
+8 => unknown
+```
+
+//////////////////////////////////////////////////////////////////////
+
+[@. Home]
+
+//////////////////////////////////////////////////////////////////////
+
+Fri Jul 10 02:51:26 AM UTC 2026
+
+//////////////////////////////////////////////////////////////////////
+
+[include ../share/foot-links.inc.qbk]
+
