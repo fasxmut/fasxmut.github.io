@@ -1,0 +1,330 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>c++ is a beautiful, elegant, object-oriented programming language</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="cppfx - c++, b2 build">
+<link rel="up" href="index.html" title="cppfx - c++, b2 build">
+<link rel="prev" href="index.html" title="cppfx - c++, b2 build">
+<link rel="next" href="cpp-enum-class-micro-database-reflection.html" title="c++, enum class as micro database by reflection">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp-enum-class-micro-database-reflection.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="cpp-beautiful-elegant-object-oriented"></a>c++ is a beautiful, elegant, object-oriented programming language</h1></div></div>
+<hr>
+</div>
+<p>
+      <span class="drop_menu">&gt; <a class="link" href="cpp-beautiful-elegant-object-oriented.html" title="c++ is a beautiful, elegant, object-oriented programming language">Start</a><br>
+      &gt; <a class="link" href="cpp-beautiful-elegant-object-oriented.html#cpp-beautiful-elegant-object-oriented.cpp-beautiful">c++
+      is beautiful</a><br> &gt; <a class="link" href="cpp-beautiful-elegant-object-oriented.html#cpp-beautiful-elegant-object-oriented.cpp-elegant">c++
+      is elegant</a><br> &gt; <a class="link" href="cpp-beautiful-elegant-object-oriented.html#cpp-beautiful-elegant-object-oriented.cpp-object-oriented">c++
+      is object-oriented</a><br> &gt; <a class="link" href="cpp-beautiful-elegant-object-oriented.html#cpp-beautiful-elegant-object-oriented.cpp-generic">c++
+      is generic</a><br> &gt; <a class="link" href="cpp-beautiful-elegant-object-oriented.html#cpp-beautiful-elegant-object-oriented.cpp-general-purpose">c++
+      is general-purpose</a><br> &gt; <a href="." target="_top">Back: Home</a> </span>
+    </p>
+<p>
+      c++ is a beautiful, elegant, object-oriented, generic, and general-purpose
+      programming language.
+    </p>
+<h2>
+<a name="cpp-beautiful-elegant-object-oriented.h0"></a>
+      <span class="phrase"><a name="cpp-beautiful-elegant-object-oriented.cpp-beautiful"></a></span><a class="link" href="cpp-beautiful-elegant-object-oriented.html#cpp-beautiful-elegant-object-oriented.cpp-beautiful"><span class="cyan">c++ is beautiful</span></a>
+    </h2>
+<p>
+      c++ code is beautiful, writing c++ is enjoyment.
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">algorithm</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">vector</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">stdfloat</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">array</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">bit</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">map</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">deque</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;</span> <span class="identifier">values</span><span class="special">{</span><span class="number">97</span><span class="special">,</span> <span class="number">98</span><span class="special">,</span> <span class="number">99</span><span class="special">,</span> <span class="number">100</span><span class="special">,</span> <span class="number">101</span><span class="special">};</span>
+	<span class="keyword">while</span> <span class="special">(</span><span class="identifier">values</span><span class="special">.</span><span class="identifier">size</span><span class="special">()</span> <span class="special">!=</span> <span class="number">26u</span><span class="special">)</span>
+		<span class="identifier">values</span><span class="special">.</span><span class="identifier">push_back</span><span class="special">(</span><span class="identifier">values</span><span class="special">[</span><span class="identifier">values</span><span class="special">.</span><span class="identifier">size</span><span class="special">()-</span><span class="number">1</span><span class="special">]+</span><span class="number">1</span><span class="special">);</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">v2</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">copy</span><span class="special">(</span><span class="identifier">values</span><span class="special">.</span><span class="identifier">begin</span><span class="special">(),</span> <span class="identifier">values</span><span class="special">.</span><span class="identifier">end</span><span class="special">(),</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">back_inserter</span><span class="special">(</span><span class="identifier">v2</span><span class="special">));</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">array</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">float32_t</span><span class="special">,</span> <span class="number">1024</span><span class="special">&gt;</span> <span class="identifier">pool</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">transform</span><span class="special">(</span>
+		<span class="identifier">v2</span><span class="special">.</span><span class="identifier">begin</span><span class="special">(),</span>
+		<span class="identifier">v2</span><span class="special">.</span><span class="identifier">end</span><span class="special">(),</span>
+		<span class="identifier">pool</span><span class="special">.</span><span class="identifier">begin</span><span class="special">(),</span>
+		<span class="special">[&amp;]</span> <span class="special">(</span><span class="keyword">auto</span> <span class="identifier">x</span><span class="special">)</span>
+		<span class="special">{</span>
+			<span class="keyword">return</span> <span class="keyword">static_cast</span><span class="special">&lt;</span><span class="keyword">decltype</span><span class="special">(</span><span class="identifier">pool</span><span class="special">)::</span><span class="identifier">value_type</span><span class="special">&gt;(</span><span class="identifier">x</span><span class="special">);</span>
+		<span class="special">}</span>
+	<span class="special">);</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">deque</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">float32_t</span><span class="special">&gt;</span> <span class="identifier">trans</span><span class="special">(</span><span class="identifier">pool</span><span class="special">.</span><span class="identifier">size</span><span class="special">());</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">ranges</span><span class="special">::</span><span class="identifier">copy</span><span class="special">(</span><span class="identifier">pool</span><span class="special">,</span> <span class="identifier">trans</span><span class="special">.</span><span class="identifier">begin</span><span class="special">());</span>
+	<span class="keyword">while</span> <span class="special">(</span><span class="identifier">trans</span><span class="special">.</span><span class="identifier">size</span><span class="special">()</span> <span class="special">!=</span> <span class="identifier">v2</span><span class="special">.</span><span class="identifier">size</span><span class="special">())</span>
+		<span class="identifier">trans</span><span class="special">.</span><span class="identifier">pop_back</span><span class="special">();</span>
+	<span class="identifier">contract_assert</span><span class="special">(</span><span class="identifier">trans</span><span class="special">.</span><span class="identifier">size</span><span class="special">()</span> <span class="special">==</span> <span class="identifier">v2</span><span class="special">.</span><span class="identifier">size</span><span class="special">());</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">wstring</span> <span class="identifier">v3</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">transform</span><span class="special">(</span>
+		<span class="identifier">trans</span><span class="special">.</span><span class="identifier">begin</span><span class="special">(),</span>
+		<span class="identifier">trans</span><span class="special">.</span><span class="identifier">end</span><span class="special">(),</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">back_inserter</span><span class="special">(</span><span class="identifier">v3</span><span class="special">),</span>
+		<span class="special">[&amp;]</span> <span class="special">(</span><span class="keyword">auto</span> <span class="identifier">x</span><span class="special">)</span>
+		<span class="special">{</span>
+			<span class="keyword">return</span> <span class="keyword">static_cast</span><span class="special">&lt;</span><span class="keyword">decltype</span><span class="special">(</span><span class="identifier">v3</span><span class="special">)::</span><span class="identifier">value_type</span><span class="special">&gt;(</span><span class="identifier">x</span><span class="special">);</span>
+		<span class="special">}</span>
+	<span class="special">);</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">wcout</span> <span class="special">&lt;&lt;</span> <span class="identifier">v3</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>	<span class="comment">// abcdefghijklmnopqrstuvwxyz</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="cpp-beautiful-elegant-object-oriented.h1"></a>
+      <span class="phrase"><a name="cpp-beautiful-elegant-object-oriented.cpp-elegant"></a></span><a class="link" href="cpp-beautiful-elegant-object-oriented.html#cpp-beautiful-elegant-object-oriented.cpp-elegant"><span class="cyan">c++ is elegant</span></a>
+    </h2>
+<p>
+      c++ code is elegant.
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">meta</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">vector</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">map</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">dg</span>
+<span class="special">{</span>
+	<span class="keyword">enum</span> <span class="keyword">class</span> <span class="identifier">number</span>
+	<span class="special">{</span>
+		<span class="identifier">zero</span><span class="special">,</span>
+		<span class="identifier">one</span><span class="special">,</span>
+		<span class="identifier">two</span><span class="special">,</span>
+		<span class="identifier">three</span><span class="special">,</span>
+		<span class="identifier">four</span><span class="special">,</span>
+		<span class="identifier">five</span>
+	<span class="special">};</span>
+<span class="special">}</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">numbers</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">define_static_array</span><span class="special">(</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">meta</span><span class="special">::</span><span class="identifier">enumerators_of</span><span class="special">(</span>
+			<span class="special">^^</span><span class="identifier">dg</span><span class="special">::</span><span class="identifier">number</span>
+		<span class="special">)</span>
+	<span class="special">);</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">map</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span><span class="special">&gt;</span> <span class="identifier">map</span><span class="special">;</span>
+	<span class="keyword">template</span> <span class="keyword">for</span> <span class="special">(</span><span class="keyword">constexpr</span> <span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">meta</span><span class="special">::</span><span class="identifier">info</span> <span class="special">&amp;</span> <span class="identifier">meta</span><span class="special">:</span> <span class="keyword">auto</span><span class="special">(</span><span class="identifier">numbers</span><span class="special">))</span>
+	<span class="special">{</span>
+		<span class="keyword">constexpr</span> <span class="keyword">int</span> <span class="identifier">x</span> <span class="special">=</span> <span class="keyword">static_cast</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;([:</span><span class="identifier">meta</span><span class="special">:]);</span>
+		<span class="identifier">map</span><span class="special">[</span><span class="identifier">x</span><span class="special">]</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">meta</span><span class="special">::</span><span class="identifier">identifier_of</span><span class="special">(</span><span class="identifier">meta</span><span class="special">);</span>
+	<span class="special">}</span>
+	<span class="keyword">for</span> <span class="special">(</span><span class="keyword">auto</span> <span class="special">[</span><span class="identifier">x</span><span class="special">,</span> <span class="identifier">str</span><span class="special">]:</span> <span class="identifier">map</span><span class="special">)</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">x</span> <span class="special">&lt;&lt;</span> <span class="string">" "</span> <span class="special">&lt;&lt;</span> <span class="identifier">str</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+
+<span class="comment">// output:</span>
+<span class="comment">/*
+0 zero
+1 one
+2 two
+3 three
+4 four
+5 five
+*/</span>
+</pre>
+<h2>
+<a name="cpp-beautiful-elegant-object-oriented.h2"></a>
+      <span class="phrase"><a name="cpp-beautiful-elegant-object-oriented.cpp-object-oriented"></a></span><a class="link" href="cpp-beautiful-elegant-object-oriented.html#cpp-beautiful-elegant-object-oriented.cpp-object-oriented"><span class="cyan">c++ is object-oriented</span></a>
+    </h2>
+<p>
+      c++ is an object-oriented programming language.
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">memory</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">dg</span>
+<span class="special">{</span>
+	<span class="keyword">class</span> <span class="identifier">shootable</span>
+	<span class="special">{</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="keyword">virtual</span> <span class="special">~</span><span class="identifier">shootable</span><span class="special">()</span> <span class="special">=</span> <span class="keyword">default</span><span class="special">;</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="keyword">virtual</span> <span class="keyword">void</span> <span class="identifier">shoot</span><span class="special">()</span> <span class="special">=</span> <span class="number">0</span><span class="special">;</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="keyword">virtual</span> <span class="keyword">int</span> <span class="identifier">get_value</span><span class="special">()</span> <span class="keyword">const</span> <span class="special">=</span> <span class="number">0</span><span class="special">;</span>
+	<span class="special">};</span>
+	<span class="keyword">class</span> <span class="identifier">gatling</span><span class="special">:</span>
+		<span class="keyword">virtual</span> <span class="keyword">public</span> <span class="identifier">dg</span><span class="special">::</span><span class="identifier">shootable</span>
+	<span class="special">{</span>
+	<span class="keyword">private</span><span class="special">:</span>
+		<span class="keyword">int</span> <span class="identifier">__bullets</span><span class="special">;</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">gatling</span><span class="special">(</span><span class="keyword">int</span> <span class="identifier">bullets__</span> <span class="special">=</span> <span class="number">10000000</span><span class="special">):</span>
+			<span class="identifier">__bullets</span><span class="special">{</span><span class="identifier">bullets__</span><span class="special">}</span>
+		<span class="special">{</span>
+		<span class="special">}</span>
+		<span class="keyword">void</span> <span class="identifier">shoot</span><span class="special">()</span> <span class="identifier">override</span>
+		<span class="special">{</span>
+			<span class="keyword">if</span> <span class="special">(</span><span class="identifier">__bullets</span> <span class="special">&lt;=</span> <span class="number">0</span><span class="special">)</span>
+				<span class="keyword">return</span><span class="special">;</span>
+			<span class="keyword">if</span> <span class="special">(</span><span class="identifier">__bullets</span> <span class="special">&gt;=</span> <span class="number">500</span><span class="special">)</span>
+				<span class="identifier">__bullets</span> <span class="special">-=</span> <span class="number">500</span><span class="special">;</span>
+			<span class="keyword">else</span>
+				<span class="identifier">__bullets</span> <span class="special">=</span> <span class="number">0</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="keyword">int</span> <span class="identifier">get_value</span><span class="special">()</span> <span class="keyword">const</span> <span class="identifier">override</span>
+		<span class="special">{</span>
+			<span class="keyword">return</span> <span class="identifier">__bullets</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="special">};</span>
+<span class="special">}</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="identifier">dg</span><span class="special">::</span><span class="identifier">shootable</span><span class="special">&gt;</span> <span class="identifier">gatling</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">make_shared</span><span class="special">&lt;</span><span class="identifier">dg</span><span class="special">::</span><span class="identifier">gatling</span><span class="special">&gt;();</span>
+	<span class="keyword">while</span> <span class="special">(</span><span class="identifier">gatling</span><span class="special">-&gt;</span><span class="identifier">get_value</span><span class="special">()</span> <span class="special">&gt;</span> <span class="number">0</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="identifier">gatling</span><span class="special">-&gt;</span><span class="identifier">shoot</span><span class="special">();</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Bullets: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">gatling</span><span class="special">-&gt;</span><span class="identifier">get_value</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="cpp-beautiful-elegant-object-oriented.h3"></a>
+      <span class="phrase"><a name="cpp-beautiful-elegant-object-oriented.cpp-generic"></a></span><a class="link" href="cpp-beautiful-elegant-object-oriented.html#cpp-beautiful-elegant-object-oriented.cpp-generic"><span class="cyan">c++ is generic</span></a>
+    </h2>
+<p>
+      c++ is generic.
+    </p>
+<pre class="programlisting"><span class="keyword">namespace</span> <span class="identifier">dg</span>
+<span class="special">{</span>
+	<span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">any_type</span><span class="special">&gt;</span>
+	<span class="keyword">class</span> <span class="identifier">generic</span>
+	<span class="special">{</span>
+	<span class="special">};</span>
+
+	<span class="keyword">template</span> <span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">integral</span> <span class="identifier">any_type</span><span class="special">&gt;</span>
+	<span class="keyword">using</span> <span class="identifier">integral_generic</span> <span class="special">=</span> <span class="identifier">dg</span><span class="special">::</span><span class="identifier">generic</span><span class="special">&lt;</span><span class="identifier">any_type</span><span class="special">&gt;;</span>
+
+	<span class="keyword">template</span> <span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">floating_point</span> <span class="identifier">any_type</span><span class="special">&gt;</span>
+	<span class="keyword">using</span> <span class="identifier">floating_generic</span> <span class="special">=</span> <span class="identifier">dg</span><span class="special">::</span><span class="identifier">generic</span><span class="special">&lt;</span><span class="identifier">any_type</span><span class="special">&gt;;</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="cpp-beautiful-elegant-object-oriented.h4"></a>
+      <span class="phrase"><a name="cpp-beautiful-elegant-object-oriented.cpp-general-purpose"></a></span><a class="link" href="cpp-beautiful-elegant-object-oriented.html#cpp-beautiful-elegant-object-oriented.cpp-general-purpose"><span class="cyan">c++ is general-purpose</span></a>
+    </h2>
+<p>
+      c++ is a general-purpose programming language. c++ is excellent for high-level
+      and low-level programming, for cross-platforms, for variety of domains, many
+      different programming paradigms.
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          High-level programming:
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; ">
+<li class="listitem">
+                Web programming: boost asio, beast, boost json.
+              </li>
+<li class="listitem">
+                GUI programming: Qt.
+              </li>
+</ul></div>
+        </li>
+<li class="listitem">
+          Low-level programming:
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
+                Operating system: SerenityOS, Haiku OS
+              </li></ul></div>
+        </li>
+<li class="listitem">
+          Cross-Platforms:
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
+                General c++ code is compiled on windows, linux with zero-modifications.
+              </li></ul></div>
+        </li>
+<li class="listitem">
+          Variety of domains:
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; ">
+<li class="listitem">
+                Mathematics: boost ublas
+              </li>
+<li class="listitem">
+                Games
+              </li>
+</ul></div>
+        </li>
+<li class="listitem">
+          Many different programming paradigms.
+        </li>
+</ul></div>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<p>
+      <a href="." target="_top">Home</a>
+    </p>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<p>
+      Sat Jul 11 02:18:57 AM UTC 2026
+    </p>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<h2>
+<a name="cpp-beautiful-elegant-object-oriented.h5"></a>
+      <span class="phrase"><a name="cpp-beautiful-elegant-object-oriented.helpful"></a></span><a class="link" href="cpp-beautiful-elegant-object-oriented.html#cpp-beautiful-elegant-object-oriented.helpful"><span class="cyan">Helpful</span></a>
+    </h2>
+<p>
+      <a href="https://wtgo.top/spaceship-50-years-alienated.html" target="_top">Spaceship 50
+      Years Alienated</a>
+    </p>
+<h2>
+<a name="cpp-beautiful-elegant-object-oriented.h6"></a>
+      <span class="phrase"><a name="cpp-beautiful-elegant-object-oriented.role"></a></span><a class="link" href="cpp-beautiful-elegant-object-oriented.html#cpp-beautiful-elegant-object-oriented.role"><span class="cyan">Role</span></a>
+    </h2>
+<p>
+      +
+    </p>
+<p>
+      Github:<br> <a href="https://github.com/cppfx/cpphtgt" target="_top">https://github.com/cppfx/cpphtgt</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      Powered by:<br> <a href="https://www.bfgroup.xyz/b2" target="_top">B2 Build</a>
+      | <a href="https://www.boost.org/tools/quickbook" target="_top">boost quickbook</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      <a href="https://cppfx.xyz/donate.html" target="_top">Donate</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      @<a href="https://cppfx.xyz" target="_top">cppfx.xyz</a>
+    </p>
+<p>
+      <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+      <br> <br> <br> <br> <br>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp-enum-class-micro-database-reflection.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
