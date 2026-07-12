@@ -3,6 +3,7 @@
 	[id cppfx]
 ]
 
+[include ./cpp-json-boost-property_tree-how-4423.qbk]
 [include cpp-beautiful-elegant-object-oriented.qbk]
 [include cpp-enum-class-micro-database-reflection.qbk]
 [include cpp-stdm-def-agg-exa.qbk]

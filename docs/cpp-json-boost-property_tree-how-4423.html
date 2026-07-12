@@ -1,0 +1,791 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>c++ json: boost::property_tree How 4423</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="cppfx - c++, b2 build">
+<link rel="up" href="index.html" title="cppfx - c++, b2 build">
+<link rel="prev" href="index.html" title="cppfx - c++, b2 build">
+<link rel="next" href="cpp-beautiful-elegant-object-oriented.html" title="c++ is a beautiful, elegant, object-oriented programming language">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp-beautiful-elegant-object-oriented.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="cpp-json-boost-property_tree-how-4423"></a>c++ json: boost::property_tree How 4423</h1></div></div>
+<hr>
+</div>
+<p>
+      <span class="drop_menu">&gt; <a class="link" href="cpp-json-boost-property_tree-how-4423.html" title="c++ json: boost::property_tree How 4423">Start</a><br>
+      &gt; <a class="link" href="cpp-json-boost-property_tree-how-4423.html#cpp-json-boost-property_tree-how-4423.hpbsvzzfd">boost::property_tree
+      json</a><br> &gt; <a class="link" href="cpp-json-boost-property_tree-how-4423.html#cpp-json-boost-property_tree-how-4423.xydtopfte">iterate
+      boost::property_tree</a><br> &gt; <a class="link" href="cpp-json-boost-property_tree-how-4423.html#cpp-json-boost-property_tree-how-4423.keeeedbhf">Method
+      .empty</a><br> &gt; <a class="link" href="cpp-json-boost-property_tree-how-4423.html#cpp-json-boost-property_tree-how-4423.apbbqzfmg">recursive
+      iterate</a><br> &gt; <a class="link" href="cpp-json-boost-property_tree-how-4423.html#cpp-json-boost-property_tree-how-4423.vbjqucnph">Method:
+      .get_child; .first, .second</a><br> &gt; <a class="link" href="cpp-json-boost-property_tree-how-4423.html#cpp-json-boost-property_tree-how-4423.eaxjgdobi">understanding
+      types</a><br> &gt; <a class="link" href="cpp-json-boost-property_tree-how-4423.html#cpp-json-boost-property_tree-how-4423.aizonypbj">json
+      array</a><br> &gt; <a class="link" href="cpp-json-boost-property_tree-how-4423.html#cpp-json-boost-property_tree-how-4423.dtjdcpqak">Modify,
+      add, write json data.</a><br> &gt; <a class="link" href="cpp-json-boost-property_tree-how-4423.html#cpp-json-boost-property_tree-how-4423.albhawecl">Method
+      .put_value</a><br> &gt; <a class="link" href="cpp-json-boost-property_tree-how-4423.html#cpp-json-boost-property_tree-how-4423.hmknecicm">Method
+      .add_child</a><br> &gt; <a class="link" href="cpp-json-boost-property_tree-how-4423.html#cpp-json-boost-property_tree-how-4423.rfyavoewn">Write
+      two or more dimensional array</a><br> &gt; <a href="." target="_top">Back: Home</a>
+      </span>
+    </p>
+<p>
+      c++ boost::property_tree is the best json parser for me to parse json data.
+    </p>
+<h2>
+<a name="cpp-json-boost-property_tree-how-4423.h0"></a>
+      <span class="phrase"><a name="cpp-json-boost-property_tree-how-4423.hpbsvzzfd"></a></span><a class="link" href="cpp-json-boost-property_tree-how-4423.html#cpp-json-boost-property_tree-how-4423.hpbsvzzfd"><span class="cyan">boost::property_tree json</span></a>
+    </h2>
+<p>
+      &gt;&gt;&gt;&gt; boost::property_tree:<br> &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+      read json from file,<br> &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+      from opening filename,<br> &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+      from std::stringstream
+    </p>
+<p>
+      get json value by key.
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">property_tree</span><span class="special">/</span><span class="identifier">ptree</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">property_tree</span><span class="special">/</span><span class="identifier">json_parser</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">sstream</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">ptr</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">property_tree</span><span class="special">;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">constexpr</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string_view</span> <span class="identifier">json_data</span> <span class="special">=</span>
+		<span class="identifier">R</span><span class="string">"(
+			{
+				"</span><span class="identifier">hello</span><span class="string">" : "</span><span class="identifier">world</span><span class="string">",
+				"</span><span class="identifier">OK</span><span class="string">" : true,
+				"</span><span class="identifier">good</span><span class="string">" : 2.5,
+				"</span><span class="identifier">help</span><span class="string">" :
+				{
+					"</span><span class="identifier">yes</span><span class="string">" : "</span><span class="identifier">no</span><span class="string">",
+					"</span><span class="identifier">num</span><span class="string">" : "</span><span class="identifier">yes</span><span class="string">"
+				}
+			}
+		)"</span>
+	<span class="special">;</span>
+
+	<span class="identifier">ptr</span><span class="special">::</span><span class="identifier">ptree</span> <span class="identifier">root</span><span class="special">;</span>
+
+	<span class="comment">// json can be read from both std::fstream or std::stringstream</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">stringstream</span> <span class="identifier">io</span><span class="special">;</span>
+	<span class="identifier">io</span> <span class="special">&lt;&lt;</span> <span class="identifier">json_data</span><span class="special">;</span>
+
+	<span class="comment">// ptr::read_json("data.json", root);</span>
+	<span class="comment">// ptr::read_json(file, root);	// file is std::ifstream object.</span>
+	<span class="identifier">ptr</span><span class="special">::</span><span class="identifier">read_json</span><span class="special">(</span><span class="identifier">io</span><span class="special">,</span> <span class="identifier">root</span><span class="special">);</span>
+
+	<span class="special">{</span>
+		<span class="keyword">auto</span> <span class="identifier">hello</span> <span class="special">=</span> <span class="identifier">root</span><span class="special">.</span><span class="identifier">get</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span><span class="special">&gt;(</span><span class="string">"hello"</span><span class="special">);</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">hello</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+
+	<span class="special">{</span>
+		<span class="keyword">auto</span> <span class="identifier">good</span> <span class="special">=</span> <span class="identifier">root</span><span class="special">.</span><span class="identifier">get</span><span class="special">&lt;</span><span class="keyword">double</span><span class="special">&gt;(</span><span class="string">"good"</span><span class="special">);</span>	<span class="comment">// double: 2.5</span>
+		<span class="keyword">auto</span> <span class="identifier">good2</span> <span class="special">=</span> <span class="identifier">root</span><span class="special">.</span><span class="identifier">get</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span><span class="special">&gt;(</span><span class="string">"good"</span><span class="special">);</span>	<span class="comment">// string: 2.5</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">good</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"=&gt; "</span> <span class="special">&lt;&lt;</span> <span class="identifier">good2</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+
+	<span class="special">{</span>
+		<span class="keyword">auto</span> <span class="identifier">ok</span> <span class="special">=</span> <span class="identifier">root</span><span class="special">.</span><span class="identifier">get</span><span class="special">&lt;</span><span class="keyword">bool</span><span class="special">&gt;(</span><span class="string">"OK"</span><span class="special">);</span>	<span class="comment">// boolean value: 1 or true</span>
+		<span class="keyword">auto</span> <span class="identifier">ok2</span> <span class="special">=</span> <span class="identifier">root</span><span class="special">.</span><span class="identifier">get</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span><span class="special">&gt;(</span><span class="string">"OK"</span><span class="special">);</span>	<span class="comment">// string value: true</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">ok</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">ok2</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="cpp-json-boost-property_tree-how-4423.h1"></a>
+      <span class="phrase"><a name="cpp-json-boost-property_tree-how-4423.xydtopfte"></a></span><a class="link" href="cpp-json-boost-property_tree-how-4423.html#cpp-json-boost-property_tree-how-4423.xydtopfte"><span class="cyan">iterate boost::property_tree</span></a>
+    </h2>
+<p>
+      boost::property_tree:<br> &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; iterate json child
+      data
+    </p>
+<pre class="programlisting"><span class="keyword">namespace</span> <span class="identifier">tree</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">property_tree</span><span class="special">;</span>
+
+<span class="keyword">constexpr</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string_view</span> <span class="identifier">json_data</span> <span class="special">=</span>
+	<span class="identifier">R</span><span class="string">"(
+		{
+			"</span><span class="identifier">hello</span><span class="string">" : "</span><span class="identifier">world</span><span class="string">",
+			"</span><span class="identifier">OK</span><span class="string">" : true,
+			"</span><span class="identifier">good</span><span class="string">" : 2.5,
+			"</span><span class="identifier">help</span><span class="string">" :
+			{
+				"</span><span class="identifier">yes</span><span class="string">" : "</span><span class="identifier">no</span><span class="string">",
+				"</span><span class="identifier">num</span><span class="string">" : "</span><span class="identifier">yes</span><span class="string">"
+			}
+		}
+	)"</span>
+<span class="special">;</span>
+
+<span class="identifier">tree</span><span class="special">::</span><span class="identifier">ptree</span> <span class="identifier">root</span><span class="special">;</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">stringstream</span> <span class="identifier">io</span><span class="special">;</span>
+<span class="identifier">io</span> <span class="special">&lt;&lt;</span> <span class="identifier">json_data</span><span class="special">;</span>
+<span class="identifier">tree</span><span class="special">::</span><span class="identifier">read_json</span><span class="special">(</span><span class="identifier">io</span><span class="special">,</span> <span class="identifier">root</span><span class="special">);</span>
+<span class="keyword">const</span> <span class="identifier">tree</span><span class="special">::</span><span class="identifier">ptree</span> <span class="special">&amp;</span> <span class="identifier">help</span> <span class="special">=</span> <span class="identifier">root</span><span class="special">.</span><span class="identifier">get_child</span><span class="special">(</span><span class="string">"help"</span><span class="special">);</span>
+<span class="keyword">for</span> <span class="special">(</span><span class="keyword">const</span> <span class="keyword">auto</span> <span class="special">&amp;</span> <span class="special">[</span><span class="identifier">k</span><span class="special">,</span> <span class="identifier">v</span><span class="special">]:</span> <span class="identifier">help</span><span class="special">)</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">k</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+
+<span class="comment">// output:</span>
+<span class="comment">/*
+yes
+num
+*/</span>
+</pre>
+<h2>
+<a name="cpp-json-boost-property_tree-how-4423.h2"></a>
+      <span class="phrase"><a name="cpp-json-boost-property_tree-how-4423.keeeedbhf"></a></span><a class="link" href="cpp-json-boost-property_tree-how-4423.html#cpp-json-boost-property_tree-how-4423.keeeedbhf"><span class="cyan">Method .empty</span></a>
+    </h2>
+<p>
+      boost::property_tree:<br> &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; processing json
+      data.<br> &gt;&gt;&gt;&gt; Method: .empty()<br> &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+      true: no child<br> &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; false: has child<br>
+      &gt;&gt;&gt;&gt; If true: std::cout &lt;&lt; n.data()<br> &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+    </p>
+<pre class="programlisting"><span class="keyword">namespace</span> <span class="identifier">tree</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">property_tree</span><span class="special">;</span>
+
+<span class="keyword">constexpr</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string_view</span> <span class="identifier">json_data</span> <span class="special">=</span>
+	<span class="identifier">R</span><span class="string">"(
+		{
+			"</span><span class="identifier">hello</span><span class="string">" : "</span><span class="identifier">world</span><span class="string">",
+			"</span><span class="identifier">OK</span><span class="string">" : true,
+			"</span><span class="identifier">good</span><span class="string">" : 2.5,
+			"</span><span class="identifier">help</span><span class="string">" :
+			{
+				"</span><span class="identifier">yes</span><span class="string">" : "</span><span class="identifier">no</span><span class="string">",
+				"</span><span class="identifier">num</span><span class="string">" : "</span><span class="identifier">yes</span><span class="string">"
+			}
+		}
+	)"</span>
+<span class="special">;</span>
+</pre>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">boolalpha</span><span class="special">;</span>
+<span class="identifier">tree</span><span class="special">::</span><span class="identifier">ptree</span> <span class="identifier">root</span><span class="special">;</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">stringstream</span> <span class="identifier">io</span><span class="special">;</span>
+<span class="identifier">io</span> <span class="special">&lt;&lt;</span> <span class="identifier">json_data</span><span class="special">;</span>
+<span class="identifier">tree</span><span class="special">::</span><span class="identifier">read_json</span><span class="special">(</span><span class="identifier">io</span><span class="special">,</span> <span class="identifier">root</span><span class="special">);</span>
+
+<span class="special">{</span>
+	<span class="keyword">const</span> <span class="identifier">tree</span><span class="special">::</span><span class="identifier">ptree</span> <span class="special">&amp;</span> <span class="identifier">hello</span> <span class="special">=</span> <span class="identifier">root</span><span class="special">.</span><span class="identifier">get_child</span><span class="special">(</span><span class="string">"hello"</span><span class="special">);</span>
+	<span class="identifier">contract_assert</span><span class="special">(</span><span class="identifier">hello</span><span class="special">.</span><span class="identifier">empty</span><span class="special">());</span>	<span class="comment">// empty: true, no child</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">hello</span><span class="special">.</span><span class="identifier">data</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>	<span class="comment">// world</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">root</span><span class="special">.</span><span class="identifier">get</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span><span class="special">&gt;(</span><span class="string">"hello"</span><span class="special">)</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>	<span class="comment">// world</span>
+<span class="special">}</span>
+<span class="special">{</span>
+	<span class="keyword">const</span> <span class="identifier">tree</span><span class="special">::</span><span class="identifier">ptree</span> <span class="special">&amp;</span> <span class="identifier">help</span> <span class="special">=</span> <span class="identifier">root</span><span class="special">.</span><span class="identifier">get_child</span><span class="special">(</span><span class="string">"help"</span><span class="special">);</span>
+	<span class="identifier">contract_assert</span><span class="special">(!</span> <span class="identifier">help</span><span class="special">.</span><span class="identifier">empty</span><span class="special">());</span>	<span class="comment">// empty: false: has child</span>
+	<span class="keyword">for</span> <span class="special">(</span><span class="keyword">const</span> <span class="keyword">auto</span> <span class="special">&amp;</span> <span class="special">[</span><span class="identifier">k</span><span class="special">,</span> <span class="identifier">v</span><span class="special">]:</span> <span class="identifier">help</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="keyword">static_assert</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">same_as</span><span class="special">&lt;</span><span class="keyword">decltype</span><span class="special">(</span><span class="identifier">k</span><span class="special">),</span> <span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span><span class="special">&gt;);</span>
+		<span class="keyword">static_assert</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">same_as</span><span class="special">&lt;</span><span class="keyword">decltype</span><span class="special">(</span><span class="identifier">v</span><span class="special">),</span> <span class="keyword">const</span> <span class="identifier">tree</span><span class="special">::</span><span class="identifier">ptree</span><span class="special">&gt;);</span>
+		<span class="identifier">contract_assert</span><span class="special">(</span><span class="identifier">v</span><span class="special">.</span><span class="identifier">empty</span><span class="special">());</span>	<span class="comment">// empty: true: no child</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">k</span> <span class="special">&lt;&lt;</span> <span class="string">" =&gt; "</span> <span class="special">&lt;&lt;</span> <span class="identifier">v</span><span class="special">.</span><span class="identifier">data</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="cpp-json-boost-property_tree-how-4423.h3"></a>
+      <span class="phrase"><a name="cpp-json-boost-property_tree-how-4423.apbbqzfmg"></a></span><a class="link" href="cpp-json-boost-property_tree-how-4423.html#cpp-json-boost-property_tree-how-4423.apbbqzfmg"><span class="cyan">recursive iterate</span></a>
+    </h2>
+<p>
+      boost::property_tree:<br> &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; processing json
+      data.
+    </p>
+<p>
+      &gt;&gt;&gt;&gt; Recursive loop:<br> &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; Generalized
+      accessing json data.<br> &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+      by using .empty, range-based for loop.
+    </p>
+<pre class="programlisting"><span class="keyword">constexpr</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string_view</span> <span class="identifier">json_data</span> <span class="special">=</span>
+	<span class="identifier">R</span><span class="string">"(
+		{
+			"</span><span class="identifier">hello</span><span class="string">" : "</span><span class="identifier">world</span><span class="string">",
+			"</span><span class="identifier">OK</span><span class="string">" : true,
+			"</span><span class="identifier">list</span><span class="string">" :
+			{
+				"</span><span class="identifier">Bob</span><span class="string">" : 100,
+				"</span><span class="identifier">Tom</span><span class="string">" : 200
+			},
+			"</span><span class="identifier">good</span><span class="string">" : 2.5,
+			"</span><span class="identifier">help</span><span class="string">" :
+			{
+				"</span><span class="identifier">yes</span><span class="string">" : "</span><span class="identifier">no</span><span class="string">",
+				"</span><span class="identifier">num</span><span class="string">" : "</span><span class="identifier">yes</span><span class="string">",
+				"</span><span class="identifier">pick</span><span class="string">" :
+				{
+					"</span><span class="identifier">size</span><span class="string">" : 25.3,
+					"</span><span class="identifier">health</span><span class="string">" : true
+				}
+			}
+		}
+	)"</span>
+<span class="special">;</span>
+</pre>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">stringstream</span> <span class="identifier">io</span><span class="special">;</span>
+<span class="identifier">io</span> <span class="special">&lt;&lt;</span> <span class="identifier">json_data</span><span class="special">;</span>
+<span class="identifier">tree</span><span class="special">::</span><span class="identifier">ptree</span> <span class="identifier">root</span><span class="special">;</span>
+<span class="identifier">tree</span><span class="special">::</span><span class="identifier">read_json</span><span class="special">(</span><span class="identifier">io</span><span class="special">,</span> <span class="identifier">root</span><span class="special">);</span>
+
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">function</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">(</span><span class="identifier">tree</span><span class="special">::</span><span class="identifier">ptree</span><span class="special">)&gt;</span> <span class="identifier">read</span> <span class="special">=</span>
+	<span class="special">[&amp;]</span> <span class="special">(</span><span class="keyword">const</span> <span class="identifier">tree</span><span class="special">::</span><span class="identifier">ptree</span> <span class="special">&amp;</span> <span class="identifier">node</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="keyword">static</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">indent</span> <span class="special">=</span> <span class="string">""</span><span class="special">;</span>
+		<span class="keyword">if</span> <span class="special">(</span><span class="identifier">node</span><span class="special">.</span><span class="identifier">empty</span><span class="special">())</span>
+		<span class="special">{</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">node</span><span class="special">.</span><span class="identifier">data</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+			<span class="keyword">return</span><span class="special">;</span>
+		<span class="special">}</span>
+		<span class="keyword">else</span>
+		<span class="special">{</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+			<span class="keyword">for</span> <span class="special">(</span><span class="keyword">const</span> <span class="keyword">auto</span> <span class="special">&amp;</span> <span class="special">[</span><span class="identifier">key</span><span class="special">,</span> <span class="identifier">value</span><span class="special">]:</span> <span class="identifier">node</span><span class="special">)</span>
+			<span class="special">{</span>
+				<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">indent</span> <span class="special">&lt;&lt;</span> <span class="identifier">key</span> <span class="special">&lt;&lt;</span> <span class="string">" =&gt; "</span><span class="special">;</span>
+				<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">old</span> <span class="special">=</span> <span class="identifier">indent</span><span class="special">;</span>	<span class="comment">// stack "store"</span>
+				<span class="identifier">indent</span> <span class="special">+=</span> <span class="string">"\t"</span><span class="special">;</span>	<span class="comment">// stack "push"</span>
+				<span class="identifier">read</span><span class="special">(</span><span class="identifier">value</span><span class="special">);</span>
+				<span class="identifier">indent</span> <span class="special">=</span> <span class="identifier">old</span><span class="special">;</span>	<span class="comment">// stack "restore" ("pop")</span>
+			<span class="special">}</span>
+		<span class="special">}</span>
+	<span class="special">}</span>
+<span class="special">;</span>
+
+<span class="identifier">read</span><span class="special">(</span><span class="identifier">root</span><span class="special">);</span>
+</pre>
+<h2>
+<a name="cpp-json-boost-property_tree-how-4423.h4"></a>
+      <span class="phrase"><a name="cpp-json-boost-property_tree-how-4423.vbjqucnph"></a></span><a class="link" href="cpp-json-boost-property_tree-how-4423.html#cpp-json-boost-property_tree-how-4423.vbjqucnph"><span class="cyan">Method: .get_child; .first, .second</span></a>
+    </h2>
+<p>
+      ==================================================
+    </p>
+<p>
+      boost::property_tree::ptree object<br> ptree::value_ype object
+    </p>
+<p>
+      ==================================================
+    </p>
+<p>
+      &gt;&gt;&gt;&gt; Summary: ptree and ptree::value_type
+    </p>
+<p>
+      &gt;&gt;&gt;&gt; ptree behaves like std::map<br> &gt;&gt;&gt;&gt; ptree::value_type
+      behaves like std::pair
+    </p>
+<p>
+      &gt;&gt;&gt;&gt; Every element of ptree is ptree::value_type
+    </p>
+<p>
+      &gt;&gt;&gt;&gt; ptree::value_type first type is the key type, it is std::string<br>
+      &gt;&gt;&gt;&gt; ptree::value_type second type is the data type,<br> &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+      however, the second type is ptree
+    </p>
+<p>
+      ==================================================
+    </p>
+<p>
+      &gt;&gt;&gt;&gt; 1. ptree<br> &gt;&gt;&gt;&gt; 2. ptree::value_type<br>
+      &gt;&gt;&gt;&gt; 3. From ptree::value_type:<br> &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+      .first ---- get std::string<br> &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; .second
+      ---- get ptree<br> &gt;&gt;&gt;&gt; 4. From ptree:<br> &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+      .get ---- Passing key, return value, such as std::string, bool, double<br>
+      &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; .get_child ---- Passing key, return ptree<br>
+      &gt;&gt;&gt;&gt; 5. iterate ptree with range-based for: (it defined .begin,
+      .end)<br> &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; accessing each ptree::value_type:<br>
+      &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; .first is
+      key, type is std::string<br> &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+      .second is ptree
+    </p>
+<pre class="programlisting"><span class="keyword">constexpr</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string_view</span> <span class="identifier">json_data</span> <span class="special">=</span>
+	<span class="identifier">R</span><span class="string">"(
+		{
+			"</span><span class="identifier">hello</span><span class="string">" : "</span><span class="identifier">world</span><span class="string">",
+			"</span><span class="identifier">OK</span><span class="string">" : true,
+			"</span><span class="identifier">list</span><span class="string">" :
+			{
+				"</span><span class="identifier">Bob</span><span class="string">" : 100,
+				"</span><span class="identifier">Tom</span><span class="string">" : 200
+			},
+			"</span><span class="identifier">good</span><span class="string">" : 2.5,
+			"</span><span class="identifier">help</span><span class="string">" :
+			{
+				"</span><span class="identifier">yes</span><span class="string">" : "</span><span class="identifier">no</span><span class="string">",
+				"</span><span class="identifier">num</span><span class="string">" : "</span><span class="identifier">yes</span><span class="string">",
+				"</span><span class="identifier">pick</span><span class="string">" :
+				{
+					"</span><span class="identifier">size</span><span class="string">" : 25.3,
+					"</span><span class="identifier">health</span><span class="string">" : true
+				}
+			}
+		}
+	)"</span>
+<span class="special">;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">ptr</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">property_tree</span><span class="special">;</span>
+</pre>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">stringstream</span> <span class="identifier">io</span><span class="special">;</span>
+<span class="identifier">io</span> <span class="special">&lt;&lt;</span> <span class="identifier">json_data</span><span class="special">;</span>
+<span class="identifier">ptr</span><span class="special">::</span><span class="identifier">ptree</span> <span class="identifier">root</span><span class="special">;</span>
+<span class="identifier">ptr</span><span class="special">::</span><span class="identifier">read_json</span><span class="special">(</span><span class="identifier">io</span><span class="special">,</span> <span class="identifier">root</span><span class="special">);</span>
+
+<span class="special">{</span>
+	<span class="identifier">ptr</span><span class="special">::</span><span class="identifier">ptree</span> <span class="identifier">nn</span> <span class="special">=</span> <span class="identifier">root</span><span class="special">.</span><span class="identifier">get_child</span><span class="special">(</span><span class="string">"hello"</span><span class="special">);</span>
+	<span class="identifier">contract_assert</span><span class="special">(</span><span class="identifier">nn</span><span class="special">.</span><span class="identifier">empty</span><span class="special">());</span>		<span class="comment">// no child</span>
+	<span class="identifier">contract_assert</span><span class="special">(</span><span class="identifier">nn</span><span class="special">.</span><span class="identifier">data</span><span class="special">()</span> <span class="special">==</span> <span class="string">"world"</span><span class="special">);</span>		<span class="comment">// only "world"</span>
+<span class="special">}</span>
+<span class="special">{</span>
+	<span class="identifier">ptr</span><span class="special">::</span><span class="identifier">ptree</span> <span class="identifier">nn</span> <span class="special">=</span> <span class="identifier">root</span><span class="special">.</span><span class="identifier">get_child</span><span class="special">(</span><span class="string">"list"</span><span class="special">);</span>
+	<span class="identifier">contract_assert</span><span class="special">(!</span> <span class="identifier">nn</span><span class="special">.</span><span class="identifier">empty</span><span class="special">());</span>		<span class="comment">// has child</span>
+	<span class="keyword">for</span> <span class="special">(</span><span class="keyword">const</span> <span class="identifier">ptr</span><span class="special">::</span><span class="identifier">ptree</span><span class="special">::</span><span class="identifier">value_type</span> <span class="special">&amp;</span> <span class="identifier">value</span><span class="special">:</span> <span class="identifier">nn</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">key_s</span> <span class="special">=</span> <span class="identifier">value</span><span class="special">.</span><span class="identifier">first</span><span class="special">;</span>
+		<span class="identifier">ptr</span><span class="special">::</span><span class="identifier">ptree</span> <span class="identifier">value_s</span> <span class="special">=</span> <span class="identifier">value</span><span class="special">.</span><span class="identifier">second</span><span class="special">;</span>
+		<span class="identifier">contract_assert</span><span class="special">(</span><span class="identifier">value_s</span><span class="special">.</span><span class="identifier">empty</span><span class="special">());</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"=&gt; "</span> <span class="special">&lt;&lt;</span> <span class="identifier">value_s</span><span class="special">.</span><span class="identifier">data</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="cpp-json-boost-property_tree-how-4423.h5"></a>
+      <span class="phrase"><a name="cpp-json-boost-property_tree-how-4423.eaxjgdobi"></a></span><a class="link" href="cpp-json-boost-property_tree-how-4423.html#cpp-json-boost-property_tree-how-4423.eaxjgdobi"><span class="cyan">understanding types</span></a>
+    </h2>
+<p>
+      ==================================================
+    </p>
+<p>
+      boost::property_tree::ptree object<br> ptree::value_ype object
+    </p>
+<p>
+      ==================================================
+    </p>
+<p>
+      &gt;&gt;&gt;&gt; Summary: ptree and ptree::value_type
+    </p>
+<p>
+      &gt;&gt;&gt;&gt; ptree behaves like std::map<br> &gt;&gt;&gt;&gt; ptree::value_type
+      behaves like std::pair
+    </p>
+<p>
+      &gt;&gt;&gt;&gt; Every element of ptree is ptree::value_type
+    </p>
+<p>
+      &gt;&gt;&gt;&gt; ptree::value_type first type is the key type, it is std::string<br>
+      &gt;&gt;&gt;&gt; ptree::value_type second type is the data type,<br> &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+      however, the second type is ptree
+    </p>
+<p>
+      ==================================================
+    </p>
+<p>
+      &gt;&gt;&gt;&gt; 1. ptree<br> &gt;&gt;&gt;&gt; 2. ptree::value_type<br>
+      &gt;&gt;&gt;&gt; 3. From ptree::value_type:<br> &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+      .first ---- get std::string<br> &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; .second
+      ---- get ptree<br> &gt;&gt;&gt;&gt; 4. From ptree:<br> &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+      .get ---- Passing key, return value, such as std::string, bool, double<br>
+      &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; .get_child ---- Passing key, return ptree<br>
+      &gt;&gt;&gt;&gt; 5. iterate ptree with range-based for: (it defined .begin,
+      .end)<br> &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; accessing each ptree::value_type:<br>
+      &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; .first is
+      key, type is std::string<br> &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+      .second is ptree
+    </p>
+<pre class="programlisting"><span class="keyword">constexpr</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string_view</span> <span class="identifier">data</span> <span class="special">=</span>
+	<span class="identifier">R</span><span class="string">"(
+		{
+			"</span><span class="identifier">hello</span><span class="string">" : "</span><span class="identifier">world</span><span class="string">",
+			"</span><span class="identifier">OK</span><span class="string">" : true,
+			"</span><span class="identifier">list</span><span class="string">" :
+			{
+				"</span><span class="identifier">Bob</span><span class="string">" : 100,
+				"</span><span class="identifier">Tom</span><span class="string">" : 200
+			},
+			"</span><span class="identifier">good</span><span class="string">" : 2.5,
+			"</span><span class="identifier">help</span><span class="string">" :
+			{
+				"</span><span class="identifier">yes</span><span class="string">" : "</span><span class="identifier">no</span><span class="string">",
+				"</span><span class="identifier">num</span><span class="string">" : "</span><span class="identifier">yes</span><span class="string">",
+				"</span><span class="identifier">pick</span><span class="string">" :
+				{
+					"</span><span class="identifier">size</span><span class="string">" : 25.3,
+					"</span><span class="identifier">health</span><span class="string">" : true
+				}
+			}
+		}
+	)"</span>
+<span class="special">;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">ptr</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">property_tree</span><span class="special">;</span>
+</pre>
+<pre class="programlisting"><span class="identifier">ptr</span><span class="special">::</span><span class="identifier">ptree</span> <span class="identifier">root</span><span class="special">;</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">stringstream</span> <span class="identifier">io</span><span class="special">;</span>
+<span class="identifier">io</span> <span class="special">&lt;&lt;</span> <span class="identifier">data</span><span class="special">;</span>
+<span class="identifier">ptr</span><span class="special">::</span><span class="identifier">read_json</span><span class="special">(</span><span class="identifier">io</span><span class="special">,</span> <span class="identifier">root</span><span class="special">);</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">root</span><span class="special">.</span><span class="identifier">get</span><span class="special">&lt;</span><span class="keyword">double</span><span class="special">&gt;(</span><span class="string">"good"</span><span class="special">)</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>	<span class="comment">// 2.5</span>
+<span class="special">}</span>
+<span class="special">{</span>
+	<span class="identifier">ptr</span><span class="special">::</span><span class="identifier">ptree</span><span class="special">::</span><span class="identifier">value_type</span> <span class="identifier">data</span> <span class="special">=</span> <span class="special">*</span><span class="identifier">root</span><span class="special">.</span><span class="identifier">begin</span><span class="special">();</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">key</span> <span class="special">=</span> <span class="identifier">data</span><span class="special">.</span><span class="identifier">first</span><span class="special">;</span>
+	<span class="identifier">ptr</span><span class="special">::</span><span class="identifier">ptree</span> <span class="identifier">data__</span> <span class="special">=</span> <span class="identifier">data</span><span class="special">.</span><span class="identifier">second</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">data_abc</span> <span class="special">=</span> <span class="identifier">data__</span><span class="special">.</span><span class="identifier">data</span><span class="special">();</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">key</span> <span class="special">&lt;&lt;</span> <span class="string">" "</span> <span class="special">&lt;&lt;</span> <span class="identifier">data_abc</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>	<span class="comment">// hello world</span>
+<span class="special">}</span>
+<span class="special">{</span>
+	<span class="keyword">for</span> <span class="special">(</span><span class="keyword">const</span> <span class="identifier">ptr</span><span class="special">::</span><span class="identifier">ptree</span><span class="special">::</span><span class="identifier">value_type</span> <span class="special">&amp;</span> <span class="identifier">pair</span><span class="special">:</span> <span class="identifier">root</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="special">{</span>
+			<span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="special">&amp;</span> <span class="identifier">key</span> <span class="special">=</span> <span class="identifier">pair</span><span class="special">.</span><span class="identifier">first</span><span class="special">;</span>
+			<span class="keyword">const</span> <span class="identifier">ptr</span><span class="special">::</span><span class="identifier">ptree</span> <span class="special">&amp;</span> <span class="identifier">data</span> <span class="special">=</span> <span class="identifier">pair</span><span class="special">.</span><span class="identifier">second</span><span class="special">;</span>
+			<span class="keyword">if</span> <span class="special">(</span><span class="identifier">data</span><span class="special">.</span><span class="identifier">empty</span><span class="special">())</span>	<span class="comment">// empty true: no child</span>
+				<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">key</span> <span class="special">&lt;&lt;</span> <span class="string">" -&gt; "</span> <span class="special">&lt;&lt;</span> <span class="identifier">data</span><span class="special">.</span><span class="identifier">data</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+		<span class="special">}</span>
+		<span class="special">{</span>
+			<span class="keyword">const</span> <span class="keyword">auto</span> <span class="special">[</span><span class="identifier">key</span><span class="special">,</span> <span class="identifier">data</span><span class="special">]</span> <span class="special">=</span> <span class="identifier">pair</span><span class="special">;</span>
+			<span class="keyword">if</span> <span class="special">(</span><span class="identifier">data</span><span class="special">.</span><span class="identifier">empty</span><span class="special">())</span>	<span class="comment">// empty tree: no child</span>
+				<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">key</span> <span class="special">&lt;&lt;</span> <span class="string">" =&gt; "</span> <span class="special">&lt;&lt;</span> <span class="identifier">data</span><span class="special">.</span><span class="identifier">data</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="special">}</span>
+<span class="special">}</span>
+<span class="special">{</span>
+	<span class="keyword">const</span> <span class="identifier">ptr</span><span class="special">::</span><span class="identifier">ptree</span> <span class="special">&amp;</span> <span class="identifier">ttt</span> <span class="special">=</span> <span class="identifier">root</span><span class="special">.</span><span class="identifier">get_child</span><span class="special">(</span><span class="string">"OK"</span><span class="special">);</span>
+	<span class="keyword">if</span> <span class="special">(</span><span class="identifier">ttt</span><span class="special">.</span><span class="identifier">empty</span><span class="special">())</span>
+	<span class="special">{</span>
+		<span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="special">&amp;</span> <span class="identifier">data</span> <span class="special">=</span> <span class="identifier">ttt</span><span class="special">.</span><span class="identifier">data</span><span class="special">();</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"=&gt; "</span> <span class="special">&lt;&lt;</span> <span class="identifier">data</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="cpp-json-boost-property_tree-how-4423.h6"></a>
+      <span class="phrase"><a name="cpp-json-boost-property_tree-how-4423.aizonypbj"></a></span><a class="link" href="cpp-json-boost-property_tree-how-4423.html#cpp-json-boost-property_tree-how-4423.aizonypbj"><span class="cyan">json array</span></a>
+    </h2>
+<p>
+      For json array, get a pair object from ptree object, pair type is ptree::value_type;<br>
+      &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; the first type is the key type, which is an
+      empty std::string.<br> &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; the second type is
+      the value type, which is a ptree.
+    </p>
+<pre class="programlisting"><span class="keyword">constexpr</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string_view</span> <span class="identifier">data</span> <span class="special">=</span>
+	<span class="identifier">R</span><span class="string">"(
+		{
+			"</span><span class="identifier">version</span><span class="string">" : 3.0,
+			"</span><span class="identifier">list</span><span class="string">" : ["</span><span class="identifier">ab</span><span class="string">", "</span><span class="identifier">cd</span><span class="string">", "</span><span class="identifier">ef</span><span class="string">"],
+			"</span><span class="identifier">abt</span><span class="string">" :
+			{
+				"</span><span class="string">" : "</span><span class="identifier">hot</span><span class="string">",
+				"</span><span class="string">" : "</span><span class="identifier">cold</span><span class="string">",
+				"</span><span class="string">" : "</span><span class="identifier">cool</span><span class="string">"
+			}
+		}
+	)"</span>
+<span class="special">;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">ptr</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">property_tree</span><span class="special">;</span>
+</pre>
+<pre class="programlisting"><span class="identifier">ptr</span><span class="special">::</span><span class="identifier">ptree</span> <span class="identifier">root</span><span class="special">;</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">stringstream</span> <span class="identifier">io</span><span class="special">;</span>
+<span class="identifier">io</span> <span class="special">&lt;&lt;</span> <span class="identifier">data</span><span class="special">;</span>
+<span class="identifier">ptr</span><span class="special">::</span><span class="identifier">read_json</span><span class="special">(</span><span class="identifier">io</span><span class="special">,</span> <span class="identifier">root</span><span class="special">);</span>
+<span class="special">{</span>
+	<span class="keyword">const</span> <span class="identifier">ptr</span><span class="special">::</span><span class="identifier">ptree</span> <span class="special">&amp;</span> <span class="identifier">data</span> <span class="special">=</span> <span class="identifier">root</span><span class="special">.</span><span class="identifier">get_child</span><span class="special">(</span><span class="string">"list"</span><span class="special">);</span>
+	<span class="keyword">for</span> <span class="special">(</span><span class="keyword">const</span> <span class="identifier">ptr</span><span class="special">::</span><span class="identifier">ptree</span><span class="special">::</span><span class="identifier">value_type</span> <span class="special">&amp;</span> <span class="identifier">vt</span><span class="special">:</span> <span class="identifier">data</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="identifier">contract_assert</span><span class="special">(</span><span class="identifier">vt</span><span class="special">.</span><span class="identifier">first</span><span class="special">.</span><span class="identifier">empty</span><span class="special">());</span>	<span class="comment">// vt.first is std::string</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">quoted</span><span class="special">(</span><span class="identifier">vt</span><span class="special">.</span><span class="identifier">first</span><span class="special">)</span> <span class="special">&lt;&lt;</span> <span class="string">" =&gt; "</span>
+			<span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">quoted</span><span class="special">(</span><span class="identifier">vt</span><span class="special">.</span><span class="identifier">second</span><span class="special">.</span><span class="identifier">data</span><span class="special">())</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">}</span>
+<span class="special">{</span>
+	<span class="keyword">const</span> <span class="identifier">ptr</span><span class="special">::</span><span class="identifier">ptree</span> <span class="special">&amp;</span> <span class="identifier">data</span> <span class="special">=</span> <span class="identifier">root</span><span class="special">.</span><span class="identifier">get_child</span><span class="special">(</span><span class="string">"abt"</span><span class="special">);</span>
+	<span class="keyword">for</span> <span class="special">(</span><span class="keyword">const</span> <span class="identifier">ptr</span><span class="special">::</span><span class="identifier">ptree</span><span class="special">::</span><span class="identifier">value_type</span> <span class="special">&amp;</span> <span class="identifier">vt</span><span class="special">:</span> <span class="identifier">data</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="identifier">contract_assert</span><span class="special">(</span><span class="identifier">vt</span><span class="special">.</span><span class="identifier">first</span><span class="special">.</span><span class="identifier">empty</span><span class="special">());</span>	<span class="comment">// vt.first is std::string</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">quoted</span><span class="special">(</span><span class="identifier">vt</span><span class="special">.</span><span class="identifier">first</span><span class="special">)</span> <span class="special">&lt;&lt;</span> <span class="string">" -&gt; "</span>
+			<span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">quoted</span><span class="special">(</span><span class="identifier">vt</span><span class="special">.</span><span class="identifier">second</span><span class="special">.</span><span class="identifier">data</span><span class="special">())</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">}</span>
+</pre>
+<pre class="programlisting"><span class="comment">//output:</span>
+<span class="comment">/*
+"" =&gt; "ab"
+"" =&gt; "cd"
+"" =&gt; "ef"
+"" =&gt; "hot"
+"" =&gt; "cold"
+"" =&gt; "cool"
+*/</span>
+</pre>
+<h2>
+<a name="cpp-json-boost-property_tree-how-4423.h7"></a>
+      <span class="phrase"><a name="cpp-json-boost-property_tree-how-4423.dtjdcpqak"></a></span><a class="link" href="cpp-json-boost-property_tree-how-4423.html#cpp-json-boost-property_tree-how-4423.dtjdcpqak"><span class="cyan">Modify, add, write json data.</span></a>
+    </h2>
+<p>
+      boost::property_tree::ptree<br> As ptree is just a map-like container,<br>
+      &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; and ptree::value_type is just a std::pair,<br>
+      to modify, add, write json data, just access them as<br> oridinary std:map/std::pair
+      ways.
+    </p>
+<p>
+      Method: .push_back<br> Method: .put : override existed value if its key exists.<br>
+      Method: .add : always add new key-value.
+    </p>
+<p>
+      &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; .put and .add ared used for value which is
+      std::string, int, double etc.<br> &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; .push_back
+      is used for value which is a ptree.
+    </p>
+<pre class="programlisting"><span class="keyword">namespace</span> <span class="identifier">ppt</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">property_tree</span><span class="special">;</span>
+<span class="keyword">constexpr</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string_view</span> <span class="identifier">data</span><span class="special">{</span><span class="identifier">R</span><span class="string">"({"</span><span class="identifier">version</span><span class="string">":"</span><span class="number">1.0</span><span class="string">", "</span><span class="identifier">age</span><span class="string">" : 3})"</span><span class="special">};</span>
+<span class="identifier">ppt</span><span class="special">::</span><span class="identifier">ptree</span> <span class="identifier">root</span><span class="special">;</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">stringstream</span> <span class="identifier">io</span><span class="special">;</span>
+<span class="identifier">io</span> <span class="special">&lt;&lt;</span> <span class="identifier">data</span><span class="special">;</span>
+<span class="identifier">ppt</span><span class="special">::</span><span class="identifier">read_json</span><span class="special">(</span><span class="identifier">io</span><span class="special">,</span> <span class="identifier">root</span><span class="special">);</span>
+
+<span class="special">{</span>
+	<span class="identifier">ppt</span><span class="special">::</span><span class="identifier">ptree</span> <span class="identifier">nn</span><span class="special">;</span>
+	<span class="identifier">nn</span><span class="special">.</span><span class="identifier">push_back</span><span class="special">(</span><span class="identifier">ppt</span><span class="special">::</span><span class="identifier">ptree</span><span class="special">::</span><span class="identifier">value_type</span><span class="special">{</span><span class="string">"eggs"</span><span class="special">,</span> <span class="identifier">ppt</span><span class="special">::</span><span class="identifier">ptree</span><span class="special">{</span><span class="string">"two"</span><span class="special">}});</span>
+	<span class="identifier">nn</span><span class="special">.</span><span class="identifier">push_back</span><span class="special">(</span><span class="identifier">ppt</span><span class="special">::</span><span class="identifier">ptree</span><span class="special">::</span><span class="identifier">value_type</span><span class="special">{</span><span class="string">"hot"</span><span class="special">,</span> <span class="string">"yes"</span><span class="special">});</span>
+	<span class="identifier">root</span><span class="special">.</span><span class="identifier">push_back</span><span class="special">(</span><span class="identifier">ppt</span><span class="special">::</span><span class="identifier">ptree</span><span class="special">::</span><span class="identifier">value_type</span><span class="special">{</span><span class="string">"world"</span><span class="special">,</span> <span class="identifier">nn</span><span class="special">});</span>
+	<span class="identifier">root</span><span class="special">.</span><span class="identifier">push_back</span><span class="special">(</span><span class="identifier">ppt</span><span class="special">::</span><span class="identifier">ptree</span><span class="special">::</span><span class="identifier">value_type</span><span class="special">{</span><span class="string">"star"</span><span class="special">,</span> <span class="identifier">nn</span><span class="special">});</span>
+<span class="special">}</span>
+<span class="special">{</span>
+	<span class="identifier">root</span><span class="special">.</span><span class="identifier">put</span><span class="special">(</span><span class="string">"version"</span><span class="special">,</span> <span class="string">"3.0"</span><span class="special">);</span>	<span class="comment">// Override existed "1.0" to "3.0"</span>
+	<span class="identifier">root</span><span class="special">.</span><span class="identifier">put</span><span class="special">(</span><span class="string">"age"</span><span class="special">,</span> <span class="number">5</span><span class="special">);</span>	<span class="comment">// Override existed 3 to 5</span>
+	<span class="identifier">root</span><span class="special">.</span><span class="identifier">put</span><span class="special">(</span><span class="string">"large"</span><span class="special">,</span> <span class="string">"yes"</span><span class="special">);</span>	<span class="comment">// Create a new pair: "large" : yes"</span>
+	<span class="identifier">root</span><span class="special">.</span><span class="identifier">add</span><span class="special">(</span><span class="string">"small"</span><span class="special">,</span> <span class="string">"no"</span><span class="special">);</span>	<span class="comment">// Create a new pair: "small", "no"</span>
+	<span class="identifier">root</span><span class="special">.</span><span class="identifier">add</span><span class="special">(</span><span class="string">"small"</span><span class="special">,</span> <span class="string">"open"</span><span class="special">);</span>	<span class="comment">// Create a new pair: "small", "open"</span>
+<span class="special">}</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">ofstream</span> <span class="identifier">out</span><span class="special">{</span><span class="string">"./saved.json"</span><span class="special">};</span>
+	<span class="identifier">ppt</span><span class="special">::</span><span class="identifier">write_json</span><span class="special">(</span><span class="identifier">out</span><span class="special">,</span> <span class="identifier">root</span><span class="special">,</span> <span class="keyword">true</span><span class="special">);</span>	<span class="comment">// pretty: true, default is tree</span>
+<span class="special">}</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">ostringstream</span> <span class="identifier">out</span><span class="special">;</span>
+	<span class="identifier">ppt</span><span class="special">::</span><span class="identifier">write_json</span><span class="special">(</span><span class="identifier">out</span><span class="special">,</span> <span class="identifier">root</span><span class="special">,</span> <span class="keyword">true</span><span class="special">);</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Well====&gt;\n"</span> <span class="special">&lt;&lt;</span> <span class="identifier">out</span><span class="special">.</span><span class="identifier">str</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">flush</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="cpp-json-boost-property_tree-how-4423.h8"></a>
+      <span class="phrase"><a name="cpp-json-boost-property_tree-how-4423.albhawecl"></a></span><a class="link" href="cpp-json-boost-property_tree-how-4423.html#cpp-json-boost-property_tree-how-4423.albhawecl"><span class="cyan">Method .put_value</span></a>
+    </h2>
+<p>
+      &gt;&gt;&gt;&gt; Method .put_value is the method of boost::property_tree::ptree
+      object.<br> &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; It is used for making an unnamed
+      ptree object,<br> &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; which
+      has a value but does not have a key.
+    </p>
+<p>
+      There is method .put_value, but no method .get_value.
+    </p>
+<pre class="programlisting"><span class="keyword">namespace</span> <span class="identifier">ptr</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">property_tree</span><span class="special">;</span>
+<span class="identifier">ptr</span><span class="special">::</span><span class="identifier">ptree</span> <span class="identifier">root</span><span class="special">;</span>
+<span class="identifier">root</span><span class="special">.</span><span class="identifier">put</span><span class="special">(</span><span class="string">"Hello"</span><span class="special">,</span> <span class="string">"World"</span><span class="special">);</span>
+<span class="identifier">root</span><span class="special">.</span><span class="identifier">put</span><span class="special">(</span><span class="string">"size"</span><span class="special">,</span> <span class="number">100</span><span class="special">);</span>
+<span class="special">{</span>
+	<span class="special">{</span>
+		<span class="identifier">ptr</span><span class="special">::</span><span class="identifier">ptree</span> <span class="identifier">vn</span><span class="special">;</span>
+		<span class="identifier">vn</span><span class="special">.</span><span class="identifier">put_value</span><span class="special">(</span><span class="number">3.5</span><span class="special">);</span>
+		<span class="identifier">root</span><span class="special">.</span><span class="identifier">push_back</span><span class="special">(</span><span class="identifier">ptr</span><span class="special">::</span><span class="identifier">ptree</span><span class="special">::</span><span class="identifier">value_type</span><span class="special">{</span><span class="string">"one"</span><span class="special">,</span> <span class="identifier">vn</span><span class="special">});</span>
+	<span class="special">}</span>
+	<span class="special">{</span>
+		<span class="identifier">ptr</span><span class="special">::</span><span class="identifier">ptree</span> <span class="identifier">vn</span><span class="special">;</span>
+		<span class="identifier">vn</span><span class="special">.</span><span class="identifier">put_value</span><span class="special">(</span><span class="string">"good"</span><span class="special">);</span>
+		<span class="identifier">root</span><span class="special">.</span><span class="identifier">push_back</span><span class="special">(</span><span class="identifier">ptr</span><span class="special">::</span><span class="identifier">ptree</span><span class="special">::</span><span class="identifier">value_type</span><span class="special">{</span><span class="string">"info"</span><span class="special">,</span> <span class="identifier">vn</span><span class="special">});</span>
+	<span class="special">}</span>
+<span class="special">}</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">ostringstream</span> <span class="identifier">out</span><span class="special">;</span>
+	<span class="identifier">ptr</span><span class="special">::</span><span class="identifier">write_json</span><span class="special">(</span><span class="identifier">out</span><span class="special">,</span> <span class="identifier">root</span><span class="special">,</span> <span class="keyword">true</span><span class="special">);</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">out</span><span class="special">.</span><span class="identifier">str</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<pre class="programlisting"><span class="comment">/*
+{
+    "Hello": "World",
+    "size": "100",
+    "one": "3.5",
+    "info": "good"
+}
+*/</span>
+</pre>
+<h2>
+<a name="cpp-json-boost-property_tree-how-4423.h9"></a>
+      <span class="phrase"><a name="cpp-json-boost-property_tree-how-4423.hmknecicm"></a></span><a class="link" href="cpp-json-boost-property_tree-how-4423.html#cpp-json-boost-property_tree-how-4423.hmknecicm"><span class="cyan">Method .add_child</span></a>
+    </h2>
+<p>
+      .add_child adds a child with key and a ptree object.
+    </p>
+<pre class="programlisting"><span class="keyword">namespace</span> <span class="identifier">ptr</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">property_tree</span><span class="special">;</span>
+<span class="identifier">ptr</span><span class="special">::</span><span class="identifier">ptree</span> <span class="identifier">root</span><span class="special">;</span>
+<span class="identifier">root</span><span class="special">.</span><span class="identifier">put</span><span class="special">(</span><span class="string">"Hello"</span><span class="special">,</span> <span class="string">"World"</span><span class="special">);</span>
+<span class="identifier">root</span><span class="special">.</span><span class="identifier">put</span><span class="special">(</span><span class="string">"hole"</span><span class="special">,</span> <span class="number">33.5</span><span class="special">);</span>
+<span class="identifier">root</span><span class="special">.</span><span class="identifier">add_child</span><span class="special">(</span><span class="string">"when"</span><span class="special">,</span> <span class="identifier">ptr</span><span class="special">::</span><span class="identifier">ptree</span><span class="special">{</span><span class="string">"now"</span><span class="special">});</span>
+<span class="identifier">ptr</span><span class="special">::</span><span class="identifier">ptree</span> <span class="identifier">sub</span><span class="special">;</span>
+<span class="identifier">sub</span><span class="special">.</span><span class="identifier">put</span><span class="special">(</span><span class="string">"one"</span><span class="special">,</span> <span class="number">1</span><span class="special">);</span>
+<span class="identifier">sub</span><span class="special">.</span><span class="identifier">put</span><span class="special">(</span><span class="string">"two"</span><span class="special">,</span> <span class="number">2</span><span class="special">);</span>
+<span class="identifier">root</span><span class="special">.</span><span class="identifier">add_child</span><span class="special">(</span><span class="string">"numbers"</span><span class="special">,</span> <span class="identifier">sub</span><span class="special">);</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">ostringstream</span> <span class="identifier">out</span><span class="special">;</span>
+	<span class="identifier">ptr</span><span class="special">::</span><span class="identifier">write_json</span><span class="special">(</span><span class="identifier">out</span><span class="special">,</span> <span class="identifier">root</span><span class="special">,</span> <span class="keyword">true</span><span class="special">);</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">out</span><span class="special">.</span><span class="identifier">str</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">flush</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<pre class="programlisting"><span class="comment">/*
+{
+    "Hello": "World",
+    "hole": "33.5",
+    "when": "now",
+    "numbers": {
+        "one": "1",
+        "two": "2"
+    }
+}
+*/</span>
+</pre>
+<h2>
+<a name="cpp-json-boost-property_tree-how-4423.h10"></a>
+      <span class="phrase"><a name="cpp-json-boost-property_tree-how-4423.rfyavoewn"></a></span><a class="link" href="cpp-json-boost-property_tree-how-4423.html#cpp-json-boost-property_tree-how-4423.rfyavoewn"><span class="cyan">Write two or more dimensional array</span></a>
+    </h2>
+<p>
+      <span class="bold"><strong>Mind Map:</strong></span>
+    </p>
+<p>
+      &gt;&gt;&gt;&gt; Use method .put_value to create no-key list (like array);<br>
+      &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; and no-key list can be used as a value of
+      no-key for nested.
+    </p>
+<p>
+      But whatever, we need a key at last. If no key is explicitly set,<br> &gt;&gt;&gt;&gt;
+      an empty string key will be selected.
+    </p>
+<p>
+      &gt;&gt;&gt;&gt; Method .put_value is used to add a no-key value.<br> &gt;&gt;&gt;&gt;
+      Method .push_back can be used to add a no-key ptree.<br> &gt;&gt;&gt;&gt;
+      Method .add_child can not be used to add a no-key ptree.<br>
+    </p>
+<pre class="programlisting"><span class="keyword">namespace</span> <span class="identifier">pt</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">property_tree</span><span class="special">;</span>
+<span class="identifier">pt</span><span class="special">::</span><span class="identifier">ptree</span> <span class="identifier">root</span><span class="special">;</span>
+<span class="special">{</span>
+	<span class="identifier">pt</span><span class="special">::</span><span class="identifier">ptree</span> <span class="identifier">sub</span><span class="special">;</span>
+	<span class="special">{</span> <span class="comment">// row 1</span>
+		<span class="identifier">pt</span><span class="special">::</span><span class="identifier">ptree</span> <span class="identifier">row</span><span class="special">;</span>
+		<span class="special">{</span> <span class="comment">// value 1</span>
+			<span class="identifier">pt</span><span class="special">::</span><span class="identifier">ptree</span> <span class="identifier">item</span><span class="special">;</span>
+			<span class="identifier">item</span><span class="special">.</span><span class="identifier">put_value</span><span class="special">(</span><span class="string">"Hello"</span><span class="special">);</span>
+
+			<span class="comment">// no-key: empty string key</span>
+			<span class="identifier">row</span><span class="special">.</span><span class="identifier">push_back</span><span class="special">(</span><span class="identifier">pt</span><span class="special">::</span><span class="identifier">ptree</span><span class="special">::</span><span class="identifier">value_type</span><span class="special">{</span><span class="string">""</span><span class="special">,</span> <span class="identifier">item</span><span class="special">});</span>
+
+			<span class="comment">// Runtime assert error. Method .add_child key can not empty.</span>
+			<span class="comment">//row.add_child("", item);</span>
+		<span class="special">}</span>
+		<span class="special">{</span> <span class="comment">// value 2</span>
+			<span class="identifier">pt</span><span class="special">::</span><span class="identifier">ptree</span> <span class="identifier">item</span><span class="special">;</span>
+			<span class="identifier">item</span><span class="special">.</span><span class="identifier">put_value</span><span class="special">(</span><span class="number">7.225</span><span class="special">);</span>
+			<span class="identifier">row</span><span class="special">.</span><span class="identifier">push_back</span><span class="special">(</span><span class="identifier">pt</span><span class="special">::</span><span class="identifier">ptree</span><span class="special">::</span><span class="identifier">value_type</span><span class="special">{</span><span class="string">""</span><span class="special">,</span> <span class="identifier">item</span><span class="special">});</span>
+		<span class="special">}</span>
+		<span class="identifier">sub</span><span class="special">.</span><span class="identifier">push_back</span><span class="special">(</span><span class="identifier">pt</span><span class="special">::</span><span class="identifier">ptree</span><span class="special">::</span><span class="identifier">value_type</span><span class="special">{</span><span class="string">""</span><span class="special">,</span> <span class="identifier">row</span><span class="special">});</span>
+	<span class="special">}</span>
+	<span class="special">{</span> <span class="comment">// row 2</span>
+		<span class="identifier">pt</span><span class="special">::</span><span class="identifier">ptree</span> <span class="identifier">row</span><span class="special">;</span>
+		<span class="special">{</span> <span class="comment">// value 1</span>
+			<span class="identifier">pt</span><span class="special">::</span><span class="identifier">ptree</span> <span class="identifier">item</span><span class="special">;</span>
+			<span class="identifier">item</span><span class="special">.</span><span class="identifier">put_value</span><span class="special">(</span><span class="number">1234567</span><span class="special">);</span>
+			<span class="identifier">row</span><span class="special">.</span><span class="identifier">push_back</span><span class="special">(</span><span class="identifier">pt</span><span class="special">::</span><span class="identifier">ptree</span><span class="special">::</span><span class="identifier">value_type</span><span class="special">{</span><span class="string">""</span><span class="special">,</span> <span class="identifier">item</span><span class="special">});</span>
+		<span class="special">}</span>
+		<span class="special">{</span> <span class="comment">// value 2</span>
+			<span class="identifier">pt</span><span class="special">::</span><span class="identifier">ptree</span> <span class="identifier">item</span><span class="special">;</span>
+			<span class="identifier">item</span><span class="special">.</span><span class="identifier">put_value</span><span class="special">(</span><span class="string">"Hello, c++"</span><span class="special">);</span>
+			<span class="identifier">row</span><span class="special">.</span><span class="identifier">push_back</span><span class="special">(</span><span class="identifier">pt</span><span class="special">::</span><span class="identifier">ptree</span><span class="special">::</span><span class="identifier">value_type</span><span class="special">{</span><span class="string">""</span><span class="special">,</span> <span class="identifier">item</span><span class="special">});</span>
+		<span class="special">}</span>
+		<span class="identifier">sub</span><span class="special">.</span><span class="identifier">push_back</span><span class="special">(</span><span class="identifier">pt</span><span class="special">::</span><span class="identifier">ptree</span><span class="special">::</span><span class="identifier">value_type</span><span class="special">{</span><span class="string">""</span><span class="special">,</span> <span class="identifier">row</span><span class="special">});</span>
+	<span class="special">}</span>
+	<span class="identifier">root</span><span class="special">.</span><span class="identifier">add_child</span><span class="special">(</span><span class="string">"two dimensional array"</span><span class="special">,</span> <span class="identifier">sub</span><span class="special">);</span>
+<span class="special">}</span>
+<span class="special">{</span> <span class="comment">// print</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">stringstream</span> <span class="identifier">io</span><span class="special">;</span>
+	<span class="identifier">pt</span><span class="special">::</span><span class="identifier">write_json</span><span class="special">(</span><span class="identifier">io</span><span class="special">,</span> <span class="identifier">root</span><span class="special">,</span> <span class="keyword">true</span><span class="special">);</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">io</span><span class="special">.</span><span class="identifier">str</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">flush</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<p>
+      <a href="." target="_top">Home</a>
+    </p>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<p>
+      Sun Jul 12 08:44:37 AM UTC 2026
+    </p>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<h2>
+<a name="cpp-json-boost-property_tree-how-4423.h11"></a>
+      <span class="phrase"><a name="cpp-json-boost-property_tree-how-4423.helpful"></a></span><a class="link" href="cpp-json-boost-property_tree-how-4423.html#cpp-json-boost-property_tree-how-4423.helpful"><span class="cyan">Helpful</span></a>
+    </h2>
+<p>
+      <a href="https://wtgo.top/spaceship-50-years-alienated.html" target="_top">Spaceship 50
+      Years Alienated</a>
+    </p>
+<h2>
+<a name="cpp-json-boost-property_tree-how-4423.h12"></a>
+      <span class="phrase"><a name="cpp-json-boost-property_tree-how-4423.role"></a></span><a class="link" href="cpp-json-boost-property_tree-how-4423.html#cpp-json-boost-property_tree-how-4423.role"><span class="cyan">Role</span></a>
+    </h2>
+<p>
+      +
+    </p>
+<p>
+      Github:<br> <a href="https://github.com/cppfx/cpphtgt" target="_top">https://github.com/cppfx/cpphtgt</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      Powered by:<br> <a href="https://www.bfgroup.xyz/b2" target="_top">B2 Build</a>
+      | <a href="https://www.boost.org/tools/quickbook" target="_top">boost quickbook</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      <a href="https://cppfx.xyz/donate.html" target="_top">Donate</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      @<a href="https://cppfx.xyz" target="_top">cppfx.xyz</a>
+    </p>
+<p>
+      <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+      <br> <br> <br> <br> <br>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp-beautiful-elegant-object-oriented.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
