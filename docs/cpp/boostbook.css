@@ -63,17 +63,18 @@ Program listings
     .programlisting,
     .screen
     {
-        font-size: 80%;
+        font-size: 100%;
         font-weight: bold;
         width: 900px;
         display: block;
         margin: 1pc 4% 0pc 4%;
         margin-left: auto;
         margin-right: auto;
-        white-space: pre-wrap;
+        /*white-space: pre-wrap;*/
         padding: 0.5pc 0.5pc 0.5pc 0.5pc;
 		background: #DCE;
 		border-radius: 5px;
+		overflow: auto;
     }
 
     /* Program listings in tables don't get borders */
