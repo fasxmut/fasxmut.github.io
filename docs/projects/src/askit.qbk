@@ -1,0 +1,21 @@
+[article Askit
+	[id askit]
+	[quickbook 1.7]
+]
+
+Askit is a set of many short and useful programs written in c++ .
+
+Project Start Date:
+
+Thu, Jul 9, 2026
+
+github:
+
+[@https://github.com/fasxmut/askit]
+
+[h1:back [role cyan Back]]
+
+[@. Up]
+
+[include ../../share/foot-links.inc.qbk]
+

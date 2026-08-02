@@ -1,0 +1,28 @@
+[article Project: Askit
+	[quickbook 1.7]
+	[id prj-askit]
+]
+
+[role drop_menu
+> [link prj-askit Start][br]
+> [@. Back: Home]
+]
+
+Askit
+
+Project Home:
+
+[@https://cppfx.xyz/projects/askit.html Askit]
+
+//////////////////////////////////////////////////////////////////////
+
+[@. Home]
+
+//////////////////////////////////////////////////////////////////////
+
+Sun Aug  2 05:43:40 AM UTC 2026
+
+//////////////////////////////////////////////////////////////////////
+
+[include ../share/foot-links.inc.qbk]
+
