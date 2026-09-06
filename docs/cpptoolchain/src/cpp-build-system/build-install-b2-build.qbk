@@ -1,0 +1,137 @@
+[article Build and Install B2 Build
+	[quickbook 1.7]
+	[id build-install-b2-build]
+]
+
+[role drop_menu
+	[*Jump in this page:][br]
+	[link build-install-b2-build Start][br]
+	[link build-install-b2-build.build-install Build & Install b2 build][br]
+	[link build-install-b2-build.etc-site-config-jam Configure /etc/site-config.jam][br]
+	[link build-install-b2-build.use-default-cpp-compiler Use default c++ compiler][br]
+	[link build-install-b2-build.set-version-and-path-of-compiler Set version & path of compiler][br]
+	[br]
+	[*Back:] [link cpp-build-system c++ Build System]
+]
+
+Install B2 Build Toolchain.
+
+B2 is an excellent c++ project build system.
+
+B2 Build can be built and installed on windows, haiku, linux, bsd etc.
+
+[h1:build-install [role cyan Build & Install b2 build]]
+
+* [* Clone b2 code from github]
+
+[!teletype]
+```
+$ git clone --depth=1 https://github.com/bfgroup/b2
+```
+
+* [* Build b2]
+
+[!teletype]
+```
+$ cd b2
+$ ./bootstrap.sh
+```
+
+* [* Install b2]
+
+[!teletype]
+```
+$ su
+# ./b2 install --prefix=/sand
+```
+
+[* b2 build] is installed to [*/sand], [* b2 binary file] is installed as [* /sand/bin/b2] , make sure the path is added to the system environment variable [* PATH] .
+
+As [* windows] user, you have to use a different path style for [* --prefix=path/to], figure out it by youself.
+
+As [* haiku] user, you have to set a permission-allowed path for [* --prefix=path/to], such as [* --prefix=/boot/home/sand]
+
+[h1:etc-site-config-jam [role cyan Configure] [role yellow /etc/site-config.jam]]
+
+[role dddyellow [* /etc/site-config.jam]] is the [* system-wide] config file for b2,
+
+if you have no permission to write [* /etc/site-config.jam],[br]
+you can write content to [* user-config.jam],[br]
+which is placed at your user home folder.
+
+[h2:use-default-cpp-compiler Use default c++ compiler]
+
+Use [* gcc], [*clang] or [*msvc] as the default c++ compiler.
+
+To [* /etc/site-config.jam] :
+
+```
+using gcc ;
+using clang ;
+using msvc ;
+```
+
+In such a configure, the g++, clang++, and cl.exe [*must all exist] on the systems, if any one of them does not exist, do not add that line. Such as cl.exe does not exist on linux, remove "using msvc ;" .
+
+The first c++ toolchain: "using gcc" in /etc/site-config.jam will be chose as the default c++ compiler when invoking b2 command:
+
+[!teletype]
+```
+$ b2
+```
+
+It will use g++ to build your project.
+
+[h2:set-version-and-path-of-compiler Set the version and path of the compiler]
+
+For example:
+
+To [*/etc/site-config.jam] :
+
+```
+using gcc : latest : /sand/bin/g++-16 ;
+```
+
+* [*using] is a [role ddred [*rule]] [*name] ;
+* [*gcc] is the [*first] parameter of using ;
+* [*latest] is the [*second] parameter of using ;
+* [*/sand/bin/g++-16] is the [*third] parameter of using ;
+
+The [*first] parameter of using is the toolchain [*name], which is the [*brand name] of the c++ compiler, that must be approved by b2 build system.
+
+The [*second] parameter of using is the [*version], which can be set to any number or letters [*freely].
+
+The [*third] parameter of using is the [*full path] of the c++ compiler command.
+
+Alternative choice example:
+
+To [*/etc/site-config.jam] :
+
+[pre
+# If dpcpp command can be found by auto-detect.
+using clang : dpcpp1 : dpcpp ;
+
+# If dpcpp command can not be found by auto-detect.
+# using clang : dpcpp2 : /path/to/intel/dpcpp/compiler/command ;
+]
+
+By the way, two or more [*<c++_compiler_brand_name>-<version>] should be [*not] the [*same], otherwise it's syntax error.
+
+Such as above:
+
+[*clang-dpcpp1]
+
+[*clang-dpcpp2]
+
+[h1:date [role cyan Date]]
+
+Date: 2024
+
+Last Update: Sep 06, 2026
+
+[h1:back [role cyan Back]]
+
+[*Back:] [link cpp-build-system c++ Build System]
+
+[include ../../../share/foot-links.inc.qbk]
+

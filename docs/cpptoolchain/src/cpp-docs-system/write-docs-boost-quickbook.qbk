@@ -1,0 +1,261 @@
+[article Write docs with boost quickbook
+	[quickbook 1.7]
+	[id write-docs-boost-quickbook]
+]
+
+[role drop_menu
+	[*Jump in this page:][br]
+	[link write-docs-boost-quickbook Start][br]
+	[link write-docs-boost-quickbook.first-init-folders First: Init][br]
+	[link write-docs-boost-quickbook.next-start-qbk Next: Write a start qbk][br]
+	[link write-docs-boost-quickbook.next-write-jamfile Next: Write Jamfile][br]
+	[link write-docs-boost-quickbook.next-build-at-first-time Next: Build at first time][br]
+	[link write-docs-boost-quickbook.next-qbk-as-subpage Next: another qbk as subpage][br]
+	[link write-docs-boost-quickbook.next-install-boost-media Next: Install boost media][br]
+	[link write-docs-boost-quickbook.btw-jamfile-property BTW: Jamfile property][br]
+	[br]
+	[*Back:] [link cpp-docs-system c++ Docs System]
+]
+
+Boost quickbook and boostbook are very good to generate html, pdf, man documents. Boost quickbook .qbk file format is good to write.
+
+boost quickbook: Write Simple Docs .
+
+Requires:
+
+* [link build-install-b2-build  Build and Install B2 Build]
+* [link build-install-boost-docs-system Build and Install Boost Docs System: boost quickbook]
+
+[h1:first-init-folders [role cyan First: Init project folders]]
+
+Init project folders:
+
+```
+> mkdir foo
+> cd foo
+```
+
+[h1:next-start-qbk [role cyan Next: Write a start .qbk file]]
+
+[*File: main.qbk]
+
+[!teletype]
+```
+[book c++ Book
+	[id cpp-book]
+	[quickbook 1.7]
+]
+
+Start, c++
+
+[h1:cpp Hello World!]
+
+Hello, c++
+
+Thanks, website [@https://cppfx.xyz cppfx]
+```
+
+As you see, you will quickly understand .qbk file syntax.
+
+The title is [role red c++ Book], and the html tag [role red <h1>] will use that title too.
+
+The [role red \[h1] will be translated to html [*<h2>]
+
+
+[*To avoid keyword c++ to be parsed as c, and let it to be parsed as cpp, define id anywhere.]
+
+[*For example, document id:]
+
+```
+[book c++ Book
+	[id cpp-book]
+```
+
+[*For example, anchor id:]
+
+```
+[h1:cpp-text c++ text]
+```
+
+[*Then c++ will be parsed as cpp]
+
+[h1:next-write-jamfile [role cyan Next: Write Jamfile]]
+
+[*File: jamroot]
+
+```
+xml abc : main.qbk ;
+
+boostbook xyz : abc ;
+```
+
+The rule xml defines a target abc, so it will generate file [*abc.xml]
+
+The rule boostbook defines a target xyz, and use previous target abc as its source, it will generate files [*abc.docbook], [*index.html]
+
+[role ddblue
+A .qbk file refered in the jamfile will generate the html [*index file: index.html] ;[br]
+A .qbk file refered in another .qbk file will generate a html [*subpage], not index.[br]
+Read below.
+]
+
+[h1:next-build-at-first-time [role cyan Next: Build at the first time]]
+
+Just run command b2:
+
+```
+> b2
+```
+
+You will see the html document is generated.
+
+[h1:next-qbk-as-subpage [role cyan Next: Add another qbk as subpage]]
+
+[*File: cpp-article.qbk]
+
+[!teletype]
+```
+[article This is c++ subpage title
+	[id cpp-subpage]
+	[quickbook 1.7]
+]
+
+Hello, c++ World!
+
+This is c++ document
+
+[h1:cpp-text c++ Text]
+
+Hi, I am a room.
+```
+
+[*Add subpage to the main page]
+
+A subpage is not written to the jamfile, but written to the main .qbk file: main.qbk
+
+The updated [*main.qbk] will be like this:
+
+[!teletype]
+```
+[book c++ Book
+	[id cpp-book]
+	[quickbook 1.7]
+]
+
+[include cpp-article.qbk]
+
+Start, c++
+
+[h1 Hello World!]
+
+Hello, c++
+
+Thanks, website [@https://cppfx.xyz cppfx]
+```
+
+[h1:next-build-again [role cyan Next: Build Again]]
+
+```
+> b2
+```
+
+[h1:next-install-boost-media [role cyan Next: Install boost media]]
+
+[h2:Update-jamroot Update jamroot]
+
+The html generated above is not so nice-looking, thats because boost media is not installed.
+
+Extract boost c++ library release package, then add the following code to [*jamroot] :
+
+(Please [role blue replace] [*my-path/to-extracted/boost-release] with your real boost extracted folder path.)
+
+[role blue [*Update jamroot :]]
+
+[!teletype]
+```
+boost-path = my-path/to-extracted/boost-release ;
+boost-media-path = $(boost-path)/doc/src ;
+
+install
+	boost-media
+:
+	[
+		glob
+			$(boost-media-path)/*.css
+			$(boost-media-path)/images/*.png
+	]
+:
+	<location>./html
+	<install-source-root>$(boost-media-path)
+;
+```
+
+The rule [role blue install] defines a target boost-media, and use the files of searched by [role blue [*\[ glob ... ]] as its sources, copy the files to location [*`./html/`]
+
+[h2:jamfile-install-source-root [role dddcyan <install-source-root>]$(boost-media-path)]
+
+* [*[role ddred <install-source-root>] means preseriving hierarchical directories.]
+* [*[role ddred Its value] means remove this path prefix from source path] , and then [*install them to target path] .[br]
+(the property [role dred key] is [*<install-source-root>][br]
+the property [role dred value] is [*$(boost-media-path)], aka. [*my-path/to-extracted/boost-release/doc/src])
+
+[h3:without-this-property Without this property:]
+
+`my-path/to-extracted/boost-release/doc/src/` will be[br]
+created under target loctation `./html`
+
+and then[br]
+all the css and png files will be[br]
+installed under [*one folder:][br]
+`./html/my-path/to-extracted/boost-release/doc/src/`
+
+[h3:with-this-property With this property:]
+the *.css files will be installed under `./html/`[br]
+and the *.png will be installed under `./html/images/`
+
+[h1:btw-jamfile-property [role cyan BTW.: Jamfile property]]
+
+* [* [role dred Property]]
+* [* [role dred Property key]]
+* [* [role dred Property value]]
+
+A property of b2 jamfile has a [*key] and a [*value]
+
+[h3 Property Example:]
+
+`<include>/usr/include`
+
+The above line is a [role dred [*property]],[br]
+the [role dred property [*key]] is `<include>`[br]
+the [role dred property [*value]] is `/usr/include`
+
+[h3 More property Examples:]
+
+`<cxxflags>"-I/usr/include -freflection"`
+
+`<define>__my_debug__`
+
+`<link>shared`
+
+[h1:next-build-again [role cyan Next: Build again]]
+
+```
+> b2
+```
+
+[h1:see-also [role cyan See Also]]
+
+[@https://www.boost.org/tools/quickbook]
+
+[h1:date [role cyan Date]]
+
+Date: Thu Jun 19 06:31:38 AM UTC 2025
+
+Last Update: Sun Sep  6 09:07:43 AM UTC 2026
+
+[h1:back [role cyan Back]]
+
+[*Back:] [link cpp-docs-system c++ Docs System]
+
+[include ../../../share/foot-links.inc.qbk]
+

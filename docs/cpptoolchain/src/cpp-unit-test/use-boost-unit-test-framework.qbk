@@ -1,0 +1,112 @@
+[article Use boost unit test framework
+	[quickbook 1.7]
+	[id use-boost-unit-test-framework]
+]
+
+[role drop_menu
+	[*Jump in this page:][br]
+	[link use-boost-unit-test-framework Start][br]
+	[link use-boost-unit-test-framework.cpp-boost-unit-test-cmdline c++ boost unit test commandline][br]
+	[link use-boost-unit-test-framework.cpp-boost-unit-test-b2-build c++ boost unit test b2 build][br]
+	[br]
+	[*Back:] [link cpp-unit-test c++ Unit Test]
+]
+
+Boost unit test framework is a c++ unit test framework of boost libraries for c++ development.
+
+Requirements:
+
+* boost library - [link cpp-boost Build, Install and Use Boost]
+* B2 Build - [link build-install-b2-build Build and Install B2 Build]
+
+[h1:cpp-boost-unit-test-cmdline [role cyan c++ boost unit test commandline]]
+
+[*First, a boost unit test c++ code]
+
+[role blue hello.cpp]
+
+[!c++]
+```
+#define BOOST_TEST_MODULE "hello.cpp"
+
+#include <boost/test/unit_test.hpp>
+#include <iostream>
+
+BOOST_AUTO_TEST_CASE(test_case_01)
+{
+	std::cout << "Hello, c++!" << std::endl;
+	BOOST_CHECK(2 == 2);
+	BOOST_CHECK_EQUAL(2, 2);
+}
+```
+
+[*Then, compile the c++ unit test code]
+
+```
+g++ hello.cpp -std=c++26 -DBOOST_TEST_DYN_LINK -lboost_unit_test_framework -o hello
+```
+
+* Required included header: [*boost/test/unit_test.hpp]
+* Required library link: [*-lboost_unit_test_framework]
+* Define a unit test module for every unit test c++ code: [*#define BOOST_TEST_MODULE "hello.cpp"]
+* Add a test case: [*BOOST_AUTO_TEST_CASE(test_case_01)]
+* Define Dynamic link macro, I commonly define it on command line or b2 build: [*-DBOOST_TEST_DYN_LINK]
+
+[*BOOST_CHECK :]
+
+You can provide a false condition to it, compile and run again, see what happens.
+
+[h1:cpp-boost-unit-test-b2-build [role cyan c++ boost unit test b2 build]]
+
+[*c++ code:]
+
+Use the same c++ code above: hello.cpp
+
+[*B2 Build:]
+
+[role blue File: jamroot]
+
+```
+import testing ;
+
+lib
+	boost-test
+:
+:
+	<name>boost_unit_test_framework
+:
+:
+	<define>BOOST_TEST_DYN_LINK
+;
+
+project
+:
+	default-build
+		<cxxstd>26
+;
+
+unit-test hello : hello.cpp : <library>boost-test ;
+```
+
+[*Build test]
+
+```
+b2
+```
+
+Because [*unit-test] is used instead of [*exe], the unit test program will be auto-compiled and auto-run, you does not have to run program by hand.
+
+[h1:see-also [role cyan See Also]]
+
+[@https://www.boost.org/doc/libs/latest/libs/test/doc/html/index.html]
+
+[h1:date [role cyan Date]]
+
+Thu Jun 19 12:44:59 AM UTC 2025
+
+[h1:back [role cyan Back]]
+
+[*Back:] [link cpp-unit-test c++ Unit Test]
+
+[include ../../../share/foot-links.inc.qbk]
+

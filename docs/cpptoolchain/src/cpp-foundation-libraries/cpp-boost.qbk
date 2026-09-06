@@ -1,0 +1,147 @@
+[article c++ boost
+	[quickbook 1.7]
+	[id cpp-boost]
+]
+
+[role drop_menu
+	[*Jump in this page:][br]
+	[link cpp-boost Start][br]
+	[link cpp-boost.build-install-boost Build and Install Boost][br]
+	[link cpp-boost.use-boost Use boost][br]
+	[br]
+	[*Back:] [link cpp-foundation-libraries c++ Foundation Libraries]
+]
+
+[h1:build-install-boost [role cyan Build and Install Boost]]
+
+[*Get boost library:]
+
+[@https://www.boost.org]
+
+[*Build boost]
+
+bootstrap on windows:
+
+```
+.\bootstrap.bat
+```
+
+bootstrap on other os:
+
+```
+./bootstrap.sh
+```
+
+[*Build]
+
+```
+./b2 --help
+./b2 -q -j2
+```
+
+[*Install]
+
+```
+./b2 install --prefix=/the/install/path
+```
+
+[h1:use-boost [role cyan Use boost]]
+
+boost::signals2 example.
+
+[!c++]
+```
+#include <boost/signals2.hpp>
+#include <iostream>
+#include <functional>
+#include <numbers>
+
+namespace signal = boost::signals2;
+using std::placeholders::_1;
+
+namespace my_space
+{
+
+using signal_type = signal::signal<float(float)>;
+using slot_type = my_space::signal_type::slot_type;
+using connection_type = signal::connection;
+
+class source
+{
+private:
+	my_space::signal_type __signal;
+public:
+	virtual ~source() = default;
+public:
+	my_space::connection_type connect(const my_space::slot_type & slot__)
+	{
+		return __signal.connect(slot__);
+	}
+public:
+	float compute(float value__)
+	{
+		boost::optional<float> back = __signal(value__);
+		if (back)
+			return *back;
+		else
+			return 0;
+	}
+};
+
+class compute
+{
+private:
+	my_space::connection_type __connection;
+public:
+	virtual ~compute() = default;
+public:
+	compute() = delete;
+	compute(my_space::source & src__):
+		__connection{
+			src__.connect(
+				std::bind(
+					&my_space::compute::calculate,
+					this,
+					_1
+				)
+			)
+		}
+	{
+	}
+	float calculate(float value__)
+	{
+		return value__ * value__;
+	}
+};
+
+}	// namespace my_space
+
+int main()
+{
+	my_space::source source;
+	my_space::compute compute{source};
+	float result = source.compute(std::numbers::pi);
+	std::cout << "Result: " << result << std::endl;
+	// Result: 9.86961
+}
+```
+
+[*Compile it]
+
+```
+> alias gpp="g++ -std=c++26"
+> gpp prog.cpp -o prog
+> ./prog
+Result: 9.86961
+```
+
+[h1:date [role cyan Date]]
+
+Apr 12, 2025
+
+[h1:back [role cyan Back]]
+
+[*Back:] [link cpp-foundation-libraries c++ Foundation Libraries]
+
+[include ../../../share/foot-links.inc.qbk]
+

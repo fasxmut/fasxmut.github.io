@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>gcc: c++ compiler on SereniyOS, Haiku OS, Linux, Windows</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="c++ Toolchain">
+<link rel="up" href="cpp-compilers.html" title="c++ compilers">
+<link rel="prev" href="visualcpp-windows.html" title="Microsoft Visualcpp - Windows c++ compiler">
+<link rel="next" href="cpp-build-system.html" title="c++ Build System">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="visualcpp-windows.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="cpp-compilers.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp-build-system.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="gcc-cross-os"></a>gcc: c++ compiler on SereniyOS, Haiku OS, Linux, Windows</h2></div></div>
+<hr>
+</div>
+<p>
+        <span class="drop_menu"><span class="bold"><strong>Jump in this page:</strong></span><br>
+        <a class="link" href="gcc-cross-os.html" title="gcc: c++ compiler on SereniyOS, Haiku OS, Linux, Windows">Start</a><br> <a class="link" href="gcc-cross-os.html#gcc-cross-os.build-gcc">Get
+        Gcc &amp; Build &amp; Install</a><br> <a class="link" href="gcc-cross-os.html#gcc-cross-os.install-from-distribution">Install
+        From Distribution</a><br> <a class="link" href="gcc-cross-os.html#gcc-cross-os.cpp-code-editor">c++
+        code Editor</a><br> <a class="link" href="gcc-cross-os.html#gcc-cross-os.check">Check compiling</a><br>
+        <br> <span class="bold"><strong>Back:</strong></span> <a class="link" href="cpp-compilers.html" title="c++ compilers">c++
+        compilers</a> </span>
+      </p>
+<h2>
+<a name="gcc-cross-os.h0"></a>
+        <span class="phrase"><a name="gcc-cross-os.build-gcc"></a></span><a class="link" href="gcc-cross-os.html#gcc-cross-os.build-gcc"><span class="cyan">Get Gcc &amp; Build &amp; Install</span></a>
+      </h2>
+<h4>
+<a name="gcc-cross-os.h1"></a>
+        <span class="phrase"><a name="gcc-cross-os.get_gcc_code"></a></span><a class="link" href="gcc-cross-os.html#gcc-cross-os.get_gcc_code">Get
+        gcc code:</a>
+      </h4>
+<pre class="programlisting"><span class="identifier">git</span> <span class="identifier">clone</span> <span class="special">--</span><span class="identifier">depth</span><span class="special">=</span><span class="number">1</span> <span class="identifier">https</span><span class="special">://</span><span class="identifier">gcc</span><span class="special">.</span><span class="identifier">gnu</span><span class="special">.</span><span class="identifier">org</span><span class="special">/</span><span class="identifier">git</span><span class="special">/</span><span class="identifier">gcc</span><span class="special">.</span><span class="identifier">git</span> <span class="identifier">SomeLocalDir</span>
+</pre>
+<h4>
+<a name="gcc-cross-os.h2"></a>
+        <span class="phrase"><a name="gcc-cross-os.serenityos"></a></span><a class="link" href="gcc-cross-os.html#gcc-cross-os.serenityos">SerenityOS</a>
+      </h4>
+<pre class="programlisting"><span class="identifier">cd</span> <span class="identifier">SerenityOS</span><span class="special">-</span><span class="identifier">Project</span><span class="special">-</span><span class="identifier">Dir</span><span class="special">/</span><span class="identifier">Ports</span><span class="special">/</span><span class="identifier">gcc</span>
+<span class="special">./</span><span class="identifier">build</span><span class="special">.</span><span class="identifier">sh</span>
+</pre>
+<h4>
+<a name="gcc-cross-os.h3"></a>
+        <span class="phrase"><a name="gcc-cross-os.haiku_os"></a></span><a class="link" href="gcc-cross-os.html#gcc-cross-os.haiku_os">Haiku
+        OS</a>
+      </h4>
+<p>
+        Build it.
+      </p>
+<h4>
+<a name="gcc-cross-os.h4"></a>
+        <span class="phrase"><a name="gcc-cross-os.linux"></a></span><a class="link" href="gcc-cross-os.html#gcc-cross-os.linux">Linux</a>
+      </h4>
+<pre class="programlisting"><span class="identifier">cd</span> <span class="identifier">SomeLocalDir</span>
+<span class="special">./</span><span class="identifier">configure</span> <span class="special">--</span><span class="identifier">help</span>
+<span class="special">./</span><span class="identifier">configure</span> <span class="special">\</span>
+	<span class="special">--</span><span class="identifier">prefix</span><span class="special">=/</span><span class="identifier">gcc</span> <span class="special">\</span>
+	<span class="special">--</span><span class="identifier">disable</span><span class="special">-</span><span class="identifier">multilib</span> <span class="special">\</span>
+	<span class="special">--</span><span class="identifier">enable</span><span class="special">-</span><span class="identifier">languages</span><span class="special">=</span><span class="identifier">c</span><span class="special">++</span> <span class="special">\</span>
+	<span class="special">--</span><span class="identifier">enable</span><span class="special">-</span><span class="identifier">stage1</span><span class="special">-</span><span class="identifier">languages</span><span class="special">=</span><span class="identifier">c</span><span class="special">++</span> <span class="special">\</span>
+	<span class="special">--</span><span class="identifier">build</span><span class="special">=</span><span class="identifier">x86_64</span><span class="special">-</span><span class="identifier">linux</span><span class="special">-</span><span class="identifier">gnu</span> <span class="special">\</span>
+	<span class="special">--</span><span class="identifier">host</span><span class="special">=</span><span class="identifier">x86_64</span><span class="special">-</span><span class="identifier">linux</span><span class="special">-</span><span class="identifier">gnu</span> <span class="special">\</span>
+	<span class="special">--</span><span class="identifier">target</span><span class="special">=</span><span class="identifier">x86_64</span><span class="special">-</span><span class="identifier">linux</span><span class="special">-</span><span class="identifier">gnu</span>
+</pre>
+<pre class="programlisting"><span class="identifier">make</span> <span class="special">-</span><span class="identifier">j8</span>
+<span class="identifier">make</span> <span class="identifier">install</span>
+</pre>
+<h4>
+<a name="gcc-cross-os.h5"></a>
+        <span class="phrase"><a name="gcc-cross-os.windows"></a></span><a class="link" href="gcc-cross-os.html#gcc-cross-os.windows">Windows</a>
+      </h4>
+<p>
+        Use mingw64.
+      </p>
+<h2>
+<a name="gcc-cross-os.h6"></a>
+        <span class="phrase"><a name="gcc-cross-os.install-from-distribution"></a></span><a class="link" href="gcc-cross-os.html#gcc-cross-os.install-from-distribution"><span class="cyan">Install From Distribution</span></a>
+      </h2>
+<h4>
+<a name="gcc-cross-os.h7"></a>
+        <span class="phrase"><a name="gcc-cross-os.serenityos0"></a></span><a class="link" href="gcc-cross-os.html#gcc-cross-os.serenityos0">SerenityOS</a>
+      </h4>
+<p>
+        No gcc distribution.
+      </p>
+<h4>
+<a name="gcc-cross-os.h8"></a>
+        <span class="phrase"><a name="gcc-cross-os.haiku_os0"></a></span><a class="link" href="gcc-cross-os.html#gcc-cross-os.haiku_os0">Haiku
+        OS</a>
+      </h4>
+<p>
+        Gcc is distributed to haiku os image, and it can be installed by pkgman too:
+      </p>
+<pre class="programlisting"><span class="identifier">pkgman</span> <span class="identifier">search</span> <span class="identifier">gcc</span>
+<span class="identifier">pkgman</span> <span class="identifier">install</span> <span class="identifier">gcc</span>
+</pre>
+<h4>
+<a name="gcc-cross-os.h9"></a>
+        <span class="phrase"><a name="gcc-cross-os.linux0"></a></span><a class="link" href="gcc-cross-os.html#gcc-cross-os.linux0">Linux</a>
+      </h4>
+<pre class="programlisting"><span class="identifier">apt</span> <span class="identifier">install</span> <span class="identifier">gcc</span>
+</pre>
+<h4>
+<a name="gcc-cross-os.h10"></a>
+        <span class="phrase"><a name="gcc-cross-os.windows0"></a></span><a class="link" href="gcc-cross-os.html#gcc-cross-os.windows0">Windows</a>
+      </h4>
+<p>
+        Use mingw64.
+      </p>
+<h2>
+<a name="gcc-cross-os.h11"></a>
+        <span class="phrase"><a name="gcc-cross-os.cpp-code-editor"></a></span><a class="link" href="gcc-cross-os.html#gcc-cross-os.cpp-code-editor"><span class="cyan">c++ code Editor</span></a>
+      </h2>
+<p>
+        Many good editors can be used for writing c++ code.
+      </p>
+<h4>
+<a name="gcc-cross-os.h12"></a>
+        <span class="phrase"><a name="gcc-cross-os.kakoune"></a></span><a class="link" href="gcc-cross-os.html#gcc-cross-os.kakoune">Kakoune</a>
+      </h4>
+<p>
+        Kakoune can be installed to SerenityOS, Haiku OS, Linux, Windows.
+      </p>
+<h4>
+<a name="gcc-cross-os.h13"></a>
+        <span class="phrase"><a name="gcc-cross-os.featherpad"></a></span><a class="link" href="gcc-cross-os.html#gcc-cross-os.featherpad">Featherpad</a>
+      </h4>
+<p>
+        Featherpad can be installed to Haiku OS, Linux.
+      </p>
+<h4>
+<a name="gcc-cross-os.h14"></a>
+        <span class="phrase"><a name="gcc-cross-os.native_text_editor"></a></span><a class="link" href="gcc-cross-os.html#gcc-cross-os.native_text_editor">Native
+        Text Editor</a>
+      </h4>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            SerenityOS: <span class="bold"><strong>Serenity Text Editor</strong></span>
+          </li>
+<li class="listitem">
+            Haiku OS: <span class="bold"><strong>Haiku Pe</strong></span>, <span class="bold"><strong>Haiku
+            StyleEdit</strong></span>
+          </li>
+<li class="listitem">
+            Linux: <span class="bold"><strong>Kwrite</strong></span>
+          </li>
+</ul></div>
+<h2>
+<a name="gcc-cross-os.h15"></a>
+        <span class="phrase"><a name="gcc-cross-os.check"></a></span><a class="link" href="gcc-cross-os.html#gcc-cross-os.check"><span class="cyan">Check compiling</span></a>
+      </h2>
+<p>
+        Check if the c++ compiler works.
+      </p>
+<p>
+        Copy paste the following c++ code, and save as hello.cpp:
+      </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Hello, c++!"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<p>
+        Compile and run the c++ code:
+      </p>
+<pre class="programlisting"><span class="identifier">g</span><span class="special">++</span> <span class="identifier">hello</span><span class="special">.</span><span class="identifier">cpp</span> <span class="special">-</span><span class="identifier">std</span><span class="special">=</span><span class="identifier">c</span><span class="special">++</span><span class="number">26</span> <span class="special">-</span><span class="identifier">lgcc_s</span> <span class="special">-</span><span class="identifier">o</span> <span class="identifier">hello</span>
+<span class="special">./</span><span class="identifier">hello</span>
+</pre>
+<p>
+        It should output:
+      </p>
+<pre class="programlisting"><span class="identifier">Hello</span><span class="special">,</span> <span class="identifier">c</span><span class="special">++!</span>
+</pre>
+<p>
+        If the gcc c++ compiler can not compile c++ code, find and repair issues,
+        or ask for help.
+      </p>
+<h2>
+<a name="gcc-cross-os.h16"></a>
+        <span class="phrase"><a name="gcc-cross-os.date"></a></span><a class="link" href="gcc-cross-os.html#gcc-cross-os.date"><span class="cyan">Date</span></a>
+      </h2>
+<p>
+        Sun Sep 6 02:02:48 AM UTC 2026
+      </p>
+<h2>
+<a name="gcc-cross-os.h17"></a>
+        <span class="phrase"><a name="gcc-cross-os.back"></a></span><a class="link" href="gcc-cross-os.html#gcc-cross-os.back"><span class="cyan">Back</span></a>
+      </h2>
+<p>
+        <span class="bold"><strong>Back:</strong></span> <a class="link" href="cpp-compilers.html" title="c++ compilers">c++
+        compilers</a>
+      </p>
+<h2>
+<a name="gcc-cross-os.h18"></a>
+        <span class="phrase"><a name="gcc-cross-os.helpful"></a></span><a class="link" href="gcc-cross-os.html#gcc-cross-os.helpful"><span class="cyan">Helpful</span></a>
+      </h2>
+<p>
+        <a href="https://wtgo.top/spaceship-50-years-alienated.html" target="_top">Spaceship
+        50 Years Alienated</a>
+      </p>
+<h2>
+<a name="gcc-cross-os.h19"></a>
+        <span class="phrase"><a name="gcc-cross-os.role"></a></span><a class="link" href="gcc-cross-os.html#gcc-cross-os.role"><span class="cyan">Role</span></a>
+      </h2>
+<p>
+        +
+      </p>
+<p>
+        Powered by:<br> <a href="https://www.bfgroup.xyz/b2" target="_top">B2 Build</a>
+        | <a href="https://www.boost.org/tools/quickbook" target="_top">boost quickbook</a>
+      </p>
+<p>
+        +
+      </p>
+<p>
+        <a href="https://cppfx.xyz/donate.html" target="_top">Donate</a>
+      </p>
+<p>
+        +
+      </p>
+<p>
+        @<a href="https://cppfx.xyz" target="_top">cppfx.xyz</a>
+      </p>
+<p>
+        <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+        <br> <br> <br> <br> <br>
+      </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="visualcpp-windows.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="cpp-compilers.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp-build-system.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

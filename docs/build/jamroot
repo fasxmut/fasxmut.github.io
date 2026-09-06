@@ -18,6 +18,7 @@ project-list =
 	sycl
 	b2
 	windows
+	cpptoolchain
 ;
 
 path-constant my-dir : . ;

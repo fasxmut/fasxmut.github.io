@@ -1,0 +1,22 @@
+[article c++ Build System
+	[quickbook 1.7]
+	[id cpp-build-system]
+]
+
+[role drop_menu
+	[role dddred [* c++ Build System]][br]
+	[br]
+	[*Back: [@. c++ Toolchain]]
+]
+
+[include build-install-b2-build.qbk]
+[include create-manage-cpp-project-b2-build.qbk]
+
+[h1:back [role cyan Back]]
+
+[*Back: [@. c++ Toolchain]]
+
+[include ../../../share/foot-links.inc.qbk]
+
+
+

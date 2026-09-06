@@ -1,0 +1,96 @@
+[article c++ Botan
+	[quickbook 1.7]
+	[id cpp-botan]
+]
+
+[role drop_menu
+	[*Jump in this page:][br]
+	[link cpp-botan Start][br]
+	[link cpp-botan.build-install-botan Build & Install Botan][br]
+	[link cpp-botan.use-botan Use Botan][br]
+	[br]
+	[*Back:] [link cpp-foundation-libraries c++ Foundation Libraries]
+]
+
+c++ Botan cryptography libraries, botan TLS.
+
+[h1:build-install-botan [role cyan Build and Install Botan]]
+
+[*Get botan]
+
+[@https://botan.randombit.net]
+
+[@https://github.com/randombit/botan]
+
+[*Build botan]
+
+```
+> cd botan
+> ./configure.py --with-boost --prefix=/sand
+> make -j2
+```
+
+[*Install botan]
+
+```
+> su
+# make install
+```
+
+[h1:use-botan [role cyan Use Botan]]
+
+Botan::BigInt example.
+
+[!c++]
+```
+#include <botan/bigint.h>
+#include <iomanip>
+#include <iostream>
+
+int main()
+{
+	Botan::BigInt n1{"0x8ff27ff3f4f93ffff6786f1239ade4"};
+	Botan::BigInt n2{"0x5ab4cee943253deef82a873af33f6f"};
+	Botan::BigInt n3 = n1 + n2;
+
+	std::cout
+		<< std::right << std::setw(40)
+		<< n1.to_dec_string() << std::endl
+		<< "+" << std::endl
+		<< std::right << std::setw(40)
+		<< n2.to_dec_string() << std::endl
+		<< "||" << std::endl
+		<< std::right << std::setw(40)
+		<< n3.to_dec_string() << std::endl
+	;
+}
+```
+
+[*Compile It]
+
+```
+> alias gpp="g++ -std=c++26"
+> gpp prog.cpp -o prog -I /sand/include/botan-3 -lbotan-3
+> ./prog
+```
+
+[*Result:]
+
+```
+    747416931372215703109324736466365924
++
+    470973944189450914015995221198978927
+||
+   1218390875561666617125319957665344851
+```
+
+[h1:date [role cyan Date]]
+
+Apr 12, 2025
+
+[h1:back [role cyan Back]]
+
+[*Back:] [link cpp-foundation-libraries c++ Foundation Libraries]
+
+[include ../../../share/foot-links.inc.qbk]
+

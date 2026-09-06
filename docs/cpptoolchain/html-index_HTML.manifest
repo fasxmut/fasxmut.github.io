@@ -1,8 +1,7 @@
 index.html
 cpp-compilers.html
 visualcpp-windows.html
-gcc-serenityos.html
-gcc-haiku.html
+gcc-cross-os.html
 cpp-build-system.html
 build-install-b2-build.html
 create-manage-cpp-project-b2-build.html

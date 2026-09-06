@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <title>Build and Install B2 Build</title>
 <link rel="stylesheet" href="boostbook.css" type="text/css">
 <meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
@@ -22,6 +22,15 @@
 <hr>
 </div>
 <p>
+        <span class="drop_menu"><span class="bold"><strong>Jump in this page:</strong></span><br>
+        <a class="link" href="build-install-b2-build.html" title="Build and Install B2 Build">Start</a><br> <a class="link" href="build-install-b2-build.html#build-install-b2-build.build-install">Build
+        &amp; Install b2 build</a><br> <a class="link" href="build-install-b2-build.html#build-install-b2-build.etc-site-config-jam">Configure
+        /etc/site-config.jam</a><br> <a class="link" href="build-install-b2-build.html#build-install-b2-build.use-default-cpp-compiler">Use
+        default c++ compiler</a><br> <a class="link" href="build-install-b2-build.html#build-install-b2-build.set-version-and-path-of-compiler">Set
+        version &amp; path of compiler</a><br> <br> <span class="bold"><strong>Back:</strong></span>
+        <a class="link" href="cpp-build-system.html" title="c++ Build System">c++ Build System</a> </span>
+      </p>
+<p>
         Install B2 Build Toolchain.
       </p>
 <p>
@@ -30,43 +39,24 @@
 <p>
         B2 Build can be built and installed on windows, haiku, linux, bsd etc.
       </p>
-<p>
-        <span class="bold"><strong>Anchor List:</strong></span>
-      </p>
-<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
-<li class="listitem">
-            <a class="link" href="build-install-b2-build.html#build-install-b2-build.build-install-b2-build">Build and
-            install b2 build</a>
-          </li>
-<li class="listitem">
-            <a class="link" href="build-install-b2-build.html#build-install-b2-build.configure-site-config-jam">Configure
-            /etc/site-config.jam</a>
-          </li>
-</ul></div>
 <h2>
 <a name="build-install-b2-build.h0"></a>
-        <span class="phrase"><a name="build-install-b2-build.build-install-b2-build"></a></span><a class="link" href="build-install-b2-build.html#build-install-b2-build.build-install-b2-build"><span class="cyan">Build and install b2 build</span></a>
+        <span class="phrase"><a name="build-install-b2-build.build-install"></a></span><a class="link" href="build-install-b2-build.html#build-install-b2-build.build-install"><span class="cyan">Build &amp; Install b2 build</span></a>
       </h2>
-<h3>
-<a name="build-install-b2-build.h1"></a>
-        <span class="phrase"><a name="build-install-b2-build.clone_b2_code_from_github"></a></span><a class="link" href="build-install-b2-build.html#build-install-b2-build.clone_b2_code_from_github">Clone
-        b2 code from github</a>
-      </h3>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+            <span class="bold"><strong>Clone b2 code from github</strong></span>
+          </li></ul></div>
 <pre class="programlisting">$ git clone --depth=1 https://github.com/bfgroup/b2
 </pre>
-<h3>
-<a name="build-install-b2-build.h2"></a>
-        <span class="phrase"><a name="build-install-b2-build.build_b2"></a></span><a class="link" href="build-install-b2-build.html#build-install-b2-build.build_b2">Build
-        b2</a>
-      </h3>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+            <span class="bold"><strong>Build b2</strong></span>
+          </li></ul></div>
 <pre class="programlisting">$ cd b2
 $ ./bootstrap.sh
 </pre>
-<h3>
-<a name="build-install-b2-build.h3"></a>
-        <span class="phrase"><a name="build-install-b2-build.install_b2"></a></span><a class="link" href="build-install-b2-build.html#build-install-b2-build.install_b2">Install
-        b2</a>
-      </h3>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+            <span class="bold"><strong>Install b2</strong></span>
+          </li></ul></div>
 <pre class="programlisting">$ su
 # ./b2 install --prefix=/sand
 </pre>
@@ -76,30 +66,30 @@ $ ./bootstrap.sh
         system environment variable <span class="bold"><strong>PATH</strong></span> .
       </p>
 <p>
-        For <span class="bold"><strong>windows</strong></span> users, you have to use a different
+        As <span class="bold"><strong>windows</strong></span> user, you have to use a different
         path style for <span class="bold"><strong>--prefix=path/to</strong></span>, figure
-        it by youself.
+        out it by youself.
       </p>
 <p>
-        For <span class="bold"><strong>haiku</strong></span> users, you have to set a permssion-allowed
+        As <span class="bold"><strong>haiku</strong></span> user, you have to set a permission-allowed
         path for <span class="bold"><strong>--prefix=path/to</strong></span>, such as <span class="bold"><strong>--prefix=/boot/home/sand</strong></span>
       </p>
 <h2>
-<a name="build-install-b2-build.h4"></a>
-        <span class="phrase"><a name="build-install-b2-build.configure-site-config-jam"></a></span><a class="link" href="build-install-b2-build.html#build-install-b2-build.configure-site-config-jam"><span class="cyan">Configure <span class="gold">/etc/site-config.jam</span></span></a>
+<a name="build-install-b2-build.h1"></a>
+        <span class="phrase"><a name="build-install-b2-build.etc-site-config-jam"></a></span><a class="link" href="build-install-b2-build.html#build-install-b2-build.etc-site-config-jam"><span class="cyan">Configure</span> <span class="yellow">/etc/site-config.jam</span></a>
       </h2>
 <p>
-        <span class="bold"><strong>/etc/site-config.jam</strong></span> is the <span class="bold"><strong>system-wide</strong></span>
-        config file for b2,
+        <span class="dddyellow"><span class="bold"><strong>/etc/site-config.jam</strong></span></span>
+        is the <span class="bold"><strong>system-wide</strong></span> config file for b2,
       </p>
 <p>
-        if you have no permission to write <span class="bold"><strong>/etc/site-config.jam</strong></span>,
-        you can write to <span class="bold"><strong>user-config.jam</strong></span>, which
-        have to place at your user home folder.
+        if you have no permission to write <span class="bold"><strong>/etc/site-config.jam</strong></span>,<br>
+        you can write content to <span class="bold"><strong>user-config.jam</strong></span>,<br>
+        which is placed at your user home folder.
       </p>
 <h3>
-<a name="build-install-b2-build.h5"></a>
-        <span class="phrase"><a name="build-install-b2-build.use_default_c_compiler"></a></span><a class="link" href="build-install-b2-build.html#build-install-b2-build.use_default_c_compiler">Use
+<a name="build-install-b2-build.h2"></a>
+        <span class="phrase"><a name="build-install-b2-build.use-default-cpp-compiler"></a></span><a class="link" href="build-install-b2-build.html#build-install-b2-build.use-default-cpp-compiler">Use
         default c++ compiler</a>
       </h3>
 <p>
@@ -107,17 +97,17 @@ $ ./bootstrap.sh
         or <span class="bold"><strong>msvc</strong></span> as the default c++ compiler.
       </p>
 <p>
-        <span class="bold"><strong>To /etc/site-config.jam</strong></span> :
+        To <span class="bold"><strong>/etc/site-config.jam</strong></span> :
       </p>
-<pre class="programlisting">using gcc ;
-using clang ;
-using msvc ;
+<pre class="programlisting"><span class="keyword">using</span> <span class="identifier">gcc</span> <span class="special">;</span>
+<span class="keyword">using</span> <span class="identifier">clang</span> <span class="special">;</span>
+<span class="keyword">using</span> <span class="identifier">msvc</span> <span class="special">;</span>
 </pre>
 <p>
         In such a configure, the g++, clang++, and cl.exe <span class="bold"><strong>must
-        exist</strong></span> on the systems, if any one of them does not exist, do not
-        put that line. Such as cl.exe does not exist on linux, remove "using
-        msvc;" .
+        all exist</strong></span> on the systems, if any one of them does not exist, do
+        not add that line. Such as cl.exe does not exist on linux, remove "using
+        msvc ;" .
       </p>
 <p>
         The first c++ toolchain: "using gcc" in /etc/site-config.jam will
@@ -129,107 +119,129 @@ using msvc ;
         It will use g++ to build your project.
       </p>
 <h3>
-<a name="build-install-b2-build.h6"></a>
-        <span class="phrase"><a name="build-install-b2-build.set_the_version_and_path_of_the_"></a></span><a class="link" href="build-install-b2-build.html#build-install-b2-build.set_the_version_and_path_of_the_">Set the
-        version and path of the toolchain</a>
+<a name="build-install-b2-build.h3"></a>
+        <span class="phrase"><a name="build-install-b2-build.set-version-and-path-of-compiler"></a></span><a class="link" href="build-install-b2-build.html#build-install-b2-build.set-version-and-path-of-compiler">Set the
+        version and path of the compiler</a>
       </h3>
 <p>
         For example:
       </p>
 <p>
-        <span class="bold"><strong>To /etc/site-config.jam</strong></span> :
+        To <span class="bold"><strong>/etc/site-config.jam</strong></span> :
       </p>
-<pre class="programlisting">using gcc : latest : /sand/bin/g++-14 ;
+<pre class="programlisting"><span class="keyword">using</span> <span class="identifier">gcc</span> <span class="special">:</span> <span class="identifier">latest</span> <span class="special">:</span> <span class="special">/</span><span class="identifier">sand</span><span class="special">/</span><span class="identifier">bin</span><span class="special">/</span><span class="identifier">g</span><span class="special">++-</span><span class="number">16</span> <span class="special">;</span>
 </pre>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            <span class="bold"><strong>using</strong></span> is a <span class="ddred"><span class="bold"><strong>rule</strong></span></span> <span class="bold"><strong>name</strong></span>
+            ;
+          </li>
 <li class="listitem">
             <span class="bold"><strong>gcc</strong></span> is the <span class="bold"><strong>first</strong></span>
             parameter of using ;
           </li>
 <li class="listitem">
             <span class="bold"><strong>latest</strong></span> is the <span class="bold"><strong>second</strong></span>
-            paramter of using ;
+            parameter of using ;
           </li>
 <li class="listitem">
-            <span class="bold"><strong>/sand/bin/g++-14</strong></span> is the <span class="bold"><strong>third</strong></span>
-            paramter of using ;
+            <span class="bold"><strong>/sand/bin/g++-16</strong></span> is the <span class="bold"><strong>third</strong></span>
+            parameter of using ;
           </li>
 </ul></div>
 <p>
-        The <span class="bold"><strong>first</strong></span> paramter of using is the toolchain
-        <span class="bold"><strong>name</strong></span>, which is the <span class="green"><span class="bold"><strong>brand name</strong></span></span> of the c++ compiler, that must
-        be approved by b2 build system.
+        The <span class="bold"><strong>first</strong></span> parameter of using is the toolchain
+        <span class="bold"><strong>name</strong></span>, which is the <span class="bold"><strong>brand
+        name</strong></span> of the c++ compiler, that must be approved by b2 build system.
       </p>
 <p>
         The <span class="bold"><strong>second</strong></span> parameter of using is the <span class="bold"><strong>version</strong></span>, which can be set to any number or letters
         <span class="bold"><strong>freely</strong></span>.
       </p>
 <p>
-        The <span class="bold"><strong>third</strong></span> paramter of using is the <span class="bold"><strong>full path</strong></span> of the c++ compiler command.
+        The <span class="bold"><strong>third</strong></span> parameter of using is the <span class="bold"><strong>full path</strong></span> of the c++ compiler command.
       </p>
 <p>
         Alternative choice example:
       </p>
 <p>
-        <span class="bold"><strong>To /etc/site-config.jam</strong></span> :
+        To <span class="bold"><strong>/etc/site-config.jam</strong></span> :
       </p>
 <pre class="programlisting"># If dpcpp command can be found by auto-detect.
-using clang : dpcpp : dpcpp ;
+using clang : dpcpp1 : dpcpp ;
 
 # If dpcpp command can not be found by auto-detect.
-# using clang : dpcpp : /path/to/intel/dpcpp/compiler/command ;
+# using clang : dpcpp2 : /path/to/intel/dpcpp/compiler/command ;
 </pre>
 <p>
-        By the way, <span class="bold"><strong>&lt;c++_compiler_brand_name&gt;-&lt;version&gt;</strong></span>
-        should not repeat, otherwise it's a syntax error.
+        By the way, two or more <span class="bold"><strong>&lt;c++_compiler_brand_name&gt;-&lt;version&gt;</strong></span>
+        should be <span class="bold"><strong>not</strong></span> the <span class="bold"><strong>same</strong></span>,
+        otherwise it's syntax error.
+      </p>
+<p>
+        Such as above:
+      </p>
+<p>
+        <span class="bold"><strong>clang-dpcpp1</strong></span>
+      </p>
+<p>
+        <span class="bold"><strong>clang-dpcpp2</strong></span>
       </p>
 <h2>
-<a name="build-install-b2-build.h7"></a>
-        <span class="phrase"><a name="build-install-b2-build.see-also"></a></span><a class="link" href="build-install-b2-build.html#build-install-b2-build.see-also"><span class="cyan">See Also</span></a>
-      </h2>
-<p>
-        <a class="link" href="build-install-boost-docs-system.html" title="Build and Install Boost Docs System: boost quickbook">Build and Install Boost Docs
-        System</a>
-      </p>
-<p>
-        <a href="https://www.bfgroup.xyz/b2" target="_top">B2 Build Home</a>
-      </p>
-<p>
-        <a href="https://www.bfgroup.xyz/b2/manual/release/index.html" target="_top">B2 Manual</a>
-      </p>
-<h2>
-<a name="build-install-b2-build.h8"></a>
+<a name="build-install-b2-build.h4"></a>
         <span class="phrase"><a name="build-install-b2-build.date"></a></span><a class="link" href="build-install-b2-build.html#build-install-b2-build.date"><span class="cyan">Date</span></a>
       </h2>
 <p>
-        2024
+        Date: 2024
+      </p>
+<p>
+        Last Update: Sep 06, 2026
       </p>
 <h2>
-<a name="build-install-b2-build.h9"></a>
+<a name="build-install-b2-build.h5"></a>
         <span class="phrase"><a name="build-install-b2-build.back"></a></span><a class="link" href="build-install-b2-build.html#build-install-b2-build.back"><span class="cyan">Back</span></a>
       </h2>
 <p>
-        <a class="link" href="cpp-build-system.html" title="c++ Build System">Up</a>
+        <span class="bold"><strong>Back:</strong></span> <a class="link" href="cpp-build-system.html" title="c++ Build System">c++
+        Build System</a>
       </p>
 <h2>
-<a name="build-install-b2-build.h10"></a>
-        <span class="phrase"><a name="build-install-b2-build.deck"></a></span><a class="link" href="build-install-b2-build.html#build-install-b2-build.deck"><span class="cyan">Deck</span></a>
+<a name="build-install-b2-build.h6"></a>
+        <span class="phrase"><a name="build-install-b2-build.helpful"></a></span><a class="link" href="build-install-b2-build.html#build-install-b2-build.helpful"><span class="cyan">Helpful</span></a>
       </h2>
 <p>
-        <a href="." target="_top">c++ Toolchain</a>
+        <a href="https://wtgo.top/spaceship-50-years-alienated.html" target="_top">Spaceship
+        50 Years Alienated</a>
+      </p>
+<h2>
+<a name="build-install-b2-build.h7"></a>
+        <span class="phrase"><a name="build-install-b2-build.role"></a></span><a class="link" href="build-install-b2-build.html#build-install-b2-build.role"><span class="cyan">Role</span></a>
+      </h2>
+<p>
+        +
       </p>
 <p>
-        ====
+        Powered by:<br> <a href="https://www.bfgroup.xyz/b2" target="_top">B2 Build</a>
+        | <a href="https://www.boost.org/tools/quickbook" target="_top">boost quickbook</a>
       </p>
 <p>
-        <a href="https://cppfx.xyz" target="_top">cppfx.xyz</a>
+        +
+      </p>
+<p>
+        <a href="https://cppfx.xyz/donate.html" target="_top">Donate</a>
+      </p>
+<p>
+        +
+      </p>
+<p>
+        @<a href="https://cppfx.xyz" target="_top">cppfx.xyz</a>
+      </p>
+<p>
+        <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+        <br> <br> <br> <br> <br>
       </p>
 </div>
-<div class="copyright-footer">Copyright © 2024, 2025 Fas Xmut<p>
-        Distributed under the Boost Software License, Version 1.0. (See accompanying
-        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
-      </p>
-</div>
+<div class="copyright-footer"></div>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="cpp-build-system.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="cpp-build-system.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="create-manage-cpp-project-b2-build.html"><img src="images/next.png" alt="Next"></a>
