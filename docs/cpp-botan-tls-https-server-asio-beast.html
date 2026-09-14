@@ -1,0 +1,548 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>c++ Botan TLS https server asio beast</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="cppfx - c++, b2 build">
+<link rel="up" href="index.html" title="cppfx - c++, b2 build">
+<link rel="prev" href="index.html" title="cppfx - c++, b2 build">
+<link rel="next" href="cpp-beautiful-elegant-object-oriented.html" title="c++ is a beautiful, elegant, object-oriented programming language">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp-beautiful-elegant-object-oriented.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="cpp-botan-tls-https-server-asio-beast"></a>c++ Botan TLS https server asio beast</h1></div></div>
+<hr>
+</div>
+<p>
+      <span class="drop_menu">&gt; <a class="link" href="cpp-botan-tls-https-server-asio-beast.html" title="c++ Botan TLS https server asio beast">Start</a><br>
+      &gt; <a class="link" href="cpp-botan-tls-https-server-asio-beast.html#cpp-botan-tls-https-server-asio-beast.summary">Summary</a><br>
+      &gt; <a class="link" href="cpp-botan-tls-https-server-asio-beast.html#cpp-botan-tls-https-server-asio-beast.cpp-code">c++ code</a><br>
+      &gt; <a class="link" href="cpp-botan-tls-https-server-asio-beast.html#cpp-botan-tls-https-server-asio-beast.gen-self-signed">Botan:
+      Generate Self-Signed Certificates</a><br> &gt; <a class="link" href="cpp-botan-tls-https-server-asio-beast.html#cpp-botan-tls-https-server-asio-beast.run-program">Run
+      Program</a><br> &gt; <a href="." target="_top">Back: Home</a> </span>
+    </p>
+<h2>
+<a name="cpp-botan-tls-https-server-asio-beast.h0"></a>
+      <span class="phrase"><a name="cpp-botan-tls-https-server-asio-beast.summary"></a></span><a class="link" href="cpp-botan-tls-https-server-asio-beast.html#cpp-botan-tls-https-server-asio-beast.summary"><span class="cyan">Summary</span></a>
+    </h2>
+<h3>
+<a name="cpp-botan-tls-https-server-asio-beast.h1"></a>
+      <span class="phrase"><a name="cpp-botan-tls-https-server-asio-beast.stream-callbacks"></a></span><a class="link" href="cpp-botan-tls-https-server-asio-beast.html#cpp-botan-tls-https-server-asio-beast.stream-callbacks">Stream Callbacks</a>
+    </h3>
+<h4>
+<a name="cpp-botan-tls-https-server-asio-beast.h2"></a>
+      <span class="phrase"><a name="cpp-botan-tls-https-server-asio-beast.utils-stream-callbacks"></a></span><a class="link" href="cpp-botan-tls-https-server-asio-beast.html#cpp-botan-tls-https-server-asio-beast.utils-stream-callbacks">utils::stream_callbacks</a>
+    </h4>
+<pre class="programlisting"><span class="keyword">namespace</span> <span class="identifier">utils</span>
+<span class="special">{</span>
+	<span class="keyword">class</span> <span class="identifier">stream_callbacks</span><span class="special">:</span>
+		<span class="keyword">virtual</span> <span class="keyword">public</span> <span class="identifier">Botan</span><span class="special">::</span><span class="identifier">TLS</span><span class="special">::</span><span class="identifier">StreamCallbacks</span>
+	<span class="special">{</span>
+		<span class="special">...</span>
+		<span class="special">...</span>
+	<span class="special">};</span>
+</pre>
+<p>
+      Stream Callbacks are called when tls is handshaking.
+    </p>
+<h4>
+<a name="cpp-botan-tls-https-server-asio-beast.h3"></a>
+      <span class="phrase"><a name="cpp-botan-tls-https-server-asio-beast.shared-ptr-polymorphism"></a></span><a class="link" href="cpp-botan-tls-https-server-asio-beast.html#cpp-botan-tls-https-server-asio-beast.shared-ptr-polymorphism">Shared
+      Ptr Polymorphism</a>
+    </h4>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">TLS</span><span class="special">::</span><span class="identifier">StreamCallbacks</span><span class="special">&gt;</span> <span class="identifier">callbacks</span> <span class="special">=</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">make_shared</span><span class="special">&lt;</span><span class="identifier">utils</span><span class="special">::</span><span class="identifier">stream_callbacks</span><span class="special">&gt;(</span><span class="identifier">__log</span><span class="special">);</span>
+</pre>
+<p>
+      <span class="bold"><strong>Constructor #1 of Botan::TLS::Stream matches parameters:</strong></span>
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          std::shared_ptr&lt;Botan::TLS::StreamCallbacks&gt; - match
+        </li>
+<li class="listitem">
+          std::shared_ptr&lt;utils::stream_callbacks&gt; - not match (customized
+          type in shared-ptr)
+        </li>
+</ul></div>
+<h3>
+<a name="cpp-botan-tls-https-server-asio-beast.h4"></a>
+      <span class="phrase"><a name="cpp-botan-tls-https-server-asio-beast.policy-shared"></a></span><a class="link" href="cpp-botan-tls-https-server-asio-beast.html#cpp-botan-tls-https-server-asio-beast.policy-shared">Policy
+      Shared</a>
+    </h3>
+<p>
+      <span class="bold"><strong>utils::policy_shared is a class that automatically makes
+      shared-ptr.</strong></span>
+    </p>
+<pre class="programlisting"><span class="identifier">utils</span><span class="special">::</span><span class="identifier">policy_shared</span> <span class="identifier">policy_default</span><span class="special">{</span><span class="string">"default"</span><span class="special">};</span>
+<span class="identifier">utils</span><span class="special">::</span><span class="identifier">policy_shared</span> <span class="identifier">policy_all</span><span class="special">{</span><span class="string">"all"</span><span class="special">};</span>
+</pre>
+<p>
+      <span class="bold"><strong>Return shared-ptr of Botan::TLS::Policy</strong></span>
+    </p>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">TLS</span><span class="special">::</span><span class="identifier">Policy</span><span class="special">&gt;</span> <span class="identifier">policy</span> <span class="special">=</span> <span class="identifier">policy_default</span><span class="special">;</span>
+</pre>
+<p>
+      <span class="bold"><strong>Return shared-ptr of Botan::TLS::Policy too.</strong></span>
+    </p>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">TLS</span><span class="special">::</span><span class="identifier">Policy</span><span class="special">&gt;</span> <span class="identifier">policy</span> <span class="special">=</span> <span class="identifier">policy_default</span><span class="special">.</span><span class="identifier">get_shared</span><span class="special">();</span>
+</pre>
+<h3>
+<a name="cpp-botan-tls-https-server-asio-beast.h5"></a>
+      <span class="phrase"><a name="cpp-botan-tls-https-server-asio-beast.credentials-manager"></a></span><a class="link" href="cpp-botan-tls-https-server-asio-beast.html#cpp-botan-tls-https-server-asio-beast.credentials-manager">Credentials
+      Manager</a>
+    </h3>
+<p>
+      <span class="bold"><strong>For Server,</strong></span>
+    </p>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">Credentials_Manager</span><span class="special">&gt;</span> <span class="identifier">cred_man</span> <span class="special">=</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">make_shared</span><span class="special">&lt;</span><span class="identifier">utils</span><span class="special">::</span><span class="identifier">credentials_manager</span><span class="special">&gt;(</span>
+		<span class="identifier">cert_fn</span><span class="special">,</span>
+		<span class="identifier">key_fn</span>
+	<span class="special">);</span>
+</pre>
+<p>
+      <span class="bold"><strong>For Client,</strong></span>
+    </p>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">Credentials_Manager</span><span class="special">&gt;</span> <span class="identifier">cred_man</span> <span class="special">=</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">make_shared</span><span class="special">&lt;</span><span class="identifier">utils</span><span class="special">::</span><span class="identifier">credentials_manager</span><span class="special">&gt;(</span>
+		<span class="keyword">true</span><span class="special">,</span>	<span class="comment">// Use system certificate store.</span>
+		<span class="string">""</span>
+	<span class="special">);</span>
+</pre>
+<h2>
+<a name="cpp-botan-tls-https-server-asio-beast.h6"></a>
+      <span class="phrase"><a name="cpp-botan-tls-https-server-asio-beast.cpp-code"></a></span><a class="link" href="cpp-botan-tls-https-server-asio-beast.html#cpp-botan-tls-https-server-asio-beast.cpp-code"><span class="cyan">c++ code</span></a>
+    </h2>
+<p>
+      c++ code, example
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">memory</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">future</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">sstream</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">asio</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">beast</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">ugtls</span><span class="special">/</span><span class="identifier">credentials_manager</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">botan</span><span class="special">/</span><span class="identifier">system_rng</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">botan</span><span class="special">/</span><span class="identifier">tls_session_manager_memory</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">ugtls</span><span class="special">/</span><span class="identifier">policy</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">botan</span><span class="special">/</span><span class="identifier">asio_stream</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">ugtls</span><span class="special">/</span><span class="identifier">stream_callbacks</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">asio</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">;</span>
+<span class="keyword">namespace</span> <span class="identifier">beast</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">beast</span><span class="special">;</span>
+<span class="keyword">namespace</span> <span class="identifier">http</span> <span class="special">=</span> <span class="identifier">beast</span><span class="special">::</span><span class="identifier">http</span><span class="special">;</span>
+<span class="keyword">using</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string_literals</span><span class="special">::</span><span class="keyword">operator</span><span class="string">""</span><span class="identifier">s</span><span class="special">;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">net</span>
+<span class="special">{</span>
+	<span class="keyword">class</span> <span class="identifier">server_info</span>
+	<span class="special">{</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">address</span><span class="special">;</span>
+		<span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">uint16_t</span> <span class="identifier">port</span><span class="special">;</span>
+		<span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">cert_fn</span><span class="special">;</span>
+		<span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">key_fn</span><span class="special">;</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="keyword">void</span> <span class="identifier">print</span><span class="special">()</span> <span class="keyword">const</span>
+		<span class="special">{</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">clog</span> <span class="special">&lt;&lt;</span> <span class="string">"COPY:\n"</span><span class="special">;</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">clog</span> <span class="special">&lt;&lt;</span> <span class="string">"https://"</span> <span class="special">&lt;&lt;</span> <span class="identifier">address</span> <span class="special">&lt;&lt;</span> <span class="string">":"</span> <span class="special">&lt;&lt;</span> <span class="identifier">port</span>
+				<span class="special">&lt;&lt;</span> <span class="string">"\n"</span> <span class="special">&lt;&lt;</span> <span class="identifier">cert_fn</span> <span class="special">&lt;&lt;</span> <span class="string">" "</span> <span class="special">&lt;&lt;</span> <span class="identifier">key_fn</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="special">};</span>
+<span class="special">}</span>	<span class="comment">// namespace net</span>
+
+<span class="keyword">namespace</span> <span class="identifier">net</span>
+<span class="special">{</span>
+	<span class="keyword">class</span> <span class="identifier">tls_session</span><span class="special">:</span>
+		<span class="keyword">virtual</span> <span class="keyword">public</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">enable_shared_from_this</span><span class="special">&lt;</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">tls_session</span><span class="special">&gt;</span>
+	<span class="special">{</span>
+	<span class="keyword">private</span><span class="special">:</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">server_info</span><span class="special">&gt;</span> <span class="identifier">__sinfo</span><span class="special">;</span>
+	<span class="keyword">private</span><span class="special">:</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">ostringstream</span><span class="special">&gt;</span> <span class="identifier">__log</span><span class="special">;</span>
+	<span class="keyword">private</span><span class="special">:</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">Credentials_Manager</span><span class="special">&gt;</span> <span class="identifier">__cred_man</span><span class="special">;</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">RNG</span><span class="special">&gt;</span> <span class="identifier">__rng</span><span class="special">;</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">TLS</span><span class="special">::</span><span class="identifier">Session_Manager</span><span class="special">&gt;</span> <span class="identifier">__sess_man</span><span class="special">;</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">TLS</span><span class="special">::</span><span class="identifier">Policy</span><span class="special">&gt;</span> <span class="identifier">__policy</span><span class="special">;</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">TLS</span><span class="special">::</span><span class="identifier">Context</span><span class="special">&gt;</span> <span class="identifier">__tls_context</span><span class="special">;</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">TLS</span><span class="special">::</span><span class="identifier">StreamCallbacks</span><span class="special">&gt;</span> <span class="identifier">__tls_callbacks</span><span class="special">;</span>
+		<span class="identifier">Botan</span><span class="special">::</span><span class="identifier">TLS</span><span class="special">::</span><span class="identifier">Stream</span><span class="special">&lt;</span><span class="identifier">beast</span><span class="special">::</span><span class="identifier">tcp_stream</span><span class="special">&gt;</span> <span class="identifier">__tls_stream</span><span class="special">;</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">tls_session</span><span class="special">(</span>
+			<span class="comment">//asio::any_io_executor executor__,	// socket__ will carray an executor</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">server_info</span><span class="special">&gt;</span> <span class="identifier">sinfo__</span><span class="special">,</span>
+			<span class="identifier">asio</span><span class="special">::</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">socket</span> <span class="special">&amp;&amp;</span> <span class="identifier">socket__</span>
+		<span class="special">):</span>
+			<span class="identifier">__sinfo</span><span class="special">{</span><span class="identifier">sinfo__</span><span class="special">},</span>
+
+			<span class="identifier">__log</span><span class="special">{</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">make_shared</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">ostringstream</span><span class="special">&gt;()},</span>
+
+			<span class="identifier">__cred_man</span><span class="special">{</span>
+				<span class="identifier">std</span><span class="special">::</span><span class="identifier">make_shared</span><span class="special">&lt;</span><span class="identifier">ugtls</span><span class="special">::</span><span class="identifier">credentials_manager</span><span class="special">&gt;(</span>
+					<span class="identifier">__sinfo</span><span class="special">-&gt;</span><span class="identifier">cert_fn</span><span class="special">,</span>
+					<span class="identifier">__sinfo</span><span class="special">-&gt;</span><span class="identifier">key_fn</span>
+				<span class="special">)</span>
+			<span class="special">},</span>
+			<span class="identifier">__rng</span><span class="special">{</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">make_shared</span><span class="special">&lt;</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">System_RNG</span><span class="special">&gt;()},</span>
+			<span class="identifier">__sess_man</span><span class="special">{</span>
+				<span class="identifier">std</span><span class="special">::</span><span class="identifier">make_shared</span><span class="special">&lt;</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">TLS</span><span class="special">::</span><span class="identifier">Session_Manager_In_Memory</span><span class="special">&gt;(</span>
+					<span class="identifier">__rng</span>
+				<span class="special">)</span>
+			<span class="special">},</span>
+			<span class="identifier">__policy</span><span class="special">{</span>
+				<span class="identifier">ugtls</span><span class="special">::</span><span class="identifier">policy_shared</span><span class="special">{</span><span class="string">"default"</span><span class="special">}</span>
+			<span class="special">},</span>
+			<span class="identifier">__tls_context</span><span class="special">{</span>
+				<span class="identifier">std</span><span class="special">::</span><span class="identifier">make_shared</span><span class="special">&lt;</span><span class="identifier">Botan</span><span class="special">::</span><span class="identifier">TLS</span><span class="special">::</span><span class="identifier">Context</span><span class="special">&gt;(</span>
+					<span class="identifier">__cred_man</span><span class="special">,</span>
+					<span class="identifier">__rng</span><span class="special">,</span>
+					<span class="identifier">__sess_man</span><span class="special">,</span>
+					<span class="identifier">__policy</span><span class="special">,</span>
+					<span class="identifier">Botan</span><span class="special">::</span><span class="identifier">TLS</span><span class="special">::</span><span class="identifier">Server_Information</span><span class="special">{}</span>
+				<span class="special">)</span>
+			<span class="special">},</span>
+			<span class="identifier">__tls_callbacks</span><span class="special">{</span>
+				<span class="identifier">std</span><span class="special">::</span><span class="identifier">make_shared</span><span class="special">&lt;</span><span class="identifier">ugtls</span><span class="special">::</span><span class="identifier">stream_callbacks</span><span class="special">&gt;(</span>
+					<span class="identifier">__log</span>
+				<span class="special">)</span>
+			<span class="special">},</span>
+			<span class="identifier">__tls_stream</span><span class="special">{</span>
+				<span class="identifier">__tls_context</span><span class="special">,</span>
+				<span class="identifier">__tls_callbacks</span><span class="special">,</span>
+				<span class="identifier">std</span><span class="special">::</span><span class="identifier">move</span><span class="special">(</span><span class="identifier">socket__</span><span class="special">)</span>
+			<span class="special">}</span>
+		<span class="special">{</span>
+		<span class="special">}</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">asio</span><span class="special">::</span><span class="identifier">awaitable</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">&gt;</span> <span class="identifier">start</span><span class="special">()</span>
+		<span class="special">{</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">clog</span> <span class="special">&lt;&lt;</span> <span class="string">"Session Started!"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+			<span class="identifier">co_await</span> <span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">handshake</span><span class="special">();</span>
+			<span class="identifier">co_await</span> <span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">receive_request</span><span class="special">();</span>
+			<span class="identifier">co_await</span> <span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">send_response</span><span class="special">();</span>
+			<span class="identifier">co_await</span> <span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">close</span><span class="special">();</span>
+			<span class="identifier">co_return</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="keyword">private</span><span class="special">:</span>
+		<span class="identifier">asio</span><span class="special">::</span><span class="identifier">awaitable</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">&gt;</span> <span class="identifier">handshake</span><span class="special">()</span>
+		<span class="special">{</span>
+			<span class="special">*</span><span class="identifier">__log</span>
+				<span class="special">&lt;&lt;</span> <span class="string">"&lt;h2&gt;[TLS Callbacks]&lt;/h2&gt;"</span>
+				<span class="special">&lt;&lt;</span> <span class="string">"&lt;pre style=\"border-left:5px solid #000\"&gt;"</span>
+			<span class="special">;</span>
+
+			<span class="comment">// __tls_callbacks are called on handshake.</span>
+			<span class="comment">// and message is written to __log</span>
+			<span class="identifier">__tls_stream</span><span class="special">.</span><span class="identifier">next_layer</span><span class="special">().</span><span class="identifier">expires_after</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">chrono</span><span class="special">::</span><span class="identifier">seconds</span><span class="special">(</span><span class="number">10</span><span class="special">));</span>
+			<span class="keyword">auto</span> <span class="special">[</span><span class="identifier">ec</span><span class="special">]</span> <span class="special">=</span> <span class="identifier">co_await</span> <span class="identifier">__tls_stream</span><span class="special">.</span><span class="identifier">async_handshake</span><span class="special">(</span>
+				<span class="identifier">Botan</span><span class="special">::</span><span class="identifier">TLS</span><span class="special">::</span><span class="identifier">Connection_Side</span><span class="special">::</span><span class="identifier">Server</span><span class="special">,</span>
+				<span class="identifier">asio</span><span class="special">::</span><span class="identifier">as_tuple</span>
+			<span class="special">);</span>
+			<span class="special">*</span><span class="identifier">__log</span> <span class="special">&lt;&lt;</span> <span class="string">"&lt;/pre&gt;"</span><span class="special">;</span>
+			<span class="keyword">if</span> <span class="special">(</span><span class="identifier">ec</span><span class="special">)</span>
+				<span class="keyword">throw</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">system_error</span><span class="special">{</span><span class="identifier">ec</span><span class="special">,</span> <span class="string">"handshake error"</span><span class="special">};</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">clog</span> <span class="special">&lt;&lt;</span> <span class="string">"Handshake OK!"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+			<span class="identifier">co_return</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="keyword">private</span><span class="special">:</span>
+		<span class="identifier">asio</span><span class="special">::</span><span class="identifier">awaitable</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">&gt;</span> <span class="identifier">receive_request</span><span class="special">()</span>
+		<span class="special">{</span>
+			<span class="identifier">http</span><span class="special">::</span><span class="identifier">request</span><span class="special">&lt;</span><span class="identifier">http</span><span class="special">::</span><span class="identifier">string_body</span><span class="special">&gt;</span> <span class="identifier">request</span><span class="special">;</span>
+			<span class="identifier">beast</span><span class="special">::</span><span class="identifier">flat_buffer</span> <span class="identifier">buffer</span><span class="special">;</span>
+			<span class="identifier">__tls_stream</span><span class="special">.</span><span class="identifier">next_layer</span><span class="special">().</span><span class="identifier">expires_after</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">chrono</span><span class="special">::</span><span class="identifier">seconds</span><span class="special">(</span><span class="number">30</span><span class="special">));</span>
+			<span class="keyword">auto</span> <span class="special">[</span><span class="identifier">ec</span><span class="special">,</span> <span class="identifier">bytes</span><span class="special">]</span> <span class="special">=</span> <span class="identifier">co_await</span> <span class="identifier">http</span><span class="special">::</span><span class="identifier">async_read</span><span class="special">(</span>
+				<span class="identifier">__tls_stream</span><span class="special">,</span>
+				<span class="identifier">buffer</span><span class="special">,</span>
+				<span class="identifier">request</span><span class="special">,</span>
+				<span class="identifier">asio</span><span class="special">::</span><span class="identifier">as_tuple</span>
+			<span class="special">);</span>
+			<span class="keyword">if</span> <span class="special">(</span><span class="identifier">ec</span> <span class="special">&amp;&amp;</span> <span class="identifier">ec</span> <span class="special">!=</span> <span class="identifier">http</span><span class="special">::</span><span class="identifier">error</span><span class="special">::</span><span class="identifier">end_of_stream</span><span class="special">)</span>
+				<span class="keyword">throw</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">system_error</span><span class="special">{</span>
+					<span class="identifier">ec</span><span class="special">,</span>
+					<span class="string">"Receive request error"</span>
+				<span class="special">};</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">clog</span> <span class="special">&lt;&lt;</span> <span class="string">"Receive request OK"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+			<span class="special">*</span><span class="identifier">__log</span> <span class="special">&lt;&lt;</span> <span class="string">"&lt;h2&gt;[Received Request]&lt;/h2&gt;"</span>
+				<span class="special">&lt;&lt;</span> <span class="string">"&lt;pre style=\"border-left:1px solid #000\"&gt;"</span>
+				<span class="special">&lt;&lt;</span> <span class="identifier">request</span>
+				<span class="special">&lt;&lt;</span> <span class="string">"&lt;/pre&gt;"</span><span class="special">;</span>
+			<span class="identifier">co_return</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="keyword">private</span><span class="special">:</span>
+		<span class="identifier">asio</span><span class="special">::</span><span class="identifier">awaitable</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">&gt;</span> <span class="identifier">send_response</span><span class="special">()</span>
+		<span class="special">{</span>
+			<span class="identifier">http</span><span class="special">::</span><span class="identifier">response</span><span class="special">&lt;</span><span class="identifier">http</span><span class="special">::</span><span class="identifier">string_body</span><span class="special">&gt;</span> <span class="identifier">response</span><span class="special">;</span>
+			<span class="identifier">response</span><span class="special">.</span><span class="identifier">keep_alive</span><span class="special">(</span><span class="keyword">true</span><span class="special">);</span>
+			<span class="identifier">response</span><span class="special">.</span><span class="identifier">version</span><span class="special">(</span><span class="number">11</span><span class="special">);</span>
+			<span class="identifier">response</span><span class="special">.</span><span class="identifier">set</span><span class="special">(</span><span class="identifier">http</span><span class="special">::</span><span class="identifier">field</span><span class="special">::</span><span class="identifier">server</span><span class="special">,</span> <span class="string">"c++ web server"</span><span class="special">);</span>
+			<span class="identifier">response</span><span class="special">.</span><span class="identifier">set</span><span class="special">(</span><span class="identifier">http</span><span class="special">::</span><span class="identifier">field</span><span class="special">::</span><span class="identifier">content_type</span><span class="special">,</span> <span class="string">"text/html"</span><span class="special">);</span>
+			<span class="identifier">response</span><span class="special">.</span><span class="identifier">body</span><span class="special">()</span> <span class="special">=</span>
+				<span class="string">"&lt;html&gt;&lt;head&gt;&lt;title&gt;c++ web server&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;h1&gt;c++ web server&lt;/h1&gt;"</span><span class="identifier">s</span>
+				<span class="special">+</span>
+				<span class="identifier">__log</span><span class="special">-&gt;</span><span class="identifier">str</span><span class="special">()</span>
+				<span class="special">+</span>
+				<span class="string">"&lt;/body&gt;&lt;/html&gt;"</span>
+			<span class="special">;</span>
+			<span class="identifier">response</span><span class="special">.</span><span class="identifier">prepare_payload</span><span class="special">();</span>
+			<span class="identifier">__tls_stream</span><span class="special">.</span><span class="identifier">next_layer</span><span class="special">().</span><span class="identifier">expires_after</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">chrono</span><span class="special">::</span><span class="identifier">seconds</span><span class="special">(</span><span class="number">20</span><span class="special">));</span>
+			<span class="keyword">auto</span> <span class="special">[</span><span class="identifier">ec</span><span class="special">,</span> <span class="identifier">bytes</span><span class="special">]</span> <span class="special">=</span> <span class="identifier">co_await</span> <span class="identifier">http</span><span class="special">::</span><span class="identifier">async_write</span><span class="special">(</span>
+				<span class="identifier">__tls_stream</span><span class="special">,</span>
+				<span class="identifier">response</span><span class="special">,</span>
+				<span class="identifier">asio</span><span class="special">::</span><span class="identifier">as_tuple</span>
+			<span class="special">);</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">clog</span> <span class="special">&lt;&lt;</span> <span class="string">"Response Status: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">ec</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+			<span class="identifier">co_return</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="keyword">private</span><span class="special">:</span>
+		<span class="identifier">asio</span><span class="special">::</span><span class="identifier">awaitable</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">&gt;</span> <span class="identifier">close</span><span class="special">()</span>
+		<span class="special">{</span>
+			<span class="keyword">auto</span> <span class="special">[</span><span class="identifier">ec</span><span class="special">]</span> <span class="special">=</span> <span class="identifier">co_await</span> <span class="identifier">__tls_stream</span><span class="special">.</span><span class="identifier">async_shutdown</span><span class="special">(</span>
+				<span class="identifier">asio</span><span class="special">::</span><span class="identifier">as_tuple</span>
+			<span class="special">);</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">clog</span> <span class="special">&lt;&lt;</span> <span class="string">"TLS Stream closed, "</span> <span class="special">&lt;&lt;</span> <span class="identifier">ec</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="special">};</span>	<span class="comment">// class tls_session</span>
+<span class="special">}</span>	<span class="comment">// namespace net</span>
+
+<span class="keyword">namespace</span> <span class="identifier">net</span>
+<span class="special">{</span>
+	<span class="keyword">class</span> <span class="identifier">server</span><span class="special">:</span>
+		<span class="keyword">virtual</span> <span class="keyword">public</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">enable_shared_from_this</span><span class="special">&lt;</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">server</span><span class="special">&gt;</span>
+	<span class="special">{</span>
+	<span class="keyword">private</span><span class="special">:</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">server_info</span><span class="special">&gt;</span> <span class="identifier">__sinfo</span><span class="special">;</span>
+		<span class="identifier">asio</span><span class="special">::</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">acceptor</span> <span class="identifier">__acceptor</span><span class="special">;</span>
+		<span class="identifier">asio</span><span class="special">::</span><span class="identifier">thread_pool</span> <span class="identifier">__pool</span><span class="special">{</span><span class="number">2048u</span><span class="special">};</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">server</span><span class="special">(</span>
+			<span class="identifier">asio</span><span class="special">::</span><span class="identifier">any_io_executor</span> <span class="identifier">executor__</span><span class="special">,</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">server_info</span><span class="special">&gt;</span> <span class="identifier">sinfo__</span>
+		<span class="special">):</span>
+			<span class="identifier">__sinfo</span><span class="special">{</span><span class="identifier">sinfo__</span><span class="special">},</span>
+			<span class="identifier">__acceptor</span><span class="special">{</span>
+				<span class="identifier">executor__</span><span class="special">,</span>
+				<span class="identifier">asio</span><span class="special">::</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">endpoint</span><span class="special">{</span>
+					<span class="identifier">asio</span><span class="special">::</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">make_address</span><span class="special">(</span><span class="identifier">__sinfo</span><span class="special">-&gt;</span><span class="identifier">address</span><span class="special">),</span>
+					<span class="identifier">__sinfo</span><span class="special">-&gt;</span><span class="identifier">port</span>
+				<span class="special">}</span>
+			<span class="special">}</span>
+		<span class="special">{</span>
+		<span class="special">}</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">asio</span><span class="special">::</span><span class="identifier">awaitable</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">&gt;</span> <span class="identifier">start</span><span class="special">()</span>
+		<span class="special">{</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">clog</span> <span class="special">&lt;&lt;</span> <span class="string">"Yoea\n"</span><span class="special">;</span>
+			<span class="identifier">co_await</span> <span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">listen</span><span class="special">();</span>
+			<span class="identifier">co_await</span> <span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">join</span><span class="special">();</span>
+			<span class="identifier">co_return</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="keyword">private</span><span class="special">:</span>
+		<span class="identifier">asio</span><span class="special">::</span><span class="identifier">awaitable</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">&gt;</span> <span class="identifier">join</span><span class="special">()</span>
+		<span class="special">{</span>
+			<span class="identifier">__pool</span><span class="special">.</span><span class="identifier">join</span><span class="special">();</span>
+			<span class="identifier">co_return</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="keyword">private</span><span class="special">:</span>
+		<span class="identifier">asio</span><span class="special">::</span><span class="identifier">awaitable</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">&gt;</span> <span class="identifier">listen</span><span class="special">()</span>
+		<span class="special">{</span>
+			<span class="identifier">co_await</span> <span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">accept</span><span class="special">();</span>
+			<span class="identifier">co_await</span> <span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">listen</span><span class="special">();</span>
+			<span class="identifier">co_return</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="keyword">private</span><span class="special">:</span>
+		<span class="identifier">asio</span><span class="special">::</span><span class="identifier">awaitable</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">&gt;</span> <span class="identifier">accept</span><span class="special">()</span>
+		<span class="special">{</span>
+			<span class="keyword">try</span>
+			<span class="special">{</span>
+				<span class="identifier">co_await</span> <span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">do_accept</span><span class="special">();</span>
+			<span class="special">}</span>
+			<span class="keyword">catch</span> <span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">exception</span> <span class="special">&amp;</span> <span class="identifier">e</span><span class="special">)</span>
+			<span class="special">{</span>
+				<span class="identifier">std</span><span class="special">::</span><span class="identifier">cerr</span> <span class="special">&lt;&lt;</span> <span class="string">"Session error: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">e</span><span class="special">.</span><span class="identifier">what</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+			<span class="special">}</span>
+			<span class="identifier">co_return</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="keyword">private</span><span class="special">:</span>
+		<span class="identifier">asio</span><span class="special">::</span><span class="identifier">awaitable</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">&gt;</span> <span class="identifier">do_accept</span><span class="special">()</span>
+		<span class="special">{</span>
+			<span class="keyword">auto</span> <span class="special">[</span><span class="identifier">ec</span><span class="special">,</span> <span class="identifier">socket</span><span class="special">]</span> <span class="special">=</span> <span class="identifier">co_await</span> <span class="identifier">__acceptor</span><span class="special">.</span><span class="identifier">async_accept</span><span class="special">(</span>
+				<span class="identifier">asio</span><span class="special">::</span><span class="identifier">as_tuple</span>
+			<span class="special">);</span>
+			<span class="keyword">if</span> <span class="special">(</span><span class="identifier">ec</span><span class="special">)</span>
+				<span class="keyword">throw</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">system_error</span><span class="special">{</span><span class="identifier">ec</span><span class="special">,</span> <span class="string">"accept error"</span><span class="special">};</span>
+
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">promise</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">&gt;</span> <span class="identifier">promise</span><span class="special">;</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">future</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">&gt;</span> <span class="identifier">future</span> <span class="special">=</span> <span class="identifier">promise</span><span class="special">.</span><span class="identifier">get_future</span><span class="special">();</span>
+
+			<span class="comment">// Post to the host: use same executor (non-threading)</span>
+			<span class="comment">// Post to a thread pool: use different executor (threading)</span>
+			<span class="comment">//</span>
+			<span class="comment">// Host executor: co_await asio::this_coro::executor;</span>
+			<span class="comment">// Thread Pool executor: __pool.get_executor();</span>
+			<span class="comment">//</span>
+			<span class="identifier">asio</span><span class="special">::</span><span class="identifier">co_spawn</span><span class="special">(</span>
+				<span class="identifier">__pool</span><span class="special">.</span><span class="identifier">get_executor</span><span class="special">(),</span>
+				<span class="identifier">std</span><span class="special">::</span><span class="identifier">bind</span><span class="special">(</span>
+					<span class="special">&amp;</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">tls_session</span><span class="special">::</span><span class="identifier">start</span><span class="special">,</span>
+					<span class="identifier">std</span><span class="special">::</span><span class="identifier">make_shared</span><span class="special">&lt;</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">tls_session</span><span class="special">&gt;(</span>
+						<span class="identifier">__sinfo</span><span class="special">,</span>
+						<span class="identifier">std</span><span class="special">::</span><span class="identifier">move</span><span class="special">(</span><span class="identifier">socket</span><span class="special">)</span>
+					<span class="special">)</span>
+				<span class="special">),</span>
+				<span class="special">[</span><span class="identifier">promise</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">move</span><span class="special">(</span><span class="identifier">promise</span><span class="special">)]</span> <span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">exception_ptr</span> <span class="identifier">eptr</span><span class="special">)</span> <span class="keyword">mutable</span>
+				<span class="special">{</span>
+					<span class="keyword">if</span> <span class="special">(</span><span class="identifier">eptr</span><span class="special">)</span>
+					<span class="special">{</span>
+						<span class="identifier">std</span><span class="special">::</span><span class="identifier">clog</span> <span class="special">&lt;&lt;</span> <span class="string">"Session Closed: Exception Propagated\n"</span><span class="special">;</span>
+						<span class="identifier">promise</span><span class="special">.</span><span class="identifier">set_exception</span><span class="special">(</span><span class="identifier">eptr</span><span class="special">);</span>
+					<span class="special">}</span>
+					<span class="keyword">else</span>
+					<span class="special">{</span>
+						<span class="identifier">std</span><span class="special">::</span><span class="identifier">clog</span> <span class="special">&lt;&lt;</span> <span class="string">"Session Closed: No Exception\n"</span><span class="special">;</span>
+						<span class="identifier">promise</span><span class="special">.</span><span class="identifier">set_value</span><span class="special">();</span>
+					<span class="special">}</span>
+				<span class="special">}</span>
+			<span class="special">);</span>
+			<span class="identifier">future</span><span class="special">.</span><span class="identifier">get</span><span class="special">();</span>
+			<span class="identifier">co_return</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="special">};</span>
+<span class="special">}</span>	<span class="comment">// namespace net</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">(</span><span class="keyword">int</span> <span class="identifier">argc</span><span class="special">,</span> <span class="keyword">char</span> <span class="special">**</span> <span class="identifier">argv</span><span class="special">)</span>
+<span class="special">{</span>
+	<span class="keyword">try</span>
+	<span class="special">{</span>
+		<span class="keyword">if</span> <span class="special">(</span><span class="identifier">argc</span> <span class="special">!=</span> <span class="number">5</span><span class="special">)</span>
+			<span class="keyword">throw</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">runtime_error</span><span class="special">{</span>
+				<span class="string">"https-server &lt;address&gt; &lt;port&gt; &lt;cert file&gt; &lt;key file&gt;"</span>
+			<span class="special">};</span>
+		<span class="keyword">auto</span> <span class="identifier">sinfo</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">make_shared</span><span class="special">&lt;</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">server_info</span><span class="special">&gt;(</span>
+			<span class="identifier">argv</span><span class="special">[</span><span class="number">1</span><span class="special">],</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">stoi</span><span class="special">(</span><span class="identifier">argv</span><span class="special">[</span><span class="number">2</span><span class="special">]),</span> <span class="identifier">argv</span><span class="special">[</span><span class="number">3</span><span class="special">],</span> <span class="identifier">argv</span><span class="special">[</span><span class="number">4</span><span class="special">]</span>
+		<span class="special">);</span>
+		<span class="identifier">sinfo</span><span class="special">-&gt;</span><span class="identifier">print</span><span class="special">();</span>
+		<span class="identifier">asio</span><span class="special">::</span><span class="identifier">thread_pool</span> <span class="identifier">pool</span><span class="special">{</span><span class="number">32u</span><span class="special">};</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">promise</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">&gt;</span> <span class="identifier">promise</span><span class="special">;</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">future</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">&gt;</span> <span class="identifier">future</span> <span class="special">=</span> <span class="identifier">promise</span><span class="special">.</span><span class="identifier">get_future</span><span class="special">();</span>
+		<span class="identifier">asio</span><span class="special">::</span><span class="identifier">co_spawn</span><span class="special">(</span>
+			<span class="identifier">pool</span><span class="special">.</span><span class="identifier">get_executor</span><span class="special">(),</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">bind</span><span class="special">(</span>
+				<span class="special">&amp;</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">server</span><span class="special">::</span><span class="identifier">start</span><span class="special">,</span>
+				<span class="identifier">std</span><span class="special">::</span><span class="identifier">make_shared</span><span class="special">&lt;</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">server</span><span class="special">&gt;(</span>
+					<span class="identifier">pool</span><span class="special">.</span><span class="identifier">get_executor</span><span class="special">(),</span>
+					<span class="identifier">sinfo</span>
+				<span class="special">)</span>
+			<span class="special">),</span>
+			<span class="special">[</span><span class="identifier">promise</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">move</span><span class="special">(</span><span class="identifier">promise</span><span class="special">)]</span> <span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">exception_ptr</span> <span class="identifier">eptr</span><span class="special">)</span> <span class="keyword">mutable</span>
+			<span class="special">{</span>
+				<span class="keyword">if</span> <span class="special">(</span><span class="identifier">eptr</span><span class="special">)</span>
+					<span class="identifier">promise</span><span class="special">.</span><span class="identifier">set_exception</span><span class="special">(</span><span class="identifier">eptr</span><span class="special">);</span>
+				<span class="keyword">else</span>
+					<span class="identifier">promise</span><span class="special">.</span><span class="identifier">set_value</span><span class="special">();</span>
+			<span class="special">}</span>
+		<span class="special">);</span>
+		<span class="identifier">future</span><span class="special">.</span><span class="identifier">get</span><span class="special">();</span>
+		<span class="identifier">pool</span><span class="special">.</span><span class="identifier">join</span><span class="special">();</span>
+	<span class="special">}</span>
+	<span class="keyword">catch</span> <span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">exception</span> <span class="special">&amp;</span> <span class="identifier">e</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cerr</span> <span class="special">&lt;&lt;</span> <span class="string">"=\n=&gt;\n=\n"</span> <span class="special">&lt;&lt;</span> <span class="identifier">e</span><span class="special">.</span><span class="identifier">what</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">}</span>
+</pre>
+<h2>
+<a name="cpp-botan-tls-https-server-asio-beast.h7"></a>
+      <span class="phrase"><a name="cpp-botan-tls-https-server-asio-beast.gen-self-signed"></a></span><a class="link" href="cpp-botan-tls-https-server-asio-beast.html#cpp-botan-tls-https-server-asio-beast.gen-self-signed"><span class="cyan">Botan: Generate Self-Signed Certificates</span></a>
+    </h2>
+<pre class="programlisting">$ botan keygen --algo=ECDSA --params=secp384r1 --output=server_key.pem
+$ botan gen_self_signed \
+	server_key.pem CA --ca --country=WhichCountry --dns=the.example \
+	--hash=SHA-384 --output=ca.crt
+$ botan gen_pkcs10 server_key.pem the.domain --output=crt.req
+$ botan sign_cert ca.crt server_key.pem crt.req --output=server_cert.crt
+</pre>
+<h2>
+<a name="cpp-botan-tls-https-server-asio-beast.h8"></a>
+      <span class="phrase"><a name="cpp-botan-tls-https-server-asio-beast.run-program"></a></span><a class="link" href="cpp-botan-tls-https-server-asio-beast.html#cpp-botan-tls-https-server-asio-beast.run-program"><span class="cyan">Run Program</span></a>
+    </h2>
+<pre class="programlisting">./bin/gcc-16/debug/cxxstd-26-iso/https-server \
+	0.0.0.0 32132 \
+	./server_cert.crt ./server_key.pem
+</pre>
+<h2>
+<a name="cpp-botan-tls-https-server-asio-beast.h9"></a>
+      <span class="phrase"><a name="cpp-botan-tls-https-server-asio-beast.botan-home"></a></span><a class="link" href="cpp-botan-tls-https-server-asio-beast.html#cpp-botan-tls-https-server-asio-beast.botan-home"><span class="cyan">Botan Home</span></a>
+    </h2>
+<p>
+      <a href="https://botan.randombit.net" target="_top">https://botan.randombit.net</a>
+    </p>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<p>
+      <a href="." target="_top">Home</a>
+    </p>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<p>
+      Mon Sep 14 07:48:19 AM UTC 2026
+    </p>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<h2>
+<a name="cpp-botan-tls-https-server-asio-beast.h10"></a>
+      <span class="phrase"><a name="cpp-botan-tls-https-server-asio-beast.helpful"></a></span><a class="link" href="cpp-botan-tls-https-server-asio-beast.html#cpp-botan-tls-https-server-asio-beast.helpful"><span class="cyan">Helpful</span></a>
+    </h2>
+<p>
+      <a href="https://wtgo.top/spaceship-50-years-alienated.html" target="_top">Spaceship 50
+      Years Alienated</a>
+    </p>
+<h2>
+<a name="cpp-botan-tls-https-server-asio-beast.h11"></a>
+      <span class="phrase"><a name="cpp-botan-tls-https-server-asio-beast.role"></a></span><a class="link" href="cpp-botan-tls-https-server-asio-beast.html#cpp-botan-tls-https-server-asio-beast.role"><span class="cyan">Role</span></a>
+    </h2>
+<p>
+      +
+    </p>
+<p>
+      Powered by:<br> <a href="https://www.bfgroup.xyz/b2" target="_top">B2 Build</a>
+      | <a href="https://www.boost.org/tools/quickbook" target="_top">boost quickbook</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      <a href="https://cppfx.xyz/donate.html" target="_top">Donate</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      @<a href="https://cppfx.xyz" target="_top">cppfx.xyz</a>
+    </p>
+<p>
+      <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+      <br> <br> <br> <br> <br>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp-beautiful-elegant-object-oriented.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
