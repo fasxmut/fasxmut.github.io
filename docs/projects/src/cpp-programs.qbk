@@ -1,0 +1,17 @@
+[article c++ programs
+	[id cpp-programs]
+	[quickbook 1.7]
+]
+
+c++ programs: cpp-programs
+
+It is a project containing many interesting c++ programs.
+
+Github: [@https://github.com/fasxmut/cpp-programs]
+
+[h1:back [role cyan Back]]
+
+[@. Up]
+
+[include ../../share/foot-links.inc.qbk]
+

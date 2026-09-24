@@ -1,0 +1,180 @@
+[article c++ Virtual Derivation Grandpa Constructing Propagation Problem: Solution
+	[quickbook 1.7]
+	[id cpp-virtual-derivation-grandpa-constructing-propagation-solution]
+]
+
+[role drop_menu
+> [link cpp-virtual-derivation-grandpa-constructing-propagation-solution Start][br]
+> [link cpp-virtual-derivation-grandpa-constructing-propagation-solution.cpp-exa-co c++ example code][br]
+> [link cpp-virtual-derivation-grandpa-constructing-propagation-solution.what-will-if-xxk What will if . ?][br]
+> [link cpp-virtual-derivation-grandpa-constructing-propagation-solution.wha-is-dpa-prob What is the . ?][br]
+> [@. Back: Home]
+]
+
+[* Q: [role dddgreen c++: What is the solution of virtual derivation grandpa constructing propagation problem?]]
+
+[* A: [role ddred The solution is very simple: delete default constructor of the very super-base class.]]
+
+[h1:cpp-exa-co [role cyan c++ example Code]]
+
+[* [role ddblue // code-(1)]]
+
+[!c++]
+```
+#include <iostream>
+
+namespace manda
+{
+	// The very super-base class.
+	class grandpa
+	{
+	protected:
+		int x{0};
+	public:
+		grandpa() = delete;
+		grandpa(int x): x{x} {}
+	};
+
+	class father:
+		virtual public grandpa
+	{
+	protected:
+		int y{0};
+	public:
+		father(int x, int y):
+			grandpa{x},
+			y{y}
+		{}
+	};
+
+	class man:
+		public father
+	{
+	protected:
+		int z{0};
+	public:
+		man(int x, int y, int z):
+			grandpa{x},
+			father{x, y},
+			z{z}
+		{}
+	public:
+		void print() const
+		{
+			std::cout
+				<< "(x, y, z) = "
+				<< "(" <<  x << ", " << y << ", " << z << ")"
+				<< std::endl
+			;
+		}
+	};
+}
+
+int main()
+{
+	manda::man man{7, 4, 9};
+	man.print();
+}
+```
+
+[*Output:]
+
+```
+(x, y, z) = (7, 4, 9)
+```
+
+[h1:what-will-if-xxk [role cyan What will happen if man does not propagate grandpa?]]
+
+[* [role dred What will happen if constructor of manda::man does not propagate to manda::grandpa?]]
+
+[* [role ddblue // code-(2)]]
+
+[!c++]
+```
+class man
+	public father
+{
+private:
+	int z{0};
+public:
+	man(int x, int y, int z):
+		// grandpa{x},
+		father{x, y},
+		z{z}
+	{}
+
+		...
+	...
+};
+```
+
+[* [role ddgreen The compiling will help you to correct code by an error message:]]
+
+[pre
+error: use of deleted function ‘manda::grandpa::grandpa()
+]
+
+[h1:wha-is-dpa-prob [role cyan What is the problem?]]
+
+[* [role dred What is the virtual derivation grandpa constructing propagation problem?]]
+
+[* [role ddgreen
+When c++ cascaded virtual derivation is enabled,[br]
+manda::man constructor transfers parameters to manda::father constructor,[br]
+we expect then the manda::father constructor will transfer parameters to manda::grandpa constructor,[br]
+however it does not work:[br]
+manda::father constructor does not transfer parameters to manda::grandpa constructor,[br]
+[role ddred Because] they are virtual derivation ![br]
+Instead, manda::man constructor will implicitly call a default constructor of manda::grandpa directly,[br]
+which will let wrong parameters be transferred:
+]]
+
+[* [role red Like code-(2). (and if the default constructor of manda::grandpa is not deleted.)]]
+
+[* [role dddblue
+To let the correct parameters be transferred from manda::man constructor to manda::grandpa constructor,[br]
+we can let the manda::man consructor propagate manda::grandpa constructor explicitly:
+]]
+
+// code-(3)
+[!c++]
+```
+class man
+	public father
+{
+private:
+	int z{0};
+public:
+	man(int x, int y, int z):
+		grandpa{x}, // explicit propagate
+		father{x, y},
+		z{z}
+	{}
+
+		...
+	...
+};
+```
+
+[* [role ddred However, it has an easy-to-make-mistake problem:[br]
+user programming will be more easy to miss propagating to grandpa constructor,[br]
+and especially, if the grandpa code is coded at a third-party library,[br]
+user programming will not realize it at all.
+]]
+
+[* [role dblue The solution is delete the default constructor of grandpa like this article,[br]
+then the compiling will point out the error by an error message.
+]]
+
+//////////////////////////////////////////////////////////////////////
+
+[@. Home]
+
+//////////////////////////////////////////////////////////////////////
+
+Tue Aug 11 12:46:26 AM UTC 2026
+
+//////////////////////////////////////////////////////////////////////
+
+[include ../share/foot-links.inc.qbk]
+

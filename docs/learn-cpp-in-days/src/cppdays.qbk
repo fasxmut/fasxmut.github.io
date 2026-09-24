@@ -1,0 +1,40 @@
+[book Learn c++ in days
+	[quickbook 1.7]
+	[id learn-cpp-in-days]
+]
+
+[include day01-how-to-compile-cpp.qbk]
+[include day02-std-cout.qbk]
+[include day03-std-string.qbk]
+[include day04-object-oriented.qbk]
+[include day05-class-attributes.qbk]
+[include day06-private-protected-public.qbk]
+[include day07-inheritance.qbk]
+[include day08-constructors-destructor-overload.qbk]
+[include day09-pointers-new-delete-this.qbk]
+[include day10-reference-and-constant.qbk]
+[include day11-miscellaneous.qbk]
+[include day12-multiple-inheritance.qbk]
+[include day13-polymorphism.qbk]
+[include day14-virtual-destructor-virtual-inheritance.qbk]
+[include day15-cpp-template.qbk]
+[include day16-cpp-template-basis-completion.qbk]
+[include day17-cpp-concepts.qbk]
+[include day18-condition-loop.qbk]
+[include day19-array-function-lambda.qbk]
+[include day20-compile-time-constexpr.qbk]
+[include day21-stl-std-vector.qbk]
+[include day22-stl-std-string.qbk]
+[include day23-stl-random-numbers.qbk]
+[include day24-stl-std-copy-std-fill.qbk]
+[include day25-special-cpp-modules-gcc.qbk]
+
+[h1:cpp-tutorial [role cyan cpp Tutorial: Learn c++ in days]]
+
+c++ Tutorial: Learn c++ in some days, less than 100 days.
+
+[h1:back [role cyan Back to home]]
+
+[@.. Home]
+
+[include ../../share/foot-links.inc.qbk]

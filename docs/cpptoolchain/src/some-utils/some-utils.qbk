@@ -1,0 +1,21 @@
+[article Some Utils
+	[quickbook 1.7]
+	[id some-utils]
+]
+
+[role drop_menu
+	[role dddred [* Some Utils]][br]
+	[br]
+	[*Back: [@. c++ Toolchain]]
+]
+
+[include quickbook-customized-colors.qbk]
+
+[h1:back [role cyan Back]]
+
+[*Back: [@. c++ Toolchain]]
+
+[include ../../../share/foot-links.inc.qbk]
+
+
+

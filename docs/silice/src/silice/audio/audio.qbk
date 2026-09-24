@@ -1,0 +1,23 @@
+[article c++ audio
+	[id cpp-audio]
+	[quickbook 1.7]
+]
+
+[include haiku/haiku.qbk]
+[include serenity/serenity.qbk]
+[include rtaudio/rtaudio.qbk]
+
+[*c++ audio:]
+
+* Play Audio
+* Audio Sample
+* Decode/Encode Audio File
+
+[h1:back [role cyan Back]]
+
+[link cpp-silice-silice Up]
+
+
+
+[include ../../../../share/foot-links.inc.qbk]
+

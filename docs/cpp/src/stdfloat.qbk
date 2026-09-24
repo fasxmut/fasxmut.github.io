@@ -1,0 +1,152 @@
+[article c++ stdfloat: <stdfloat>
+	[id cpp-stdfloat]
+	[quickbook 1.7]
+]
+
+c++ <stdfloat> types:
+
+std::bfloat16_t
+
+std::float16_t
+
+std::float32_t
+
+std::float64_t
+
+std::float128_t
+
+c++ stdfloat suffix literals:
+
+bf16
+
+f16
+
+f32
+
+f64
+
+f128
+
+[h1:cpp-example [role cyan c++ example]]
+
+[!c++]
+```
+#include <stdfloat>
+#include <iostream>
+
+namespace __tmp
+{
+
+template <typename type_t20>
+concept printable_float =
+	std::floating_point<type_t20>
+		&&
+	requires (std::ostream & ostream__, type_t20 && value__)
+	{
+		{ostream__ << value__} -> std::same_as<std::ostream &>;
+	}
+;
+
+template <typename type_t20>
+concept unprintable_float =
+	std::floating_point<type_t20>
+		&&
+	(!
+		requires (std::ostream & ostream__, type_t20 && value__)
+		{
+			{ostream__ << value__} -> std::same_as<std::ostream &>;
+		}
+	)
+;
+
+}
+
+static_assert(__tmp::printable_float<std::bfloat16_t>);
+static_assert(__tmp::printable_float<std::float16_t>);
+static_assert(__tmp::printable_float<std::float32_t>);
+static_assert(__tmp::printable_float<std::float64_t>);
+
+static_assert(__tmp::unprintable_float<std::float128_t>);
+
+static_assert(__tmp::printable_float<float>);
+static_assert(__tmp::printable_float<double>);
+static_assert(__tmp::printable_float<long double>);
+
+static_assert(! __tmp::printable_float<int>);
+static_assert(! __tmp::unprintable_float<int>);
+
+namespace print
+{
+
+class print_float
+{
+public:
+	template <__tmp::printable_float type_t10>
+	void print(const type_t10 & value__) const
+	{
+		std::cout << "+) " << value__ << std::endl;
+	}
+	template <__tmp::unprintable_float type_t10>
+	void print(const type_t10 & value__) const
+	{
+		std::cout << "-) " << static_cast<long double>(value__) << std::endl;
+	}
+};
+
+}
+
+int main()
+{
+	print::print_float{}.print(2.54);
+
+	std::bfloat16_t a = 2.54bf16;
+	std::float16_t b = 2.54f16;
+	std::float32_t c = 2.54f32;
+	std::float64_t d = 2.54f64;
+	std::float128_t e = 2.54f128;
+	float f = 2.54f;
+	double g = 2.54;
+	long double h = 2.54l;
+
+	auto print = print::print_float{};
+
+	print.print(a);
+	print.print(b);
+	print.print(c);
+	print.print(d);
+	print.print(e);
+	print.print(f);
+	print.print(g);
+	print.print(h);
+}
+```
+
+Compile and run:
+
+[!teletype]
+```
+$ g++ test.cpp -std=c++23 -o test
+$ ./test 
++) 2.54
++) 2.54688
++) 2.53906
++) 2.54
++) 2.54
+-) 2.54
++) 2.54
++) 2.54
++) 2.54
+```
+
+[br][br][br]
+[br][br][br]
+[br][br][br]
+
+Jan 02, 2025
+
+[h1:back [role cyan Back]]
+
+[@. Up]
+
+[include ../../share/foot-links.inc.qbk]
+

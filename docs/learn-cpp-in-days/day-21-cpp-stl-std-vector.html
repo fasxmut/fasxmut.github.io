@@ -1,0 +1,386 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>day-21: c++ STL: std::vector</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Learn c++ in days">
+<link rel="up" href="index.html" title="Learn c++ in days">
+<link rel="prev" href="day-20-cpp-compile-time-constexpr.html" title="day-20: c++ compile-time, constexpr">
+<link rel="next" href="day-22-cpp-stl-std-string.html" title="day-22: c++ STL: std::string">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="day-20-cpp-compile-time-constexpr.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="day-22-cpp-stl-std-string.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="day-21-cpp-stl-std-vector"></a>day-21: c++ STL: std::vector</h1></div></div>
+<hr>
+</div>
+<p>
+      STL is the c++ Standard Template Library. Most c++ compilers have implemented
+      its own STL. So if you have installed a mainstream c++ compiler, you can use
+      STL directly without additional setup. Microsoft visual c++ (visualcpp), GNU
+      c++ compiler (gcc), clang c++ compiler are all such compilers that have implemented
+      STL.
+    </p>
+<h2>
+<a name="day-21-cpp-stl-std-vector.h0"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-vector.std-vector"></a></span><a class="link" href="day-21-cpp-stl-std-vector.html#day-21-cpp-stl-std-vector.std-vector"><span class="cyan">std::vector</span></a>
+    </h2>
+<p>
+      std::vector is the c++ vector container class type.
+    </p>
+<h4>
+<a name="day-21-cpp-stl-std-vector.h1"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-vector.std-vector-is-array"></a></span><a class="link" href="day-21-cpp-stl-std-vector.html#day-21-cpp-stl-std-vector.std-vector-is-array"><span class="bold"><strong>-) First, It is array (dynamic)</strong></span></a>
+    </h4>
+<p>
+      The element of std::vector are continuous in memory. And the memory space is
+      dynamic allocated.
+    </p>
+<h4>
+<a name="day-21-cpp-stl-std-vector.h2"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-vector.std-vector0"></a></span><a class="link" href="day-21-cpp-stl-std-vector.html#day-21-cpp-stl-std-vector.std-vector0"><span class="bold"><strong>-) Second, it is template</strong></span></a>
+    </h4>
+<p>
+      std::vector is class template, you must instantiate it to a specific class.
+      The template parameter of std::vector is the type of its value (its element).
+    </p>
+<h3>
+<a name="day-21-cpp-stl-std-vector.h3"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-vector.include"></a></span><a class="link" href="day-21-cpp-stl-std-vector.html#day-21-cpp-stl-std-vector.include">Include</a>
+    </h3>
+<p>
+      <em class="replaceable"><code><code class="computeroutput"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">vector</span><span class="special">&gt;</span></code></code></em>
+    </p>
+<h3>
+<a name="day-21-cpp-stl-std-vector.h4"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-vector.instantiation"></a></span><a class="link" href="day-21-cpp-stl-std-vector.html#day-21-cpp-stl-std-vector.instantiation">Template
+      Instantiation</a>
+    </h3>
+<p>
+      <span class="blue">From</span> std::vector <span class="blue">to</span>
+      std::vector&lt;int&gt;, or std::vector&lt;float&gt;, etc.
+    </p>
+<h3>
+<a name="day-21-cpp-stl-std-vector.h5"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-vector.create-object"></a></span><a class="link" href="day-21-cpp-stl-std-vector.html#day-21-cpp-stl-std-vector.create-object">Create
+      vector container object</a>
+    </h3>
+<p>
+      Create a vector object v1, with size 0
+    </p>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;</span> <span class="identifier">v1</span><span class="special">;</span>
+</pre>
+<p>
+      Create a vector object v2, with size 7 (not initialized)
+    </p>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;</span> <span class="identifier">v2</span><span class="special">(</span><span class="number">7</span><span class="special">);</span>
+</pre>
+<p>
+      Create a vector object v3, initialize with 7 (it has 1 element)
+    </p>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;</span> <span class="identifier">v3</span><span class="special">{</span><span class="number">7</span><span class="special">};</span>
+</pre>
+<p>
+      Create a vector object v4, initialize with 2,3,4,2,6; (5 elements)
+    </p>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;</span> <span class="identifier">v4</span><span class="special">{</span><span class="number">2</span><span class="special">,</span> <span class="number">3</span><span class="special">,</span> <span class="number">4</span><span class="special">,</span> <span class="number">2</span><span class="special">,</span> <span class="number">6</span><span class="special">};</span>
+</pre>
+<h3>
+<a name="day-21-cpp-stl-std-vector.h6"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-vector.method-size"></a></span><a class="link" href="day-21-cpp-stl-std-vector.html#day-21-cpp-stl-std-vector.method-size">Method:
+      .size()</a>
+    </h3>
+<p>
+      Method .size() returns the element count of the vector.
+    </p>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">float</span><span class="special">&gt;</span> <span class="identifier">v1</span><span class="special">{</span><span class="number">1.2f</span><span class="special">,</span> <span class="number">2.3f</span><span class="special">,</span> <span class="number">3.2f</span><span class="special">,</span> <span class="number">2.4f</span><span class="special">,</span> <span class="special">-</span><span class="number">2.7f</span><span class="special">,</span> <span class="number">7.9f</span><span class="special">};</span>
+<span class="keyword">auto</span> <span class="identifier">size</span> <span class="special">=</span> <span class="identifier">v1</span><span class="special">.</span><span class="identifier">size</span><span class="special">();</span>	<span class="comment">// 6</span>
+</pre>
+<h3>
+<a name="day-21-cpp-stl-std-vector.h7"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-vector.access-elements"></a></span><a class="link" href="day-21-cpp-stl-std-vector.html#day-21-cpp-stl-std-vector.access-elements">Access
+      std::vector elements</a>
+    </h3>
+<p>
+      Range-based for loop can be used to access each element of the std::vector
+      object.
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">vector</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">float</span><span class="special">&gt;</span> <span class="identifier">v1</span><span class="special">{</span><span class="number">1.2f</span><span class="special">,</span> <span class="number">2.3f</span><span class="special">,</span> <span class="number">3.2f</span><span class="special">,</span> <span class="number">2.4f</span><span class="special">,</span> <span class="special">-</span><span class="number">2.7f</span><span class="special">,</span> <span class="number">7.9f</span><span class="special">};</span>
+
+	<span class="comment">// range-based for loop</span>
+	<span class="comment">// v1 is used as the value list of the range-based for loop.</span>
+	<span class="keyword">for</span> <span class="special">(</span><span class="keyword">const</span> <span class="keyword">float</span> <span class="special">&amp;</span> <span class="identifier">x</span><span class="special">:</span> <span class="identifier">v1</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"element: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">x</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>	
+	<span class="special">}</span>
+<span class="special">}</span>
+</pre>
+<p>
+      <span class="bold"><strong>For-loop</strong></span> and the method <span class="bold"><strong>.operator[]</strong></span>
+      of std::vector can be used to access the array elements.
+    </p>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">float</span><span class="special">&gt;</span> <span class="identifier">v1</span><span class="special">{</span><span class="number">1.2f</span><span class="special">,</span> <span class="number">2.3f</span><span class="special">,</span> <span class="number">3.2f</span><span class="special">,</span> <span class="number">2.4f</span><span class="special">,</span> <span class="special">-</span><span class="number">2.7f</span><span class="special">,</span> <span class="number">7.9f</span><span class="special">};</span>
+
+<span class="keyword">for</span> <span class="special">(</span><span class="keyword">int</span> <span class="identifier">i</span><span class="special">=</span><span class="number">0</span><span class="special">;</span> <span class="identifier">i</span><span class="special">&lt;</span><span class="identifier">v1</span><span class="special">.</span><span class="identifier">size</span><span class="special">();</span> <span class="special">++</span><span class="identifier">i</span><span class="special">)</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">v1</span><span class="special">[</span><span class="identifier">i</span><span class="special">]</span> <span class="special">&lt;&lt;</span> <span class="char">'\n'</span><span class="special">;</span>	<span class="comment">// .operator[]</span>
+</pre>
+<h3>
+<a name="day-21-cpp-stl-std-vector.h8"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-vector.method-push_back"></a></span><a class="link" href="day-21-cpp-stl-std-vector.html#day-21-cpp-stl-std-vector.method-push_back">Method
+      .push_back</a>
+    </h3>
+<p>
+      The method .push_back of std::vector can be used to add element to the end
+      of the std::vector object.
+    </p>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">float</span><span class="special">&gt;</span> <span class="identifier">v1</span><span class="special">{</span><span class="number">1.2f</span><span class="special">,</span> <span class="number">2.3f</span><span class="special">,</span> <span class="number">3.2f</span><span class="special">,</span> <span class="number">2.4f</span><span class="special">,</span> <span class="special">-</span><span class="number">2.7f</span><span class="special">,</span> <span class="number">7.9f</span><span class="special">};</span>
+<span class="identifier">v1</span><span class="special">.</span><span class="identifier">push_back</span><span class="special">(</span><span class="number">3.14f</span><span class="special">);</span>
+<span class="identifier">v1</span><span class="special">.</span><span class="identifier">push_back</span><span class="special">(</span><span class="number">1.43f</span><span class="special">);</span>
+<span class="identifier">v1</span><span class="special">.</span><span class="identifier">push_back</span><span class="special">(</span><span class="number">2.92f</span><span class="special">);</span>
+</pre>
+<h3>
+<a name="day-21-cpp-stl-std-vector.h9"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-vector.method-empty"></a></span><a class="link" href="day-21-cpp-stl-std-vector.html#day-21-cpp-stl-std-vector.method-empty">Method
+      .empty()</a>
+    </h3>
+<p>
+      Method .empty of std::vector is used to check if the std::vector object is
+      empty.
+    </p>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;</span> <span class="identifier">v1</span><span class="special">;</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">float</span><span class="special">&gt;</span> <span class="identifier">v2</span><span class="special">{</span><span class="number">2.3f</span><span class="special">,</span> <span class="number">3.9f</span><span class="special">};</span>
+<span class="keyword">bool</span> <span class="identifier">s1</span> <span class="special">=</span> <span class="identifier">v1</span><span class="special">.</span><span class="identifier">empty</span><span class="special">();</span>	<span class="comment">// true</span>
+<span class="keyword">bool</span> <span class="identifier">s2</span> <span class="special">=</span> <span class="identifier">v2</span><span class="special">.</span><span class="identifier">empty</span><span class="special">();</span>	<span class="comment">// false</span>
+</pre>
+<h3>
+<a name="day-21-cpp-stl-std-vector.h10"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-vector.method-data"></a></span><a class="link" href="day-21-cpp-stl-std-vector.html#day-21-cpp-stl-std-vector.method-data">Method
+      .data()</a>
+    </h3>
+<p>
+      Note that the std::vector elements storage in memory is continuous.
+    </p>
+<p>
+      The method .data() of std::vector is used to get the pointer to the first memory
+      space of std::vector object.
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">vector</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">auto</span> <span class="identifier">vector</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;{</span><span class="number">2</span><span class="special">,</span> <span class="number">3</span><span class="special">,</span> <span class="number">4</span><span class="special">,</span> <span class="number">5</span><span class="special">,</span> <span class="number">7</span><span class="special">,</span> <span class="number">1</span><span class="special">,</span> <span class="number">4</span><span class="special">};</span>
+	<span class="keyword">int</span> <span class="special">*</span> <span class="identifier">ptr</span> <span class="special">=</span> <span class="identifier">vector</span><span class="special">.</span><span class="identifier">data</span><span class="special">();</span>
+	<span class="special">*</span><span class="identifier">ptr</span> <span class="special">=</span> <span class="number">112233</span><span class="special">;</span>
+
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="special">*</span><span class="identifier">ptr</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>	<span class="comment">// 112233</span>
+
+	<span class="keyword">for</span> <span class="special">(</span><span class="keyword">const</span> <span class="keyword">int</span> <span class="identifier">x</span><span class="special">:</span> <span class="identifier">vector</span><span class="special">)</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">x</span> <span class="special">&lt;&lt;</span> <span class="char">' '</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+
+	<span class="keyword">for</span> <span class="special">(</span><span class="keyword">int</span> <span class="identifier">i</span><span class="special">=</span><span class="number">0</span><span class="special">;</span> <span class="identifier">i</span><span class="special">&lt;</span><span class="identifier">vector</span><span class="special">.</span><span class="identifier">size</span><span class="special">();</span> <span class="special">++</span><span class="identifier">i</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="special">*</span><span class="identifier">ptr</span> <span class="special">&lt;&lt;</span> <span class="char">' '</span><span class="special">;</span>
+		<span class="special">++</span><span class="identifier">ptr</span><span class="special">;</span>	<span class="comment">// Move pointer to next element</span>
+	<span class="special">}</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<p>
+      output:
+    </p>
+<pre class="programlisting">112233
+112233 3 4 5 7 1 4
+112233 3 4 5 7 1 4
+</pre>
+<h2>
+<a name="day-21-cpp-stl-std-vector.h11"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-vector.cpp-iterator"></a></span><a class="link" href="day-21-cpp-stl-std-vector.html#day-21-cpp-stl-std-vector.cpp-iterator"><span class="cyan">c++ iterator - std::vector</span></a>
+    </h2>
+<h3>
+<a name="day-21-cpp-stl-std-vector.h12"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-vector.iterators"></a></span><a class="link" href="day-21-cpp-stl-std-vector.html#day-21-cpp-stl-std-vector.iterators">the
+      c++ iterators</a>
+    </h3>
+<p>
+      The <span class="bold"><strong>iterator</strong></span> is a special class of c++ STL
+      library. <br> Many c++ STL containers (it is named ranges too) have its related
+      iterator, <br> they share many same or similar principles.
+    </p>
+<p>
+      An iterator object stands for an access position of the range.
+    </p>
+<h3>
+<a name="day-21-cpp-stl-std-vector.h13"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-vector.method-begin-end"></a></span><a class="link" href="day-21-cpp-stl-std-vector.html#day-21-cpp-stl-std-vector.method-begin-end">Method
+      .begin(), .end() of the range</a>
+    </h3>
+<p>
+      std::vector has two methods: <span class="bold"><strong>.begin()</strong></span>, <span class="bold"><strong>.end()</strong></span>, and some other ranges have them too.
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          <span class="bold"><strong>.begin()</strong></span> of the std::vector or other ranges
+          returns an iterator to store the start position of the range.
+        </li>
+<li class="listitem">
+          <span class="bold"><strong>.end()</strong></span> of the std::vector or other ranges
+          returns an iterator to store the position past the last element of the
+          range.
+        </li>
+</ul></div>
+<pre class="programlisting"><span class="comment">// std::vector can be named container, and can be also named range</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;</span> <span class="identifier">v2</span> <span class="special">=</span> <span class="special">{</span><span class="number">2</span><span class="special">,</span> <span class="number">3</span><span class="special">,</span> <span class="number">4</span><span class="special">,</span> <span class="number">5</span><span class="special">,</span> <span class="number">7</span><span class="special">,</span> <span class="number">9</span><span class="special">,</span> <span class="number">13</span><span class="special">};</span>
+<span class="keyword">auto</span> <span class="identifier">itr1</span> <span class="special">=</span> <span class="identifier">v2</span><span class="special">.</span><span class="identifier">begin</span><span class="special">();</span>	<span class="comment">// return an iterator to store the start position.</span>
+<span class="keyword">auto</span> <span class="identifier">itr2</span> <span class="special">=</span> <span class="identifier">v2</span><span class="special">.</span><span class="identifier">end</span><span class="special">();</span>	<span class="comment">// return an iterator to store the position past the last element.</span>
+</pre>
+<p>
+      <span class="bold"><strong>iterator type</strong></span> : the iterator type that the
+      .begin() and .end() returns has some complexity, you can use auto here to ignore
+      those complexity, <span class="bold"><strong>auto</strong></span> works at many cases.
+      Feel free to use auto, you just only need to know how to use it currently.
+    </p>
+<h3>
+<a name="day-21-cpp-stl-std-vector.h14"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-vector.method-move-itr"></a></span><a class="link" href="day-21-cpp-stl-std-vector.html#day-21-cpp-stl-std-vector.method-move-itr">Method
+      <span class="blue">.operator++, .operator--</span> of the iterator</a>
+    </h3>
+<p>
+      The iterator type is a class, it defined many convenient methods.
+    </p>
+<pre class="programlisting"><span class="special">++</span><span class="identifier">itr1</span><span class="special">;</span>	<span class="comment">// Move itr1 to store the next position of the range.</span>
+<span class="identifier">itr1</span><span class="special">++;</span>	<span class="comment">// Move itr1 to store the next position of the range.</span>
+
+<span class="special">--</span><span class="identifier">itr1</span><span class="special">;</span>	<span class="comment">// Move itr1 to store the previous position of the range.</span>
+<span class="identifier">itr1</span><span class="special">--;</span>	<span class="comment">// Move itr1 to store the previous position of the range.</span>
+</pre>
+<h3>
+<a name="day-21-cpp-stl-std-vector.h15"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-vector.method-get-element"></a></span><a class="link" href="day-21-cpp-stl-std-vector.html#day-21-cpp-stl-std-vector.method-get-element">Method
+      <span class="blue">.operator*</span> of the iterator</a>
+    </h3>
+<p>
+      An iterator is an object, <br> it stores the position of related range.
+      <br> If you want to <span class="blue">take the element</span> from the
+      range via the iterator, <br> you can use method <span class="bold"><strong>.operator*</strong></span>
+    </p>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;</span> <span class="identifier">v3</span><span class="special">{</span><span class="number">4</span><span class="special">,</span> <span class="number">5</span><span class="special">,</span> <span class="number">7</span><span class="special">,</span> <span class="number">2</span><span class="special">,</span> <span class="number">9</span><span class="special">,</span> <span class="number">6</span><span class="special">};</span>	<span class="comment">// v3 is a std::vector object, it is a range</span>
+
+<span class="keyword">auto</span> <span class="identifier">itr_jj</span> <span class="special">=</span> <span class="identifier">v3</span><span class="special">.</span><span class="identifier">begin</span><span class="special">();</span>	<span class="comment">// Feel free to use auto</span>
+
+<span class="keyword">int</span> <span class="identifier">x</span> <span class="special">=</span> <span class="special">*</span> <span class="identifier">itr_jj</span><span class="special">;</span>	<span class="comment">// Method .operator*    it takes 4 from the range</span>
+
+<span class="special">++</span><span class="identifier">itr_jj</span><span class="special">;</span>
+<span class="special">++</span><span class="identifier">itr_jj</span><span class="special">;</span>
+<span class="special">++</span><span class="identifier">itr_jj</span><span class="special">;</span>
+
+<span class="keyword">int</span> <span class="identifier">a</span> <span class="special">=</span> <span class="special">*</span> <span class="identifier">itr_jj</span><span class="special">;</span>	<span class="comment">// Take 2 from the range through the iterator now</span>
+</pre>
+<h3>
+<a name="day-21-cpp-stl-std-vector.h16"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-vector.method-minus"></a></span><a class="link" href="day-21-cpp-stl-std-vector.html#day-21-cpp-stl-std-vector.method-minus">Method
+      <span class="blue">.operator-</span> of the iterator</a>
+    </h3>
+<p>
+      The method <span class="bold"><strong>.operator-</strong></span> is the method of the
+      iterator:
+    </p>
+<pre class="programlisting"><span class="keyword">auto</span> <span class="identifier">distance</span> <span class="special">=</span> <span class="identifier">itr2</span> <span class="special">-</span> <span class="identifier">itr1</span><span class="special">;</span>
+</pre>
+<p>
+      It means calculating the distance of two iterators, the result is an integer
+      type.
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">vector</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;</span> <span class="identifier">v4</span><span class="special">{</span><span class="number">9</span><span class="special">,</span> <span class="number">3</span><span class="special">,</span> <span class="number">8</span><span class="special">,</span> <span class="number">7</span><span class="special">,</span> <span class="number">5</span><span class="special">,</span> <span class="number">4</span><span class="special">,</span> <span class="number">2</span><span class="special">};</span>
+
+	<span class="keyword">auto</span> <span class="identifier">end</span> <span class="special">=</span> <span class="identifier">v4</span><span class="special">.</span><span class="identifier">end</span><span class="special">();</span>
+
+	<span class="comment">// const can be applied to the iterator, so it is immutable.</span>
+	<span class="keyword">const</span> <span class="keyword">auto</span> <span class="identifier">itr1</span> <span class="special">=</span> <span class="identifier">v4</span><span class="special">.</span><span class="identifier">begin</span><span class="special">();</span>
+
+	<span class="keyword">auto</span> <span class="identifier">itr2</span> <span class="special">=</span> <span class="identifier">v4</span><span class="special">.</span><span class="identifier">begin</span><span class="special">();</span>
+	<span class="special">++</span><span class="identifier">itr2</span><span class="special">;</span>
+	<span class="identifier">itr2</span><span class="special">++;</span>
+	<span class="special">++</span><span class="identifier">itr2</span><span class="special">;</span>
+	<span class="identifier">itr2</span> <span class="special">+=</span> <span class="number">2</span><span class="special">;</span>	<span class="comment">// Move to next 2 elements.</span>
+
+	<span class="keyword">auto</span> <span class="identifier">dist1</span> <span class="special">=</span> <span class="identifier">itr2</span> <span class="special">-</span> <span class="identifier">itr1</span><span class="special">;</span>	<span class="comment">// result is 5, because their distance is 5.</span>
+	<span class="keyword">auto</span> <span class="identifier">dist2</span> <span class="special">=</span> <span class="identifier">end</span> <span class="special">-</span> <span class="identifier">itr1</span><span class="special">;</span>	<span class="comment">// result is 7, because their distance is 7.</span>
+	<span class="keyword">auto</span> <span class="identifier">dist3</span> <span class="special">=</span> <span class="identifier">end</span> <span class="special">-</span> <span class="identifier">itr2</span><span class="special">;</span>	<span class="comment">// result is 2, because their distance is 2.</span>
+
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">dist1</span> <span class="special">&lt;&lt;</span> <span class="char">','</span> <span class="special">&lt;&lt;</span> <span class="identifier">dist2</span> <span class="special">&lt;&lt;</span> <span class="char">','</span> <span class="special">&lt;&lt;</span> <span class="identifier">dist3</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<p>
+      <br> <br> <br> <br> <br> <br>
+    </p>
+<p>
+      <em class="replaceable"><code>Written on Dec 07, 2024</code></em>
+    </p>
+<h2>
+<a name="day-21-cpp-stl-std-vector.h17"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-vector.role_cyan_back_to_index"></a></span><a class="link" href="day-21-cpp-stl-std-vector.html#day-21-cpp-stl-std-vector.role_cyan_back_to_index"><span class="cyan">Back to index</span></a>
+    </h2>
+<p>
+      <a href="." target="_top">Index</a>
+    </p>
+<h2>
+<a name="day-21-cpp-stl-std-vector.h18"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-vector.helpful"></a></span><a class="link" href="day-21-cpp-stl-std-vector.html#day-21-cpp-stl-std-vector.helpful"><span class="cyan">Helpful</span></a>
+    </h2>
+<p>
+      <a href="https://www.cppfx.tiv.cc" target="_top">www.cppfx.tiv.cc</a>
+    </p>
+<h2>
+<a name="day-21-cpp-stl-std-vector.h19"></a>
+      <span class="phrase"><a name="day-21-cpp-stl-std-vector.role"></a></span><a class="link" href="day-21-cpp-stl-std-vector.html#day-21-cpp-stl-std-vector.role"><span class="cyan">Role</span></a>
+    </h2>
+<p>
+      +
+    </p>
+<p>
+      Powered by:<br> <a href="https://www.bfgroup.xyz/b2" target="_top">B2 Build</a>
+      | <a href="https://www.boost.org/tools/quickbook" target="_top">boost quickbook</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      <a href="https://www.cppfx.tiv.cc/donate.html" target="_top">Donate</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      @<a href="https://www.cppfx.tiv.cc" target="_top">www.cppfx.tiv.cc</a>
+    </p>
+<p>
+      <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+      <br> <br> <br> <br> <br>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="day-20-cpp-compile-time-constexpr.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="day-22-cpp-stl-std-string.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

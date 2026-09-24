@@ -1,0 +1,126 @@
+[article parser::parse(...) boost::parser
+	[id first-parser-parse]
+	[quickbook 1.7]
+]
+
+namespace parser = boost::parser;[br]
+auto result = parser::parse(input, parser, skip);
+
+[h1:first-cpp-example [role cyan My First c++ Example]]
+
+[!c++]
+```
+#include <boost/parser/parser.hpp>
+
+namespace parser = boost::parser;
+
+int main()
+{
+	std::string input = "1.2,2.3, 3.4 ,4.5		     ,  8.7   	, 	 2.4";
+	auto result = parser::parse(
+		input,
+		parser::double_ >> *(',' >> parser::double_),
+		parser::ws
+	);
+	static_assert(std::same_as<decltype(result), std::optional<std::vector<double>>>);
+	if (result)
+	{
+		for (auto & x: *result)
+		{
+			std::cout << "=> " << x << std::endl;
+		}
+	}
+	else
+	{
+		std::cout << "parse error" << std::endl;
+	}
+}
+```
+
+output:
+
+[!teletype]
+```
+=> 1.2
+=> 2.3
+=> 3.4
+=> 4.5
+=> 8.7
+=> 2.4
+```
+
+[h1 [role cyan My second c++ example]]
+
+[!c++]
+```
+#include <boost/parser/parser.hpp>
+#include <iostream>
+
+namespace parser = boost::parser;
+
+int main()
+{
+	const std::string input = "1.2, 2.3 ,3.4 , 4.5   ,	,		,,    , 7,8,9.2";
+	auto result = parser::parse(
+		input,
+		+parser::double_,
+		parser::ws | parser::char_(',')
+	);
+	static_assert(std::same_as<decltype(result), std::optional<std::vector<double>>>);
+	if (result)
+		for (auto & x: *result)
+			std::cout << "=> " << x << std::endl;
+	else
+		std::cout << "parse error" << std::endl;
+}
+```
+
+output:
+
+[!teletype]
+```
+=> 1.2
+=> 2.3
+=> 3.4
+=> 4.5
+=> 7
+=> 8
+=> 9.2
+```
+
+[h1 [role cyan parser::parse overloaded]]
+
+namespace parser = boost::parser;
+
+[!c++]
+```
+bool r = parser::parse(input, -parser-, attr, trace-mode=-off-);
+```
+
+[!c++]
+```
+auto result = parser::parse(input, -parser-, trace-mode=-off-);
+```
+
+[!c++]
+```
+bool r = parser::parse(input, -parser-, -skip-, -atr-, trace-mode=-off-);
+```
+
+[!c++]
+```
+auto result = parser::parse(input, -parser-, -skip, trace-mode=-off-);
+```
+
+[br] [br] [br] [br]
+[br] [br] [br] [br]
+[br] [br] [br] [br]
+
+Jan 21, 2025
+
+[h1:back [role cyan Back]]
+
+[link first-see-boost-parser Up]
+
+[include ../../../../share/foot-links.inc.qbk]
+

@@ -1,0 +1,16 @@
+[article c++ Silice Unsilice
+	[id cpp-silice-unsilice]
+	[quickbook 1.7]
+]
+
+[include lvalue-rvalue.qbk]
+[include traits-type-traits.qbk]
+[include boost-proto.qbk]
+
+[h1:back [role cyan Back]]
+
+[@. Up]
+
+
+
+[include ../../../share/foot-links.inc.qbk]

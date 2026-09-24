@@ -1,0 +1,87 @@
+[article SerenityOS: gcc \[c++ compiler\]
+	[id serenityos-gcc]
+	[quickbook 1.7]
+]
+
+SerenityOS c++ compiler: gcc
+
+[@. Up: c++ compilers]
+
+[h1:serenityos-cpp [role cyan SerenityOS c++ compiler]]
+
+Install gcc c++ compiler port on serenityos.
+
+[@https://serenityos.org [role red SerenityOS:] https://serenityos.org]
+
+[@https://gcc.gnu.org [role red GNU c++:] https://gcc.gnu.org]
+
+[h1:build-run-serenityos [role cyan Build and Run SerenityOS]]
+
+Get serenityos code, build and run it.
+
+[h1:install-gcc-port [role cyan Install gcc port]]
+
+Install SerenityOS gcc port.
+
+[h1:cpp-editor [role cyan c++ Editor]]
+
+[h2:serenityos-text-editor SerenityOS Text Editor]
+
+Use SerenityOS Text Editor
+
+Serenity System has its own text editor, just use it.
+
+[h2:kakoune Kakoune c++ Editor]
+
+Kakoune is a console c++ code editor.
+
+[@https://kakoune.org]
+
+You can install kakoune c++ editor to write c++.
+
+Install serenityos kakoune port.
+
+[h1:check [role cyan Check]]
+
+Check if the c++ compiler works.
+
+Copy paste the following c++ code, and save as hello.cpp:
+
+[!c++]
+```
+#include <iostream>
+
+int main()
+{
+	std::cout << "Hello, c++!" << std::endl;
+}
+```
+
+Compile and run the c++ code:
+
+[!teletype]
+```
+g++ hello.cpp -std=c++23 -lgcc_s -o hello
+./hello
+```
+
+It should output:
+
+```
+Hello, c++!
+```
+
+If the serenityos gcc c++ compiler can not compile c++ code, find and repair issues, or ask for help.
+
+[br][br][br][br][br][br][br][br]
+
+________________________________________
+
+[~Written on Feb 17, 2025]
+
+[@. Up: c++ compilers]
+
+[include ../../share/foot-links.inc.qbk]
+
+
+

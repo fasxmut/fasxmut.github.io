@@ -1,0 +1,39 @@
+[book logs - Blogs or News
+	[quickbook 1.7]
+]
+
+[include d0036-cpp-random-number.qbk]
+[include d0035-botan-cpp-tls.qbk]
+[include d0034-const-ref-remove-cvref-cpp-concept.qbk]
+[include d0033-std-string_view-unnecessary-allocation.qbk]
+[include d0032_sycl_buffer.qbk]
+[include d0031_sycl_handler_copy_queue_fill.qbk]
+[include d0030_sycl_queue_copy_queue_fill.qbk]
+[include d0029_sycl_class_kernel.qbk]
+[include d0028_sycl_buffer_host_access.qbk]
+[include d0025_b2_build_group_libs.qbk]
+[include d0023_windows_cpp_compiler.qbk]
+[include d0022_cpp_std_float_type.qbk]
+[include d0021_kubuntu_cpp_compiler.qbk]
+[include d0016_cobalt_main_entry_points.qbk]
+[include d0015_cobalt_beast_http_cs.qbk]
+[include d0014_cobalt_op_cpp_boost.qbk]
+[include d0013_cobalt_race_boost_cpp.qbk]
+[include d0012_boost_cobalt_fast.qbk]
+[include d0011_sycl_copy_method.qbk]
+[include d0010_q4os_sycl_cpp.qbk]
+[include d0009-chaiscript-cpp.qbk]
+[include d0006-cpp-integral.qbk]
+
+Logs - blogs or News .
+
+[@https://www.boost.org/tools/quickbook boost quickbook]
+
+[h2 Back]
+
+[@.. Up]
+
+[include ../../share/foot-links.inc.qbk]
+
+
+

@@ -1,0 +1,191 @@
+[article Create and Manage c++ Project with b2 build
+	[quickbook 1.7]
+	[id create-manage-cpp-project-b2-build]
+]
+
+[role drop_menu
+	[*Jump in this page:][br]
+	[link create-manage-cpp-project-b2-build Start][br]
+	[link create-manage-cpp-project-b2-build.executable-project c++ executable project][br]
+	[link create-manage-cpp-project-b2-build.library-project c++ library project][br]
+	[br]
+	[*Back:] [link cpp-build-system c++ Build System]
+]
+
+B2 build is a perfect build system to create, manage, upgrade c++ project.
+
+Read first: [link build-install-b2-build Build and Install B2 Build] .
+
+[h1:executable-project [role cyan Create, manage c++ executable project]]
+
+[*Start: create project directory]
+
+```
+mkdir my-prj
+cd my-prj
+```
+
+[*Write Jamfile]
+
+[role blue [*File: jamroot]]
+
+```
+exe hello : hello.cpp : <define>cpp_hot : <cxxstd>26 ;
+```
+
+[*exe] is a rule to define an executable target: [*hello]
+
+[role ddgreen [*In b2 jamfiles, many rules have five parameters, splitted by a colon keyword]] [role red [*:]] , [*(A colon is a keyword in b2 jamfiles.)]
+
+Note that both the left side and right side of : and ; must be blank characters.
+
+* [role red First parameter: [*hello]][br]
+First parameter is commonly the [role dred [*target name]] .
+* [role red Second parameter: [*hello.cpp]][br]
+Second parameter is commonly the [role dred [*source list]]: c++ source file list; and also, another target can be put to the source list too.
+* [role red Third parameter: [*<define>cpp_hot]][br]
+Third parameter commonly lists some [role dred [*requirements]] that are required to build current target, these requirements can not be overrided on commandline. [*These requirements can be named as [role dred requirements]] .
+* [role red Fourth parameter: [*<cxxstd>26]][br]
+4th parameter commonly lists some preferences that are used to build current target, these preferences can be overrided on commandline. There preferences can be named as [role dred [*default-build]]
+* [role red 5th parameter: none in this example][br]
+5th parameter lists some requirements required by another target that depends on current target: If another target depends on current target, these requirements will be applied to another target. It is named [role dred [*usage-requirements]] .
+
+[*Write c++]
+
+[role blue File: hello.cpp]
+
+[!c++]
+```
+#include <iostream>
+
+int main()
+{
+	std::cout << "Hello, c++!" << std::endl;
+}
+```
+
+[*Build project]
+
+Just run command b2:
+
+```
+> b2
+```
+
+[*Run program:]
+
+The compiled program is generated at folder bin, you have to find it.
+
+```
+> ./bin/gcc-16/debug/cxxstd-26-iso/hello
+Hello, c++!
+```
+
+[h1:library-project [role cyan Create, manage c++ library project]]
+
+[role ddred [*Init project folders:]]
+
+```
+mkdir myprj
+cd myprj
+mkdir include src
+```
+
+[role ddred [*File: jamroot]]
+
+```
+lib foo : src/foo.cpp : <cxxstd>26 <include>./include : : <include>./include ;
+
+exe prog : prog.cpp : <library>foo ;
+```
+
+rule [*lib] defines a target [*foo].
+
+Because [*foo] is a [*lib] target, the b2 build will generate [*libfoo.so] by default on linux, or related shared library on windows.
+
+[*<cxxstd>26] in the [*requirements] list: it can not be overrided on commandline (in the 3rd paramter);
+
+[*<include>./include] in the [*requirements] list of [*third parameter]: building current library requires using ./inlcude as include path,[br]
+which is translated to [role ddblue [*-I./include]][br]
+;
+
+The 4th parameter is empty;
+
+[*<include>./include] in the list of [*5th parameter]: if another target depends on this target, [*<include>./include] will be applied to another target;
+
+[role ddred [*File: include/foo.hpp]]
+
+[!c++]
+```
+#pragma once
+
+namespace dir
+{
+	class foo
+	{
+	public:
+		void print() const;
+	};
+};
+```
+
+[role ddred [*File: src/foo.cpp]]
+
+[!c++]
+```
+#include <foo.hpp>
+#include <iostream>
+
+void dir::foo::print() const
+{
+	std::cout << "Hello, c++ world!" << std::endl;
+}
+```
+
+[role ddred [*File: prog.cpp]]
+
+[!c++]
+```
+#include <foo.hpp>
+
+int main()
+{
+	dir::foo object;
+	object.print();
+}
+```
+
+[role ddred [*Build project:]]
+
+Just run command b2
+
+```
+b2
+```
+
+[role ddred [*Run program:]]
+
+The program prog is generated in bin folder, you have to find where it is.
+
+```
+> ./bin/gcc-16/debug/prog
+Hello, c++ world!
+>
+```
+
+[h1:see-also [role cyan See Also]]
+
+[@https://www.bfgroup.xyz/b2/manual/release/index.html]
+
+[h1:date [role cyan Date]]
+
+Date: Thu Jun 19 02:12:53 AM UTC 2025
+
+Last Update: Sun Sep  6 04:20:33 AM UTC 2026
+
+[h1:back [role cyan Back]]
+
+[*Back:] [link cpp-build-system c++ Build System]
+
+[include ../../../share/foot-links.inc.qbk]
+

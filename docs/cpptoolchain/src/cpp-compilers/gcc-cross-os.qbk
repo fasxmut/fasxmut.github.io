@@ -1,0 +1,142 @@
+[article gcc: c++ compiler on SereniyOS, Haiku OS, Linux, Windows
+	[quickbook 1.7]
+	[id gcc-cross-os]
+]
+
+[role drop_menu
+	[*Jump in this page:][br]
+	[link gcc-cross-os Start][br]
+	[link gcc-cross-os.build-gcc Get Gcc & Build & Install][br]
+	[link gcc-cross-os.install-from-distribution Install From Distribution][br]
+	[link gcc-cross-os.cpp-code-editor c++ code Editor][br]
+	[link gcc-cross-os.check Check compiling][br]
+	[br]
+	[*Back:] [link cpp-compilers c++ compilers]
+]
+
+[h1:build-gcc [role cyan Get Gcc & Build & Install]]
+
+[h3 Get gcc code:]
+
+```
+git clone --depth=1 https://gcc.gnu.org/git/gcc.git SomeLocalDir
+```
+
+[h3 SerenityOS]
+
+```
+cd SerenityOS-Project-Dir/Ports/gcc
+./build.sh
+```
+
+[h3 Haiku OS]
+
+Build it.
+
+[h3 Linux]
+
+```
+cd SomeLocalDir
+./configure --help
+./configure \
+	--prefix=/gcc \
+	--disable-multilib \
+	--enable-languages=c++ \
+	--enable-stage1-languages=c++ \
+	--build=x86_64-linux-gnu \
+	--host=x86_64-linux-gnu \
+	--target=x86_64-linux-gnu
+```
+```
+make -j8
+make install
+```
+
+[h3 Windows]
+
+Use mingw64.
+
+[h1:install-from-distribution [role cyan Install From Distribution]]
+
+[h3 SerenityOS]
+
+No gcc distribution.
+
+[h3 Haiku OS]
+
+Gcc is distributed to haiku os image, and it can be installed by pkgman too:
+
+```
+pkgman search gcc
+pkgman install gcc
+```
+
+[h3 Linux]
+
+```
+apt install gcc
+```
+
+[h3 Windows]
+
+Use mingw64.
+
+[h1:cpp-code-editor [role cyan c++ code Editor]]
+
+Many good editors can be used for writing c++ code.
+
+[h3 Kakoune]
+
+Kakoune can be installed to SerenityOS, Haiku OS, Linux, Windows.
+
+[h3 Featherpad]
+
+Featherpad can be installed to Haiku OS, Linux.
+
+[h3 Native Text Editor]
+
+* SerenityOS: [* Serenity Text Editor]
+* Haiku OS: [* Haiku Pe], [* Haiku StyleEdit]
+* Linux: [*Kwrite]
+
+[h1:check [role cyan Check compiling]]
+
+Check if the c++ compiler works.
+
+Copy paste the following c++ code, and save as hello.cpp:
+
+[!c++]
+```
+#include <iostream>
+
+int main()
+{
+	std::cout << "Hello, c++!" << std::endl;
+}
+```
+
+Compile and run the c++ code:
+
+```
+g++ hello.cpp -std=c++26 -lgcc_s -o hello
+./hello
+```
+
+It should output:
+
+```
+Hello, c++!
+```
+
+If the gcc c++ compiler can not compile c++ code, find and repair issues, or ask for help.
+
+[h1:date [role cyan Date]]
+
+Sun Sep  6 02:02:48 AM UTC 2026
+
+[h1:back [role cyan Back]]
+
+[*Back:] [link cpp-compilers c++ compilers]
+
+[include ../../../share/foot-links.inc.qbk]
+

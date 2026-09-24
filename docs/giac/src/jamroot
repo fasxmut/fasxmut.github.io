@@ -1,0 +1,74 @@
+path-constant qbk-media-root : ../../share/fx-quickbook-media/qbk-media ;
+path-constant giac-src-root : . ;
+path-constant giac-web-root : .. ;
+
+argv = [ modules.peek : ARGV ] ;
+
+if [ MATCH ^(clean)$ : $(argv) ]
+{
+	echo "rm -rf `find $(giac-web-root) -name bin`" ;
+	SHELL "rm -rf `find $(giac-web-root) -name bin`" ;
+
+	echo "rm -rf `find $(giac-src-root) -name html`" ;
+	SHELL "rm -rf `find $(giac-src-root) -name html`" ;
+
+	exit ;
+}
+
+if [ MATCH ^(cleanall)$ : $(argv) ]
+{
+	echo "rm -rf `find $(giac-web-root) -name bin`" ;
+	SHELL "rm -rf `find $(giac-web-root) -name bin`" ;
+
+	echo "rm -rf `find $(giac-web-root) -name *html`" ;
+	SHELL "rm -rf `find $(giac-web-root) -name *html`" ;
+
+	echo "rm -rf `find $(giac-web-root) -name *css`" ;
+	SHELL "rm -rf `find $(giac-web-root) -name *css`" ;
+
+	echo "rm -rf `find $(giac-web-root) -name images`" ;
+	SHELL "rm -rf `find $(giac-web-root) -name images`" ;
+
+	echo "rm -rf `find $(giac-web-root) -name *manifest`" ;
+	SHELL "rm -rf `find $(giac-web-root) -name *manifest`" ;
+
+	exit ;
+}
+
+xml xml-index : giac.qbk ;
+
+boostbook
+	html-index
+:
+	xml-index
+:
+	<xsl:param>"chunk.first.sections=1"
+	<xsl:param>"chunker.output.doctype-public=-//W3C//DTD XHTML 1.0 Strict//EN"
+	<xsl:param>"chunker.output.doctype-system=http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"
+	<dependency>media
+;
+
+install html
+:
+	[ glob
+		$(giac-src-root)/html/*.html
+		$(giac-src-root)/html/*.manifest
+	]
+:
+	<location>$(giac-web-root)
+	<install-source-root>$(giac-src-root)/html
+;
+
+install media
+:
+	[ glob
+		$(qbk-media-root)/*.css
+		$(qbk-media-root)/images/*.png
+	]
+:
+	<location>$(giac-web-root)
+	<install-source-root>$(qbk-media-root)
+;
+
+
+

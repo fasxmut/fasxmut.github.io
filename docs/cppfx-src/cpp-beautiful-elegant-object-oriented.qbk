@@ -1,0 +1,227 @@
+[article c++ is a beautiful, elegant, object-oriented programming language
+	[quickbook 1.7]
+	[id cpp-beautiful-elegant-object-oriented]
+]
+
+[role drop_menu
+> [link cpp-beautiful-elegant-object-oriented Start][br]
+> [link cpp-beautiful-elegant-object-oriented.cpp-beautiful c++ is beautiful][br]
+> [link cpp-beautiful-elegant-object-oriented.cpp-elegant c++ is elegant][br]
+> [link cpp-beautiful-elegant-object-oriented.cpp-object-oriented c++ is object-oriented][br]
+> [link cpp-beautiful-elegant-object-oriented.cpp-generic c++ is generic][br]
+> [link cpp-beautiful-elegant-object-oriented.cpp-general-purpose c++ is general-purpose][br]
+> [@. Back: Home]
+]
+
+c++ is a beautiful, elegant, object-oriented, generic, and general-purpose programming language.
+
+[h1:cpp-beautiful [role cyan c++ is beautiful]]
+
+c++ code is beautiful, writing c++ is enjoyment.
+
+[!c++]
+```
+#include <algorithm>
+#include <vector>
+#include <stdfloat>
+#include <array>
+#include <bit>
+#include <map>
+#include <deque>
+#include <iostream>
+
+int main()
+{
+	std::vector<int> values{97, 98, 99, 100, 101};
+	while (values.size() != 26u)
+		values.push_back(values[values.size()-1]+1);
+	std::string v2;
+	std::copy(values.begin(), values.end(), std::back_inserter(v2));
+	std::array<std::float32_t, 1024> pool;
+	std::transform(
+		v2.begin(),
+		v2.end(),
+		pool.begin(),
+		[&] (auto x)
+		{
+			return static_cast<decltype(pool)::value_type>(x);
+		}
+	);
+	std::deque<std::float32_t> trans(pool.size());
+	std::ranges::copy(pool, trans.begin());
+	while (trans.size() != v2.size())
+		trans.pop_back();
+	contract_assert(trans.size() == v2.size());
+	std::wstring v3;
+	std::transform(
+		trans.begin(),
+		trans.end(),
+		std::back_inserter(v3),
+		[&] (auto x)
+		{
+			return static_cast<decltype(v3)::value_type>(x);
+		}
+	);
+	std::wcout << v3 << std::endl;	// abcdefghijklmnopqrstuvwxyz
+}
+```
+
+[h1:cpp-elegant [role cyan c++ is elegant]]
+
+c++ code is elegant.
+
+[!c++]
+```
+#include <meta>
+#include <iostream>
+#include <vector>
+#include <map>
+
+namespace dg
+{
+	enum class number
+	{
+		zero,
+		one,
+		two,
+		three,
+		four,
+		five
+	};
+}
+
+int main()
+{
+	constexpr auto numbers = std::define_static_array(
+		std::meta::enumerators_of(
+			^^dg::number
+		)
+	);
+	std::map<int, std::string> map;
+	template for (constexpr const std::meta::info & meta: auto(numbers))
+	{
+		constexpr int x = static_cast<int>([:meta:]);
+		map[x] = std::meta::identifier_of(meta);
+	}
+	for (auto [x, str]: map)
+		std::cout << x << " " << str << std::endl;
+}
+
+// output:
+/*
+0 zero
+1 one
+2 two
+3 three
+4 four
+5 five
+*/
+```
+
+[h1:cpp-object-oriented [role cyan c++ is object-oriented]]
+
+c++ is an object-oriented programming language.
+
+[!c++]
+```
+#include <iostream>
+#include <memory>
+
+namespace dg
+{
+	class shootable
+	{
+	public:
+		virtual ~shootable() = default;
+	public:
+		virtual void shoot() = 0;
+	public:
+		virtual int get_value() const = 0;
+	};
+	class gatling:
+		virtual public dg::shootable
+	{
+	private:
+		int __bullets;
+	public:
+		gatling(int bullets__ = 10000000):
+			__bullets{bullets__}
+		{
+		}
+		void shoot() override
+		{
+			if (__bullets <= 0)
+				return;
+			if (__bullets >= 500)
+				__bullets -= 500;
+			else
+				__bullets = 0;
+		}
+	public:
+		int get_value() const override
+		{
+			return __bullets;
+		}
+	};
+}
+
+int main()
+{
+	std::shared_ptr<dg::shootable> gatling = std::make_shared<dg::gatling>();
+	while (gatling->get_value() > 0)
+	{
+		gatling->shoot();
+		std::cout << "Bullets: " << gatling->get_value() << std::endl;
+	}
+}
+```
+
+[h1:cpp-generic [role cyan c++ is generic]]
+
+c++ is generic.
+
+[!c++]
+```
+namespace dg
+{
+	template <typename any_type>
+	class generic
+	{
+	};
+
+	template <std::integral any_type>
+	using integral_generic = dg::generic<any_type>;
+
+	template <std::floating_point any_type>
+	using floating_generic = dg::generic<any_type>;
+}
+```
+
+[h1:cpp-general-purpose [role cyan c++ is general-purpose]]
+
+c++ is a general-purpose programming language. c++ is excellent for high-level and low-level programming, for cross-platforms, for variety of domains, many different programming paradigms.
+
+* High-level programming:
+	* Web programming: boost asio, beast, boost json.
+	* GUI programming: Qt.
+* Low-level programming:
+	* Operating system: SerenityOS, Haiku OS
+* Cross-Platforms:
+	* General c++ code is compiled on windows, linux with zero-modifications.
+* Variety of domains:
+	* Mathematics: boost ublas
+	* Games
+* Many different programming paradigms.
+
+//////////////////////////////////////////////////////////////////////
+
+[@. Home]
+
+//////////////////////////////////////////////////////////////////////
+
+Sat Jul 11 02:18:57 AM UTC 2026
+
+//////////////////////////////////////////////////////////////////////
+
+[include ../share/foot-links.inc.qbk]
+

@@ -1,0 +1,36 @@
+[article About
+	[quickbook 1.7]
+	[id about]
+]
+
+[role drop_menu
+> [link about Start][br]
+> [@. Back: Home]
+]
+
+cppfx, c++ and c++.
+
+[*[role dddred www.cppfx.tiv.cc]] - A website for c++ programming, applications, games and declicated systems.
+
+My declaration about www.cppfx.tiv.cc and its github repos:
+
+* No politics
+* No military viewpoint and standpoint
+* No country-level nationalism
+
+github:[br]
+[*[role dddred https://github.com/cppfx]][br]
+[*[role dddred https://github.com/fasxmut]][br]
+
+[@donate.html Donate]
+
+//////////////////////////////////////////////////////////////////////
+
+[@. Home]
+
+//////////////////////////////////////////////////////////////////////
+
+[include ../share/foot-links.inc.qbk]
+
+
+

@@ -1,0 +1,23 @@
+[article c++ Foundation Libraries
+	[quickbook 1.7]
+	[id cpp-foundation-libraries]
+]
+
+[role drop_menu
+	[role dddred [* c++ Foundation Libraries]][br]
+	[br]
+	[*Back: [@. c++ Toolchain]]
+]
+
+[include cpp-stl.qbk]
+[include cpp-boost.qbk]
+[include cpp-botan.qbk]
+
+[h1:back [role cyan Back]]
+
+[*Back: [@. c++ Toolchain]]
+
+[include ../../../share/foot-links.inc.qbk]
+
+
+

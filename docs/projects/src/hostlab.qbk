@@ -1,0 +1,17 @@
+[article HostLab
+	[id hostlab]
+	[quickbook 1.7]
+]
+
+HostLab: server labs
+
+This is not a production project.
+
+Github: [@https://github.com/cppfx/hostlab]
+
+[h1:back [role cyan Back]]
+
+[@. Up]
+
+[include ../../share/foot-links.inc.qbk]
+

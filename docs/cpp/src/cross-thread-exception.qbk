@@ -1,0 +1,215 @@
+[article c++ cross-thread exception: std::future
+	[id cpp-cross-thread-exception]
+	[quickbook 1.7]
+]
+
+c++ cross-thread exception: std::future, std::promise, and std::packaged_task.
+
+[h1:std-promise [role cyan Use std::promise]]
+
+The exception thrown by a thread is held by std::future actually, the std::promise object must call method .set_exception to route exception to std::future.
+
+promise.set_exception(...)
+
+[*c++ example:]
+
+[!c++]
+```
+#include <lyra/lyra.hpp>
+#include <future>
+#include <iostream>
+#include <thread>
+
+namespace my
+{
+
+class printer
+{
+protected:
+	std::mutex mutex;
+public:
+	void print(auto && value)
+	{
+		std::unique_lock<std::mutex> lock{mutex};
+		std::cout << value << std::endl;
+	}
+};
+
+inline static my::printer print;
+
+}
+
+int main(int argc, char ** argv)
+{
+	bool throw_it;
+	bool help = false;
+	auto cli = lyra::help(help)
+		| lyra::opt(throw_it, "throw it, ture or false")["-t"]("throw exception when running ...")
+	;
+	auto result = cli.parse({argc, argv});
+	if (help || argc == 1 || ! result)
+	{
+		my::print.print(cli);
+		return 0;
+	}
+
+	std::promise<int> promise;
+	std::future<int> future = promise.get_future();
+	std::jthread thread{
+		[throw_it] (std::promise<int> promise)
+		{
+			std::this_thread::sleep_for(std::chrono::seconds(1));
+			if (throw_it)
+			{
+				try
+				{
+					throw std::runtime_error{"No way, you can not get a value!"};
+				}
+				catch (...)
+				{
+					promise.set_exception(std::current_exception());
+				}
+			}
+			else
+				promise.set_value(78291);
+		},
+		std::move(promise)
+	};
+	my::print.print("Run main ...");
+	int value = -1;
+	try
+	{
+		value = future.get();
+	}
+	catch (const std::exception & e)
+	{
+		std::string msg = "c++ std::exception on main: ";
+		msg += e.what();
+		msg += " <<<<<<<<";
+		my::print.print(msg);
+	}
+	std::string res = "Got value: ";
+	res += std::to_string(value);
+	my::print.print(res);
+}
+```
+
+Compile and run it:
+
+[!teletype]
+```
+$ g++ prog.cpp -std=c++23 -o prog
+$ ./prog -t false
+Run main ...
+Got value: 78291
+$ ./prog -t true
+Run main ...
+c++ std::exception on main: No way, you can not get a value! <<<<<<<<
+Got value: -1
+```
+
+[h1:std-packaged-task [role cyan Use std::packaged_task]]
+
+std::packaged_task has std::promise inside, any exception thrown in a packaged-task thread, the exception is routed to std::future automatically.
+
+[*c++ example:]
+
+[!c++]
+```
+#include <lyra/lyra.hpp>
+#include <future>
+#include <iostream>
+#include <thread>
+
+namespace my
+{
+
+class printer
+{
+protected:
+	std::mutex mutex;
+public:
+	void print(auto && value)
+	{
+		std::unique_lock<std::mutex> lock{mutex};
+		std::cout << value << std::endl;
+	}
+};
+
+inline static my::printer print;
+
+}
+
+int main(int argc, char ** argv)
+{
+	bool throw_it;
+	bool help = false;
+	auto cli = lyra::help(help)
+		| lyra::opt(throw_it, "throw it, ture or false")["-t"]("throw exception when running ...")
+	;
+	auto result = cli.parse({argc, argv});
+	if (help || argc == 1 || ! result)
+	{
+		my::print.print(cli);
+		return 0;
+	}
+
+	std::packaged_task<int()> task{
+		[throw_it]
+		{
+			std::this_thread::sleep_for(std::chrono::seconds(1));
+			if (throw_it)
+				throw std::runtime_error{"No way, you can not get a value!"};
+			// else
+			return 7829100;
+		}
+	};
+	std::future<int> future = task.get_future();
+	std::jthread thread{
+		std::move(task)
+	};
+	my::print.print("Run main ...");
+	int value = -1;
+	try
+	{
+		value = future.get();
+	}
+	catch (const std::exception & e)
+	{
+		std::string msg = "c++ std::exception on main: ";
+		msg += e.what();
+		msg += " <<--------<<";
+		my::print.print(msg);
+	}
+	std::string res = "Got value: ";
+	res += std::to_string(value);
+	my::print.print(res);
+}
+```
+
+Compile and run it:
+
+[!teletype]
+```
+$ g++ prog.cpp -std=c++23 -o prog
+$ ./prog -t false
+Run main ...
+Got value: 7829100
+$ ./prog -t true
+Run main ...
+c++ std::exception on main: No way, you can not get a value! <<--------<<
+Got value: -1
+```
+
+[br][br][br]
+[br][br][br]
+[br][br][br]
+
+Feb 26, 2025
+
+[h1:back [role cyan Back]]
+
+[@. Up]
+
+[include ../../share/foot-links.inc.qbk]
+

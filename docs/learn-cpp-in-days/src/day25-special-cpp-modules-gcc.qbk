@@ -1,0 +1,552 @@
+[article day-25: Special: c++ modules gcc
+	[id day-25-special-cpp-modules-gcc]
+	[quickbook 1.7]
+]
+
+[role dddgreen The gcc used for this article is 16.0.0, built from gcc git source code. (Apr 24, 2025).]
+
+[role drop_menu
+
+> [link day-25-special-cpp-modules-gcc Start]
+	[br]
+> [link day-25-special-cpp-modules-gcc.import-std First: import std;]
+	[br]
+> [link day-25-special-cpp-modules-gcc.make-a-cpp-module Next: Make a c++ module]
+	[br]
+> [link day-25-special-cpp-modules-gcc.modules-shared-library Next: Modules Shared Library]
+	[br]
+> [link day-25-special-cpp-modules-gcc.module-partition Next: Module Partition]
+	[br]
+> [link day-25-special-cpp-modules-gcc.header-unit Next: Header Unit]
+	[br]
+> [link day-25-special-cpp-modules-gcc.split-definitions Next: Split Definitions]
+	[br]
+> [link day-25-special-cpp-modules-gcc.modules-in-b2-build Next: c++ Modules in B2]
+	[br]
+> [link day-25-special-cpp-modules-gcc.glossary Last: Glossary]
+	[br]
+> [@. Back: Index]
+
+]
+
+[*Alias gpp:]
+
+[pre
+[*alias [role dred gpp]="path/to/the/g++ -fmodules-ts -std=c++26"]
+]
+
+[h1:import-std [role cyan First: import std;]]
+
+[*import declaration]: import module units, module partitions, header units.
+
+[*Pre-compile gcc std.gcm :]
+
+```
+> gpp -fmodule-only -fsearch-include-path bits/std.cc -c
+> ls gcm.cache/
+std.gcm
+```
+
+It will generate gcm.cache/std.gcm at current working directory.
+
+Pre-compiling std.gcm is a little slow, after compiling it, the compiling of using of "import std;" is very fast.
+
+[*hello.cpp :]
+
+[!c++]
+```
+import std;
+
+int main()
+{
+	std::cout << "Hello, c++ modules!" << std::endl;
+}
+```
+
+[*Compile program hello.cpp:]
+
+(very fast)
+
+After the cache [~gcm.cache/std.gcm] is generated, the compiling is super fast.
+
+```
+> gpp hello.cpp -o hello
+> ./hello 
+Hello, c++ modules!
+```
+
+The cache [*./gcm.cache/std.gcm] will be reused for the rest parts of this article conveniently.
+
+[h1:make-a-cpp-module [role cyan Next: Make a c++ module]]
+
+[*export declaration:]
+
+c++ module declaration starts with a keyword export or module.
+
+E.X:
+
+[~[role ddred export module module-name;]]
+
+Declares a primary module interface unit and export, its name is module-name .
+
+[~[role ddred
+export namespace namespace-name[br]
+{[br]
+...
+]]
+
+export a namespace
+
+
+[role dddgreen Make a c++ module, source code: my_class.cppm] ->
+
+([role dddred Note that gcc supports both .cppm and .cpp as the c++ module source code file  name extension.])
+
+[*my_class.cppm] :
+
+[!c++]
+```
+export module my_module;
+
+import std;
+
+export namespace my_space
+{
+	class my_class
+	{
+	public:
+		void greeting() const
+		{
+			std::cout << "Cheers, c++!" << std::endl;
+		}
+	};
+}
+```
+
+Use the module, source code: main.cpp
+
+[*main.cpp] :
+
+[!c++]
+```
+import my_module;
+
+int main()
+{
+	my_space::my_class my_object;
+	my_object.greeting();
+}
+```
+
+[*Compile them] :
+
+```
+> gpp my_class.cppm main.cpp -o main
+> ./main
+Cheers, c++!
+```
+
+The compiling order is compiling my_class.cppm first, then main.cpp
+
+[h1:modules-shared-library [role cyan Next: Modules Shared Library]]
+
+Just compile the module source c++ file to shared library.
+
+[*my_cpp.cppm] :
+
+[!c++]
+```
+export module my_module;
+export import std;
+export namespace my_space
+{
+	class my_class
+	{
+	private:
+		int __x;
+	public:
+		my_class(int x__): __x{x__} {}
+	public:
+		int get() const {return __x;}
+	};
+}
+```
+
+[*main.cpp] :
+
+[!c++]
+```
+import my_module;
+int main()
+{
+	my_space::my_class object{234};
+	std::cout << "get: " << object.get() << std::endl;
+}
+```
+
+[*Compile] :
+
+```
+> gpp my_cpp.cppm -c -fPIC -shared -o libmy_cpp.so
+> gpp main.cpp -L./ -lmy_cpp -o main
+> ./main 
+get: 234
+```
+
+[h1:module-partition [role cyan Next: Module Partition]]
+
+A module partition can be imported by module units of the same named module.
+
+In this example, [role ddgreen [*:my_partition]] can be imported by [role ddgreen [*my_module]], it can not be imported by other module.
+
+[*my_cpp_part.cppm] :
+
+[!c++]
+```
+export module my_module:my_partition;
+
+export namespace my_space
+{
+	class my_class_2
+	{
+	public:
+		int get() const
+		{
+			return -112233;
+		}
+	};
+}
+```
+
+[*my_cpp.cppm] :
+
+[!c++]
+```
+export module my_module;
+
+export import :my_partition;
+
+export namespace my_space
+{
+	class my_class
+	{
+	public:
+		int get() const
+		{
+			return 3333;
+		}
+	};
+}
+```
+
+[*main.cpp] :
+
+[!c++]
+```
+import my_module;
+import std;
+
+int main()
+{
+	my_space::my_class obj1;
+	std::cout << "v: " << obj1.get() << std::endl;
+	my_space::my_class_2 obj2;
+	std::cout << "v: " << obj2.get() << std::endl;
+}
+```
+
+[*Compile] :
+
+(compile order is important, my_cpp.cppm depends on my_cpp_part.cppm)
+
+```
+> gpp my_cpp_part.cppm my_cpp.cppm -c -fPIC
+> gpp *.o -shared -o libmy_cpp.so
+> gpp main.cpp -L./ -lmy_cpp -o main
+```
+
+```
+> ./main
+v: 3333
+v: -112233
+```
+
+[h1:header-unit [role cyan Next: Header Unit]]
+
+[*First, precompile] :
+
+```
+> gpp -xc++-system-header boost/parser/parser.hpp
+> gpp -xc++-system-header iostream
+```
+
+[*Then, use] :
+
+(program.cpp :)
+
+[!c++]
+```
+import <boost/parser/parser.hpp>;
+import <iostream>;
+
+int main()
+{
+	std::cout << "Hello, c++!" << std::endl;
+}
+```
+
+[*Compile] :
+[pre > gpp program.cpp -o program]
+
+[h1:split-definitions [role cyan Next: Split Definitions for Shared Library (Module Unit and Module Implementation Unit)]]
+
+A [* module unit] contains declaration :
+
+[role dddred export module my_module;]
+
+A [*module implementation unit] is the implementation of module unit, which does not have [*export] keyword :
+
+[role dddred module my_module;]
+
+
+[*my_cpp.cppm] : [role dddgreen (module unit)]
+
+[!c++]
+```
+export module my_module;
+export namespace my_space
+{
+	class my_class
+	{
+	public:
+		void greeting() const;
+		void cheers() const;
+		int get() const;
+		virtual ~my_class();
+	};
+}
+```
+
+[*my_cpp_src.cppm] : [role dddgreen (module implementation unit)]
+
+[!c++]
+```
+module my_module;
+import std;
+my_space::my_class::~my_class()
+{
+	std::cout << "Bye, c++!" << std::endl;
+}
+void my_space::my_class::greeting() const
+{
+	std::cout << "Greeting, c++!" << std::endl;
+}
+void my_space::my_class::cheers() const
+{
+	std::cout << "Cheers, c++!" << std::endl;
+}
+int my_space::my_class::get() const
+{
+	return 12345;
+}
+```
+
+[*main.cpp] :
+
+[!c++]
+```
+import my_module;
+import std;
+int main()
+{
+	my_space::my_class my_object;
+	my_object.greeting();
+	my_object.cheers();
+	std::cout << "get: " << my_object.get() << std::endl;
+}
+```
+
+[*Compile] :
+
+```
+> gpp my_cpp.cppm my_cpp_src.cppm -c -fPIC
+> gpp my_cpp.o my_cpp_src.o -shared -o libmy_cpp.so
+> gpp main.cpp -L./ -lmy_cpp -o main
+```
+
+```
+> ./main
+Greeting, c++!
+Cheers, c++!
+get: 12345
+Bye, c++!
+```
+
+[h2:about-module-declaration About Module Declaration]
+
+[*Declare Primary Module Unit]
+
+(Name is A)
+
+```
+export module A;
+```
+
+(Name is A.B)
+
+```
+export module A.B;
+```
+
+[*Declare Module Implementation Unit]
+
+```
+module A;
+```
+
+```
+module A.B;
+```
+
+[h2:constexpr-template constexpr and template]
+
+constexpr and template declared api can not be splitted into two declaration and definition module files.
+
+[h1:modules-in-b2-build [role cyan Next: c++ Modules in B2 Build System]]
+
+c++ modules gcc can be used in b2 build by flags settings trick.
+
+[h2:first First: About import std;]
+
+First, generate [*[role ddgreen gcm.cache/std.gcm]] cache in current working directory like talked in the beginning of this article, I am a little lazy of how to make it by a b2 jamfile trick.
+
+[h2:cpp-src c++ source files]
+
+The same c++ source files of previous section of this article will be used for this project:
+
+([link day-25-special-cpp-modules-gcc.split-definitions Split Definitions for Shared Library])
+
+* my_cpp.cppm
+* my_cpp_src.cppm
+* main.cpp
+
+(Because b2 build does not support .cppm file name extension by default (which needs a simple patch), we have to rename them):
+
+* my_cpp.cppm	->	mycpp.cpp
+* my_cpp_src.cppm	->	my_cpp_src.cpp
+* main.cpp
+
+[h2:jamroot File: jamroot]
+
+The file jamroot in current working directory:
+
+[*jamroot] :
+
+[!c++]
+```
+project : requirements <cxxflags>"-fmodules-ts" : default-build <cxxstd>26 ;
+obj obj-my_cpp : my_cpp.cpp ;
+obj obj-my_cpp_src : my_cpp_src.cpp : <dependency>obj-my_cpp ;
+lib my_cpp : obj-my_cpp obj-my_cpp_src ;
+exe main : main.cpp : <library>my_cpp <dependency>my_cpp ;
+```
+
+[h2:build-project Build the project]
+
+(Requires toolset gcc version >= 15.2. I use 16.0)
+
+[*Build:]
+
+```
+> b2 -q -j7
+```
+
+Make sure the toolset used for this project is gcc. Visual c++ and clang++ has different compiler flags.
+
+
+[*Run program:]
+
+```
+> ls ./bin/gcc-latest/debug/cxxstd-26-iso/
+libmy_cpp.so  main  main.o  my_cpp.o  my_cpp_src.o
+>
+>
+>
+> ./bin/gcc-latest/debug/cxxstd-26-iso/main
+Greeting, c++!
+Cheers, c++!
+get: 12345
+Bye, c++!
+```
+
+[h1:glossary [role cyan Last: Glossary]]
+
+[h2:module-declaration Module Declaration]
+
+...
+
+[h2:module-definition Module definition]
+
+...
+
+[h2:export-declaration Export Declaration]
+
+...
+
+[h2:import-declaration Import Declaration]
+
+...
+
+[h2:translation-unit Translation Unit]
+
+...
+
+[h2:module-unit Module Unit]
+
+A module unit is a translation unit which has a module declaration.
+
+[h2:module-partition-unit Module Partition Unit]
+
+A module partition unit is a module unit which is included by a module unit and starts with a colon [*[role red :]] , and is placed after the module name.
+
+[*For example],
+
+```
+export module A:B;
+```
+
+```
+export module A;
+```
+
+* A is a module unit,
+
+* :B is a module partition unit.
+
+[h2:module-name Module Name]
+
+Module name is the name of the module unit, which consists of one or more identifiers separated by dots. Note that module partition unit is also module unit.
+
+[*For example],
+
+```
+// Module name is A
+export module A;
+```
+
+```
+// Module name is A.B.C
+export module A.B.C;
+```
+
+[h1:date [role cyan Date]]
+
+[~Written on Apr 24, 2025]
+
+[~Latest update on May 14, 2025]
+
+[h1:back [role cyan Back to index]]
+
+[@. Index]
+
+[include ../../share/foot-links.inc.qbk]

@@ -1,0 +1,51 @@
+[book cppfx - c++, b2 build
+	[quickbook 1.7]
+	[id cppfx]
+]
+
+[include cpp-botan-tls-https-server-asio-beast.qbk]
+[include cpp-beautiful-elegant-object-oriented.qbk]
+[include cpp-virtual-derivation-grandpa-constructing-propagation-solution.qbk]
+[include prj-askit.qbk]
+[include cpp-json-boost-property_tree-how-4423.qbk]
+[include cpp-enum-class-micro-database-reflection.qbk]
+[include cpp-stdm-def-agg-exa.qbk]
+[include cpp-stdm-subs-exa.qbk]
+[include cpp26-reflection-gcc16.qbk]
+[include cpp-sopp.qbk]
+[include cpp-botan-tls-stream-asio-beast-awaitable-https-example.qbk]
+[include cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.qbk]
+[include cpp-botan-tls-stream-constructors.qbk]
+[include cpp-cryptopp-modern-chacha-poly.qbk]
+[include cpp-cryptopp-modern-fk7a.qbk]
+[include cpp-std-packaged_task-for-exception-propagation.qbk]
+[include cpp-qt-webengine.qbk]
+[include cpp-std-expected-std-unexpected.qbk]
+[include asio-thread_pool-std-bind-bind-lifetime-to-object.qbk]
+[include debugging-cpp-std.qbk]
+[include boost-process-asio-pipe.qbk]
+[include writing-jamfiles.qbk]
+[include asio-thread_pool-executor.qbk]
+[include donate.qbk]
+[include about.qbk]
+
+[role drop_menu
+> [@. Start][br]
+> [link cppfx.subspaces Subspaces][br]
+> [@learn-cpp-in-days Special: Learn c++ In Days][br]
+> [@cpptoolchain Special: c++ Toolchain][br]
+> [@donate.html Donate][br]
+]
+
+[h1:subspaces [role cyan Subspaces]]
+
+* [@learn-cpp-in-days Learn c++ in days]
+
+* [@cpptoolchain c++ Toolchain]
+
+[@old-index.html Old Index]
+
+[include ../share/foot-links.inc.qbk]
+
+
+

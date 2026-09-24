@@ -1,0 +1,24 @@
+[book Dig Botan c++
+	[quickbook 1.7]
+	[id dig-botan]
+]
+
+[include 2024-10-21-01-botan-cpp-base58.qbk]
+[include 2024-10-20-02-botan-cpp-rng.qbk]
+[include 2024-10-20-01-botan-cpp-tls-https.qbk]
+
+[h2 About]
+
+Dig Botan c++ code.
+
+[h2 Botan]
+
+c++ Botan Home: [@https://botan.randombit.net]
+
+[h2 Back]
+
+[@.. Up]
+
+
+
+[include ../../share/foot-links.inc.qbk]

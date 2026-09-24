@@ -1,0 +1,25 @@
+[article Elisa Player
+	[id elisa]
+	[quickbook 1.7]
+]
+
+Dec 18, 2024
+
+Elisa is a music player written in c++ qt.
+
+The Elisa music player is developed by the KDE community and strives to be simple and pleasant to use.
+
+With Elisa, you can browse your local music collection by genre, artist, album, or track, listen to online radio, create and manage playlists, display lyrics, and more.
+
+Elisa supports your full KDE color scheme when used on the Plasma desktop, or else the standard light and dark modes.
+
+Chill out with Party Mode, which puts your music's album art front and center.
+
+Home: [@https://apps.kde.org/elisa]
+
+[h1:back [role cyan Back]]
+
+[@. Up]
+
+[include ../../share/foot-links.inc.qbk]
+

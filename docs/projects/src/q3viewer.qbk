@@ -1,0 +1,38 @@
+[article q3viewer
+	[id q3viewer]
+	[quickbook 1.7]
+]
+
+[h1 [role cyan q3viewer - quake 3 map scene viewer]]
+
+q3viewer is a single file viewer of quake 3 map scene. It can help c++ developers and me to quick explore the quake 3 map in advance.
+
+[h1 [role cyan source code]]
+
+[@https://github.com/fasxmut/q3viewer]
+
+[h1 [role cyan How to build]]
+
+[h2 Build and install b2 build]
+
+[@https://www.bfgroup.xyz/b2]
+
+the_cpp_engine is not placed here.
+
+[h2 Build q3viewer]
+
+[!teletype]
+```
+cd q3viewer/
+b2 -q -j7 \
+define=api=testp \
+define=engine_device=testp::TestpubDevice \
+cxxflags="-include /sand/include/testpub/core.hpp" \
+linkflags=-ltestpub-core
+```
+
+[h1:back [role cyan Back]]
+
+[@. Up]
+
+[include ../../share/foot-links.inc.qbk]

@@ -1,0 +1,21 @@
+[article FeatherPad
+	[id featherpad]
+	[quickbook 1.7]
+]
+
+Dec 20, 2024
+
+Featherpad is a text and code editor written in c++ qt.
+
+Home: [@https://github.com/tsujan/FeatherPad]
+
+[h1:back [role cyan Back]]
+
+[@. Up]
+
+
+
+
+
+
+[include ../../share/foot-links.inc.qbk]

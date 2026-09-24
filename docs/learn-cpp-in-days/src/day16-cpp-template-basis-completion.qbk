@@ -1,0 +1,216 @@
+[article day-16: c++ template, the moon
+	[id day-16-cpp-template-moon]
+	[quickbook 1.7]
+]
+
+* [link day-16-cpp-template-moon.template-class-class-template Dialectics: c++ template class and class template, 1 minute]
+
+* [link day-16-cpp-template-moon.non-type-template-parameter c++ non-type template parameter, 2 minutes]
+
+* [link day-16-cpp-template-moon.template-in-inheritance c++ template in inheritance, 15 minutes]
+
+[h1:template-class-class-template [role cyan Dialectics: c++ template class and class template, 1 minute]]
+
+You have learned class and template class from previous days. ([link day-15-cpp-template day-15: c++ template])
+
+[role green On day-15, I used [*template class] to introduce template,]
+
+[role indigo In most cases, class template is more accurate than template class.]
+
+[role red Dialectics: what's the difference between them ? Why do we inverse the order by using class template ?]
+
+[role purple Let's think about some questions,]
+
+* [role blue What is c++ class used for ?	- c++ class is used for creating objects.]
+
+* [role blue What is c++ template class used for ?	- c++ template class is used for creating classes.]
+
+[role green So then, we will call the template class [role purple class template], because it is template, used for creating classes.]
+
+[role purple Got:]
+
+[role blue class template]
+
+[!c++]
+```
+template <typename type_t00>
+class my_class
+{
+};
+```
+
+* my_class is a class template, it is a template.
+* my_class<int> is a class,
+* my_class<double> is a class,
+* ...
+
+[h1:non-type-template-parameter [role cyan c++ non-type template parameter, 2 minutes]]
+
+On [link day-15-cpp-template day-15], we have learned the template parameter is a type.
+
+However, the template parameter (and argument) can be a value:
+
+[!c++]
+```
+template <int value_v00>
+class my_class
+{
+};
+```
+
+[*value_v00] is not a type, it is a value,
+
+How to instantiate it:
+
+[!c++]
+```
+my_class<23> object1;
+auto object2 = my_class<32>{};
+```
+
+The non-type template parameter is called c++ nttp.
+
+[!c++]
+```
+#include <iostream>
+
+template <int value_v00>
+class my_class
+{
+public:
+	void print() const {std::cout << value_v00 << std::endl;}
+};
+
+int main()
+{
+	auto obj3 = my_class<32>{};
+	obj3.print();
+}
+```
+
+[h1:template-in-inheritance [role cyan c++ template in inheritance, 15 minutes]]
+
+[h2 class template inheritance]
+
+If A is derived from B, both A and B can be a class template, or a class (non-template).
+
+[!c++]
+```
+#include <iotream>
+
+template <typename type_t00>
+class B
+{
+};
+
+template <typename type_t00>
+class A: public B<type_t00>	// A is derived from B
+{
+};
+
+int main()
+{
+	A<int> obj1;
+	auto obj2 = A<float>{};
+}
+```
+
+[h2:template-parameter-overgoing template parameter overgoing in inheritance]
+
+[h3 parameter overgoing :::->]
+
+`A<int>`
+
+You pass the template type parameter [*int] to [role blue A], [role blue A] will pass the template parameter [*int] to [role blue B] .
+
+[h3 parameter overgoing :::-> pass itself]
+
+A passes a template parameter to B, can A pass A itself to B? Absolutely, it can.
+
+[!c++]
+```
+template <typename type_t00>
+class B {};
+
+template <typename type_t00>
+class A: public B<A<type_t00>>
+{
+};
+```
+
+Using the derived class as the template argument of the base class is a c++ idiom, it is called [role purple [*CRTP]], coined by Jim Coplien in 1995.
+
+[!c++]
+```
+template <typename type_t00>
+class base_class {};
+
+class derived_class: public base_class<derived_class> {};
+```
+
+[h3 parameter overgoing :::->]
+
+You pass paramter to A, A is derived from B, ...
+
+Is it possible that A is derived from its parameters ? Yes !
+
+[!c++]
+```
+#include <iostream>
+
+template <typename type_t00>
+class A: public type_t00
+{
+};
+
+class B
+{
+};
+
+int main()
+{
+	auto obj2 = A<B>{};
+}
+```
+
+Multiple parameters work too:
+
+[!c++]
+```
+#include <iostream>
+
+template <typename type_t00, typename type_t01, typename type_t02>
+class A: public type_t00, public type_t01, public type_t02
+{
+};
+
+class B {};
+
+template <typename type_t00>
+class C {};
+
+class D {};
+
+int main()
+{
+	auto obj1 = A<B, C<int>, D>{};
+}
+```
+
+[br]
+[br]
+[br]
+[br]
+[br]
+[br]
+
+[~Written on Nov 13, 2024]
+
+[h1 [role cyan Back to index]]
+
+[@. Index]
+
+[include ../../share/foot-links.inc.qbk]
+
+
+

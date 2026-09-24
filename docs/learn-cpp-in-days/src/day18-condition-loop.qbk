@@ -1,0 +1,277 @@
+[article day-18: c++ condition, loop
+	[id day-18-cpp-condition-loop]
+	[quickbook 1.7]
+]
+
+* [link day-18-cpp-condition-loop.if c++ if-statement]
+* [link day-18-cpp-condition-loop.switch c++ switch-branches]
+* [link day-18-cpp-condition-loop.three-op c++ three-op-operator :?]
+* [link day-18-cpp-condition-loop.for c++ for loop]
+* [link day-18-cpp-condition-loop.range-based-for c++ range-based for loop]
+* [link day-18-cpp-condition-loop.while c++ while loop]
+* [link day-18-cpp-condition-loop.do-while c++ do-while loop]
+
+[h1:if [role cyan if-statement - \[c++ if-conditions\]]]
+
+[*if] is a c++ condition statement.
+
+[*Syntax:]
+
+[!c++]
+```
+if (<<condition-expression>>)
+{
+	<<evaluate-statement-1>>;
+	<<evaluate-statement-2>>;
+	// ... more statements
+}
+else
+{
+	<<evaluate-statement-1>>;
+	<<evaluate-statement-2>>;
+	// ... more statements
+}
+```
+
+*[*<<condition-expression>>] is an expression that can be judged as [*true] or [*false].
+*[*<<evaluate-statement>>] etc. are some statements that will be executed by your program.
+* The [*else] section can be omitted.
+
+[*c++ example:]
+[!teletype]
+```
+int x;
+x = 4;
+if (x == 4)
+{
+	std::cout << "x is 4" << std::endl;
+}
+else
+{
+	std::cout << "x is not 4" << std::endl;
+}
+```
+
+Because [*x] is [*4], so [*x == 4] is true, so [~[_[*`std::cout << "x is 4" << std::endl;`]]] will be executed, [~[_[*`std::cout << "x is not 4" << std::endl;`]]] will be not executed.
+
+[h1:switch [role cyan switch branches - \[c++ if-conditions\]]]
+
+[*switch] is another c++ condition statement, [*switch] is a more powerful [*if]
+
+[*Syntax:]
+
+[!c++]
+```
+switch (<<value-expression>>)
+{
+case <<value1>>:
+	<<evaluate-statement-1>>;
+	break;
+case <<value2>>:
+	<<evaluate-statement-2>>;
+	break;
+// more case ...
+// more case ...
+default:
+	<<evaluate-statement-N>>;
+	break;
+}
+```
+
+* If [~[_[*<<value-expression>>]]] is equal to [~[_[*<<value1>>]]], it will execute [~[_[*<<evaluate-statement-1>>;]]]
+* If [~[_[*<<value-expression>>]]] is equal to [~[_[*<<value2>>]]], it will execute [~[_[*<<evaluate-statement-2>>;]]]
+* ....
+* ....
+* If all of the above [*case]s are not met, the [~[_[*<<evaluate-statement-N>>;]]] "inside" th [*default] will be executed.
+* [~[_[*break]]] means "break and quit the switch immediately", otherwise another case might match the condition, and an unexpected statement will be executed, so you'd better add a [*break] "inside" every case.
+
+[h1:three-op [role cyan c++ three-op-operator :? \[c++ if-conditions\]]]
+
+[~[_[*three-op-operator :?]]] is also another c++ if-condition. It is more short for value judgement.
+
+[~[*[role blue ?:]]]
+
+[*Syntax:]
+
+[!c++]
+```
+auto result = <<condition>> ? <<expression-1>> : <<expression-2>> ;
+```
+
+* If [~[_[*<<condition>>]]] is [role green true], the [~[_[*<<expression-1>>]]] will be executed, and the result is [~[_[*<<expression-1>>]]]
+* If [~[_[*<<condition>>]]] is [role green false], the [~[_[*<<expression-2>>]]] will be executed, and the result is [~[_[*<<expression-2>>]]]
+
+[*c++ example:]
+
+[!c++]
+```
+bool x = 3;
+std::string result = (x==3)?"true":"false";
+```
+
+[h1:for [role cyan for-loop - \[c++ loops\]]]
+
+c++ for loop
+
+[*Syntax:]
+
+[!c++]
+```
+// for-loop:
+for (<<init-statement>>; <<judge-condition>>; <<change-expression>>)
+{ // loop-body begins
+	<<evaluate-statement-1>>;
+	<<evaluate-statement-2>>;
+	// ... more statement
+	// ... more statement
+} // loop-body ends
+```
+
+* [~[_[*for-loop]]] will execute the [role blue loop-body] again and again, ...
+* [~[_[*<<init-statement>>]]] is used to set the initial status, it is used to initialize a variable's value commonly.
+* [~[_[*<<judge-condition>>]]] is an expression that can be judged to [*true] or [*false], if it is [role blue true], the [*loop-body] will be executed again; if it is [role blue false], the [*for-loop] will quit.
+* [~[_[*<<change-expression>>]]] is used to change the [*status] of something. You don't want to execute the same [role red loop-body] commonly, so [~[_[*<<change-expression>>]]] can be used to change the [*status].
+* [~[_[*Infinite loop]]] - If the [~[_[*<<judge-condition>>]]] is always [role blue true], the for-loop will run forever until some external thing interrupts it. This is commonly used in a game-rendering loop, a user click might trigger an event to interrupt the loop.
+* The brackets [~[*{}]] can be omitted, if it has only one [~[_[*<<evaluate-statement>>]]]; otherwise the brackets can not be omitted.
+
+[*[role blue Run orders:]]
+
+* step-1: Run [role purple <<init-statement>>]
+* step-2: Run [role purple <<judge-condition>>] 
+* step-3: Run [role purple <<loop-body>>]
+* step-4: Run [role purple <<change-expression>>]
+* step-5: Run [role purple <<judge-condition>>] 
+* step-6: Run [role purple <<loop-body>>]
+* step-7: Run [role purple <<change-expression>>]
+* [role blue Repeat step-5 -> step-6 -> step-7] again and again
+* [*[role green When it runs at <<judge-condition>>, if the condition is not met (aka. the condition result is false), the [*for-loop] will stop and quit; otherwise it will repeat the loop.]]
+* A [~[_[*break;]]] statement can be inserted inside the [*loop-body] .
+
+[*c++ example:]
+```
+for (int i=0; i<5; ++i)
+{
+	std::cout << "i is " << i << std::endl;
+}
+```
+
+[h1:range-based-for [role cyan c++ Range-based for loop - \[c++ loops\]]]
+
+c++ range-based for loop can be also called c++ for each.
+
+[*Syntax:]
+
+[!c++]
+```
+for (<<declare-a-variable>>: <<initializing-value-list>>)
+{ // loop-body begins
+	<<evaluate-statement-1>>;
+	<<evaluate-statement-2>>;
+	// ... more statement
+	// ... more statement
+} // loop-body ends
+```
+
+* [*<<declare-a-variable>>] is used to declare a [role blue variable] .
+* The [*declared variable] will be assigned with a value from the [*<<initializing-value-list>>] one by one ([role blue iteration])
+* The [*<<loop-body>>] will be executed one by one.
+* When all values of the [*<<initializing-value-list>>] are iterated, the [*range-based for loop] is finished and quits.
+* A [~[_[*break;]]] statement can be inserted inside the [*loop-body] .
+
+[*c++ example:]
+
+[!c++]
+```
+for (std::string str: {"c++", "world", "hello world"})
+{
+	std::cout << "str is " << str << std::endl;
+}
+```
+
+[h1:while [role cyan c++ while-loop \[c++ loops\]]]
+
+c++ while loop
+
+[*Syntax:]
+
+[!c++]
+```
+while (<<judge-condition>>)
+{ // loop-body begins
+	<<evaluate-statement-1>>;
+	<<evaluate-statement-1>>;
+	// ... more statement
+	// ... more statement
+} // loop-body ends
+```
+
+* If [*<<judge-condition>>] is true, run the [*loop-body] again; Otherwise, [*while-loop] stops and quits.
+* [~[_[*Infinite loop]]] - If the [~[_[*<<judge-condition>>]]] is always [role blue true], the while-loop will run forever until some external thing interrupts it. This is commonly used in a game-rendering loop, a user click might trigger an event to interrupt the loop.
+* Put a [*<<change-statement>>] anywhere inside the [*loop-body] to change the [*status] .
+* If the [*<<judge-condition>>] is true at the very first time of running the [*while-loop], the [*while-loop] will stop and quit, so the [*loop-body] will be never executed.
+* A [~[_[*break;]]] statement can be inserted inside the [*loop-body] .
+
+[*c++ example:]
+
+[!c++]
+```
+int x = 0;
+while (x < 10)
+{
+	std:cout << "x is " << x << std::endl;
+	++x;	// change-statement
+}
+```
+
+[h1:do-while [role cyan do-while-loop - \[c++ loops\]]]
+
+c++ do-while loop
+
+[*Syntax:]
+
+[!c++]
+```
+do
+{
+	<<evaluate-statement-1>>;
+	<<evaluate-statement-2>>;
+	// ... more statement
+	// ... more statement
+}
+while (<<judge-condition>>);
+```
+
+* [*do-while-loop] is similar with [*while-loop].
+* The first running is the loop-body, it will always run at the first time, whatever the [*<<judge-condition>>] result is.
+* The [~[_[*;]]] should be placed at the end of [*do-while-loop] .
+
+[*c++ example:]
+
+[!c++]
+```
+int i = 0;
+do
+{
+	std::cout << "i is " << i << std::endl;
+	++i;
+}
+while (i<10);
+```
+
+[br]
+[br]
+[br]
+[br]
+[br]
+[br]
+
+[~Written on Dec 06, 2024]
+
+[h1 [role cyan Back to index]]
+
+[@. Index]
+
+[include ../../share/foot-links.inc.qbk]
+
+
+

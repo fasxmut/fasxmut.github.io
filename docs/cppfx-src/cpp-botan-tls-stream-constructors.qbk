@@ -1,0 +1,159 @@
+[article c++ Botan::TLS::Stream Constructors
+	[quickbook 1.7]
+	[id cpp-botan-tls-stream-constructors]
+]
+
+[role drop_menu
+> [link cpp-botan-tls-stream-constructors Start][br]
+> [link cpp-botan-tls-stream-constructors.constructor-01 constructor 01: master constructor][br]
+> [link cpp-botan-tls-stream-constructors.constructor-02 constructor 02: Propagate to 01][br]
+> [link cpp-botan-tls-stream-constructors.constructor-03 constructor 03: Propagate to 01][br]
+> [link cpp-botan-tls-stream-constructors.constructor-04 constructor 04: Propagate to 02][br]
+> [link cpp-botan-tls-stream-constructors.conclusion Conclusion][br]
+> [@. Back: Home]
+]
+
+This article talks about c++ Botan::TLS::Stream Constructors (overload).
+
+[h1:constructor-01 [role cyan constructor 01: master constructor]]
+
+[!c++]
+```
+template <typename... Args>
+explicit Stream(
+	std::shared_ptr<Context> context,
+	std::shared_ptr<StreamCallbacks> callbacks,
+	Args && ... args
+);
+```
+
+* [role ddgreen [*context]] is used to construct [role dred [*Botan::TLS::Context]] shared pointer object.
+* [role ddgreen [*callbacks]] is used to construct [role dred [*Botan::TLS::StreamCallbacks]] shared pointer object.
+* All [role ddgreen [*args ...]] are forwarded to and used to construct [role dred [*m_nextLayer]],[br]
+* [role dred [*m_nextLayer]] is constructed from a type [role ddcyan  [*StreamLayer]] which is passed from class template (parameters).
+
+[!c++]
+```
+template <class StreamLayer, class ChannelT = Channel>
+class Stream
+{
+	...
+	...
+	StreamLayer m_nextLayer;
+};
+```
+
+* [role ddcyan [*StreamLayer]] can be [role dddgreen [*boost::asio::ip::tcp::socket, boost::beast::tcp_stream,]] or any other [role ddgreen compatible socket] types.
+
+[*c++ Example:]
+
+[!c++]
+```
+auto tls_context = std::make_shared<Botan::TLS::Context>(
+	cred, rng, ses, policy, server_info);
+auto callbacks = std::make_shared<Botan::TLS::StreamCallbacks>();
+boost::asio::thread_pool thread_pool;
+
+Boan::TLS::Stream<boost::beast::tcp_stream> tls_stream{
+	tls_context,
+	callbacks,
+	thread_pool.get_executor()
+};
+```
+
+* [role ddred StreamLayer: [*boost::beast::tcp_stream]]
+* [role ddred args ... : [*thread_pool.get_executor()]]
+* [role ddred m_nextLayer: A beast::tcp_stream object [*constructed from arg thread_pool.get_executor()]]
+
+[note
+	Distinguish class template and constructor template.
+]
+
+[h1:constructor-02 [role cyan constructor 02: Propagate to constructor 01]]
+
+[!c++]
+```
+template <typename... Args>
+explicit Stream(std::shared_ptr<Context> context, Args&&... args);
+```
+
+Propagate from [*constructor 02] to [*constructor 01]:
+
+* [role dred context] as [role dred context]
+* [role dred args ...] as [role dred args ...]
+* A [role dred [*default Botan::TLS::StreamCallbacks object]] is constructed with no parameter.
+
+[h1:constructor-03 [role cyan constructor 03: Propagate to constructor 01]]
+
+[!c++]
+```
+template <typename Arg>
+explicit Stream(
+	Arg&& arg,
+	std::shared_ptr<Context> context,
+	std::shared_ptr<StreamCallbacks> callbacks = std::make_shared<StreamCallbacks>()
+);
+```
+
+Propagate from [*constructor 03] to [*constructor 01]:
+
+* [role dred context] as [role dred context]
+* [role dred callbacks] as [role dred callbacks]
+* [role dred arg] as [role dred args ...]
+
+Please note that[br][role dddgreen arg is single arg;[br]args ... are many args].
+
+[*This constructor is for compatibility, not suggested.]
+
+[*Example:]
+
+[!c++]
+```
+// Work, but not suggested:
+Botan::TLS::Stream tls_stream1{io_context, tls_context};
+
+// Work, highly suggested:
+Botan::TLS::Stream tls_stream2{tls_context, io_context};
+```
+
+[h1:constructor-04 [role cyan constructor 04: Propagate to constructor 02]]
+
+[!c++]
+```
+template <typename... Args>
+explicit Stream(
+	Server_Information server_info,
+	Args&&... args
+):
+	Stream{
+		std::make_shared<Context>(std::move(server_info)),
+		std::forward<Args>(args)...
+	}
+	{}
+```
+
+By this constructor, it will construct a simple [role dddred [*Botan::TLS::Context]] shared pointer object with [role ddred [*server_info]] parameter only.
+
+I think the constructed tls-context by this constructor does not work in many realistic Internet environment.[br]
+To make a fully working [role ddred [*tls-context]] and [role ddred [*tls-stream]], do not use this constructor.
+
+[h1:conclusion [role cyan Conclusion]]
+
+[role ddddgreen [*
+Constructor 01 and constructor 02 are reommended,[br]
+constructor 03 and constructor 04 are not reommended.
+]]
+
+
+//////////////////////////////////////////////////////////////////////
+
+[@. Home]
+
+//////////////////////////////////////////////////////////////////////
+
+Sun Jun 28 11:01:14 AM UTC 2026
+
+//////////////////////////////////////////////////////////////////////
+
+[include ../share/foot-links.inc.qbk]
+

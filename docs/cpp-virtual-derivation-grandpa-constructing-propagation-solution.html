@@ -1,0 +1,253 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>c++ Virtual Derivation Grandpa Constructing Propagation Problem: Solution</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="cppfx - c++, b2 build">
+<link rel="up" href="index.html" title="cppfx - c++, b2 build">
+<link rel="prev" href="cpp-beautiful-elegant-object-oriented.html" title="c++ is a beautiful, elegant, object-oriented programming language">
+<link rel="next" href="prj-askit.html" title="Project: Askit">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="cpp-beautiful-elegant-object-oriented.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="prj-askit.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="cpp-virtual-derivation-grandpa-constructing-propagation-solution"></a>c++ Virtual Derivation Grandpa Constructing Propagation Problem: Solution</h1></div></div>
+<hr>
+</div>
+<p>
+      <span class="drop_menu">&gt; <a class="link" href="cpp-virtual-derivation-grandpa-constructing-propagation-solution.html" title="c++ Virtual Derivation Grandpa Constructing Propagation Problem: Solution">Start</a><br>
+      &gt; <a class="link" href="cpp-virtual-derivation-grandpa-constructing-propagation-solution.html#cpp-virtual-derivation-grandpa-constructing-propagation-solution.cpp-exa-co">c++
+      example code</a><br> &gt; <a class="link" href="cpp-virtual-derivation-grandpa-constructing-propagation-solution.html#cpp-virtual-derivation-grandpa-constructing-propagation-solution.what-will-if-xxk">What
+      will if . ?</a><br> &gt; <a class="link" href="cpp-virtual-derivation-grandpa-constructing-propagation-solution.html#cpp-virtual-derivation-grandpa-constructing-propagation-solution.wha-is-dpa-prob">What
+      is the . ?</a><br> &gt; <a href="." target="_top">Back: Home</a> </span>
+    </p>
+<p>
+      <span class="bold"><strong>Q: <span class="dddgreen">c++: What is the solution
+      of virtual derivation grandpa constructing propagation problem?</span></strong></span>
+    </p>
+<p>
+      <span class="bold"><strong>A: <span class="ddred">The solution is very simple:
+      delete default constructor of the very super-base class.</span></strong></span>
+    </p>
+<h2>
+<a name="cpp-virtual-derivation-grandpa-constructing-propagation-solution.h0"></a>
+      <span class="phrase"><a name="cpp-virtual-derivation-grandpa-constructing-propagation-solution.cpp-exa-co"></a></span><a class="link" href="cpp-virtual-derivation-grandpa-constructing-propagation-solution.html#cpp-virtual-derivation-grandpa-constructing-propagation-solution.cpp-exa-co"><span class="cyan">c++ example Code</span></a>
+    </h2>
+<p>
+      <span class="bold"><strong><span class="ddblue">// code-(1)</span></strong></span>
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">manda</span>
+<span class="special">{</span>
+	<span class="comment">// The very super-base class.</span>
+	<span class="keyword">class</span> <span class="identifier">grandpa</span>
+	<span class="special">{</span>
+	<span class="keyword">protected</span><span class="special">:</span>
+		<span class="keyword">int</span> <span class="identifier">x</span><span class="special">{</span><span class="number">0</span><span class="special">};</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">grandpa</span><span class="special">()</span> <span class="special">=</span> <span class="keyword">delete</span><span class="special">;</span>
+		<span class="identifier">grandpa</span><span class="special">(</span><span class="keyword">int</span> <span class="identifier">x</span><span class="special">):</span> <span class="identifier">x</span><span class="special">{</span><span class="identifier">x</span><span class="special">}</span> <span class="special">{}</span>
+	<span class="special">};</span>
+
+	<span class="keyword">class</span> <span class="identifier">father</span><span class="special">:</span>
+		<span class="keyword">virtual</span> <span class="keyword">public</span> <span class="identifier">grandpa</span>
+	<span class="special">{</span>
+	<span class="keyword">protected</span><span class="special">:</span>
+		<span class="keyword">int</span> <span class="identifier">y</span><span class="special">{</span><span class="number">0</span><span class="special">};</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">father</span><span class="special">(</span><span class="keyword">int</span> <span class="identifier">x</span><span class="special">,</span> <span class="keyword">int</span> <span class="identifier">y</span><span class="special">):</span>
+			<span class="identifier">grandpa</span><span class="special">{</span><span class="identifier">x</span><span class="special">},</span>
+			<span class="identifier">y</span><span class="special">{</span><span class="identifier">y</span><span class="special">}</span>
+		<span class="special">{}</span>
+	<span class="special">};</span>
+
+	<span class="keyword">class</span> <span class="identifier">man</span><span class="special">:</span>
+		<span class="keyword">public</span> <span class="identifier">father</span>
+	<span class="special">{</span>
+	<span class="keyword">protected</span><span class="special">:</span>
+		<span class="keyword">int</span> <span class="identifier">z</span><span class="special">{</span><span class="number">0</span><span class="special">};</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="identifier">man</span><span class="special">(</span><span class="keyword">int</span> <span class="identifier">x</span><span class="special">,</span> <span class="keyword">int</span> <span class="identifier">y</span><span class="special">,</span> <span class="keyword">int</span> <span class="identifier">z</span><span class="special">):</span>
+			<span class="identifier">grandpa</span><span class="special">{</span><span class="identifier">x</span><span class="special">},</span>
+			<span class="identifier">father</span><span class="special">{</span><span class="identifier">x</span><span class="special">,</span> <span class="identifier">y</span><span class="special">},</span>
+			<span class="identifier">z</span><span class="special">{</span><span class="identifier">z</span><span class="special">}</span>
+		<span class="special">{}</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="keyword">void</span> <span class="identifier">print</span><span class="special">()</span> <span class="keyword">const</span>
+		<span class="special">{</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span>
+				<span class="special">&lt;&lt;</span> <span class="string">"(x, y, z) = "</span>
+				<span class="special">&lt;&lt;</span> <span class="string">"("</span> <span class="special">&lt;&lt;</span>  <span class="identifier">x</span> <span class="special">&lt;&lt;</span> <span class="string">", "</span> <span class="special">&lt;&lt;</span> <span class="identifier">y</span> <span class="special">&lt;&lt;</span> <span class="string">", "</span> <span class="special">&lt;&lt;</span> <span class="identifier">z</span> <span class="special">&lt;&lt;</span> <span class="string">")"</span>
+				<span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span>
+			<span class="special">;</span>
+		<span class="special">}</span>
+	<span class="special">};</span>
+<span class="special">}</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">manda</span><span class="special">::</span><span class="identifier">man</span> <span class="identifier">man</span><span class="special">{</span><span class="number">7</span><span class="special">,</span> <span class="number">4</span><span class="special">,</span> <span class="number">9</span><span class="special">};</span>
+	<span class="identifier">man</span><span class="special">.</span><span class="identifier">print</span><span class="special">();</span>
+<span class="special">}</span>
+</pre>
+<p>
+      <span class="bold"><strong>Output:</strong></span>
+    </p>
+<pre class="programlisting"><span class="special">(</span><span class="identifier">x</span><span class="special">,</span> <span class="identifier">y</span><span class="special">,</span> <span class="identifier">z</span><span class="special">)</span> <span class="special">=</span> <span class="special">(</span><span class="number">7</span><span class="special">,</span> <span class="number">4</span><span class="special">,</span> <span class="number">9</span><span class="special">)</span>
+</pre>
+<h2>
+<a name="cpp-virtual-derivation-grandpa-constructing-propagation-solution.h1"></a>
+      <span class="phrase"><a name="cpp-virtual-derivation-grandpa-constructing-propagation-solution.what-will-if-xxk"></a></span><a class="link" href="cpp-virtual-derivation-grandpa-constructing-propagation-solution.html#cpp-virtual-derivation-grandpa-constructing-propagation-solution.what-will-if-xxk"><span class="cyan">What will happen if man does not propagate grandpa?</span></a>
+    </h2>
+<p>
+      <span class="bold"><strong><span class="dred">What will happen if constructor of
+      manda::man does not propagate to manda::grandpa?</span></strong></span>
+    </p>
+<p>
+      <span class="bold"><strong><span class="ddblue">// code-(2)</span></strong></span>
+    </p>
+<pre class="programlisting"><span class="keyword">class</span> <span class="identifier">man</span>
+	<span class="keyword">public</span> <span class="identifier">father</span>
+<span class="special">{</span>
+<span class="keyword">private</span><span class="special">:</span>
+	<span class="keyword">int</span> <span class="identifier">z</span><span class="special">{</span><span class="number">0</span><span class="special">};</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">man</span><span class="special">(</span><span class="keyword">int</span> <span class="identifier">x</span><span class="special">,</span> <span class="keyword">int</span> <span class="identifier">y</span><span class="special">,</span> <span class="keyword">int</span> <span class="identifier">z</span><span class="special">):</span>
+		<span class="comment">// grandpa{x},</span>
+		<span class="identifier">father</span><span class="special">{</span><span class="identifier">x</span><span class="special">,</span> <span class="identifier">y</span><span class="special">},</span>
+		<span class="identifier">z</span><span class="special">{</span><span class="identifier">z</span><span class="special">}</span>
+	<span class="special">{}</span>
+
+		<span class="special">...</span>
+	<span class="special">...</span>
+<span class="special">};</span>
+</pre>
+<p>
+      <span class="bold"><strong><span class="ddgreen">The compiling will help you to
+      correct code by an error message:</span></strong></span>
+    </p>
+<pre class="programlisting">error: use of deleted function ‘manda::grandpa::grandpa()
+</pre>
+<h2>
+<a name="cpp-virtual-derivation-grandpa-constructing-propagation-solution.h2"></a>
+      <span class="phrase"><a name="cpp-virtual-derivation-grandpa-constructing-propagation-solution.wha-is-dpa-prob"></a></span><a class="link" href="cpp-virtual-derivation-grandpa-constructing-propagation-solution.html#cpp-virtual-derivation-grandpa-constructing-propagation-solution.wha-is-dpa-prob"><span class="cyan">What is the problem?</span></a>
+    </h2>
+<p>
+      <span class="bold"><strong><span class="dred">What is the virtual derivation grandpa
+      constructing propagation problem?</span></strong></span>
+    </p>
+<p>
+      <span class="bold"><strong><span class="ddgreen">When c++ cascaded virtual derivation
+      is enabled,<br> manda::man constructor transfers parameters to manda::father
+      constructor,<br> we expect then the manda::father constructor will transfer
+      parameters to manda::grandpa constructor,<br> however it does not work:<br>
+      manda::father constructor does not transfer parameters to manda::grandpa constructor,<br>
+      <span class="ddred">Because</span> they are virtual derivation !<br> Instead,
+      manda::man constructor will implicitly call a default constructor of manda::grandpa
+      directly,<br> which will let wrong parameters be transferred: </span></strong></span>
+    </p>
+<p>
+      <span class="bold"><strong><span class="red">Like code-(2). (and if the default
+      constructor of manda::grandpa is not deleted.)</span></strong></span>
+    </p>
+<p>
+      <span class="bold"><strong><span class="dddblue">To let the correct parameters
+      be transferred from manda::man constructor to manda::grandpa constructor,<br>
+      we can let the manda::man consructor propagate manda::grandpa constructor explicitly:
+      </span></strong></span>
+    </p>
+<p>
+      // code-(3)
+    </p>
+<pre class="programlisting"><span class="keyword">class</span> <span class="identifier">man</span>
+	<span class="keyword">public</span> <span class="identifier">father</span>
+<span class="special">{</span>
+<span class="keyword">private</span><span class="special">:</span>
+	<span class="keyword">int</span> <span class="identifier">z</span><span class="special">{</span><span class="number">0</span><span class="special">};</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">man</span><span class="special">(</span><span class="keyword">int</span> <span class="identifier">x</span><span class="special">,</span> <span class="keyword">int</span> <span class="identifier">y</span><span class="special">,</span> <span class="keyword">int</span> <span class="identifier">z</span><span class="special">):</span>
+		<span class="identifier">grandpa</span><span class="special">{</span><span class="identifier">x</span><span class="special">},</span> <span class="comment">// explicit propagate</span>
+		<span class="identifier">father</span><span class="special">{</span><span class="identifier">x</span><span class="special">,</span> <span class="identifier">y</span><span class="special">},</span>
+		<span class="identifier">z</span><span class="special">{</span><span class="identifier">z</span><span class="special">}</span>
+	<span class="special">{}</span>
+
+		<span class="special">...</span>
+	<span class="special">...</span>
+<span class="special">};</span>
+</pre>
+<p>
+      <span class="bold"><strong><span class="ddred">However, it has an easy-to-make-mistake
+      problem:<br> user programming will be more easy to miss propagating to grandpa
+      constructor,<br> and especially, if the grandpa code is coded at a third-party
+      library,<br> user programming will not realize it at all. </span></strong></span>
+    </p>
+<p>
+      <span class="bold"><strong><span class="dblue">The solution is delete the default
+      constructor of grandpa like this article,<br> then the compiling will point
+      out the error by an error message. </span></strong></span>
+    </p>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<p>
+      <a href="." target="_top">Home</a>
+    </p>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<p>
+      Tue Aug 11 12:46:26 AM UTC 2026
+    </p>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<h2>
+<a name="cpp-virtual-derivation-grandpa-constructing-propagation-solution.h3"></a>
+      <span class="phrase"><a name="cpp-virtual-derivation-grandpa-constructing-propagation-solution.helpful"></a></span><a class="link" href="cpp-virtual-derivation-grandpa-constructing-propagation-solution.html#cpp-virtual-derivation-grandpa-constructing-propagation-solution.helpful"><span class="cyan">Helpful</span></a>
+    </h2>
+<p>
+      <a href="https://www.cppfx.tiv.cc" target="_top">www.cppfx.tiv.cc</a>
+    </p>
+<h2>
+<a name="cpp-virtual-derivation-grandpa-constructing-propagation-solution.h4"></a>
+      <span class="phrase"><a name="cpp-virtual-derivation-grandpa-constructing-propagation-solution.role"></a></span><a class="link" href="cpp-virtual-derivation-grandpa-constructing-propagation-solution.html#cpp-virtual-derivation-grandpa-constructing-propagation-solution.role"><span class="cyan">Role</span></a>
+    </h2>
+<p>
+      +
+    </p>
+<p>
+      Powered by:<br> <a href="https://www.bfgroup.xyz/b2" target="_top">B2 Build</a>
+      | <a href="https://www.boost.org/tools/quickbook" target="_top">boost quickbook</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      <a href="https://www.cppfx.tiv.cc/donate.html" target="_top">Donate</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      @<a href="https://www.cppfx.tiv.cc" target="_top">www.cppfx.tiv.cc</a>
+    </p>
+<p>
+      <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+      <br> <br> <br> <br> <br>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="cpp-beautiful-elegant-object-oriented.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="prj-askit.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

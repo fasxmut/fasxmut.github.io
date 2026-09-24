@@ -1,0 +1,106 @@
+[article c++ STL
+	[quickbook 1.7]
+	[id cpp-stl]
+]
+
+[role drop_menu
+	[*Jump in this page:][br]
+	[link cpp-stl Start][br]
+	[link cpp-stl.install-stl Install STL][br]
+	[link cpp-stl.use-stl use STL][br]
+	[br]
+	[*Back:] [link cpp-foundation-libraries c++ Foundation Libraries]
+]
+
+[h1:install-stl [role cyan Install STL]]
+
+c++ STL: standard Template Library is provided by the c++ compiler. After installing a c++ compiler, stl is already ready.
+
+[h1:use-stl [role cyan Use STL]]
+
+Some examples (gcc for example)
+
+[h2:std-vector std::vector]
+
+[!c++]
+```
+#include <vector>
+
+int main()
+{
+	std::vector<float> vector{2.3f, 3.4f, 1.2f};
+}
+```
+
+[*Compile it:]
+
+```
+g++ prog.cpp -std=c++26 -o prog
+```
+
+[h2:std-copy std::copy]
+
+Copy memory with std::copy
+
+[!c++]
+```
+#include <algorithm>
+#include <iostream>
+
+int main()
+{
+	char str1[] = "Hello, c++!";
+	unsigned int size = sizeof str1;
+	std::string str2;
+	str2.resize(size);
+	std::copy(str1, str1+size, str2.begin());
+	std::cout << "str2 is " << str2 << std::endl;
+	// str2 is Hello, c++!
+}
+```
+
+[*Compile it:]
+
+```
+alias gpp="g++ -std=c++26"
+gpp prog.cpp -o prog
+./prog
+```
+
+[h2:std-fill std::fill]
+
+Fill memory with std::fill
+
+[!c++]
+```
+#include <algorithm>
+#include <iostream>
+
+int main()
+{
+	char * str = new char[11];
+	std::fill(str, str+10, 'R');
+	str[10] = '\0';
+	std::cout << str << std::endl;
+	// RRRRRRRRRR
+}
+```
+
+Compile it:
+
+```
+alias gpp="g++ -std=c++26"
+gpp prog.cpp -o prog
+./prog
+```
+
+[h1:date [role cyan Date]]
+
+Apr 12, 2025
+
+[h1:back [role cyan Back]]
+
+[*Back:] [link cpp-foundation-libraries c++ Foundation Libraries]
+
+[include ../../../share/foot-links.inc.qbk]
+

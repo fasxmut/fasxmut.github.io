@@ -1,0 +1,26 @@
+[book Dig Haiku OS c++
+	[quickbook 1.7]
+	[id dig-haiku]
+]
+
+[include 2024-11-13-02-BEntry-Rename.qbk]
+[include 2024-11-13-01-entry_ref-BEntry.qbk]
+[include 2024-11-06-01-BFileGameSound-play-audio.qbk]
+[include 2024-10-21-02-mini-cpp-code-window-haiku.qbk]
+[include 2024-10-21-01-use-cpp-library-haiku.qbk]
+
+[h2 About]
+
+Dig c++ programming on Haiku OS
+
+[h2 Haiku OS]
+
+[@https://www.haiku-os.org Haiku OS]
+
+[h2 Back]
+
+[@.. Up]
+
+
+
+[include ../../share/foot-links.inc.qbk]

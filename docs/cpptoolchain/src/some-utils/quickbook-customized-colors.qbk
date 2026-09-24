@@ -1,0 +1,153 @@
+[article Quickbook Customized Colors
+	[quickbook 1.7]
+	[id quickbook-customized-colors]
+]
+
+[role drop_menu
+	[*Jump in this page:][br]
+	[link quickbook-customized-colors Start][br]
+	[link quickbook-customized-colors.customized-color-table Customized color table][br]
+	[link quickbook-customized-colors.quickbook-example Quickbook Example][br]
+	[link quickbook-customized-colors.about-quickbook About Quickbook][br]
+	[br]
+	[*Back:] [link some-utils Some Utils]
+]
+
+[h1:customized-color-table [role cyan Customized color table]]
+
+p* -> d* -> dd* -> ddd* -> dddd*
+
+p: pure;
+
+d: dark;
+
+More d, more dark;
+
+For example: ddred
+
+The color names with no prefix d and no prefix p are preserved and not changed, those colors are provided by official boost quickbook. Such as red, provided by official boost quickbook.
+
+[*code:]
+
+[!teletype]
+```
+[role red Hello c++ !] - red by boost quickbook
+[role dred Hello c++ !] - dred by this util
+```
+
+output:
+
+[pre
+[role red Hello c++ !] - red by boost quickbook
+[role dred Hello c++ !] - dred by this util
+]
+
+[h2:color-table The Color Table]
+
+[pre
+red :
+[role pred pred] [role dred dred] [role ddred ddred] [role dddred dddred] [role ddddred ddddred]
+
+green :
+[role pgreen pgreen] [role dgreen dgreen] [role ddgreen ddgreen] [role dddgreen dddgreen] [role ddddgreen ddddgree]
+
+blue :
+[role pblue pblue] [role dblue dblue] [role ddblue ddblue] [role dddblue dddblue] [role ddddblue ddddblue]
+
+yellow (anti-blue) :
+[role pyellow pyellow] [role dyellow dyellow] [role ddyellow ddyellow] [role dddyellow dddyellow] [role ddddyellow ddddyellow]
+
+cyan (anti-red) :
+[role pcyan pcyan] [role dcyan dcyan] [role ddcyan ddcyan] [role dddcyan dddcyan] [role ddddcyan ddddcyan]
+
+magenta (anti-green) :
+[role pmagenta pmagenta] [role dmagenta dmagenta] [role ddmagenta ddmagenta] [role dddmagenta dddmagenta] [role ddddmagenta ddddmagenta]
+
+[role redpurple1 redpurple1] [role redpurple2 redpurple2]
+[role greenpurple1 greenpurple1] [role greenpurple2 greenpurple2]
+[role bluepurple1 bluepurple1] [role bluepurple2 bluepurple2]
+]
+
+[h1:quickbook-example [role cyan Quickbook Example]]
+
+[h2:qbk-code Quickbook .qbk code:]
+
+[!teletype]
+```
+[pre
+[role dddgreen c++ is the most awesome programming language in the world !
+Boot library is the most helpful and awesome c++ library !
+Object-oriented programming is the most interesting programming of all programmings !]
+
+[role dddred c++ is the most awesome programming language in the world !
+Boot library is the most helpful and awesome c++ library !
+Object-oriented programming is the most interesting programming of all programmings !]
+
+[role dddblue c++ is the most awesome programming language in the world !
+Boot library is the most helpful and awesome c++ library !
+Object-oriented programming is the most interesting programming of all programmings !]
+
+[role dddyellow c++ is the most awesome programming language in the world !
+Boot library is the most helpful and awesome c++ library !
+Object-oriented programming is the most interesting programming of all programmings !]
+
+[role dddcyan c++ is the most awesome programming language in the world !
+Boot library is the most helpful and awesome c++ library !
+Object-oriented programming is the most interesting programming of all programmings !]
+
+[role dddmagenta c++ is the most awesome programming language in the world !
+Boot library is the most helpful and awesome c++ library !
+Object-oriented programming is the most interesting programming of all programmings !]
+]
+```
+
+[h2:output Output:]
+
+[pre
+[role dddgreen c++ is the most awesome programming language in the world !
+Boot library is the most helpful and awesome c++ library !
+Object-oriented programming is the most interesting programming of all programmings !]
+
+[role dddred c++ is the most awesome programming language in the world !
+Boot library is the most helpful and awesome c++ library !
+Object-oriented programming is the most interesting programming of all programmings !]
+
+[role dddblue c++ is the most awesome programming language in the world !
+Boot library is the most helpful and awesome c++ library !
+Object-oriented programming is the most interesting programming of all programmings !]
+
+[role dddyellow c++ is the most awesome programming language in the world !
+Boot library is the most helpful and awesome c++ library !
+Object-oriented programming is the most interesting programming of all programmings !]
+
+[role dddcyan c++ is the most awesome programming language in the world !
+Boot library is the most helpful and awesome c++ library !
+Object-oriented programming is the most interesting programming of all programmings !]
+
+[role dddmagenta c++ is the most awesome programming language in the world !
+Boot library is the most helpful and awesome c++ library !
+Object-oriented programming is the most interesting programming of all programmings !]
+]
+
+[h1:about-quickbook [role cyan About Quickbook]]
+
+Quickbook belongs to the boost c++ project.
+
+quickbook Home:[br]
+[@https://www.boost.org/tools/quickbook]
+
+The customized qbk media can be got from github:[br]
+[@https://github.com/cppfx/fx-quickbook-media]
+
+[h1:date [role cyan Date]]
+
+Date: 2024
+
+Update: Sun Sep  6 09:58:50 AM UTC 2026
+
+[h1:back [role cyan Back]]
+
+[*Back:] [link some-utils Some Utils]
+
+[include ../../../share/foot-links.inc.qbk]
+

@@ -1,0 +1,16 @@
+[book cpp/c++
+	[id cpp]
+	[quickbook 1.7]
+]
+
+[include cpp-modules-shared-library-gcc16-04-23-2025.qbk]
+[include cross-thread-exception.qbk]
+[include stdfloat.qbk]
+[include gcc-import-std-0304-2025.qbk]
+
+[h1:back [role cyan Back]]
+
+[@.. Up]
+
+[include ../../share/foot-links.inc.qbk]
+

@@ -1,0 +1,216 @@
+[article Build and Install Boost Docs System: boost quickbook
+	[quickbook 1.7]
+	[id build-install-boost-docs-system]
+]
+
+[role drop_menu
+	[*Jump in this page:][br]
+	[link build-install-boost-docs-system Start][br]
+	[link build-install-boost-docs-system.requirements Requirements][br]
+	[link build-install-boost-docs-system.install-docbook-tools Install docbook tools][br]
+	[link build-install-boost-docs-system.install-boostbook Install boostbook][br]
+	[link build-install-boost-docs-system.install-quickbook Install quickbook][br]
+	[link build-install-boost-docs-system.configure-etc-site-config-jam Configure /etc/site-config.jam][br]
+	[br]
+	[*Back:] [link cpp-docs-system c++ Docs System]
+]
+
+Install Boost Docs System
+
+[h1:requirements [role cyan Requirements]]
+
+To install boost docs system, you need to install b2 build, the tutorial of which can be found at:
+
+[link build-install-b2-build Build and Install b2 Build]
+
+[h1:install-docbook-tools [role cyan Install docbook tools]]
+
+[h2:install-docbook-xsl-xml-xsltproc Install docbook-xsl, docbook-xml, xsltproc]
+
+xsl is provided by docbook-xsl
+
+dtd is provided by docbook-xml
+
+docbook-xsl and docbook-xml are the xsl and dtd 's package names on q4os linux, they might have different package names on different linux distributions, you should find them for youself.
+
+docbook-xsl and docbook-xml are most likely already installed on your system. If not, install them.
+
+[!teletype]
+```
+$ su -
+# apt install docbook-xsl docbook-xml xsltproc
+```
+
+[h2:find-docbook-xsl-dir Find the docbook-xsl-dir path]
+
+The full path of xsl dir contains [role red [*common/common.xsl]]
+
+[!teletype]
+```
+$ dpkg -L docbook-xsl | ugrep 'common/common.xsl'
+/usr/share/xml/docbook/stylesheet/docbook-xsl/common/common.xsl
+/usr/share/xml/docbook/stylesheet/docbook-xsl/slides/common/common.xsl
+```
+
+Do not choose the slides one, choose this:
+
+[role red [*
+/usr/share/xml/docbook/stylesheet/docbook-xsl/common/common.xsl
+]]
+
+Now [role green [*remove]] the last part [role red [*/common/common.xsl]] , we get:
+
+[role red [*
+/usr/share/xml/docbook/stylesheet/docbook-xsl
+]]
+
+We can name it [*docbook-xsl-dir] path for b2 build, write down the path, it will be used laterly.
+
+[h2:find-docbook-dtd-dir Find the docbook-dtd-dir path]
+
+The full path of dtd dir contains [role red [*docbookx.dtd]]
+
+[!teletype]
+```
+$ dpkg -L docbook-xml | ugrep 'docbookx.dtd'
+/usr/share/xml/docbook/schema/dtd/4.0/docbookx.dtd
+/usr/share/xml/docbook/schema/dtd/4.1.2/docbookx.dtd
+/usr/share/xml/docbook/schema/dtd/4.2/docbookx.dtd
+/usr/share/xml/docbook/schema/dtd/4.3/docbookx.dtd
+/usr/share/xml/docbook/schema/dtd/4.4/docbookx.dtd
+/usr/share/xml/docbook/schema/dtd/4.5/docbookx.dtd
+```
+
+The version [role red 4.2] is proved working by me, so we choose the path:
+
+[role red [*/usr/share/xml/docbook/schema/dtd/4.2/docbookx.dtd]]
+
+Now [role green [*remove]] the last part [role red [*/docbookx.dtd]] from the path, we get:
+
+[role red [*
+/usr/share/xml/docbook/schema/dtd/4.2
+]]
+
+We can name it [*docbook-dtd-dir] path for b2 build, write down the path, it will be used laterly.
+
+[h1:install-boostbook [role cyan Install boostbook (from boost)]]
+
+boostbook can be found in boost source code, copy it only: copy it to your operating system's shared location.
+
+For example, I copy boostbook to [*/sand/share/boostbook] and then use [*/sand/share/boostbook] as the shared location.
+
+[!teletype]
+```
+$ cd <BOOST-SOURCE-ROOT>/tools
+$ su
+# cp -rf boostbook /sand/share/
+```
+
+Now [*/sand/share/boostbook] is the boostbook location, which will be used laterly.
+
+[h1:install-quickbook [role cyan Install quickbook (from boost)]]
+
+quickbook must be compiled from the quickbook source code in boost source code, then a binary file quickbook will be generated, we only need that binary file quickbook.
+
+[!teletype]
+```
+$ cd <BOOST-SOURCE-ROOT>/tools/quickbook/build
+$ b2 -q -j7
+```
+
+Then, quickbook will be generated at [*<BOOST-SOURCE-ROOT>/dist/bin/quickbook], just copy it to your system bin path.
+
+For example, I copy it as /sand/bin/quickbook, and my /sand/bin is already added to PATH environment variable.
+
+[!teletype]
+```
+$ cd <BOOST-SOURCE-ROOT>/dist/bin
+$ su
+# cp ./quickbook /sand/bin/
+```
+
+To check if quickbook and its PATH work, type quickbook to run it:
+
+[!teletype]
+```
+$ quickbook
+```
+
+[h1:configure-etc-site-config-jam [role cyan Configure /etc/site-config.jam]]
+
+[h2:final-site-config.jam Final /etc/site-config.jam]
+
+The final configure appending to [role blue /etc/site-config.jam] :
+
+[!teletype]
+```
+using quickbook : /sand/bin/quickbook ;
+
+using
+	boostbook
+:
+	/usr/share/xml/docbook/stylesheet/docbook-xsl
+:
+	/usr/share/xml/docbook/schema/dtd/4.2
+:
+	/sand/share/boostbook
+;
+```
+
+[*I explain it one by one:]
+
+[h2:quickbook quickbook]
+
+[*using quickbook : /sand/bin/quickbook ;]
+
+Setup quickbook,[br]
+the first parameter of "using" is quickbook,[br]
+the second parameter of "using" is the quickbook binary path;[br]
+If its path can be found at commandline, the second parameter can be empty.
+
+[tip
+
+	B2 build use a colon : to split parameters. For example:
+
+	```
+	exe prog : a.cpp : <library>b ;
+	```
+
+	* exe is a rule name;
+	* prog is the first parameter, which is a target;
+	* a.cpp is the second paramter;
+	* [role ddblue <library>b] is the third parameter;
+]
+
+[h2:boostbook boostbook]
+
+[*using boostbook : ... ... ... ;]
+
+Setup boostbook:
+
+The first parameter of "using" is [*boostbook] ;
+
+[*docbook xsl path]
+
+The second parameter of "using" is [*the docbook-xsl-dir] path, we have already got it as described in the beginning of this doc, [*just copy] it here.
+
+[*docbook dtd path]
+
+The third parameter of "using" is the [*docbook-dtd-dir] path, we have already got it as described in the beginning of this doc, [*just copy] it here.
+
+[*boostbook path]
+
+The fourth paramter of "using" is the boostbook path.
+
+[h1:date [role cyan Date]]
+
+Date: 2024
+
+Last Update: Sun Sep  6 07:29:00 AM UTC 2026
+
+[h1:back [role cyan Back]]
+
+[*Back:] [link cpp-docs-system c++ Docs System]
+
+[include ../../../share/foot-links.inc.qbk]
+

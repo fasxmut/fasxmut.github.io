@@ -1,0 +1,19 @@
+[article Falkon Browser
+	[id falkon]
+	[quickbook 1.7]
+]
+
+Falkon is a full-featured and safe web browser written in c++ QtWebEngine.
+
+[@https://www.falkon.org]
+
+-
+
+09, 2026
+
+[h1:back [role cyan Back]]
+
+[@. Up]
+
+[include ../../share/foot-links.inc.qbk]
+

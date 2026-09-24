@@ -1,0 +1,725 @@
+[article c++ json: boost::property_tree How 4423
+	[quickbook 1.7]
+	[id cpp-json-boost-property_tree-how-4423]
+]
+
+[role drop_menu
+> [link cpp-json-boost-property_tree-how-4423 Start][br]
+> [link cpp-json-boost-property_tree-how-4423.hpbsvzzfd boost::property_tree json][br]
+> [link cpp-json-boost-property_tree-how-4423.xydtopfte iterate boost::property_tree][br]
+> [link cpp-json-boost-property_tree-how-4423.keeeedbhf Method .empty][br]
+> [link cpp-json-boost-property_tree-how-4423.apbbqzfmg recursive iterate][br]
+> [link cpp-json-boost-property_tree-how-4423.vbjqucnph Method: .get_child; .first, .second][br]
+> [link cpp-json-boost-property_tree-how-4423.eaxjgdobi understanding types][br]
+> [link cpp-json-boost-property_tree-how-4423.aizonypbj json array][br]
+> [link cpp-json-boost-property_tree-how-4423.dtjdcpqak Modify, add, write json data.][br]
+> [link cpp-json-boost-property_tree-how-4423.albhawecl Method .put_value][br]
+> [link cpp-json-boost-property_tree-how-4423.hmknecicm Method .add_child][br]
+> [link cpp-json-boost-property_tree-how-4423.rfyavoewn Write two or more dimensional array][br]
+> [@. Back: Home]
+]
+
+c++ boost::property_tree is the best json parser for me to parse json data.
+
+[h1:hpbsvzzfd [role cyan boost::property_tree json]]
+
+>>>> boost::property_tree:[br]
+>>>>>>>> read json from file,[br]
+>>>>>>>>>>>> from opening filename,[br]
+>>>>>>>>>>>> from std::stringstream
+
+get json value by key.
+
+[!c++]
+```
+#include <boost/property_tree/ptree.hpp>
+#include <boost/property_tree/json_parser.hpp>
+#include <sstream>
+#include <iostream>
+
+namespace ptr = boost::property_tree;
+
+int main()
+{
+	constexpr std::string_view json_data =
+		R"(
+			{
+				"hello" : "world",
+				"OK" : true,
+				"good" : 2.5,
+				"help" :
+				{
+					"yes" : "no",
+					"num" : "yes"
+				}
+			}
+		)"
+	;
+
+	ptr::ptree root;
+
+	// json can be read from both std::fstream or std::stringstream
+	std::stringstream io;
+	io << json_data;
+
+	// ptr::read_json("data.json", root);
+	// ptr::read_json(file, root);	// file is std::ifstream object.
+	ptr::read_json(io, root);
+
+	{
+		auto hello = root.get<std::string>("hello");
+		std::cout << hello << std::endl;
+	}
+
+	{
+		auto good = root.get<double>("good");	// double: 2.5
+		auto good2 = root.get<std::string>("good");	// string: 2.5
+		std::cout << good << std::endl;
+		std::cout << "=> " << good2 << std::endl;
+	}
+
+	{
+		auto ok = root.get<bool>("OK");	// boolean value: 1 or true
+		auto ok2 = root.get<std::string>("OK");	// string value: true
+		std::cout << ok << std::endl;
+		std::cout << ok2 << std::endl;
+	}
+}
+```
+
+[h1:xydtopfte [role cyan iterate boost::property_tree]]
+
+boost::property_tree:[br]
+>>>>>>>> iterate json child data
+
+[!c++]
+```
+namespace tree = boost::property_tree;
+
+constexpr std::string_view json_data =
+	R"(
+		{
+			"hello" : "world",
+			"OK" : true,
+			"good" : 2.5,
+			"help" :
+			{
+				"yes" : "no",
+				"num" : "yes"
+			}
+		}
+	)"
+;
+
+tree::ptree root;
+std::stringstream io;
+io << json_data;
+tree::read_json(io, root);
+const tree::ptree & help = root.get_child("help");
+for (const auto & [k, v]: help)
+{
+	std::cout << k << std::endl;
+}
+
+// output:
+/*
+yes
+num
+*/
+```
+
+[h1:keeeedbhf [role cyan Method .empty]]
+
+boost::property_tree:[br]
+>>>>>>>> processing json data.[br]
+>>>> Method: .empty()[br]
+>>>>>>>> true: no child[br]
+>>>>>>>> false: has child[br]
+>>>> If true: std::cout << n.data()[br]
+>>>>>>>> 
+
+[!c++]
+```
+namespace tree = boost::property_tree;
+
+constexpr std::string_view json_data =
+	R"(
+		{
+			"hello" : "world",
+			"OK" : true,
+			"good" : 2.5,
+			"help" :
+			{
+				"yes" : "no",
+				"num" : "yes"
+			}
+		}
+	)"
+;
+```
+
+[!c++]
+```
+	std::cout << std::boolalpha;
+	tree::ptree root;
+	std::stringstream io;
+	io << json_data;
+	tree::read_json(io, root);
+
+	{
+		const tree::ptree & hello = root.get_child("hello");
+		contract_assert(hello.empty());	// empty: true, no child
+		std::cout << hello.data() << std::endl;	// world
+		std::cout << root.get<std::string>("hello") << std::endl;	// world
+	}
+	{
+		const tree::ptree & help = root.get_child("help");
+		contract_assert(! help.empty());	// empty: false: has child
+		for (const auto & [k, v]: help)
+		{
+			static_assert(std::same_as<decltype(k), const std::string>);
+			static_assert(std::same_as<decltype(v), const tree::ptree>);
+			contract_assert(v.empty());	// empty: true: no child
+			std::cout << k << " => " << v.data() << std::endl;
+		}
+	}
+```
+
+[h1:apbbqzfmg [role cyan recursive iterate]]
+
+boost::property_tree:[br]
+>>>>>>>> processing json data.
+
+>>>> Recursive loop:[br]
+>>>>>>>> Generalized accessing json data.[br]
+>>>>>>>>>>>> by using .empty, range-based for loop.
+
+[!c++]
+```
+constexpr std::string_view json_data =
+	R"(
+		{
+			"hello" : "world",
+			"OK" : true,
+			"list" :
+			{
+				"Bob" : 100,
+				"Tom" : 200
+			},
+			"good" : 2.5,
+			"help" :
+			{
+				"yes" : "no",
+				"num" : "yes",
+				"pick" :
+				{
+					"size" : 25.3,
+					"health" : true
+				}
+			}
+		}
+	)"
+;
+```
+
+[!c++]
+```
+		std::stringstream io;
+		io << json_data;
+		tree::ptree root;
+		tree::read_json(io, root);
+
+		std::function<void(tree::ptree)> read =
+			[&] (const tree::ptree & node)
+			{
+				static std::string indent = "";
+				if (node.empty())
+				{
+					std::cout << node.data() << std::endl;
+					return;
+				}
+				else
+				{
+					std::cout << std::endl;
+					for (const auto & [key, value]: node)
+					{
+						std::cout << indent << key << " => ";
+						std::string old = indent;	// stack "store"
+						indent += "\t";	// stack "push"
+						read(value);
+						indent = old;	// stack "restore" ("pop")
+					}
+				}
+			}
+		;
+
+		read(root);
+```
+
+[h1:vbjqucnph [role cyan Method: .get_child; .first, .second]]
+
+==================================================
+
+boost::property_tree::ptree object[br]
+ptree::value_ype object
+
+==================================================
+
+>>>> Summary: ptree and ptree::value_type
+
+>>>> ptree behaves like std::map[br]
+>>>> ptree::value_type behaves like std::pair
+
+>>>> Every element of ptree is ptree::value_type
+
+>>>> ptree::value_type first type is the key type, it is std::string[br]
+>>>> ptree::value_type second type is the data type,[br]
+>>>>>>>> however, the second type is ptree
+
+==================================================
+
+>>>> 1. ptree[br]
+>>>> 2. ptree::value_type[br]
+>>>> 3. From ptree::value_type:[br]
+>>>>>>>> .first		---- get std::string[br]
+>>>>>>>> .second		---- get ptree[br]
+>>>> 4. From ptree:[br]
+>>>>>>>> .get	---- Passing key, return value, such as std::string, bool, double[br]
+>>>>>>>> .get_child	---- Passing key, return ptree[br]
+>>>> 5. iterate ptree with range-based for: (it defined .begin, .end)[br]
+>>>>>>>> accessing each ptree::value_type:[br]
+>>>>>>>>>>>>>>>> .first is key, type is std::string[br]
+>>>>>>>>>>>>>>>> .second is ptree
+
+[!c++]
+```
+constexpr std::string_view json_data =
+	R"(
+		{
+			"hello" : "world",
+			"OK" : true,
+			"list" :
+			{
+				"Bob" : 100,
+				"Tom" : 200
+			},
+			"good" : 2.5,
+			"help" :
+			{
+				"yes" : "no",
+				"num" : "yes",
+				"pick" :
+				{
+					"size" : 25.3,
+					"health" : true
+				}
+			}
+		}
+	)"
+;
+
+namespace ptr = boost::property_tree;
+```
+
+[!c++]
+```
+		std::stringstream io;
+		io << json_data;
+		ptr::ptree root;
+		ptr::read_json(io, root);
+
+		{
+			ptr::ptree nn = root.get_child("hello");
+			contract_assert(nn.empty());		// no child
+			contract_assert(nn.data() == "world");		// only "world"
+		}
+		{
+			ptr::ptree nn = root.get_child("list");
+			contract_assert(! nn.empty());		// has child
+			for (const ptr::ptree::value_type & value: nn)
+			{
+				std::string key_s = value.first;
+				ptr::ptree value_s = value.second;
+				contract_assert(value_s.empty());
+				std::cout << "=> " << value_s.data() << std::endl;
+			}
+		}
+```
+
+[h1:eaxjgdobi [role cyan understanding types]]
+
+==================================================
+
+boost::property_tree::ptree object[br]
+ptree::value_ype object
+
+==================================================
+
+>>>> Summary: ptree and ptree::value_type
+
+>>>> ptree behaves like std::map[br]
+>>>> ptree::value_type behaves like std::pair
+
+>>>> Every element of ptree is ptree::value_type
+
+>>>> ptree::value_type first type is the key type, it is std::string[br]
+>>>> ptree::value_type second type is the data type,[br]
+>>>>>>>> however, the second type is ptree
+
+==================================================
+
+>>>> 1. ptree[br]
+>>>> 2. ptree::value_type[br]
+>>>> 3. From ptree::value_type:[br]
+>>>>>>>> .first		---- get std::string[br]
+>>>>>>>> .second		---- get ptree[br]
+>>>> 4. From ptree:[br]
+>>>>>>>> .get	---- Passing key, return value, such as std::string, bool, double[br]
+>>>>>>>> .get_child	---- Passing key, return ptree[br]
+>>>> 5. iterate ptree with range-based for: (it defined .begin, .end)[br]
+>>>>>>>> accessing each ptree::value_type:[br]
+>>>>>>>>>>>>>>>> .first is key, type is std::string[br]
+>>>>>>>>>>>>>>>> .second is ptree
+
+[!c++]
+```
+constexpr std::string_view data =
+	R"(
+		{
+			"hello" : "world",
+			"OK" : true,
+			"list" :
+			{
+				"Bob" : 100,
+				"Tom" : 200
+			},
+			"good" : 2.5,
+			"help" :
+			{
+				"yes" : "no",
+				"num" : "yes",
+				"pick" :
+				{
+					"size" : 25.3,
+					"health" : true
+				}
+			}
+		}
+	)"
+;
+
+namespace ptr = boost::property_tree;
+```
+
+[!c++]
+```
+		ptr::ptree root;
+		std::stringstream io;
+		io << data;
+		ptr::read_json(io, root);
+		{
+			std::cout << root.get<double>("good") << std::endl;	// 2.5
+		}
+		{
+			ptr::ptree::value_type data = *root.begin();
+			std::string key = data.first;
+			ptr::ptree data__ = data.second;
+			std::string data_abc = data__.data();
+			std::cout << key << " " << data_abc << std::endl;	// hello world
+		}
+		{
+			for (const ptr::ptree::value_type & pair: root)
+			{
+				{
+					const std::string & key = pair.first;
+					const ptr::ptree & data = pair.second;
+					if (data.empty())	// empty true: no child
+						std::cout << key << " -> " << data.data() << std::endl;
+				}
+				{
+					const auto [key, data] = pair;
+					if (data.empty())	// empty tree: no child
+						std::cout << key << " => " << data.data() << std::endl;
+				}
+			}
+		}
+		{
+			const ptr::ptree & ttt = root.get_child("OK");
+			if (ttt.empty())
+			{
+				const std::string & data = ttt.data();
+				std::cout << "=> " << data << std::endl;
+			}
+		}
+```
+
+[h1:aizonypbj [role cyan json array]]
+
+For json array, get a pair object from ptree object, pair type is ptree::value_type;[br]
+>>>>>>>> the first type is the key type, which is an empty std::string.[br]
+>>>>>>>> the second type is the value type, which is a ptree.
+[!c++]
+```
+constexpr std::string_view data =
+	R"(
+		{
+			"version" : 3.0,
+			"list" : ["ab", "cd", "ef"],
+			"abt" :
+			{
+				"" : "hot",
+				"" : "cold",
+				"" : "cool"
+			}
+		}
+	)"
+;
+
+namespace ptr = boost::property_tree;
+```
+
+[!c++]
+```
+		ptr::ptree root;
+		std::stringstream io;
+		io << data;
+		ptr::read_json(io, root);
+		{
+			const ptr::ptree & data = root.get_child("list");
+			for (const ptr::ptree::value_type & vt: data)
+			{
+				contract_assert(vt.first.empty());	// vt.first is std::string
+				std::cout << std::quoted(vt.first) << " => "
+					<< std::quoted(vt.second.data()) << std::endl;
+			}
+		}
+		{
+			const ptr::ptree & data = root.get_child("abt");
+			for (const ptr::ptree::value_type & vt: data)
+			{
+				contract_assert(vt.first.empty());	// vt.first is std::string
+				std::cout << std::quoted(vt.first) << " -> "
+					<< std::quoted(vt.second.data()) << std::endl;
+			}
+		}
+```
+
+[!c++]
+```
+//output:
+/*
+"" => "ab"
+"" => "cd"
+"" => "ef"
+"" => "hot"
+"" => "cold"
+"" => "cool"
+*/
+```
+
+[h1:dtjdcpqak [role cyan Modify, add, write json data.]]
+
+boost::property_tree::ptree[br]
+As ptree is just a map-like container,[br]
+>>>>>>>> and ptree::value_type is just a std::pair,[br]
+to modify, add, write json data, just access them as[br]
+oridinary std:map/std::pair ways.
+
+Method: .push_back[br]
+Method: .put		: override existed value if its key exists.[br]
+Method: .add		: always add new key-value.
+
+>>>>>>>> .put and .add ared used for value which is std::string, int, double etc.[br]
+>>>>>>>> .push_back is used for value which is a ptree.
+
+[!c++]
+```
+		namespace ppt = boost::property_tree;
+		constexpr std::string_view data{R"({"version":"1.0", "age" : 3})"};
+		ppt::ptree root;
+		std::stringstream io;
+		io << data;
+		ppt::read_json(io, root);
+
+		{
+			ppt::ptree nn;
+			nn.push_back(ppt::ptree::value_type{"eggs", ppt::ptree{"two"}});
+			nn.push_back(ppt::ptree::value_type{"hot", "yes"});
+			root.push_back(ppt::ptree::value_type{"world", nn});
+			root.push_back(ppt::ptree::value_type{"star", nn});
+		}
+		{
+			root.put("version", "3.0");	// Override existed "1.0" to "3.0"
+			root.put("age", 5);	// Override existed 3 to 5
+			root.put("large", "yes");	// Create a new pair: "large" : yes"
+			root.add("small", "no");	// Create a new pair: "small", "no"
+			root.add("small", "open");	// Create a new pair: "small", "open"
+		}
+		{
+			std::ofstream out{"./saved.json"};
+			ppt::write_json(out, root, true);	// pretty: true, default is tree
+		}
+		{
+			std::ostringstream out;
+			ppt::write_json(out, root, true);
+			std::cout << "Well====>\n" << out.str() << std::flush;
+		}
+```
+
+[h1:albhawecl [role cyan Method .put_value]]
+
+>>>> Method .put_value is the method of boost::property_tree::ptree object.[br]
+>>>>>>>> It is used for making an unnamed ptree object,[br]
+>>>>>>>>>>>> which has a value but does not have a key.
+
+There is method .put_value, but no method .get_value.
+
+[!c++]
+```
+		namespace ptr = boost::property_tree;
+		ptr::ptree root;
+		root.put("Hello", "World");
+		root.put("size", 100);
+		{
+			{
+				ptr::ptree vn;
+				vn.put_value(3.5);
+				root.push_back(ptr::ptree::value_type{"one", vn});
+			}
+			{
+				ptr::ptree vn;
+				vn.put_value("good");
+				root.push_back(ptr::ptree::value_type{"info", vn});
+			}
+		}
+		{
+			std::ostringstream out;
+			ptr::write_json(out, root, true);
+			std::cout << out.str() << std::endl;
+		}
+```
+
+[!c++]
+```
+/*
+{
+    "Hello": "World",
+    "size": "100",
+    "one": "3.5",
+    "info": "good"
+}
+*/
+```
+
+[h1:hmknecicm [role cyan Method .add_child]]
+
+.add_child adds a child with key and a ptree object.
+
+[!c++]
+```
+		namespace ptr = boost::property_tree;
+		ptr::ptree root;
+		root.put("Hello", "World");
+		root.put("hole", 33.5);
+		root.add_child("when", ptr::ptree{"now"});
+		ptr::ptree sub;
+		sub.put("one", 1);
+		sub.put("two", 2);
+		root.add_child("numbers", sub);
+		{
+			std::ostringstream out;
+			ptr::write_json(out, root, true);
+			std::cout << out.str() << std::flush;
+		}
+```
+
+[!c++]
+```
+/*
+{
+    "Hello": "World",
+    "hole": "33.5",
+    "when": "now",
+    "numbers": {
+        "one": "1",
+        "two": "2"
+    }
+}
+*/
+```
+
+[h1:rfyavoewn [role cyan Write two or more dimensional array]]
+
+[*Mind Map:]
+
+>>>> Use method .put_value to create no-key list (like array);[br]
+>>>>>>>> and no-key list can be used as a value of no-key for nested.
+
+But whatever, we need a key at last. If no key is explicitly set,[br]
+>>>> an empty string key will be selected.
+
+>>>> Method .put_value is used to add a no-key value.[br]
+>>>> Method .push_back can be used to add a no-key ptree.[br]
+>>>> Method .add_child can not be used to add a no-key ptree.[br]
+
+[!c++]
+```
+		namespace pt = boost::property_tree;
+		pt::ptree root;
+		{
+			pt::ptree sub;
+			{ // row 1
+				pt::ptree row;
+				{ // value 1
+					pt::ptree item;
+					item.put_value("Hello");
+
+					// no-key: empty string key
+					row.push_back(pt::ptree::value_type{"", item});
+
+					// Runtime assert error. Method .add_child key can not empty.
+					//row.add_child("", item);
+				}
+				{ // value 2
+					pt::ptree item;
+					item.put_value(7.225);
+					row.push_back(pt::ptree::value_type{"", item});
+				}
+				sub.push_back(pt::ptree::value_type{"", row});
+			}
+			{ // row 2
+				pt::ptree row;
+				{ // value 1
+					pt::ptree item;
+					item.put_value(1234567);
+					row.push_back(pt::ptree::value_type{"", item});
+				}
+				{ // value 2
+					pt::ptree item;
+					item.put_value("Hello, c++");
+					row.push_back(pt::ptree::value_type{"", item});
+				}
+				sub.push_back(pt::ptree::value_type{"", row});
+			}
+			root.add_child("two dimensional array", sub);
+		}
+		{ // print
+			std::stringstream io;
+			pt::write_json(io, root, true);
+			std::cout << io.str() << std::flush;
+		}
+```
+
+
+//////////////////////////////////////////////////////////////////////
+
+[@. Home]
+
+//////////////////////////////////////////////////////////////////////
+
+Sun Jul 12 08:44:37 AM UTC 2026
+
+//////////////////////////////////////////////////////////////////////
+
+[include ../share/foot-links.inc.qbk]
+

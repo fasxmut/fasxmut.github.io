@@ -1,0 +1,93 @@
+[article Core::System::waitpid - SereniyOS c++
+	[id core-system-waitpid]
+	[quickbook 1.7]
+]
+
+Core::System::waitpid serenityos c++ system call - c++ first see.
+
+[h1:cpp-example [role cyan c++ example]]
+
+[!c++]
+```
+#include <LibCore/System.h>
+
+int main(int argc, char * argv[])
+{
+	bool enable_wait = false;
+	if (argc == 2 && "true"sv == argv[1])
+		enable_wait = true;
+	auto id = Core::System::fork();
+
+	if (id.value() == 0)
+	{
+		for (int i=0; i<5; ++i)
+			AK::outln("[child] I am child");
+	}
+
+	if (id.value() > 0)
+	{
+		if (enable_wait)
+		{
+			auto result = Core::System::waitpid(id.value(), 0);
+			AK::outln("[parent] wait has error: {}", result.is_error());
+			AK::outln("[parent] wait child: {}, wait result: {}", result.value().pid, result.value().status);
+		}
+		AK::outln("[parent] I am parent, my child is {}", id);
+		for (int i=0; i<5; ++i)
+		{
+			AK::outln("[parent] I am parent");
+		}
+	}
+}
+```
+
+output (not enable):
+
+[!teletype]
+```
+courage:~ $ ./hello
+[parent] I am parent, my child is {3579}
+[parent] I am parent
+[parent] I am parent
+[parent] I am parent
+[parent] I am parent
+[parent] I am parent
+[child] I am child
+[child] I am child
+[child] I am child
+[child] I am child
+[child] I am child
+```
+
+output (enable):
+
+[!teletype]
+```
+courage:~ $ ./hello true
+[child] I am child
+[child] I am child
+[child] I am child
+[child] I am child
+[child] I am child
+[parent] wait has error: false
+[parent] wait child: 3643, wait result: 0
+[parent] I am parent, my child is {3643}
+[parent] I am parent
+[parent] I am parent
+[parent] I am parent
+[parent] I am parent
+[parent] I am parent
+```
+
+[br] [br] [br] [br]
+[br] [br] [br] [br]
+[br] [br] [br] [br]
+
+Jan 20, 2025
+
+[h1:back [role cyan Back]]
+
+[link cpp-first-see Up]
+
+[include ../../../share/foot-links.inc.qbk]
+

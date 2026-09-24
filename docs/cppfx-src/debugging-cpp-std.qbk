@@ -1,0 +1,165 @@
+[article debugging - c++26 std
+	[quickbook 1.7]
+	[id std-debugging-cpp]
+]
+
+[role drop_menu
+> [link std-debugging-cpp Start][br]
+> [link std-debugging-cpp.std-is_debugger_present std::is_debugger_present()][br]
+> [link std-debugging-cpp.std-breakpoint std::breakpoint()][br]
+> [link std-debugging-cpp.std-breakpoint_if_debugging std::breakpoint_if_debugging()][br]
+> [link std-debugging-cpp.link-cpp-exp-lib Link c++ experimental library][br]
+> [link std-debugging-cpp.cpp-example c++ example][br]
+> [@. Back: Home]
+]
+
+c++26 <debugging> is implemented initially by gnu c++ compiler:
+
+g++
+
+Requires gnu c++ compiler 16.0 at least.
+
+[role half_center
+	[@https://gcc.gnu.org]
+]
+
+[role clear_both]
+
+[h1:std-is_debugger_present [role cyan std::is_debugger_present()]]
+
+[pre
+bool std::is_debugger_present() noexcept;
+]
+
+Try to determine if the program is running under control of a debugger.
+
+It returns [* true] if the program is running under control of [* gdb] .
+
+[h1:std-breakpoint [role cyan std::breakpoint()]]
+
+[pre
+void std::breakpoint() noexcept;
+]
+
+Stop the program with a breakpoint or debug trap.
+
+The program will be stopped by [* std::breakpoint()] for either a debugger present or not.
+
+[h1:std-breakpoint_if_debugging [role cyan std::breakpoint_if_debugging]]
+
+[pre
+void std::breakpoint_if_debugging() noexcept;
+]
+
+Stop the program if it is running under control of a debugger.
+
+[h1:link-cpp-exp-lib [role cyan Link c++ experimental library]]
+
+Link if gnu c++ compiler.
+
+[pre
+-lstdc++exp
+]
+
+[h1:cpp-example [role cyan c++ Example]]
+
+c++ Example: dbgprog.cpp
+
+[!c++]
+```
+#include <debugging>
+#include <iostream>
+
+int main()
+{
+	std::cout
+		<< std::boolalpha
+		<< std::is_debugger_present()
+		<< std::endl;
+	;
+
+	std::cout << "A" << std::endl;
+
+	std::breakpoint_if_debugging();
+
+	std::cout << "B" << std::endl;
+
+	std::breakpoint();
+
+	std::cout << "C" << std::endl;
+}
+```
+
+[*compile:]
+
+[!teletype]
+```
+gpp dbgprog.cpp -lstdc++exp -o dbgprog
+```
+
+( [*alias gpp=g++ -fmodules-ts -std=c++26] )[br]
+( At least g++ 16.0 required )
+
+[* Run without a debugger]
+
+[pre
+> ./dbgprog 
+false
+A
+B
+Trace/breakpoint trap
+]
+
+[* Run in gdb]
+
+( Some trivial informations are removed. )
+
+[pre
+> gdb ./dbgprog 
+Reading symbols from ./dbgprog...
+
+[role dblue (gdb) r]
+
+true
+[role ddgreen [* A]]
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+[role dred 0x000000000040257d] in std::breakpoint ()
+    at ../../../../../gcc/libstdc++-v3/src/c++26/debugging.cc:142
+
+[role dblue (gdb) n]
+[role dred 0x0000000000402471] in main ()
+[role dblue (gdb) n]
+Single stepping until exit from function main,
+which has no line number information.
+[role ddgreen [* B]]
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+[role dred 0x000000000040257d] in std::breakpoint ()
+
+[role dblue (gdb) n]
+[role dred 0x0000000000402492] in main ()
+[role dblue (gdb) n]
+Single stepping until exit from function main,
+which has no line number information.
+[role ddgreen [* C]]
+
+[role dblue (gdb) n]
+[Inferior 1 (process 14244) exited normally]
+[role dblue (gdb) n]
+The program is not being run.
+[role dblue (gdb) q]
+]
+
+//////////////////////////////////////////////////////////////////////
+
+[@. Home]
+
+//////////////////////////////////////////////////////////////////////
+
+Sun Jan 18 10:06:22 AM UTC 2026
+
+//////////////////////////////////////////////////////////////////////
+
+[include ../share/foot-links.inc.qbk]
+

@@ -1,0 +1,16 @@
+[article day-14: c++ Virtual Destructor, Virtual Inheritance
+	[quickbook 1.7]
+	[id day-14-cpp-virtual-destructor-virtual-inheritance]
+]
+
+[include day14-15minutes-virtual-destructor.qbk]
+[include day14-15minutes-virtual-inheritance.qbk]
+
+[h1 [role cyan Back]]
+
+[@. Index]
+
+[include ../../share/foot-links.inc.qbk]
+
+
+

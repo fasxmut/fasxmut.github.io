@@ -1,0 +1,52 @@
+[article kubuntu install cpp compiler
+	[quickbook 1.7]
+]
+
+Kubuntu install c++ compiler - Posted on Jun 12, 2024 - See [@https://kubuntu.org] - [@https://www.cppfx.tiv.cc/logs Logs Home] - d0021
+
+[h1 [role cyan kubuntu install cpp compiler]]
+
+Kubuntu install c++ compiler.
+
+[h1 [role cyan Install gcc]]
+
+Install gcc c++ compiler
+
+[!c++]
+```
+su -
+apt install g++
+```
+
+[h1 [role cyan Install clang++]]
+
+Insall clang c++ compiler
+
+[!c++]
+```
+su -
+apt install clang libc++-dev libc++abi-dev
+```
+
+[h1 [role cyan cpp example]]
+
+[!c++]
+```
+#include <iostream>
+
+int main()
+{
+	std::cout << "Hello c++!" << std::endl;
+}
+```
+
+[h1 [role cyan See Also]]
+
+[@https://www.cppfx.tiv.cc cppfx]
+
+
+
+[include ../../share/foot-links.inc.qbk]
+
+
+

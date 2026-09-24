@@ -1,0 +1,13 @@
+[article q4os sycl cpp
+	[quickbook 1.7]
+]
+
+[import cpp-code/d0010_q4os_sycl_cpp.cpp]
+[d0010_q4os_sycl_cpp_cpp]
+
+
+
+[include ../../share/foot-links.inc.qbk]
+
+
+

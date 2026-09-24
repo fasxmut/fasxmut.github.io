@@ -1,0 +1,448 @@
+[article winrt::com_ptr
+	[id winrt-com_ptr]
+	[quickbook 1.7]
+]
+
+winrt::com_ptr is windows api.
+
+[h1:start [role cyan Start]]
+
+File: [*start.cpp]
+
+```
+#include <winrt/base.h>
+#include <boost/assert.hpp>
+#include <iostream>
+
+namespace my_space
+{
+	class my_class
+	{
+	public:
+		// winrt::com_ptr requires method .Release
+		void Release()
+		{
+		}
+	};
+}
+
+int main()
+{
+	{
+		winrt::com_ptr<my_space::my_class> ptr_object;
+		// Uninitialized ptr.
+		BOOST_ASSERT(! ptr_object);
+		std::cout << "Initialized: " << std::boolalpha
+			<< bool{ptr_object} << std::endl;
+	}
+}
+```
+
+It can be compiled by both visualcpp and gcc.
+
+```
+> g++ start.cpp -std=c++26 -o start
+```
+
+```
+> ./start
+Initialized: false
+```
+
+[h1:init-value [role cyan Init Value]]
+
+File: [*value.cpp]
+
+[!c++]
+```
+#include <iostream>
+#include <winrt/base.h>
+#include <stdfloat>
+#include <numbers>	// std::numbers::pi
+
+namespace my_space
+{
+	template <typename type_t00>
+		requires
+			std::same_as<
+				std::remove_cvref_t<
+					type_t00
+				>,
+				type_t00
+			>
+	class my_type
+	{
+	private:
+		using value_type = type_t00;
+		using self_type = my_space::my_type<value_type>;
+		static_assert(std::same_as<self_type, my_space::my_type<type_t00>>);
+	private:
+		value_type * __ptr{nullptr};
+		const bool __owned;
+	public:
+		my_type(const value_type & value__):
+			__ptr{new value_type{value__}},
+			__owned{true}
+		{
+		}
+		my_type():
+			my_type{0}
+		{
+		}
+		my_type(value_type * ptr__):
+			__ptr{ptr__},
+			__owned{false}
+		{
+		}
+	public:
+		virtual ~my_type()
+		{
+			this->release();
+		}
+	public:
+		value_type * release()
+		{
+			std::cout << "Release is called." << std::endl;
+			if (__owned)
+			{
+				if (__ptr)
+				{
+					delete __ptr;
+					__ptr = nullptr;
+				}
+				return nullptr;
+			}
+			return __ptr;
+		}
+		// Required by winrt::com_ptr
+		value_type * Release()
+		{
+			return this->release();
+		}
+	public:
+		value_type get_value() const
+		{
+			if (__ptr)
+				return * __ptr;
+			throw std::runtime_error{"Value is not initialized."};
+		}
+	};
+}
+
+int main()
+{
+	{
+		using int_type = my_space::my_type<int>;
+		winrt::com_ptr<int_type> p0{new int_type{123}, {}};
+		std::cout << "value int: " << p0->get_value() << std::endl;
+	}
+	{
+		using float_type = my_space::my_type<std::float64_t>;
+		winrt::com_ptr<float_type> p0;
+		p0.attach(new float_type{std::numbers::pi});
+		std::cout << "value float: " << p0->get_value() << std::endl;
+	}
+}
+```
+
+```
+> g++ value.cpp -std=c++26 -o value
+> ./value
+value int: 123
+Release is called.
+value float: 3.14159
+Release is called.
+```
+
+[h1:counter-check [role cyan Counter Check]]
+
+File: [*program.cpp]
+
+[!c++]
+```
+#include <winrt/base.h>
+#include <iostream>
+#include <boost/assert.hpp>
+
+namespace my_space
+{
+	class counter
+	{
+	public:
+		int constructors{0};
+		int destructors{0};
+		int releasors{0};
+	};
+
+	static my_space::counter strict_counter{};
+	static my_space::counter smart_counter{};
+
+	class strict_resource
+	{
+	private:
+		int __value;
+	public:
+		strict_resource(const int & value__):
+			__value{value__}
+		{
+			++strict_counter.constructors;
+		}
+		strict_resource(const int && value__):
+			__value{value__}
+		{
+			++strict_counter.constructors;
+		}
+		strict_resource():
+			strict_resource{0}
+		{
+		}
+		strict_resource(const auto &)
+		{
+			++strict_counter.constructors;
+		}
+		strict_resource(const auto &&)
+		{
+			++strict_counter.constructors;
+		}
+		strict_resource(const strict_resource & res__):
+			strict_resource{res__.__value}
+		{
+		}
+		strict_resource(const strict_resource && res__):
+			strict_resource{res__.__value}
+		{
+		}
+	public:
+		virtual ~strict_resource()
+		{
+			++strict_counter.destructors;
+		}
+	public:
+		int get_value() const
+		{
+			return __value;
+		}
+	public:
+		static void check()
+		{
+		std::cout
+				<< "my_space::smart_resource::check:\n"
+				<< "constructors: " << my_space::strict_counter.constructors << '\n'
+				<< "destructors: " << my_space::strict_counter.destructors << '\n'
+				<< "releasors: " << my_space::strict_counter.releasors << '\n'
+			;
+			BOOST_ASSERT(strict_counter.constructors == strict_counter.destructors);
+			BOOST_ASSERT(strict_counter.releasors == 0);
+			std::cout << "my_space::strict_resource::check OK." << std::endl << std::endl;
+		}
+	};
+
+	class smart_resource
+	{
+	private:
+		my_space::strict_resource * __ptr{nullptr};
+		// const member data must be initialized by constructor.
+		const bool __owned;
+	public:
+		smart_resource(const my_space::strict_resource & res__):
+			__ptr{new my_space::strict_resource{res__}},
+			__owned{true}
+		{
+			++smart_counter.constructors;
+		}
+		smart_resource(const my_space::strict_resource && res__):
+			__ptr{new my_space::strict_resource{res__}},
+			__owned{true}
+		{
+			++smart_counter.constructors;
+		}
+		smart_resource():
+			smart_resource{my_space::strict_resource{}}
+		{
+		}
+	public:
+		smart_resource(my_space::strict_resource * ptr__):
+			__ptr{ptr__},
+			__owned{false}
+		{
+			++smart_counter.constructors;
+		}
+	public:
+		smart_resource(const my_space::smart_resource & res__):
+			__ptr{
+				new my_space::strict_resource{
+					(res__.__ptr) ?
+						* res__.__ptr
+							:
+						my_space::strict_resource{}
+				}
+			},
+			__owned{true}
+		{
+			++smart_counter.constructors;
+		}
+		smart_resource(const my_space::smart_resource && res__):
+			smart_resource{res__}
+		{
+		}
+	public:
+		virtual ~smart_resource()
+		{
+			++smart_counter.destructors;
+			this->release();
+		}
+	public:
+		my_space::strict_resource * release()
+		{
+			++smart_counter.releasors;
+			if (__owned)
+			{
+				if (__ptr)
+				{
+					delete __ptr;
+					__ptr = nullptr;
+				}
+				return nullptr;
+			}
+			return __ptr;
+		}
+		my_space::strict_resource * Release()
+		{
+			return this->release();
+		}
+	public:
+		int get_value() const
+		{
+			if (__ptr)
+				return __ptr->get_value();
+			throw std::runtime_error{"ERROR calling method .get_value: __ptr is not initialized."};
+		}
+	public:
+		static void check(bool use_winrt_com_ptr)
+		{
+			std::cout << "==============================\nstart a check ...\n\n";
+			my_space::strict_resource::check();
+			std::cout
+				<< "my_space::smart_resource::check:\n"
+				<< "constructors: " << my_space::smart_counter.constructors << '\n'
+				<< "destructors: " << my_space::smart_counter.destructors << '\n'
+				<< "releasors: " << my_space::smart_counter.releasors << '\n'
+			;
+			if (! use_winrt_com_ptr)
+			{
+				BOOST_ASSERT(my_space::smart_counter.constructors == my_space::smart_counter.destructors);
+				BOOST_ASSERT(my_space::smart_counter.constructors == my_space::smart_counter.releasors);
+			}
+			else
+			{
+				BOOST_ASSERT(my_space::smart_counter.constructors >= my_space::smart_counter.destructors);
+				BOOST_ASSERT(my_space::smart_counter.constructors <= my_space::smart_counter.releasors);
+			}
+			std::cout << "my_space::smart_resource::check OK." << std::endl << std::endl;
+			;
+		}
+	};
+}
+
+int main()
+{
+	{
+		{
+			{
+				my_space::smart_resource r1;
+				my_space::smart_resource r2{23445};
+				my_space::smart_resource r3{r2};
+				my_space::smart_resource r4{my_space::smart_resource{my_space::strict_resource{999}}};
+				std::cout << r3.get_value() << '\n' << r4.get_value() << '\n';
+			}
+			{
+				my_space::smart_resource * r5 = new my_space::smart_resource{234512};
+				std::cout << r5->get_value() << std::endl;
+				delete r5;
+			}
+		}
+		my_space::smart_resource::check(false);
+	}
+	{
+		{
+			{
+				winrt::com_ptr<my_space::smart_resource> r1{new my_space::smart_resource{231234}, {}};
+				std::cout << r1->get_value() << std::endl;
+			}
+			{
+				winrt::com_ptr<my_space::smart_resource> r2{
+					new my_space::smart_resource{my_space::strict_resource{-32}}, {}};
+				std::cout << r2->get_value() << std::endl;
+			}
+			{
+				winrt::com_ptr<my_space::smart_resource> r3;
+				r3.attach(new my_space::smart_resource{my_space::strict_resource{9}});
+				std::cout << r3->get_value() << std::endl;
+			}
+			{
+				auto ptr = new my_space::strict_resource{9123};
+				{
+					winrt::com_ptr<my_space::smart_resource> r4{new my_space::smart_resource{ptr}, {}};
+					std::cout << r4->get_value() << std::endl;
+				}
+				BOOST_ASSERT(ptr != nullptr);
+				delete ptr;
+				ptr = nullptr;
+				BOOST_ASSERT(ptr == nullptr);
+			}
+		}
+		my_space::smart_resource::check(true);
+	}
+}
+```
+
+```
+> g++ program.cpp -std=c++26 -o program
+> ./program.exe
+23445
+999
+234512
+==============================
+start a check ...
+
+my_space::smart_resource::check:
+constructors: 9
+destructors: 9
+releasors: 0
+my_space::strict_resource::check OK.
+
+my_space::smart_resource::check:
+constructors: 5
+destructors: 5
+releasors: 5
+my_space::smart_resource::check OK.
+
+231234
+-32
+9
+9123
+==============================
+start a check ...
+
+my_space::smart_resource::check:
+constructors: 16
+destructors: 16
+releasors: 0
+my_space::strict_resource::check OK.
+
+my_space::smart_resource::check:
+constructors: 9
+destructors: 5
+releasors: 9
+my_space::smart_resource::check OK.
+```
+
+[h1:date [role cyan Date]]
+
+Apr 26, 2025
+
+[h1:back [role cyan Back]]
+
+[link winrt Up]
+
+[include ../../../../share/foot-links.inc.qbk]

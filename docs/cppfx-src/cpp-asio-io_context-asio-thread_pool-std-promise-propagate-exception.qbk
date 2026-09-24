@@ -1,0 +1,423 @@
+[article c++ asio::io_context, asio::thread_pool, std::promise, propagate exception
+	[quickbook 1.7]
+	[id cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception]
+]
+
+[role drop_menu
+> [link cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception Start][br]
+> [link cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.and asio::io_context, asio::thread_pool][br]
+> [link cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.exception-propagation Exception Propagation][br]
+> [link cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.solution-std-promise Solution: std::promise][br]
+> [link cpp-asio-io_context-asio-thread_pool-std-promise-propagate-exception.cpp-join c++ join][br]
+> [@. Back: Home]
+]
+
+c++ asio::io_context and asio::thread_pool, std::promise, propagate exception
+
+[h1:and [role cyan asio::io_context and asio::thread_pool]]
+
+[h2:fsfwe1 asio::io_context:]
+
+io_context.run() is run.
+
+[h2:24sfa asio::thread_pool:]
+
+thread_pool.join() is join.
+
+[h2:43fdsa test program:]
+
+[!c++]
+```
+#include <boost/asio.hpp>
+#include <iostream>
+#include <thread>
+
+namespace asio = boost::asio;
+
+using std::string_literals::operator""s;
+
+namespace mgr
+{
+	const std::string help_info = "test <io_context|thread_pool>";
+
+	std::mutex cout_mutex;
+
+	enum class context_type
+	{
+		io_context,
+		thread_pool
+	};
+
+	class manager
+	{
+	private:
+		mgr::context_type __type;
+		void * __context = nullptr;
+	public:
+		manager(
+			int argc,
+			char ** argv
+		)
+		{
+			if (argc != 2)
+				throw std::runtime_error{mgr::help_info};
+			if ("io_context"s == argv[1])
+				__type = mgr::context_type::io_context;
+			else if ("thread_pool"s == argv[1])
+				__type = mgr::context_type::thread_pool;
+			else
+				throw std::runtime_error{mgr::help_info};
+			switch (__type)
+			{
+			case mgr::context_type::io_context:
+				__context = new asio::io_context;
+				break;
+			case mgr::context_type::thread_pool:
+				__context = new asio::thread_pool;
+				break;
+			}
+		}
+		virtual ~manager() = default;
+	public:
+		void wait()
+		{
+			if (__context == nullptr)
+				return;
+			switch (__type)
+			{
+			case mgr::context_type::io_context:
+				{
+					auto * io_context = reinterpret_cast<asio::io_context *>(__context);
+					io_context->run();
+					delete io_context;
+					io_context = nullptr;
+				}
+				break;
+			case mgr::context_type::thread_pool:
+				{
+					auto * thread_pool = reinterpret_cast<asio::thread_pool *>(__context);
+					thread_pool->join();
+					delete thread_pool;
+					thread_pool = nullptr;
+				}
+				break;
+			}
+			__context = nullptr;
+		}
+	public:
+		asio::any_io_executor get_executor()
+		{
+			switch (__type)
+			{
+			case mgr::context_type::io_context:
+				return reinterpret_cast<asio::io_context *>(__context)->get_executor();
+			case mgr::context_type::thread_pool:
+				return reinterpret_cast<asio::thread_pool *>(__context)->get_executor();
+			}
+			throw std::runtime_error{"This should not happen."};
+		}
+	public:
+		void test()
+		{
+			asio::post(
+				this->get_executor(),
+				[]
+				{
+					std::unique_lock<std::mutex> lock{mgr::cout_mutex};
+					std::cout << "By post:\n\t" << std::this_thread::get_id() << std::endl;
+				}
+			);
+			asio::co_spawn(
+				this->get_executor(),
+				[] -> asio::awaitable<void>
+				{
+					std::unique_lock<std::mutex> lock{mgr::cout_mutex};
+					std::cout << "By asio::co_spawn post:\n\t"
+						<< std::this_thread::get_id() << std::endl;
+					co_return;
+				},
+				[] (std::exception_ptr)
+				{
+					std::unique_lock<std::mutex> lock{mgr::cout_mutex};
+					std::cout << "By asio::co_spawn completion:\n\t"
+						<< std::this_thread::get_id() << std::endl;
+				}
+			);
+		}
+	};	// class manager
+}	// namespace mgr
+
+int main(int argc, char ** argv)
+{
+	try
+	{
+		mgr::manager mgr{argc, argv};
+		mgr.test();
+		std::unique_lock<std::mutex> lock{mgr::cout_mutex};
+		std::cout << "Main:\n\t" << std::this_thread::get_id() << std::endl;
+		lock.unlock();
+		mgr.wait();
+	}
+	catch (const std::exception & e)
+	{
+		std::unique_lock<std::mutex> lock{mgr::cout_mutex};
+		std::cerr << "ERROR: " << e.what() << std::endl;
+	}
+}
+```
+
+[h3:3afdafddk Run:]
+
+[!teletype]
+```
+$ ./test io_context
+Main:
+	134625736947584
+By post:
+	134625736947584
+By asio::co_spawn post:
+	134625736947584
+By asio::co_spawn completion:
+	134625736947584
+
+$ ./test thread_pool
+By post:
+	133836537038528
+Main:
+	133836603242368
+By asio::co_spawn post:
+	133836595787456
+By asio::co_spawn completion:
+	133836595787456
+```
+
+[*Analysis:]
+
+For asio::io_context, the tasks and their caller are running on one thread.
+
+Tasks are running on thread same as which calls io_context.run().
+
+Different thread calling a time of io_context.run() can make it threaded, but the io_context.run() caller and called are still in the same thread.
+
+For asio::thread_pool, the tasks are running on different threads.
+
+[h1:exception-propagation [role cyan Exception Propagation]]
+
+[h2:4safake29 asio::io_context]
+
+Throwing exception by task of asio::io_context can be propagated to which calls io_context.run(),[br]
+because they are running on the same thread.
+
+[!c++]
+```
+asio::post(
+	io_context,
+	[]
+	{
+		throw std::runtime_error{"test exception"};
+	}
+);
+
+try
+{
+	io_context.run();
+
+	// Exception is propagated directly here.
+	// Because they are in same thread.
+}
+catch (const std::runtime_error & e)
+{
+}
+```
+
+[h2:dk99ke asio::thread_pool]
+
+Throwing exception by task of asio::thread_pool can not be propagated to which calls thread_pool.join(),[br]
+ because they are running in different threads.
+
+[!c++]
+```
+asio::post(
+	thread_pool,
+	[]
+	{
+		throw std::runtime_error{"test exception"};
+	}
+);
+
+try
+{
+	thread_pool.join();
+
+	// Exception can not be propagated directly here.
+	// Because they are in different threads.
+}
+catch (const std::runtime_error & e)
+{
+}
+```
+
+[h1:solution-std-promise [role cyan Cross-threads exception solution: std::promise]]
+
+std::promise object stores exception or value into a shared state which can be accessed by std::future object.
+
+Using promise.set_exception or promise.set_value to propagate exception or value to host thread.
+
+[h2:eaore2 c++ example 1]
+
+[!c++]
+```
+#include <boost/asio.hpp>
+#include <iostream>
+
+namespace asio = boost::asio;
+
+namespace hello
+{
+	class world: virtual public std::enable_shared_from_this<hello::world>
+	{
+	private:
+		std::promise<void> __promise;
+	public:
+		world(std::promise<void> && promise__):
+			__promise{std::move(promise__)}
+		{
+		}
+		void run()
+		{
+			throw std::runtime_error{"Test Exception."};
+		}
+		void start()
+		{
+			try
+			{
+				this->run();
+				__promise.set_value();
+			}
+			catch (...)
+			{
+				__promise.set_exception(std::current_exception());
+			}
+		}
+	};
+}
+
+int main()
+{
+	asio::thread_pool thpl;
+	std::promise<void> promise;
+	std::future<void> future = promise.get_future();
+	asio::post(
+		thpl.get_executor(),
+		std::bind(
+			&hello::world::start,
+			std::make_shared<hello::world>(std::move(promise))
+		)
+	);
+	try
+	{
+		future.get();
+	}
+	catch (const std::exception & e)
+	{
+		std::cerr << "ERROR: " << e.what() << std::endl;
+	}
+	thpl.join();
+}
+```
+
+```
+ERROR: Test Exception.
+```
+
+[h2:re3k2 c++ example 2]
+
+[!c++]
+```
+#include <boost/asio.hpp>
+#include <iostream>
+
+namespace asio = boost::asio;
+
+namespace hello
+{
+	class world
+	{
+	public:
+		world() = default;
+	public:
+		asio::awaitable<void> run()
+		{
+			throw std::runtime_error{"Test Exception by asio::awaitable"};
+			co_return;
+		}
+	};
+}
+
+int main()
+{
+	asio::thread_pool thpl;
+	std::promise<void> exception_promise;
+	std::future<void> exception_future = exception_promise.get_future();
+	asio::co_spawn(
+		thpl.get_executor(),
+		std::bind(
+			&hello::world::run,
+			std::make_shared<hello::world>()
+		),
+		[&exception_promise] (std::exception_ptr eptr)
+		{
+			if (eptr)
+				exception_promise.set_exception(eptr);
+			else
+				exception_promise.set_value();
+		}
+	);
+	try
+	{
+		exception_future.get();
+	}
+	catch (const std::exception & e)
+	{
+		std::cerr << "ERROR: " << e.what() << std::endl;
+	}
+	thpl.join();
+}
+```
+
+```
+ERROR: Test Exception by asio::awaitable
+```
+
+[h1:cpp-join [role cyan c++ join]]
+
+By the way, just kidding, what is c++ join.
+
+c++ join means join.
+
+The thread is just started on thread created. Join means wait and join.
+
+[!c++]
+```
+// main_host
+	...
+	...
+	sub_thread.join(); // sub_thread
+```
+
+The [*sub_thread] is already started and running when it is created.
+
+[*sub_thread.join()] means [*sub_thread] requires to join the [*main_host] here, to achieve this goal, it must finish its task and ask [*main_host] to wait it at this point.
+
+//////////////////////////////////////////////////////////////////////
+
+[@. Home]
+
+//////////////////////////////////////////////////////////////////////
+
+Mon Jun 29 06:36:26 AM UTC 2026
+
+//////////////////////////////////////////////////////////////////////
+
+[include ../share/foot-links.inc.qbk]
+

@@ -1,0 +1,19 @@
+[book Giac c++ programming
+	[id giac-cpp]
+	[quickbook 1.7]
+]
+
+[include intro/intro.qbk]
+
+Gac c++ api: [@https://www-fourier.ujf-grenoble.fr/~parisse/giac_us.html]
+
+Install giac program.
+
+Install giac c++ api.
+
+[h1:back [role cyan Back]]
+
+[@.. Up]
+
+[include ../../share/foot-links.inc.qbk]
+

@@ -1,0 +1,45 @@
+[article Donate
+	[quickbook 1.7]
+	[id donate]
+]
+
+[role drop_menu
+> [link donate Start][br]
+> [link donate.cryptos Donate Cryptos][br]
+> [@. Back: Home][br]
+]
+
+cppfx:
+
+[*[role dddred www.cppfx.tiv.cc]] - A website for c++ programming, applications, games and declicated systems.
+
+* c++20, c++23, c++26, c++ future
+* c++ libraries
+* c++ software
+* c++ games
+* c++ dedicated systems
+
+[h1:cryptos [role cyan Donate Cryptos]]
+
+[*Bitcoin :]
+
+[role red bc1pe8t8ry62v3kzz8snhcssyvvx0zem8yram4dvt43uw5nxrfh3v6use038s2]
+
+[*Litecoin :]
+
+[role red ltc1p84g4vd707r0rq0spmdzyr6rehc8jx4c3eamjnn8el0ljy9xugwksvsluq9]
+
+[*Monero :]
+
+[role red 87HTrZtD9WmRhXoUSzL1fqPpDryJV5Q83TvJumTgH174P88rL35F3kmHfB6nmJ9VqBj8tDt23Y3ShFetWhyuKP8LG8P5ARj]
+
+//////////////////////////////////////////////////////////////////////
+
+[@. Home]
+
+//////////////////////////////////////////////////////////////////////
+
+[include ../share/foot-links.inc.qbk]
+
+
+

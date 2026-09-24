@@ -1,0 +1,74 @@
+path-constant qbk-media-root : ../../share/fx-quickbook-media/qbk-media ;
+path-constant b2-src-root : . ;
+path-constant b2-web-root : .. ;
+
+argv = [ modules.peek : ARGV ] ;
+
+if [ MATCH ^(clean)$ : $(argv) ]
+{
+	echo "rm -rf `find $(b2-web-root) -name bin`" ;
+	SHELL "rm -rf `find $(b2-web-root) -name bin`" ;
+
+	echo "rm -rf `find $(b2-src-root) -name html`" ;
+	SHELL "rm -rf `find $(b2-src-root) -name html`" ;
+
+	exit ;
+}
+
+if [ MATCH ^(cleanall)$ : $(argv) ]
+{
+	echo "rm -rf `find $(b2-web-root) -name bin`" ;
+	SHELL "rm -rf `find $(b2-web-root) -name bin`" ;
+
+	echo "rm -rf `find $(b2-web-root) -name *html`" ;
+	SHELL "rm -rf `find $(b2-web-root) -name *html`" ;
+
+	echo "rm -rf `find $(b2-web-root) -name *css`" ;
+	SHELL "rm -rf `find $(b2-web-root) -name *css`" ;
+
+	echo "rm -rf `find $(b2-web-root) -name images`" ;
+	SHELL "rm -rf `find $(b2-web-root) -name images`" ;
+
+	echo "rm -rf `find $(b2-web-root) -name *manifest`" ;
+	SHELL "rm -rf `find $(b2-web-root) -name *manifest`" ;
+
+	exit ;
+}
+
+xml xml-index : b2.qbk ;
+
+boostbook
+	html-index
+:
+	xml-index
+:
+	<xsl:param>"chunk.first.sections=1"
+	<xsl:param>"chunker.output.doctype-public=-//W3C//DTD XHTML 1.0 Strict//EN"
+	<xsl:param>"chunker.output.doctype-system=http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"
+	<dependency>media
+;
+
+install html
+:
+	[ glob
+		$(b2-src-root)/html/*.html
+		$(b2-src-root)/html/*.manifest
+	]
+:
+	<location>$(b2-web-root)
+	<install-source-root>$(b2-src-root)/html
+;
+
+install media
+:
+	[ glob
+		$(qbk-media-root)/*.css
+		$(qbk-media-root)/images/*.png
+	]
+:
+	<location>$(b2-web-root)
+	<install-source-root>$(qbk-media-root)
+;
+
+
+

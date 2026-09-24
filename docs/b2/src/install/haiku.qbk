@@ -1,0 +1,97 @@
+[article B2 Build Haiku, Build and Install
+	[id install-b2-haiku]
+	[quickbook 1.7]
+]
+
+B2 Build Home:
+
+[@https://www.bfgroup.xyz/b2]
+
+On Haiku OS:
+
+* Requires gnu c++ compiler: gcc
+
+[!teletype]
+```
+> g++ --version
+```
+
+* Get b2 source:
+
+[!teletype]
+```
+> git clone --depth=1 https://github.com/bfgroup/b2
+```
+
+* Build B2
+
+[!teletype]
+```
+> cd b2
+> ./bootstrap.sh
+
+```
+
+* Install B2
+
+[!teletype]
+```
+> ./b2 install --prefix=/boot/home/sand
+```
+
+* Add [_[~/boot/home/sand/bin]] to your system bin path.
+
+* Create and Build c++ project
+
+Init project:
+
+[!teletype]
+```
+> mkdir my-project
+> cd my-project
+> kak hello-world.cpp
+> kak jamroot
+```
+
+hello-world.cpp :
+
+[!c++]
+```
+#include <iostream>
+
+int main()
+{
+	std::cout << "Hello, c++!" << std::endl;
+}
+```
+
+jamroot :
+
+[!teletype]
+```
+exe hello-world : hello-world.cpp : : <cxxstd>23 ;
+```
+
+Build project:
+
+[!teletype]
+```
+> b2
+
+...updated 6 targets...
+```
+
+Run program:
+
+[!teletype]
+```
+> ./bin/gcc-13/debug/cxxstd-23-iso/hell-world
+Hello, c++!
+```
+
+[h1:back [role cyan Back]]
+
+[link install Up]
+
+[include ../../../share/foot-links.inc.qbk]
+

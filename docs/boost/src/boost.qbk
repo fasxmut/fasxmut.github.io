@@ -1,0 +1,13 @@
+[book boost c++
+	[quickbook 1.7]
+	[id boost-cpp]
+]
+
+[include parser/parser.qbk]
+
+[h1:back [role cyan Back]]
+
+[@.. Up]
+
+[include ../../share/foot-links.inc.qbk]
+

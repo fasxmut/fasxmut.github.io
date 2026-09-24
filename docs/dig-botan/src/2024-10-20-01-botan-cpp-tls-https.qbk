@@ -1,0 +1,20 @@
+[article Botan c++ tls https - 2024-10-20-01
+	[quickbook 1.7]
+	[id 2024-10-20-01-botan-cpp-tls-https]
+]
+
+[h1 [role cyan Botan c++ tls https - 2024-10-20-01]]
+
+c++ botan tls https - [*Dig Botan]
+
+Read here: [@https://www.cppfx.tiv.cc/silice/cpp-botan-tls-boost-asio-beast-client.html c++ botan tls + boost asio beast (https client)]
+
+[h1 [role cyan Botan]]
+
+Botan Home: [@https://botan.randombit.net c++ Botan Home]
+
+This Index: [@. Dig Botan c++]
+
+
+
+[include ../../share/foot-links.inc.qbk]

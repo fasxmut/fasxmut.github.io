@@ -1,0 +1,20 @@
+[book Projects - www.cppfx.tiv.cc
+	[quickbook 1.7]
+	[id projects]
+]
+
+[include askit.qbk]
+[include sopp.qbk]
+[include cpphtgt.qbk]
+[include hostlab.qbk]
+[include mapkp.qbk]
+[include pmpmesh.qbk]
+[include cpp-programs.qbk]
+[include q3viewer.qbk]
+
+[h1:back [role cyan Back]]
+
+[@.. Up]
+
+[include ../../share/foot-links.inc.qbk]
+

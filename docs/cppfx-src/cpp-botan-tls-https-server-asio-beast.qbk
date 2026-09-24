@@ -1,0 +1,469 @@
+[article c++ Botan TLS https server asio beast
+	[quickbook 1.7]
+	[id cpp-botan-tls-https-server-asio-beast]
+]
+
+[role drop_menu
+> [link cpp-botan-tls-https-server-asio-beast Start][br]
+> [link cpp-botan-tls-https-server-asio-beast.summary Summary][br]
+> [link cpp-botan-tls-https-server-asio-beast.cpp-code c++ code][br]
+> [link cpp-botan-tls-https-server-asio-beast.gen-self-signed Botan: Generate Self-Signed Certificates][br]
+> [link cpp-botan-tls-https-server-asio-beast.run-program Run Program][br]
+> [@. Back: Home]
+]
+
+[h1:summary [role cyan Summary]]
+
+[h2:stream-callbacks Stream Callbacks]
+
+[h3:utils-stream-callbacks utils::stream_callbacks]
+
+```
+namespace utils
+{
+	class stream_callbacks:
+		virtual public Botan::TLS::StreamCallbacks
+	{
+		...
+		...
+	};
+```
+
+Stream Callbacks are called when tls is handshaking.
+
+[h3:shared-ptr-polymorphism Shared Ptr Polymorphism]
+
+```
+std::shared_ptr<Botan::TLS::StreamCallbacks> callbacks =
+	std::make_shared<utils::stream_callbacks>(__log);
+```
+
+[*Constructor #1 of Botan::TLS::Stream matches parameters:]
+
+* std::shared_ptr<Botan::TLS::StreamCallbacks> - match
+* std::shared_ptr<utils::stream_callbacks> - not match (customized type in shared-ptr)
+
+[h2:policy-shared Policy Shared]
+
+[*utils::policy_shared is a class that automatically makes shared-ptr.]
+
+```
+utils::policy_shared policy_default{"default"};
+utils::policy_shared policy_all{"all"};
+```
+
+[* Return shared-ptr of Botan::TLS::Policy]
+
+```
+std::shared_ptr<Botan::TLS::Policy> policy = policy_default;
+```
+
+[*Return shared-ptr of Botan::TLS::Policy too.]
+
+```
+std::shared_ptr<Botan::TLS::Policy> policy = policy_default.get_shared();
+```
+
+[h2:credentials-manager Credentials Manager]
+
+[*For Server,]
+
+```
+std::shared_ptr<Botan::Credentials_Manager> cred_man =
+	std::make_shared<utils::credentials_manager>(
+		cert_fn,
+		key_fn
+	);
+```
+
+[*For Client,]
+
+```
+std::shared_ptr<Botan::Credentials_Manager> cred_man =
+	std::make_shared<utils::credentials_manager>(
+		true,	// Use system certificate store.
+		""
+	);
+```
+
+[h1:cpp-code [role cyan c++ code]]
+
+c++ code, example
+
+[!c++]
+```
+#include <iostream>
+#include <memory>
+#include <future>
+#include <sstream>
+#include <boost/asio.hpp>
+#include <boost/beast.hpp>
+#include <utils/credentials_manager.hpp>
+#include <botan/system_rng.h>
+#include <botan/tls_session_manager_memory.h>
+#include <utils/policy.hpp>
+#include <botan/asio_stream.h>
+#include <utils/stream_callbacks.hpp>
+
+namespace asio = boost::asio;
+namespace beast = boost::beast;
+namespace http = beast::http;
+using std::string_literals::operator""s;
+
+namespace net
+{
+	class server_info
+	{
+	public:
+		const std::string address;
+		const std::uint16_t port;
+		const std::string cert_fn;
+		const std::string key_fn;
+	public:
+		void print() const
+		{
+			std::clog << "COPY:\n";
+			std::clog << "https://" << address << ":" << port
+				<< "\n" << cert_fn << " " << key_fn << std::endl;
+		}
+	};
+}	// namespace net
+
+namespace net
+{
+	class tls_session:
+		virtual public std::enable_shared_from_this<net::tls_session>
+	{
+	private:
+		std::shared_ptr<net::server_info> __sinfo;
+	private:
+		std::shared_ptr<std::ostringstream> __log;
+	private:
+		std::shared_ptr<Botan::Credentials_Manager> __cred_man;
+		std::shared_ptr<Botan::RNG> __rng;
+		std::shared_ptr<Botan::TLS::Session_Manager> __sess_man;
+		std::shared_ptr<Botan::TLS::Policy> __policy;
+		std::shared_ptr<Botan::TLS::Context> __tls_context;
+		std::shared_ptr<Botan::TLS::StreamCallbacks> __tls_callbacks;
+		Botan::TLS::Stream<beast::tcp_stream> __tls_stream;
+	public:
+		tls_session(
+			//asio::any_io_executor executor__, // socket__ will carry an executor
+			std::shared_ptr<net::server_info> sinfo__,
+			asio::ip::tcp::socket && socket__
+		):
+			__sinfo{sinfo__},
+
+			__log{std::make_shared<std::ostringstream>()},
+
+			__cred_man{
+				std::make_shared<utils::credentials_manager>(
+					__sinfo->cert_fn,
+					__sinfo->key_fn
+				)
+			},
+			__rng{std::make_shared<Botan::System_RNG>()},
+			__sess_man{
+				std::make_shared<Botan::TLS::Session_Manager_In_Memory>(
+					__rng
+				)
+			},
+			__policy{
+				utils::policy_shared{"default"}
+			},
+			__tls_context{
+				std::make_shared<Botan::TLS::Context>(
+					__cred_man,
+					__rng,
+					__sess_man,
+					__policy,
+					Botan::TLS::Server_Information{}
+				)
+			},
+			__tls_callbacks{
+				std::make_shared<utils::stream_callbacks>(
+					__log
+				)
+			},
+			__tls_stream{
+				__tls_context,
+				__tls_callbacks,
+				std::move(socket__)
+			}
+		{
+		}
+	public:
+		asio::awaitable<void> start()
+		{
+			std::clog << "Session Started!" << std::endl;
+			co_await this->handshake();
+			co_await this->receive_request();
+			co_await this->send_response();
+			co_await this->close();
+			co_return;
+		}
+	private:
+		asio::awaitable<void> handshake()
+		{
+			*__log
+				<< "<h2>[TLS Callbacks]</h2>"
+				<< "<pre style=\"border-left:5px solid #000\">"
+			;
+
+			// __tls_callbacks are called on handshake.
+			// and message is written to __log
+			__tls_stream.next_layer().expires_after(std::chrono::seconds(10));
+			auto [ec] = co_await __tls_stream.async_handshake(
+				Botan::TLS::Connection_Side::Server,
+				asio::as_tuple
+			);
+			*__log << "</pre>";
+			if (ec)
+				throw std::system_error{ec, "handshake error"};
+			std::clog << "Handshake OK!" << std::endl;
+			co_return;
+		}
+	private:
+		asio::awaitable<void> receive_request()
+		{
+			http::request<http::string_body> request;
+			beast::flat_buffer buffer;
+			__tls_stream.next_layer().expires_after(std::chrono::seconds(30));
+			auto [ec, bytes] = co_await http::async_read(
+				__tls_stream,
+				buffer,
+				request,
+				asio::as_tuple
+			);
+			if (ec && ec != http::error::end_of_stream)
+				throw std::system_error{
+					ec,
+					"Receive request error"
+				};
+			std::clog << "Receive request OK" << std::endl;
+			*__log << "<h2>[Received Request]</h2>"
+				<< "<pre style=\"border-left:1px solid #000\">"
+				<< request
+				<< "</pre>";
+			co_return;
+		}
+	private:
+		asio::awaitable<void> send_response()
+		{
+			http::response<http::string_body> response;
+			response.keep_alive(true);
+			response.version(11);
+			response.set(http::field::server, "c++ web server");
+			response.set(http::field::content_type, "text/html");
+			response.body() =
+				"<html><head><title>c++ web server</title></head><body><h1>c++ web server</h1>"s
+				+
+				__log->str()
+				+
+				"</body></html>"
+			;
+			response.prepare_payload();
+			__tls_stream.next_layer().expires_after(std::chrono::seconds(20));
+			auto [ec, bytes] = co_await http::async_write(
+				__tls_stream,
+				response,
+				asio::as_tuple
+			);
+			std::clog << "Response Status: " << ec << std::endl;
+			co_return;
+		}
+	private:
+		asio::awaitable<void> close()
+		{
+			auto [ec] = co_await __tls_stream.async_shutdown(
+				asio::as_tuple
+			);
+			std::clog << "TLS Stream closed, " << ec << std::endl;
+		}
+	};	// class tls_session
+}	// namespace net
+
+namespace net
+{
+	class server:
+		virtual public std::enable_shared_from_this<net::server>
+	{
+	private:
+		std::shared_ptr<net::server_info> __sinfo;
+		asio::ip::tcp::acceptor __acceptor;
+		asio::thread_pool __pool{2048u};
+	public:
+		server(
+			asio::any_io_executor executor__,
+			std::shared_ptr<net::server_info> sinfo__
+		):
+			__sinfo{sinfo__},
+			__acceptor{
+				executor__,
+				asio::ip::tcp::endpoint{
+					asio::ip::make_address(__sinfo->address),
+					__sinfo->port
+				}
+			}
+		{
+		}
+	public:
+		asio::awaitable<void> start()
+		{
+			std::clog << "Yoea\n";
+			co_await this->listen();
+			co_await this->join();
+			co_return;
+		}
+	private:
+		asio::awaitable<void> join()
+		{
+			__pool.join();
+			co_return;
+		}
+	private:
+		asio::awaitable<void> listen()
+		{
+			co_await this->accept();
+			co_await this->listen();
+			co_return;
+		}
+	private:
+		asio::awaitable<void> accept()
+		{
+			try
+			{
+				co_await this->do_accept();
+			}
+			catch (const std::exception & e)
+			{
+				std::cerr << "Session error: " << e.what() << std::endl;
+			}
+			co_return;
+		}
+	private:
+		asio::awaitable<void> do_accept()
+		{
+			auto [ec, socket] = co_await __acceptor.async_accept(
+				asio::as_tuple
+			);
+			if (ec)
+				throw std::system_error{ec, "accept error"};
+
+			std::promise<void> promise;
+			std::future<void> future = promise.get_future();
+
+			// Post to the host: use same executor (non-threading)
+			// Post to a thread pool: use different executor (threading)
+			//
+			// Host executor: co_await asio::this_coro::executor;
+			// Thread Pool executor: __pool.get_executor();
+			//
+			asio::co_spawn(
+				__pool.get_executor(),
+				std::bind(
+					&net::tls_session::start,
+					std::make_shared<net::tls_session>(
+						__sinfo,
+						std::move(socket)
+					)
+				),
+				[promise = std::move(promise)] (std::exception_ptr eptr) mutable
+				{
+					if (eptr)
+					{
+						std::clog << "Session Closed: Exception Propagated\n";
+						promise.set_exception(eptr);
+					}
+					else
+					{
+						std::clog << "Session Closed: No Exception\n";
+						promise.set_value();
+					}
+				}
+			);
+			future.get();
+			co_return;
+		}
+	};
+}	// namespace net
+
+int main(int argc, char ** argv)
+{
+	try
+	{
+		if (argc != 5)
+			throw std::runtime_error{
+				"https-server <address> <port> <cert file> <key file>"
+			};
+		auto sinfo = std::make_shared<net::server_info>(
+			argv[1], std::stoi(argv[2]), argv[3], argv[4]
+		);
+		sinfo->print();
+		asio::thread_pool pool{32u};
+		std::promise<void> promise;
+		std::future<void> future = promise.get_future();
+		asio::co_spawn(
+			pool.get_executor(),
+			std::bind(
+				&net::server::start,
+				std::make_shared<net::server>(
+					pool.get_executor(),
+					sinfo
+				)
+			),
+			[promise = std::move(promise)] (std::exception_ptr eptr) mutable
+			{
+				if (eptr)
+					promise.set_exception(eptr);
+				else
+					promise.set_value();
+			}
+		);
+		future.get();
+		pool.join();
+	}
+	catch (const std::exception & e)
+	{
+		std::cerr << "=\n=>\n=\n" << e.what() << std::endl;
+	}
+}
+```
+
+[h1:gen-self-signed [role cyan Botan: Generate Self-Signed Certificates]]
+
+[!teletype]
+```
+$ botan keygen --algo=ECDSA --params=secp384r1 --output=server_key.pem 
+$ botan gen_self_signed \
+	server_key.pem CA --ca --country=WhichCountry --dns=the.example \
+	--hash=SHA-384 --output=ca.crt 
+$ botan gen_pkcs10 server_key.pem the.domain --output=crt.req 
+$ botan sign_cert ca.crt server_key.pem crt.req --output=server_cert.crt 
+```
+
+[h1:run-program [role cyan Run Program]]
+
+[!teletype]
+```
+./bin/gcc-16/debug/cxxstd-26-iso/https-server \
+	0.0.0.0 32132 \
+	./server_cert.crt ./server_key.pem
+```
+
+[h1:botan-home [role cyan Botan Home]]
+
+[@https://botan.randombit.net]
+
+//////////////////////////////////////////////////////////////////////
+
+[@. Home]
+
+//////////////////////////////////////////////////////////////////////
+
+Mon Sep 14 07:48:19 AM UTC 2026
+
+//////////////////////////////////////////////////////////////////////
+
+[include ../share/foot-links.inc.qbk]
+

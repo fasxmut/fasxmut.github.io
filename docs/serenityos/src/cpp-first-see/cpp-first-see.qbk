@@ -1,0 +1,15 @@
+[article c++ first see
+	[id cpp-first-see]
+	[quickbook 1.7]
+]
+
+[include my-first-cpp-on-serenityos.qbk]
+[include core-system-fork.qbk]
+[include core-system-waitpid.qbk]
+
+[h1:back [role cyan Back]]
+
+[@. Up]
+
+[include ../../../share/foot-links.inc.qbk]
+

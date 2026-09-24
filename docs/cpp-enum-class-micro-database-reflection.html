@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>c++, enum class as micro database by reflection</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="cppfx - c++, b2 build">
+<link rel="up" href="index.html" title="cppfx - c++, b2 build">
+<link rel="prev" href="cpp-json-boost-property_tree-how-4423.html" title="c++ json: boost::property_tree How 4423">
+<link rel="next" href="cpp-stdm-def-agg-exa.html" title="std::meta::define_aggregate, c++26 reflection example">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="cpp-json-boost-property_tree-how-4423.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp-stdm-def-agg-exa.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="cpp-enum-class-micro-database-reflection"></a>c++, enum class as micro database by reflection</h1></div></div>
+<hr>
+</div>
+<p>
+      <span class="drop_menu">&gt; <a class="link" href="cpp-enum-class-micro-database-reflection.html" title="c++, enum class as micro database by reflection">Start</a><br>
+      &gt; <a class="link" href="cpp-enum-class-micro-database-reflection.html#cpp-enum-class-micro-database-reflection.first-table">First
+      Table: url schema ident</a><br> &gt; <a class="link" href="cpp-enum-class-micro-database-reflection.html#cpp-enum-class-micro-database-reflection.second-table">Second
+      Table: url schema alias</a><br> &gt; <a class="link" href="cpp-enum-class-micro-database-reflection.html#cpp-enum-class-micro-database-reflection.third-table">Third
+      Table: relation</a><br> &gt; <a class="link" href="cpp-enum-class-micro-database-reflection.html#cpp-enum-class-micro-database-reflection.reflection">Reflection</a><br>
+      &gt; <a href="." target="_top">Back: Home</a> </span>
+    </p>
+<p>
+      By c++26 reflection, c++ enum class can be used as micro database.
+    </p>
+<p>
+      This article takes url schema as example.
+    </p>
+<h2>
+<a name="cpp-enum-class-micro-database-reflection.h0"></a>
+      <span class="phrase"><a name="cpp-enum-class-micro-database-reflection.first-table"></a></span><a class="link" href="cpp-enum-class-micro-database-reflection.html#cpp-enum-class-micro-database-reflection.first-table"><span class="cyan">First Table: url schema ident</span></a>
+    </h2>
+<p>
+      First table: defines url schema ident.
+    </p>
+<p>
+      Url schema ident contains http, (socket), websocket, tcp (socket), udp (socket),
+      socks4, socks5, empty, noident, unknown.
+    </p>
+<p>
+      Every enum class enumerator is unique. This table is the database keys table.
+    </p>
+<p>
+      <span class="bold"><strong><code class="computeroutput"><span class="identifier">url_schema</span><span class="special">::</span><span class="identifier">ident</span></code></strong></span>
+    </p>
+<pre class="programlisting"><span class="keyword">class</span> <span class="identifier">url_schema</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">enum</span> <span class="keyword">class</span> <span class="identifier">ident</span>
+	<span class="special">{</span>
+		<span class="identifier">http</span><span class="special">,</span>
+		<span class="identifier">websocket</span><span class="special">,</span>
+		<span class="identifier">tcp</span><span class="special">,</span>	<span class="comment">// tcp socket</span>
+		<span class="identifier">udp</span><span class="special">,</span>	<span class="comment">// udp socket</span>
+		<span class="identifier">socks4</span><span class="special">,</span>
+		<span class="identifier">socks5</span><span class="special">,</span>
+		<span class="identifier">empty</span><span class="special">,</span>
+		<span class="identifier">noident</span><span class="special">,</span>
+		<span class="identifier">unknown</span>
+	<span class="special">};</span>
+<span class="special">};</span>
+</pre>
+<p>
+      <span class="bold"><strong><code class="computeroutput"><span class="identifier">url_schema</span><span class="special">::</span><span class="identifier">ident</span></code></strong></span>
+      is used to identify which url schema from the url.
+    </p>
+<p>
+      <span class="bold"><strong><code class="computeroutput"><span class="identifier">empty</span></code></strong></span>:
+      the url has no explicit schema at the first of the url string.
+    </p>
+<p>
+      <span class="bold"><strong><code class="computeroutput"><span class="identifier">noident</span></code></strong></span>:
+      the url starts with <code class="computeroutput"><span class="special">://</span></code> without
+      schema string, likely a bad-url.
+    </p>
+<p>
+      <span class="bold"><strong><code class="computeroutput"><span class="identifier">unknown</span></code></strong></span>:
+      the url schema is not implemented currently, such as <span class="bold"><strong>chat://</strong></span>
+    </p>
+<h2>
+<a name="cpp-enum-class-micro-database-reflection.h1"></a>
+      <span class="phrase"><a name="cpp-enum-class-micro-database-reflection.second-table"></a></span><a class="link" href="cpp-enum-class-micro-database-reflection.html#cpp-enum-class-micro-database-reflection.second-table"><span class="cyan">Second Table: url schema alias</span></a>
+    </h2>
+<p>
+      Second table: defines url schema alias. Every ident has too many aliases.
+    </p>
+<p>
+      <span class="bold"><strong><code class="computeroutput"><span class="identifier">url_schema</span><span class="special">::</span><span class="identifier">alias</span></code></strong></span>
+    </p>
+<pre class="programlisting"><span class="keyword">class</span> <span class="identifier">url_schema</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">enum</span> <span class="keyword">class</span> <span class="identifier">alias</span>
+	<span class="special">{</span>
+		<span class="identifier">http</span><span class="special">,</span>
+		<span class="identifier">https</span><span class="special">,</span>
+		<span class="identifier">websocket</span><span class="special">,</span>
+		<span class="identifier">websockets</span><span class="special">,</span>
+		<span class="identifier">tcp</span><span class="special">,</span>
+		<span class="identifier">tcps</span><span class="special">,</span>
+		<span class="identifier">udp</span><span class="special">,</span>
+		<span class="identifier">udps</span><span class="special">,</span>
+		<span class="identifier">socket</span><span class="special">,</span>
+		<span class="identifier">sockets</span><span class="special">,</span>
+		<span class="identifier">sock</span><span class="special">,</span>
+		<span class="identifier">socks</span><span class="special">,</span>
+		<span class="identifier">socks4</span><span class="special">,</span>
+		<span class="identifier">socks5</span><span class="special">,</span>
+		<span class="identifier">empty</span><span class="special">,</span>
+		<span class="identifier">noalias</span><span class="special">,</span>
+		<span class="identifier">unknown</span>
+	<span class="special">};</span>
+<span class="special">};</span>
+</pre>
+<p>
+      <span class="bold"><strong><code class="computeroutput"><span class="identifier">url_schema</span><span class="special">::</span><span class="identifier">alias</span></code></strong></span>
+      is used to match the first substring of the url.
+    </p>
+<p>
+      <span class="bold"><strong><code class="computeroutput"><span class="identifier">empty</span></code></strong></span>:
+      the url has no explicit schema at the first of the url string.
+    </p>
+<p>
+      <span class="bold"><strong><code class="computeroutput"><span class="identifier">noalias</span></code></strong></span>:
+      the url starts with <code class="computeroutput"><span class="special">://</span></code> without
+      schema string, likely a bad-url.
+    </p>
+<p>
+      <span class="bold"><strong><code class="computeroutput"><span class="identifier">unknown</span></code></strong></span>:
+      the url schema is not implemented currently, such as <span class="bold"><strong>chat://</strong></span>
+    </p>
+<h2>
+<a name="cpp-enum-class-micro-database-reflection.h2"></a>
+      <span class="phrase"><a name="cpp-enum-class-micro-database-reflection.third-table"></a></span><a class="link" href="cpp-enum-class-micro-database-reflection.html#cpp-enum-class-micro-database-reflection.third-table"><span class="cyan">Third Table: relation</span></a>
+    </h2>
+<p>
+      Third table: the relation table of the first table and second table. It defines
+      how to search the unique ident by alias. It also defines if the tls is enabled
+      or not.
+    </p>
+<p>
+      <span class="bold"><strong><code class="computeroutput"><span class="identifier">url_schema</span><span class="special">::</span><span class="identifier">relation</span></code></strong></span>
+    </p>
+<pre class="programlisting"><span class="keyword">class</span> <span class="identifier">url_schema</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">enum</span> <span class="keyword">class</span> <span class="identifier">relation</span>
+	<span class="special">{</span>
+		<span class="identifier">http_http_no</span><span class="special">,</span>
+		<span class="identifier">http_https_yes</span><span class="special">,</span>
+		<span class="identifier">websocket_websocket_no</span><span class="special">,</span>
+		<span class="identifier">websocket_websockets_yes</span><span class="special">,</span>
+		<span class="identifier">tcp_tcp_no</span><span class="special">,</span>
+		<span class="identifier">tcp_tcps_yes</span><span class="special">,</span>
+		<span class="identifier">udp_udp_no</span><span class="special">,</span>
+		<span class="identifier">udp_udps_yes</span><span class="special">,</span>
+		<span class="identifier">tcp_socket_no</span><span class="special">,</span>
+		<span class="identifier">tcp_sockets_yes</span><span class="special">,</span>
+		<span class="identifier">tcp_sock_no</span><span class="special">,</span>
+		<span class="identifier">tcp_socks_yes</span><span class="special">,</span>
+		<span class="identifier">socks4_socks4_no</span><span class="special">,</span>
+		<span class="identifier">socks5_socks5_no</span><span class="special">,</span>
+		<span class="identifier">empty_empty_no</span><span class="special">,</span>
+		<span class="identifier">noident_noalias_no</span><span class="special">,</span>
+		<span class="identifier">unknown_unknown_no</span>
+	<span class="special">};</span>
+<span class="special">};</span>
+</pre>
+<p>
+      <span class="bold"><strong><code class="computeroutput"><span class="identifier">url_schema</span><span class="special">::</span><span class="identifier">relation</span></code></strong></span>
+      is the relation table.
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          <span class="bold"><strong><code class="computeroutput"><span class="special">??</span><span class="identifier">_yes</span></code></strong></span>:
+          tls enabled
+        </li>
+<li class="listitem">
+          <span class="bold"><strong><code class="computeroutput"><span class="special">??</span><span class="identifier">_no</span></code></strong></span>:
+          tls not enabled
+        </li>
+</ul></div>
+<h2>
+<a name="cpp-enum-class-micro-database-reflection.h3"></a>
+      <span class="phrase"><a name="cpp-enum-class-micro-database-reflection.reflection"></a></span><a class="link" href="cpp-enum-class-micro-database-reflection.html#cpp-enum-class-micro-database-reflection.reflection"><span class="cyan">Reflection</span></a>
+    </h2>
+<p>
+      After the three tables are built in c++ code,<br> the next step is to use
+      c++26 reflection to<br> search, match, transform and handle the url schema.
+    </p>
+<h3>
+<a name="cpp-enum-class-micro-database-reflection.h4"></a>
+      <span class="phrase"><a name="cpp-enum-class-micro-database-reflection.reflection-example"></a></span><a class="link" href="cpp-enum-class-micro-database-reflection.html#cpp-enum-class-micro-database-reflection.reflection-example">Reflection
+      example</a>
+    </h3>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">meta</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">map</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+
+<span class="keyword">namespace</span> <span class="identifier">url</span>
+<span class="special">{</span>
+	<span class="keyword">class</span> <span class="identifier">url_schema</span>
+	<span class="special">{</span>
+	<span class="keyword">public</span><span class="special">:</span>
+		<span class="keyword">enum</span> <span class="keyword">class</span> <span class="identifier">ident</span>
+		<span class="special">{</span>
+			<span class="identifier">http</span><span class="special">,</span>
+			<span class="identifier">websocket</span><span class="special">,</span>
+			<span class="identifier">tcp</span><span class="special">,</span>
+			<span class="identifier">udp</span><span class="special">,</span>
+			<span class="identifier">socks4</span><span class="special">,</span>
+			<span class="identifier">socks5</span><span class="special">,</span>
+			<span class="identifier">empty</span><span class="special">,</span>
+			<span class="identifier">noident</span><span class="special">,</span>
+			<span class="identifier">unknown</span>
+		<span class="special">};</span>
+	<span class="special">};</span>
+<span class="special">}</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">map</span><span class="special">&lt;</span><span class="identifier">url</span><span class="special">::</span><span class="identifier">url_schema</span><span class="special">::</span><span class="identifier">ident</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span><span class="special">&gt;</span> <span class="identifier">map</span><span class="special">;</span>
+	<span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="identifier">table</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">define_static_array</span><span class="special">(</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">meta</span><span class="special">::</span><span class="identifier">enumerators_of</span><span class="special">(</span>
+			<span class="special">^^</span><span class="identifier">url</span><span class="special">::</span><span class="identifier">url_schema</span><span class="special">::</span><span class="identifier">ident</span>
+		<span class="special">)</span>
+	<span class="special">);</span>
+	<span class="keyword">template</span> <span class="keyword">for</span> <span class="special">(</span><span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="special">&amp;</span> <span class="identifier">ident</span><span class="special">:</span> <span class="keyword">auto</span> <span class="special">(</span><span class="identifier">table</span><span class="special">))</span>
+	<span class="special">{</span>
+		<span class="identifier">map</span><span class="special">.</span><span class="identifier">emplace</span><span class="special">(</span>
+			<span class="special">[:</span><span class="identifier">ident</span><span class="special">:],</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span><span class="special">{</span>
+				<span class="identifier">std</span><span class="special">::</span><span class="identifier">meta</span><span class="special">::</span><span class="identifier">identifier_of</span><span class="special">(</span><span class="identifier">ident</span><span class="special">)</span>
+			<span class="special">}</span>
+		<span class="special">);</span>
+	<span class="special">}</span>
+	<span class="keyword">for</span> <span class="special">(</span><span class="keyword">const</span> <span class="keyword">auto</span> <span class="special">&amp;</span> <span class="special">[</span><span class="identifier">ident</span><span class="special">,</span> <span class="identifier">string</span><span class="special">]:</span> <span class="identifier">map</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span>
+			<span class="special">&lt;&lt;</span> <span class="keyword">static_cast</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;(</span><span class="identifier">ident</span><span class="special">)</span> <span class="special">&lt;&lt;</span> <span class="string">" =&gt; "</span> <span class="special">&lt;&lt;</span> <span class="identifier">string</span>
+			<span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span>
+		<span class="special">;</span>
+	<span class="special">}</span>
+<span class="special">}</span>
+</pre>
+<p>
+      <span class="bold"><strong>Output:</strong></span>
+    </p>
+<pre class="programlisting"><span class="number">0</span> <span class="special">=&gt;</span> <span class="identifier">http</span>
+<span class="number">1</span> <span class="special">=&gt;</span> <span class="identifier">websocket</span>
+<span class="number">2</span> <span class="special">=&gt;</span> <span class="identifier">tcp</span>
+<span class="number">3</span> <span class="special">=&gt;</span> <span class="identifier">udp</span>
+<span class="number">4</span> <span class="special">=&gt;</span> <span class="identifier">socks4</span>
+<span class="number">5</span> <span class="special">=&gt;</span> <span class="identifier">socks5</span>
+<span class="number">6</span> <span class="special">=&gt;</span> <span class="identifier">empty</span>
+<span class="number">7</span> <span class="special">=&gt;</span> <span class="identifier">noident</span>
+<span class="number">8</span> <span class="special">=&gt;</span> <span class="identifier">unknown</span>
+</pre>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<p>
+      <a href="." target="_top">Home</a>
+    </p>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<p>
+      Fri Jul 10 02:51:26 AM UTC 2026
+    </p>
+<p>
+      //////////////////////////////////////////////////////////////////////
+    </p>
+<h2>
+<a name="cpp-enum-class-micro-database-reflection.h5"></a>
+      <span class="phrase"><a name="cpp-enum-class-micro-database-reflection.helpful"></a></span><a class="link" href="cpp-enum-class-micro-database-reflection.html#cpp-enum-class-micro-database-reflection.helpful"><span class="cyan">Helpful</span></a>
+    </h2>
+<p>
+      <a href="https://www.cppfx.tiv.cc" target="_top">www.cppfx.tiv.cc</a>
+    </p>
+<h2>
+<a name="cpp-enum-class-micro-database-reflection.h6"></a>
+      <span class="phrase"><a name="cpp-enum-class-micro-database-reflection.role"></a></span><a class="link" href="cpp-enum-class-micro-database-reflection.html#cpp-enum-class-micro-database-reflection.role"><span class="cyan">Role</span></a>
+    </h2>
+<p>
+      +
+    </p>
+<p>
+      Powered by:<br> <a href="https://www.bfgroup.xyz/b2" target="_top">B2 Build</a>
+      | <a href="https://www.boost.org/tools/quickbook" target="_top">boost quickbook</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      <a href="https://www.cppfx.tiv.cc/donate.html" target="_top">Donate</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      @<a href="https://www.cppfx.tiv.cc" target="_top">www.cppfx.tiv.cc</a>
+    </p>
+<p>
+      <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+      <br> <br> <br> <br> <br>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="cpp-json-boost-property_tree-how-4423.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp-stdm-def-agg-exa.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

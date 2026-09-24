@@ -1,0 +1,15 @@
+[article c++ Lvalue and Rvalue
+	[quickbook 1.7]
+	[id cpp-lvalue-rvalue]
+]
+
+[include lvalue-rvalue-01-value-categories.qbk]
+[include lvalue-rvalue-02-lvalue-ref-rvalue-ref-const.qbk]
+
+[h1:back [role cyan Back]]
+
+[link cpp-silice-unsilice Up]
+
+
+
+[include ../../../share/foot-links.inc.qbk]

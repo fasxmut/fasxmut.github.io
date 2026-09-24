@@ -1,0 +1,19 @@
+[article Mapkp
+	[id mapkp]
+	[quickbook 1.7]
+]
+
+[h1 [role cyan Mapkp - Map compiler forked from id tech 3 map compiler]]
+
+Mapkp is a map compiler written in c++, which is a map compiler to translate text 3D map to binary 3D map. It forks from id tech 3 map-compiler. Mapkp is upgraded to support modern c++ compiler.
+
+
+[h1:project-starting-date [role cyan Project Starting Date]]
+
+Tue May 27 09:13:46 AM UTC 2025
+
+[h1:back [role cyan Back]]
+
+[@. Up]
+
+[include ../../share/foot-links.inc.qbk]

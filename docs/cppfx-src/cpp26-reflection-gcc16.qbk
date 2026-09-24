@@ -1,0 +1,223 @@
+[article c++26 reflection: std::meta::info, operator, splice specifiers, std::meta::define_aggregate (gcc 16)
+	[quickbook 1.7]
+	[id cpp26-reflection-gcc16]
+]
+
+[role drop_menu
+> [link cpp26-reflection-gcc16 Start][br]
+> [link cpp26-reflection-gcc16.std-meta-info std::meta::info][br]
+> [link cpp26-reflection-gcc16.reflection-operator Reflection operator][br]
+> [link cpp26-reflection-gcc16.splice-specifiers Splice specifiers \[: :\]][br]
+> [link cpp26-reflection-gcc16.cpp-example c++ example][br]
+> [link cpp26-reflection-gcc16.std-meta-define_aggregate std::meta::define_aggregate][br]
+> [@. Back: Home]
+]
+
+c++: c++26 reflection, gcc 16:
+
+Reflection value type: std::meta::info
+
+Reflection operator: ^^
+
+Splice specifiers: \[: :\]
+
+std::meta::define_aggregate.
+
+[h1:std-meta-info [role cyan std::meta::info]]
+
+std::meta::info is the type of reflection values.
+
+It represents:
+
+* null
+* scalar type value
+* static storage duration object
+* variable
+* structured binding
+* function
+* function parameter
+* enumerator
+* annotation
+* type alias
+* type
+* class member
+* unnamed bit-field
+* class template
+* function template
+* variable template
+* alias template
+* concept
+* namespace alias
+* namespace
+* direct base class relationship
+* data member description
+
+[h1:reflection-operator [role cyan Reflection operator ^^]]
+
+[h4:makdesinfo [* [role dred Reflection operator ^^]]]
+
+The [role dred [*^^]] is the reflection operator, it is unary operator.
+
+The operator yields the reflection of the given language construct of type std::meta::info .
+
+[h1:splice-specifiers [role cyan Splice specifiers \[: :\]]]
+
+The splice specifiers [role dred [*\[: :\]]] produce a language construct from a reflection value.
+
+A type specifier:
+
+[!c++]
+```
+typename [:constant-expression:]
+```
+
+A splice specifier that designates a template:
+
+[!c++]
+```
+template [:constant-expression:]
+```
+
+Meaning depends on the context:
+
+[!c++]
+```
+[:constant-expression:]
+```
+
+[h1:cpp-example [role cyan c++ example]]
+
+[!c++]
+```
+#include <meta>
+#include <iostream>
+#include <boost/assert.hpp>
+#include <map>
+#include <vector>
+
+namespace nsa
+{
+	class hello_world
+	{
+	public:
+		static constexpr int u = 9;
+	public:
+		void print() const
+		{
+			std::cout << "Hello World!" << std::endl;
+		}
+	};
+}
+
+int main()
+{
+	constexpr auto a = ^^::;
+	constexpr float x = 2.8;
+	constexpr auto b = ^^x;
+	constexpr auto c = ^^nsa::hello_world;
+	nsa::hello_world hello;
+	constexpr auto d = ^^hello;
+	constexpr auto e = ^^main;
+	constexpr auto f = ^^float;
+	constexpr auto g = ^^std;
+	using pair =  std::pair<std::string, std::string>;
+	constexpr auto h = ^^pair;
+	constexpr auto i = ^^std::vector<float>;
+	constexpr auto j = ^^std::floating_point;
+	constexpr auto k = ^^std::vector;
+	constexpr auto l = ^^std::same_as;
+	constexpr auto m = ^^std::pair<std::string, std::string>;
+	static_assert(h != m);
+	static_assert(h == ^^pair);
+	static_assert(std::meta::is_type(c));
+	static_assert(! std::meta::is_type(d));
+	static_assert(std::meta::is_variable(d));
+	static_assert(std::meta::is_concept(l));
+	static_assert(std::meta::is_concept(j));
+	constexpr auto p = [:^^nsa::hello_world:]::u;
+	std::cout << "p= " << p << std::endl;
+	constexpr auto q = [:b:];
+	std::cout << "q= " << q << std::endl;
+	constexpr auto r = [:d:];
+	r.print();
+	[:d:].print();
+	using t9 = [:c:];
+	t9 z;
+	z.print();
+	typename [:c:] t2;
+	t2.print();
+}
+```
+
+
+[h1:std-meta-define_aggregate [role cyan std::meta::define_aggregate]]
+
+std::meta::define_aggregate takes the reflection of an incomplete class or type[br]
+and a range of reflections of data member descriptions,[br]
+and completes the given class type with data members as described,[br]
+in the given order.[br]
+The given reflection is returned.
+
+[!c++]
+```
+namespace std::meta
+{
+	template<std::meta::reflection_range range_type = std::initializer_list<std::meta::info>>
+	consteval std::meta::info define_aggregate(
+		std::meta::info,
+		range_type &&
+	);
+}
+```
+
+[*c++ example]
+
+[!c++]
+```
+#include <meta>
+#include <iostream>
+#include <vector>
+
+namespace help
+{
+	class impl;
+}
+
+consteval
+{
+	auto xt = std::meta::define_aggregate(^^help::impl, std::vector<std::meta::info>{});
+}
+
+namespace info
+{
+	class impl;
+	consteval
+	{
+		auto xt = std::meta::define_aggregate(^^info::impl, {});
+	}
+}
+
+
+int main()
+{
+	help::impl hello{};
+	info::impl world{};
+}
+```
+
+[*help::impl] must be an incomplete type, std::meta::define_aggregate defines it to make it complete.
+
+It must be used in [role dddgreen [*consteval]] .
+
+//////////////////////////////////////////////////////////////////////
+
+[@. Home]
+
+//////////////////////////////////////////////////////////////////////
+
+Fri Jul  3 09:57:27 AM UTC 2026
+
+//////////////////////////////////////////////////////////////////////
+
+[include ../share/foot-links.inc.qbk]
+
