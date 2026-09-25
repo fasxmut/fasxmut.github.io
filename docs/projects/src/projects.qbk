@@ -3,6 +3,7 @@
 	[id projects]
 ]
 
+[include ugpp.qbk]
 [include askit.qbk]
 [include sopp.qbk]
 [include cpphtgt.qbk]

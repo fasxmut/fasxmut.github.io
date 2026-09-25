@@ -1,0 +1,54 @@
+[article Ugpp c++ library
+	[id ugpp]
+	[quickbook 1.7]
+]
+
+Ugpp is a c++ library to provide some basic useful features.
+
+[h1:tuple-map [role cyan ugpp::vector_tumap, ugpp::list_tumap]]
+
+ugpp::vector_tumap or ugpp::list_tumap uses tuple as its element type and use std::vector or std::list as its range type.
+
+The tuple maps do not sort elements.
+
+[!c++]
+```
+#include <ugpp/vector_tumap.hpp>
+#inlcude <iostream>
+
+int main()
+{
+	ugpp::vector_tumap<std::string, bool, std::string, float> map{
+		{"world 1", true, "A", 2.5},
+		{"world 2", false, "B", 4.5}
+	};
+	map.set("world 3", true, "C", 7.5);
+	map.set("world 2", true, "D", 9.5);
+	for (const auto & [key, v1, v2, v3]: map)
+	{
+		std::cout << key << " => " << v1 << " " << v2 << " " << v3 << std::endl;
+	}
+
+	contract_assert(map.size() == 3u);
+	contract_assert(map.find("world 2") != map.end());
+	contract_assert(map.find("World 2") == map.end());
+	contract_assert(map.find("world 4") == map.end());
+}
+```
+
+[h1:project [role cyan Project]]
+
+Project Start Date:
+
+Sep 25, 2026
+
+github:
+
+[@https://github.com/fasxmut/ugpp]
+
+[h1:back [role cyan Back]]
+
+[@. Up]
+
+[include ../../share/foot-links.inc.qbk]
+
