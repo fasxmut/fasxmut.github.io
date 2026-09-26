@@ -5,20 +5,20 @@
 
 Ugpp is a c++ library to provide some basic useful features.
 
-[h1:tuple-map [role cyan ugpp::vector_tumap, ugpp::list_tumap]]
+[h1:tuple-map [role cyan ugpp::vt_map, ugpp::lt_map]]
 
-ugpp::vector_tumap or ugpp::list_tumap uses tuple as its element type and use std::vector or std::list as its range type.
+ugpp::vt_map or ugpp::lt_map uses tuple as its element type and use std::vector or std::list as its range type.
 
 The tuple maps do not sort elements.
 
 [!c++]
 ```
-#include <ugpp/vector_tumap.hpp>
+#include <ugpp/vt_map.hpp>
 #inlcude <iostream>
 
 int main()
 {
-	ugpp::vector_tumap<std::string, bool, std::string, float> map{
+	ugpp::vt_map<std::string, bool, std::string, float> map{
 		{"world 1", true, "A", 2.5},
 		{"world 2", false, "B", 4.5}
 	};
@@ -33,6 +33,11 @@ int main()
 	contract_assert(map.find("world 2") != map.end());
 	contract_assert(map.find("World 2") == map.end());
 	contract_assert(map.find("world 4") == map.end());
+
+	ugpp::vt_map map2{
+		std::tuple{"world 1", true, "A", 2.5},
+		{"world 2", false, "B", 4.5}
+	};
 }
 ```
 

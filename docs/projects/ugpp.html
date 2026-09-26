@@ -25,22 +25,22 @@
     </p>
 <h2>
 <a name="ugpp.h0"></a>
-      <span class="phrase"><a name="ugpp.tuple-map"></a></span><a class="link" href="ugpp.html#ugpp.tuple-map"><span class="cyan">ugpp::vector_tumap,
-      ugpp::list_tumap</span></a>
+      <span class="phrase"><a name="ugpp.tuple-map"></a></span><a class="link" href="ugpp.html#ugpp.tuple-map"><span class="cyan">ugpp::vt_map,
+      ugpp::lt_map</span></a>
     </h2>
 <p>
-      ugpp::vector_tumap or ugpp::list_tumap uses tuple as its element type and use
-      std::vector or std::list as its range type.
+      ugpp::vt_map or ugpp::lt_map uses tuple as its element type and use std::vector
+      or std::list as its range type.
     </p>
 <p>
       The tuple maps do not sort elements.
     </p>
-<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">ugpp</span><span class="special">/</span><span class="identifier">vector_tumap</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">ugpp</span><span class="special">/</span><span class="identifier">vt_map</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 <span class="preprocessor">#inlcude</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
 
 <span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
 <span class="special">{</span>
-	<span class="identifier">ugpp</span><span class="special">::</span><span class="identifier">vector_tumap</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span><span class="special">,</span> <span class="keyword">bool</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span><span class="special">,</span> <span class="keyword">float</span><span class="special">&gt;</span> <span class="identifier">map</span><span class="special">{</span>
+	<span class="identifier">ugpp</span><span class="special">::</span><span class="identifier">vt_map</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span><span class="special">,</span> <span class="keyword">bool</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span><span class="special">,</span> <span class="keyword">float</span><span class="special">&gt;</span> <span class="identifier">map</span><span class="special">{</span>
 		<span class="special">{</span><span class="string">"world 1"</span><span class="special">,</span> <span class="keyword">true</span><span class="special">,</span> <span class="string">"A"</span><span class="special">,</span> <span class="number">2.5</span><span class="special">},</span>
 		<span class="special">{</span><span class="string">"world 2"</span><span class="special">,</span> <span class="keyword">false</span><span class="special">,</span> <span class="string">"B"</span><span class="special">,</span> <span class="number">4.5</span><span class="special">}</span>
 	<span class="special">};</span>
@@ -55,6 +55,11 @@
 	<span class="identifier">contract_assert</span><span class="special">(</span><span class="identifier">map</span><span class="special">.</span><span class="identifier">find</span><span class="special">(</span><span class="string">"world 2"</span><span class="special">)</span> <span class="special">!=</span> <span class="identifier">map</span><span class="special">.</span><span class="identifier">end</span><span class="special">());</span>
 	<span class="identifier">contract_assert</span><span class="special">(</span><span class="identifier">map</span><span class="special">.</span><span class="identifier">find</span><span class="special">(</span><span class="string">"World 2"</span><span class="special">)</span> <span class="special">==</span> <span class="identifier">map</span><span class="special">.</span><span class="identifier">end</span><span class="special">());</span>
 	<span class="identifier">contract_assert</span><span class="special">(</span><span class="identifier">map</span><span class="special">.</span><span class="identifier">find</span><span class="special">(</span><span class="string">"world 4"</span><span class="special">)</span> <span class="special">==</span> <span class="identifier">map</span><span class="special">.</span><span class="identifier">end</span><span class="special">());</span>
+
+	<span class="identifier">ugpp</span><span class="special">::</span><span class="identifier">vt_map</span> <span class="identifier">map2</span><span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">tuple</span><span class="special">{</span><span class="string">"world 1"</span><span class="special">,</span> <span class="keyword">true</span><span class="special">,</span> <span class="string">"A"</span><span class="special">,</span> <span class="number">2.5</span><span class="special">},</span>
+		<span class="special">{</span><span class="string">"world 2"</span><span class="special">,</span> <span class="keyword">false</span><span class="special">,</span> <span class="string">"B"</span><span class="special">,</span> <span class="number">4.5</span><span class="special">}</span>
+	<span class="special">};</span>
 <span class="special">}</span>
 </pre>
 <h2>
