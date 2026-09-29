@@ -7,6 +7,8 @@ Ugpp is a c++ library to provide some basic useful features.
 
 [h1:tuple-map [role cyan ugpp::vt_map, ugpp::lt_map]]
 
+[h1:removed [role yellow This project is removed, the c++ code is merged into other project.]]
+
 ugpp::vt_map or ugpp::lt_map uses tuple as its element type and use std::vector or std::list as its range type.
 
 The tuple maps do not sort elements.
@@ -47,9 +49,7 @@ Project Start Date:
 
 Sep 24, 2026
 
-github:
-
-[@https://github.com/fasxmut/ugpp]
+[*[role pred This project is removed, the c++ code is merged into other project.]]
 
 [h1:back [role cyan Back]]
 
