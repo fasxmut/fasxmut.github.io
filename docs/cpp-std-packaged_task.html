@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>c++ std::packaged_task</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="cppHot - c++, B2 Build">
+<link rel="up" href="index.html" title="cppHot - c++, B2 Build">
+<link rel="prev" href="asio-co_spawn-std-promise-exception-chain-cpp.html" title="asio::co_spawn std::promise Exception Chain [c++]">
+<link rel="next" href="cpp-std-promise.html" title="c++ std::promise">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="asio-co_spawn-std-promise-exception-chain-cpp.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp-std-promise.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="cpp-std-packaged_task"></a>c++ std::packaged_task</h1></div></div>
+<hr>
+</div>
+<p>
+      <span class="drop_menu">&gt; <a class="link" href="cpp-std-packaged_task.html" title="c++ std::packaged_task">Start</a><br>
+      &gt; <a class="link" href="cpp-std-packaged_task.html#cpp-std-packaged_task.std-packaged_task">std::packaged_task</a><br>
+      &gt; <a class="link" href="cpp-std-packaged_task.html#cpp-std-packaged_task.cpp-example">c++ Example</a><br>
+      &gt; <a href="." target="_top">Back: Home</a> </span>
+    </p>
+<p>
+      c++ std::packaged_task
+    </p>
+<p>
+      c++ std::future
+    </p>
+<h2>
+<a name="cpp-std-packaged_task.h0"></a>
+      <span class="phrase"><a name="cpp-std-packaged_task.std-packaged_task"></a></span><a class="link" href="cpp-std-packaged_task.html#cpp-std-packaged_task.std-packaged_task"><span class="cyan">std::packaged_task</span></a>
+    </h2>
+<p>
+      c++ std::packaged_task wraps a callable object, which can be invoked asynchronously.
+    </p>
+<p>
+      It stores a value in a share state, which can be accessed by std::future.
+    </p>
+<p>
+      <span class="bold"><strong>class :</strong></span>
+    </p>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">packaged_task</span><span class="special">&lt;</span><span class="identifier">R</span><span class="special">&gt;;</span>
+</pre>
+<p>
+      <span class="bold"><strong>Methods :</strong></span>
+    </p>
+<pre class="programlisting"><span class="special">.</span><span class="identifier">valid</span>	<span class="special">-</span> <span class="identifier">Check</span> <span class="keyword">if</span> <span class="identifier">the</span> <span class="identifier">object</span> <span class="identifier">has</span> <span class="identifier">a</span> <span class="identifier">valid</span> <span class="identifier">function</span>
+
+<span class="special">.</span><span class="identifier">swap</span>
+
+<span class="special">.</span><span class="identifier">get_future</span>
+
+<span class="special">.</span><span class="keyword">operator</span><span class="special">()</span>	<span class="special">-</span> <span class="identifier">Invoke</span> <span class="identifier">the</span> <span class="identifier">funtion</span>
+
+<span class="special">.</span><span class="identifier">make_ready_at_thread_exit</span>
+
+<span class="special">.</span><span class="identifier">reset</span>	<span class="special">-</span> <span class="identifier">Reset</span><span class="special">:</span> <span class="identifier">abandon</span> <span class="identifier">any</span> <span class="identifier">stored</span> <span class="identifier">results</span><span class="special">.</span>
+</pre>
+<h2>
+<a name="cpp-std-packaged_task.h1"></a>
+      <span class="phrase"><a name="cpp-std-packaged_task.cpp-example"></a></span><a class="link" href="cpp-std-packaged_task.html#cpp-std-packaged_task.cpp-example"><span class="cyan">c++ Example</span></a>
+    </h2>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">future</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">thread</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">random</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="keyword">static</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">mt19937</span> <span class="identifier">rnd</span><span class="special">{</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">mt19937_64</span><span class="special">{</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">mt19937</span><span class="special">{</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">mt19937_64</span><span class="special">{</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">random_device</span><span class="special">{}()}()}()}()};</span>
+
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">packaged_task</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">(</span><span class="keyword">void</span><span class="special">)&gt;</span> <span class="identifier">task</span><span class="special">{</span>
+		<span class="special">[]</span>
+		<span class="special">{</span>
+			<span class="keyword">if</span> <span class="special">(</span><span class="identifier">rnd</span><span class="special">()</span> <span class="special">%</span><span class="number">2</span> <span class="special">==</span> <span class="number">0</span><span class="special">)</span>
+				<span class="keyword">throw</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">runtime_error</span><span class="special">{</span>
+					<span class="string">"test exception on"</span>
+				<span class="special">};</span>
+			<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Hello, c++!"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+		<span class="special">}</span>
+	<span class="special">};</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">future</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">&gt;</span> <span class="identifier">future</span> <span class="special">=</span> <span class="identifier">task</span><span class="special">.</span><span class="identifier">get_future</span><span class="special">();</span>
+
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">thread</span> <span class="identifier">thread</span><span class="special">{</span>
+		<span class="special">[</span><span class="identifier">task</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">move</span><span class="special">(</span><span class="identifier">task</span><span class="special">)]</span>
+			<span class="keyword">mutable</span>
+		<span class="special">{</span>
+			<span class="identifier">task</span><span class="special">();</span>
+		<span class="special">}</span>
+	<span class="special">};</span>
+	<span class="keyword">try</span>
+	<span class="special">{</span>
+		<span class="identifier">future</span><span class="special">.</span><span class="identifier">get</span><span class="special">();</span>
+	<span class="special">}</span>
+	<span class="keyword">catch</span> <span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">exception</span> <span class="special">&amp;</span> <span class="identifier">e</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="identifier">std</span><span class="special">::</span><span class="identifier">cerr</span> <span class="special">&lt;&lt;</span> <span class="string">"ERROR: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">e</span><span class="special">.</span><span class="identifier">what</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="identifier">thread</span><span class="special">.</span><span class="identifier">join</span><span class="special">();</span>
+<span class="special">}</span>
+</pre>
+<p>
+      ///////////////////////////////////////////////////////////////////////////////
+    </p>
+<p>
+      Mon Oct 12 10:37:07 PM UTC 2026
+    </p>
+<h2>
+<a name="cpp-std-packaged_task.h2"></a>
+      <span class="phrase"><a name="cpp-std-packaged_task.end"></a></span><a class="link" href="cpp-std-packaged_task.html#cpp-std-packaged_task.end"><span class="cyan">End</span></a>
+    </h2>
+<p>
+      <a href="https://www.cpphot.tiv.cc" target="_top">www.cpphot.tiv.cc</a>
+    </p>
+<h2>
+<a name="cpp-std-packaged_task.h3"></a>
+      <span class="phrase"><a name="cpp-std-packaged_task.role"></a></span><a class="link" href="cpp-std-packaged_task.html#cpp-std-packaged_task.role"><span class="cyan">Role</span></a>
+    </h2>
+<p>
+      +
+    </p>
+<p>
+      Powered by:<br> <a href="https://www.bfgroup.xyz/b2" target="_top">B2 Build</a>
+      | <a href="https://www.boost.org/doc/libs/latest/doc/html/quickbook.html" target="_top">Boost
+      Quickbook</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      <a href="sitemap.xml" target="_top">sitemap</a> + + + <a href="https://www.cpphot.tiv.cc" target="_top">@www.cpphot.tiv.cc</a>
+    </p>
+<p>
+      <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+      <br>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="asio-co_spawn-std-promise-exception-chain-cpp.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="cpp-std-promise.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

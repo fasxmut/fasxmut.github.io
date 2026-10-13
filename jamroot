@@ -1,0 +1,4 @@
+echo "Please build real src dir:" ;
+echo "	./src" ;
+exit ;
+

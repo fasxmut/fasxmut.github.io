@@ -1,0 +1,17 @@
+[book cppHot - c++, B2 Build
+	[quickbook 1.7]
+	[id cpphot]
+]
+
+[include asio-co_spawn-std-promise-exception-chain-cpp.qbk]
+[include cpp-std-packaged_task.qbk]
+[include cpp-std-promise.qbk]
+[include writing-jamfiles.qbk]
+[include about.qbk]
+
+[role drop_menu
+> [@. Start][br]
+]
+
+[include ./share/foot-links.inc.qbk]
+

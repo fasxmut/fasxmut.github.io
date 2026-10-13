@@ -1,0 +1,146 @@
+[article c++ std::promise
+	[quickbook 1.7]
+	[id cpp-std-promise]
+]
+
+[role drop_menu
+> [link cpp-std-promise Start][br]
+> [link cpp-std-promise.std-promise std::promise][br]
+> [link cpp-std-promise.cpp-example c++ Example][br]
+> [link cpp-std-promise.cpp-example-2 c++ Example 2][br]
+> [@. Back: Home]
+]
+
+c++ std::promise
+
+c++ std::future
+
+[h1:std-promise [role cyan std::promise]]
+
+c++ std::promise promises setting a value or an excecption in one thread, and returning that value or exception in another thread.
+
+std::promise is commonly conjunction with std::future.
+
+[*class :]
+
+```
+std::promise<R>;
+```
+
+[*Methods :]
+
+```
+.swap
+.get_future
+.set_value
+.set_value_at_thread_exit
+.set_exception
+.set_exception_at_thread_exit
+```
+
+[h1:cpp-example [role cyan c++ Example]]
+
+Promise in one thread must set a value or an exception once and only once.
+
+The future bound to that promise can get the value or exception.
+
+[!c++]
+```
+#include <future>	// std::promise, std::future
+#include <iostream>
+#include <thread>
+
+int main()
+{
+	std::promise<int> promise;
+	std::future<int> future = promise.get_future();
+
+	std::thread thread{
+		[promise = std::move(promise)]
+			mutable
+		{
+			try
+			{
+				std::string get;
+				std::cout << "Input: " << std::flush;
+				std::getline(std::cin, get);
+				int value = std::stoi(get);
+				if (get != std::to_string(value))
+					throw std::runtime_error{
+						"std::stoi error, Invalid input."
+					};
+				promise.set_value(value);
+			}
+			catch (...)
+			{
+				promise.set_exception(std::current_exception());
+			}
+		}
+	};
+
+	try
+	{
+		int value = future.get();
+		std::cout << "Get: " << value << std::endl;
+	}
+	catch (const std::exception & e)
+	{
+		std::cerr << "Error: " << e.what() << std::endl;
+	}
+
+	thread.join();
+}
+```
+
+[h1:cpp-example-2 [role cyan c++ Example 2]]
+
+[!c++]
+```
+#include <future>
+#include <iostream>
+#include <thread>
+#include <random>
+
+int main()
+{
+	std::promise<void> promise;
+	std::future<void> future = promise.get_future();
+
+	static std::mt19937 rnd{std::mt19937_64{std::random_device{}()}()};
+
+	std::thread thread{
+		[promise = std::move(promise)]
+			mutable
+		{
+			unsigned long value = rnd()%2u;
+			if (value %2 == 1)
+				promise.set_value();
+			else
+				promise.set_exception(
+					std::make_exception_ptr(
+						std::runtime_error{"Even for test"}
+					)
+				);
+		}
+	};
+
+	try
+	{
+		future.get();
+		std::cout << "OK" << std::endl;
+	}
+	catch (const std::exception & e)
+	{
+		std::cerr << "Error: " << e.what() << std::endl;
+	}
+
+	thread.join();
+}
+```
+
+///////////////////////////////////////////////////////////////////////////////
+
+Mon Oct 12 01:21:01 PM UTC 2026
+
+[include ./share/foot-links.inc.qbk]
+

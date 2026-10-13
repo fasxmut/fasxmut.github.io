@@ -1,0 +1,94 @@
+[article c++ std::packaged_task
+	[quickbook 1.7]
+	[id cpp-std-packaged_task]
+]
+
+[role drop_menu
+> [link cpp-std-packaged_task Start][br]
+> [link cpp-std-packaged_task.std-packaged_task std::packaged_task][br]
+> [link cpp-std-packaged_task.cpp-example c++ Example][br]
+> [@. Back: Home]
+]
+
+c++ std::packaged_task
+
+c++ std::future
+
+[h1:std-packaged_task [role cyan std::packaged_task]]
+
+c++ std::packaged_task wraps a callable object, which can be invoked asynchronously.
+
+It stores a value in a share state, which can be accessed by std::future.
+
+[*class :]
+
+```
+std::packaged_task<R>;
+```
+
+[*Methods :]
+
+```
+.valid	- Check if the object has a valid function
+
+.swap
+
+.get_future
+
+.operator()	- Invoke the funtion
+
+.make_ready_at_thread_exit
+
+.reset	- Reset: abandon any stored results.
+```
+
+[h1:cpp-example [role cyan c++ Example]]
+
+[!c++]
+```
+#include <future>
+#include <iostream>
+#include <thread>
+#include <random>
+
+int main()
+{
+	static std::mt19937 rnd{std::mt19937_64{std::mt19937{std::mt19937_64{std::random_device{}()}()}()}()};
+
+	std::packaged_task<void(void)> task{
+		[]
+		{
+			if (rnd() %2 == 0)
+				throw std::runtime_error{
+					"test exception on"
+				};
+			std::cout << "Hello, c++!" << std::endl;
+		}
+	};
+	std::future<void> future = task.get_future();
+
+	std::thread thread{
+		[task = std::move(task)]
+			mutable
+		{
+			task();
+		}
+	};
+	try
+	{
+		future.get();
+	}
+	catch (const std::exception & e)
+	{
+		std::cerr << "ERROR: " << e.what() << std::endl;
+	}
+	thread.join();
+}
+```
+
+///////////////////////////////////////////////////////////////////////////////
+
+Mon Oct 12 10:37:07 PM UTC 2026
+
+[include ./share/foot-links.inc.qbk]
+

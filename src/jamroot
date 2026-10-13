@@ -1,0 +1,92 @@
+path-constant qbk-media-root : ./share/fx-quickbook-media/qbk-media ;
+path-constant cpphot-src-root : . ;
+path-constant cpphot-web-root : ../docs ;
+
+argv = [ modules.peek : ARGV ] ;
+
+if [ MATCH ^(clean)$ : $(argv) ]
+{
+	echo "rm -rf $(cpphot-src-root)/bin" ;
+	SHELL "rm -rf $(cpphot-src-root)/bin" ;
+
+	echo "rm -rf $(cpphot-src-root)/html" ;
+	SHELL "rm -rf $(cpphot-src-root)/html" ;
+
+	exit ;
+}
+
+if [ MATCH ^(cleanall)$ : $(argv) ]
+{
+	echo "rm -rf $(cpphot-src-root)/bin" ;
+	SHELL "rm -rf $(cpphot-src-root)/bin" ;
+
+	echo "rm -rf $(cpphot-src-root)/html" ;
+	SHELL "rm -rf $(cpphot-src-root)/html" ;
+
+	echo "rm -rf $(cpphot-web-root)/*.html" ;
+	SHELL "rm -rf $(cpphot-web-root)/*.html" ;
+
+	echo "rm -rf $(cpphot-web-root)/*.css" ;
+	SHELL "rm -rf $(cpphot-web-root)/*.css" ;
+
+	echo "rm -rf $(cpphot-web-root)/*.manifest" ;
+	SHELL "rm -rf $(cpphot-web-root)/*.manifest" ;
+
+	echo "rm -rf $(cpphot-web-root)/images" ;
+	SHELL "rm -rf $(cpphot-web-root)/images" ;
+
+	echo "rm -rf $(cpphot-web-root)/robots.txt" ;
+	SHELL "rm -rf $(cpphot-web-root)/robots.txt" ;
+
+	echo "rm -rf $(cpphot-web-root)/sitemap.xml" ;
+	SHELL "rm -rf $(cpphot-web-root)/sitemap.xml" ;
+
+	exit ;
+}
+
+xml xml-index : cpphot.qbk ;
+
+boostbook
+	html-index
+:
+	xml-index
+:
+	<xsl:param>"chunk.first.sections=1"
+	<xsl:param>"chunker.output.doctype-public=-//W3C//DTD XHTML 1.0 Strict//EN"
+	<xsl:param>"chunker.output.doctype-system=http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"
+	<dependency>media
+;
+
+install html
+	:
+		[ glob
+			$(cpphot-src-root)/html/*.html
+			$(cpphot-src-root)/html/*.manifest
+		]
+	:
+		<location>$(cpphot-web-root)
+		<install-source-root>$(cpphot-src-root)/html
+;
+
+install custom-files
+	:
+		[ glob
+			$(cpphot-src-root)/custom-files/*.html
+			$(cpphot-src-root)/custom-files/robots.txt
+			$(cpphot-src-root)/custom-files/sitemap.xml
+		]
+	:
+		<location>$(cpphot-web-root)
+		<install-source-root>$(cpphot-src-root)/custom-files
+;
+
+install media :
+	[ glob
+		$(qbk-media-root)/*.css
+		$(qbk-media-root)/images/*.png
+	]
+	:
+	<location>$(cpphot-web-root)
+	<install-source-root>$(qbk-media-root)
+	;
+

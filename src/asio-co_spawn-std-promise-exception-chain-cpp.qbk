@@ -1,0 +1,132 @@
+[article asio::co_spawn std::promise Exception Chain \[c++\]
+	[quickbook 1.7]
+	[id asio-co_spawn-std-promise-exception-chain-cpp]
+]
+
+[role drop_menu
+> [link asio-co_spawn-std-promise-exception-chain-cpp Start][br]
+> [link asio-co_spawn-std-promise-exception-chain-cpp.asio-co_spawn asio::co_spawn][br]
+> [link asio-co_spawn-std-promise-exception-chain-cpp.std-promise std::promise][br]
+> [link asio-co_spawn-std-promise-exception-chain-cpp.exception-chain Exception Chain][br]
+> [link asio-co_spawn-std-promise-exception-chain-cpp.cpp-example c++ Example][br]
+> [@. Back: Home]
+]
+
+asio::co_spawn boost
+
+c++ std::promise
+
+asio::thread_pool
+
+Exception Chain: exception propagation inside them
+
+Namespace: [*`boost::asio`]
+
+[h1:asio-co_spawn [role cyan asio::co_spawn]]
+
+asio::co_spawn spawns a coroutine-based execution thread.
+
+```
+deduced_type asio::co_spawn(
+	executor_or_context,
+	awaitable_or_lambda,
+	completion_token,
+	constraint_ = 0
+);
+```
+
+[*executor_or_context] can be an executor or an object of asio::io_context.
+
+[*awaitable_or_lambda] can be an awaitable coroutine or a lambda object.
+
+A lambda is a c++ object.
+
+[*completion_token] is a token, which will handle the notification when the execution has completed.
+
+[*Handler Signature]:
+
+```
+void(std::exception_ptr, T);
+```
+
+[*Token Signature]:
+
+```
+void(std::exception_ptr, T);
+```
+
+[h1:std-promise [role cyan std::promise]]
+
+std::promise for cross-threading exception handling.
+
+[h1:exception-chain [role cyan Exception Chain]]
+
+Exception Chain: Exception Propagation
+
+In my practice, the exception thrown in [*[role ddblue awaitable_or_lambda]] is propagated to [*[role ddblue completion_token]], which is managed by [*[role dblue asio::co_spawn]] itself. If the execution spawned by [*[role blue asio::co_spawn]] is a sub-thread, how to retrieve the exception from it? The way is [*[role dblue std::promise]] .
+
+[h1:cpp-example [role cyan c++ Example]]
+
+[!c++]
+```
+#include <boost/asio.hpp>
+#include <future>
+#include <iostream>
+#include <random>
+
+namespace asio = boost::asio;
+
+namespace ut
+{
+	inline std::mt19937 rnd{std::mt19937_64{std::random_device{}()}()};
+}
+
+int main()
+{
+	asio::thread_pool pool{32u};
+	std::promise<void> promise;
+	std::future<void> future = promise.get_future();
+
+	asio::co_spawn(
+		pool.get_executor(),
+		[]
+			->
+				asio::awaitable<void>
+		{
+			if (ut::rnd() %2 == 0)
+				throw std::runtime_error{
+					"Not an error: just a test."
+				};
+			std::cout << "OK\n";
+			co_return;
+		},
+		[promise = std::move(promise)]
+		(std::exception_ptr eptr)	// The completion token
+			mutable
+		{
+			if (eptr)
+				promise.set_exception(eptr);
+			else
+				promise.set_value();
+		}
+	);
+
+	try
+	{
+		future.get();
+	}
+	catch (const std::exception & e)
+	{
+		std::cerr << "ERROR: " << e.what() << std::endl;
+	}
+
+	pool.join();
+}
+```
+
+///////////////////////////////////////////////////////////////////////////////
+
+Tue Oct 13 12:36:38 AM UTC 2026
+
+[include ./share/foot-links.inc.qbk]
+
