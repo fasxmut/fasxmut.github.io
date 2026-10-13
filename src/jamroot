@@ -35,6 +35,9 @@ if [ MATCH ^(cleanall)$ : $(argv) ]
 	echo "rm -rf $(cpphot-web-root)/images" ;
 	SHELL "rm -rf $(cpphot-web-root)/images" ;
 
+	echo "rm -rf $(cpphot-web-root)/favicon.ico" ;
+	SHELL "rm -rf $(cpphot-web-root)/favicon.ico" ;
+
 	echo "rm -rf $(cpphot-web-root)/robots.txt" ;
 	SHELL "rm -rf $(cpphot-web-root)/robots.txt" ;
 
@@ -72,6 +75,7 @@ install custom-files
 	:
 		[ glob
 			$(cpphot-src-root)/custom-files/*.html
+			$(cpphot-src-root)/custom-files/favicon.ico
 			$(cpphot-src-root)/custom-files/robots.txt
 			$(cpphot-src-root)/custom-files/sitemap.xml
 		]
