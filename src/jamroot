@@ -2,47 +2,85 @@ path-constant qbk-media-root : ./share/fx-quickbook-media/qbk-media ;
 path-constant cpphot-src-root : . ;
 path-constant cpphot-web-root : ../docs ;
 
+path-constant custom-files-dir : ./custom-files ;
+
+#|
+	Write exact filename under custom-files-dir here, do not use wild-match,
+	as both cleanall and install will use them.
+|#
+constant
+	custom-files
+:
+
+	# Add custom file here:
+
+	404.html
+	favicon.ico
+	robots.txt
+	sitemap.xml
+;
+
+#############################################################################
+#############################################################################
+
 argv = [ modules.peek : ARGV ] ;
 
 if [ MATCH ^(clean)$ : $(argv) ]
 {
-	echo "rm -rf $(cpphot-src-root)/bin" ;
-	SHELL "rm -rf $(cpphot-src-root)/bin" ;
-
-	echo "rm -rf $(cpphot-src-root)/html" ;
-	SHELL "rm -rf $(cpphot-src-root)/html" ;
+	local cmd = "rm -rf $(cpphot-src-root)/bin $(cpphot-src-root)/html" ;
+	echo "Rmove dirs =>\n   $(cmd)" ;
+	SHELL $(cmd) ;
 
 	exit ;
 }
 
 if [ MATCH ^(cleanall)$ : $(argv) ]
 {
-	echo "rm -rf $(cpphot-src-root)/bin" ;
-	SHELL "rm -rf $(cpphot-src-root)/bin" ;
+	{
+	#### Remove dirs
+		for dir in bin html
+		{
+			local path = $(cpphot-src-root)/$(dir) ;
+			local cmd = "rm -rf $(path)" ;
+			echo "Remove dir => $(cmd)" ;
+			SHELL $(cmd) ;
+		}
+		local cmd = "rm -rf $(cpphot-web-root)/images" ;
+		echo "Rmove dir => $(cmd)" ;
+		SHELL $(cmd) ;
+		echo ;
+	}
 
-	echo "rm -rf $(cpphot-src-root)/html" ;
-	SHELL "rm -rf $(cpphot-src-root)/html" ;
+	{
+	#### Remove files
+		local cmd = 
+		"rm -rf `find $(cpphot-web-root) -iname '*.html' -o -iname '*.css' -o -iname '*.manifest'`"
+		;
+		echo "Remove files =>\n   $(cmd)" ;
+		SHELL $(cmd) ;
+		echo ;
+	}
 
-	echo "rm -rf $(cpphot-web-root)/*.html" ;
-	SHELL "rm -rf $(cpphot-web-root)/*.html" ;
-
-	echo "rm -rf $(cpphot-web-root)/*.css" ;
-	SHELL "rm -rf $(cpphot-web-root)/*.css" ;
-
-	echo "rm -rf $(cpphot-web-root)/*.manifest" ;
-	SHELL "rm -rf $(cpphot-web-root)/*.manifest" ;
-
-	echo "rm -rf $(cpphot-web-root)/images" ;
-	SHELL "rm -rf $(cpphot-web-root)/images" ;
-
-	echo "rm -rf $(cpphot-web-root)/favicon.ico" ;
-	SHELL "rm -rf $(cpphot-web-root)/favicon.ico" ;
-
-	echo "rm -rf $(cpphot-web-root)/robots.txt" ;
-	SHELL "rm -rf $(cpphot-web-root)/robots.txt" ;
-
-	echo "rm -rf $(cpphot-web-root)/sitemap.xml" ;
-	SHELL "rm -rf $(cpphot-web-root)/sitemap.xml" ;
+	{
+	#### Remove custom files
+		import path ;
+		local dstfiles = "" ;
+		for fn in $(custom-files)
+		{
+			local path = $(cpphot-web-root)/$(fn) ;
+			if ! $(dstfiles)
+			{
+				dstfiles = "$(path)" ;
+			}
+			else
+			{
+				dstfiles = "$(dstfiles) $(path)" ;
+			}
+		}
+		echo "\nRemove custom files =>" ;
+		echo "   rm -rf $(dstfiles)\n" ;
+		SHELL "rm -rf $(dstfiles)" ;
+	}
 
 	exit ;
 }
@@ -60,37 +98,48 @@ boostbook
 	<dependency>media
 ;
 
-install html
-	:
-		[ glob
-			$(cpphot-src-root)/html/*.html
-			$(cpphot-src-root)/html/*.manifest
-		]
-	:
-		<location>$(cpphot-web-root)
-		<install-source-root>$(cpphot-src-root)/html
-;
-
-install custom-files
-	:
-		[ glob
-			$(cpphot-src-root)/custom-files/*.html
-			$(cpphot-src-root)/custom-files/favicon.ico
-			$(cpphot-src-root)/custom-files/robots.txt
-			$(cpphot-src-root)/custom-files/sitemap.xml
-		]
-	:
-		<location>$(cpphot-web-root)
-		<install-source-root>$(cpphot-src-root)/custom-files
-;
-
-install media :
-	[ glob
-		$(qbk-media-root)/*.css
-		$(qbk-media-root)/images/*.png
+install
+	html
+:
+	[
+		glob-tree-ex
+			$(cpphot-src-root)/html
+		:
+			*.html
+			*.manifest
 	]
-	:
+:
+	<location>$(cpphot-web-root)
+	<install-source-root>$(cpphot-src-root)/html
+;
+
+install
+	custom-files
+:
+	[
+		glob-tree-ex
+			$(custom-files-dir)
+		:
+			$(custom-files)
+	]
+:
+	<location>$(cpphot-web-root)
+	<install-source-root>$(custom-files-dir)
+;
+
+install
+	media
+:
+	[
+		glob-tree-ex
+			$(qbk-media-root)
+		:
+			*.css
+			*.png
+			*.svg
+	]
+:
 	<location>$(cpphot-web-root)
 	<install-source-root>$(qbk-media-root)
-	;
+;
 
