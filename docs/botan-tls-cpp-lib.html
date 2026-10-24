@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Botan TLS, c++ library</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="cppHot - c++, B2 Build">
+<link rel="up" href="index.html" title="cppHot - c++, B2 Build">
+<link rel="prev" href="index.html" title="cppHot - c++, B2 Build">
+<link rel="next" href="asio-co_spawn-std-promise-exception-chain-cpp.html" title="asio::co_spawn std::promise Exception Chain [c++]">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="asio-co_spawn-std-promise-exception-chain-cpp.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="botan-tls-cpp-lib"></a>Botan TLS, c++ library</h1></div></div>
+<hr>
+</div>
+<p>
+      <span class="drop_menu">&gt; <a class="link" href="botan-tls-cpp-lib.html" title="Botan TLS, c++ library">Start</a><br>
+      &gt; <a href="." target="_top">Back: Home</a> </span>
+    </p>
+<p>
+      Botan TLS
+    </p>
+<p>
+      Botan Cryptographic Library
+    </p>
+<p>
+      Botan is a c++ cryptographic library, it implemented TLS 1.1, TLS 1.2, and
+      TLS 1.3 .
+    </p>
+<p>
+      boost::asio interface.
+    </p>
+<p>
+      boost::beast interface.
+    </p>
+<p>
+      Botan TLS can be interactive with asio/beast directly.
+    </p>
+<h2>
+<a name="botan-tls-cpp-lib.h0"></a>
+      <span class="phrase"><a name="botan-tls-cpp-lib.bo-tls-stre"></a></span><a class="link" href="botan-tls-cpp-lib.html#botan-tls-cpp-lib.bo-tls-stre"><span class="cyan">TLS::Stream</span></a>
+    </h2>
+<p>
+      Botan::TLS::Stream is a tls stream compatible with boost::asio .
+    </p>
+<p>
+      It is a class template.
+    </p>
+<p>
+      TLS::Stream has two template parameters: next layer type and channel type.
+    </p>
+<p>
+      Next layer type can be set to boost::beast::tcp_stream, or any type that carries
+      an asio socket.
+    </p>
+<p>
+      Channel type deaults to TLS::Channel, channel type is for testing only.
+    </p>
+<h2>
+<a name="botan-tls-cpp-lib.h1"></a>
+      <span class="phrase"><a name="botan-tls-cpp-lib.bo-tls-cont"></a></span><a class="link" href="botan-tls-cpp-lib.html#botan-tls-cpp-lib.bo-tls-cont"><span class="cyan">TLS::Context</span></a>
+    </h2>
+<p>
+      Botan::TLS::Context is a helper class to initialize and configure TLS::Stream.
+    </p>
+<p>
+      TLS::Context main constructor has five parameters:
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          a credentials manager (c++ std::shared_ptr)
+        </li>
+<li class="listitem">
+          a botan rng (Random Number Generator) (c++ std::shared_ptr)
+        </li>
+<li class="listitem">
+          a session manager (c++ std::shared_ptr)
+        </li>
+<li class="listitem">
+          a tls policy (c++ std::shared_ptr)
+        </li>
+<li class="listitem">
+          a server information
+        </li>
+</ul></div>
+<h2>
+<a name="botan-tls-cpp-lib.h2"></a>
+      <span class="phrase"><a name="botan-tls-cpp-lib.bo-cred-man"></a></span><a class="link" href="botan-tls-cpp-lib.html#botan-tls-cpp-lib.bo-cred-man"><span class="cyan">Botan::Credentials_Manager</span></a>
+    </h2>
+<p>
+      Botan::Credentials_Manager is a credentials manager class which can be used
+      for both TLS server and client.
+    </p>
+<h2>
+<a name="botan-tls-cpp-lib.h3"></a>
+      <span class="phrase"><a name="botan-tls-cpp-lib.bo-tls-ses"></a></span><a class="link" href="botan-tls-cpp-lib.html#botan-tls-cpp-lib.bo-tls-ses"><span class="cyan">TLS::Session_Manager</span></a>
+    </h2>
+<p>
+      Botan::TLS::Session_Manager is an interface to systems which can save session
+      parameters for supporting session resumption.
+    </p>
+<h2>
+<a name="botan-tls-cpp-lib.h4"></a>
+      <span class="phrase"><a name="botan-tls-cpp-lib.bo-rng"></a></span><a class="link" href="botan-tls-cpp-lib.html#botan-tls-cpp-lib.bo-rng"><span class="cyan">Botan::RNG</span></a>
+    </h2>
+<p>
+      Botan::RNG or Botan::RandomNumberGenerator
+    </p>
+<p>
+      Botan::RandomNumberGenerator is an interface to a cryptographic random number
+      generator.
+    </p>
+<p>
+      There are some Botan RNGs that are derived from Botan::RandomNumberGenerator
+      :
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          Botan::AutoSeeded_RNG
+        </li>
+<li class="listitem">
+          Botan::ChaCha_RNG
+        </li>
+<li class="listitem">
+          Botan::Jitter_RNG
+        </li>
+<li class="listitem">
+          Botan::HMAC_RNG
+        </li>
+<li class="listitem">
+          Botan::ESDM_RNG
+        </li>
+<li class="listitem">
+          Botan::System_RNG
+        </li>
+<li class="listitem">
+          Botan::Processor_RNG
+        </li>
+<li class="listitem">
+          Botan::Stateful_RNG
+        </li>
+</ul></div>
+<p>
+      ///////////////////////////////////////////////////////////////////////////////
+    </p>
+<p>
+      Sat Oct 24 09:40:31 PM UTC 2026
+    </p>
+<p>
+      <span class="alignright"><span class="inlinemediaobject"><img src="/favicon.ico"></span></span>
+    </p>
+<h2>
+<a name="botan-tls-cpp-lib.h5"></a>
+      <span class="phrase"><a name="botan-tls-cpp-lib.end"></a></span><a class="link" href="botan-tls-cpp-lib.html#botan-tls-cpp-lib.end"><span class="cyan">End</span></a>
+    </h2>
+<p>
+      <a href="https://www.cpphot.tiv.cc" target="_top">www.cpphot.tiv.cc</a>
+    </p>
+<h2>
+<a name="botan-tls-cpp-lib.h6"></a>
+      <span class="phrase"><a name="botan-tls-cpp-lib.role"></a></span><a class="link" href="botan-tls-cpp-lib.html#botan-tls-cpp-lib.role"><span class="cyan">Role</span></a>
+    </h2>
+<p>
+      +
+    </p>
+<p>
+      Powered by:<br> <a href="https://www.bfgroup.xyz/b2" target="_top">B2 Build</a>
+      | <a href="https://www.boost.org/doc/libs/latest/doc/html/quickbook.html" target="_top">Boost
+      Quickbook</a>
+    </p>
+<p>
+      +
+    </p>
+<p>
+      <a href="sitemap.xml" target="_top">sitemap</a> + + + <a href="https://www.cpphot.tiv.cc" target="_top">@www.cpphot.tiv.cc</a>
+    </p>
+<p>
+      <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+      <br>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="index.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="asio-co_spawn-std-promise-exception-chain-cpp.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+[article Botan TLS, c++ library
+	[quickbook 1.7]
+	[id botan-tls-cpp-lib]
+]
+
+[role drop_menu
+> [link botan-tls-cpp-lib Start][br]
+> [@. Back: Home]
+]
+
+Botan TLS
+
+Botan Cryptographic Library
+
+Botan is a c++ cryptographic library, it implemented TLS 1.1, TLS 1.2, and TLS 1.3 .
+
+boost::asio interface.
+
+boost::beast interface.
+
+Botan TLS can be interactive with asio/beast directly.
+
+[h1:bo-tls-stre [role cyan TLS::Stream]]
+
+Botan::TLS::Stream is a tls stream compatible with boost::asio .
+
+It is a class template.
+
+TLS::Stream has two template parameters: next layer type and channel type.
+
+Next layer type can be set to boost::beast::tcp_stream, or any type that carries an asio socket.
+
+Channel type deaults to TLS::Channel, channel type is for testing only.
+
+[h1:bo-tls-cont [role cyan TLS::Context]]
+
+Botan::TLS::Context is a helper class to initialize and configure TLS::Stream.
+
+TLS::Context main constructor has five parameters:
+
+* a credentials manager (c++ std::shared_ptr)
+* a botan rng (Random Number Generator) (c++ std::shared_ptr)
+* a session manager (c++ std::shared_ptr)
+* a tls policy (c++ std::shared_ptr)
+* a server information
+
+[h1:bo-cred-man [role cyan Botan::Credentials_Manager]]
+
+Botan::Credentials_Manager is a credentials manager class which can be used for both TLS server and client.
+
+[h1:bo-tls-ses [role cyan TLS::Session_Manager]]
+
+Botan::TLS::Session_Manager is an interface to systems which can save session parameters for supporting session resumption.
+
+[h1:bo-rng [role cyan Botan::RNG]]
+
+Botan::RNG or Botan::RandomNumberGenerator
+
+Botan::RandomNumberGenerator is an interface to a cryptographic random number generator.
+
+There are some Botan RNGs that are derived from Botan::RandomNumberGenerator :
+
+* Botan::AutoSeeded_RNG
+* Botan::ChaCha_RNG
+* Botan::Jitter_RNG
+* Botan::HMAC_RNG
+* Botan::ESDM_RNG
+* Botan::System_RNG
+* Botan::Processor_RNG
+* Botan::Stateful_RNG
+
+///////////////////////////////////////////////////////////////////////////////
+
+Sat Oct 24 09:40:31 PM UTC 2026
+
+[include ./share/foot-links.inc.qbk]
+
