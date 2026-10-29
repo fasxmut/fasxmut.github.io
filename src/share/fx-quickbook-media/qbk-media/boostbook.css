@@ -919,3 +919,37 @@ span.clear_both
 	display:block;
 }
 
+span.float_right
+{
+	float:right;
+}
+
+span.page_end
+{
+	width:auto;
+	display:block;
+	min-height:150px;
+	background:#E3E5F9;
+	padding:15px 20px;
+}
+
+span.page_end_vertical
+{
+	float:left;
+	text-align:left;
+	width:24%;
+}
+
+span.page_end_v_title
+{
+	font-weight:bold;
+	font-size:150%;
+	margin-bottom:15px;
+	display:block;
+}
+
+span.page_end_v_content
+{
+	padding-left:20px;
+	display:block;
+}

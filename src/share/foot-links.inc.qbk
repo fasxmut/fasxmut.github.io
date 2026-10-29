@@ -1,23 +1,62 @@
 [role alignright [$/favicon.ico]]
 
-[h1:end [role cyan End]]
+[role page_end
+	[role page_end_vertical
+		[role page_end_v_title c++]
+		[role page_end_v_content
+			Object-Oriented
+			[br]
+			Template
+			[br]
+			Concepts
+			[br]
+			Coroutines
+			[br]
+			Reflection
+			[br]
+		]
+	]
+	[role page_end_vertical
+		[role page_end_v_title Tools]
+		[role page_end_v_content
+			[@https://www.bfgroup.xyz/b2 B2 Build]
+			[br]
+			[@https://www.boost.org/doc/libs/latest/doc/html/quickbook.html Boost Quickbook]
+			[br]
+			[@https://kakoune.org Kakoune]
+			[br]
+			[@https://ugrep.com Ugrep]
+			[br]
+		]
+	]
+	[role page_end_vertical
+		[role page_end_v_title Libraries]
+		[role page_end_v_content
+			[@https://www.boost.org Boost]
+			[br]
+			[@https://www.boost.org/library/latest/asio boost::asio]
+			[br]
+			[@https://think-async.com/Asio Asio]
+			[br]
+			[@https://www.boost.org/library/latest/beast boost::beast]
+			[br]
+		]
+	]
+	[role page_end_vertical
+		[role page_end_v_title World]
+		[role page_end_v_content
+			[@https://www.cpphot.tiv.cc cppHot]
+			[br]
+		]
+	]
+	[role clear_both]
+	[role float_right
+		+ [@sitemap.xml sitemap][br]
+		+ @[@https://www.cpphot.tiv.cc cppHot][br]
+		https://www.cpphot.tiv.cc[br]
+	]
+	[role clear_both]
+]
 
-[@https://www.cpphot.tiv.cc www.cpphot.tiv.cc]
-
-[h1:role [role cyan Role]]
-
-+
-
-Powered by:[br]
-[@https://www.bfgroup.xyz/b2 B2 Build]
-|
-[@https://www.boost.org/doc/libs/latest/doc/html/quickbook.html Boost Quickbook]
-
-+
-
-[@sitemap.xml sitemap]
-+ + +
-[@https://www.cpphot.tiv.cc @www.cpphot.tiv.cc]
-
-[br][br][br][br][br][br][br][br][br][br][br][br]
+[role page_end_blank_space]
 
