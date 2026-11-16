@@ -1,0 +1,135 @@
+[article Pack indexing, c++26
+	[quickbook 1.7]
+	[id pack-indexing-cpp26]
+]
+
+[role drop_menu
+> [link pack-indexing-cpp26 Start][br]
+> [@. Back: Home]
+]
+
+c++26 pack indexing:
+
+Access the element of a pack at a specified index.
+
+Syntax:
+
+[!teletype]
+```
+id-expresion ... [Expression]       (1)
+type-name ... [Expression]          (2)
+```
+
+Expression: it should be a constant exression.
+
+It's not possible to apply pack indexing to a pack of template template parameters.
+
+[*It's not possible to apply pack indexing to a pack of template template parameters.]
+
+[h1:cpp-example [role cyan c++ Example]]
+
+[!c++]
+```
+#include <tuple>
+
+namespace nas
+{
+	template <int ... vv_idx>
+	class sbske
+	{
+	public:
+		constexpr auto get(const auto & obj) const
+		{
+			const auto & [... vals] = obj;
+			return std::tuple{vals ... [vv_idx] ...};
+		}
+	public:
+		constexpr virtual ~sbske()
+		{
+		}
+	};
+}
+
+namespace nas
+{
+	class point
+	{
+	public:
+		int x, y, z;
+	};
+}
+
+constexpr nas::point p3{.x=-100, .y=25, .z=200};
+
+template <typename ...>
+auto fn =
+	[]
+	{
+		constexpr auto [... sak] = p3;
+		static_assert(sak ... [2] == 200);
+	}
+;
+
+int main()
+{
+	fn<>();
+
+	static_assert(nas::sbske<1, 0, 2>{}.get(p3) == std::tuple{25, -100, 200});
+	static_assert(nas::sbske<1, 2, 0>{}.get(p3) == std::tuple{25, 200, -100});
+}
+
+#include <tuple>
+
+namespace nas
+{
+	template <int ... vv_idx>
+	class sbske
+	{
+	public:
+		constexpr auto get(const auto & obj) const
+		{
+			const auto & [... vals] = obj;
+			return std::tuple{vals ... [vv_idx] ...};
+		}
+	public:
+		constexpr virtual ~sbske()
+		{
+		}
+	};
+}
+
+namespace nas
+{
+	class point
+	{
+	public:
+		int x, y, z;
+	};
+}
+
+constexpr nas::point p3{.x=-100, .y=25, .z=200};
+
+template <typename ...>
+auto fn =
+	[]
+	{
+		constexpr auto [... sak] = p3;
+		static_assert(sak ... [2] == 200);
+	}
+;
+
+int main()
+{
+	fn<>();
+
+	static_assert(nas::sbske<1, 0, 2>{}.get(p3) == std::tuple{25, -100, 200});
+	static_assert(nas::sbske<1, 2, 0>{}.get(p3) == std::tuple{25, 200, -100});
+}
+```
+
+///////////////////////////////////////////////////////////////////////////////
+
+Mon Nov 16 03:46:31 AM UTC 2026
+
+[include ./share/foot-links.inc.qbk]
+

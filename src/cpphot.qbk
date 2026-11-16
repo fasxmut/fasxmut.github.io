@@ -3,6 +3,8 @@
 	[id cpphot]
 ]
 
+[include pack-indexing-cpp26.qbk]
+[include restrict-default-assignment-operators-cpp29.qbk]
 [include botan-tls-cpp-lib.qbk]
 [include asio-co_spawn-std-promise-exception-chain-cpp.qbk]
 [include cpp-std-packaged_task.qbk]

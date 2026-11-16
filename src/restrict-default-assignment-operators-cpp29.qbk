@@ -1,0 +1,148 @@
+[article Restrict default assignment operators, c++29
+	[quickbook 1.7]
+	[id restrict-default-assignment-operators-cpp29]
+]
+
+[role drop_menu
+> [link restrict-default-assignment-operators-cpp29 Start][br]
+> [@. Back: Home]
+]
+
+Current c++ permits various ways of defaulted assignment operators of class.
+
+Such as these permit implausible declarations:
+
+`
+A & operator=(const A &) && = default;
+`
+
+`
+B & operator=(const B &) const = default;
+`
+
+Where A, B are c++ classes.
+
+Proposed c++29 will forbit such declarations.
+
+[h1:some-divergences [role cyan Some divergences]]
+
+[table
+	[
+		[Code]
+		[[role dddred Current]]
+		[[role dred Proposed]]
+	]
+	[
+		[`A & operator=(A &) = default;`]
+		[OK]
+		[[role pblue [*OK]]]
+	]
+	[
+		[
+			```
+			template <typename>
+			class A
+			{
+			public:
+				static const A & fn();
+				A & operator=(decltype(A::fn())) = default;
+			};
+			```
+		]
+		[
+			gcc: Invalid[br]
+			msvc: Invalid[br]
+			edg: Invalid
+		]
+		[[role pblue [*OK]]]
+	]
+	[
+		[`A & operator=(const A &&) = default;`]
+		[OK]
+		[[role pblue [*Invalid]]]
+	]
+	[
+		[`A & operator=(const A &) const = default;`]
+		[OK]
+		[[role pblue [*Invalid]]]
+	]
+	[
+		[`A & operator=(const A &) && = default;`]
+		[OK]
+		[[role pblue [*Invalid]]]
+	]
+	[
+		[`A && operator=(const A &) && = default;`]
+		[Invalid]
+		[[role pblue [*Invalid]]]
+	]
+	[
+		[
+			```
+			class M
+			{
+			public:
+				M & operator=(const M &) volatile;
+			};
+			class A
+			{
+			public:
+				volatile M m;
+				A & operator=(const A &) = default;
+			};
+			```
+		]
+		[Deleted]
+		[[role pblue [*Deleted]]]
+	]
+	[
+		[
+			```
+			class A
+			{
+			public:
+				A & operator=(A &);
+			};
+			class B
+			{
+			public:
+				A a;
+				B & operator=(const B &) = default;
+			};
+			```
+		]
+		[Deleted]
+		[[role pblue [*Deleted]]]
+	]
+	[
+		[
+			```
+			class A
+			{
+			public:
+				A & operator=(A &);
+			};
+			class B
+			{
+			public:
+				A a;
+				B & operator=(const B &);
+			};
+			B & B::operator=(const B &) = default;
+			```
+		]
+		[Invalid]
+		[[role pblue [*Invalid]]]
+	]
+]
+
+Gcc - The gnu c++ compiler:
+
+[@https://gcc.gnu.org]
+
+///////////////////////////////////////////////////////////////////////////////
+
+Mon Nov 16 01:59:24 AM UTC 2026
+
+[include ./share/foot-links.inc.qbk]
+

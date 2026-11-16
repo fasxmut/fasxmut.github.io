@@ -1,4 +1,6 @@
 index.html
+pack-indexing-cpp26.html
+restrict-default-assignment-operators-cpp29.html
 botan-tls-cpp-lib.html
 asio-co_spawn-std-promise-exception-chain-cpp.html
 cpp-std-packaged_task.html

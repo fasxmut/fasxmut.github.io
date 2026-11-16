@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Restrict default assignment operators, c++29</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="cppHot - c++, B2 Build">
+<link rel="up" href="index.html" title="cppHot - c++, B2 Build">
+<link rel="prev" href="pack-indexing-cpp26.html" title="Pack indexing, c++26">
+<link rel="next" href="botan-tls-cpp-lib.html" title="Botan TLS, c++ library">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="spirit-nav">
+<a accesskey="p" href="pack-indexing-cpp26.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="botan-tls-cpp-lib.html"><img src="images/next.png" alt="Next"></a>
+</div>
+<div class="article">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="restrict-default-assignment-operators-cpp29"></a>Restrict default assignment operators, c++29</h1></div></div>
+<hr>
+</div>
+<p>
+      <span class="drop_menu">&gt; <a class="link" href="restrict-default-assignment-operators-cpp29.html" title="Restrict default assignment operators, c++29">Start</a><br>
+      &gt; <a href="." target="_top">Back: Home</a> </span>
+    </p>
+<p>
+      Current c++ permits various ways of defaulted assignment operators of class.
+    </p>
+<p>
+      Such as these permit implausible declarations:
+    </p>
+<p>
+      <code class="computeroutput"> <span class="identifier">A</span> <span class="special">&amp;</span>
+      <span class="keyword">operator</span><span class="special">=(</span><span class="keyword">const</span> <span class="identifier">A</span> <span class="special">&amp;)</span> <span class="special">&amp;&amp;</span>
+      <span class="special">=</span> <span class="keyword">default</span><span class="special">;</span> </code>
+    </p>
+<p>
+      <code class="computeroutput"> <span class="identifier">B</span> <span class="special">&amp;</span>
+      <span class="keyword">operator</span><span class="special">=(</span><span class="keyword">const</span> <span class="identifier">B</span> <span class="special">&amp;)</span> <span class="keyword">const</span> <span class="special">=</span> <span class="keyword">default</span><span class="special">;</span>
+      </code>
+    </p>
+<p>
+      Where A, B are c++ classes.
+    </p>
+<p>
+      Proposed c++29 will forbit such declarations.
+    </p>
+<h2>
+<a name="restrict-default-assignment-operators-cpp29.h0"></a>
+      <span class="phrase"><a name="restrict-default-assignment-operators-cpp29.some-divergences"></a></span><a class="link" href="restrict-default-assignment-operators-cpp29.html#restrict-default-assignment-operators-cpp29.some-divergences"><span class="cyan">Some divergences</span></a>
+    </h2>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+              <p>
+                Code
+              </p>
+            </th>
+<th>
+              <p>
+                <span class="dddred">Current</span>
+              </p>
+            </th>
+<th>
+              <p>
+                <span class="dred">Proposed</span>
+              </p>
+            </th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+              <p>
+                <code class="computeroutput"><span class="identifier">A</span> <span class="special">&amp;</span>
+                <span class="keyword">operator</span><span class="special">=(</span><span class="identifier">A</span> <span class="special">&amp;)</span>
+                <span class="special">=</span> <span class="keyword">default</span><span class="special">;</span></code>
+              </p>
+            </td>
+<td>
+              <p>
+                OK
+              </p>
+            </td>
+<td>
+              <p>
+                <span class="pblue"><span class="bold"><strong>OK</strong></span></span>
+              </p>
+            </td>
+</tr>
+<tr>
+<td>
+<pre class="table-programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span><span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">A</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">static</span> <span class="keyword">const</span> <span class="identifier">A</span> <span class="special">&amp;</span> <span class="identifier">fn</span><span class="special">();</span>
+	<span class="identifier">A</span> <span class="special">&amp;</span> <span class="keyword">operator</span><span class="special">=(</span><span class="keyword">decltype</span><span class="special">(</span><span class="identifier">A</span><span class="special">::</span><span class="identifier">fn</span><span class="special">()))</span> <span class="special">=</span> <span class="keyword">default</span><span class="special">;</span>
+<span class="special">};</span>
+</pre>
+            </td>
+<td>
+              <p>
+                gcc: Invalid<br> msvc: Invalid<br> edg: Invalid
+              </p>
+            </td>
+<td>
+              <p>
+                <span class="pblue"><span class="bold"><strong>OK</strong></span></span>
+              </p>
+            </td>
+</tr>
+<tr>
+<td>
+              <p>
+                <code class="computeroutput"><span class="identifier">A</span> <span class="special">&amp;</span>
+                <span class="keyword">operator</span><span class="special">=(</span><span class="keyword">const</span> <span class="identifier">A</span>
+                <span class="special">&amp;&amp;)</span> <span class="special">=</span>
+                <span class="keyword">default</span><span class="special">;</span></code>
+              </p>
+            </td>
+<td>
+              <p>
+                OK
+              </p>
+            </td>
+<td>
+              <p>
+                <span class="pblue"><span class="bold"><strong>Invalid</strong></span></span>
+              </p>
+            </td>
+</tr>
+<tr>
+<td>
+              <p>
+                <code class="computeroutput"><span class="identifier">A</span> <span class="special">&amp;</span>
+                <span class="keyword">operator</span><span class="special">=(</span><span class="keyword">const</span> <span class="identifier">A</span>
+                <span class="special">&amp;)</span> <span class="keyword">const</span>
+                <span class="special">=</span> <span class="keyword">default</span><span class="special">;</span></code>
+              </p>
+            </td>
+<td>
+              <p>
+                OK
+              </p>
+            </td>
+<td>
+              <p>
+                <span class="pblue"><span class="bold"><strong>Invalid</strong></span></span>
+              </p>
+            </td>
+</tr>
+<tr>
+<td>
+              <p>
+                <code class="computeroutput"><span class="identifier">A</span> <span class="special">&amp;</span>
+                <span class="keyword">operator</span><span class="special">=(</span><span class="keyword">const</span> <span class="identifier">A</span>
+                <span class="special">&amp;)</span> <span class="special">&amp;&amp;</span>
+                <span class="special">=</span> <span class="keyword">default</span><span class="special">;</span></code>
+              </p>
+            </td>
+<td>
+              <p>
+                OK
+              </p>
+            </td>
+<td>
+              <p>
+                <span class="pblue"><span class="bold"><strong>Invalid</strong></span></span>
+              </p>
+            </td>
+</tr>
+<tr>
+<td>
+              <p>
+                <code class="computeroutput"><span class="identifier">A</span> <span class="special">&amp;&amp;</span>
+                <span class="keyword">operator</span><span class="special">=(</span><span class="keyword">const</span> <span class="identifier">A</span>
+                <span class="special">&amp;)</span> <span class="special">&amp;&amp;</span>
+                <span class="special">=</span> <span class="keyword">default</span><span class="special">;</span></code>
+              </p>
+            </td>
+<td>
+              <p>
+                Invalid
+              </p>
+            </td>
+<td>
+              <p>
+                <span class="pblue"><span class="bold"><strong>Invalid</strong></span></span>
+              </p>
+            </td>
+</tr>
+<tr>
+<td>
+<pre class="table-programlisting"><span class="keyword">class</span> <span class="identifier">M</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">M</span> <span class="special">&amp;</span> <span class="keyword">operator</span><span class="special">=(</span><span class="keyword">const</span> <span class="identifier">M</span> <span class="special">&amp;)</span> <span class="keyword">volatile</span><span class="special">;</span>
+<span class="special">};</span>
+<span class="keyword">class</span> <span class="identifier">A</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="keyword">volatile</span> <span class="identifier">M</span> <span class="identifier">m</span><span class="special">;</span>
+	<span class="identifier">A</span> <span class="special">&amp;</span> <span class="keyword">operator</span><span class="special">=(</span><span class="keyword">const</span> <span class="identifier">A</span> <span class="special">&amp;)</span> <span class="special">=</span> <span class="keyword">default</span><span class="special">;</span>
+<span class="special">};</span>
+</pre>
+            </td>
+<td>
+              <p>
+                Deleted
+              </p>
+            </td>
+<td>
+              <p>
+                <span class="pblue"><span class="bold"><strong>Deleted</strong></span></span>
+              </p>
+            </td>
+</tr>
+<tr>
+<td>
+<pre class="table-programlisting"><span class="keyword">class</span> <span class="identifier">A</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">A</span> <span class="special">&amp;</span> <span class="keyword">operator</span><span class="special">=(</span><span class="identifier">A</span> <span class="special">&amp;);</span>
+<span class="special">};</span>
+<span class="keyword">class</span> <span class="identifier">B</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">A</span> <span class="identifier">a</span><span class="special">;</span>
+	<span class="identifier">B</span> <span class="special">&amp;</span> <span class="keyword">operator</span><span class="special">=(</span><span class="keyword">const</span> <span class="identifier">B</span> <span class="special">&amp;)</span> <span class="special">=</span> <span class="keyword">default</span><span class="special">;</span>
+<span class="special">};</span>
+</pre>
+            </td>
+<td>
+              <p>
+                Deleted
+              </p>
+            </td>
+<td>
+              <p>
+                <span class="pblue"><span class="bold"><strong>Deleted</strong></span></span>
+              </p>
+            </td>
+</tr>
+<tr>
+<td>
+<pre class="table-programlisting"><span class="keyword">class</span> <span class="identifier">A</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">A</span> <span class="special">&amp;</span> <span class="keyword">operator</span><span class="special">=(</span><span class="identifier">A</span> <span class="special">&amp;);</span>
+<span class="special">};</span>
+<span class="keyword">class</span> <span class="identifier">B</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">A</span> <span class="identifier">a</span><span class="special">;</span>
+	<span class="identifier">B</span> <span class="special">&amp;</span> <span class="keyword">operator</span><span class="special">=(</span><span class="keyword">const</span> <span class="identifier">B</span> <span class="special">&amp;);</span>
+<span class="special">};</span>
+<span class="identifier">B</span> <span class="special">&amp;</span> <span class="identifier">B</span><span class="special">::</span><span class="keyword">operator</span><span class="special">=(</span><span class="keyword">const</span> <span class="identifier">B</span> <span class="special">&amp;)</span> <span class="special">=</span> <span class="keyword">default</span><span class="special">;</span>
+</pre>
+            </td>
+<td>
+              <p>
+                Invalid
+              </p>
+            </td>
+<td>
+              <p>
+                <span class="pblue"><span class="bold"><strong>Invalid</strong></span></span>
+              </p>
+            </td>
+</tr>
+</tbody>
+</table></div>
+<p>
+      Gcc - The gnu c++ compiler:
+    </p>
+<p>
+      <a href="https://gcc.gnu.org" target="_top">https://gcc.gnu.org</a>
+    </p>
+<p>
+      ///////////////////////////////////////////////////////////////////////////////
+    </p>
+<p>
+      Mon Nov 16 01:59:24 AM UTC 2026
+    </p>
+<p>
+      <span class="alignright"><span class="inlinemediaobject"><img src="/favicon.ico"></span></span>
+    </p>
+<p>
+      <span class="page_end"><span class="page_end_vertical"><span class="page_end_v_title">c++</span>
+      <span class="page_end_v_content">Object-Oriented <br> Template <br> Concepts
+      <br> Coroutines <br> Reflection <br> </span> </span> <span class="page_end_vertical"><span class="page_end_v_title">Tools</span> <span class="page_end_v_content"><a href="https://www.bfgroup.xyz/b2" target="_top">B2 Build</a> <br> <a href="https://www.boost.org/doc/libs/latest/doc/html/quickbook.html" target="_top">Boost
+      Quickbook</a> <br> <a href="https://kakoune.org" target="_top">Kakoune</a>
+      <br> <a href="https://ugrep.com" target="_top">Ugrep</a> <br> </span> </span>
+      <span class="page_end_vertical"><span class="page_end_v_title">Libraries</span>
+      <span class="page_end_v_content"><a href="https://www.boost.org" target="_top">Boost</a>
+      <br> <a href="https://www.boost.org/library/latest/asio" target="_top">boost::asio</a>
+      <br> <a href="https://think-async.com/Asio" target="_top">Asio</a> <br> <a href="https://www.boost.org/library/latest/beast" target="_top">boost::beast</a> <br>
+      </span> </span> <span class="page_end_vertical"><span class="page_end_v_title">World</span>
+      <span class="page_end_v_content"><a href="https://www.cpphot.tiv.cc" target="_top">cppHot</a>
+      <br> </span> </span> <span class="clear_both"></span> <span class="float_right">+
+      <a href="sitemap.xml" target="_top">sitemap</a><br> + @<a href="https://www.cpphot.tiv.cc" target="_top">cppHot</a><br>
+      https://www.cpphot.tiv.cc<br> </span> <span class="clear_both"></span>
+      </span>
+    </p>
+<p>
+      <span class="page_end_blank_space"></span>
+    </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="pack-indexing-cpp26.html"><img src="images/prev.png" alt="Prev"></a><a accesskey="u" href="index.html"><img src="images/up.png" alt="Up"></a><a accesskey="h" href="index.html"><img src="images/home.png" alt="Home"></a><a accesskey="n" href="botan-tls-cpp-lib.html"><img src="images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
