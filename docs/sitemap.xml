@@ -5,6 +5,10 @@
 		<lastmod>2026-10-13</lastmod>
 	</url>
 	<url>
+		<loc>https://www.cpphot.tiv.cc/pack-indexing-cpp26.html</loc>
+		<lastmod>2026-11-26</lastmod>
+	</url>
+	<url>
 		<loc>https://www.cpphot.tiv.cc/botan-tls-cpp-lib.html</loc>
 		<lastmod>2026-10-24</lastmod>
 	</url>
@@ -27,5 +31,9 @@
 	<url>
 		<loc>https://www.cpphot.tiv.cc/about.html</loc>
 		<lastmod>2026-10-13</lastmod>
+	</url>
+	<url>
+		<loc>https://www.cpphot.tiv.cc/restrict-default-assignment-operators-cpp29.html</loc>
+		<lastmod>2026-11-26</lastmod>
 	</url>
 </urlset>
